@@ -29,7 +29,7 @@
 	<!-- <selectionWeight>0.00</selectionWeight> -->
 	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<customEffectDescriptions>
-		<li>Allows &lt;color=#8a8ae6&gt;morph&lt;/color&gt; in the presence of &lt;color=#b0bf80&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>Allows &lt;color=#8a8ae6&gt;morph&lt;/color&gt; using &lt;color=#b0bf80&gt;death refusal&lt;/color&gt; attempts.</li>
 		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; consumes 1 attempt per use.</li>
 	</customEffectDescriptions>
   </GeneDef>

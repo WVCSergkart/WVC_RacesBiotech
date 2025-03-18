@@ -179,17 +179,22 @@ namespace WVC_XenotypesAndGenes
 					//ResetInterval(new IntRange(1200, 3400));
 					return false;
 				}
-				phase = "exclude list";
+				phase = "try get next xenotype";
+				XenotypeHolder xenotypeHolder = null;
+				if (savedGeneSets.Count < currentLimit + 1)
+				{
+					xenotypeHolder = GetBestNewFormForMorpher();
+				}
+				phase = "save old gene set";
 				if (savedGeneSets.NullOrEmpty())
 				{
 					savedGeneSets = new();
 				}
-				phase = "save old gene set";
 				SaveGenes();
 				if (nextGeneSet == null)
 				{
 					phase = "create new form";
-					TryCreateNewForm(phase);
+					TryCreateNewForm(xenotypeHolder);
 				}
 				else
 				{
@@ -238,13 +243,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private void TryCreateNewForm(string phase)
+        private void TryCreateNewForm(XenotypeHolder xenotypeHolder)
 		{
-			XenotypeHolder xenotypeHolder = null;
-			if (savedGeneSets.Count < currentLimit + 1)
-            {
-                xenotypeHolder = GetBestNewFormForMorpher();
-            }
             if (xenotypeHolder != null)
 			{
 				Reimplant(xenotypeHolder);
@@ -255,7 +255,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				Log.Error("Failed morph on phase: " + phase);
+				Log.Error("Failed morph while trying create new/next form.");
 			}
 		}
 
@@ -267,7 +267,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				exclude.Add(set.xenotypeDef);
 			}
-			if (XenotypeGiver != null)
+            Gene_MorpherXenotypeTargeter gene_MorpherXenotypeTargeter = pawn.genes.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>();
+            if (gene_MorpherXenotypeTargeter != null)
+            {
+				//Log.Error("0");
+				xenotypeHolder = gene_MorpherXenotypeTargeter.TargetedXenotype;
+			}
+			else if (XenotypeGiver != null)
 			{
 				if (!XenotypeGiver.morpherXenotypeDefs.NullOrEmpty())
 				{

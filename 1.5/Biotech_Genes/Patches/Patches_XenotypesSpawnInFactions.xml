@@ -89,6 +89,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="Undeads"]</xpath>
 								<success>Always</success>
 							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="Undeads"]</xpath>
+								<success>Always</success>
+							</li>
 
 						</operations>
 					</caseTrue>
@@ -102,6 +106,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="Psycasters"]</xpath>
 								<success>Always</success>
 							</li>
+							<!-- <li Class="PatchOperationRemove"> -->
+								<!-- <xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="Psycasters"]</xpath> -->
+								<!-- <success>Always</success> -->
+							<!-- </li> -->
 
 						</operations>
 					</caseTrue>
@@ -115,6 +123,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="Mechalike"]</xpath>
 								<success>Always</success>
 							</li>
+							<!-- <li Class="PatchOperationRemove"> -->
+								<!-- <xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="Mechalike"]</xpath> -->
+								<!-- <success>Always</success> -->
+							<!-- </li> -->
 
 						</operations>
 					</caseTrue>
@@ -128,6 +140,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="GolemMasters"]</xpath>
 								<success>Always</success>
 							</li>
+							<!-- <li Class="PatchOperationRemove"> -->
+								<!-- <xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="GolemMasters"]</xpath> -->
+								<!-- <success>Always</success> -->
+							<!-- </li> -->
 
 						</operations>
 					</caseTrue>
@@ -146,6 +162,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="Bloodeaters"]</xpath>
 								<success>Always</success>
 							</li>
+							<!-- <li Class="PatchOperationRemove"> -->
+								<!-- <xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="Bloodeaters"]</xpath> -->
+								<!-- <success>Always</success> -->
+							<!-- </li> -->
 
 						</operations>
 					</caseTrue>
@@ -163,6 +183,10 @@
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]</xpath>
 								<success>Always</success>
 							</li>
+							<!-- <li Class="PatchOperationRemove"> -->
+								<!-- <xpath>/Defs/GeneDef[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]</xpath> -->
+								<!-- <success>Always</success> -->
+							<!-- </li> -->
 
 						</operations>
 					</caseTrue>

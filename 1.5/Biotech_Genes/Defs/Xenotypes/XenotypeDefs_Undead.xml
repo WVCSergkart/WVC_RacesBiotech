@@ -31,6 +31,7 @@
 		<li>WVC_Morpher</li>
 		<li>WVC_MorphCondition_Undead</li>
 		<li>WVC_MorphEffects_OneTimeUse</li>
+		<li>WVC_MorphTargeter_Undead</li>
 		<!-- Base -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
 		<li>WVC_PostImplanterBrainwash</li>
@@ -58,21 +59,21 @@
 		<li>WVC_RandomMoveSpeed</li>
 		<li>WVC_RandomPsychicAbility</li>
 	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
 			<!-- <morpherXenotypeDefs> -->
 			  <!-- <li>WVC_Featherdust</li> -->
 			  <!-- <li>WVC_Resurgent</li> -->
 			  <!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
 			<!-- </morpherXenotypeDefs> -->
 			<!-- or -->
-			<morpherXenotypeChances>
-			  <WVC_Resurgent>0.80</WVC_Resurgent>
-			  <WVC_Featherdust>0.33</WVC_Featherdust>
-			  <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.11</WVC_Ashen>
-			</morpherXenotypeChances>
-		</li>
-	</modExtensions>
+			<!-- <morpherXenotypeChances> -->
+			  <!-- <WVC_Resurgent>0.80</WVC_Resurgent> -->
+			  <!-- <WVC_Featherdust>0.33</WVC_Featherdust> -->
+			  <!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.11</WVC_Ashen> -->
+			<!-- </morpherXenotypeChances> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>
