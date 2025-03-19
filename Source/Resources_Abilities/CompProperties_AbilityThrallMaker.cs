@@ -63,7 +63,8 @@ namespace WVC_XenotypesAndGenes
             }
             if (innerPawn.Map != null)
             {
-                WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(innerPawn, innerPawn.Map).Trigger(innerPawn, null);
+                //WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(innerPawn, innerPawn.Map).Trigger(innerPawn, null);
+				MiscUtility.DoShapeshiftEffects_OnPawn(innerPawn);
             }
 			GeneResourceUtility.ResurrectionSicknessWithCustomTick(innerPawn, new IntRange(1500, 3000));
         }

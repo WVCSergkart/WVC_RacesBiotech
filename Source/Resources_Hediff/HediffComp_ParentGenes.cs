@@ -29,11 +29,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				// Log.Error("1");
 				GeneSet newGeneSet = pregnancy.geneSet;
-				AddParentGenes(pregnancy.Mother, newGeneSet);
-				AddParentGenes(pregnancy.Father, newGeneSet);
+				HediffUtility.AddParentGenes(pregnancy.Mother, newGeneSet);
+				HediffUtility.AddParentGenes(pregnancy.Father, newGeneSet);
 				if (!parent.pawn.Spawned || Props.addSurrogateGenes)
 				{
-					AddParentGenes(parent.pawn, newGeneSet);
+					HediffUtility.AddParentGenes(parent.pawn, newGeneSet);
 				}
 				// Log.Error("Genes: " + newGeneSet.GenesListForReading.Count.ToString());
 				newGeneSet.SortGenes();
@@ -41,24 +41,6 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// pregnancy.geneSet = newGeneSet;
 				// }
-			}
-		}
-
-		public static void AddParentGenes(Pawn parent, GeneSet geneSet)
-		{
-			if (parent?.genes == null)
-			{
-				// Log.Error("Parent is null");
-				return;
-			}
-			List<GeneDef> genes = XaG_GeneUtility.ConvertGenesInGeneDefs(parent.genes.Endogenes);
-			foreach (GeneDef gene in genes)
-			{
-				if (geneSet.GenesListForReading.Contains(gene))
-				{
-					continue;
-				}
-				geneSet.AddGene(gene);
 			}
 		}
 

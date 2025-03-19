@@ -124,7 +124,8 @@ namespace WVC_XenotypesAndGenes
 					MutantUtility.SetPawnAsMutantInstantly(pawn, MutantDefOf.Ghoul);
 					if (pawn.Map != null)
 					{
-						WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+						//WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+						MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
 					}
 					// Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallTransformedIntoGhoul".Translate(), "WVC_XaG_LetterDescThrallTransformedIntoGhoul".Translate(pawn), LetterDefOf.NegativeEvent, new LookTargets(pawn));
 				}

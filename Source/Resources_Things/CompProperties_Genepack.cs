@@ -183,8 +183,8 @@ namespace WVC_XenotypesAndGenes
 				geneSet.Debug_RemoveGene(geneDef);
 			}
 			// Log.Error("1");
-			HediffComp_TrueParentGenes.AddParentGenes(embryo.Mother, geneSet);
-			HediffComp_TrueParentGenes.AddParentGenes(embryo.Father, geneSet);
+			HediffUtility.AddParentGenes(embryo.Mother, geneSet);
+			HediffUtility.AddParentGenes(embryo.Father, geneSet);
 			// Log.Error("2");
 			geneSet.SortGenes();
 		}

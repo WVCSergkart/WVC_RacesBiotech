@@ -83,7 +83,8 @@ namespace WVC_XenotypesAndGenes
 		// public static BackstoryDef Colonist97;
 		// public static BackstoryDef Child27;
 		// Effects
-		public static EffecterDef CocoonDestroyed;
+		//public static EffecterDef CocoonDestroyed;
+		public static EffecterDef WVC_ShapeshiftBurst;
 		// 1.5 Update
 		public static AbilityDef Bloodfeed;
 		//public static AbilityDef WVC_XaG_Cellsfeed;

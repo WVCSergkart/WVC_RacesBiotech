@@ -62,7 +62,8 @@ namespace WVC_XenotypesAndGenes
 			horror.stances.stunner.StunFor(60, null, addBattleLog: false);
 			// return pawn2;
 			// GeneFeaturesUtility.TrySpawnBloodFilth(pawn2, new(3,4));
-			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(horror, horror.Map).Trigger(horror, null);
+			//WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(horror, horror.Map).Trigger(horror, null);
+			MiscUtility.DoShapeshiftEffects_OnPawn(horror);
 		}
 
 		public override void ExposeData()

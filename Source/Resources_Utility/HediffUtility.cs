@@ -10,6 +10,24 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static void AddParentGenes(Pawn parent, GeneSet geneSet)
+		{
+			if (parent?.genes == null)
+			{
+				// Log.Error("Parent is null");
+				return;
+			}
+			List<GeneDef> genes = XaG_GeneUtility.ConvertGenesInGeneDefs(parent.genes.Endogenes);
+			foreach (GeneDef gene in genes)
+			{
+				if (geneSet.GenesListForReading.Contains(gene))
+				{
+					continue;
+				}
+				geneSet.AddGene(gene);
+			}
+		}
+
 		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef)
         {
             if (!ModsConfig.AnomalyActive)
@@ -72,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
         }
 
-        public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true)
+        public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true, FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
 		{
 			if (bloodLoss && !pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 			{
@@ -81,16 +99,12 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.AddHediff(hediff);
 			}
 			if (pawn.Spawned)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					pawn.health.DropBloodFilth();
-				}
-				FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
-			}
-		}
+            {
+				MiscUtility.MeatSplatter(pawn, size);
+            }
+        }
 
-		public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)
+        public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)
 		{
 			return hediffDef.hediffClass == typeof(T) || typeof(T).IsAssignableFrom(hediffDef.hediffClass);
 		}

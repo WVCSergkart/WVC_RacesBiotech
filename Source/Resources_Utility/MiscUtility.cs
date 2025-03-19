@@ -16,6 +16,25 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
+		{
+            if (ModsConfig.AnomalyActive)
+            {
+                //HediffUtility.MutationMeatSplatter(pawn, false, FleshbeastUtility.MeatExplosionSize.Small);
+				MiscUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Small);
+			}
+            WVC_GenesDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+		}
+
+		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				pawn.health.DropBloodFilth();
+			}
+			FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld, size);
+		}
+
 		public static void DoSkipEffects(IntVec3 spawnCell, Map map)
 		{
 			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(spawnCell, map), spawnCell, 60);
@@ -36,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 				Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
 				hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
 				GeneSet newGeneSet = new();
-				HediffComp_TrueParentGenes.AddParentGenes(pawn, newGeneSet);
+				HediffUtility.AddParentGenes(pawn, newGeneSet);
 				// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
 				newGeneSet.SortGenes();
 				hediff_Pregnant.SetParents(pawn, null, newGeneSet);

@@ -150,7 +150,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+			//WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
 			if (!Props.soundDefOnImplant.NullOrUndefined())
 			{
 				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));

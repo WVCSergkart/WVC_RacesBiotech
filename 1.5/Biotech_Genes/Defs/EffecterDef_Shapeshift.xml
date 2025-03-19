@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <EffecterDef>
+	<defName>WVC_ShapeshiftBurst</defName>
+	<children>
+	  <li>
+		<subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+		<soundDef>CocoonDestroyed</soundDef>
+		<spawnLocType>OnTarget</spawnLocType>
+	  </li>
+	  <!-- <li> -->
+		<!-- <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass> -->
+		<!-- <fleckDef>WVC_ShapeshiftBlood</fleckDef> -->
+		<!-- <burstCount>5</burstCount> -->
+		<!-- <rotation>-150~150</rotation> -->
+		<!-- <positionRadius>1.3</positionRadius> -->
+		<!-- <speed>0.6~1.1</speed> -->
+		<!-- <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity> -->
+		<!-- <spawnLocType>OnSource</spawnLocType> -->
+	  <!-- </li> -->
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+		<moteDef>WVC_Mote_ShapeshiftMist</moteDef>
+		<burstCount>12</burstCount>
+		<rotation>-150~150</rotation>
+		<positionRadius>1.3</positionRadius>
+		<spawnLocType>OnSource</spawnLocType>
+	  </li>
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+		<moteDef>WVC_Mote_ShapeshiftFlyingBlood</moteDef>
+		<burstCount>3</burstCount>
+		<rotation>-150~150</rotation>
+		<positionRadius>0.6</positionRadius>
+		<speed>0.8~1.2</speed>
+		<spawnLocType>OnSource</spawnLocType>
+	  </li>
+	  <!-- <li> -->
+		<!-- <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass> -->
+		<!-- <moteDef>Mote_CocoonDestroyedFlyingPiece</moteDef> -->
+		<!-- <burstCount>5</burstCount> -->
+		<!-- <rotation>-150~150</rotation> -->
+		<!-- <positionRadius>0.5</positionRadius> -->
+		<!-- <speed>2~3</speed> -->
+		<!-- <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity> -->
+		<!-- <spawnLocType>OnSource</spawnLocType> -->
+	  <!-- </li> -->
+	</children>
+  </EffecterDef>
+
+  <!-- <FleckDef ParentName="FleckBase_RandomGraphic"> -->
+	<!-- <defName>WVC_ShapeshiftBlood</defName> -->
+	<!-- <altitudeLayer>MoteLow</altitudeLayer> -->
+	<!-- <solidTime>3</solidTime> -->
+	<!-- <fadeOutTime>1</fadeOutTime> -->
+	<!-- <randomGraphics> -->
+	  <!-- <li> -->
+		<!-- <graphicClass>Graphic_Fleck</graphicClass> -->
+		<!-- <texPath>Things/Filth/Spatter/SpatterA</texPath> -->
+		<!-- <shaderType>Transparent</shaderType> -->
+		<!-- <color>(74, 0, 0, 180)</color> -->
+		<!-- <drawSize>(1.5, 1.5)</drawSize> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <graphicClass>Graphic_Fleck</graphicClass> -->
+		<!-- <texPath>Things/Filth/Spatter/SpatterB</texPath> -->
+		<!-- <shaderType>Transparent</shaderType> -->
+		<!-- <color>(74, 0, 0, 180)</color> -->
+		<!-- <drawSize>(1.5, 1.5)</drawSize> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <graphicClass>Graphic_Fleck</graphicClass> -->
+		<!-- <texPath>Things/Filth/Spatter/SpatterC</texPath> -->
+		<!-- <shaderType>Transparent</shaderType> -->
+		<!-- <color>(74, 0, 0, 180)</color> -->
+		<!-- <drawSize>(1.5, 1.5)</drawSize> -->
+	  <!-- </li>  -->
+	<!-- </randomGraphics> -->
+  <!-- </FleckDef> -->
+
+  <ThingDef ParentName="MoteBase">
+	<defName>WVC_Mote_ShapeshiftFlyingBlood</defName>
+	<thingClass>MoteThrown</thingClass>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+	<mote>
+	  <fadeInTime>0.03</fadeInTime>
+	  <fadeOutTime>0.2</fadeOutTime>
+	  <solidTime>0.4</solidTime>
+	  <growthRate>2</growthRate>
+	  <archHeight>0.5</archHeight>
+	  <archDuration>0.5</archDuration>
+	  <speedPerTime>-3</speedPerTime>
+	</mote>
+	<graphicData>
+	  <texPath>Things/Filth/Spatter</texPath>
+	  <graphicClass>Graphic_MoteRandom</graphicClass>
+	  <color>(131, 34, 34, 180)</color>
+	</graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteCocoonBreakingBase">
+	<defName>WVC_Mote_ShapeshiftMist</defName>
+	<mote>
+	  <solidTime>0.2</solidTime>
+	  <fadeOutTime>1.3</fadeOutTime>
+	</mote>
+	<graphicData>
+	  <color>(140, 152, 130, 120)</color>
+	  <shaderType>Transparent</shaderType>
+	  <drawSize>(1.4, 1.4)</drawSize>
+	</graphicData>
+  </ThingDef>
+
+</Defs>

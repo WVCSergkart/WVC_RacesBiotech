@@ -169,12 +169,12 @@ namespace WVC_XenotypesAndGenes
 			GeneSet geneSet = pregnancy.geneSet;
 			if (geneSet != null)
 			{
-				HediffComp_TrueParentGenes.AddParentGenes(pawn, geneSet);
+				HediffUtility.AddParentGenes(pawn, geneSet);
 			}
 			else
 			{
 				GeneSet newGeneSet = new();
-				HediffComp_TrueParentGenes.AddParentGenes(pawn, newGeneSet);
+				HediffUtility.AddParentGenes(pawn, newGeneSet);
 				geneSet = newGeneSet;
 			}
 			geneSet.SortGenes();
