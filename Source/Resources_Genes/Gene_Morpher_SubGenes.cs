@@ -125,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 				defaultDesc = "WVC_XaG_GeneAbilityMorphDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				Disabled = CacheableBool(),
+				Order = -95,
 				disabledReason = "WVC_XaG_GeneMorphAbilityDisabled".Translate(),
 				action = delegate
 				{

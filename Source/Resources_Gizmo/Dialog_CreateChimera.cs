@@ -885,7 +885,7 @@ namespace WVC_XenotypesAndGenes
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
 			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			ReimplanterUtility.NotifyGenesChanged(gene.pawn);
+			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
 		}
 
 		public void ClearXenogenes()

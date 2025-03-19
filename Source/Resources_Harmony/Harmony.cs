@@ -46,6 +46,8 @@ namespace WVC_XenotypesAndGenes
 					// harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
 					harmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Immunity_makeImmuneTo))));
 					//harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "CheckForOverrides"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FixOverrides")));
+					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
+					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
 				}
 				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
 				{
@@ -444,35 +446,45 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 
+			public static void BasicImplanterDebug(Pawn recipient)
+			{
+				ReimplanterUtility.PostImplantDebug(recipient);
+			}
+
+			public static void BasicXenogermDebug(Pawn pawn)
+			{
+				ReimplanterUtility.PostImplantDebug(pawn);
+			}
+
 			// Rottable
 
 			// public static bool CompRottable_RotProgress(CompRottable __instance)
 			// {
-				// if (__instance.parent is Pawn pawn && pawn.IsNotRottable())
-				// {
-					// return false;
-				// }
-				// return true;
+			// if (__instance.parent is Pawn pawn && pawn.IsNotRottable())
+			// {
+			// return false;
+			// }
+			// return true;
 			// }
 
 			// public static bool CompRottable_CompInspectStringExtra(CompRottable __instance, ref string __result)
 			// {
-				// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
-				// {
-					// __result = null;
-					// return false;
-				// }
-				// return true;
+			// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
+			// {
+			// __result = null;
+			// return false;
+			// }
+			// return true;
 			// }
 
 			// public static bool CompRottable_Active(CompRottable __instance, ref bool __result)
 			// {
-				// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
-				// {
-					// __result = false;
-					// return false;
-				// }
-				// return true;
+			// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
+			// {
+			// __result = false;
+			// return false;
+			// }
+			// return true;
 			// }
 
 			// Bloodeater

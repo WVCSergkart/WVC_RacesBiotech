@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : Gene, IGeneWithEffects
+	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -142,6 +142,30 @@ namespace WVC_XenotypesAndGenes
 		//		return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
 		//	}
 		//}
+
+		private TaggedString cachedPossibleXenotypesString = null;
+		public virtual TaggedString PossibleXenotypes
+		{
+			get
+			{
+				if (cachedPossibleXenotypesString == null)
+				{
+					cachedPossibleXenotypesString = pawn.genes.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>()?.Giver?.morpherXenotypeChances?.Select((XenotypeChance xenoChance) => xenoChance.xenotype.label).ToCommaList(true).CapitalizeFirst();
+					if (cachedPossibleXenotypesString == null)
+                    {
+						cachedPossibleXenotypesString = "Random".Translate();
+                    }
+				}
+				return cachedPossibleXenotypesString;
+			}
+		}
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedPossibleXenotypesString = null;
+			cachedOneTimeMorpher = null;
+			gizmo = null;
+		}
 
 		//public override void PostAdd()
 		//{
@@ -757,6 +781,8 @@ namespace WVC_XenotypesAndGenes
 			yield return gizmo;
 		}
 
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -772,6 +798,7 @@ namespace WVC_XenotypesAndGenes
 					savedGeneSets = new();
 				}
 			}
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
 		public virtual void StoreGeneSet(PawnGeneSetHolder geneSet, Gene_StorageImplanter storage)
@@ -792,7 +819,6 @@ namespace WVC_XenotypesAndGenes
 			storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneSet.xenotypeDef.inheritable, geneSet.iconDef, null);
 			RemoveSetHolder(geneSet);
 		}
-
-	}
+    }
 
 }

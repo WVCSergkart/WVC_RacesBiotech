@@ -119,10 +119,14 @@ A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 <!-- A restart is required.</WVC_ToolTip_enableGenesInfo> -->
 	<!-- ====================================================================================== -->
 
-	<WVC_Label_fixVanillaGeneImmunityCheck>Fix vanilla genes immunity check</WVC_Label_fixVanillaGeneImmunityCheck>
-	<WVC_ToolTip_fixVanillaGeneImmunityCheck>If enabled, it fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.
+	<WVC_Label_fixVanillaGeneImmunityCheck>Fixing and improving vanilla compatibility with mods</WVC_Label_fixVanillaGeneImmunityCheck>
+	<WVC_ToolTip_fixVanillaGeneImmunityCheck>A small set of harmony patches fixing some vanilla game bugs.
 
-If there are mods that affect vanilla immunity checks, it is recommended to disable this option.
+1) Fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.
+2) Checking the pawn's geneset for errors after implantation via the xenogerm implanter gene. Fixes missing abilities and other such bugs.
+3) Checking the pawn's geneset after implanting a xenogerm. Does the same as for the implanter.
+
+If you use any other harmony patches for the above, it is recommended to disable this option. This option is important for the correct operation of some gene mechanics (cache clearing, override, etc.), but disabling it will not break anything.
 
 A restart is required.</WVC_ToolTip_fixVanillaGeneImmunityCheck>
 

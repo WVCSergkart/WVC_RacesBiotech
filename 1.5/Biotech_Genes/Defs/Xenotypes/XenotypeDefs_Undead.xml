@@ -16,6 +16,11 @@
 	<displayPriority>-200</displayPriority>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Featherdust</XenotypeDef>
+	  <XenotypeDef>WVC_Resurgent</XenotypeDef>
+	  <XenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_Ashen</XenotypeDef>
+	</descriptionHyperlinks>
 	<!-- Evolve -->
 	<!-- <shapeshiftChance>0.22</shapeshiftChance> -->
 	<!-- <xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath> -->

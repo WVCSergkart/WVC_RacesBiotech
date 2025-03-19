@@ -5,6 +5,11 @@
 	<defName>WVC_MorphTargeter_Undead</defName>
 	<label>targeted morph (undead)</label>
 	<description>Carriers of this gene can only morph into undead sub-xenotypes.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Featherdust</XenotypeDef>
+	  <XenotypeDef>WVC_Resurgent</XenotypeDef>
+	  <XenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_Ashen</XenotypeDef>
+	</descriptionHyperlinks>
 	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_TargetUndead</iconPath>
 	<displayOrderInCategory>-50.100</displayOrderInCategory>

@@ -259,6 +259,7 @@ namespace WVC_XenotypesAndGenes
             }
             XaG_GameComponent.AddMissingGeneAbilities(pawn);
 			ReimplanterUtility.FixGeneTraits(pawn);
+			NotifyGenesChanged(pawn);
 		}
 
 		public static void NotifyGenesChanged(Pawn pawn)
