@@ -16,6 +16,17 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void Notify_DebugPawn(Pawn pawn)
+		{
+			//PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
+			pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+			pawn.health?.hediffSet?.DirtyCache();
+			pawn.skills?.DirtyAptitudes();
+			pawn.Notify_DisabledWorkTypesChanged();
+			XaG_GeneUtility.ResetGenesInspectString(pawn);
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+		}
+
 		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
 		{
             if (ModsConfig.AnomalyActive)

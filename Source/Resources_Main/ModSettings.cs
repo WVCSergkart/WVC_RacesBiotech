@@ -83,9 +83,11 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
-		// Shapeshifter
+		// Shapeshifter Morpher Archiver
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public bool enable_MorpherExperimentalMode = false;
+		public bool archiver_transferWornApparel = false;
+		public bool archiver_transferEquipedWeapon = false;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraStartingGenes = 5f;
@@ -217,6 +219,8 @@ namespace WVC_XenotypesAndGenes
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
+			Scribe_Values.Look(ref archiver_transferWornApparel, "archiver_transferWornApparel", defaultValue: false);
+			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
 			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
 			// Chimera
@@ -876,6 +880,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
 				}
+				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferWornApparel".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferWornApparel, "WVC_ToolTip_archiver_transferWornApparel".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferEquipedWeapon".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferEquipedWeapon, "WVC_ToolTip_archiver_transferEquipedWeapon".Translate());
 			}
 			listingStandard.GapLine();
             // =
@@ -1076,6 +1082,9 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = settingsDef.hemogenic_ImplanterFangsChanceFactor;
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = settingsDef.enableInstabilityLastChanceMechanic;
+			// =
+			WVC_Biotech.settings.archiver_transferEquipedWeapon = settingsDef.archiver_transferEquipedWeapon;
+			WVC_Biotech.settings.archiver_transferWornApparel = settingsDef.archiver_transferWornApparel;
 			// =
 			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = settingsDef.enable_dryadQueenMechanicGenerator;
 			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = settingsDef.gestatedDryads_FilthRateFactor;

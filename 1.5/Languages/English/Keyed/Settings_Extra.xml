@@ -11,7 +11,7 @@
 	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation)</WVC_XaGGeneSettings_Undead>
 	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
 	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
-	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator</WVC_XaGGeneSettings_Shapeshifer>
+	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator, Archiver</WVC_XaGGeneSettings_Shapeshifer>
 	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
 	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
 	<WVC_XaGGeneSettings_AcceptablePrey>Tasty (Acceptable Prey)</WVC_XaGGeneSettings_AcceptablePrey>
@@ -273,5 +273,13 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>Cycl. self-learn. max level {0}</WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>
 	<WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>Affects the skill level up to which the gene will give experience. By default, 20, which means that when the skill reaches level 20, the gene stops giving experience to this skill.\n\nIt is not recommended to set values ​​higher than 20, unless you have mods that raise the cap.</WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>
+
+	<!-- ================================== -->
+
+	<WVC_Label_archiver_transferWornApparel>Archiver: Transfer worn apparels</WVC_Label_archiver_transferWornApparel>
+	<WVC_ToolTip_archiver_transferWornApparel>If enabled, the archiver transfers worn apparel between forms.\n\nThis is disabled by default, for better compatibility with mods like VFE - Pirates. If you use any mods that change inventory or change/add apparel mechanics, do not enable this option.\n\nBoth options are required to transfer inventory.</WVC_ToolTip_archiver_transferWornApparel>
+
+	<WVC_Label_archiver_transferEquipedWeapon>Archiver: Transfer equipment and equiped weapon</WVC_Label_archiver_transferEquipedWeapon>
+	<WVC_ToolTip_archiver_transferEquipedWeapon>If enabled, the archiver transfers equipment between forms.\n\nThis is disabled by default, for better compatibility with mods. If you use any mods that change inventory or change/add weapon equip mechanics, do not enable this option.\n\nBoth options are required to transfer inventory.</WVC_ToolTip_archiver_transferEquipedWeapon>
 
 </LanguageData>

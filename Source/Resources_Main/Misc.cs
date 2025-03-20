@@ -260,6 +260,8 @@ namespace WVC_XenotypesAndGenes
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public bool enable_MorpherExperimentalMode = false;
+		public bool archiver_transferWornApparel = false;
+		public bool archiver_transferEquipedWeapon = false;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraMinGeneCopyChance = 0.35f;

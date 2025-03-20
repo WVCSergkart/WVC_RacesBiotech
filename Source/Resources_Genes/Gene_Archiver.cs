@@ -99,6 +99,10 @@ namespace WVC_XenotypesAndGenes
 				archive.UpdToolGenes();
 				nextPawn.Rotation = pawn.Rotation;
 				nextPawn.stances.stunner.StunFor(60, null, addBattleLog: false);
+				phase = "trying upd equipment";
+				ApparelUpd(pawn, nextPawn);
+				WeaponUpd(pawn, nextPawn);
+				InventoryUpd(pawn, nextPawn);
 				phase = "trying transfer holders";
 				TransferHolders(this, archive, nextPawn);
 				phase = "trying create new holder";
@@ -127,6 +131,41 @@ namespace WVC_XenotypesAndGenes
 				nextPawn?.Destroy();
 			}
 			return false;
+		}
+
+		private void ApparelUpd(Pawn oldPawn, Pawn newPawn)
+		{
+			if (!WVC_Biotech.settings.archiver_transferWornApparel)
+            {
+				return;
+            }
+			foreach (var item in oldPawn.apparel.WornApparel.ToList())
+            {
+				newPawn.apparel.WornApparel.Add(item);
+				oldPawn.apparel.WornApparel.Remove(item);
+			}
+		}
+
+		private void WeaponUpd(Pawn oldPawn, Pawn newPawn)
+		{
+			if (!WVC_Biotech.settings.archiver_transferEquipedWeapon)
+			{
+				return;
+			}
+			foreach (var item in oldPawn.equipment.AllEquipmentListForReading.ToList())
+			{
+				newPawn.equipment.AllEquipmentListForReading.Add(item);
+				oldPawn.equipment.AllEquipmentListForReading.Remove(item);
+			}
+		}
+
+		private void InventoryUpd(Pawn oldPawn, Pawn newPawn)
+		{
+			if (!WVC_Biotech.settings.archiver_transferEquipedWeapon || !WVC_Biotech.settings.archiver_transferWornApparel)
+			{
+				return;
+			}
+			oldPawn.inventory.GetDirectlyHeldThings().TryTransferAllToContainer(newPawn.inventory.GetDirectlyHeldThings());
 		}
 
 		private void BeforeDrop(PawnContainerHolder holder)
@@ -206,6 +245,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				postMorphGene.PostMorph(newPawn);
 			}
+			MiscUtility.Notify_DebugPawn(pawn);
+			//pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		private void UpdSkinAndHair(Pawn nextPawn)
