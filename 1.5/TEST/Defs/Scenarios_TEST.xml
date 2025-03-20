@@ -284,6 +284,11 @@
 		  <!-- <levelRange>0.3~0.5</levelRange> -->
 		<!-- </li> -->
 
+		<!-- <li Class="ScenPart_DisableIncident"> -->
+			<!-- <def>DisableIncident</def> -->
+			<!-- <incident>UnnaturalDarkness</incident> -->
+		<!-- </li> -->
+
 		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
 			<!-- <def>PlayerPawnsArriveMethod</def> -->
 		<!-- </li> -->

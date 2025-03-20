@@ -208,6 +208,8 @@ namespace WVC_XenotypesAndGenes
 		//Xenos
 		public bool isChimerkin = false;
 		//public bool isEvolvedChimerkin = false;
+		// Quests
+		//public string questDescription = null;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

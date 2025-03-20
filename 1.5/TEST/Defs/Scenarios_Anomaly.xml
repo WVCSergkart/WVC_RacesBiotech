@@ -6,7 +6,7 @@
 	<label>With All Eyes</label>
 	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</description>
 	<scenario>
-	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerTribe</factionDef>
@@ -101,7 +101,7 @@
 	<label>From the Void</label>
 	<description>When you opened your eyes, you saw a completely unfamiliar landscape. All your memories were confused and blurred. You barely remembered your name, and your past was a complete fog, and your skills, if there were any, were gone. The only thing you clearly understood was the feeling of hunger, which was growing with each passing second.</description>
 	<scenario>
-	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary>
+	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>

@@ -346,20 +346,21 @@ namespace WVC_XenotypesAndGenes
 
         public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, string geneDef)
 		{
-			(from x in pawn.health.hediffSet.GetNotMissingParts()
-			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
-			 select x).TryRandomElement(out var result);
+			//(from x in pawn.health.hediffSet.GetNotMissingParts()
+			// where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
+			// select x).TryRandomElement(out var result);
 			float bodyPartNutrition = 0f;
-			if (result != null)
+			if (pawn.health.hediffSet.GetNotMissingParts().Where((part) => !part.def.conceptual && part != pawn.RaceProps.body.corePart && part.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)).TryRandomElement(out BodyPartRecord bodyPart))
 			{
-				bodyPartNutrition = FoodUtility.GetBodyPartNutrition(pawn.GetStatValue(StatDefOf.MeatAmount) * 0.1f * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.MaxNutrition), pawn, result);
+                float currentCorpseNutrition = (pawn.GetStatValue(StatDefOf.MeatAmount) * 0.1f * (pawn.GetStatValue(StatDefOf.RawNutritionFactor) + pawn.GetStatValue(StatDefOf.MaxNutrition))) / pawn.health.summaryHealth.SummaryHealthPercent;
+                bodyPartNutrition = FoodUtility.GetBodyPartNutrition(currentCorpseNutrition, pawn, bodyPart);
 				if (applyDigestion)
 				{
-					Hediff_MissingPart hediff_MissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, result);
+					Hediff_MissingPart hediff_MissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, bodyPart);
 					hediff_MissingPart.IsFresh = true;
 					hediff_MissingPart.lastInjury = HediffDefOf.Digested;
 					pawn.health.AddHediff(hediff_MissingPart);
-					Messages.Message("WVC_XaG_DigestedBy".Translate(result.def.LabelCap, geneDef), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					Messages.Message("WVC_XaG_DigestedBy".Translate(bodyPart.LabelCap, geneDef), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 			}
 			return bodyPartNutrition;

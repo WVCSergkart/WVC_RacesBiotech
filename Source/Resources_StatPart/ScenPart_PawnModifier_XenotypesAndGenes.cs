@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
         public int startingMutations = 0;
         public IntRange additionalChronoAge = new(0, 0);
         //public bool newGamePlus = false;
-        public QuestScriptDef questScriptDef = null;
+        //public QuestScriptDef questScriptDef = null;
 
         //public override void ExposeData()
         //{
@@ -100,14 +100,14 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
-            if (questScriptDef != null)
-            {
-                Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questScriptDef, 10);
-                if (!quest.hidden && questScriptDef.sendAvailableLetter)
-                {
-                    QuestUtility.SendLetterQuestAvailable(quest);
-                }
-            }
+            //if (questScriptDef != null)
+            //{
+            //    Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questScriptDef, 10);
+            //    if (!quest.hidden && questScriptDef.sendAvailableLetter)
+            //    {
+            //        QuestUtility.SendLetterQuestAvailable(quest);
+            //    }
+            //}
         }
 
         private void Skills(Pawn p)
@@ -277,6 +277,11 @@ namespace WVC_XenotypesAndGenes
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
                 }
+                //if (questScriptDef?.GetModExtension<GeneExtension_General>()?.questDescription != null)
+                //{
+                //    stringBuilder.AppendLine();
+                //    stringBuilder.AppendLine(questScriptDef.GetModExtension<GeneExtension_General>().questDescription.Translate().CapitalizeFirst());
+                //}
                 cachedDesc = stringBuilder.ToString();
             }
             return cachedDesc;
