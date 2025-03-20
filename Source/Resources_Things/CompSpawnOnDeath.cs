@@ -158,4 +158,36 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class CompSpawnOnDeath_PawnKind : ThingComp
+	//{
+
+	//	private PawnKindDef pawnKindDef;
+
+	//	private CompProperties_SpawnOnDeath Props => (CompProperties_SpawnOnDeath)props;
+
+	//	public PawnKindDef PawnKind
+	//	{
+	//		get
+	//		{
+	//			if (pawnKindDef == null)
+	//			{
+	//				SetPawnKindDef();
+	//			}
+	//			return pawnKindDef;
+	//		}
+	//	}
+
+	//	public void SetPawnKindDef(PawnKindDef pawnKindDef = null)
+	//	{
+	//		this.pawnKindDef = pawnKindDef;
+	//	}
+
+	//	public override void PostExposeData()
+	//	{
+	//		base.PostExposeData();
+	//		Scribe_Defs.Look(ref pawnKindDef, "pawnKindDef_" + Props.uniqueTag);
+	//	}
+
+	//}
+
 }

@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
         public int startingMutations = 0;
         public IntRange additionalChronoAge = new(0, 0);
         //public bool newGamePlus = false;
+        public QuestScriptDef questScriptDef = null;
 
         //public override void ExposeData()
         //{
@@ -85,15 +86,26 @@ namespace WVC_XenotypesAndGenes
             //{
             //    return;
             //}
-            if (!addSkipEffect || Find.GameInitData == null || !context.Includes(PawnGenerationContext.PlayerStarter))
+            if (Find.GameInitData == null || !context.Includes(PawnGenerationContext.PlayerStarter))
             {
                 return;
             }
-            foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+            if (addSkipEffect)
             {
-                if (startingAndOptionalPawn.Spawned)
+                foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
                 {
-                    MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
+                    if (startingAndOptionalPawn.Spawned)
+                    {
+                        MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
+                    }
+                }
+            }
+            if (questScriptDef != null)
+            {
+                Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questScriptDef, 10);
+                if (!quest.hidden && questScriptDef.sendAvailableLetter)
+                {
+                    QuestUtility.SendLetterQuestAvailable(quest);
                 }
             }
         }

@@ -4,12 +4,12 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Beholdkind</defName>
 	<label>beholdkind</label>
-	<description>Beholdkinds are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They have incredible regeneration and gradually mutate to become stronger. Their bodies are covered in multiple eyes to aid them in combat, and their natural defenses are quite impressive. However, their death is guaranteed to result in the formation of a fleshmass heart.
+	<description>Beholdkinds are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They have no natural regeneration, but quickly acquire mutations, gradually becoming stronger. Their bodies are covered in multiple eyes to aid them in combat, and their natural defenses are quite impressive. However, their death is guaranteed to result in the formation of a fleshmass heart.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogens at any time.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Death spawns a fleshmass heart and destroys the body.</description>
-	<descriptionShort>Beholdkinds are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They have incredible regeneration and gradually mutate to become stronger. Their bodies are covered in multiple eyes to aid them in combat, and their natural defenses are quite impressive. However, their death is guaranteed to result in the formation of a fleshmass heart.</descriptionShort>
+	<descriptionShort>Beholdkinds are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They have no natural regeneration, but quickly acquire mutations, gradually becoming stronger. Their bodies are covered in multiple eyes to aid them in combat, and their natural defenses are quite impressive. However, their death is guaranteed to result in the formation of a fleshmass heart.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Eyes_v0</iconPath>
 	<descriptionHyperlinks>

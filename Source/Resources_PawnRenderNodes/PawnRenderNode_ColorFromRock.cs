@@ -77,5 +77,37 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class PawnRenderNode_FromTarget : PawnRenderNode_AnimalPart
+	//{
+
+	//	public CompSpawnOnDeath_PawnKind colorComp;
+
+	//	public PawnRenderNode_FromTarget(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+	//		: base(pawn, props, tree)
+	//	{
+	//	}
+
+	//	public override Graphic GraphicFor(Pawn pawn)
+	//	{
+	//		if (pawn.TryGetComp(out colorComp))
+	//		{
+	//			Graphic graphic = pawn.ageTracker.CurKindLifeStage.bodyGraphicData.Graphic;
+	//			return GraphicDatabase.Get<Graphic_Multi>(graphic.path, ShaderDatabase.Cutout, graphic.drawSize, ColorFor(pawn));
+	//		}
+	//		return base.GraphicFor(pawn);
+	//	}
+
+	//	public override Color ColorFor(Pawn pawn)
+	//	{
+	//		PawnKindDef rockDef = colorComp?.PawnKind;
+	//		if (rockDef == null)
+	//		{
+	//			return Color.white;
+	//		}
+	//		return rockDef.graphic.data.color;
+	//	}
+
+	//}
+
 
 }

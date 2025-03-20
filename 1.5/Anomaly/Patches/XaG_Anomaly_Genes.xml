@@ -48,4 +48,14 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="ApparelDamaged" or defName="DeadMansApparel"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassArmor</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
 </Patch>

@@ -6,6 +6,7 @@
 	<thoughtClass>Thought_Memory</thoughtClass>
 	<durationDays>2</durationDays>
 	<stackLimit>5</stackLimit>
+	<validWhileDespawned>true</validWhileDespawned>
 	<!-- <nullifyingTraits> -->
 	  <!-- <li>Transhumanist</li> -->
 	<!-- </nullifyingTraits> -->
@@ -45,6 +46,7 @@
 	<durationDays>5</durationDays>
 	<stackLimit>800</stackLimit>
 	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
   </ThoughtDef>
 
   <!-- ============================ -->
@@ -175,6 +177,7 @@
 	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
 	<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
 	<socialTargetDevelopmentalStageFilter>Baby, Child, Adult</socialTargetDevelopmentalStageFilter>
+	<validWhileDespawned>true</validWhileDespawned>
 	<nullifyingTraits>
 	  <li>Psychopath</li>
 	</nullifyingTraits>
@@ -195,6 +198,7 @@
 	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
 	<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
 	<socialTargetDevelopmentalStageFilter>Baby, Child, Adult</socialTargetDevelopmentalStageFilter>
+	<validWhileDespawned>true</validWhileDespawned>
 	<nullifyingTraits>
 	  <li>Psychopath</li>
 	</nullifyingTraits>
@@ -211,6 +215,7 @@
 	<durationDays>12</durationDays>
 	<stackLimit>3</stackLimit>
 	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<validWhileDespawned>true</validWhileDespawned>
 	<stages>
 	  <li>
 		<label>was resurrected</label>
@@ -227,6 +232,7 @@
 	<durationDays>0.4</durationDays>
 	<stackLimit>6</stackLimit>
 	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<validWhileDespawned>true</validWhileDespawned>
 	<nullifyingTraits>
 	  <li>Masochist</li>
 	</nullifyingTraits>
@@ -242,6 +248,7 @@
   <ThoughtDef>
 	<defName>WVC_WellCharged</defName>
 	<durationDays>1</durationDays>
+	<validWhileDespawned>true</validWhileDespawned>
 	<stages>
 	  <li>
 		<label>well charged</label>

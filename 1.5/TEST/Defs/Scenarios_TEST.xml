@@ -248,4 +248,58 @@
 
   <!-- ========================================================= -->
 
+  <!-- <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"> -->
+	<!-- <defName>WVC_LongNight</defName> -->
+	<!-- <label>Long night</label> -->
+	<!-- <description>TEST.</description> -->
+	<!-- <scenario> -->
+	  <!-- <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary> -->
+	  <!-- <playerFaction> -->
+		<!-- <def>PlayerFaction</def> -->
+		<!-- <factionDef>PlayerTribe</factionDef> -->
+	  <!-- </playerFaction> -->
+	  <!-- <parts> -->
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>1</pawnCount> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <context>PlayerStarter</context> -->
+		  <!-- <xenotypeChances> -->
+			<!-- <WVC_RogueFormer>1</WVC_RogueFormer> -->
+		  <!-- </xenotypeChances> -->
+		  <!-- <questScriptDef>WVC_UnnaturalDarkness</questScriptDef> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_SetNeedLevel"> -->
+		  <!-- <def>SetNeedLevel</def> -->
+		  <!-- <visible>false</visible> -->
+		  <!-- <context>PlayerStarter</context> -->
+		  <!-- <chance>1.0</chance> -->
+		  <!-- <need>Food</need> -->
+		  <!-- <levelRange>0.3~0.5</levelRange> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_GameStartDialog"> -->
+		  <!-- <def>GameStartDialog</def> -->
+		  <!-- <text>TEST.</text> -->
+		  <!-- <closeSound>GameStartSting</closeSound> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_NoPossessions"> -->
+		  <!-- <def>NoPossessions</def> -->
+		<!-- </li> -->
+
+	  <!-- </parts> -->
+	<!-- </scenario> -->
+  <!-- </ScenarioDef> -->
+
 </Defs>

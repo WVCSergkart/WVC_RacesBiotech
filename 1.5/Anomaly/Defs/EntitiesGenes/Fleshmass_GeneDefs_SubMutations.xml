@@ -27,7 +27,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
 	<defName>WVC_FleshmassArmor</defName>
 	<label>fleshmass armor</label>
-	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh all over their skin which provides decent protection but damages clothing due to constant mutations and growths.</description>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh all over their skin which provides decent protection but damages clothing due to constant growths.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassArmor</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassArmor_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -36,12 +36,13 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>1</biostatMet>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.33</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.12</ArmorRating_Heat>
+	  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.63</ArmorRating_Sharp>
+	  <ArmorRating_Heat>-0.12</ArmorRating_Heat>
 	</statOffsets>
 	<statFactors>
 	  <IncomingDamageFactor>0.8</IncomingDamageFactor>
+	  <Flammability>1.2</Flammability>
 	</statFactors>
 	<customEffectDescriptions>
 		<li>Damage to clothing: 40 hp/day</li>
