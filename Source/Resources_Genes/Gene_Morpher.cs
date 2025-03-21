@@ -338,11 +338,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				else if (holder.genes.HasGeneDefOfType<Gene_MorpherDependant>())
 				{
-					holder.matchPercent = 3f;
+					holder.matchPercent = 1.3f;
 				}
 				else if (holder.genes.HasGeneDefOfType<Gene_Morpher>())
 				{
-					holder.matchPercent = 2f;
+					holder.matchPercent = 1.2f;
 				}
 				else
 				{
@@ -350,7 +350,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (holder.CustomXenotype)
 				{
-					holder.matchPercent += 2f;
+					holder.matchPercent += 0.5f;
 				}
 				else if (gene.pawn.genes.Xenotype == holder.xenotypeDef)
 				{
@@ -365,9 +365,13 @@ namespace WVC_XenotypesAndGenes
 				{
 					holder.matchPercent *= 1.2f;
 				}
-				if (met < 0)
+				if (met < -5)
 				{
-					holder.matchPercent *= 0.5f;
+					holder.matchPercent *= 0.2f;
+				}
+				else if (met < 0)
+				{
+					holder.matchPercent *= 0.8f;
 				}
 				bool xenogene = gene.pawn.genes.IsXenogene(gene);
 				if (xenogene && !holder.inheritable)

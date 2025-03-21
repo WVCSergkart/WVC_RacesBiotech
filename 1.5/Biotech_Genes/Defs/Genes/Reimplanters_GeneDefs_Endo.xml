@@ -47,7 +47,7 @@
   <!-- AbilityDef -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Endogenes" Abstract="True">
-	<label>implant endogenes</label>
+	<label>implant germline</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Endo_v0</iconPath>
 	<comps>
 	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->

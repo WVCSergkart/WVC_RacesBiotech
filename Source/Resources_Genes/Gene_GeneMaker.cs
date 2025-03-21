@@ -158,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
 				}
 				catchString = "xenogermination";
-				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Props.durationIntervalRange);
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Props.durationIntervalRange, pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 			}
 			catch (Exception arg)
 			{

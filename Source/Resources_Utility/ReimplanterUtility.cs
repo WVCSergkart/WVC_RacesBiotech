@@ -56,12 +56,27 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.AddHediff(hediff);
 		}
 
-		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange)
+		//public static bool TryGetXenogermReplicatingDuration(Pawn pawn, out HediffComp_Disappears hediffComp_Disappears)
+		//{
+		//	hediffComp_Disappears = null;
+		//	Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+		//	if (firstHediffOfDef != null)
+		//	{
+		//		hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
+		//		if (hediffComp_Disappears != null)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange, Hediff xenogermReplicating = null)
 		{
-			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-			if (firstHediffOfDef != null)
+			//Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (xenogermReplicating != null)
 			{
-				HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
+				HediffComp_Disappears hediffComp_Disappears = xenogermReplicating.TryGetComp<HediffComp_Disappears>();
 				if (hediffComp_Disappears != null)
 				{
 					hediffComp_Disappears.ticksToDisappear += durationIntervalRange.RandomInRange;
@@ -98,11 +113,16 @@ namespace WVC_XenotypesAndGenes
 			pawn.genes.iconDef = xenotypeIconDef ?? DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
 
+		public static List<XenotypeDef> chimerkinXenotyps;
+
 		public static void UnknownChimerkin(Pawn recipient)
 		{
-			List<XenotypeDef> chimeraXenotypes = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((xenotypeDef) => xenotypeDef?.GetModExtension<GeneExtension_General>()?.isChimerkin == true).ToList();
+			if (chimerkinXenotyps == null)
+			{
+				chimerkinXenotyps = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((xenotypeDef) => xenotypeDef?.GetModExtension<GeneExtension_General>()?.isChimerkin == true).ToList();
+			}
 			XenotypeDef xenotypeDef = null;
-			foreach (XenotypeDef xenos in chimeraXenotypes)
+			foreach (XenotypeDef xenos in chimerkinXenotyps)
             {
 				if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
                 {

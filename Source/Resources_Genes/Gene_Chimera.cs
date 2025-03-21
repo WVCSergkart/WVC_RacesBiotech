@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -399,13 +400,19 @@ namespace WVC_XenotypesAndGenes
 					}
 					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
 				}
-				pawn.health.RemoveHediff(firstHediffOfDef);
+				//pawn.health.RemoveHediff(firstHediffOfDef);
 			}
-            int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+			if (implantedGenes.Empty())
+			{
+				return;
+			}
+			XaG_GeneUtility.GetBiostatsFromList(implantedGenes, out int cpx, out int met, out int _);
+			int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
             int nonArchiteCount = implantedGenes.Count - architeCount;
-            int count = (nonArchiteCount + (architeCount * 3)) * 120000;
+            int days = Mathf.Clamp(nonArchiteCount + (architeCount * 3) - met + (int)(cpx * 0.2f), 0, 999);
+            int count = days * 120000;
             //int count = (implantedGenes.Count + 1) * 180000;
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)));
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), firstHediffOfDef);
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 

@@ -22,6 +22,7 @@
 		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
 		<li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li>
 		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;chance&lt;/color&gt; to receive a random gene.</li>
+		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
 		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;Allows to devour some entities.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>

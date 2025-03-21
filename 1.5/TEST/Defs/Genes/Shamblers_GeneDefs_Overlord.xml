@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations"> -->
+	<!-- <defName>WVC_Overlord</defName> -->
+	<!-- <label>deadlife breath</label> -->
+	<!-- <description>Carriers of this gene have TEST.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Overlord</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Deadlife_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>50</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-7</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Passively creates &lt;color=#8a8ae6&gt;AAA&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

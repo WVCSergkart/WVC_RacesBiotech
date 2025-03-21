@@ -757,7 +757,15 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-            return true;
+			//if (ReimplanterUtility.TryGetXenogermReplicatingDuration(gene.pawn, out HediffComp_Disappears hediffComp_Disappears))
+			//{
+			//	if (hediffComp_Disappears.disappearsAfterTicks > 10 * 60000)
+			//	{
+			//		Messages.Message("WVC_XaG_GeneChimera_TooBigPenaltyMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			//		return false;
+			//	}
+			//}
+			return true;
 		}
 
 		protected override void Accept()
@@ -814,15 +822,17 @@ namespace WVC_XenotypesAndGenes
 			//if (gene.pawn.genes.Xenotype?.GetModExtension<GeneExtension_General>()?.isChimerkin != true)
 			//{
 			//}
+			List<GeneDef> implantedGenes = new();
 			ReimplanterUtility.UnknownChimerkin(gene.pawn);
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
 				{
 					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
+					implantedGenes.Add(geneDef);
 				}
 			}
-			gene.UpdateChimeraXenogerm(selectedGenes);
+			gene.UpdateChimeraXenogerm(implantedGenes);
 			gene.DoEffects();
 			gene.UpdateMetabolism();
 			Close(doCloseSound: false);

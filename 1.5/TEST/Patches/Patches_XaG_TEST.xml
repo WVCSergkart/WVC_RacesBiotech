@@ -17,6 +17,14 @@
 	  </value>
 	</Operation>
 
+	<!-- Xenogerm desc upd -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/HediffDef[defName="XenogerminationComa"]/description</xpath>
+	  <value>
+		<description>A xenogerm or germline was implanted in this person. The germ needs time to integrate itself into the host and modify the genes and chemistry of various tissues throughout the body. During this time, the person cannot safely wake up, so the germ keeps them in a coma.\n\nThe duration of this coma can be reduced by implanting a germ with better medical facilities and more skilled doctors.</description>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/HediffDef[defName="VoidTouched"]/comps</xpath> -->
 	  <!-- <value> -->

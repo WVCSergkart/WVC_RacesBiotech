@@ -13,8 +13,10 @@
 		<li>WVC_SkinColor_MilkWhite</li>
 		<li>WVC_Eyes_Colorful</li>
 		<li>WVC_SkinnyTailA</li>
-		<li>WVC_Morpher</li>
-		<li>WVC_MorphCondition_Nocturnal</li>
+		<!-- <li>WVC_Morpher</li> -->
+		<!-- <li>WVC_MorphCondition_Nocturnal</li> -->
+		<li>WVC_Deadlife</li>
+		<!-- <li>WVC_Overlord</li> -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

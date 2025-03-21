@@ -215,6 +215,21 @@ namespace WVC_XenotypesAndGenes
 			AddDeadifeGas(60);
 		}
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: CreateShamblers",
+					action = delegate
+					{
+						AddDeadifeGas(60);
+					}
+				};
+			}
+		}
+
 		public void AddDeadifeGas(int tick)
         {
             if (!pawn.Spawned)
@@ -236,23 +251,23 @@ namespace WVC_XenotypesAndGenes
             {
                 nextTick = 180000;
                 Log.Error("Failed create shambler. Reason: " + arg);
-			}
-			float penaltyTick = 60 * StaticCollectionsClass.cachedColonistsCount;
-			if (pause)
+            }
+            float penaltyTick = 60 * StaticCollectionsClass.cachedColonistsCount;
+            if (pause)
             {
                 nextTick = 60000 + (int)penaltyTick;
-				nextDeathRefusal--;
-			}
+                nextDeathRefusal--;
+            }
             else
             {
                 nextTick = tick + (int)penaltyTick;
+            }
+            if (nextDeathRefusal <= 0)
+            {
+                Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
+                nextDeathRefusal = 2 + StaticCollectionsClass.cachedColonistsCount;
 			}
-			if (nextDeathRefusal <= 0)
-			{
-				Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
-				nextDeathRefusal = 2 + StaticCollectionsClass.cachedColonistsCount;
-			}
-        }
+		}
 
 		public override void ExposeData()
 		{

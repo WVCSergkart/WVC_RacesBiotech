@@ -6,12 +6,14 @@
 	<!-- Xenotypes not selected for random serum. Any string -->
 	<blackListedXenotypesForSerums>
 		<li>Baseliner</li>
+		<li>WVC_Beholdkind</li>
+		<li>WVC_Nociokin</li>
 		<!-- An undead xenotype has a separate serum mechanic. -->
 		<li>WVC_Undead</li>
 		<!-- Only undead resurrection -->
 		<li>WVC_Featherdust</li>
 		<li>WVC_Resurgent</li>
-		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+		<li>WVC_Ashen</li>
 		<!-- Random -->
 		<li>WVC_Thrall</li>
 		<li>WVC_Shapeshifter</li>
@@ -24,7 +26,6 @@
 		<li>VREA_</li>
 	</blackListedXenotypesForSerums>
 	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
-	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->
 	<whiteListedXenotypesForResurrectorSerums>
 		<li>WVC_Undead</li>
 		<li>WVC_Featherdust</li>
