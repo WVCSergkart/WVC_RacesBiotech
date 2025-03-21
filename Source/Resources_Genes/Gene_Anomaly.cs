@@ -212,7 +212,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			AddDeadifeGas(120);
+			AddDeadifeGas(60);
 		}
 
 		public void AddDeadifeGas(int tick)
@@ -237,7 +237,7 @@ namespace WVC_XenotypesAndGenes
                 nextTick = 180000;
                 Log.Error("Failed create shambler. Reason: " + arg);
 			}
-			float penaltyTick = 6000 * StaticCollectionsClass.cachedColonistsCount * 0.6f;
+			float penaltyTick = 60 * StaticCollectionsClass.cachedColonistsCount;
 			if (pause)
             {
                 nextTick = 60000 + (int)penaltyTick;
