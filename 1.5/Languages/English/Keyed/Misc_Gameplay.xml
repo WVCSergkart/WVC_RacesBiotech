@@ -19,6 +19,7 @@
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
 	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
 	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
+	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
 
 	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will gain a pregnant hediff. The child will receive a full set of endogens, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
 	<WVC_XaG_Gene_ParthenogenesisDesc>Conceive a child without a partner.</WVC_XaG_Gene_ParthenogenesisDesc>
@@ -540,7 +541,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
 
 	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Conflicting genes.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
-	<WVC_XaG_GeneChimera_TooBigPenaltyMessage>The genetic material has suffered too much loss and requires time to recover.</WVC_XaG_GeneChimera_TooBigPenaltyMessage>
+	<!-- <WVC_XaG_GeneChimera_TooBigPenaltyMessage>The genetic material has suffered too much loss and requires time to recover.</WVC_XaG_GeneChimera_TooBigPenaltyMessage> -->
 
 	<WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>Pawn has no xenogens</WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>
 

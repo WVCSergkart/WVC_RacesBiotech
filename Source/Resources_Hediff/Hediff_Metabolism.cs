@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public int cachedMetabolism;
-		public int refreshInterval = 59389;
+		public int nextTick = 333;
 
 		private HediffStage curStage;
 
@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (curStage == null && cachedMetabolism != 0f)
+				if (curStage == null)
 				{
 					curStage = new();
 					if (cachedMetabolism > 0f)
@@ -46,9 +46,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostTick()
+		public override void Tick()
 		{
-			if (!pawn.IsHashIntervalTick(refreshInterval))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 59389))
 			{
 				return;
 			}

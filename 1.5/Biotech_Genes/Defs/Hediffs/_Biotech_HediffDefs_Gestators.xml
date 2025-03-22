@@ -6,8 +6,8 @@
   <!-- Active -->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime" Name="WVC_XenotypesAndGenes_Hediffs_AbilityGestator" Abstract="True">
-	<label>gestation process</label>
-	<description>Mechanites slowly form new life.</description>
+	<label>gestation</label>
+	<description>Archites slowly forms new life. This process requires a considerable amount of the organism's resources, which leads to a significant weakening of the pawn.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<defaultLabelColor>(255,255,255)</defaultLabelColor>
 	<preventsPregnancy>true</preventsPregnancy>
@@ -49,7 +49,15 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_AbilityGestator">
 	<defName>WVC_MechanoidAbility_ActivateGestator</defName>
-	<stages Inherit="False"/>
+	<description>Archites slowly form new life. This requires a considerable amount of energy, resulting in a significant loss of charge for the mechanoid.</description>
+	<stages Inherit="False">
+	  <li>
+		<statOffsets>
+		  <MechEnergyUsageFactor>2.0</MechEnergyUsageFactor>
+		  <MechEnergyLossPerHP>2.0</MechEnergyLossPerHP>
+		</statOffsets>
+	  </li>
+	</stages>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemGestator">
 			<gestationIntervalDays>1</gestationIntervalDays>

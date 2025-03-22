@@ -53,13 +53,30 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool CanStartPregnancy_Gestator(Pawn pawn, GeneExtension_Giver giver = null)
-		{
-			return HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) == null 
-				&& (giver == null || giver.gender == Gender.None || giver.gender == pawn.gender)
-				&& pawn.ageTracker?.CurLifeStage?.reproductive != false;
-		}
+        {
+            if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
+            {
+                return false;
+            }
+            if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
+            {
+                Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            if (giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
+            {
+                Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
+			{
+				Messages.Message("WVC_XaG_Gene_SimpleGestator_ToYoungMessage".Translate(pawn.LabelShortCap).CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+            }
+            return true;
+        }
 
-		public static void Impregnate(Pawn pawn)
+        public static void Impregnate(Pawn pawn)
 		{
 			if (pawn?.genes != null)
 			{

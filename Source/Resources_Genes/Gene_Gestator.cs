@@ -66,10 +66,6 @@ namespace WVC_XenotypesAndGenes
 							StartPregnancy();
 						}
 					}
-                    else
-					{
-						Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-					}
 				}
 			};
 		}

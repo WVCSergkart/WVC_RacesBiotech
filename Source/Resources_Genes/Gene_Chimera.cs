@@ -350,7 +350,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					GetGeneFromHuman(corpse.InnerPawn);
 				}
-				else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera.race)
+				else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera?.race)
 				{
 					GetRandomGene();
 				}
