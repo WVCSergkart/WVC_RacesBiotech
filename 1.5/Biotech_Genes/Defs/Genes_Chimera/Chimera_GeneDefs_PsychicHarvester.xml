@@ -14,7 +14,7 @@
 	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>145.015</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>With a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;love relationship&lt;/color&gt;.</li>
+		<li>With a &lt;color=#8a8ae6&gt;7% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;love relationship&lt;/color&gt;.</li>
 		<li>Supported relations: Lover, fiance, spouse. And any other &lt;color=#8a8ae6&gt;reflexive&lt;/color&gt; relationships.</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->
@@ -42,7 +42,7 @@
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>145.020</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>With a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;friend relationship&lt;/color&gt;.</li>
+		<li>With a &lt;color=#8a8ae6&gt;4% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;friend relationship&lt;/color&gt;.</li>
 		<li>Supported relationships with opnion +40 for both sides</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->
@@ -70,7 +70,7 @@
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>145.025</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>With a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;rival relationship&lt;/color&gt;.</li>
+		<li>With a &lt;color=#8a8ae6&gt;33% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;rival relationship&lt;/color&gt;.</li>
 		<li>Supported relationships with opnion -40 for both sides</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->
@@ -98,7 +98,7 @@
 	<biostatMet>1</biostatMet>
 	<displayOrderInCategory>145.030</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>With a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;family relationship&lt;/color&gt;.</li>
+		<li>With a &lt;color=#8a8ae6&gt;50% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;family relationship&lt;/color&gt;.</li>
 		<li>Supported any blood family relationships.</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->
