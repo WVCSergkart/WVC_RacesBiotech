@@ -4,12 +4,69 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_SimpleGestator : Gene, IGeneOverridden
+    public class Gene_SimpleGestator : Gene, IGeneOverridden, IGeneRemoteControl
 	{
+		public virtual string RemoteActionName => "WVC_Start".Translate();
+
+		public string RemoteActionDesc => Desc;
+
+		public void RemoteControl()
+		{
+			if (!Active)
+            {
+				SoundDefOf.ClickReject.PlayOneShotOnCamera();
+				return;
+            }
+			if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
+			{
+				if (UseDialogWarning)
+				{
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Warning, delegate
+					{
+						StartPregnancy();
+					});
+					Find.WindowStack.Add(window);
+				}
+				else
+				{
+					StartPregnancy();
+				}
+			}
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+		//===========
+
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -21,53 +78,58 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorDraftedActiveFaction(pawn, this))
+			//if (XaG_GeneUtility.SelectorDraftedActiveFaction(pawn, this))
+			//{
+			//	yield break;
+			//}
+			//if (DebugSettings.ShowDevGizmos)
+			//{
+			//	yield return new Command_Action
+			//	{
+			//		defaultLabel = "DEV: Spawn NewBornGenes",
+			//		action = delegate
+			//		{
+			//			GestationUtility.GestateChild_WithGenes(pawn);
+			//		}
+			//	};
+			//	yield return new Command_Action
+			//	{
+			//		defaultLabel = "DEV: Spawn NewBornXenotype",
+			//		action = delegate
+			//		{
+			//			GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), null, "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
+			//		}
+			//	};
+			//}
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = LabelCap,
+			//	defaultDesc = Desc,
+			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			//	action = delegate
+			//	{
+			//		if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
+			//		{
+			//			if (UseDialogWarning)
+			//			{
+			//				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Warning, delegate
+			//				{
+			//					StartPregnancy();
+			//				});
+			//				Find.WindowStack.Add(window);
+			//			}
+			//			else
+			//			{
+			//				StartPregnancy();
+			//			}
+			//		}
+			//	}
+			//};
+			if (enabled)
 			{
-				yield break;
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
 			}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Spawn NewBornGenes",
-					action = delegate
-					{
-						GestationUtility.GestateChild_WithGenes(pawn);
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Spawn NewBornXenotype",
-					action = delegate
-					{
-						GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), null, "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
-					}
-				};
-			}
-			yield return new Command_Action
-            {
-				defaultLabel = LabelCap,
-				defaultDesc = Desc,
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
-					{
-						if (UseDialogWarning)
-						{
-							Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Warning, delegate
-							{
-								StartPregnancy();
-							});
-							Find.WindowStack.Add(window);
-						}
-						else
-						{
-							StartPregnancy();
-						}
-					}
-				}
-			};
+			return null;
 		}
 
 		public virtual void StartPregnancy()
@@ -114,10 +176,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			RemoveHediffs();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
 		}
 
 	}
 
+	[Obsolete]
 	public class Gene_Gestator_TestTool : Gene_SimpleGestator
 	{
 

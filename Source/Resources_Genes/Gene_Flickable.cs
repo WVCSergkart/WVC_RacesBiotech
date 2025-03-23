@@ -28,6 +28,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
+
+		}
+
+		public override void Tick()
+		{
+
 		}
 
 		public static void AddOrRemoveHediff(Pawn pawn, HediffDef hediffDef, Gene gene)

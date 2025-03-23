@@ -43,6 +43,7 @@
 			<gestationIntervalDays>5</gestationIntervalDays>
 			<endogeneTransfer>true</endogeneTransfer>
 			<!-- <completeMessage>WVC_RB_Gene_MechaGestator</completeMessage> -->
+			<completeLetterDesc>WVC_XaG_GeneGestator_ComplitionDesc</completeLetterDesc>
 		</li>
 	</comps>
   </HediffDef>
@@ -76,6 +77,7 @@
 			<gestationIntervalDays>-1</gestationIntervalDays>
 			<xenogerminationComa>true</xenogerminationComa>
 			<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
+			<completeLetterDesc>WVC_XaG_GeneGestator_ComplitionDesc</completeLetterDesc>
 		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"> -->
 			<!-- <checkInterval>11430</checkInterval> -->

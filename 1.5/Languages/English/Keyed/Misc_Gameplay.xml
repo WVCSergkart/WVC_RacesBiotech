@@ -17,11 +17,11 @@
 
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
-	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
-	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
 	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
+	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
+	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, gestation will begin, which will impose a moving and manipulation debuff, and also increase hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
 
-	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will gain a pregnant hediff. The child will receive a full set of endogens, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
+	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will become pregnant. The child will receive all of the mother's germline genes, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
 	<WVC_XaG_Gene_ParthenogenesisDesc>Conceive a child without a partner.</WVC_XaG_Gene_ParthenogenesisDesc>
 
 	<WVC_XaG_Gene_ImmaculateConception>{0} gave birth.</WVC_XaG_Gene_ImmaculateConception>
@@ -730,6 +730,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>Gestator activated</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>
 	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>{TARGET_nameDef} has started the gestation process, it will take some time. During this period, {TARGET_nameDef} will receive a number of debuffs.</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>
 
+	<WVC_XaG_GeneGestator_ComplitionDesc>{0} has completed the gestation process. The gestator will not be available for some time. The gestation process can be restarted later, after the post gestation period and the gestator cooldown have ended.</WVC_XaG_GeneGestator_ComplitionDesc>
+
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
@@ -892,6 +894,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_RemoteDeActive>Deactive</WVC_XaG_RemoteDeActive> -->
 
 	<WVC_HideShow>Hide/Show</WVC_HideShow>
+
+	<WVC_Start>Start</WVC_Start>
 
 	<WVC_XaG_HideShowDesc>Allows you to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
 

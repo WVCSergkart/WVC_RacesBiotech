@@ -30,6 +30,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Tick()
+		{
+
+		}
+
 	}
 
 	// Rare Hemogen Drain

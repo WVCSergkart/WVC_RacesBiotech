@@ -20,14 +20,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			ticksToHealBodyPart--;
 			if (ticksToHealBodyPart <= 0)
 			{
-				if (Active)
-				{
-					HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
-				}
+				HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
 				ResetInterval();
 			}
 		}
@@ -87,14 +84,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			ticksToHealBodyPart--;
 			if (ticksToHealBodyPart <= 0)
 			{
-				if (Active)
-				{
-					HealingUtility.TryHealRandomPermanentWound(pawn, this);
-				}
+				HealingUtility.TryHealRandomPermanentWound(pawn, this);
 				ResetInterval();
 			}
 		}
@@ -145,14 +139,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			ticksToHealBodyPart--;
 			if (ticksToHealBodyPart <= 0)
 			{
-				if (Active)
-				{
-					HealingUtility.TryHealRandomPermanentWound(pawn, this);
-				}
+				HealingUtility.TryHealRandomPermanentWound(pawn, this);
 				ResetInterval();
 			}
 		}
@@ -202,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
         {
-            base.Tick();
+            //base.Tick();
             ticksToHealBodyPart--;
             if (ticksToHealBodyPart > 0)
             {
@@ -376,18 +367,11 @@ namespace WVC_XenotypesAndGenes
 
 		private void TryConsumeHemogenAndHealWound()
 		{
-			if (Hemogen != null)
-			{
-				if ((Hemogen.Value - def.resourceLossPerDay) <= 0f)
-				{
-					return;
-				}
-				if (HealingUtility.TryHealRandomPermanentWound(pawn, LabelCap))
-				{
-					GeneResourceDrainUtility.OffsetResource(Hemogen, 0f - def.resourceLossPerDay);
-				}
-			}
-			ResetInterval();
+            if (Hemogen != null && (Hemogen.Value - def.resourceLossPerDay) > 0f && HealingUtility.TryHealRandomPermanentWound(pawn, Label))
+            {
+                GeneResourceDrainUtility.OffsetResource(Hemogen, 0f - def.resourceLossPerDay);
+            }
+            ResetInterval();
 		}
 
 		public override void ExposeData()

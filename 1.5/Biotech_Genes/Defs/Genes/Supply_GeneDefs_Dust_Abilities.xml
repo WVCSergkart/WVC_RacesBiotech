@@ -27,7 +27,7 @@
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
-		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt;.</li>
+		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;germline&lt;/color&gt; genes.</li>
 	</customEffectDescriptions>
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef> -->
@@ -70,9 +70,9 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<prerequisite>WVC_Wings_FeatheredWings</prerequisite>
-	<customEffectDescriptions>
-		<li>To use the ability, the &lt;color=#8a8ae6&gt;feathered wings&lt;/color&gt; gene is required.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>To use the ability, the &lt;color=#8a8ae6&gt;feathered wings&lt;/color&gt; gene is required.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<abilities>
 	  <li>WVC_Dustogenic_FeatherBlades</li>
 	</abilities>
