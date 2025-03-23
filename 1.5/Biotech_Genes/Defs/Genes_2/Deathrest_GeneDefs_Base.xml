@@ -62,10 +62,11 @@
 	<iconPath>WVC/UI/Genes/Gene_DeathrestSubGenes_FastRest</iconPath>
 	<displayOrderInCategory>270</displayOrderInCategory>
 	<biostatCpx>4</biostatCpx>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
 		<!-- <li>Deathrest safely wake: 10 per day.</li> -->
-		<li>Speeds up safe wake up during deathrest.</li>
+		<li>Speeds up safe wake-up during deathrest.</li>
+		<li>&lt;color=#ff8585&gt;Slows down the accumulation of bonuses from deathrest buildings.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
@@ -86,6 +87,7 @@
 	<resourceLossPerDay>-0.10</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Deathrest hemogen gain: 10 per day.</li>
+		<li>&lt;color=#ff8585&gt;Does not stack with standard hemogen gain\loss.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

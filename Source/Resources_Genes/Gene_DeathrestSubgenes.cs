@@ -133,6 +133,10 @@ namespace WVC_XenotypesAndGenes
 			//	deathrest.CurLevel += ((Undead.deathrestBoost * 0.01f) / 60000) * tick;
 			//}
 			//Log.Error(((int)(0.1f * tick)).ToString());
+			if (Deathrest.DeathrestPercent >= 1f)
+            {
+				return;
+            }
 			Deathrest.deathrestTicks += Mathf.RoundToInt(12000f * (tick / 6000));
 		}
 
