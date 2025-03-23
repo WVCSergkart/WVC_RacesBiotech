@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
         //public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
         public IntRange additionalChronoAge = new(0, 0);
+        public Gender gender = Gender.None;
+        public bool startingPawnsIsPregnant = false;
         //public bool newGamePlus = false;
         //public QuestScriptDef questScriptDef = null;
 
@@ -54,6 +56,7 @@ namespace WVC_XenotypesAndGenes
 
         protected override void ModifyNewPawn(Pawn p)
         {
+            SetGender(p);
             SetXenotype(p);
             SetGenes(p);
             AddMechlink(p);
@@ -64,6 +67,29 @@ namespace WVC_XenotypesAndGenes
             Mutations(p);
             AgeCorrection(p);
             Skills(p);
+            SetPregnant(p);
+        }
+
+        private void SetGender(Pawn pawn)
+        {
+            if (gender == Gender.None || pawn.gender == gender)
+            {
+                return;
+            }
+            Gene_Gender.SetGender(pawn, gender);
+        }
+
+        private void SetPregnant(Pawn pawn)
+        {
+            if (!startingPawnsIsPregnant)
+            {
+                return;
+            }
+            if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
+            {
+                pawn.health.RemoveHediff(hediff);
+            }
+            MiscUtility.Impregnate(pawn);
         }
 
         //private void Void(Pawn p)

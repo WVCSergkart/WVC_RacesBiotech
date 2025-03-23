@@ -136,7 +136,8 @@
 		  <addMechlink>true</addMechlink>
 		  <nullifyBackstory>true</nullifyBackstory>
 		  <nullifySkills>true</nullifySkills>
-		  <addSkipEffect>true</addSkipEffect>
+		  <gender>Female</gender>
+		  <startingPawnsIsPregnant>true</startingPawnsIsPregnant>
 		  <!-- <newGamePlus>true</newGamePlus> -->
 		  <!-- <embraceTheVoid>true</embraceTheVoid> -->
 		  <additionalChronoAge>888~1777</additionalChronoAge>

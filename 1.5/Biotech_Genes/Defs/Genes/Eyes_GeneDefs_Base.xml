@@ -33,6 +33,11 @@
 				<visible>true</visible>
 			  </li>
 			  <li>
+				<label>nociokin purple</label>
+				<color>(161, 161, 255)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
 				<label>blue</label>
 				<color>(133, 202, 255)</color>
 				<visible>true</visible>

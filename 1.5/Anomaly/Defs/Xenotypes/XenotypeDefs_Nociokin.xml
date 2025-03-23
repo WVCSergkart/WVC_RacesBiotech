@@ -71,7 +71,7 @@
 			<!-- <isEvolvedChimerkin>true</isEvolvedChimerkin> -->
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(255, 133, 133)</defaultColor>
+			<defaultColor>(161, 161, 255)</defaultColor>
 			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
 		</li>
 	</modExtensions>

@@ -29,21 +29,30 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Props.gender != Gender.None)
 			{
-				pawn.gender = Props.gender;
-				if (Props.gender == Gender.Female && pawn.story?.bodyType == BodyTypeDefOf.Male)
-				{
-					pawn.story.bodyType = BodyTypeDefOf.Female;
-				}
-				else if (Props.gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
-				{
-					pawn.story.bodyType = BodyTypeDefOf.Male;
-				}
-				//if (!pawn.Spawned)
-				//{
-				//	GestationUtility.SetName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
-				//}
-				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+				SetGender(pawn, Props.gender);
 			}
+		}
+
+		public static void SetGender(Pawn pawn, Gender gender)
+		{
+			pawn.gender = gender;
+			if (gender == Gender.Female && pawn.story?.bodyType == BodyTypeDefOf.Male)
+			{
+				pawn.story.bodyType = BodyTypeDefOf.Female;
+			}
+			else if (gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
+			{
+				pawn.story.bodyType = BodyTypeDefOf.Male;
+			}
+            if (Current.ProgramState != ProgramState.Playing && pawn.Name is NameTriple nameTriple)
+            {
+                pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
+			}
+			if (!pawn.style.CanWantBeard && pawn.style.beardDef != BeardDefOf.NoBeard)
+			{
+				pawn.style.beardDef = BeardDefOf.NoBeard;
+			}
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 	}
