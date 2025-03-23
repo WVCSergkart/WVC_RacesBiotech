@@ -10,6 +10,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_SleepResearch</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_AutoResearch_Sleep</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>

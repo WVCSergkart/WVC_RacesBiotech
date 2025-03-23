@@ -30,7 +30,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!cachedResearchSpeed.HasValue)
 			{
-				cachedResearchSpeed = pawn.GetStatValue(StatDefOf.ResearchSpeed);
+				if (StatDefOf.ResearchSpeed.Worker.IsDisabledFor(pawn))
+				{
+					cachedResearchSpeed = 0.01f;
+				}
+				else
+				{
+					cachedResearchSpeed = pawn.GetStatValue(StatDefOf.ResearchSpeed);
+				}
 			}
 			ResearchManager researchManager = Find.ResearchManager;
 			ResearchProjectDef currentProject = researchManager.GetProject();

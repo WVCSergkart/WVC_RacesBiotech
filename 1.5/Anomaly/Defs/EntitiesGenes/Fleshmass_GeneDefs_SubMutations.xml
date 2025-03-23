@@ -35,6 +35,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>1</biostatMet>
+	<minAgeActive>0</minAgeActive>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.63</ArmorRating_Sharp>
@@ -78,6 +79,7 @@
 	<iconPath>WVC/UI/Genes/Gene_SelfeaterStomach_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>25</displayOrderInCategory>
+	<minAgeActive>3</minAgeActive>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
@@ -96,6 +98,7 @@
 	<iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>30</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>-3</biostatMet>

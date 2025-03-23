@@ -16,6 +16,7 @@
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<displayCategory>WVC_Fleshmass</displayCategory>
 	<marketValueFactor>5</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
 	<!-- Unused -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->

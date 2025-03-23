@@ -89,7 +89,7 @@
 					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
 					  <!-- <li>WVC_MechaPowerSource_Tox</li> -->
 					  <!-- <li>WVC_MechaPowerSource_Unstable</li> -->
-					  <!-- <li>WVC_MechaPowerSource_Stable</li> -->
+					  <li>WVC_MechaPowerSource_Stable</li>
 					</nullifyingGenes>
 				  </value>
 				</li>
