@@ -74,9 +74,29 @@ namespace WVC_XenotypesAndGenes
 				return false;
             }
             return true;
-        }
+		}
 
-        public static void Impregnate(Pawn pawn)
+		public static void TryImpregnateOrUpdChildGenes(Pawn pawn)
+		{
+			if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
+			{
+				if (hediff is Hediff_Pregnant pregnant)
+				{
+					GeneSet newGeneSet = new();
+					HediffUtility.AddParentGenes(pawn, newGeneSet);
+					newGeneSet.SortGenes();
+					pregnant.geneSet = newGeneSet;
+					return;
+				}
+				else
+				{
+					pawn.health.RemoveHediff(hediff);
+				}
+			}
+			MiscUtility.Impregnate(pawn);
+		}
+
+		public static void Impregnate(Pawn pawn)
 		{
 			if (pawn?.genes != null)
 			{

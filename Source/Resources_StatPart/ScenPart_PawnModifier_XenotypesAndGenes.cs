@@ -56,9 +56,9 @@ namespace WVC_XenotypesAndGenes
 
         protected override void ModifyNewPawn(Pawn p)
         {
-            SetGender(p);
             SetXenotype(p);
             SetGenes(p);
+            SetGender(p);
             AddMechlink(p);
             NullifyBackstory(p);
             //ChimeraEvolve(p);
@@ -85,11 +85,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
-            {
-                pawn.health.RemoveHediff(hediff);
-            }
-            MiscUtility.Impregnate(pawn);
+            MiscUtility.TryImpregnateOrUpdChildGenes(pawn);
         }
 
         //private void Void(Pawn p)

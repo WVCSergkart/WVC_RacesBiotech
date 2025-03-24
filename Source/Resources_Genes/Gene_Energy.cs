@@ -316,16 +316,16 @@ namespace WVC_XenotypesAndGenes
 
     public class Gene_HemogenRecharge : Gene_HemogenOffset, IGeneChargeable, IGeneRemoteControl
 	{
-		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoCharge);
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlHemogenRechargeDesc".Translate();
 
 		public void RemoteControl()
 		{
-			autoFeed = !autoFeed;
+			autoCharge = !autoCharge;
 		}
 
-		public bool autoFeed = true;
+		public bool autoCharge = true;
 
 		public bool Enabled
 		{
@@ -381,7 +381,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			if (!autoFeed)
+			if (!autoCharge)
 			{
 				return;
 			}
@@ -391,6 +391,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Faction != Faction.OfPlayer)
 			{
+				autoCharge = false;
 				return;
 			}
 			if (pawn.Map == null)
@@ -399,7 +400,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Rechargeable == null || Hemogen == null)
 			{
-				autoFeed = false;
+				autoCharge = false;
 				return;
 			}
 			if (!Hemogen.ShouldConsumeHemogenNow())
@@ -430,7 +431,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref autoFeed, "autoFeed", defaultValue: true);
+			Scribe_Values.Look(ref autoCharge, "autoFeed", defaultValue: true);
 		}
 
 	}

@@ -265,6 +265,7 @@
   <ThoughtDef>
 	<defName>WVC_Recluse</defName>
 	<durationDays>1</durationDays>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_RecluseMemory</thoughtClass>
 	<stages>
 	  <li>
 		<label>recluse</label>
@@ -277,6 +278,7 @@
   <ThoughtDef>
 	<defName>WVC_HumanCentric</defName>
 	<durationDays>1</durationDays>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_HumanCentricMemory</thoughtClass>
 	<stages>
 	  <li>
 		<label>human-centric</label>

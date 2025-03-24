@@ -48,6 +48,8 @@
 	<WVC_XaG_ScenPart_StartingMutations>Starting pawns will have {0} random mutations.</WVC_XaG_ScenPart_StartingMutations>
 	<WVC_XaG_ScenPart_AddChronoAge>Additional chronological age: {0}~{1} years.</WVC_XaG_ScenPart_AddChronoAge>
 	<!-- <WVC_XaG_ScenPart_EmbraceTheVoid>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_EmbraceTheVoid> -->
+	<!-- <WVC_XaG_ScenPart_ForcedGender>The gender of starting pawns is always: {0}.</WVC_XaG_ScenPart_ForcedGender> -->
+	<!-- <WVC_XaG_ScenPart_ForcedPregnancy>The gender of starting pawns is always {0}</WVC_XaG_ScenPart_ForcedPregnancy> -->
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 
@@ -246,9 +248,9 @@
 	<WVC_XaG_SubXeno_IgnoreExistingGenes>Expand existing</WVC_XaG_SubXeno_IgnoreExistingGenes>
 	<WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>Does this sub-xenotype add its own genes to the existing ones.</WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>
 
-	<WVC_XaG_SubXeno_Endogenes>Endogenes</WVC_XaG_SubXeno_Endogenes>
+	<WVC_XaG_SubXeno_Endogenes>Endogenes (Germline)</WVC_XaG_SubXeno_Endogenes>
 	<WVC_XaG_SubXeno_Endogenes_Desc>Always added to the germline.</WVC_XaG_SubXeno_Endogenes_Desc>
-	<WVC_XaG_SubXeno_Xenogenes>Xenogenes</WVC_XaG_SubXeno_Xenogenes>
+	<WVC_XaG_SubXeno_Xenogenes>Xenogenes (Xenogerm)</WVC_XaG_SubXeno_Xenogenes>
 	<WVC_XaG_SubXeno_Xenogenes_Desc>Always added as xenogenes.</WVC_XaG_SubXeno_Xenogenes_Desc>
 	<WVC_XaG_SubXeno_RemovedGenes>Removed genes</WVC_XaG_SubXeno_RemovedGenes>
 	<WVC_XaG_SubXeno_RemovedGenes_Desc>These genes will be removed from the gene set if present.</WVC_XaG_SubXeno_RemovedGenes_Desc>
@@ -907,6 +909,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists.</WVC_XaG_RemoteControlBloodeaterDesc>
 
 	<WVC_XaG_RemoteControlChargerDesc>If on, the pawn will try to use charger instead of food whenever possible.</WVC_XaG_RemoteControlChargerDesc>
+
+	<WVC_XaG_RemoteControlHemogenRechargeDesc>If enabled, the pawn will try to use a recharger instead of hemogen packs whenever possible.</WVC_XaG_RemoteControlHemogenRechargeDesc>
 
 	<WVC_XaG_RemoteControlGeneMakerDesc>If on, genemaker will slowly generate genepacks.</WVC_XaG_RemoteControlGeneMakerDesc>
 
