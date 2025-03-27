@@ -39,8 +39,8 @@ namespace WVC_XenotypesAndGenes
         public bool CanAddGene(Pawn pawn)
 		{
 			return genes != null && (!reqOneManArmy || StaticCollectionsClass.oneManArmyMode) && (reqGeneDef == null || XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn));
-        }
-    }
+		}
+	}
 
 	// Exten
 

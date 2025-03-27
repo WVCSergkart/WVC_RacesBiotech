@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 cycleTry++;
 			}
-			GetToolGene();
+			TryGetToolGene();
 		}
 
         public void NPC_RandomGeneSetSetup(bool forceSetup = false)
@@ -97,34 +97,62 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public void GetToolGene()
+        public bool TryGetToolGene()
 		{
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{
 				TryAddGene(result);
-				if (pawn.Spawned)
+				if (pawn.SpawnedOrAnyParentSpawned)
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
+				return true;
 			}
+			return false;
 		}
 
-		public void GetUniqueGene()
-		{
-			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraConditionalGenes != null && Props.chimeraConditionalGenes.Where((counter) => counter.CanAddGene(pawn)).TryRandomElementByWeight((counter) => counter.chance, out XaG_CountWithChance xaG_CountWithChance))
-			{
-				if (xaG_CountWithChance.genes.TryRandomElement(out GeneDef result))
-				{
-					TryAddGene(result);
-					if (pawn.Spawned)
-					{
-						Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-					}
-				}
-			}
-		}
+		public bool TryGetUniqueGene()
+        {
+            if (!WVC_Biotech.settings.enable_chimeraStartingTools || (Props?.chimeraConditionalGenes) == null)
+            {
+                return false;
+            }
+			List<GeneDefWithChance> genesWithChance = new();
+            foreach (XaG_CountWithChance counter in Props.chimeraConditionalGenes)
+            {
+                if (!counter.CanAddGene(pawn))
+                {
+                    continue;
+                }
+                foreach (GeneDef geneDef in counter.genes)
+                {
+                    if (AllGenes.Contains(geneDef))
+                    {
+                        continue;
+                    }
+                    GeneDefWithChance newChance = new();
+                    newChance.geneDef = geneDef;
+                    newChance.chance = counter.chance;
+                    genesWithChance.Add(newChance);
+                }
+            }
+            if (genesWithChance.NullOrEmpty())
+            {
+				return false;
+            }
+            if (genesWithChance.TryRandomElementByWeight((geneWithChance) => geneWithChance.chance, out GeneDefWithChance result))
+            {
+                TryAddGene(result.geneDef);
+                if (pawn.SpawnedOrAnyParentSpawned)
+                {
+                    Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                }
+                return true;
+            }
+            return false;
+        }
 
-		public void Local_AddOrRemoveHediff()
+        public void Local_AddOrRemoveHediff()
 		{
 			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);
 		}
@@ -176,11 +204,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public int lastGeneObtainedTick = -1;
+
 		public bool TryAddGene(GeneDef geneDef)
 		{
 			if (!collectedGenes.Contains(geneDef))
 			{
 				collectedGenes.Add(geneDef);
+				lastGeneObtainedTick = Find.TickManager.TicksGame;
 				return true;
 			}
 			return false;
@@ -256,6 +287,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", true);
+			Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

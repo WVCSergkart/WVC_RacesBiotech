@@ -839,18 +839,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void EatGenes()
-        {
+		{
+			float lastGeneDaysPassed = 0;
+			if (gene.lastGeneObtainedTick > 0)
+            {
+				lastGeneDaysPassed = (gene.lastGeneObtainedTick / 60000) * 0.01f;
+			}
             foreach (GeneDef geneDef in selectedGenes)
             {
                 try
                 {
-                    if (Rand.Chance(0.07f))
+                    if ((!Rand.Chance(0.07f + lastGeneDaysPassed) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + lastGeneDaysPassed))
                     {
-                        gene.GetToolGene();
-                    }
-                    else if (Rand.Chance(0.04f))
-                    {
-                        gene.GetUniqueGene();
+                        gene.TryGetUniqueGene();
                     }
                 }
                 catch (Exception arg)

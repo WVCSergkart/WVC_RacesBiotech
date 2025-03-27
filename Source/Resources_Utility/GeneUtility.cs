@@ -316,6 +316,18 @@ namespace WVC_XenotypesAndGenes
 
 		// Gene Restoration
 
+		public static bool ContainsAll(List<GeneDef> genesToCheck, List<GeneDef> genesContainer)
+		{
+			foreach (GeneDef item in genesToCheck)
+            {
+                if (!genesContainer.Contains(item))
+                {
+                    return false;
+                }
+            }
+            return true;
+		}
+
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
 		{
 			List<GeneDef> geneDefs = new();

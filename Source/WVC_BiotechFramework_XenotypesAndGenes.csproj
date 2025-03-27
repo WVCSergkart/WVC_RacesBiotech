@@ -77,6 +77,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
+    <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />
     <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Archiver.cs" />
     <Compile Include="Resources_Genes\Gene_Auto.cs" />
