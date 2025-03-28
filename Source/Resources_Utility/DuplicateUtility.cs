@@ -271,7 +271,7 @@ namespace WVC_XenotypesAndGenes
             CopyGenes(progenitor, clone);
             CopySkills(progenitor, clone);
 			//CopyHediffs(progenitor, clone);
-			CopyNeeds(progenitor, clone);
+			//CopyNeeds(progenitor, clone);
 		}
 
         public static void CopyGenes(Pawn pawn, Pawn newPawn)
@@ -344,6 +344,10 @@ namespace WVC_XenotypesAndGenes
 			//	thought_Memory.pawn = newPawn;
 			//	memories.Add(thought_Memory);
 			//}
+			if (pawn?.needs == null || newPawn?.needs == null)
+            {
+				return;
+            }
 			foreach (Need need in pawn.needs.AllNeeds)
 			{
 				foreach (Need newNeed in newPawn.needs.AllNeeds)
