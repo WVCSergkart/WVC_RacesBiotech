@@ -274,7 +274,7 @@ namespace WVC_XenotypesAndGenes
 			List<PawnKindDef> list = new();
 			foreach (GolemModeDef item in DefDatabase<GolemModeDef>.AllDefsListForReading)
 			{
-				if (!item.canBeSummoned)
+				if (!item.CanBeSummoned)
 				{
 					continue;
 				}

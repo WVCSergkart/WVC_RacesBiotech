@@ -1,6 +1,7 @@
 // RimWorld.QuestGen.QuestNode_Root_MechanitorStartingMech
 using RimWorld;
 using RimWorld.QuestGen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -8,6 +9,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class QuestNode_Root_MechanitorSummonMech : QuestNode
 	{
 

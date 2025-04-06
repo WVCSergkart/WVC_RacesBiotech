@@ -1,9 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class CompProperties_Summon : CompProperties_AbilityEffect
 	{
 		public QuestScriptDef quest;
@@ -11,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange spawnCountRange = new(1, 3);
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_MechanoidsSummoning : CompAbilityEffect
 	{
 		public new CompProperties_Summon Props => (CompProperties_Summon)props;

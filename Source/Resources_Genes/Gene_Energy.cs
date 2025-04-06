@@ -280,35 +280,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool CanDoOrbitalSummon()
-		{
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				return false;
-			}
-			if (pawn.Map == null)
-			{
-				return false;
-			}
-			if (!MechanitorUtility.IsMechanitor(pawn))
-			{
-				return false;
-			}
-			return true;
-		}
-
 		private bool TrySummonRandomMech(float chance = 0.02f)
 		{
 			if (!Rand.Chance(chance))
 			{
 				return false;
 			}
-			if (!CanDoOrbitalSummon())
+			if (!Gene_Mechlink.CanDoOrbitalSummon(pawn))
 			{
 				return false;
 			}
-			MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-			Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+			//MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+			if (MechanoidsUtility.TrySummonMechanoids(pawn, 1, Spawner.allowedMechWeightClasses, out List<Thing> summonList))
+			{
+				Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
+			}
 			return true;
 		}
 

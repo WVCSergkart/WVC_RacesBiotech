@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
 	<defName>WVC_VoidMechlink</defName>
 	<label>void mechlink</label>
 	<description>Carriers of this gene have corrupted archites that connect them to the void. They are able to skip mechanoids from different parts of the universe and take control of them.</description>

@@ -30,17 +30,26 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!Active || nextTick > 0 || pawn.mechanitor == null)
 			{
+				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
 			}
 			Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_RemoteControlMechsSummonAbilityDesc".Translate(), delegate
 			{
 				int countSpawn = Spawner.summonRange.RandomInRange;
-				for (int i = 0; i < countSpawn; i++)
+				//for (int i = 0; i < countSpawn; i++)
+				//{
+				//	MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+				//}
+				if (Gene_Mechlink.CanDoOrbitalSummon(pawn) && MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Spawner.allowedMechWeightClasses, out List<Thing> summonList))
 				{
-					MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
+					nextTick = Spawner.spawnIntervalRange.RandomInRange;
 				}
-				Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
-				nextTick = Spawner.spawnIntervalRange.RandomInRange;
+				else
+                {
+					SoundDefOf.ClickReject.PlayOneShotOnCamera();
+				}
+				//Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
 			});
 			Find.WindowStack.Add(window);
 		}

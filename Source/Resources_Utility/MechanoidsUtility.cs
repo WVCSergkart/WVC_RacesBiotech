@@ -2,6 +2,7 @@ using RimWorld;
 using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -195,27 +196,75 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool CanSummonMechanoidsIdeo(Pawn pawn)
 		// {
-			// if (!ModLister.CheckIdeology("Ideology"))
-			// {
-				// return true;
-			// }
-			// List<Precept> preceptsListForReading = pawn?.ideo?.Ideo?.PreceptsListForReading;
-			// if (preceptsListForReading.NullOrEmpty())
-			// {
-				// return true;
-			// }
-			// foreach (Precept precept in preceptsListForReading)
-			// {
-				// PreceptExtension_General preceptExtension = precept?.def?.GetModExtension<PreceptExtension_General>();
-				// if (preceptExtension != null)
-				// {
-					// return !preceptExtension.blesslinkCannotSummonMechanoids;
-				// }
-			// }
-			// return true;
+		// if (!ModLister.CheckIdeology("Ideology"))
+		// {
+		// return true;
+		// }
+		// List<Precept> preceptsListForReading = pawn?.ideo?.Ideo?.PreceptsListForReading;
+		// if (preceptsListForReading.NullOrEmpty())
+		// {
+		// return true;
+		// }
+		// foreach (Precept precept in preceptsListForReading)
+		// {
+		// PreceptExtension_General preceptExtension = precept?.def?.GetModExtension<PreceptExtension_General>();
+		// if (preceptExtension != null)
+		// {
+		// return !preceptExtension.blesslinkCannotSummonMechanoids;
+		// }
+		// }
+		// return true;
 		// }
 
-		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
+		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<MechWeightClass> allowedMechWeightClasses, out List<Thing> summonList, HediffDef hediffDef = null)
+        {
+            List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, allowedMechWeightClasses)).ToList();
+            return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
+		}
+
+		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<GolemModeDef> golemModeDefs, out List<Thing> summonList, HediffDef hediffDef = null)
+        {
+			summonList = new();
+			List<PawnKindDef> pawnKindDefs = new();
+			foreach (GolemModeDef golemModeDef in golemModeDefs)
+            {
+				if (golemModeDef.CanBeSummoned)
+                {
+					pawnKindDefs.Add(golemModeDef.pawnKindDef);
+				}
+            }
+			if (pawnKindDefs.Empty())
+            {
+				return false;
+            }
+			return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
+		}
+
+		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<PawnKindDef> pawnKindDefs, out List<Thing> summonList, HediffDef hediffDef = null)
+		{
+            summonList = new();
+            for (int i = 0; i < countSpawn; i++)
+            {
+                PawnGenerationRequest request = new(pawnKindDefs.RandomElement(), pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+                Pawn mech = PawnGenerator.GeneratePawn(request);
+                AgelessUtility.SetAge(mech, 3600000 * new IntRange(12, 74).RandomInRange);
+                if (hediffDef != null)
+                {
+                    mech.health.AddHediff(hediffDef);
+                }
+                MechanoidsUtility.SetOverseer(pawn, mech);
+                summonList.Add(mech);
+            }
+			if (MiscUtility.TrySummonDropPod(pawn.Map, summonList))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(summonList.Select((Thing thing) => (thing as Pawn).KindLabel).ToCommaList(useAnd: true).UncapitalizeFirst(), pawn), LetterDefOf.PositiveEvent, new LookTargets(summonList));
+				return true;
+			}
+			return false;
+        }
+
+		[Obsolete]
+        public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
 		{
 			if (pawn.Map.IsUnderground())
 			{

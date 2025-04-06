@@ -39,6 +39,15 @@
 	</exclusionTags>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks" Abstract="True">
+	<selectionWeight>0.002</selectionWeight>
+	<exclusionTags Inherit="False">
+	  <!-- <li>AbilityMechlink</li> -->
+	  <!-- <li>Mechlink</li> -->
+	  <!-- <li>WVC_GeneMechlink</li> -->
+	</exclusionTags>
+  </GeneDef>
+
   <!-- ============================= -->
 
   <!-- Mechlink -->
@@ -63,7 +72,7 @@
 	<biostatMet>-3</biostatMet>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
 	<defName>WVC_Dustogenic_Blesslink</defName>
 	<label>false mechlink</label>
 	<description>Carriers of this gene have a psychic signature that misleads mechanoids. They can take control of malfunctioning mechanoids and call upon their aid. However, because of this, they are completely unable to create new mechanoids.</description>
@@ -77,28 +86,37 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Allows you to toggle mechanoid summoning.&lt;/color&gt;</li>
-		<li>Mechanoids are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
-		<li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Allows to toggle mechanoid summoning.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Summon mechs&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
+		<!-- <li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li> -->
+		<li>&lt;color=#ff8585&gt;Increases the gestation time of mechs by x20&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
-	  <MechBandwidth>0</MechBandwidth>
+	  <MechBandwidth>0.5</MechBandwidth>
+	  <MechFormingSpeed>0.05</MechFormingSpeed>
 	</statFactors>
 	<statOffsets>
 	  <MechControlGroups>2</MechControlGroups>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<spawnIntervalRange>480000~960000</spawnIntervalRange>
-			<summonRange>1~6</summonRange>
-			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
+			<!-- <spawnIntervalRange>480000~960000</spawnIntervalRange> -->
+			<!-- <summonRange>1~6</summonRange> -->
+			<!-- <summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Light</li>
+			  <li>Medium</li>
+			  <li>Heavy</li>
+			  <!-- <li>UltraHeavy</li> -->
+			</allowedMechWeightClasses>
+			<mechHediff>WVC_DustMechanoid_OnlyOneOverseer</mechHediff>
 		</li>
 	</modExtensions>
   </GeneDef>
 
   <!-- Golemlink -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
 	<defName>WVC_SwarmConnection_Golems</defName>
 	<label>golem mechlink</label>
 	<description>Carriers of this gene have archites capable of animating stone chunks, turning them into stone mechanoids - golems.</description>
@@ -128,9 +146,9 @@
 			<golemistTypeIndex>0</golemistTypeIndex>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<spawnIntervalRange>240000~420000</spawnIntervalRange>
-			<summonRange>1~3</summonRange>
-			<summonQuest>WVC_MechanitorSummonGolems</summonQuest>
+			<!-- <spawnIntervalRange>240000~420000</spawnIntervalRange> -->
+			<!-- <summonRange>1~3</summonRange> -->
+			<!-- <summonQuest>WVC_MechanitorSummonGolems</summonQuest> -->
 			<golemModeDefs>
 			  <li>WVC_Golem_Liftoid</li>
 			  <li>WVC_Golem_Constructoid</li>

@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -93,17 +94,28 @@ namespace WVC_XenotypesAndGenes
 		private void SummonRandomMech()
 		{
 			int countSpawn = WVC_Biotech.settings.falselink_mechsToSpawnRange.RandomInRange;
-			for (int i = 0; i < countSpawn; i++)
-			{
-				MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-				if (i == 0)
+            //for (int i = 0; i < countSpawn; i++)
+            //{
+            //	MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+            //	if (i == 0)
+            //	{
+            //		Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+            //	}
+            //}
+            try
+            {
+				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Spawner.allowedMechWeightClasses, out List<Thing> summonList, Spawner.mechHediff))
 				{
-					Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 				}
-			}
-		}
+            }
+            catch (Exception arg)
+            {
+				Log.Error("Failed summon hacked mechanoid. Reason: " + arg);
+            }
+        }
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{

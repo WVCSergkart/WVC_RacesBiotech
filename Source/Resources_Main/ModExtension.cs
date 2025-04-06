@@ -101,6 +101,8 @@ namespace WVC_XenotypesAndGenes
 		public StatDef voidMechsLimit_StatDef;
 		public StatDef voidDamageChance_StatDef;
 		public StatDef voidMaxResource_StatDef;
+		// Mechs
+		public List<MechWeightClass> allowedMechWeightClasses;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

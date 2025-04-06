@@ -27,6 +27,17 @@ namespace WVC_XenotypesAndGenes
 		public PawnKindDef pawnKindDef;
 
 		public bool canBeSummoned = false;
+		public bool CanBeSummoned
+		{
+			get
+			{
+				if (GolembondCost > 1)
+				{
+					return false;
+				}
+				return canBeSummoned;
+			}
+		}
 
 		public bool canBeAnimated = true;
 

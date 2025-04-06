@@ -30,11 +30,14 @@
 
 	<!-- <WVC_RB_Gene_MechaGestator_PawnReady>{0} pawn ready for gestation.</WVC_RB_Gene_MechaGestator_PawnReady> -->
 	<!-- <WVC_RB_Gene_MechaGestator_PawnNotReady>The gestator is still charging.</WVC_RB_Gene_MechaGestator_PawnNotReady> -->
-	
+
 	<WVC_RB_Gene_Summoner>The package is already on its way!</WVC_RB_Gene_Summoner>
-	
+	<WVC_XaG_MechanoidSummon_Label>New mechanoids</WVC_XaG_MechanoidSummon_Label>
+	<WVC_XaG_MechanoidSummon_Letter>A {0} has dropped from orbit and is placing itself under the control of {1_nameDef}.</WVC_XaG_MechanoidSummon_Letter>
+	<!-- \n\nIt seems to have been attached to {1_possessive} mechlink and is eager to serve its purpose once again. -->
+
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
-	
+
 	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
 	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
 	<WVC_XaG_ThrallMakerNonThrallSelected>First you need to choose the type of thrall.</WVC_XaG_ThrallMakerNonThrallSelected>

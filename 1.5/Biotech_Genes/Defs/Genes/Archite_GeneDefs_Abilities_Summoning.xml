@@ -61,7 +61,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange>900000</spawnIntervalRange>
 			<summonRange>1~5</summonRange>
-			<summonQuest>WVC_MechanitorSummonLightMech</summonQuest>
+			<!-- <summonQuest>WVC_MechanitorSummonLightMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Light</li>
+			</allowedMechWeightClasses>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -89,7 +92,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange>900000</spawnIntervalRange>
 			<summonRange>1~2</summonRange>
-			<summonQuest>WVC_MechanitorSummonMediumMech</summonQuest>
+			<!-- <summonQuest>WVC_MechanitorSummonMediumMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Medium</li>
+			</allowedMechWeightClasses>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -117,7 +123,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange>900000</spawnIntervalRange>
 			<summonRange>1</summonRange>
-			<summonQuest>WVC_MechanitorSummonHeavyMech</summonQuest>
+			<!-- <summonQuest>WVC_MechanitorSummonHeavyMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Heavy</li>
+			</allowedMechWeightClasses>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -139,7 +148,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange>1800000</spawnIntervalRange>
 			<summonRange>1</summonRange>
-			<summonQuest>WVC_MechanitorSummonUltraHeavyMech</summonQuest>
+			<!-- <summonQuest>WVC_MechanitorSummonUltraHeavyMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>UltraHeavy</li>
+			</allowedMechWeightClasses>
 		</li>
 	</modExtensions>
   </GeneDef>

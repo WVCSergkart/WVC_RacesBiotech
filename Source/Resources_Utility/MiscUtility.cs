@@ -145,16 +145,17 @@ namespace WVC_XenotypesAndGenes
 			pawn?.jobs?.jobQueue?.RemoveAll(pawn, (Job j) => j.def == JobDefOf.Ingest || (finalize && j.GetCachedDriverDirect is IJobCustomEater eater && eater.ShouldFinalize));
         }
 
-        public static void SummonDropPod(Map map, List<Thing> list)
+        public static bool TrySummonDropPod(Map map, List<Thing> list)
 		{
 			if (map == null || map.IsUnderground())
 			{
-				return;
+				return false;
 			}
 			ActiveDropPodInfo activeDropPodInfo = new();
 			activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
 			IntVec3 cell = DropCellFinder.TradeDropSpot(map);
             DropPodUtility.MakeDropPodAt(cell, map, activeDropPodInfo);
+			return true;
 		}
 
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)

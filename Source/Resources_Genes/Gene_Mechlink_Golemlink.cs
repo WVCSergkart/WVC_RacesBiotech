@@ -109,58 +109,71 @@ namespace WVC_XenotypesAndGenes
 			}
 			string phase = "";
 			try
-			{
-				phase = "start";
-				int countSpawn = WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
-				float possibleConsumption = 1;
-				phase = "get total golembond";
-				float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
-				phase = "get consumed golembond";
-				float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
-				phase = "get all controlled golems";
-				List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
-				if (currentGolems.NullOrEmpty())
-				{
-					currentGolems = new();
+            {
+                phase = "start";
+                int countSpawn = WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
+                //float possibleConsumption = 1;
+                phase = "get total golembond";
+                float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
+                phase = "get consumed golembond";
+                float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
+                phase = "get all controlled golems";
+                List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
+                if (currentGolems.NullOrEmpty())
+                {
+                    currentGolems = new();
+                }
+                bool summonInsteadAnimation = false;
+				int countSummon = 0;
+                //List<Thing> summonList = new();
+                phase = "start spawn";
+                for (int i = 0; i < countSpawn; i++)
+                {
+                    Thing chunk = GetBestStoneChunk(pawn, false);
+                    phase = "choose method";
+                    if (ignoreChunks || chunk == null)
+                    {
+                        summonInsteadAnimation = true;
+						countSummon = countSpawn - i;
+						break;
+                        //if (currentLimit < currentConsumption + possibleConsumption)
+                        //{
+                        //	break;
+                        //}
+                        //phase = "create golem";
+                        //MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+                        //if (i == 0)
+                        //{
+                        //	Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+                        //}
+                        //possibleConsumption++;
+                    }
+                    else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
+                    {
+                        phase = "try animate golem";
+                        if (TryCreateGolemFromThing(chunk, newGolem, pawn))
+                        {
+                            currentConsumption += golemConsumtion;
+                            currentGolems.Add(newGolem);
+                        }
+                    }
+                }
+                if (!summonInsteadAnimation)
+                {
+                    return;
 				}
-				//List<Thing> summonList = new();
-				phase = "start spawn";
-				for (int i = 0; i < countSpawn; i++)
+				phase = "summon random golem";
+				countSummon = Mathf.Clamp(countSummon, 0, (int)(currentLimit - currentConsumption));
+                if (countSummon <= 0)
+                {
+                    return;
+                }
+                if (MechanoidsUtility.TrySummonMechanoids(pawn, countSummon, golemsForSummon, out List<Thing> summonList))
 				{
-					Thing chunk = GetBestStoneChunk(pawn, false);
-					phase = "choose method";
-					if (ignoreChunks || chunk == null)
-					{
-						phase = "summon random golem";
-						if (currentLimit < currentConsumption + possibleConsumption)
-						{
-							break;
-						}
-						phase = "create golem";
-						MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-						if (i == 0)
-						{
-							Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
-						}
-						possibleConsumption++;
-					}
-					else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
-					{
-						phase = "try animate golem";
-						if (TryCreateGolemFromThing(chunk, newGolem, pawn))
-						{
-							currentConsumption += golemConsumtion;
-							currentGolems.Add(newGolem);
-						}
-					}
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 				}
-				//phase = "try summon golems";
-				//if (!golemsForSummon.NullOrEmpty())
-				//{
-				//	MiscUtility.SummonDropPod(pawn.Map, summonList);
-				//}
-			}
-			catch (Exception arg)
+            }
+            catch (Exception arg)
 			{
 				summonMechanoids = false;
 				Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");

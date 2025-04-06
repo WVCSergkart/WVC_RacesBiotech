@@ -324,7 +324,10 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<summonQuest>WVC_MechanitorSummonLightMech</summonQuest>
+			<!-- <summonQuest>WVC_MechanitorSummonLightMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Light</li>
+			</allowedMechWeightClasses>
 		</li>
 	</modExtensions>
   </GeneDef>
