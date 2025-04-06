@@ -65,6 +65,7 @@
 	<label>natural mechlink</label> 
 	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
 	<statOffsets>
+	  <WVC_GolemBond>4</WVC_GolemBond>
 	  <MechBandwidth>-4</MechBandwidth>
 	  <MechControlGroups>-1</MechControlGroups>
 	</statOffsets>

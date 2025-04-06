@@ -35,6 +35,7 @@
 	<WVC_XaG_MechanoidSummon_Label>New mechanoids</WVC_XaG_MechanoidSummon_Label>
 	<WVC_XaG_MechanoidSummon_Letter>A {0} has dropped from orbit and is placing itself under the control of {1_nameDef}.</WVC_XaG_MechanoidSummon_Letter>
 	<!-- \n\nIt seems to have been attached to {1_possessive} mechlink and is eager to serve its purpose once again. -->
+	<WVC_XaG_OrbitalSummon>Orbital summon</WVC_XaG_OrbitalSummon>
 
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 

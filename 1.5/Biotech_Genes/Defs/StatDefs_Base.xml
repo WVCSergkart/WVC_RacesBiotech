@@ -47,7 +47,7 @@
   <StatDef ParentName="MechStatBase">
 	<defName>WVC_GolemBondCost</defName>
 	<label>golembond cost</label>
-	<description>How much golembond the mechanite swarm in this golem requires to maintain.</description>
+	<description>How much golembond is required to maintain this golemnoid.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<minValue>0</minValue>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>

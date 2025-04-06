@@ -65,10 +65,6 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetSummonInterval()
 		{
-			if (Spawner == null)
-			{
-				return;
-			}
 			timeForNextSummon = WVC_Biotech.settings.falselink_spawnIntervalRange.RandomInRange;
 		}
 

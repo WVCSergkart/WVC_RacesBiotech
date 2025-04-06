@@ -113,6 +113,8 @@ namespace WVC_XenotypesAndGenes
 						stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
 					}
 					stringBuilder.AppendLine();
+					stringBuilder.AppendLine("WVC_XaG_OrbitalSummon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + CanBeSummoned.ToStringYesNo());
+					stringBuilder.AppendLine();
 					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
 					cachedDescription = stringBuilder.ToString();
 				}
