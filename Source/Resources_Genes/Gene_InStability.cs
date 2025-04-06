@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 			base.Notify_PawnDied(dinfo, culprit);
 			if (ModsConfig.AnomalyActive && !pawn.IsMutant && MutantDefOf.Ghoul.allowedDevelopmentalStages == pawn.DevelopmentalStage)
 			{
-				if (GeneResourceUtility.TryResurrectWithSickness(pawn, null, true, 0.92f))
+				if (GeneResourceUtility.TryResurrectWithSickness(pawn, true, 0.92f))
 				{
 					MutantUtility.SetPawnAsMutantInstantly(pawn, MutantDefOf.Ghoul);
 					if (pawn.Map != null)

@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 		private void MakeThrall(ThrallDef thrallDef, Pawn innerPawn)
         {
             MutantDef mutantDef = thrallDef?.mutantDef;
-            GeneResourceUtility.TryResurrectWithSickness(innerPawn, null, false, 0.8f);
+            GeneResourceUtility.TryResurrectWithSickness(innerPawn, false, 0.8f);
             SetStory(innerPawn);
             ReimplantGenes(thrallDef, innerPawn);
             if (ModsConfig.AnomalyActive && mutantDef != null)

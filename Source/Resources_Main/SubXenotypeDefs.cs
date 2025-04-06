@@ -48,11 +48,6 @@ namespace WVC_XenotypesAndGenes
 		public float order = 0f;
 
 		private bool? isWorkGolemnoid;
-
-		private string cachedDescription;
-
-		private float? cachedGolembondCost;
-
 		public bool Worker
 		{
 			get
@@ -65,6 +60,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private float? cachedGolembondCost;
 		public float GolembondCost
 		{
 			get
@@ -77,6 +73,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private string cachedDescription;
 		public string Description
 		{
 			get

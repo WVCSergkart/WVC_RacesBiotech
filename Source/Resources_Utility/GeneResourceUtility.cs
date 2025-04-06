@@ -452,7 +452,7 @@ namespace WVC_XenotypesAndGenes
 				DuplicateUtility.NullifySkills(pawn);
 			}
 			// Undead Resurrect
-			if (!TryResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected, true, 0.77f))
+			if (!TryResurrectWithSickness(pawn, true, 0.77f))
 			{
 				return;
 			}
@@ -485,7 +485,7 @@ namespace WVC_XenotypesAndGenes
 			innerPawn.health.AddHediff(cooldownHediff);
 		}
 
-		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null, bool resurrectionSickness = true, float scarsChance = 0.2f)
+		public static bool TryResurrectWithSickness(Pawn pawn, bool resurrectionSickness = true, float scarsChance = 0.2f)
 		{
 			ResurrectionParams resurrectionParams = new();
 			resurrectionParams.restoreMissingParts = true;
@@ -502,10 +502,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				}
-				if (resurrectThought != null)
-				{
-					pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
-				}
+				//if (resurrectThought != null)
+				//{
+				//	pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
+				//}
 				return true;
 			}
 			else
@@ -515,9 +515,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
+		public static void ResurrectWithSickness(Pawn pawn)
 		{
-			TryResurrectWithSickness(pawn, resurrectThought);
+			TryResurrectWithSickness(pawn);
 		}
 
 		// Resource

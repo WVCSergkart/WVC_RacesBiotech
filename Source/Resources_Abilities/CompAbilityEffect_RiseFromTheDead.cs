@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-			GeneResourceUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
+			GeneResourceUtility.ResurrectWithSickness(innerPawn);
 			//if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
 			//{
 			//	RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
@@ -26,14 +26,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			if (Props.resurrectedThoughtDef != null)
-			{
-				innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.resurrectedThoughtDef, parent.pawn);
-			}
-			if (Props.resurrectorThoughtDef != null)
-			{
-				parent.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.resurrectorThoughtDef, innerPawn);
-			}
+			//if (Props.resurrectedThoughtDef != null)
+			//{
+			//	innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.resurrectedThoughtDef, parent.pawn);
+			//}
+			//if (Props.resurrectorThoughtDef != null)
+			//{
+			//	parent.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.resurrectorThoughtDef, innerPawn);
+			//}
 			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
 			if (innerPawn != null)
