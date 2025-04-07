@@ -12,7 +12,7 @@
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>4</biostatMet>
 		<statFactors>
-		  <MaxNutrition>2.7777777777777777777777777777778</MaxNutrition>
+		  <MaxNutrition>2.78</MaxNutrition>
 		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.6</VEF_BodySize_Multiplier>
 		</statFactors>
 		<symbolPack>
