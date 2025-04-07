@@ -223,6 +223,8 @@
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Shadoweater>1</WVC_Shadoweater>
+			<WVC_Beholdkind>1</WVC_Beholdkind>
+			<WVC_Nociokin>1</WVC_Nociokin>
 		  </xenotypeChances>
 		  <context>PlayerStarter</context>
 		</li>
