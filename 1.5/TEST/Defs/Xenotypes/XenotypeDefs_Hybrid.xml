@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Hybrid -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
 	<defName>WVC_Hybrid</defName>
 	<label>hybrid</label>
 	<description>A unique variation of xenohuman that combines some genetic features of two xenotypes at the same time, but does not belong to either of them.</description>
@@ -13,6 +13,13 @@
 	<generateWithXenogermReplicatingHediffChance>0.11</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
 	<genes/>
+	<exceptedGenes>
+	  <li>WVC_Thrall</li>
+	  <li>WVC_DeadlyGeneticInstability</li>
+	  <!-- <li>WVC_NoLearning</li> -->
+	  <!-- <li>WVC_WoundHealing_NoHealing</li> -->
+	  <!-- <li>WVC_Immunity_Non</li> -->
+	</exceptedGenes>
 	<xenotypeDefs>
 	  <li>WVC_RogueFormer</li>
 	  <li>WVC_Featherdust</li>

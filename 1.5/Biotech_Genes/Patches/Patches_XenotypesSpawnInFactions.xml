@@ -77,6 +77,10 @@
 					<xpath>/Defs/PawnKindDef[@WVC_XaG_XenotypeRemoveTag="General"]</xpath>
 					<success>Always</success>
 				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="DevXenotypes"]</xpath>
+					<success>Always</success>
+				</li>
 
 				<!-- ============================ -->
 

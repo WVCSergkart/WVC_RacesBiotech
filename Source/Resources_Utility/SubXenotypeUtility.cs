@@ -39,31 +39,44 @@ namespace WVC_XenotypesAndGenes
 		{
 			XenotypeDef firstXenotype = xenotype.xenotypeDefs.RandomElement();
 			if (xenotype.xenotypeDefs.TryRandomElement((xenos) => xenos != firstXenotype && xenos.inheritable == firstXenotype.inheritable, out var result))
-			{
-				pawn.genes.Endogenes.RemoveAllGenes();
-				pawn.genes.Xenogenes.RemoveAllGenes();
-				AddGenes(pawn, firstXenotype.genes, firstXenotype.inheritable, new());
-				AddGenes(pawn, result.genes, firstXenotype.inheritable, new());
-                List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-				int limit = new IntRange(28, 35).RandomInRange;
-                if (genesListForReading.Count > limit)
-				{
-					genesListForReading.Shuffle();
-					for (int i = 0; i < genesListForReading.Count - limit; i++)
-					{
-						pawn.genes?.RemoveGene(genesListForReading[i]);
-					}
-				}
-				DuplicateUtility.RemoveAllGenes_Overridden(pawn);
-				ReimplanterUtility.PostImplantDebug(pawn);
-			}
-			else
+            {
+                SetHybridXenotype(pawn, xenotype, firstXenotype, result);
+            }
+            else
             {
 				ReimplanterUtility.SetXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement());
             }
 		}
 
-		public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
+        private static void SetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
+        {
+            pawn.genes.Endogenes.RemoveAllGenes();
+            pawn.genes.Xenogenes.RemoveAllGenes();
+            AddGenes(pawn, firstXenotype.genes, firstXenotype.inheritable, new());
+            AddGenes(pawn, secondXenotype.genes, firstXenotype.inheritable, new());
+			DuplicateUtility.RemoveAllGenes_Overridden(pawn);
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			foreach (Gene gene in genesListForReading.ToList())
+            {
+				if (devXenotypeDef.exceptedGenes.Contains(gene.def))
+                {
+					pawn.genes.RemoveGene(gene);
+                }
+            }
+            int limit = (int)(firstXenotype.genes.Count * 0.5f) + (int)(secondXenotype.genes.Count * 0.5f);
+            if (genesListForReading.Count > limit)
+            {
+                genesListForReading.Shuffle();
+                for (int i = 0; i < genesListForReading.Count - limit; i++)
+                {
+                    pawn.genes?.RemoveGene(genesListForReading[i]);
+                }
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
+        }
+
+        public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
 		{
 			if (xenotype.thrallDefs.Where((ThrallDef x) => x.mutantDef == null).TryRandomElementByWeight((ThrallDef x) => x.selectionWeight, out var result))
 			{

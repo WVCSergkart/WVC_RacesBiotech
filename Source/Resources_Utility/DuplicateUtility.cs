@@ -505,14 +505,14 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RemoveAllGenes_Overridden(Pawn pawn)
 		{
-			foreach (Gene gene in pawn.genes.GenesListForReading)
+			foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
 			{
 				if (gene.Overridden)
 				{
 					pawn.genes?.RemoveGene(gene);
 				}
 			}
-			foreach (Gene gene in pawn.genes.GenesListForReading)
+			foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
 			{
 				if (gene.def.prerequisite != null && !XaG_GeneUtility.HasGene(gene.def.prerequisite, pawn))
 				{

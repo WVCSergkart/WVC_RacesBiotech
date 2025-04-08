@@ -203,6 +203,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> guaranteedGenes;
 
+		public List<GeneDef> exceptedGenes;
+
 		public override void ResolveReferences()
         {
             if (genes == null)
@@ -234,6 +236,10 @@ namespace WVC_XenotypesAndGenes
 				//		xenotypeDefs.Remove(item);
 				//	}
 				//}
+				if (exceptedGenes == null)
+                {
+					exceptedGenes = new();
+				}
 				if (xenotypeDefs == null)
                 {
 					xenotypeDefs = new();
