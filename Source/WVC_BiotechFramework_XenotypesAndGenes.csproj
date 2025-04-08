@@ -100,8 +100,26 @@
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChimeraDeathMark.cs" />
-    <Compile Include="Resources_Main\GenesHolder.cs" />
+    <Compile Include="Resources_Holders\GeneDefOverrideSaver.cs" />
+    <Compile Include="Resources_Holders\GeneSetPresets.cs" />
+    <Compile Include="Resources_Holders\PawnContainerHolder.cs" />
+    <Compile Include="Resources_Holders\PawnGeneSetHolder.cs" />
+    <Compile Include="Resources_Holders\SaveableXenotypeHolder.cs" />
+    <Compile Include="Resources_Holders\ThrallHolder.cs" />
+    <Compile Include="Resources_Holders\XenotypeHolder.cs" />
+    <Compile Include="Resources_NewDefs\XenotypesAndGenesListDef.cs" />
+    <Compile Include="Resources_NewDefs\SettingsDef.cs" />
+    <Compile Include="Resources_NewDefs\ColorGeneTemplateDef.cs" />
+    <Compile Include="Resources_NewDefs\DevXenotypeDef.cs" />
+    <Compile Include="Resources_NewDefs\GauranlenGeneModeDef.cs" />
+    <Compile Include="Resources_Holders\GeneDefWithChance.cs" />
+    <Compile Include="Resources_NewDefs\GolemModeDef.cs" />
+    <Compile Include="Resources_Holders\MechanoidHolder.cs" />
+    <Compile Include="Resources_NewDefs\SkillsGeneTemplateDef.cs" />
+    <Compile Include="Resources_NewDefs\SpawnerGeneTemplateDef.cs" />
+    <Compile Include="Resources_NewDefs\ThrallDef.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
+    <Compile Include="Resources_NewDefs\XenotypeForcerGeneTemplateDef.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
@@ -216,7 +234,7 @@
     <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
-    <Compile Include="Resources_Main\SubXenotypeDefs.cs" />
+    <Compile Include="Resources_NewDefs\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
@@ -268,7 +286,7 @@
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources_Main\GeneTemplateDefs.cs" />
+    <Compile Include="Resources_NewDefs\DummyDryadTemplateDef.cs" />
     <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />
     <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
@@ -285,5 +303,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -309,4 +309,63 @@
 	<!-- </scenario> -->
   <!-- </ScenarioDef> -->
 
+  <!-- ========================================================= -->
+
+  <!-- <ScenarioDef> -->
+	<!-- <defName>WVC_HybridStart</defName> -->
+	<!-- <label>TEST HYBRID</label> -->
+	<!-- <description>TEST</description> -->
+	<!-- <scenario> -->
+	  <!-- <summary>TEST</summary> -->
+	  <!-- <playerFaction> -->
+		<!-- <def>PlayerFaction</def> -->
+		<!-- <factionDef>PlayerColony</factionDef> -->
+	  <!-- </playerFaction> -->
+	  <!-- <parts> -->
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>8</pawnCount> -->
+		  <!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <hybridXenotype>WVC_Hybrid</hybridXenotype> -->
+		  <!-- <hybridGenes> -->
+			<!-- <li>WVC_SwarmConnection_Golems</li> -->
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li> -->
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li> -->
+			<!-- <li>WVC_StoneSkin</li> -->
+			<!-- <li>WVC_SkinColor_Slate</li> -->
+		  <!-- </hybridGenes> -->
+		  <!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_GameStartDialog"> -->
+		  <!-- <def>GameStartDialog</def> -->
+		  <!-- <text>TEST</text> -->
+		  <!-- <closeSound>GameStartSting</closeSound> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_Naked"> -->
+			<!-- <def>Naked</def> -->
+			<!-- <chance>0.25</chance> -->
+			<!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PawnFilter_Age"> -->
+			<!-- <def>PawnFilter_Age</def> -->
+			<!-- <allowedAgeRange>16~21</allowedAgeRange> -->
+			<!-- <visible>false</visible> -->
+		<!-- </li> -->
+
+	  <!-- </parts> -->
+	<!-- </scenario> -->
+  <!-- </ScenarioDef> -->
+
 </Defs>

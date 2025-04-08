@@ -28,6 +28,8 @@ namespace WVC_XenotypesAndGenes
         public bool startingPawnsIsPregnant = false;
         //public bool newGamePlus = false;
         //public QuestScriptDef questScriptDef = null;
+        //public List<GeneDef> hybridGenes;
+        //public XenotypeDef hybridXenotype;
 
         //public override void ExposeData()
         //{
@@ -202,6 +204,15 @@ namespace WVC_XenotypesAndGenes
                 }
                 p.genes.AddGene(geneDef, xenogene: !p.genes.Xenotype.inheritable);
             }
+            //if (hybridGenes == null || hybridXenotype == null)
+            //{
+            //    return;
+            //}
+            //p.genes.SetXenotypeDirect(hybridXenotype);
+            //foreach (GeneDef geneDef in hybridGenes)
+            //{
+            //    p.genes.AddGene(geneDef, xenogene: !hybridXenotype.inheritable);
+            //}
         }
 
         private void NullifyBackstory(Pawn p)
