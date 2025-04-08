@@ -101,6 +101,10 @@
   <!-- Sanguophage -->
   <!-- Used -->
   <XenotypeIconDef>
+	<defName>WVC_Vampire1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Vampire_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
 	<defName>WVC_ElfVampire1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</texPath>
   </XenotypeIconDef>

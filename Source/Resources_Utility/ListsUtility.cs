@@ -180,11 +180,35 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<XenotypeDef> allDevXenotypeDefs = null;
+		public static List<XenotypeDef> GetDevXenotypeDefs()
+		{
+			if (allDevXenotypeDefs == null)
+			{
+				allDevXenotypeDefs = new();
+				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				{
+					if (item.devXenotypeDefs.NullOrEmpty())
+					{
+						continue;
+					}
+					allDevXenotypeDefs.AddRange(item.devXenotypeDefs);
+				}
+			}
+			return allDevXenotypeDefs;
+		}
+
+
 		public static List<XenotypeDef> GetAllXenotypesExceptAndroids()
 		{
 			List<XenotypeDef> list = new();
+			List<XenotypeDef> devXenotypes = GetDevXenotypeDefs();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
+				if (devXenotypes.Contains(item))
+                {
+					continue;
+                }
 				if (Current.ProgramState == ProgramState.Playing && item.Icon == null)
 				{
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");

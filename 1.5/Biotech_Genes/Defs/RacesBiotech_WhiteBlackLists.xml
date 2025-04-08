@@ -170,6 +170,13 @@
 		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
 		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
 	</ignoredGauranlenTreeModeDefs>
+	<!-- Xenotypes ignored by the mod's base filter.  -->
+	<!-- Used to filter out xenotypes that are not xenotypes in the standard sense. For example, Thralls. -->
+	<!-- Required any XenotypeDefs -->
+	<devXenotypeDefs>
+		<li>WVC_Thrall</li>
+		<li MayRequire="wvc.sergkart.test.tools">WVC_Hybrid</li>
+	</devXenotypeDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

@@ -512,6 +512,13 @@ namespace WVC_XenotypesAndGenes
 					pawn.genes?.RemoveGene(gene);
 				}
 			}
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene.def.prerequisite != null && !XaG_GeneUtility.HasGene(gene.def.prerequisite, pawn))
+				{
+					pawn.genes?.RemoveGene(gene);
+				}
+			}
 		}
 
 		public static void RemoveAllTraits(this List<Trait> traits)

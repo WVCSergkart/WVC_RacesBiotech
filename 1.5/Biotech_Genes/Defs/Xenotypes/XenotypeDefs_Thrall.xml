@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- thrall -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.ThralltypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
 	<defName>WVC_Thrall</defName>
 	<label>thrall</label>
 	<description>Thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.
@@ -19,6 +19,7 @@ The genetic make-up of thralls varies from thrall to thrall and is highly depend
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Thrall_x1c_v0</iconPath>
 	<generateWithXenogermReplicatingHediffChance>0.38</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
+	<isThrall>true</isThrall>
 	<thrallDefs>
 	  <li>WVC_Fielder</li>
 	  <li>WVC_Striker</li>

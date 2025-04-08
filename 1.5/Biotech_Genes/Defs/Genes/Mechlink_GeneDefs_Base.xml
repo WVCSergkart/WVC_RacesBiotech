@@ -16,12 +16,12 @@
 		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 	</customEffectDescriptions>
 	<marketValueFactor>1.8</marketValueFactor>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>meca</symbol></li>
@@ -41,6 +41,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks" Abstract="True">
 	<selectionWeight>0.002</selectionWeight>
+	<marketValueFactor>2</marketValueFactor>
 	<exclusionTags Inherit="False">
 	  <!-- <li>AbilityMechlink</li> -->
 	  <!-- <li>Mechlink</li> -->

@@ -6,7 +6,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_Mechfeeder</defName>
 	<label>mechfeeder</label>
-	<description>Carriers of this gene have small retractable fans and an organ on the roof of the mouth which can extract mechanites from active mechanoids. The extracted mechanites are slowly processed into hemogen, giving a temporary noticeable increase.</description>
+	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract mechanites from active mechanoids. The extracted mechanites are slowly processed into hemogen, giving a temporary noticeable increase.</description>
 	<iconPath>WVC/UI/Genes/Gene_Mechfeeder_v0</iconPath>
 	<abilities>
 	  <li>WVC_Mechfeed</li>
