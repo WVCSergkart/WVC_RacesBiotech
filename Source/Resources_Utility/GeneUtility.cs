@@ -812,53 +812,63 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// public static bool PawnIsBaseliner(Pawn pawn)
-		// {
-		// if (pawn.genes == null)
-		// {
-		// return true;
-		// }
-		// if (pawn.genes.CustomXenotype != null)
-		// {
-		// return false;
-		// }
-		// if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
-		// {
-		// return true;
-		// }
-		// return false;
-		// }
+        // public static bool PawnIsBaseliner(Pawn pawn)
+        // {
+        // if (pawn.genes == null)
+        // {
+        // return true;
+        // }
+        // if (pawn.genes.CustomXenotype != null)
+        // {
+        // return false;
+        // }
+        // if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+        // {
+        // return true;
+        // }
+        // return false;
+        // }
 
-		// ============================= Getter =============================
+        // ============================= Getter =============================
 
-		//[Obsolete]
-		//public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
-		//{
-  //          foreach (GeneDef geneDef in geneDefs)
-  //          {
-  //              if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
-  //              {
-  //                  return true;
-  //              }
-  //          }
-  //          return false;
-		//}
+        //[Obsolete]
+        //public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
+        //{
+        //          foreach (GeneDef geneDef in geneDefs)
+        //          {
+        //              if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
+        //              {
+        //                  return true;
+        //              }
+        //          }
+        //          return false;
+        //}
 
-		//[Obsolete]
-		//public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
-		//{
-		//	if (childGeneDef == parentGeneDef)
-		//	{
-		//		return true;
-		//	}
-		//	if (childGeneDef?.prerequisite != null)
-		//	{
-		//		return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
-		//	}
-		//	return false;
-		//}
+        //[Obsolete]
+        //public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
+        //{
+        //	if (childGeneDef == parentGeneDef)
+        //	{
+        //		return true;
+        //	}
+        //	if (childGeneDef?.prerequisite != null)
+        //	{
+        //		return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
+        //	}
+        //	return false;
+        //}
 
-		public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
+        public static bool GeneDefHasSubGenes_WithCount(GeneDef parentGeneDef, ref int deepness)
+        {
+            if (parentGeneDef?.prerequisite != null)
+			{
+				deepness++;
+				return GeneDefHasSubGenes_WithCount(parentGeneDef.prerequisite, ref deepness);
+            }
+            return false;
+        }
+
+        public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{
 			if (pawns.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
 			{

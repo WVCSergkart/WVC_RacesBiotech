@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />

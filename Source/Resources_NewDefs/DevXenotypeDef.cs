@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool isHybrid = false;
 
-		public XenotypeIconDef iconDef;
+		//public XenotypeIconDef iconDef;
 
 		public List<ThrallDef> thrallDefs = new();
 

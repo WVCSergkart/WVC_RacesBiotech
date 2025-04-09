@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompAbilityEffect_StorageImplanter : CompAbilityEffect
+    public class CompAbilityEffect_StorageImplanter : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
