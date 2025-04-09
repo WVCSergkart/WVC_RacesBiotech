@@ -35,45 +35,190 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public static Dictionary<XenotypeDef, XenotypeDef> failedCombos = new();
 		public static void SetHybridGenes(Pawn pawn, DevXenotypeDef xenotype)
 		{
-			XenotypeDef firstXenotype = xenotype.xenotypeDefs.RandomElement();
-			if (xenotype.xenotypeDefs.TryRandomElement((xenos) => xenos != firstXenotype && xenos.inheritable == firstXenotype.inheritable, out var result))
-            {
-                SetHybridXenotype(pawn, xenotype, firstXenotype, result);
-            }
-            else
-            {
-				ReimplanterUtility.SetXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement());
-            }
+			int cycleTry = 0;
+			while (cycleTry < 10)
+			{
+				XenotypeDef firstXenotype = xenotype.xenotypeDefs.RandomElement();
+				if (xenotype.xenotypeDefs.TryRandomElement((xenos) => xenos != firstXenotype && xenos.inheritable == firstXenotype.inheritable, out var result))
+				{
+					if (TrySetHybridXenotype(pawn, xenotype, firstXenotype, result))
+                    {
+						//string xenos = "";
+						//foreach (var item in failedCombos)
+						//{
+						//	xenos += item.Key + " ";
+						//	xenos += item.Value + " ";
+						//}
+						//Log.Error("Failed xenotyps: " + xenos);
+						return;
+                    }
+				}
+				cycleTry++;
+			}
+			ReimplanterUtility.SetXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement());
 		}
 
-        private static void SetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
+        private static bool TrySetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
         {
-            pawn.genes.Endogenes.RemoveAllGenes();
-            pawn.genes.Xenogenes.RemoveAllGenes();
-            AddGenes(pawn, firstXenotype.genes, firstXenotype.inheritable, new());
-            AddGenes(pawn, secondXenotype.genes, firstXenotype.inheritable, new());
-			DuplicateUtility.RemoveAllGenes_Overridden(pawn);
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			foreach (Gene gene in genesListForReading.ToList())
+            List<GeneDef> allNewGenes = SortHybridGenes(firstXenotype, secondXenotype);
+			XaG_GeneUtility.GetBiostatsFromList(allNewGenes, out _, out int met, out _);
+			if (met > 5 || met < -5)
+			{
+				//failedCombos[firstXenotype] = secondXenotype;
+				return false;
+			}
+			pawn.genes.Endogenes.RemoveAllGenes();
+			pawn.genes.Xenogenes.RemoveAllGenes();
+			AddGenes(pawn, allNewGenes, devXenotypeDef.inheritable, new());
+            //DuplicateUtility.RemoveAllGenes_Overridden(pawn);
+            List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+            foreach (Gene gene in genesListForReading.ToList())
             {
-				if (devXenotypeDef.exceptedGenes.Contains(gene.def))
+                if (devXenotypeDef.exceptedGenes.Contains(gene.def))
                 {
-					pawn.genes.RemoveGene(gene);
+                    pawn.genes.RemoveGene(gene);
                 }
             }
-            int limit = (int)(firstXenotype.genes.Count * 0.5f) + (int)(secondXenotype.genes.Count * 0.5f);
-            if (genesListForReading.Count > limit)
+			//int limit = (int)(firstXenotype.genes.Count * 0.5f) + (int)(secondXenotype.genes.Count * 0.5f);
+			//if (genesListForReading.Count > limit)
+			//{
+			//    genesListForReading.Shuffle();
+			//    for (int i = 0; i < genesListForReading.Count - limit; i++)
+			//    {
+			//        pawn.genes?.RemoveGene(genesListForReading[i]);
+			//    }
+			//}
+			pawn.genes.xenotypeName = firstXenotype.label.TrimmedToLength(3) + secondXenotype.label.TrimmedToLength(4);
+			pawn.genes.iconDef = devXenotypeDef.iconDef;
+            ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+            ReimplanterUtility.PostImplantDebug(pawn);
+			return true;
+		}
+
+        private static List<GeneDef> SortHybridGenes(XenotypeDef firstXenotype, XenotypeDef secondXenotype)
+        {
+            List<GeneDef> allNewGenes = new();
+			string phase = "start";
+            try
             {
-                genesListForReading.Shuffle();
-                for (int i = 0; i < genesListForReading.Count - limit; i++)
+                List<GeneDef> allSubGenes = new();
+				phase = "sort genes";
+				// sort genes
+				List<GeneDef> firstGenes = new();
+                foreach (GeneDef item in firstXenotype.genes)
                 {
-                    pawn.genes?.RemoveGene(genesListForReading[i]);
+                    if (item.prerequisite == null)
+                    {
+                        firstGenes.Add(item);
+                    }
+                    else
+                    {
+                        allSubGenes.Add(item);
+                    }
                 }
+                List<GeneDef> secondGenes = new();
+                foreach (GeneDef item in secondXenotype.genes)
+                {
+                    if (item.prerequisite == null)
+                    {
+                        secondGenes.Add(item);
+                    }
+                    else
+                    {
+                        allSubGenes.Add(item);
+                    }
+				}
+				phase = "add main genes";
+				// add genes
+				int firstGenesCount = firstGenes.Count / 2;
+                for (int i = 0; i < firstGenesCount; i++)
+                {
+                    if (!XaG_GeneUtility.ConflictWith(firstGenes[i], allNewGenes))
+                    {
+                        allNewGenes.Add(firstGenes[i]);
+                    }
+                }
+                int secondGenesCount = secondGenes.Count / 2;
+                for (int i = 0; i < secondGenesCount; i++)
+                {
+                    if (!XaG_GeneUtility.ConflictWith(secondGenes[i], allNewGenes))
+                    {
+                        allNewGenes.Add(secondGenes[i]);
+                    }
+				}
+				phase = "add sub genes";
+				// add sub-genes
+				int maxGenesCount = firstGenesCount + secondGenesCount;
+				phase = "add count all tries";
+				int tryReq = CountTryies(allSubGenes);
+				if (tryReq > 0)
+				{
+					phase = "add sub genes";
+					for (int i = 0; i < tryReq; i++)
+					{
+						AddSubGenes(allNewGenes, allSubGenes, maxGenesCount);
+					}
+				}
+            }
+            catch (Exception arg)
+            {
+				Log.Error("Failed create hybrid. On phase: " + phase + " Reason: " + arg);
+            }
+            return allNewGenes;
+        }
+
+        private static int CountTryies(List<GeneDef> allSubGenes)
+        {
+            int tryReq = 1;
+            foreach (GeneDef subGene in allSubGenes)
+            {
+                if (subGene.prerequisite?.prerequisite != null)
+                {
+                    tryReq++;
+                }
+            }
+            return tryReq;
+        }
+
+        private static void AddSubGenes(List<GeneDef> allNewGenes, List<GeneDef> allSubGenes, int maxGenesCount)
+		{
+            int maxGenes = maxGenesCount - allNewGenes.Count;
+			if (maxGenes < 1)
+            {
+				return;
+            }
+			int breaker = 0;
+   //         for (int i = 0; i < maxGenes; i++)
+			//{
+			//	if (breaker > maxGenesCount)
+			//	{
+			//		break;
+			//	}
+			//	breaker++;
+			//	if (!XaG_GeneUtility.ConflictWith(allSubGenes[i], allNewGenes) && allNewGenes.Contains(allSubGenes[i].prerequisite))
+			//	{
+			//		allNewGenes.Add(allSubGenes[i]);
+			//	}
+			//	else
+   //             {
+			//		maxGenes++;
+			//	}
+			//}
+            foreach (GeneDef item in allSubGenes)
+            {
+                if (!XaG_GeneUtility.ConflictWith(item, allNewGenes) && allNewGenes.Contains(item.prerequisite))
+                {
+                    allNewGenes.Add(item);
+                }
+				if (breaker > maxGenes)
+                {
+					break;
+                }
+				breaker++;
 			}
-			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-			ReimplanterUtility.PostImplantDebug(pawn);
         }
 
         public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)

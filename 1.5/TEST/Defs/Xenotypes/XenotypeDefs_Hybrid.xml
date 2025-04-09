@@ -12,6 +12,7 @@
 	<factionlessGenerationWeight>0.0001</factionlessGenerationWeight>
 	<generateWithXenogermReplicatingHediffChance>0.11</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
+	<iconDef>WVC_Vampire1c</iconDef>
 	<genes/>
 	<exceptedGenes>
 	  <li>WVC_Thrall</li>
@@ -28,7 +29,9 @@
 	  <li>WVC_GeneThrower</li>
 	  <li>WVC_Bloodeater</li>
 	  <li>WVC_Sandycat</li>
-	  <li>WVC_Shadoweater</li>
+	  <!-- <li>WVC_Meca</li> -->
+	  <!-- <li>WVC_CatDeity</li> -->
+	  <!-- <li>WVC_Shadoweater</li> -->
 	  <!-- <li>WVC_Ashen</li> -->
 	</xenotypeDefs>
   </XenotypeDef>

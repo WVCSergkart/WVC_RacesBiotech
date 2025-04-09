@@ -250,6 +250,54 @@
 
   <!-- ========================================================= -->
 
+  <ScenarioDef>
+	<defName>WVC_XaG_Test_Hybrid</defName>
+	<label>TEST HYBRID</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Hybrid>1</WVC_Hybrid>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
   <!-- <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"> -->
 	<!-- <defName>WVC_LongNight</defName> -->
 	<!-- <label>Long night</label> -->
