@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			nextTick = 150000;
+			nextTick = 300000;
 		}
 
 		public override void Tick()
@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 			//	HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 600);
 			//}
 			//new IntRange(60000, 150000).RandomInRange
-			if (GeneResourceUtility.CanTick(ref nextTick, 150000))
+			if (GeneResourceUtility.CanTick(ref nextTick, 300000))
 			{
 				TryGiveMutation();
 			}
@@ -45,9 +45,8 @@ namespace WVC_XenotypesAndGenes
 				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 				{
 					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-					return;
 				}
-				if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+				else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
 				{
 					hediffWithComps_FleshmassHeart.LevelUp();
 					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -113,30 +112,34 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		{
-			if (!Active)
-			{
-				return;
+        {
+            if (!Active)
+            {
+                return;
+            }
+            Corpse corpse = pawn.Corpse;
+            if (corpse == null)
+            {
+                return;
+            }
+            Map mapHeld = corpse.MapHeld;
+			IntVec3 positionHeld = corpse.PositionHeld;
+			corpse.Destroy();
+			if (!ModsConfig.AnomalyActive || mapHeld == null)
+            {
+                return;
 			}
-			if (ModsConfig.AnomalyActive && pawn.Corpse?.Map != null)
-			{
-				if (GenDrop.TryDropSpawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.FleshmassNucleus, Faction.OfEntities)), pawn.Corpse.PositionHeld, pawn.Corpse.MapHeld, ThingPlaceMode.Near, out var resultingThing))
-				{
-					CompActivity activity = resultingThing.TryGetComp<CompActivity>();
-					if (activity != null)
-					{
-						activity.AdjustActivity(1f);
-					}
-					//if (!pawn.Corpse.Destroyed)
-					//{
-					//	EffecterDefOf.MeatExplosion.Spawn(pawn.Corpse.PositionHeld, pawn.Corpse.MapHeld).Cleanup();
-					//	pawn.Corpse.Destroy();
-					//}
-				}
-			}
-		}
+			if (GenDrop.TryDropSpawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.FleshmassNucleus, Faction.OfEntities)), positionHeld, mapHeld, ThingPlaceMode.Near, out var resultingThing))
+            {
+                CompActivity activity = resultingThing.TryGetComp<CompActivity>();
+                if (activity != null)
+                {
+                    activity.AdjustActivity(1f);
+                }
+            }
+        }
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{

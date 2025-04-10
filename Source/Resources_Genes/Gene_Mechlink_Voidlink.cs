@@ -43,20 +43,28 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		{
-			base.Notify_PawnDied(dinfo, culprit);
-			if (!Active)
+        {
+            base.Notify_PawnDied(dinfo, culprit);
+            if (!Active)
+            {
+                return;
+			}
+			Corpse corpse = pawn.Corpse;
+			if (corpse == null)
 			{
 				return;
 			}
-			if (ModsConfig.AnomalyActive && pawn.Corpse?.Map != null)
-			{
-				MiscUtility.DoSkipEffects(pawn.Corpse.Position, pawn.Corpse.Map);
-				pawn.Corpse.Destroy();
-			}
-		}
+			Map mapHeld = corpse.MapHeld;
+            IntVec3 positionHeld = corpse.PositionHeld;
+            corpse.Destroy();
+            if (!ModsConfig.AnomalyActive || mapHeld == null)
+            {
+                return;
+            }
+            MiscUtility.DoSkipEffects(positionHeld, mapHeld);
+        }
 
-		public void Notify_PawnKilled()
+        public void Notify_PawnKilled()
 		{
 			KillMechs();
 			//StaticCollectionsClass.voidLinkNewGamePlusPawn = pawn;
