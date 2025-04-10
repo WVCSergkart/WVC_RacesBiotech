@@ -68,6 +68,8 @@
 
 	<WVC_Reset>Reset</WVC_Reset>
 
+	<WVC_XaG_FleshmassNucleusOvergrow>Next fleshmass overgrow in</WVC_XaG_FleshmassNucleusOvergrow>
+
 	<WVC_EyesColor>Eyes color</WVC_EyesColor>
 	<WVC_XaG_Message_EyesColor_Error>The pawn does not have the gene for recoloring eyes.</WVC_XaG_Message_EyesColor_Error>
 

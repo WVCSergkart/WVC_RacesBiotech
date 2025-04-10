@@ -11,17 +11,17 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : Gene
+	public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
-		private int nextTick = 60000;
+        private int nextTick = 60000;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			nextTick = 300000;
+			nextTick = new IntRange(100000, 300000).RandomInRange;
 		}
 
 		public override void Tick()
@@ -53,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
+					//hideInspectInfo = true;
 					TrySpawnMeat(pawn);
 				}
 			}
@@ -166,6 +167,17 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", 0);
+			//Scribe_Values.Look(ref hideInspectInfo, "hideInspectInfo", false);
+		}
+
+		//public bool hideInspectInfo = false;
+
+		public string GetInspectInfo
+		{
+			get
+			{
+				return "WVC_XaG_FleshmassNucleusOvergrow".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
 		}
 
 	}
