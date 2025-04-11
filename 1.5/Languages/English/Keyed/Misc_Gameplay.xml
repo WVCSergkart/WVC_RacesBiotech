@@ -585,6 +585,14 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ChimeraDeathMarkAdded>Mark added to target.</WVC_XaG_ChimeraDeathMarkAdded>
 
+	<!-- =============== HYBRID IMPLANTER =============== -->
+
+	<WVC_XaG_Implanter_MissingGeneMessage>Gene implanter is missing.</WVC_XaG_Implanter_MissingGeneMessage>
+
+	<WVC_XaG_HybridImplanterFail>The implanter was unable to create a hybrid geneset. The target and caster's genetic metabolisms are incompatible.</WVC_XaG_HybridImplanterFail>
+
+	<WVC_XaG_HybridImplanter_Warning>After using the ability, half of the caster's genes will be lost. These genes are randomly selected relative to all the caster's genes and their number. This will also lead to the reimplantation of the current genes, which will lead to their reset.</WVC_XaG_HybridImplanter_Warning>
+
 	<!-- =============== STORAGE IMPLANTER =============== -->
 
 	<WVC_XaG_StorageImplanter_Apply>Store</WVC_XaG_StorageImplanter_Apply>

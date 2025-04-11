@@ -81,6 +81,10 @@
 					<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="DevXenotypes"]</xpath>
 					<success>Always</success>
 				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/AbilityDef[@WVC_XaG_XenotypeRemoveTag="DevXenotypes"]/comps/li[@Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter"]/xenotypeDef</xpath>
+					<success>Always</success>
+				</li>
 
 				<!-- ============================ -->
 

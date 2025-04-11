@@ -78,6 +78,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
+    <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />
     <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Archiver.cs" />
@@ -265,7 +266,7 @@
     <Compile Include="Resources_Genes\Gene_Clotting.cs" />
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilityReimplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Reimplanters.cs" />
     <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Utility\GestationUtility.cs" />

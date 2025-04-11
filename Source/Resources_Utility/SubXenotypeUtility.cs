@@ -62,8 +62,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
         public static bool TrySetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
-        {
-            return TrySetHybridXenotype(pawn, devXenotypeDef.genes, firstXenotype.genes, secondXenotype.genes, devXenotypeDef.inheritable, devXenotypeDef.exceptedGenes);
+		{
+			//pawn.genes.GetFirstGeneOfType<Gene_HybridImplanter>()?.SetXenotypes(firstXenotype, secondXenotype);
+			return TrySetHybridXenotype(pawn, devXenotypeDef.genes, firstXenotype.genes, secondXenotype.genes, devXenotypeDef.inheritable, devXenotypeDef.exceptedGenes);
 		}
 
 		public static bool TrySetHybridXenotype(Pawn caster, Pawn victim, Gene implanterGene, bool inheritable)

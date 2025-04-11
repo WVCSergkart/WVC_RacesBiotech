@@ -41,11 +41,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void TryGiveMutation()
 		{
-			if (!Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation))
-			{
-				return;
-			}
-			if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+			if (Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
 				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
@@ -106,15 +102,11 @@ namespace WVC_XenotypesAndGenes
             if (!Active)
             {
                 return;
-            }
-            Corpse corpse = pawn.Corpse;
-            if (corpse == null)
-            {
-                return;
-            }
-            Map mapHeld = corpse.MapHeld;
-			IntVec3 positionHeld = corpse.PositionHeld;
-			corpse.Destroy();
+			}
+			if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
+			{
+				return;
+			}
 			if (!ModsConfig.AnomalyActive || mapHeld == null)
             {
                 return;
@@ -127,9 +119,9 @@ namespace WVC_XenotypesAndGenes
                     activity.AdjustActivity(1f);
                 }
             }
-        }
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{

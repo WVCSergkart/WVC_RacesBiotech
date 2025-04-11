@@ -13,7 +13,9 @@
 	<generateWithXenogermReplicatingHediffChance>0.11</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
 	<!-- <iconDef>WVC_Vampire1c</iconDef> -->
-	<genes/>
+	<genes>
+	  <li>WVC_HybridImplanter</li>
+	</genes>
 	<exceptedGenes>
 	  <li>WVC_Thrall</li>
 	  <li>WVC_DeadlyGeneticInstability</li>

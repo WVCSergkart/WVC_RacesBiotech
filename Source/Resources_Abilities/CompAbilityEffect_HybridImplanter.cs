@@ -12,14 +12,14 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		[Unsaved(false)]
-		private Gene_StorageImplanter cachedGene;
-		public Gene_StorageImplanter Gene
+		private Gene_HybridImplanter cachedGene;
+		public Gene_HybridImplanter Gene
 		{
 			get
 			{
 				if (cachedGene == null || !cachedGene.Active)
 				{
-					cachedGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_StorageImplanter>();
+					cachedGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_HybridImplanter>();
 				}
 				return cachedGene;
 			}
@@ -32,11 +32,13 @@ namespace WVC_XenotypesAndGenes
 			if (victim != null)
 			{
                 Pawn caster = parent.pawn;
-                if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, Gene, !caster.genes.IsXenogene(Gene)))
+                if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, Gene, Gene.IsEndogene))
 				{
+					ReimplanterUtility.SetXenotypeDirect(null, caster, Props.xenotypeDef);
 					ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
 					ReimplanterUtility.ExtractXenogerm(victim);
-					ReimplanterUtility.FleckAndLetter(caster, victim);
+					ReimplanterUtility.FleckAndLetter(victim, caster);
+					//Gene.SetXenotypes(caster.genes.Xenotype, victim.genes.Xenotype);
 				}
 				else
                 {
@@ -47,12 +49,24 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
+			if (Gene == null)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_XaG_Implanter_MissingGeneMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
 			return ReimplanterUtility.ImplanterValidation(parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
 		}
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
 		{
-			return null;
+			if (GeneUtility.PawnWouldDieFromReimplanting(target.Pawn))
+			{
+				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(target.Pawn.Named("PAWN")) + "\n\n" + "WVC_XaG_HybridImplanter_Warning".Translate(parent.pawn), confirmAction, destructive: true);
+			}
+			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_HybridImplanter_Warning".Translate(parent.pawn), confirmAction, destructive: true);
 		}
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)

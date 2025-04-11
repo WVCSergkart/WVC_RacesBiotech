@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_HybridImplanter</defName>
+	<label>hybrid implanter</label>
+	<description>Carriers of this gene can copy part of the genetic information of another person through a somewhat gross-looking injector organ, and combine it with part of their own genetic information, thus creating a hybrid.</description>
+	<iconPath>WVC/UI/Genes/Gene_HybridImplanter_v0</iconPath>
+	<!-- <displayCategory>WVC_Energy</displayCategory> -->
+	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
+	<selectionWeight>0.00125</selectionWeight>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HybridImplanter</geneClass>
+	<abilities>
+	  <li>WVC_HybridImplanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_HybridImplanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Copies&lt;/color&gt; part of the &lt;color=#8a8ae6&gt;target's genes&lt;/color&gt; and combines them with part of the &lt;color=#8a8ae6&gt;carrier's genes&lt;/color&gt;.</li>
+		<li>Genes are chosen randomly, but for each geneset they are &lt;color=#8a8ae6&gt;predetermined in advance&lt;/color&gt;.</li>
+		<li>If the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; does not fit into the limit between &lt;color=#8a8ae6&gt;-5 and +5&lt;/color&gt;, then the hybridization will fail.</li>
+		<li>Regardless of the result, the ability will go on a 5 day cooldown.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
+	<defName>WVC_HybridImplanter</defName>
+	<label>hybrid implanter</label>
+	<iconPath>WVC/UI/Genes/Gene_HybridImplanter_v0</iconPath>
+	<cooldownTicksRange>300000</cooldownTicksRange>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HybridImplanter</compClass>
+		<xenotypeDef>WVC_Hybrid</xenotypeDef>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

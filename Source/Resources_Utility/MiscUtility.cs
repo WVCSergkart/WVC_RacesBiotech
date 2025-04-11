@@ -16,6 +16,21 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool TryGetAndDestroyCorpse_WithPosition(Pawn pawn, out Map mapHeld, out IntVec3 positionHeld)
+		{
+			mapHeld = null;
+			positionHeld = default;
+			Corpse corpse = pawn.Corpse;
+			if (corpse == null)
+			{
+				return false;
+			}
+			mapHeld = corpse.MapHeld;
+			positionHeld = corpse.PositionHeld;
+			corpse.Destroy();
+			return true;
+		}
+
 		public static void Notify_DebugPawn(Pawn pawn)
 		{
 			//PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);

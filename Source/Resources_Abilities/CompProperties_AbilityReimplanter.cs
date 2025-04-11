@@ -25,6 +25,8 @@ namespace WVC_XenotypesAndGenes
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 
+		public XenotypeDef xenotypeDef;
+
 		public CompProperties_AbilityReimplanter()
 		{
 			compClass = typeof(CompAbilityEffect_Reimplanter);

@@ -49,15 +49,11 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
 			}
-			Corpse corpse = pawn.Corpse;
-			if (corpse == null)
+			if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
 			{
 				return;
 			}
-			Map mapHeld = corpse.MapHeld;
-            IntVec3 positionHeld = corpse.PositionHeld;
-            corpse.Destroy();
-            if (!ModsConfig.AnomalyActive || mapHeld == null)
+            if (mapHeld == null)
             {
                 return;
             }
