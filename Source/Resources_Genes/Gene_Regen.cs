@@ -73,6 +73,10 @@ namespace WVC_XenotypesAndGenes
 
         public void GiveRepairJob(Pawn selPawn)
         {
+			if (selPawn == null)
+            {
+				return;
+            }
             Job job = JobMaker.MakeJob(Props.repairJobDef, pawn);
             selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
@@ -126,28 +130,34 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Tick()
-		{
-			if (!pawn.IsHashIntervalTick(1626))
-			{
-				return;
-			}
-			if (pawn.Drafted)
-			{
-				return;
-			}
-			if (pawn.Map != null && pawn.mechanitor != null && (pawn.Downed || !pawn.Awake()) && pawn.health.summaryHealth.SummaryHealthPercent < 1f)
-			{
-				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
-				if (!mechs.NullOrEmpty())
-				{
-					GiveRepairJob(mechs.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).RandomElement());
-				}
-				return;
-			}
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 1626, RegenerateEyes);
-		}
+        {
+            if (!pawn.IsHashIntervalTick(1626))
+            {
+                return;
+            }
+            if (pawn.Drafted)
+            {
+                return;
+            }
+            if (pawn.Map == null || !pawn.Downed && pawn.Awake())
+            {
+                HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 1626, RegenerateEyes);
+            }
+            else
+            {
+                if (pawn.mechanitor == null || pawn.health.summaryHealth.SummaryHealthPercent >= 1f)
+                {
+                    return;
+                }
+                List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
+                if (!mechs.NullOrEmpty() && mechs.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).TryRandomElement(out Pawn mech))
+                {
+                    GiveRepairJob(mech);
+                }
+            }
+        }
 
-	}
+    }
 
 	// Health
 	public class Gene_HealingStomach : Gene

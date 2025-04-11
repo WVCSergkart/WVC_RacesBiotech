@@ -173,17 +173,17 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (pawn.mechanitor == null)
+				if (!summonMechanoids)
 				{
 					return null;
 				}
-				if (summonMechanoids)
-				{
-					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
-				}
-				return null;
-			}
-		}
+				if (pawn.mechanitor == null)
+                {
+                    return null;
+                }
+                return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+            }
+        }
 
 	}
 

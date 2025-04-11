@@ -21,17 +21,18 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			nextTick = new IntRange(100000, 300000).RandomInRange;
+			if (Current.ProgramState != ProgramState.Playing || pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
+			{
+				nextTick = new IntRange(100000, 300000).RandomInRange;
+			}
+			else
+			{
+				nextTick = 300000;
+			}
 		}
 
 		public override void Tick()
 		{
-			// base.Tick();
-			//if (pawn.IsHashIntervalTick(600))
-			//{
-			//	HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 600);
-			//}
-			//new IntRange(60000, 150000).RandomInRange
 			if (GeneResourceUtility.CanTick(ref nextTick, 300000))
 			{
 				TryGiveMutation();
@@ -40,47 +41,35 @@ namespace WVC_XenotypesAndGenes
 
 		private void TryGiveMutation()
 		{
-			if (Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation))
+			if (!Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation))
 			{
-				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
-				{
-					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				}
-				else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
-				{
-					hediffWithComps_FleshmassHeart.LevelUp();
-					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				}
-				else
-				{
-					//hideInspectInfo = true;
-					TrySpawnMeat(pawn);
-				}
+				return;
 			}
-			//Evolve();
+			if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+			{
+				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
+				{
+					return;
+				}
+				Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+			else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+			{
+				hediffWithComps_FleshmassHeart.LevelUp();
+				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
+				{
+					return;
+				}
+				Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+			else
+			{
+				//hideInspectInfo = true;
+				TrySpawnMeat(pawn);
+			}
 		}
 
-		//private void Evolve()
-		//{
-		//	if (pawn.Faction != Faction.OfPlayer)
-		//	{
-		//		return;
-		//	}
-		//	if (!Rand.Chance(0.2f))
-		//	{
-		//		return;
-		//	}
-		//	if (StaticCollectionsClass.cachedColonistsCount > 1)
-		//	{
-		//		return;
-		//	}
-		//	if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef != def && geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
-		//	{
-		//		XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
-		//	}
-		//}
-
-		private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
+        private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
 		{
 			hediffWithComps_FleshmassHeart = null;
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < WVC_Biotech.settings.fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
