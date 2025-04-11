@@ -591,7 +591,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_HybridImplanterFail>The implanter was unable to create a hybrid geneset. The target and caster's genetic metabolisms are incompatible.</WVC_XaG_HybridImplanterFail>
 
-	<WVC_XaG_HybridImplanter_Warning>After using the ability, half of the caster's genes will be lost. These genes are randomly selected relative to all the caster's genes and their number. This will also lead to the reimplantation of the current genes, which will lead to their reset.</WVC_XaG_HybridImplanter_Warning>
+	<WVC_XaG_HybridImplanter_Warning>Warning! After using the ability, half of the caster's genes will be lost. These genes are randomly selected relative to all the caster's genes and their number. This will also lead to the reimplantation of the current genes, which will lead to their reset.</WVC_XaG_HybridImplanter_Warning>
 
 	<!-- =============== STORAGE IMPLANTER =============== -->
 

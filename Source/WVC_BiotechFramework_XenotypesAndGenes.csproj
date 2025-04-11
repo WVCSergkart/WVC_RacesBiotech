@@ -75,7 +75,7 @@
     <Compile Include="Obsolete_0\CompAbilityEffect_ReimplanterFromGeneReimplanter.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_RiseFromTheDead.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
