@@ -48,6 +48,7 @@ namespace WVC_XenotypesAndGenes
 					//harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "CheckForOverrides"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FixOverrides")));
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
+					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
 				}
 				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
 				{
@@ -452,6 +453,11 @@ namespace WVC_XenotypesAndGenes
 			}
 
 			public static void BasicXenogermDebug(Pawn pawn)
+			{
+				ReimplanterUtility.PostImplantDebug(pawn);
+			}
+
+			public static void BasicGenerateGenesDebug(Pawn pawn)
 			{
 				ReimplanterUtility.PostImplantDebug(pawn);
 			}
