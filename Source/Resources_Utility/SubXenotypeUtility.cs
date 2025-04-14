@@ -24,11 +24,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					SetThrallGenes(pawn, thrall);
 				}
-				else if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid)
-				{
-					SetHybridGenes(pawn, hybrid);
-				}
-			}
+                else if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid && hybrid.isRandom)
+                {
+                    SetHybridGenes(pawn, hybrid);
+                }
+            }
 			if (shapeShiftGene != null)
 			{
 				pawn.genes.RemoveGene(shapeShiftGene);
@@ -74,40 +74,42 @@ namespace WVC_XenotypesAndGenes
 
 		private static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> mainXenotypeGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
         {
-            List<GeneDef> allNewGenes = SortHybridGenes(firstXenotypeGenes, secondXenotypeGenes);
-            XaG_GeneUtility.GetBiostatsFromList(allNewGenes, out _, out int met, out _);
-            if (met > 5 || met < -5)
+            if (!TryGetHybridGenes(firstXenotypeGenes, secondXenotypeGenes, out List<GeneDef> allNewGenes, exceptedGenes))
             {
                 return false;
             }
             pawn.genes.Endogenes.RemoveAllGenes(mainXenotypeGenes);
             pawn.genes.Xenogenes.RemoveAllGenes(mainXenotypeGenes);
             AddGenes(pawn, allNewGenes, inheritable, new());
-            List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-            foreach (Gene gene in genesListForReading.ToList())
-            {
-                if (exceptedGenes.Contains(gene.def))
-                {
-                    pawn.genes.RemoveGene(gene);
-                }
-            }
+			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			//foreach (Gene gene in genesListForReading.ToList())
+			//{
+			//	if (exceptedGenes.Contains(gene.def))
+			//	{
+			//		pawn.genes.RemoveGene(gene);
+			//	}
+			//}
             ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
             ReimplanterUtility.PostImplantDebug(pawn);
             return true;
         }
 
-        private static List<GeneDef> SortHybridGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes)
+        public static bool TryGetHybridGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes)
         {
-            List<GeneDef> allNewGenes = new();
+            allNewGenes = new();
 			string phase = "start";
             try
             {
                 List<GeneDef> allSubGenes = new();
-				phase = "sort genes";
-				// sort genes
-				List<GeneDef> firstGenes = new();
+                phase = "sort genes";
+                // sort genes
+                List<GeneDef> firstGenes = new();
                 foreach (GeneDef item in firstXenotypeGenes)
                 {
+                    if (exceptedGenes.Contains(item))
+                    {
+                        continue;
+                    }
                     if (item.prerequisite == null)
                     {
                         firstGenes.Add(item);
@@ -120,6 +122,10 @@ namespace WVC_XenotypesAndGenes
                 List<GeneDef> secondGenes = new();
                 foreach (GeneDef item in secondXenotypeGenes)
                 {
+                    if (exceptedGenes.Contains(item))
+                    {
+                        continue;
+                    }
                     if (item.prerequisite == null)
                     {
                         secondGenes.Add(item);
@@ -128,10 +134,10 @@ namespace WVC_XenotypesAndGenes
                     {
                         allSubGenes.Add(item);
                     }
-				}
-				phase = "add main genes";
-				// add genes
-				int firstGenesCount = firstGenes.Count / 2;
+                }
+                phase = "add main genes";
+                // add genes
+                int firstGenesCount = firstGenes.Count / 2;
                 for (int i = 0; i < firstGenesCount; i++)
                 {
                     if (!XaG_GeneUtility.ConflictWith(firstGenes[i], allNewGenes))
@@ -146,26 +152,57 @@ namespace WVC_XenotypesAndGenes
                     {
                         allNewGenes.Add(secondGenes[i]);
                     }
-				}
-				phase = "add sub genes";
-				// add sub-genes
-				int maxGenesCount = firstGenesCount + secondGenesCount;
-				phase = "count all tries";
-				int tryReq = CountTries(allSubGenes);
-				if (tryReq > 0)
-				{
-					phase = "add sub genes";
-					for (int i = 0; i < tryReq; i++)
-					{
-						AddSubGenes(allNewGenes, allSubGenes, maxGenesCount);
-					}
-				}
+                }
+                phase = "add sub genes";
+                // add sub-genes
+                int maxGenesCount = firstGenesCount + secondGenesCount;
+                phase = "count all tries";
+                int tryReq = CountTries(allSubGenes);
+                if (tryReq > 0)
+                {
+                    phase = "add sub genes";
+                    for (int i = 0; i < tryReq; i++)
+                    {
+                        AddSubGenes(allNewGenes, allSubGenes, maxGenesCount);
+                    }
+                }
+                SetSkinAndHairGenes(firstXenotypeGenes, secondXenotypeGenes, allNewGenes);
+                XaG_GeneUtility.GetBiostatsFromList(allNewGenes, out _, out int met, out _);
+                if (met > 5 || met < -5)
+                {
+                    return false;
+                }
             }
             catch (Exception arg)
             {
 				Log.Error("Failed create hybrid. On phase: " + phase + " Reason: " + arg);
+				return false;
+			}
+			return !allNewGenes.NullOrEmpty();
+        }
+
+        private static void SetSkinAndHairGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, List<GeneDef> allNewGenes)
+		{
+			bool xenotypeHasSkinColor = false;
+			bool xenotypeHasHairColor = false;
+			foreach (GeneDef item in allNewGenes)
+			{
+				ReimplanterUtility.IsSkinOrHairGene(ref xenotypeHasSkinColor, ref xenotypeHasHairColor, item);
+			}
+			if (!xenotypeHasSkinColor)
+            {
+				List<GeneDef> allGenes = new();
+				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
+				allGenes.AddRange(secondXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
+				allNewGenes.Add(allGenes.First());
             }
-            return allNewGenes;
+            if (!xenotypeHasHairColor)
+			{
+				List<GeneDef> allGenes = new();
+				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsHairGeneDef(geneDef)));
+				allGenes.AddRange(secondXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsHairGeneDef(geneDef)));
+				allNewGenes.Add(allGenes.First());
+			}
         }
 
         private static int CountTries(List<GeneDef> allSubGenes)

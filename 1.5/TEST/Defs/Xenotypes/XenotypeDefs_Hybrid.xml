@@ -8,6 +8,8 @@
 	<description>A unique variation of xenohuman that combines some genetic features of two xenotypes at the same time, but does not belong to either of them.</description>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Vampire_v0</iconPath>
 	<isHybrid>true</isHybrid>
+	<isRandom>true</isRandom>
+	<!-- <devDisable>true</devDisable> -->
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0.0001</factionlessGenerationWeight>
 	<!-- <generateWithXenogermReplicatingHediffChance>0.11</generateWithXenogermReplicatingHediffChance> -->
@@ -24,18 +26,25 @@
 	  <!-- <li>WVC_Immunity_Non</li> -->
 	</exceptedGenes>
 	<xenotypeDefs>
-	  <li>WVC_RogueFormer</li>
-	  <li>WVC_Featherdust</li>
-	  <li>WVC_Undead</li>
-	  <li>WVC_RuneDryad</li>
 	  <li>WVC_GeneThrower</li>
+	  <li>WVC_RogueFormer</li>
+	  <li>WVC_Undead</li>
+	  <li>WVC_Featherdust</li>
+	  <li>WVC_RuneDryad</li>
 	  <li>WVC_Bloodeater</li>
 	  <li>WVC_Sandycat</li>
-	  <!-- <li>WVC_Meca</li> -->
+	  <li>WVC_Golemkind</li>
+	  <li>WVC_Meca</li>
+	  <li>WVC_Blank</li>
 	  <!-- <li>WVC_CatDeity</li> -->
 	  <!-- <li>WVC_Shadoweater</li> -->
 	  <!-- <li>WVC_Ashen</li> -->
 	</xenotypeDefs>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <defaultColor>(133, 202, 255)</defaultColor> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

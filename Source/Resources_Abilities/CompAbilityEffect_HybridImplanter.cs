@@ -34,7 +34,10 @@ namespace WVC_XenotypesAndGenes
                 Pawn caster = parent.pawn;
                 if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, Gene, Gene.IsEndogene))
 				{
-					ReimplanterUtility.SetXenotypeDirect(null, caster, Props.xenotypeDef);
+					if (Props.xenotypeDef != null && (caster.genes.Xenotype is not DevXenotypeDef hybrid || !hybrid.isHybrid))
+					{
+						ReimplanterUtility.SetXenotypeDirect(null, caster, Props.xenotypeDef);
+					}
 					ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
 					ReimplanterUtility.ExtractXenogerm(victim);
 					ReimplanterUtility.FleckAndLetter(victim, caster);

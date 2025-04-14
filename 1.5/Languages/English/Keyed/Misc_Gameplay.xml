@@ -277,6 +277,8 @@
 
 	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the type of thrall for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
 
+	<WVC_XaG_DevXenotypeDef_XenotypeDesc>A unique variation of super xenohuman that resulted from the hybridization of {0} and {1} xenotypes. This one has half the genetic diversity of both xenotypes, combining both strengths and weaknesses.</WVC_XaG_DevXenotypeDef_XenotypeDesc>
+
 	<!-- ============================ XENOGERMINATION ============================ -->
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>

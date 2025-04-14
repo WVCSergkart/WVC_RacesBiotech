@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -11,9 +12,15 @@ namespace WVC_XenotypesAndGenes
 
 		public bool isHybrid = false;
 
-		//public XenotypeIconDef iconDef;
+        public bool isRandom = false;
 
-		public List<ThrallDef> thrallDefs = new();
+        public bool devDisable = false;
+
+        public string xenotypeDesc = "WVC_XaG_DevXenotypeDef_XenotypeDesc";
+
+        //public XenotypeIconDef iconDef;
+
+        public List<ThrallDef> thrallDefs = new();
 
 		public List<XenotypeDef> xenotypeDefs;
 
@@ -23,17 +30,24 @@ namespace WVC_XenotypesAndGenes
 
 		public override void ResolveReferences()
         {
+            if (devDisable)
+            {
+                return;
+            }
             if (genes == null)
             {
                 genes = new();
             }
             GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
-			if (genes.Contains(geneticShifter))
-			{
-				genes.Remove(geneticShifter);
-			}
+            if (genes.Contains(geneticShifter))
+            {
+                genes.Remove(geneticShifter);
+            }
             Setup();
-			genes.Add(geneticShifter);
+            if (!isHybrid || isRandom)
+            {
+                genes.Add(geneticShifter);
+            }
 		}
 
         private void Setup()
@@ -44,45 +58,89 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (isHybrid)
             {
-				//List<XenotypeDef> devXenotypeDefs = ListsUtility.GetDevXenotypeDefs();
-				//foreach (XenotypeDef item in devXenotypeDefs)
-				//{
-				//	if (xenotypeDefs.Contains(item))
-				//	{
-				//		xenotypeDefs.Remove(item);
-				//	}
-				//}
-				if (exceptedGenes == null)
-                {
-					exceptedGenes = new();
-				}
-				if (xenotypeDefs == null)
-                {
-					xenotypeDefs = new();
-				}
-				foreach (XenotypeDef item in xenotypeDefs)
-				{
-					descriptionHyperlinks.Add(new DefHyperlink(item));
-				}
-			}
+                SetupHybrid();
+            }
             else if (isThrall)
             {
-                if (guaranteedGenes.NullOrEmpty())
-                {
-                    guaranteedGenes = genes;
-                }
-                foreach (GeneDef gene in guaranteedGenes)
-                {
-                    descriptionHyperlinks.Add(new DefHyperlink(gene));
-                }
-                foreach (ThrallDef thrallDef in DefDatabase<ThrallDef>.AllDefsListForReading)
-                {
-                    descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
-                }
-                inheritable = true;
-                doubleXenotypeChances = null;
+                SetupThrall();
             }
         }
+
+        private void SetupThrall()
+        {
+            if (guaranteedGenes.NullOrEmpty())
+            {
+                guaranteedGenes = genes;
+            }
+            foreach (GeneDef gene in guaranteedGenes)
+            {
+                descriptionHyperlinks.Add(new DefHyperlink(gene));
+            }
+            foreach (ThrallDef thrallDef in DefDatabase<ThrallDef>.AllDefsListForReading)
+            {
+                descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
+            }
+            inheritable = true;
+            doubleXenotypeChances = null;
+        }
+
+        private void SetupHybrid()
+        {
+            //List<XenotypeDef> devXenotypeDefs = ListsUtility.GetDevXenotypeDefs();
+            //foreach (XenotypeDef item in devXenotypeDefs)
+            //{
+            //	if (xenotypeDefs.Contains(item))
+            //	{
+            //		xenotypeDefs.Remove(item);
+            //	}
+            //}
+            if (exceptedGenes == null)
+            {
+                exceptedGenes = new();
+            }
+            if (xenotypeDefs == null)
+            {
+                Log.Warning(defName + " has no xenotypes in xenotypeDefs. Min xenotypeDefs is 2.");
+                xenotypeDefs = new();
+            }
+            foreach (XenotypeDef item in xenotypeDefs)
+            {
+                descriptionHyperlinks.Add(new DefHyperlink(item));
+            }
+            if (isRandom)
+            {
+                return;
+            }
+            if (xenotypeDefs.Count != 2)
+            {
+                Log.Warning(defName + " has more xenotypes than this type supports. Max xenotypeDefs is 2.");
+            }
+            XenotypeDef firstXenotypeDef = xenotypeDefs.First();
+            XenotypeDef secondXenotypeDef = xenotypeDefs.Last();
+            if (!SubXenotypeUtility.TryGetHybridGenes(firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes))
+            {
+                description = "ERROR. FAILED CREATE HYBRID XENOTYPE FROM: Undead and Duplicator. Before reporting a problem, please make sure it is not caused by third-party changes.";
+                Log.Error("Failed create hybrid from: " + firstXenotypeDef.defName + " and " + secondXenotypeDef.defName + ". Because their total metabolism is not compatible. Please set other xenotypes in xenotypeDefs.");
+                return;
+            }
+            if (!xenotypeDesc.NullOrEmpty())
+            {
+                description = xenotypeDesc.Translate(firstXenotypeDef.label, secondXenotypeDef.label);
+            }
+            label = firstXenotypeDef.label.TrimmedToLength(3) + secondXenotypeDef.label.Reverse().TrimmedToLength(4).Reverse();
+            foreach (GeneDef item in allNewGenes)
+            {
+                if (!genes.Contains(item))
+                {
+                    genes.Add(item);
+                }
+            }
+            foreach (GeneDef item in genes)
+            {
+                descriptionHyperlinks.Add(new DefHyperlink(item));
+            }
+        }
+
     }
 
 }

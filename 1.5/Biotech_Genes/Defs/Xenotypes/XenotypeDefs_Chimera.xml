@@ -8,7 +8,7 @@
 	<label>chimerkin</label>
 	<description>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogens at any time.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogenes at any time.</description>
 	<descriptionShort>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</iconPath>

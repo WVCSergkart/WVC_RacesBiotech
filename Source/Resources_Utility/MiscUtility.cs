@@ -16,6 +16,17 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static string Reverse(this string text)
+		{
+			char[] cArray = text.ToCharArray();
+			string reverse = "";
+			for (int i = cArray.Length - 1; i > -1; i--)
+			{
+				reverse += cArray[i];
+			}
+			return reverse;
+		}
+
 		public static bool TryGetAndDestroyCorpse_WithPosition(Pawn pawn, out Map mapHeld, out IntVec3 positionHeld)
 		{
 			mapHeld = null;

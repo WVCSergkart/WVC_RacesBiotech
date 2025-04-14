@@ -14,7 +14,7 @@
 		<li>Carrier can create a &lt;color=#8a8ae6&gt;copy&lt;/color&gt; of a &lt;color=#8a8ae6&gt;human&lt;/color&gt; target.</li>
 		<li>&lt;color=#8a8ae6&gt;Copy&lt;/color&gt; inherits the target's genes, backstory, and appearance.</li>
 		<li>Target can be any &lt;color=#8a8ae6&gt;human&lt;/color&gt;, including a &lt;color=#8a8ae6&gt;caster&lt;/color&gt;.</li>
-		<li>Ability has a 15-day cooldown.</li>
+		<li>Ability has a 15 days cooldown.</li>
 		<!-- <li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;This can have terrible side effects.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<abilities>

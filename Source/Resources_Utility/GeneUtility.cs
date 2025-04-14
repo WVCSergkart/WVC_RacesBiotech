@@ -198,6 +198,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Misc
+
+		public static bool IsHairGeneDef(GeneDef geneDef)
+		{
+			return geneDef.hairColorOverride != null;
+		}
+
+		public static bool IsSkinGeneDef(GeneDef geneDef)
+		{
+			return geneDef.skinColorBase != null || geneDef.skinColorOverride != null;
+		}
+
 		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, GeneDef geneDef, bool saveOldGeneSet = true)
 		{
 			//List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;

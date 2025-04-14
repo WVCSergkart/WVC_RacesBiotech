@@ -324,14 +324,19 @@ namespace WVC_XenotypesAndGenes
             xenotypeHasHairColor = false;
             foreach (Gene gene in recipientGenes.Endogenes)
             {
-                if (gene.def.skinColorBase != null || gene.def.skinColorOverride != null)
-                {
-                    xenotypeHasSkinColor = true;
-                }
-                if (gene.def.hairColorOverride != null)
-                {
-                    xenotypeHasHairColor = true;
-                }
+                IsSkinOrHairGene(ref xenotypeHasSkinColor, ref xenotypeHasHairColor, gene.def);
+            }
+        }
+
+        public static void IsSkinOrHairGene(ref bool xenotypeHasSkinColor, ref bool xenotypeHasHairColor, GeneDef geneDef)
+        {
+            if (XaG_GeneUtility.IsSkinGeneDef(geneDef))
+            {
+                xenotypeHasSkinColor = true;
+            }
+            if (XaG_GeneUtility.IsHairGeneDef(geneDef))
+            {
+                xenotypeHasHairColor = true;
             }
         }
 
