@@ -75,7 +75,7 @@
 	<minAgeActive>3</minAgeActive>
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Allows you to toggle terrain ignore.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Allows to toggle terrain ignore.&lt;/color&gt;</li>
 		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<!-- <graphicData> -->

@@ -19,7 +19,7 @@
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#8a8ae6&gt;Harvest&lt;/color&gt; all of the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; and reset its xenotype to &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt;.</li> -->
-		<li>Allows you to mark a target pawn with a &lt;color=#8a8ae6&gt;death mark&lt;/color&gt;.</li>
+		<li>Allows to mark a target pawn with a &lt;color=#8a8ae6&gt;death mark&lt;/color&gt;.</li>
 		<li>The &lt;color=#8a8ae6&gt;death mark&lt;/color&gt; lasts until the target dies, but does not contribute to it in any way.</li>
 		<li>The &lt;color=#8a8ae6&gt;death mark&lt;/color&gt; slowly accumulates a copy of the target's genes, and after &lt;color=#8a8ae6&gt;death&lt;/color&gt; sends them to the caster.</li>
 		<li>The chance of receiving the genes depends only on the caster's &lt;color=#8a8ae6&gt;psi-sensitivity&lt;/color&gt;.</li>
@@ -61,8 +61,8 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Chimera_DeathMarkHarvest</defName>
-	<label>chimera death mark</label>
-	<description>Archite virus implanted via a chimera subgene. It is harmless to the host.</description>
+	<label>chimera mark</label>
+	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
 	<stages>
 	  <li>

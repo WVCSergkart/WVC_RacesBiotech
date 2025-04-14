@@ -11,7 +11,7 @@
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
 
-	<WVC_XaG_CollapseButtonDesc>Allows you to toggle the size of the displayed window, making it smaller or larger.</WVC_XaG_CollapseButtonDesc>
+	<WVC_XaG_CollapseButtonDesc>Allows to toggle the size of the displayed window, making it smaller or larger.</WVC_XaG_CollapseButtonDesc>
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
@@ -145,7 +145,7 @@
 
 	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
 
-	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows you to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
+	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
 
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
@@ -177,7 +177,7 @@
 	<WVC_XaG_SuremRetuneJob_ResearchPrerequisites>{0} technology is required.</WVC_XaG_SuremRetuneJob_ResearchPrerequisites>
 	
 	<WVC_XaG_SerumCustomMode_Label>Custom</WVC_XaG_SerumCustomMode_Label>
-	<WVC_XaG_SerumCustomMode_Desc>Allows you to switch between standard and custom mode. Custom xenotypes are always randomized.</WVC_XaG_SerumCustomMode_Desc>
+	<WVC_XaG_SerumCustomMode_Desc>Allows to switch between standard and custom mode. Custom xenotypes are always randomized.</WVC_XaG_SerumCustomMode_Desc>
 	
 	<WVC_XaG_Untuned>Untuned</WVC_XaG_Untuned>
 	
@@ -370,7 +370,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ WINGS ============================ -->
 
 	<WVC_XaG_Gene_Wings>Terrain ignore</WVC_XaG_Gene_Wings>
-	<WVC_XaG_Gene_WingsDesc>Allows you to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
+	<WVC_XaG_Gene_WingsDesc>Allows to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
 	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
 	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
 
@@ -412,7 +412,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
 	<!-- To summon, it is required that there be at least one powered comm console on the same map as the mechanitor. -->
-	<WVC_XaG_Gene_DustMechlinkDesc>Allows you to toggle the automatic mechs summoning. Mechanoids summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_DustMechlinkDesc>
+	<WVC_XaG_Gene_DustMechlinkDesc>Allows to toggle the automatic mechs summoning. Mechanoids summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
 	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
 
@@ -440,7 +440,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- ============================ INVISIBILITY ============================ -->
 
-	<WVC_XaG_Gene_InvisibilityDesc>Allows you to turn invisibility on and off.</WVC_XaG_Gene_InvisibilityDesc>
+	<WVC_XaG_Gene_InvisibilityDesc>Allows to turn invisibility on and off.</WVC_XaG_Gene_InvisibilityDesc>
 	
 	<WVC_XaG_Gene_InvisibilityCD>On cooldown.</WVC_XaG_Gene_InvisibilityCD>
 
@@ -477,7 +477,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
 
-	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows you to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>
+	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>
 
 	<WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>Animate chunks</WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>
 
@@ -511,7 +511,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>Next dryad in</WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>
 
 	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>Dryad gestation</WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>
-	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>Allows you to enable or disable the gestation of new dryads.</WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>
+	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>Allows to enable or disable the gestation of new dryads.</WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>
 
 	<WVC_XaG_ChooseDryadCasteModeInitialDesc>Here you can choose a caste for the {0}.</WVC_XaG_ChooseDryadCasteModeInitialDesc>
 	<WVC_XaG_ChangeDreadCasteDescFull>It will take several days for the dryad to change caste, during which time the dryad will be immobilized and defenseless.</WVC_XaG_ChangeDreadCasteDescFull>
@@ -617,7 +617,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- =============== VOID MECHLINK =============== -->
 
 	<WVC_XaG_Gene_Voidlink_GizmoLabel>Voidlink</WVC_XaG_Gene_Voidlink_GizmoLabel>
-	<WVC_XaG_Gene_Voidlink_GizmoTip>&lt;color=#8a8ae6&gt;Voidlink&lt;/color&gt; allows you to skip any &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; using a special resource called &lt;color=#80b5e1&gt;voidsence&lt;/color&gt;. This resource is replenished gradually on its own. The cost of skipping &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; depends on their class and purpose. All skipped mechanoids can &lt;color=#8a8ae6&gt;self-repair&lt;/color&gt;, and after death they skip back.\n\nSkipping can provoke the appearance of an &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;, which will instantly attack. The more &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; under mechanitor control, the higher the chance of triggering a &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; above {0} increases the chance by 1%, up to 50%.\n\n -  Controlled mechs {1}/{0}\n -  Nociosphere chance {2}%\n\n&lt;color=#ff8585&gt;Note that all mechs under the pawn's control are taken into account.&lt;/color&gt;</WVC_XaG_Gene_Voidlink_GizmoTip>
+	<WVC_XaG_Gene_Voidlink_GizmoTip>&lt;color=#8a8ae6&gt;Voidlink&lt;/color&gt; allows to skip any &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; using a special resource called &lt;color=#80b5e1&gt;voidsence&lt;/color&gt;. This resource is replenished gradually on its own. The cost of skipping &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; depends on their class and purpose. All skipped mechanoids can &lt;color=#8a8ae6&gt;self-repair&lt;/color&gt;, and after death they skip back.\n\nSkipping can provoke the appearance of an &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;, which will instantly attack. The more &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; under mechanitor control, the higher the chance of triggering a &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; above {0} increases the chance by 1%, up to 50%.\n\n -  Controlled mechs {1}/{0}\n -  Nociosphere chance {2}%\n\n&lt;color=#ff8585&gt;Note that all mechs under the pawn's control are taken into account.&lt;/color&gt;</WVC_XaG_Gene_Voidlink_GizmoTip>
 	<!-- Each summoned &lt;color=#8a8ae6&gt;mech&lt;/color&gt; can slowly repair itself automatically, and upon death, it returns back to the &lt;color=#8a8ae6&gt;void&lt;/color&gt;.\n\nSummoning &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; consumes a resource - &lt;color=#80b5e1&gt;voidsence&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; has its own summoning cost, depending on its class and purpose.  -->
 	<!-- For each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; summoned, the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; receives a &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; equal to the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; consumed by the &lt;color=#8a8ae6&gt;mech&lt;/color&gt;, so the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; becomes formally &lt;color=#8a8ae6&gt;infinite&lt;/color&gt;. -->
 
@@ -650,11 +650,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
 
 	<WVC_XaG_ChosenLichLabel>Assign lich</WVC_XaG_ChosenLichLabel>
-	<WVC_XaG_ChosenLichDesc>Allows you to select the mechanitor to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
+	<WVC_XaG_ChosenLichDesc>Allows to select the mechanitor to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
 	<WVC_XaG_MechanitorIsChosen>{0} is assigned as master of {1}.</WVC_XaG_MechanitorIsChosen>
 
 	<WVC_XaG_ChosenWalkerLabel>Assign golem</WVC_XaG_ChosenWalkerLabel>
-	<WVC_XaG_ChosenWalkerDesc>Allows you to select the type of walker that will spawn the tree.</WVC_XaG_ChosenWalkerDesc>
+	<WVC_XaG_ChosenWalkerDesc>Allows to select the type of walker that will spawn the tree.</WVC_XaG_ChosenWalkerDesc>
 	<WVC_XaG_WalkerIsChosen>{0} now spawns {1}.</WVC_XaG_WalkerIsChosen>
 	<WVC_XaG_WalkerCost>Golembond cost: {0}</WVC_XaG_WalkerCost>
 
@@ -682,7 +682,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
 
 	<WVC_XaG_XenoTreeXenotypeChooseLabel>Choose xenotype</WVC_XaG_XenoTreeXenotypeChooseLabel>
-	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows you to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
+	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
 	<WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>First you need to choose a xenotype.</WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>
 	<WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>{0} should grow to at least {1}%</WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>
@@ -712,7 +712,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Embryo&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
 
 	<!-- <WVC_XaG_XenoTreeChooseLabel>Connect roots</WVC_XaG_XenoTreeChooseLabel> -->
-	<!-- <WVC_XaG_XenoTreeChooseDesc>Allows you to select a tree to whose roots the bulb is connected. Re-selection will be available after the cooldown.</WVC_XaG_XenoTreeChooseDesc> -->
+	<!-- <WVC_XaG_XenoTreeChooseDesc>Allows to select a tree to whose roots the bulb is connected. Re-selection will be available after the cooldown.</WVC_XaG_XenoTreeChooseDesc> -->
 	<!-- <WVC_XaG_XenoTreeChooseAssigned>{0} is assigned to {1}.</WVC_XaG_XenoTreeChooseAssigned> -->
 
 	<!-- <WVC_XaG_XenoTreeCreateBulbLabel>Create bulb</WVC_XaG_XenoTreeCreateBulbLabel> -->
@@ -833,7 +833,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<!-- <WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc> -->
-	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens the ideology style menu. Which allows you to change the appearance of the pawn. (req Ideology DLC)</WVC_XaG_GeneShapeshifterStyles_Desc>
+	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens the ideology style menu. Which allows to change the appearance of the pawn. (req Ideology DLC)</WVC_XaG_GeneShapeshifterStyles_Desc>
 
 	<!-- <WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode> -->
 
@@ -874,7 +874,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ========== GENE_SPAWNER ========== -->
 
 	<WVC_XaG_GeneSpawner_CustomButtonLabel>Change product</WVC_XaG_GeneSpawner_CustomButtonLabel>
-	<WVC_XaG_GeneSpawner_CustomButtonDesc>Allows you to select a product for the spawner gene.</WVC_XaG_GeneSpawner_CustomButtonDesc>
+	<WVC_XaG_GeneSpawner_CustomButtonDesc>Allows to select a product for the spawner gene.</WVC_XaG_GeneSpawner_CustomButtonDesc>
 	<WVC_XaG_GeneSpawner_CustomButtonProductChanged>The product {0} spawned has been changed to {1}.</WVC_XaG_GeneSpawner_CustomButtonProductChanged>
 
 	<!-- =============== DUPLICATOR =============== -->
@@ -913,12 +913,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_Start>Start</WVC_Start>
 
-	<WVC_XaG_HideShowDesc>Allows you to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
+	<WVC_XaG_HideShowDesc>Allows to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
 
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>
 	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
-	<WVC_XaG_GenesSettingsDesc>Allows you to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, mechs summon, etc. If the gene allows you to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
+	<WVC_XaG_GenesSettingsDesc>Allows to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, mechs summon, etc. If the gene allows to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
 
 	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists.</WVC_XaG_RemoteControlBloodeaterDesc>
 

@@ -28,13 +28,43 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_ChimeraDeathMark Props => (HediffCompProperties_ChimeraDeathMark)props;
 
-		private int nextTick = -1;
-		public override string CompLabelInBracketsExtra => caster?.NameShortColored;
+		public override bool CompShouldRemove => caster == null;
 
-		public override void CompPostTick(ref float severityAdjustment)
+		private int nextTick = -1;
+        public override string CompLabelInBracketsExtra
+        {
+            get
+            {
+                if (caster == null)
+                {
+                    return "";
+                }
+                return caster.NameShortColored + " " + (victimGenes.Count + "/" + ParentGenesCount);
+            }
+        }
+
+        private int? cachedGenesCount;
+        private int ParentGenesCount
+        {
+            get
+            {
+				if (!cachedGenesCount.HasValue)
+                {
+                    cachedGenesCount = Pawn.genes.GenesListForReading.Count;
+                }
+                return cachedGenesCount.Value;
+            }
+        }
+
+        public override void CompPostTick(ref float severityAdjustment)
         {
             if (!GeneResourceUtility.CanTick(ref nextTick, 12000))
             {
+                return;
+            }
+            if (caster == null)
+            {
+                Pawn.health.RemoveHediff(parent);
                 return;
             }
             CopyGene();
@@ -51,6 +81,7 @@ namespace WVC_XenotypesAndGenes
             {
                 victimGenes.Add(genes.RandomElement().def);
             }
+            cachedGenesCount = null;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmos()
@@ -94,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.CompExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", -1);
-			Scribe_References.Look(ref caster, "caster");
+			Scribe_References.Look(ref caster, "caster", saveDestroyedThings: true);
 			Scribe_Collections.Look(ref victimGenes, "victimGenes", LookMode.Def);
 		}
 

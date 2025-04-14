@@ -73,7 +73,7 @@
   <WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef ParentName="WVC_XenotypesAndGenes_XenotypeForcerGeneTemplateDef_Base">
 	<defName>WVC_XenotypeForcer</defName>
 	<label>xeno-forcer ({0})</label>
-	<description>Adds "{0}" xenotype genes in addition to the existing ones. Allows you to make hybrid xenotypes.
+	<description>Adds "{0}" xenotype genes in addition to the existing ones. Allows to make hybrid xenotypes.
 
 Please note that if the xenotype is (non-)inherited and your geneset is also (non-)inherited, then all genes will be overwritten.</description>
   </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
