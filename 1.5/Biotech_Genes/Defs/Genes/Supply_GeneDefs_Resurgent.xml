@@ -86,7 +86,7 @@
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<customEffectDescriptions>
-	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier if cells level is 100%</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
@@ -225,7 +225,7 @@
 	<customEffectDescriptions>
 		<li>Bleeding depends on the amount of accumulated resurgent cells.</li>
 		<!-- <li>Changes blood filth color to dark blue.</li> -->
-		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li MayRequire="ludeon.rimworld.royalty">BloodRot</li>
@@ -262,7 +262,7 @@
 	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
 	<customEffectDescriptions>
 		<li>Hunger rate factor depends on the amount of accumulated resurgent cells.</li>
-		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
@@ -290,7 +290,7 @@
 	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
 	<customEffectDescriptions>
 		<li>Rest fall rate factor depends on the amount of accumulated resurgent cells.</li>
-		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>Sleep</li>

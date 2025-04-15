@@ -15,8 +15,8 @@
 	  <ThingDef>WVC_NutrientsInjector</ThingDef>
 	</descriptionHyperlinks>
 	<genes>
-		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
-		<li>WVC_NaturalFastAging</li>
+		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
+		<!-- <li>WVC_NaturalFastAging</li> -->
 		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_Undead</li>
 		<li>WVC_ToxResist_Total</li>

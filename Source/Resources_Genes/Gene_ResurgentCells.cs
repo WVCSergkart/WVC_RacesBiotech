@@ -124,23 +124,24 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Reset()
-		{
-			base.Reset();
-			if (Current.ProgramState == ProgramState.Playing)
-			{
-				Value = 0.5f;
-				return;
-			}
-			FloatRange floatRange = new(0.06f, 0.97f);
-			Value = floatRange.RandomInRange;
-		}
+        {
+            base.Reset();
+            if (Current.ProgramState != ProgramState.Playing)
+            {
+                Value = new FloatRange(0.06f, 0.97f).RandomInRange;
+            }
+            else
+            {
+                Value = 0.5f;
+            }
+        }
 
-		public override void Tick()
+        public override void Tick()
 		{
 			//base.Tick();
-			if (pawn.IsHashIntervalTick(1500))
+			if (pawn.IsHashIntervalTick(2500))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 1500);
+				GeneResourceUtility.TickResourceDrain(this, 2500);
 			}
 		}
 

@@ -40,12 +40,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_DustDrain : Gene_FoodEfficiency
-	{
+	//[Obsolete]
+	//public class Gene_DustDrain : Gene_FoodEfficiency
+	//{
 
 
-	}
+	//}
 
 	public class Gene_Dustogenic : Gene, IGeneRemoteControl
 	{

@@ -150,10 +150,14 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
-            HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
-            hediffComp_GetsPermanent.IsPermanent = true;
-            hediffComp_GetsPermanent.permanentDamageThreshold = 0f;
-            hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
+			HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
+			if (hediffComp_GetsPermanent != null)
+			{
+				hediffComp_GetsPermanent.IsPermanent = true;
+				//hediffComp_GetsPermanent.permanentDamageThreshold = 0f;
+				hediffComp_GetsPermanent.parent.Severity = 0.001f;
+				hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
+			}
             pawn.health.AddHediff(hediff);
             Notify_SubGenes(pawn);
             if (pawn.RaceProps.BloodDef == null || pawn.Map == null)

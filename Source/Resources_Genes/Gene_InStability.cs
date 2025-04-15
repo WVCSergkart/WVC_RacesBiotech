@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			// if (!pawn.IsHashIntervalTick(nextTick))
 			// {
 				// return;
@@ -39,8 +39,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
 			ResetInterval();
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
 		}
 
 		private void ResetInterval()
@@ -90,8 +90,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
 			ResetInterval();
+			if (Resurgent?.ValuePercent >= 1f)
+			{
+				HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			}
 		}
 
 		private void ResetInterval()

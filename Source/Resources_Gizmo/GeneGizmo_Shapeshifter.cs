@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class GeneGizmo_ShapeshifterMode : Gizmo
+	public class GeneGizmo_Shapeshifter : Gizmo
 	{
 
 		public Pawn pawn;
@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => true;
 
-		public GeneGizmo_ShapeshifterMode(Gene_Shapeshifter geneShapeshifter)
+		public GeneGizmo_Shapeshifter(Gene_Shapeshifter geneShapeshifter)
 			: base()
 		{
 			gene = geneShapeshifter;
@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
             // Tip
             // string text = gene.heritableGenesSlots.ToString("F0");
             // +text
-            TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate();
+            TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.genesRegrowAfterShapeshift.ToStringYesNo());
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             // Label

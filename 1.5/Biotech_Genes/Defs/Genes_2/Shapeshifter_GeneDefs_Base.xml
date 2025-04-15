@@ -22,7 +22,7 @@
 	<description>Carriers of this gene have archites that can completely rearrange and rewrite the genetic code at the request of the carrier. Thanks to this, the xenotype of the carrier can be changed at any time, but the carriers completely lose the accumulated genetic information of the previous form.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ShapeshifterMode</resourceGizmoType>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Shapeshifter</resourceGizmoType>
 	<customEffectDescriptions>
 		<li>Allows to change the xenotype at any time.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li> -->
@@ -49,8 +49,8 @@
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
-				<li>XenogerminationComa</li>
-				<li>XenogermLossShock</li>
+				<!-- <li>XenogerminationComa</li> -->
+				<!-- <li>XenogermLossShock</li> -->
 			</blockingHediffs>
 		</li>
 	</modExtensions>
