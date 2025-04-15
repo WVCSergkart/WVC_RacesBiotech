@@ -21,6 +21,13 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef/genes/li[@WVC_Tag="AnomalyInhumanizedGene"]</xpath>
+	  <value>
+		  <li>WVC_Inhumanized</li>
+	  </value>
+	</Operation>
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'DarkVision')]]]/nullifyingGenes</xpath>
 	  <value>

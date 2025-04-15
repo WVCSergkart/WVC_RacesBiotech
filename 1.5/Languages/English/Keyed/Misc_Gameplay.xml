@@ -220,32 +220,32 @@
 	<!-- ============================ GENE INFO ============================ -->
 
 	<!-- Red -->
-	<WVC_XaG_NewBack_GeneIsNotActive>Gene is not active</WVC_XaG_NewBack_GeneIsNotActive>
-	<WVC_XaG_NewBack_GeneIsNotActive_WrongFace>Faceplate removed by augmentation or loss of eye</WVC_XaG_NewBack_GeneIsNotActive_WrongFace>
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive>Gene is not active</WVC_XaG_NewBack_GeneIsNotActive> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_WrongFace>Faceplate removed by augmentation or loss of eye</WVC_XaG_NewBack_GeneIsNotActive_WrongFace> -->
 	<!-- Yellow -->
 	<WVC_XaG_NewBack_GeneIsFurskin>Overrides body</WVC_XaG_NewBack_GeneIsFurskin>
 	<WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>and head</WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>
 	<!-- Gray -->
 	<WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>Cannot spawn in genepacks.</WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>
 	<WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>Graphics can be disabled in the settings.</WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>
-	<WVC_XaG_NewBack_GeneIsRandom>This gene will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom>
-	<WVC_XaG_NewBack_GeneIsShuffle>This gene has a 20% chance to be replaced by another gene.</WVC_XaG_NewBack_GeneIsShuffle>
-	<WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier>
-	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>Increases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>
-	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>Decreases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>
+	<!-- <WVC_XaG_NewBack_GeneIsRandom>This gene will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom> -->
+	<!-- <WVC_XaG_NewBack_GeneIsShuffle>This gene has a 20% chance to be replaced by another gene.</WVC_XaG_NewBack_GeneIsShuffle> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>Increases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>Decreases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease> -->
 	<!-- <WVC_XaG_ScarifierScarsOffset>&lt;color=#3c3c3c&gt;Scarifier&lt;/color&gt; scars: {0}</WVC_XaG_ScarifierScarsOffset> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>Some gene re-implanters will not work for carriers of this gene.</WVC_XaG_NewBack_GeneIsNonCandidatesForSerum> -->
-	<WVC_XaG_NewBack_GeneIsAngelicStability>Removing this gene is guaranteed to kill the carrier.</WVC_XaG_NewBack_GeneIsAngelicStability>
-	<WVC_XaG_NewBack_GeneIsGeneticStability>Removing this gene causes temporary damage to the host's immune system.</WVC_XaG_NewBack_GeneIsGeneticStability>
-	<WVC_XaG_NewBack_GeneIsGeneticInStability>Removing this gene will temporarily speed up gene regrowing.</WVC_XaG_NewBack_GeneIsGeneticInStability>
+	<!-- <WVC_XaG_NewBack_GeneIsAngelicStability>Removing this gene is guaranteed to kill the carrier.</WVC_XaG_NewBack_GeneIsAngelicStability> -->
+	<!-- <WVC_XaG_NewBack_GeneIsGeneticStability>Removing this gene causes temporary damage to the host's immune system.</WVC_XaG_NewBack_GeneIsGeneticStability> -->
+	<!-- <WVC_XaG_NewBack_GeneIsGeneticInStability>Removing this gene will temporarily speed up gene regrowing.</WVC_XaG_NewBack_GeneIsGeneticInStability> -->
 	<!-- <WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum>Carriers of this gene do not lose consciousness after using xenotype serums.</WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction>The pawn does not belong to the player's faction.</WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung>The age of the pawn does not meet the requirements.</WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells>There are not enough resurgent cells.</WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells> -->
 	<!-- <WVC_XaG_NewBack_GeneIsRandom>The gene is randomized, when adding/reimplanting/transferring this gene, it can/will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom> -->
-	<WVC_XaG_NewBack_GeneIsNotActive_Undead>The resurrection effect is disabled.</WVC_XaG_NewBack_GeneIsNotActive_Undead>
-	<WVC_XaG_NewBack_GeneIsActive_Undead>The resurrection effect is active.</WVC_XaG_NewBack_GeneIsActive_Undead>
-	<WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>The reincarnation effect is active.</WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead>The resurrection effect is disabled.</WVC_XaG_NewBack_GeneIsNotActive_Undead> -->
+	<!-- <WVC_XaG_NewBack_GeneIsActive_Undead>The resurrection effect is active.</WVC_XaG_NewBack_GeneIsActive_Undead> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>The reincarnation effect is active.</WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate> -->
 
 	<!-- ============================ SUB-XENOTYPE ============================ -->
 
@@ -388,10 +388,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_UndeadResurrectionCorpse_Info>Will be resurrected in</WVC_XaG_Gene_UndeadResurrectionCorpse_Info>
 	<!-- <WVC_XaG_Gene_GeneticStability_On_Info>Next genetic stabilization in</WVC_XaG_Gene_GeneticStability_On_Info> -->
 
-	<!-- ============================ SCARS ============================ -->
+	<!-- ============================ SCARIFIERS ============================ -->
 
-	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>max scars</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>
-	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>Responsible for the maximum possible number of scars that a pawn can receive naturally.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>
+	<!-- <WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>max scars</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars> -->
+	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>The maximum number of scarifications that can be obtained using the scarifier or its subgenes. Affects the effectiveness of some genes in the scarifier series.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>
+
+	<WVC_XaG_ScarifierScars>&lt;color=#8097e1&gt;Scarifier scars&lt;/color&gt;</WVC_XaG_ScarifierScars>
 
 	<!-- ============================ RESURRECTION ============================ -->
 

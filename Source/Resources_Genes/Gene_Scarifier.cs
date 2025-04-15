@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Scarifier : Gene
 	{
 
-		private int scarifyInterval = 60000;
+		private int nextTick = 60000;
 		private int? cachedMaxScars;
 
         public bool CanScarify
@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedMaxScars.HasValue)
 				{
-					MaxScars();
+					CacheMaxScars();
 				}
 				if (cachedMaxScars.Value > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
 				{
@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Active && !pawn.Spawned)
+			if (Current.ProgramState != ProgramState.Playing)
 			{
 				IntRange range = new(0,3);
 				for (int i = 0; i < range.RandomInRange; i++)
@@ -46,46 +46,52 @@ namespace WVC_XenotypesAndGenes
 					// }
 					Scarify(pawn);
 				}
+                nextTick = new IntRange(50000, 140000).RandomInRange;
+            }
+			else
+			{
+				nextTick = 300000;
+				//ResetInterval();
 			}
-			ResetInterval();
 		}
 
 		public override void Tick()
 		{
 			//base.Tick();
 			// if (!pawn.IsHashIntervalTick(1500))
-			scarifyInterval--;
-			if (scarifyInterval > 0)
+			//nextTick--;
+			//if (nextTick > 0)
+			//{
+			//	return;
+			//}
+			if (!GeneResourceUtility.CanTick(ref nextTick, 240000))
 			{
 				return;
 			}
 			ScarifierScarify();
 		}
 
-		private void ResetInterval()
-		{
-			IntRange range = new(50000,140000);
-			scarifyInterval = range.RandomInRange;
-		}
+		//private void ResetInterval()
+		//{
+		//	IntRange range = new(50000, 140000);
+		//	scarifyInterval = range.RandomInRange;
+		//}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref scarifyInterval, "scarifyInterval");
+			Scribe_Values.Look(ref nextTick, "scarifyInterval");
 			//Scribe_Values.Look(ref cachedMaxScars, "cachedMaxScars");
 		}
 
 		public void ScarifierScarify()
 		{
-			if (Active)
+			cachedMaxScars = null;
+			if (CanScarify)
 			{
-				cachedMaxScars = null;
-				if (CanScarify)
-				{
-					Scarify(pawn);
-				}
+				Scarify(pawn);
 			}
-			ResetInterval();
+			//ResetInterval();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -103,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int MaxScars()
+		private int CacheMaxScars()
 		{
 			int scars = def.GetModExtension<GeneExtension_Giver>().scarsCount;
 			List<Gene> genesListForReading = pawn.genes?.GenesListForReading;
@@ -126,41 +132,65 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void Scarify(Pawn pawn)
-		{
-			if (!ModLister.CheckIdeology("Scarification"))
-			{
-				return;
+        {
+            if (!ModLister.CheckIdeology("Scarification"))
+            {
+                return;
+            }
+            //List<BodyPartRecord> bodyparts = new();
+            //foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
+            //{
+            //	if (notMissingPart.def.canScarify)
+            //	{
+            //		bodyparts.Add(notMissingPart);
+            //	}
+            //}
+            if (!pawn.health.hediffSet.GetNotMissingParts().Where((BodyPartRecord part) => part.def.canScarify && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) && !pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f)).ToList().TryRandomElement(out BodyPartRecord part))
+            {
+                return;
+            }
+            Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
+            HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
+            hediffComp_GetsPermanent.IsPermanent = true;
+            hediffComp_GetsPermanent.permanentDamageThreshold = 0f;
+            hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
+            pawn.health.AddHediff(hediff);
+            Notify_SubGenes(pawn);
+            if (pawn.RaceProps.BloodDef == null || pawn.Map == null)
+            {
+                return;
+            }
+            SoundDefOf.Execute_Cut.PlayOneShot(pawn);
+            GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2, 3));
+        }
+
+        private static void Notify_SubGenes(Pawn pawn)
+        {
+            foreach (Hediff item in pawn.health.hediffSet.hediffs)
+            {
+                if (item is HediffWithComps_Scars scarsHediff)
+                {
+                    scarsHediff.RecacheScars();
+                }
 			}
-			//List<BodyPartRecord> bodyparts = new();
-			//foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
-			//{
-			//	if (notMissingPart.def.canScarify)
-			//	{
-			//		bodyparts.Add(notMissingPart);
-			//	}
-			//}
-			if (!pawn.health.hediffSet.GetNotMissingParts().Where((BodyPartRecord part) => part.def.canScarify && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) && !pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f)).ToList().TryRandomElement(out BodyPartRecord part))
+			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
-				return;
+				if (item is IGeneScarifier subgene)
+				{
+					subgene.Notify_Scarified();
+				}
 			}
-			Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
-			HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
-			hediffComp_GetsPermanent.IsPermanent = true;
-			hediffComp_GetsPermanent.permanentDamageThreshold = 0f;
-			hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
-			pawn.health.AddHediff(hediff);
-			if (pawn.RaceProps.BloodDef == null || pawn.Map == null)
-			{
-				return;
-			}
-			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-			GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2,3));
 		}
 
-		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars".Translate().CapitalizeFirst(), MaxScars().ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_ScarifierScars".Translate().CapitalizeFirst(), CacheMaxScars().ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
 		}
+
+  //      public void Notify_GenesChanged(Gene changedGene)
+		//{
+		//	Notify_SubGenes(pawn);
+		//}
 
 		//public string GetInspectInfo
 		//{
@@ -177,6 +207,21 @@ namespace WVC_XenotypesAndGenes
 		//		return null;
 		//	}
 		//}
+
+	}
+
+	public class Gene_ScarifierStability : Gene_GeneticStability, IGeneScarifier
+	{
+
+		public override void Tick()
+		{
+
+		}
+
+		public void Notify_Scarified()
+        {
+			Stabilize();
+        }
 
 	}
 

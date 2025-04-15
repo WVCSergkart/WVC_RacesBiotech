@@ -419,6 +419,55 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, bool xenogenes = true, Gene ignoredGene = null)
+		{
+			Pawn_GeneTracker recipientGenes = pawn.genes;
+			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
+				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
+				{
+					pawn.genes.xenotypeName = xenotypeHolder.name;
+					pawn.genes.iconDef = xenotypeHolder.iconDef;
+				}
+			}
+			if (xenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
+			{
+				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
+				{
+					if (!xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
+					{
+						continue;
+					}
+					//RemoveGene(gene);
+					pawn.TryAddOrRemoveGene(ignoredGene, gene);
+				}
+			}
+			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
+			{
+				foreach (Gene gene in recipientGenes.Endogenes.ToList())
+				{
+					if (xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
+					{
+						continue;
+					}
+					//RemoveGene(gene);
+					pawn.TryAddOrRemoveGene(ignoredGene, gene);
+				}
+			}
+			foreach (GeneDef geneDef in xenotypeHolder.genes)
+			{
+				if (!xenotypeHolder.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeHolder.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
+				{
+					continue;
+				}
+				//AddGene(geneDef, xenotypeHolder.inheritable);
+				pawn.TryAddOrRemoveGene(ignoredGene, null, geneDef, xenotypeHolder.inheritable);
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
+		}
+
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
         {
             SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);

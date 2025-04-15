@@ -178,15 +178,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (ModLister.CheckIdeology("Scarification") && def?.GetModExtension<GeneExtension_Giver>() != null)
-			{
-				if (def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
-				{
-					int scarsCount = def?.GetModExtension<GeneExtension_Giver>() != null ? def.GetModExtension<GeneExtension_Giver>().scarsCount : 0;
-					string scarsLimitText = scarsCount > 0 ? "WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease" : "WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease";
-					text += "\n\n" + scarsLimitText.Translate(scarsCount).Colorize(ColoredText.SubtleGrayColor);
-				}
-			}
+			//if (ModLister.CheckIdeology("Scarification") && def?.GetModExtension<GeneExtension_Giver>() != null)
+			//{
+			//	if (def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
+			//	{
+			//		int scarsCount = def?.GetModExtension<GeneExtension_Giver>() != null ? def.GetModExtension<GeneExtension_Giver>().scarsCount : 0;
+			//		string scarsLimitText = scarsCount > 0 ? "WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease" : "WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease";
+			//		text += "\n\n" + scarsLimitText.Translate(scarsCount).Colorize(ColoredText.SubtleGrayColor);
+			//	}
+			//}
 			return text;
 		}
 

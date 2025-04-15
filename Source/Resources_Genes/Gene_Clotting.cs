@@ -38,12 +38,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_MechaClotting : Gene_ClottingWithHediff
-	{
+	//[Obsolete]
+	//public class Gene_MechaClotting : Gene_ClottingWithHediff
+	//{
 
 
-	}
+	//}
 
 	public class Gene_DustClotting : Gene
 	{
@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (TryHealWounds())
 			{
-				TryRepairApparel();
+				RepairApparel();
 			}
 		}
 
@@ -237,19 +237,16 @@ namespace WVC_XenotypesAndGenes
 			return repairApparels;
 		}
 
-		public bool TryRepairApparel()
+		public void RepairApparel()
 		{
 			List<Apparel> apparels = pawn.apparel.WornApparel;
-			bool repairApparels = false;
 			foreach (Apparel apparel in apparels)
 			{
 				if (apparel.def.useHitPoints && apparel.HitPoints < apparel.MaxHitPoints)
 				{
 					apparel.HitPoints++;
-					repairApparels = true;
 				}
 			}
-			return repairApparels;
 		}
 
 	}

@@ -5,21 +5,20 @@
 	<defName>WVC_Ashen</defName>
 	<label>ashen</label>
 	<!-- Experiments, shapeshift, mysterious origin -->
-	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Incredibly strong and tough, they are excellent marksmen and incredible fighters. Their body can easily recover from any injuries, and it is almost impossible to kill them. But they are completely incapable of mastering new skills and in all areas except combat they are completely useless. However, their main advantage is not their strength; they can shapeshift into other xenotypes, making Ashen a versatile xenotype.
+	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Incredibly tough and virtually unkillable, they are able to withstand the most difficult battles, literally alone. They are able to recover from the most fatal wounds and regrow any lost limb or organ. They are practically useless in any skills, and are always inferior to other xenotypes in them. However, their greatest advantage is the ability to genetic shapeshift, allowing them to compensate for any weaknesses.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype has a gene that allows you to change the set of genes to any other, depending on the selected xenotype.
-
-&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The duration of the ability's cooldown depends on the duration of the vanilla "Genes regrowing" hediff. That is, to reduce the cooldown, either use “Gene restoration serum” from this mod, or mods that reduce the cooldown of genes.</description>
-	<descriptionShort>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Incredibly strong and tough, they are excellent marksmen and incredible fighters. Their body can easily recover from any injuries, and it is almost impossible to kill them. But they are completely incapable of mastering new skills and in all areas except combat they are completely useless. However, their main advantage is not their strength; they can shapeshift into other xenotypes, making Ashen a versatile xenotype.</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype has a gene that allows you to change the set of genes to any other, depending on the selected xenotype.</description>
+	<descriptionShort>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Incredibly tough and virtually unkillable, they are able to withstand the most difficult battles, literally alone. They are able to recover from the most fatal wounds and regrow any lost limb or organ. They are practically useless in any skills, and are always inferior to other xenotypes in them. However, their greatest advantage is the ability to genetic shapeshift, allowing them to compensate for any weaknesses.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v2</iconPath>
 	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~25</xenogermReplicatingDurationLeftDaysRange>
 	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<!-- <factionlessGenerationWeight>0.002</factionlessGenerationWeight> -->
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 		<!-- = -->
-		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
+		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
 		<li>WVC_Undead</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
@@ -27,37 +26,38 @@
 		<li>WVC_Scarifier_Scarshield</li>
 		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 		<li>WVC_ToxResist_Archite</li>
-		<li>WVC_NaturalAgeless</li>
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<li>Ageless</li>
 		<li>WVC_SkinColor_Slate</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_Scarifier_GeneticStability</li>
-		<li>WVC_Learning_Scarifier</li>
+		<!-- <li>WVC_Learning_Scarifier</li> -->
 		<li>DarkVision</li>
 		<li>WVC_ShapeshiftSkin</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_Scarifier_ArchiteScarstomach</li>
 		<li>WVC_MinMaxTemp_Scarifier</li>
 		<li>WVC_Scarifier</li>
-		<li>WVC_Scarifier_Pain</li>
+		<li WVC_Tag="AnomalyInhumanizedGene">WVC_Scarifier_Pain</li>
 		<li>WVC_Scarifier_Clotting</li>
 		<li>WVC_WoundHealing_UnrealFast</li>
 		<li>Aggression_DeadCalm</li>
-		<li>WVC_Scarifier_StrongMelee</li>
+		<!-- <li>WVC_Scarifier_StrongMelee</li> -->
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
 		<!-- = -->
-		<li>WVC_PostShapeshift_Recovery</li>
+		<!-- <li>WVC_PostShapeshift_Recovery</li> -->
 		<li>WVC_PostShapeshift_Regeneration</li>
-		<li>WVC_PostShapeshift_Metabolism</li>
-		<li>WVC_PostShapeshift_Scarred</li>
+		<!-- <li>WVC_PostShapeshift_Metabolism</li> -->
+		<!-- <li>WVC_PostShapeshift_Scarred</li> -->
 		<li>WVC_Shapeshift_TrueForm</li>
 		<li>WVC_Shapeshift_Deathless</li>
-		<li>WVC_AptitudeArchitePerfect_Shooting</li>
-		<li>WVC_AptitudeArchitePerfect_Melee</li>
+		<!-- <li>WVC_AptitudeArchitePerfect_Shooting</li> -->
+		<!-- <li>WVC_AptitudeArchitePerfect_Melee</li> -->
 		<li>WVC_PatternAptitude_Shapeshifter</li>
 		<!-- Anomaly -->
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
 	</genes>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->

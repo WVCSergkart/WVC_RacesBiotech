@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool useFactorInsteadOffset = false;
 
 		public int cachedScarsCount;
-		public int refreshInterval = 12000;
+		public int nextTick = 120;
 
 		private HediffStage curStage;
 
@@ -32,32 +32,35 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (def is XaG_HediffDef newDef && newDef.statModifiers != null && curStage == null && cachedScarsCount > 0)
+				if (curStage == null)
 				{
 					curStage = new HediffStage
 					{
 						statOffsets = new(),
 						statFactors = new()
 					};
-					if (!newDef.statModifiers.statFactors.NullOrEmpty())
+					if (def is XaG_HediffDef newDef && newDef.statModifiers != null && cachedScarsCount > 0)
 					{
-						foreach (StatModifier item in newDef.statModifiers.statFactors)
+						if (!newDef.statModifiers.statFactors.NullOrEmpty())
 						{
-							StatModifier statModifier = new();
-							statModifier.stat = item.stat;
-							float factor = 1f - (item.value * cachedScarsCount);
-							statModifier.value = factor > 0f ? factor : 0f;
-							curStage.statFactors.Add(statModifier);
+							foreach (StatModifier item in newDef.statModifiers.statFactors)
+							{
+								StatModifier statModifier = new();
+								statModifier.stat = item.stat;
+								float factor = 1f - (item.value * cachedScarsCount);
+								statModifier.value = factor > 0f ? factor : 0f;
+								curStage.statFactors.Add(statModifier);
+							}
 						}
-					}
-					if (!newDef.statModifiers.statOffsets.NullOrEmpty())
-					{
-						foreach (StatModifier item in newDef.statModifiers.statOffsets)
+						if (!newDef.statModifiers.statOffsets.NullOrEmpty())
 						{
-							StatModifier statModifier = new();
-							statModifier.stat = item.stat;
-							statModifier.value = item.value * cachedScarsCount;
-							curStage.statOffsets.Add(statModifier);
+							foreach (StatModifier item in newDef.statModifiers.statOffsets)
+							{
+								StatModifier statModifier = new();
+								statModifier.stat = item.stat;
+								statModifier.value = item.value * cachedScarsCount;
+								curStage.statOffsets.Add(statModifier);
+							}
 						}
 					}
 				}
@@ -65,16 +68,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostTick()
-		{
-			if (!pawn.IsHashIntervalTick(refreshInterval))
-			{
-				return;
-			}
-			RecacheScars();
-		}
+		public override void Tick()
+        {
+            if (GeneResourceUtility.CanTick(ref nextTick, 12000))
+            {
+                RecacheScars();
+            }
+        }
 
-		public void RecacheScars()
+        public void RecacheScars()
 		{
 			cachedScarsCount = pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification);
 			curStage = null;

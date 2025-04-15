@@ -22,7 +22,7 @@
 	<displayOrderInCategory>160</displayOrderInCategory>
 	<customEffectDescriptions>
 		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li> -->
-		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; effect &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
+		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;post implantation&lt;/color&gt; effects &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <LifespanFactor>0.6</LifespanFactor>
@@ -33,7 +33,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>1</scarsCount>
 			<hediffDefs>
-				<!-- <li>XenogermReplicating</li> -->
+				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
 			</hediffDefs>
@@ -131,6 +131,11 @@
 			<!-- <hideGene>true</hideGene> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>3</scarsCount>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
@@ -142,7 +147,7 @@
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
 	<displayOrderInCategory>185</displayOrderInCategory>
 	<prerequisite></prerequisite>
-	<selectionWeight>0.000001</selectionWeight>
+	<selectionWeight>0.00001</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>4</biostatArc>
@@ -161,6 +166,7 @@
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>2</scarsCount>
 			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
 			<jobDef>WVC_XaG_DestroyCellularBody</jobDef>
 			<!-- <bodyparts> -->

@@ -136,4 +136,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneScarifier
+	{
+
+		void Notify_Scarified();
+
+	}
+
 }

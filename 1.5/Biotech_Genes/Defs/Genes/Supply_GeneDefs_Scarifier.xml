@@ -74,9 +74,9 @@
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<!-- <preventPermanentWounds>true</preventPermanentWounds> -->
 	<customEffectDescriptions>
-		<li>Adds a scar every few days</li>
-		<li>Base number of scars 3</li>
-		<li>Some genes can change the number of scars.</li>
+		<li>Adds a &lt;color=#8a8ae6&gt;scarification&lt;/color&gt; every 4 days</li>
+		<!-- <li>Base number of scars 3</li> -->
+		<!-- <li>Some genes can change the number of scars.</li> -->
 		<!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
@@ -110,14 +110,15 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
 	<defName>WVC_Scarifier_GeneticStability</defName>
 	<label>scarifier stability</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ScarifierStability</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_GeneticStability_v0</iconPath>
 	<iconColor>(60, 60, 60)</iconColor>
 	<selectionWeight>0.00125</selectionWeight>
-	<biostatCpx>-6</biostatCpx>
+	<biostatCpx>-8</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
+	<customEffectDescriptions Inherit="False">
+	  <li>Removes &lt;color=#8a8ae6&gt;xenogerm replication&lt;/color&gt; effects after scarification with a &lt;color=#8a8ae6&gt;scarifier&lt;/color&gt; or similar triggers.</li>
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>

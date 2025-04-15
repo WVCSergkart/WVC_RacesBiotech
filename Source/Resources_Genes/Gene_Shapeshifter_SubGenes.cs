@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ShapeshifterDependant : Gene
+	public class Gene_ShapeshifterDependant : Gene, IGeneShapeshift
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -33,22 +33,32 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		// public override void PostRemove()
-		// {
-		// base.PostRemove();
-		// HediffUtility.Notify_GeneRemoved(this, pawn);
-		// }
+        public virtual void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
+        {
+            
+        }
 
-	}
+        public virtual void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+        {
+            
+        }
 
-	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant, IGeneShapeshift
+        // public override void PostRemove()
+        // {
+        // base.PostRemove();
+        // HediffUtility.Notify_GeneRemoved(this, pawn);
+        // }
+
+    }
+
+	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
 	{
 
-		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
+		public override void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 		}
 
-		public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
 			if (Giver == null)
 			{
@@ -59,10 +69,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_PostShapeshift_Regeneration : Gene_ShapeshifterDependant, IGeneShapeshift
+	public class Gene_PostShapeshift_Regeneration : Gene_ShapeshifterDependant
 	{
 
-		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
+		public override void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			RemoveAllRemovableBadHediffs(pawn);
 		}
@@ -71,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 			{
-				if (hediff.def == HediffDefOf.Scarification || !hediff.def.isBad || !hediff.def.everCurableByItem)
+				if (!hediff.def.isBad || !hediff.def.everCurableByItem)
 				{
 					continue;
 				}
@@ -79,20 +89,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
-		{
-		}
-
 	}
 
-	public class Gene_PostShapeshift_GiveHediff : Gene_ShapeshifterDependant, IGeneShapeshift
+	public class Gene_PostShapeshift_GiveHediff : Gene_ShapeshifterDependant
 	{
 
-		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
-		{
-		}
-
-		public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
 			Hediff hediff = HediffMaker.MakeHediff(Giver.hediffDefName, pawn);
 			HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
@@ -112,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_PostShapeshift_Scarred : Gene_ShapeshifterDependant, IGeneShapeshift
+	public class Gene_PostShapeshift_Scarred : Gene_ShapeshifterDependant
 	{
 
 		public override void PostAdd()
@@ -142,7 +144,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
+		public override void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			if (!ModLister.CheckIdeology("Scarification"))
 			{
@@ -167,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
 			Scarify();
 		}

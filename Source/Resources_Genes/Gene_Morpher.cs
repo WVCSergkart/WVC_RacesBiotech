@@ -683,27 +683,11 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{
-			if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
-			{
-				pawn.genes.AddGene(geneDef, !inheritable);
-			}
-			//else
+			//if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
 			//{
-			//	return;
+			//	pawn.genes.AddGene(geneDef, !inheritable);
 			//}
-			//if (gene != null)
-			//{
-			//	if (inheritable)
-			//	{
-			//		pawn.genes.Endogenes.Remove(pawn.genes.GetGene(geneDef));
-			//		pawn.genes.Endogenes.Add(gene);
-			//	}
-			//	else
-			//	{
-			//		pawn.genes.Xenogenes.Remove(pawn.genes.GetGene(geneDef));
-			//		pawn.genes.Xenogenes.Add(gene);
-			//	}
-			//}
+			pawn.TryAddOrRemoveGene(this, null, geneDef, inheritable);
 		}
 
 		public virtual void AddToolGene(GeneDef geneDef, bool xenogene)
@@ -716,10 +700,11 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void RemoveGene(Gene gene)
 		{
-			if (gene != this)
-			{
-				pawn?.genes?.RemoveGene(gene);
-			}
+			//if (gene != this)
+			//{
+			//	pawn?.genes?.RemoveGene(gene);
+			//}
+			pawn.TryAddOrRemoveGene(this, gene);
 		}
 
 		public virtual void ClearGenes()

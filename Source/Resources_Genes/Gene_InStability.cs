@@ -148,18 +148,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Tick()
-		{
-			base.Tick();
-			nextTick--;
-			if (nextTick > 0)
-			{
-				return;
-			}
-			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
-			ResetInterval();
-		}
+        {
+            base.Tick();
+            nextTick--;
+            if (nextTick > 0)
+            {
+                return;
+            }
+            Stabilize();
+            ResetInterval();
+        }
 
-		private void ResetInterval()
+        public virtual void Stabilize()
+        {
+            HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+        }
+
+        private void ResetInterval()
 		{
 			nextTick = Props.intervalRange.RandomInRange;
 		}
@@ -173,7 +178,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: GeneticStability",
 					action = delegate
 					{
-						HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+						Stabilize();
 					}
 				};
 			}

@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		public bool xenogermComaAfterShapeshift = true;
+		//public bool xenogermComaAfterShapeshift = true;
 		public bool genesRegrowAfterShapeshift = true;
 
 		public override void PostAdd()
@@ -85,42 +85,42 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), genesRegrowAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
+			//Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
 			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
 			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
 		}
 
 		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
 		{
-			xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			//xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
 			genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
 			// maxEvolveGenes = oldShapeshifter.maxEvolveGenes;
 		}
 
 		// Reimplanter
 
-		public virtual void AddGene(GeneDef geneDef, bool inheritable)
-		{
-			if (!geneDef.ConflictsWith(this.def))
-			{
-				pawn.genes.AddGene(geneDef, !inheritable);
-			}
-		}
+		//public virtual void AddGene(GeneDef geneDef, bool inheritable)
+		//{
+		//	if (!geneDef.ConflictsWith(this.def))
+		//	{
+		//		pawn.genes.AddGene(geneDef, !inheritable);
+		//	}
+		//}
 
-		public virtual void RemoveGene(Gene gene)
-		{
-			if (gene != this)
-			{
-				pawn?.genes?.RemoveGene(gene);
-			}
-		}
+		//public virtual void RemoveGene(Gene gene)
+		//{
+		//	if (gene != this)
+		//	{
+		//		pawn?.genes?.RemoveGene(gene);
+		//	}
+		//}
 
 		public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool xenogenes = true)
 		{
@@ -128,14 +128,20 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	Reimplant(result.xenotype, false);
 			//}
-			Reimplant(xenotypeHolder, xenogenes);
-			if (xenogermComaAfterShapeshift)
-			{
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			}
+			ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, xenogenes, this);
+			//if (xenogermComaAfterShapeshift)
+			//{
+			//	pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			//}
 			if (genesRegrowAfterShapeshift)
 			{
-				GeneUtility.UpdateXenogermReplication(pawn);
+				//GeneUtility.UpdateXenogermReplication(pawn);
+				XaG_GeneUtility.GetBiostatsFromList(xenotypeHolder.genes, out int cpx, out int met, out int _);
+				int architeCount = xenotypeHolder.genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+				int nonArchiteCount = xenotypeHolder.genes.Count - architeCount;
+				int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
+				int count = days * 60000;
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 			}
 			if (ModLister.IdeologyInstalled)
 			{
@@ -163,51 +169,6 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
-		private void Reimplant(XenotypeHolder xenotypeHolder, bool xenogenes = true)
-		{
-			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
-			{
-				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
-				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
-				{
-					pawn.genes.xenotypeName = xenotypeHolder.name;
-					pawn.genes.iconDef = xenotypeHolder.iconDef;
-				}
-			}
-			if (xenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
-			{
-				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
-				{
-					if (!xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
-					{
-						continue;
-					}
-					RemoveGene(gene);
-				}
-			}
-			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
-			{
-				foreach (Gene gene in recipientGenes.Endogenes.ToList())
-				{
-					if (xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
-					{
-						continue;
-					}
-					RemoveGene(gene);
-				}
-			}
-			foreach (GeneDef geneDef in xenotypeHolder.genes)
-			{
-				if (!xenotypeHolder.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeHolder.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
-				{
-					continue;
-				}
-				AddGene(geneDef, xenotypeHolder.inheritable);
-			}
-			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-		}
-
 		// Shapeshift
 
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
@@ -223,9 +184,8 @@ namespace WVC_XenotypesAndGenes
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
-				GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
+				//GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
-			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 	}

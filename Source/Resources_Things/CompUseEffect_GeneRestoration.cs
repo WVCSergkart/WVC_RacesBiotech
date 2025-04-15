@@ -102,10 +102,10 @@ namespace WVC_XenotypesAndGenes
 				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				// return;
 			// }
-			if (Props.disableShapeshiftComaAfterUse)
-			{
-				shapeshifter.xenogermComaAfterShapeshift = false;
-			}
+			//if (Props.disableShapeshiftComaAfterUse)
+			//{
+			//	shapeshifter.xenogermComaAfterShapeshift = false;
+			//}
 			if (Props.disableShapeshiftGenesRegrowAfterUse)
 			{
 				shapeshifter.genesRegrowAfterShapeshift = false;

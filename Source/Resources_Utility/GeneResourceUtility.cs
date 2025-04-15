@@ -346,6 +346,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void Notify_PostShapeshift_Traits(Gene_Shapeshifter shapeshiftGene)
 		{
 			foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)

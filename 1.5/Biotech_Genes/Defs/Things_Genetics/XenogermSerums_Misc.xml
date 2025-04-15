@@ -68,29 +68,6 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_GeneShapeshifterSerum_Coma</defName>
-	<label>shift serum (coma)</label>
-	<description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_Coma_v0</texPath>
-	</graphicData>
-	<statBases>
-	  <MarketValue>1670</MarketValue>
-	</statBases>
-	<costList>
-	  <ComponentIndustrial>4</ComponentIndustrial>
-	  <ComponentSpacer>3</ComponentSpacer>
-	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
-	</costList>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
-		<disableShapeshiftComaAfterUse>true</disableShapeshiftComaAfterUse>
-	  </li>
-	</comps>
-  </ThingDef>
-
   <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
 	<label>shift serum (genes regrow)</label>

@@ -199,6 +199,21 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public static bool TryAddOrRemoveGene(this Pawn pawn, Gene ignoredGene = null, Gene removeGene = null, GeneDef geneDefToAdd = null, bool inheritable = true)
+		{
+			if (geneDefToAdd != null && (ignoredGene == null || !geneDefToAdd.ConflictsWith(ignoredGene.def)) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDefToAdd, pawn) || !XaG_GeneUtility.HasXenogene(geneDefToAdd, pawn)))
+			{
+				pawn.genes.AddGene(geneDefToAdd, !inheritable);
+				return true;
+			}
+			if (removeGene != null && (ignoredGene == null || removeGene != ignoredGene))
+			{
+				pawn.genes.RemoveGene(removeGene);
+				return true;
+			}
+			return false;
+		}
+
 		public static bool IsHairGeneDef(GeneDef geneDef)
 		{
 			return geneDef.hairColorOverride != null;
@@ -299,7 +314,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (chimera.TryAddGene(geneDef))
 				{
-					p.TryAddGene(geneDef, true);
+					p.TryAddGeneIfNone(geneDef, true);
 				}
 			}
 			chimera.UpdateMetabolism();
@@ -529,7 +544,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool TryAddGene(this Pawn pawn, GeneDef geneDef, bool xenogene)
+		public static bool TryAddGeneIfNone(this Pawn pawn, GeneDef geneDef, bool xenogene)
 		{
 			if (HasEndogene(geneDef, pawn))
 			{

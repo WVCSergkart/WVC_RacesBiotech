@@ -192,7 +192,7 @@
     <Compile Include="Resources_Hediff\Hediff_DryadQueen.cs" />
     <Compile Include="Resources_Hediff\Hediff_GestatedDryad.cs" />
     <Compile Include="Resources_Hediff\Hediff_Metabolism.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_Scars.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\Misc.cs" />
     <Compile Include="Resources_Main\StaticCollection.cs" />
