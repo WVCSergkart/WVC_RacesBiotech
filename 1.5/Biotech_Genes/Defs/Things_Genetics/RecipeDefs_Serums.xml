@@ -236,7 +236,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_AdministerSubXenotypeSerum_Undead</defName>
 	<label>administer undeadtype serum</label>
 	<description>Administer a undeadtype serum.</description>

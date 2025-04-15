@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 // namespace WVC
@@ -30,12 +31,12 @@ namespace WVC_XenotypesAndGenes
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
 		public List<XenotypeDef> devXenotypeDefs = new();
 
-		[Obsolete]
-		public List<XaG_CountWithChance> identicalGeneDefs = new();
-		[Obsolete]
-		public List<GeneDef> shapeshifterHeritableGenes = new();
-		[Obsolete]
-		public List<Type> shapeShift_IgnoredGeneClasses = new();
+		//[Obsolete]
+		//public List<XaG_CountWithChance> identicalGeneDefs = new();
+		//[Obsolete]
+		//public List<GeneDef> shapeshifterHeritableGenes = new();
+		//[Obsolete]
+		//public List<Type> shapeShift_IgnoredGeneClasses = new();
 		// [Obsolete]
 		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		// [Obsolete]
@@ -46,5 +47,6 @@ namespace WVC_XenotypesAndGenes
 		// public List<GeneDef> perfectCandidatesForSerums;
 		// [Obsolete]
 		// public List<GeneDef> nonCandidatesForSerums;
+
 	}
 }

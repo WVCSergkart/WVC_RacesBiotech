@@ -27,39 +27,11 @@
 	</blackListedXenotypesForSerums>
 	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
 	<whiteListedXenotypesForResurrectorSerums>
-		<li>WVC_Undead</li>
-		<li>WVC_Featherdust</li>
-		<li>WVC_Resurgent</li>
-		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Undead</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Featherdust</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Resurgent</li>
+		<li WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 	</whiteListedXenotypesForResurrectorSerums>
-	<!-- Obsolete -->
-	<whiteListedXenotypesForFilter>
-		<!-- Vanilla -->
-		<li>Highmate</li>
-		<li>Yttakin</li>
-		<li>Waster</li>
-		<li>Impid</li>
-		<li>Pigskin</li>
-		<li>Neanderthal</li>
-		<li>Sanguophage</li>
-		<li>Hussar</li>
-		<li>Genie</li>
-		<!-- WVC -->
-		<li>WVC_Meca</li>
-		<li>WVC_RogueFormer</li>
-		<li>WVC_GeneThrower</li>
-		<li>WVC_Golemkind</li>
-		<!-- AG -->
-		<!-- - -->
-		<!-- VRE -->
-		<li>VREH_Uhlan</li>
-		<li>VRE_Gauranlenkin</li>
-		<li>VRE_Animakin</li>
-		<li>VRE_Poluxkin</li>
-		<li>VRE_Strigoi</li>
-		<li>VRE_Ekkimian</li>
-		<li>VRE_Bruxa</li>
-	</whiteListedXenotypesForFilter>
 	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
 	<blackListedBackstoryForChanger>
 		<li>Newborn79</li>
@@ -99,12 +71,6 @@
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
 	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
 	</plantsToNotOverwrite_SpawnSubplant>
-	<!-- Ignored by shapeshifter mechanic. Required gene Types. Obsolete -->
-	<!-- <shapeShift_IgnoredGeneClasses> -->
-		<!-- <li>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</li> -->
-		<!-- <li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li> -->
-		<!-- <li>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</li> -->
-	<!-- </shapeShift_IgnoredGeneClasses> -->
 	<!-- XaG genes that will work with mutants. Required any GeneDefs -->
 	<anomalyXenoGenesExceptions>
 		<li>WVC_GeneSavant</li>
@@ -174,7 +140,8 @@
 	<!-- Used to filter out xenotypes that are not xenotypes in the standard sense. For example, Thralls. -->
 	<!-- Required any XenotypeDefs -->
 	<devXenotypeDefs>
-		<li>WVC_Thrall</li>
+		<li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Hybrid</li> -->
 		<li MayRequire="wvc.sergkart.test.tools">WVC_Hybrid</li>
 	</devXenotypeDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>

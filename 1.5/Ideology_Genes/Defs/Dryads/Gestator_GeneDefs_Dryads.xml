@@ -31,7 +31,7 @@
 	<customEffectDescriptions>
 	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>
 	  <li>Each &lt;color=#8a8ae6&gt;dryad's caste&lt;/color&gt; is chosen &lt;color=#ff8585&gt;manually, separately&lt;/color&gt;.</li>
-	  <li>&lt;color=#8a8ae6&gt;Dryads do not require food&lt;/color&gt;, and each dryad &lt;color=#8a8ae6&gt;increases max nutrition&lt;/color&gt; by 0.1</li>
+	  <li>&lt;color=#8a8ae6&gt;Dryads do not require food&lt;/color&gt;, and each dryad &lt;color=#8a8ae6&gt;increases max nutrition&lt;/color&gt; and &lt;color=#8a8ae6&gt;hunger rate&lt;/color&gt; by 0.1</li>
 	  <li>&lt;color=#ff8585&gt;Dryads always follow their queen.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>

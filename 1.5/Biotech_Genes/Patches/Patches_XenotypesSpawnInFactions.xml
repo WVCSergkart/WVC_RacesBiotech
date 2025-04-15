@@ -62,6 +62,10 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[@WVC_XaG_XenotypeRemoveTag="General"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
 					<xpath>/Defs/ThingDef[@WVC_XaG_XenotypeRemoveTag="General"]</xpath>
 					<success>Always</success>
 				</li>
@@ -83,6 +87,14 @@
 				</li>
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/AbilityDef[@WVC_XaG_XenotypeRemoveTag="DevXenotypes"]/comps/li[@Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter"]/xenotypeDef</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/WVC_XenotypesAndGenes.XenotypesAndGenesListDef/devXenotypeDefs/li[@WVC_XaG_XenotypeRemoveTag="DevXenotypes"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/WVC_XenotypesAndGenes.XenotypesAndGenesListDef/whiteListedXenotypesForResurrectorSerums/li[@WVC_XaG_XenotypeRemoveTag="General"]</xpath>
 					<success>Always</success>
 				</li>
 
@@ -185,6 +197,10 @@
 
 							<li Class="PatchOperationRemove">
 								<xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]/xenotypeDef</xpath>
+								<success>Always</success>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/WVC_XenotypesAndGenes.XenotypesAndGenesListDef/devXenotypeDefs/li[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]</xpath>
 								<success>Always</success>
 							</li>
 							<li Class="PatchOperationRemove">

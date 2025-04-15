@@ -9,21 +9,27 @@
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Vampire_v0</iconPath>
 	<isHybrid>true</isHybrid>
 	<isRandom>true</isRandom>
-	<!-- <devDisable>true</devDisable> -->
+	<devDisable>false</devDisable>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<factionlessGenerationWeight>0.0001</factionlessGenerationWeight>
-	<!-- <generateWithXenogermReplicatingHediffChance>0.11</generateWithXenogermReplicatingHediffChance> -->
-	<!-- <xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange> -->
-	<!-- <iconDef>WVC_Vampire1c</iconDef> -->
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 	  <li>WVC_HybridImplanter</li>
 	</genes>
 	<exceptedGenes>
 	  <li>WVC_Thrall</li>
 	  <li>WVC_DeadlyGeneticInstability</li>
-	  <!-- <li>WVC_NoLearning</li> -->
-	  <!-- <li>WVC_WoundHealing_NoHealing</li> -->
-	  <!-- <li>WVC_Immunity_Non</li> -->
+	  <li>WVC_NoLearning</li>
+	  <li>WVC_WoundHealing_NoHealing</li>
+	  <li>WVC_Immunity_Non</li>
+	  <li>XenogermReimplanter</li>
+	  <li>Deathless</li>
+	  <li>WVC_DeadStomach</li>
+	  <li>WVC_NeverDead</li>
+	  <li>WVC_ArchitePsylink</li>
+	  <li>WVC_HemogenPsylink</li>
+	  <li>WVC_Wings_Levitation</li>
+	  <li>WVC_Invisibility</li>
+	  <li>WVC_Shapeshifter</li>
 	</exceptedGenes>
 	<xenotypeDefs>
 	  <li>WVC_GeneThrower</li>
@@ -36,9 +42,21 @@
 	  <li>WVC_Golemkind</li>
 	  <li>WVC_Meca</li>
 	  <li>WVC_Blank</li>
-	  <!-- <li>WVC_CatDeity</li> -->
-	  <!-- <li>WVC_Shadoweater</li> -->
-	  <!-- <li>WVC_Ashen</li> -->
+	  <li>WVC_CatDeity</li>
+	  <li>WVC_Shadoweater</li>
+	  <li>WVC_Lilith</li>
+	  <li>WVC_Ashen</li>
+	  <!-- Vanilla -->
+	  <li>Dirtmole</li>
+	  <li>Genie</li>
+	  <li>Hussar</li>
+	  <li>Neanderthal</li>
+	  <li>Pigskin</li>
+	  <li>Impid</li>
+	  <li>Waster</li>
+	  <li>Yttakin</li>
+	  <li>Highmate</li>
+	  <li>Sanguophage</li>
 	</xenotypeDefs>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->

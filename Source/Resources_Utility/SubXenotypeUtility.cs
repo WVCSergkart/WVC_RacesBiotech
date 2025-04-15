@@ -194,14 +194,28 @@ namespace WVC_XenotypesAndGenes
 				List<GeneDef> allGenes = new();
 				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
 				allGenes.AddRange(secondXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
-				allNewGenes.Add(allGenes.First());
-            }
+				if (!allGenes.Empty())
+				{
+					allNewGenes.Add(allGenes.First());
+				}
+				else
+				{
+					allNewGenes.Add(WVC_GenesDefOf.Skin_SheerWhite);
+				}
+			}
             if (!xenotypeHasHairColor)
 			{
 				List<GeneDef> allGenes = new();
 				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsHairGeneDef(geneDef)));
 				allGenes.AddRange(secondXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsHairGeneDef(geneDef)));
-				allNewGenes.Add(allGenes.First());
+				if (!allGenes.Empty())
+				{
+					allNewGenes.Add(allGenes.First());
+				}
+				else
+				{
+					allNewGenes.Add(WVC_GenesDefOf.Hair_SnowWhite);
+				}
 			}
         }
 
