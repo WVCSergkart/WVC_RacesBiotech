@@ -19,6 +19,9 @@
 		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
 		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <ResearchSpeed>0.1</ResearchSpeed>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_AutoResearch</li>
 	</exclusionTags>
@@ -66,9 +69,12 @@
 		<li>Occasionally &lt;color=#8a8ae6&gt;repairs or constructs&lt;/color&gt; buildings.</li>
 		<li>Can only work on 3 &lt;color=#8a8ae6&gt;buildings&lt;/color&gt; or &lt;color=#8a8ae6&gt;frames&lt;/color&gt; at a time.</li>
 		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
-		<li>&lt;color=#ffec85&gt;Construction or repair creates deadlife gas.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Construction or repair by this gene creates deadlife gas.&lt;/color&gt;</li>
 		<li>&lt;color=#ffec85&gt;Does not haul resources and does not repair breakdowns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <ConstructionSpeed>0.2</ConstructionSpeed>
+	</statOffsets>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">

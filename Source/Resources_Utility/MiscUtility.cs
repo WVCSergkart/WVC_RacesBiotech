@@ -102,7 +102,7 @@ namespace WVC_XenotypesAndGenes
             return true;
 		}
 
-		public static void TryImpregnateOrUpdChildGenes(Pawn pawn)
+		public static bool TryUpdChildGenes(Pawn pawn)
 		{
 			if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
 			{
@@ -112,14 +112,22 @@ namespace WVC_XenotypesAndGenes
 					HediffUtility.AddParentGenes(pawn, newGeneSet);
 					newGeneSet.SortGenes();
 					pregnant.geneSet = newGeneSet;
-					return;
+					return true;
 				}
 				else
 				{
 					pawn.health.RemoveHediff(hediff);
 				}
 			}
-			MiscUtility.Impregnate(pawn);
+			return false;
+		}
+
+		public static void TryImpregnateOrUpdChildGenes(Pawn pawn)
+		{
+			if (!TryUpdChildGenes(pawn))
+			{
+				MiscUtility.Impregnate(pawn);
+			}
 		}
 
 		public static void Impregnate(Pawn pawn)

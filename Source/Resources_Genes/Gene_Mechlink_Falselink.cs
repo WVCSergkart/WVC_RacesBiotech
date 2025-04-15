@@ -102,9 +102,10 @@ namespace WVC_XenotypesAndGenes
             {
 				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Spawner.allowedMechWeightClasses, out List<Thing> summonList, Spawner.mechHediff))
 				{
+					pawn.mechanitor?.Notify_BandwidthChanged();
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 				}
-            }
+			}
             catch (Exception arg)
             {
 				Log.Error("Failed summon hacked mechanoid. Reason: " + arg);

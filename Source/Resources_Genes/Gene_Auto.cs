@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AutoResearch : Gene
+	public class Gene_AutoResearch : Gene, IGeneNotifyGenesChanged
 	{
 
 		//public override void Tick()
@@ -50,7 +50,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-	}
+        public virtual void Notify_GenesChanged(Gene changedGene)
+        {
+			cachedResearchSpeed = null;
+        }
+
+    }
 
 	public class Gene_SleepResearch : Gene_AutoResearch
 	{

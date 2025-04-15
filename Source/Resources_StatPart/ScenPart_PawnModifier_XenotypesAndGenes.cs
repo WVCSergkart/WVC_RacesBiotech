@@ -36,9 +36,11 @@ namespace WVC_XenotypesAndGenes
         //    base.ExposeData();
         //    Scribe_Values.Look(ref addMechlink, "addMechlink", false);
         //    Scribe_Values.Look(ref nullifyBackstory, "nullifyBackstory", false);
-        //    Scribe_Values.Look(ref context, "context", PawnGenerationContext.All);
-        //    Scribe_Values.Look(ref hideOffMap, "hideOffMap", defaultValue: false);
+        //    Scribe_Values.Look(ref nullifySkills, "nullifySkills", false);
+        //    Scribe_Values.Look(ref startingMutations, "startingMutations", 0);
+        //    Scribe_Values.Look(ref addMechlink, "addMechlink", false);
         //}
+
         //public override void PostIdeoChosen()
         //{
         //    if (!newGamePlus || StaticCollectionsClass.voidLinkNewGamePlusPawn == null)
@@ -85,6 +87,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (!startingPawnsIsPregnant)
             {
+                MiscUtility.TryUpdChildGenes(pawn);
                 return;
             }
             MiscUtility.TryImpregnateOrUpdChildGenes(pawn);

@@ -36,7 +36,7 @@
   <GeneDef ParentName="WVC_GeneMinTemp_Base">
 	<defName>WVC_MinTemp_ArchiteDecrease</defName>
 	<label>cold archite-tolerant</label>
-	<labelShortAdj>cold</labelShortAdj>
+	<labelShortAdj>super cold</labelShortAdj>
 	<description>Carriers of this gene are much more comfortable in very cold temperatures.</description>
 	<iconPath>WVC/UI/Genes/Gene_TemperatureCold_v1</iconPath>
 	<displayOrderInCategory>25</displayOrderInCategory>
@@ -46,6 +46,9 @@
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>ice</symbol></li>
+		<li><symbol>snow</symbol></li>
+		<li><symbol>freeze</symbol></li>
+		<li><symbol>cold</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
@@ -63,7 +66,7 @@
   <GeneDef ParentName="WVC_GeneMaxTemp_Base">
 	<defName>WVC_MaxTemp_ArchiteIncrease</defName>
 	<label>heat archite-tolerant</label>
-	<labelShortAdj>hot</labelShortAdj>
+	<labelShortAdj>super hot</labelShortAdj>
 	<description>Carriers of this gene are more comfortable in very hot temperatures.</description>
 	<iconPath>WVC/UI/Genes/Gene_TemperatureHot_v1</iconPath>
 	<displayOrderInCategory>55</displayOrderInCategory>
@@ -90,8 +93,8 @@
 	<biostatArc>1</biostatArc>
 	<displayCategory>Temperature</displayCategory>
 	<statOffsets>
-	  <ComfyTemperatureMax>250</ComfyTemperatureMax>
-	  <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
 	</statOffsets>
 	<exclusionTags>
 	  <li>MinTemperature</li>
@@ -125,6 +128,10 @@
 	<displayOrderInCategory>26</displayOrderInCategory>
 	<biostatMet>-6</biostatMet>
 	<biostatArc>0</biostatArc>
+	<statOffsets>
+	  <ComfyTemperatureMax>222</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-222</ComfyTemperatureMin>
+	</statOffsets>
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneMinMaxTemp_Base">
