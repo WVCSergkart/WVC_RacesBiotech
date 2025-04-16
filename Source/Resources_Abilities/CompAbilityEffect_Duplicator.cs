@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
 				}
-				if (duplicatePawn.Faction == Faction.OfPlayer)
+				if (PawnUtility.ShouldSendNotificationAbout(duplicatePawn))
 				{
 					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(parent.pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
 				}

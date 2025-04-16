@@ -21,8 +21,7 @@
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Recovery_v0</iconPath>
 	<displayOrderInCategory>160</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li> -->
-		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;post implantation&lt;/color&gt; effects &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
+		<li>Disables &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; hediff when &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
@@ -42,7 +41,7 @@
 			</hediffDefs>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>16</reqGeneMat>
+			<reqGeneMat>56</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -33,6 +33,9 @@
 			<filledBlockColor>(149, 208, 252)</filledBlockColor>
 			<recacheFrequency>1329</recacheFrequency>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>35</reqGeneMat> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

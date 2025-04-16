@@ -19,16 +19,16 @@ namespace WVC_XenotypesAndGenes
 		//public bool xenogermComaAfterShapeshift = true;
 		public bool genesRegrowAfterShapeshift = true;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (pawn.genes.IsXenogene(this))
-			{
-				pawn.genes.RemoveGene(this);
-				pawn.genes.AddGene(this.def, false);
-				return;
-			}
-		}
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	if (pawn.genes.IsXenogene(this))
+		//	{
+		//		pawn.genes.RemoveGene(this);
+		//		pawn.genes.AddGene(this.def, false);
+		//		return;
+		//	}
+		//}
 
 		private Gizmo gizmo;
 
@@ -141,27 +141,40 @@ namespace WVC_XenotypesAndGenes
 
 		public int GeneticMaterial => geneticMaterial;
 
-		public void AddGenMat(int count)
+		public bool TryOffsetResource(int count)
         {
 			if (!genesRegrowAfterShapeshift && count > 0)
             {
-				return;
+				return false;
             }
             geneticMaterial += count;
             if (geneticMaterial < 0)
             {
                 geneticMaterial = 0;
-            }
-        }
+			}
+			return true;
+		}
 
-        public bool TryConsumeGenMat(int count)
+        public bool TryConsumeResource(int count)
         {
+			if (count > 0)
+            {
+				count *= -1;
+			}
             if ((geneticMaterial + count) >= 0)
             {
-                AddGenMat(count);
-                return true;
+                return TryOffsetResource(count);
             }
             return false;
+		}
+
+        public void TryForceGene(GeneDef geneDef)
+        {
+            if (!geneDef.ConflictsWith(this.def) && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
+			{
+				pawn.genes.AddGene(geneDef, pawn.genes.IsXenogene(this));
+				AddXenogermReplicating(new() { geneDef });
+			}
         }
 
         // Reimplanter
@@ -197,7 +210,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!xenotypeHolder.isTrueShiftForm)
 				{
-					AddGenMat((int)((xenotypeHolder.genes.Sum((gene) => gene.biostatCpx) * 0.05f) + (xenotypeHolder.genes.Sum((gene) => gene.biostatArc) * 0.1f)));
+					TryOffsetResource((int)((xenotypeHolder.genes.Sum((gene) => gene.biostatCpx) * 0.05f) + (xenotypeHolder.genes.Sum((gene) => gene.biostatArc) * 0.1f)));
 				}
 				//GeneUtility.UpdateXenogermReplication(pawn);
 				AddXenogermReplicating(xenotypeHolder.genes);

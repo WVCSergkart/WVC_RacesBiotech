@@ -184,6 +184,9 @@
 	<biostatCpx>2</biostatCpx>
 	<fur>WVC_ShapeshiftSkin</fur>
 	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li MayRequire="ludeon.rimworld.ideology">Scarifications of the &lt;color=#8a8ae6&gt;scarifier&lt;/color&gt; provide &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; for the shapeshifter.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
 	  <!-- <WVC_Shapeshifter_MinGenesMatch>-0.1</WVC_Shapeshifter_MinGenesMatch> -->
@@ -199,6 +202,12 @@
 			<!-- <scarsCount>3</scarsCount> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<overrideGeneCategory>Cosmetic</overrideGeneCategory>
+			<reqGeneMat>15</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Transparent -->

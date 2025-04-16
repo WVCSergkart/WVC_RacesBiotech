@@ -128,6 +128,7 @@ namespace WVC_XenotypesAndGenes
 		public List<XaG_CountWithChance> possibleTraits;
 		public StatDef shiftStatDef;
 		public int reqGeneMat = -1;
+		public GeneCategoryDef overrideGeneCategory;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
 		// GeneticThief

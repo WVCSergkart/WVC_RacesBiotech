@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
-				if (item is IGeneScarifier subgene)
+				if (item is IGeneScarifier subgene && item.Active)
 				{
 					subgene.Notify_Scarified();
 				}

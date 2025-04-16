@@ -26,6 +26,12 @@
 		<li>To create a xenogerm, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- <overrideGeneCategory>WVC_Shapeshifter</overrideGeneCategory> -->
+			<reqGeneMat>25</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================================================================== -->

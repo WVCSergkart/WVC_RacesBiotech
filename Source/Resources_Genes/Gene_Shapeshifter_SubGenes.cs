@@ -54,20 +54,53 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
 	{
 
+		private bool? savedBool;
+
+		public override void PostAdd()
+        {
+            base.PostAdd();
+			if (Shapeshifter != null)
+			{
+				savedBool = Shapeshifter.genesRegrowAfterShapeshift;
+				Shapeshifter.genesRegrowAfterShapeshift = false;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (Shapeshifter != null && savedBool.HasValue)
+			{
+				Shapeshifter.genesRegrowAfterShapeshift = savedBool.Value;
+			}
+		}
 		public override void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
+			if (savedBool.HasValue)
+			{
+				shapeshiftGene.genesRegrowAfterShapeshift = savedBool.Value;
+			}
 		}
 
 		public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
+			//shapeshiftGene.genesRegrowAfterShapeshift = savedBool;
 			if (Giver == null)
 			{
 				return;
 			}
+			savedBool = newShapeshiftGene.genesRegrowAfterShapeshift;
+			newShapeshiftGene.genesRegrowAfterShapeshift = false;
 			HediffUtility.RemoveHediffsFromList(pawn, Giver.hediffDefs);
 		}
 
-	}
+        public override void ExposeData()
+        {
+            base.ExposeData();
+			Scribe_Values.Look(ref savedBool, "savedGenesRegrowStatus");
+		}
+
+    }
 
 	public class Gene_PostShapeshift_Regeneration : Gene_ShapeshifterDependant
 	{

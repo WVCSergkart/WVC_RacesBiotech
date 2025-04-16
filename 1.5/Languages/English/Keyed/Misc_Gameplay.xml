@@ -64,6 +64,8 @@
 	<WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene>
 	<WVC_XaG_GenesSettings_DescTip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
 
+	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>
+
 	<WVC_Custom>custom</WVC_Custom>
 
 	<WVC_Reset>Reset</WVC_Reset>
@@ -776,8 +778,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has this gene.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
 	<!-- <WVC_XaG_DialogEditShiftGenes_ExcCost>A</WVC_XaG_DialogEditShiftGenes_ExcCost> -->
 	<WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>More genetic material is required.</WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>
-	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material.</WVC_XaG_DialogEditShiftGenes_Explanation>
+	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material. Implanted genes remove genes with which they conflict.</WVC_XaG_DialogEditShiftGenes_Explanation>
+	 <!-- If genes conflict with existing genes, they cannot be implanted. -->
 	<WVC_XaG_DialogEditShiftGenes_CannotSave>Implantation is not possible. {0}</WVC_XaG_DialogEditShiftGenes_CannotSave>
+
+	<WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>The implantation will remove some of the pawn's genes.</WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>
 
 	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
 	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->

@@ -165,7 +165,18 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Scarified()
         {
-			Shapeshifter.AddGenMat(5);
+            if (Shapeshifter == null)
+            {
+                return;
+            }
+            if (!Shapeshifter.TryOffsetResource(4))
+            {
+                return;
+            }
+            if (PawnUtility.ShouldSendNotificationAbout(pawn))
+            {
+                Messages.Message("WVC_XaG_ScarsSkin_ResourceOffset".Translate(pawn.Named("PAWN"), 4), pawn, MessageTypeDefOf.NeutralEvent);
+            }
         }
 
     }

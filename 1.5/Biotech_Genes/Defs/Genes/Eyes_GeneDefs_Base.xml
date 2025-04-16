@@ -166,6 +166,12 @@
 		</drawData>
 	  </li>
 	</renderNodeProperties>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<overrideGeneCategory>Cosmetic</overrideGeneCategory>
+			<reqGeneMat>2</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

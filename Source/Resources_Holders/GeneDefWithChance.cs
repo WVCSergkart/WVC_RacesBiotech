@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int cost;
 
+		public GeneCategoryDef displayCategory;
+
 	}
 
 }

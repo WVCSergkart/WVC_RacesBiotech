@@ -23,6 +23,12 @@
 		<li><symbol>bio</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- <overrideGeneCategory>WVC_Shapeshifter</overrideGeneCategory> -->
+			<reqGeneMat>14</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <AbilityDef ParentName="AbilityTouchBase">

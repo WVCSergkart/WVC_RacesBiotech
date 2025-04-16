@@ -52,6 +52,7 @@
 			<isFleshmass>true</isFleshmass>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<overrideGeneCategory>Cosmetic</overrideGeneCategory>
 			<reqGeneMat>22</reqGeneMat>
 		</li>
 	</modExtensions>
