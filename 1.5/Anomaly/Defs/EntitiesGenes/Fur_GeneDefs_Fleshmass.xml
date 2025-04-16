@@ -19,7 +19,7 @@
 	<missingGeneRomanceChanceFactor>0.05</missingGeneRomanceChanceFactor>
 	<customEffectDescriptions>
 		<!-- <li>Healing: 10 hp/day</li> -->
-		<li>&lt;color=#ffec85&gt;Regenerates eyes.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Regenerates missing eyes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Unclothed">
@@ -50,6 +50,9 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<isFleshmass>true</isFleshmass>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>22</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public Gene_Shapeshifter gene;
+		public float minGenesMatch;
 
 		protected override string Header => gene.LabelCap;
 
@@ -38,14 +39,35 @@ namespace WVC_XenotypesAndGenes
             //alwaysUseFullBiostatsTableHeight = true;
             //searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
             //allXenotypes = ListsUtility.GetAllXenotypesHolders();
-			ListsUtility.UpdTrueFormHoldersFromList(allXenotypes);
-			selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
-			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
+            ListsUtility.UpdTrueFormHoldersFromList(allXenotypes);
+            selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
+            shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
             disabled = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
+            //GetMatchForAllXenos();
             OnGenesChanged();
-		}
+        }
 
-		public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
+		//private void GetMatchForAllXenos()
+		//{
+		//	minGenesMatch = gene.MinGenesMatch;
+		//	List<GeneDef> pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+		//	foreach (XenotypeHolder allDef in allXenotypes)
+		//	{
+		//		if (allDef.isTrueShiftForm || allDef.Baseliner)
+		//		{
+		//			allDef.matchPercent = 1f;
+		//			continue;
+		//		}
+		//		int count = XaG_GeneUtility.GetMatchingGenesList(pawnGenes, allDef.genes).Count;
+		//		allDef.matchPercent = Mathf.Clamp(count / pawnGenes.Count, 0f, 1f);
+		//		if (minGenesMatch > allDef.matchPercent)
+		//		{
+		//			allDef.isOverriden = true;
+		//		}
+		//	}
+		//}
+
+        public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
 		{
 			float num = GeneCreationDialogBase.GeneSize.y / 3f;
 			float num2 = 0f;
@@ -79,15 +101,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.DoBottomButtons(rect);
 			if (disabled)
-			{
-				string text = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-				float x2 = Text.CalcSize(text).x;
-				GUI.color = ColorLibrary.RedReadable;
-				Text.Anchor = TextAnchor.MiddleLeft;
-				Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
-				Text.Anchor = TextAnchor.UpperLeft;
-				GUI.color = Color.white;
-			}
+            {
+                DisabledText(rect, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate());
+            }
+			//else if (selectedXenoHolder.isOverriden)
+			//{
+			//	DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100));
+			//}
 			else
             {
 				if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
@@ -97,7 +117,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void StorageImplanterSet()
+        private static void DisabledText(Rect rect, string text)
+        {
+            //string text = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+            float x2 = Text.CalcSize(text).x;
+            GUI.color = ColorLibrary.RedReadable;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
+            Text.Anchor = TextAnchor.UpperLeft;
+            GUI.color = Color.white;
+        }
+
+        private void StorageImplanterSet()
 		{
 			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
 			{
@@ -116,6 +147,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
+			//if (selectedXenoHolder.isOverriden)
+			//{
+			//	Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
+			//	return false;
+			//}
 			if (disabled)
 			{
 				Messages.Message("WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);

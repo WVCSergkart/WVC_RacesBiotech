@@ -96,6 +96,7 @@
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_EditShiftGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />

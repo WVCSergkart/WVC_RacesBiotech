@@ -146,6 +146,14 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
+		public static void DrawStat(Rect iconRect, CachedTexture icon, string stat, float iconWidth)
+		{
+			GUI.DrawTexture(iconRect, icon.Texture);
+			Text.Anchor = TextAnchor.MiddleRight;
+			Widgets.LabelFit(new Rect(iconRect.xMax, iconRect.y, 38f - iconWidth, iconWidth), stat);
+			Text.Anchor = TextAnchor.UpperLeft;
+		}
+
 		// ===========================
 
 		[Obsolete]

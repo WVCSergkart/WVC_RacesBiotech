@@ -25,6 +25,11 @@
 		<li><symbol>refuse</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>85</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

@@ -20,7 +20,14 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_AddOrRemoveHediff()
 		{
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			try
+			{
+				HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Error in Gene_AddOrRemoveHediff in def: " + def.defName + ". Reason: " + arg);
+			}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -29,8 +36,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_Override()
-		{
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+        {
+			Local_AddOrRemoveHediff();
 		}
 
 		public override void Tick()

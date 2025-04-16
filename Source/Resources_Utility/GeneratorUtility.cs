@@ -327,6 +327,8 @@ namespace WVC_XenotypesAndGenes
 				biostatCpx = template.biostatCpx,
 				biostatMet = template.biostatMet,
 				biostatArc = template.biostatArc,
+				statOffsets = template.statOffsets,
+				statFactors = template.statFactors,
 				displayCategory = template.displayCategory,
 				displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
 				minAgeActive = template.minAgeActive,

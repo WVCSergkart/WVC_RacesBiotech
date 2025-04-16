@@ -10,18 +10,16 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Scarifier : Gene
 	{
 
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
 		private int nextTick = 60000;
-		private int? cachedMaxScars;
+		private float? cachedMaxScars;
 
         public bool CanScarify
         {
             get
 			{
-				if (!cachedMaxScars.HasValue)
-				{
-					CacheMaxScars();
-				}
-				if (cachedMaxScars.Value > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
+				if (MaxScars > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
 				{
 					return true;
 				}
@@ -109,29 +107,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int CacheMaxScars()
-		{
-			int scars = def.GetModExtension<GeneExtension_Giver>().scarsCount;
-			List<Gene> genesListForReading = pawn.genes?.GenesListForReading;
-			if (genesListForReading.NullOrEmpty())
-			{
-				cachedMaxScars = scars;
-				return scars;
-			}
-			foreach (Gene item in genesListForReading)
-			{
-				GeneExtension_Giver modExtension = item?.def?.GetModExtension<GeneExtension_Giver>();
-				if (item?.Active != true || modExtension == null || modExtension.scarsCount == 0)
-				{
-					continue;
+		private float MaxScars
+        {
+            get
+            {
+                if (!cachedMaxScars.HasValue)
+                {
+					cachedMaxScars = pawn.GetStatValue(Giver.scarsStatDef);
 				}
-				scars += modExtension.scarsCount;
-			}
-			cachedMaxScars = scars;
-			return scars;
-		}
+                return cachedMaxScars.Value;
+            }
+        }
 
-		public static void Scarify(Pawn pawn)
+        public static void Scarify(Pawn pawn)
         {
             if (!ModLister.CheckIdeology("Scarification"))
             {
@@ -188,7 +176,7 @@ namespace WVC_XenotypesAndGenes
 
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_ScarifierScars".Translate().CapitalizeFirst(), CacheMaxScars().ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, Giver.scarsStatDef.LabelCap, pawn.GetStatValue(Giver.scarsStatDef).ToString(), Giver.scarsStatDef.description, 500);
 		}
 
   //      public void Notify_GenesChanged(Gene changedGene)

@@ -25,6 +25,11 @@
 	<exclusionTags>
 	  <li>WVC_AutoResearch</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>56</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
@@ -52,6 +57,11 @@
 		<li>Damage to apparels: 40 hp/day</li>
 		<li>&lt;color=#ffec85&gt;Ignores nudist clothing.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>48</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
@@ -94,6 +104,11 @@
 		<li>The amount of nutrition received depends on the amount of meat, the factor for raw nutrition and the maximum nutrtion of the pawn.</li>
 		<li>&lt;color=#ffec85&gt;Can kill the carrier.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>56</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
@@ -111,6 +126,11 @@
 	<customEffectDescriptions>
 		<li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>66</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ======================== -->

@@ -24,6 +24,9 @@
 		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li> -->
 		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;post implantation&lt;/color&gt; effects &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
 	<statFactors>
 	  <LifespanFactor>0.6</LifespanFactor>
 	  <CancerRate>2</CancerRate>
@@ -31,12 +34,15 @@
 	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
+			<!-- <scarsCount>1</scarsCount> -->
 			<hediffDefs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
 			</hediffDefs>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>16</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -54,12 +60,18 @@
 	<customEffectDescriptions>
 		<li>If a pawn has this gene, it is guaranteed to &lt;color=#8a8ae6&gt;heal all scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;regrow missing parts&lt;/color&gt; when using the &lt;color=#8a8ae6&gt;shapeshfit&lt;/color&gt; ability.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
 	<statFactors>
 	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
 	</statFactors>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>22</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -77,12 +89,16 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>1.0</MaxNutrition>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_PostshiftMetabolism_HungerFactor</hediffDefName>
 			<intervalRange>120000~180000</intervalRange>
-			<scarsCount>1</scarsCount>
+			<!-- <scarsCount>1</scarsCount> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>6</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -99,13 +115,21 @@
 		<li>When using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, receiving this gene, the pawn &lt;color=#8a8ae6&gt;receives 5 scars&lt;/color&gt;.</li>
 		<li>When &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; to a form &lt;color=#8a8ae6&gt;without this gene&lt;/color&gt;, the pawn &lt;color=#8a8ae6&gt;loses all scars&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
+	</statOffsets>
 	<painFactor>0.8</painFactor>
 	<statFactors>
 	  <IncomingDamageFactor>1.20</IncomingDamageFactor>
 	</statFactors>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>3</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>3</scarsCount>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>14</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -122,6 +146,9 @@
 		<li>&lt;color=#8a8ae6&gt;Shapeshift&lt;/color&gt; into a xenotype with this gene &lt;color=#8a8ae6&gt;does not require cd&lt;/color&gt;.</li>
 		<li>If at the moment of &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; the pawn was in &lt;color=#8a8ae6&gt;recovery state&lt;/color&gt;, then bonuses from &lt;color=#8a8ae6&gt;postshift&lt;/color&gt; genes will not be received.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
+	</statOffsets>
 	<!-- <statFactors> -->
 	  <!-- <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition> -->
 	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier> -->
@@ -131,11 +158,11 @@
 			<!-- <hideGene>true</hideGene> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>3</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>3</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
@@ -163,10 +190,11 @@
 	<statOffsets>
 	  <IncomingDamageFactor>0.20</IncomingDamageFactor>
 	  <MentalBreakThreshold>0.10</MentalBreakThreshold>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">2</WVC_ScarifierScars>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>2</scarsCount>
+			<!-- <scarsCount>2</scarsCount> -->
 			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
 			<jobDef>WVC_XaG_DestroyCellularBody</jobDef>
 			<!-- <bodyparts> -->
@@ -175,6 +203,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>1</regeneration>
+			<reqGeneMat>88</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

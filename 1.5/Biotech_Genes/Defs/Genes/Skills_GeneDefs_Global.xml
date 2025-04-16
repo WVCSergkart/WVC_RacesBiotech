@@ -246,6 +246,9 @@
 	<biostatCpx>-5</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>8</biostatMet>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">4</WVC_ScarifierScars>
+	</statOffsets>
 	<aptitudes>
 	  <Construction>-6</Construction>
 	  <Intellectual>-6</Intellectual>
@@ -260,11 +263,11 @@
 	  <Social>-6</Social>
 	  <Medicine>-6</Medicine>
 	</aptitudes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>4</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>4</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

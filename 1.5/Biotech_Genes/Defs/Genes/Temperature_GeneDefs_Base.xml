@@ -148,12 +148,13 @@
 	<statOffsets>
 	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-56</ComfyTemperatureMin>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
 	</statOffsets>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-2</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>-2</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

@@ -23,6 +23,11 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Duplicator</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>31</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================================================================== -->

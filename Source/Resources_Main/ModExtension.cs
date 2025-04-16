@@ -126,6 +126,8 @@ namespace WVC_XenotypesAndGenes
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;
 		public List<XaG_CountWithChance> possibleTraits;
+		public StatDef shiftStatDef;
+		public int reqGeneMat = -1;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
 		// GeneticThief
@@ -247,7 +249,8 @@ namespace WVC_XenotypesAndGenes
 		public bool xenotypeIsInheritable = true;
 		public List<HeadTypeDef> headTypeDefs;
 		// Scarifier
-		public int scarsCount = 0;
+		//public int scarsCount = 0;
+		public StatDef scarsStatDef;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
 		public Gender gender = Gender.None;

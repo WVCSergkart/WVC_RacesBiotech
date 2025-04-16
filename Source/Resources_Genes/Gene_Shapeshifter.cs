@@ -83,11 +83,42 @@ namespace WVC_XenotypesAndGenes
 			RemoveHediffs();
 		}
 
+		//public StatDef ShiftStatDef => Props.shiftStatDef;
+
+		//public float MinGenesMatch
+		//{
+		//	get
+		//	{
+		//		return pawn.GetStatValue(ShiftStatDef);
+		//	}
+		//}
+
+		//private string cachedGenesMatch_UI;
+		//public string MinGenesMatch_UI
+		//{
+		//	get
+		//	{
+		//		if (cachedGenesMatch_UI.NullOrEmpty())
+		//		{
+		//			cachedGenesMatch_UI = MinGenesMatch.ToStringPercent();
+		//		}
+		//		return cachedGenesMatch_UI;
+		//	}
+		//}
+
+		//public void Notify_GenesChanged(Gene changedGene)
+		//{
+		//	cachedGenesMatch_UI = null;
+		//}
+
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+			//cachedGenesMatch_UI = null;
+			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, ShiftStatDef.LabelCap, MinGenesMatch_UI, ShiftStatDef.description, 160);
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), genesRegrowAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
+
+		public bool gizmoCollapse = true;
 
 		public override void ExposeData()
 		{
@@ -95,6 +126,8 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
 			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
 			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
+			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", true);
 		}
 
 		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
@@ -104,25 +137,52 @@ namespace WVC_XenotypesAndGenes
 			// maxEvolveGenes = oldShapeshifter.maxEvolveGenes;
 		}
 
-		// Reimplanter
+		private int geneticMaterial = 0;
 
-		//public virtual void AddGene(GeneDef geneDef, bool inheritable)
-		//{
-		//	if (!geneDef.ConflictsWith(this.def))
-		//	{
-		//		pawn.genes.AddGene(geneDef, !inheritable);
-		//	}
-		//}
+		public int GeneticMaterial => geneticMaterial;
 
-		//public virtual void RemoveGene(Gene gene)
-		//{
-		//	if (gene != this)
-		//	{
-		//		pawn?.genes?.RemoveGene(gene);
-		//	}
-		//}
+		public void AddGenMat(int count)
+        {
+			if (!genesRegrowAfterShapeshift && count > 0)
+            {
+				return;
+            }
+            geneticMaterial += count;
+            if (geneticMaterial < 0)
+            {
+                geneticMaterial = 0;
+            }
+        }
 
-		public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool xenogenes = true)
+        public bool TryConsumeGenMat(int count)
+        {
+            if ((geneticMaterial + count) >= 0)
+            {
+                AddGenMat(count);
+                return true;
+            }
+            return false;
+        }
+
+        // Reimplanter
+
+        //public virtual void AddGene(GeneDef geneDef, bool inheritable)
+        //{
+        //	if (!geneDef.ConflictsWith(this.def))
+        //	{
+        //		pawn.genes.AddGene(geneDef, !inheritable);
+        //	}
+        //}
+
+        //public virtual void RemoveGene(Gene gene)
+        //{
+        //	if (gene != this)
+        //	{
+        //		pawn?.genes?.RemoveGene(gene);
+        //	}
+        //}
+
+        public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool xenogenes = true)
 		{
 			//if (doubleXenotypes && !xenotypeHolder.xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeHolder.xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeHolder.xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
 			//{
@@ -135,22 +195,32 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (genesRegrowAfterShapeshift)
 			{
+				if (!xenotypeHolder.isTrueShiftForm)
+				{
+					AddGenMat((int)((xenotypeHolder.genes.Sum((gene) => gene.biostatCpx) * 0.05f) + (xenotypeHolder.genes.Sum((gene) => gene.biostatArc) * 0.1f)));
+				}
 				//GeneUtility.UpdateXenogermReplication(pawn);
-				XaG_GeneUtility.GetBiostatsFromList(xenotypeHolder.genes, out int cpx, out int met, out int _);
-				int architeCount = xenotypeHolder.genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
-				int nonArchiteCount = xenotypeHolder.genes.Count - architeCount;
-				int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
-				int count = days * 60000;
-				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-			}
-			if (ModLister.IdeologyInstalled)
+				AddXenogermReplicating(xenotypeHolder.genes);
+                //AddGenMat(days);
+            }
+            if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_Shapeshift, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			DoEffects();
 		}
 
-		public virtual void DoEffects()
+        public void AddXenogermReplicating(List<GeneDef> genes)
+        {
+            XaG_GeneUtility.GetBiostatsFromList(genes, out int cpx, out int met, out int _);
+            int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+            int nonArchiteCount = genes.Count - architeCount;
+            int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
+            int count = days * 60000;
+            ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+        }
+
+        public virtual void DoEffects()
 		{
 			if (pawn.Map == null)
 			{
@@ -188,6 +258,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-	}
+    }
 
 }

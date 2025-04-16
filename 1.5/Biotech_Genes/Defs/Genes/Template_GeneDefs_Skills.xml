@@ -162,11 +162,14 @@
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
-		</li>
-	</modExtensions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- =============================================== -->

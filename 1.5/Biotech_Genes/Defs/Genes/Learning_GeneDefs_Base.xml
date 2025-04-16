@@ -189,6 +189,9 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
 	  <li>Alzheimers</li>
@@ -204,7 +207,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
-			<scarsCount>-2</scarsCount>
+			<!-- <scarsCount>-2</scarsCount> -->
 		</li>
 	</modExtensions>
   </GeneDef>

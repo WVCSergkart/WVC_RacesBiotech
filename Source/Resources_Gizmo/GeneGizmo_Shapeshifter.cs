@@ -15,8 +15,7 @@ namespace WVC_XenotypesAndGenes
 		public Gene_Shapeshifter gene;
 
 		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoMain");
-
-		// private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
+		private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
 
 		public override bool Visible => true;
 
@@ -26,40 +25,65 @@ namespace WVC_XenotypesAndGenes
 			gene = geneShapeshifter;
 			pawn = gene?.pawn;
 			Order = -95f;
-			// if (!ModLister.CheckIdeology("Styling station"))
-			// {
-				// styleIcon = new("WVC/UI/XaG_General/UI_DisabledWhite");
-			// }
-			// if (gene.ShiftMode == null)
-			// {
-				// gene.Reset();
-			// }
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+        {
+            if (gene.gizmoCollapse)
+            {
+                Collapsed(topLeft, maxWidth);
+            }
+            else
+            {
+                Uncollapsed(topLeft, maxWidth, out Rect rect5);
+                Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+                XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
+            }
+            return new GizmoResult(GizmoState.Clear);
+        }
+
+        private void Uncollapsed(Vector2 topLeft, float maxWidth, out Rect rect5)
+        {
+            Rect rect2 = LabelAndTip(topLeft, maxWidth);
+            // Button
+            Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
+            ButtonMenu(rect4);
+            // Button
+            rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
+            ButtonGenes(rect5);
+        }
+
+        private void Collapsed(Vector2 topLeft, float maxWidth)
+        {
+            Rect rect2 = LabelAndTip(topLeft, maxWidth);
+            // Button
+            Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
+            ButtonMenu(rect4);
+            // Button
+            Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
+            ButtonGenes(rect5);
+        }
+
+        private Rect LabelAndTip(Vector2 topLeft, float maxWidth)
         {
             Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
             Rect rect2 = rect.ContractedBy(6f);
             Widgets.DrawWindowBackground(rect);
             // Tip
-            // string text = gene.heritableGenesSlots.ToString("F0");
-            // +text
-            TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.genesRegrowAfterShapeshift.ToStringYesNo());
+            TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial, gene.genesRegrowAfterShapeshift.ToStringYesNo());
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             // Label
             Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            // Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
-            Widgets.Label(rect3, gene.LabelCap);
-            //Text.Font = GameFont.Small;
-            //Text.Anchor = TextAnchor.UpperRight;
+            Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst());
             TooltipHandler.TipRegion(rect3, taggedString);
-            // Widgets.Label(rect3, text);
-            // Text.Anchor = TextAnchor.UpperLeft;
-            // Text.Font = GameFont.Small;
-            // Text.Anchor = TextAnchor.UpperRight;
-            // Button
-            Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
+            // Collapse button
+            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+            return rect2;
+        }
+
+        private void ButtonMenu(Rect rect4)
+        {
             Widgets.DrawTextureFitted(rect4, MenuIcon.Texture, 1f);
             if (Mouse.IsOver(rect4))
             {
@@ -70,53 +94,30 @@ namespace WVC_XenotypesAndGenes
                 }
             }
             TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneShapeshifter_Desc".Translate());
-            // Button
-            Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
-            XaG_UiUtility.StyleButton_WithoutRect(rect5, pawn, gene, true);
-            // Button
-            // Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-            // Widgets.DrawTextureFitted(rect6, InheritableGenesIcon.Texture, 1f);
-            // if (Mouse.IsOver(rect6))
-            // {
-            // Widgets.DrawHighlight(rect6);
-            // if (Widgets.ButtonInvisible(rect6))
-            // {
-            // Find.WindowStack.Add(new Dialog_ShapeshifterHeritableGenes(gene));
-            // }
-            // }
-            // TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneShapeshifterHeritableGenes_Desc".Translate());
-            // UpperButton
-            // Rect rectModeButton = new(rect.x + rect.width - 52f - 6f, rect.y + 6f, 26f, 26f);
-            // Widgets.DrawTextureFitted(rectModeButton, MenuIcon.Texture, 1f);
-            // if (Mouse.IsOver(rectModeButton))
-            // {
-            // Widgets.DrawHighlight(rectModeButton);
-            // if (Widgets.ButtonInvisible(rectModeButton))
-            // {
-            // }
-            // }
-            return new GizmoResult(GizmoState.Clear);
+        }
+
+        private void ButtonGenes(Rect rect4)
+        {
+            Widgets.DrawTextureFitted(rect4, InheritableGenesIcon.Texture, 1f);
+            if (Mouse.IsOver(rect4))
+            {
+                Widgets.DrawHighlight(rect4);
+                if (Widgets.ButtonInvisible(rect4))
+                {
+                    Find.WindowStack.Add(new Dialog_EditShiftGenes(gene));
+                }
+            }
+            TooltipHandler.TipRegion(rect4, "WVC_XaG_ShapeshifterGenesImplant_Desc".Translate(gene.GeneticMaterial));
         }
 
         public override float GetWidth(float maxWidth)
-		{
-			// return 136f;
-			return 96f;
-			// return 140f;
-		}
-
-		// public static IEnumerable<FloatMenuOption> GetWorkModeOptions(MechanitorControlGroup controlGroup)
-		// {
-			// foreach (MechWorkModeDef wm in DefDatabase<MechWorkModeDef>.AllDefsListForReading.OrderBy((MechWorkModeDef d) => d.uiOrder))
-			// {
-				// FloatMenuOption floatMenuOption = new FloatMenuOption(wm.LabelCap, delegate
-				// {
-					// controlGroup.SetWorkMode(wm);
-				// }, wm.uiIcon, Color.white);
-				// floatMenuOption.tooltip = new TipSignal(wm.description, wm.index ^ 0xDFE8661);
-				// yield return floatMenuOption;
-			// }
-		// }
+        {
+            if (gene.gizmoCollapse)
+            {
+                return 96f;
+            }
+            return 140f;
+        }
 
 	}
 

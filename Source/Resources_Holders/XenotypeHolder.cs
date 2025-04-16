@@ -136,6 +136,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						stringBuilder.AppendLine();
 					}
+					if (matchPercent.HasValue)
+					{
+						stringBuilder.AppendLine(("WVC_XaG_XenoHolder_GenesMatch".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + (matchPercent.Value * 100 + "%").ToString());
+						stringBuilder.AppendLine();
+					}
 					stringBuilder.Append(("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + inheritable.ToStringYesNo());
 					cachedDescription = stringBuilder.ToString();
 				}

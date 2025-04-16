@@ -174,54 +174,72 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool CanDo_General(Pawn pawn)
+		public static bool CanDo_General(Pawn pawn, bool throwMessage = true)
 		{
 			if (pawn.InMentalState)
 			{
-				Messages.Message("WVC_InMentalState".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				if (throwMessage)
+				{
+					Messages.Message("WVC_InMentalState".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
 				return false;
 			}
 			if (pawn.IsQuestLodger())
 			{
-				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
 				return false;
 			}
 			return true;
 		}
 
-		public static bool CanDo_GeneralGeneticStuff(Pawn pawn)
+		public static bool CanDo_GeneralGeneticStuff(Pawn pawn, bool throwMessage = true)
 		{
-			if (!CanDo_General(pawn))
+			if (!CanDo_General(pawn, throwMessage))
 			{
 				return false;
 			}
 			if (!pawn.health.capacities.CanBeAwake)
 			{
-				Messages.Message("WVC_IsUnconscious".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				if (throwMessage)
+				{
+					Messages.Message("WVC_IsUnconscious".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
 				return false;
 			}
 			return true;
 		}
 
-		public static bool CanDo_ShifterGeneticStuff(Pawn pawn)
+		public static bool CanDo_ShifterGeneticStuff(Pawn pawn, bool throwMessage = true)
 		{
-			if (!CanDo_GeneralGeneticStuff(pawn))
+			if (!CanDo_GeneralGeneticStuff(pawn, throwMessage))
 			{
 				return false;
 			}
             if (pawn.health.InPainShock)
             {
-                Messages.Message("WVC_InPainShock".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				if (throwMessage)
+				{
+					Messages.Message("WVC_InPainShock".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
                 return false;
             }
             if (pawn.Deathresting)
-            {
-                Messages.Message("WVC_IsDeathresting".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_IsDeathresting".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
                 return false;
             }
             if (pawn.Downed && !LifeStageUtility.AlwaysDowned(pawn))
-            {
-                Messages.Message("WVC_IsIncapacitated".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_IsIncapacitated".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
                 return false;
             }
             return true;
@@ -418,7 +436,7 @@ namespace WVC_XenotypesAndGenes
 				num = 3;
 				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.disabled);
 				num = 4;
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.LabelCap, geneShapeshifter.LabelCap)
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
 				+ "\n\n" + dialog.selectedXenoHolder.Description,
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				return true;

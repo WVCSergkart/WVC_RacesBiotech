@@ -57,11 +57,11 @@ namespace WVC_XenotypesAndGenes
 					InheritableGeneStats(geneDef, geneExtension_General);
 					BirthQuality(geneDef, geneExtension_General);
 				}
-                GeneExtension_Giver geneExtension_Giver = geneDef?.GetModExtension<GeneExtension_Giver>();
-                if (geneExtension_Giver != null)
-                {
-                    GeneExtension_Giver(geneDef, geneExtension_Giver);
-                }
+                //GeneExtension_Giver geneExtension_Giver = geneDef?.GetModExtension<GeneExtension_Giver>();
+                //if (geneExtension_Giver != null)
+                //{
+                //    GeneExtension_Giver(geneDef, geneExtension_Giver);
+                //}
                 FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
@@ -69,19 +69,18 @@ namespace WVC_XenotypesAndGenes
 			FlatGenesChances(xenogenesGenes);
 		}
 
-        public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
-        {
-            if (geneDef.customEffectDescriptions == null)
-            {
-                geneDef.customEffectDescriptions = new();
-            }
-            int scarsCount = geneExtension_Giver.scarsCount;
-            if (scarsCount != 0)
-            {
-                //string scarsLimitText = (scarsCount > 0 ? "+" : "-") + scarsCount;
-                geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
-            }
-        }
+		//public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
+		//{
+		//	if (geneDef.customEffectDescriptions == null)
+		//	{
+		//		geneDef.customEffectDescriptions = new();
+		//	}
+		//	int scarsCount = geneExtension_Giver.scarsCount;
+		//	if (scarsCount != 0)
+		//	{
+		//		geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
+		//	}
+		//}
 
         public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{

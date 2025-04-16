@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -16,6 +17,10 @@ namespace WVC_XenotypesAndGenes
 		public int biostatArc;
 
 		public int aptitudeOffset;
+
+		public List<StatModifier> statOffsets;
+
+		public List<StatModifier> statFactors;
 
 		// public Color? iconColor;
 

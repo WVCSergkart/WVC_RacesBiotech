@@ -27,6 +27,7 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>28</reqGeneMat>
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<!-- Unused? -->
 			<xenotypeDef>WVC_Shadoweater</xenotypeDef>

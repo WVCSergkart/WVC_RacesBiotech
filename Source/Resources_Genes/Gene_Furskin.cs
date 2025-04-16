@@ -140,10 +140,34 @@ namespace WVC_XenotypesAndGenes
         }
     }
 
-	[Obsolete]
-	public class Gene_FleshmassSkin : Gene_FleshEyesSkin
+	//[Obsolete]
+	//public class Gene_FleshmassSkin : Gene_FleshEyesSkin
+	//{
+
+	//}
+
+    public class Gene_ScarsSkin : Gene_Exoskin, IGeneScarifier
 	{
 
-	}
+		[Unsaved(false)]
+		private Gene_Shapeshifter cachedShapeshifterGene;
+		public Gene_Shapeshifter Shapeshifter
+		{
+			get
+			{
+				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
+				{
+					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+				}
+				return cachedShapeshifterGene;
+			}
+		}
+
+		public void Notify_Scarified()
+        {
+			Shapeshifter.AddGenMat(5);
+        }
+
+    }
 
 }

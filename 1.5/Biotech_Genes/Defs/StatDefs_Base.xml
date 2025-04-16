@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <StatDef Name="WVC_Biotech_ForcedStat_Base" Abstract="True">
+  <StatDef Name="WVC_XenotypesAndGenes_StatDefs_Base" Abstract="True">
 	<description>Should be invisible.</description>
 	<!-- <category>WVC_ForcedStats_Genes</category> -->
 	<category>PawnMisc</category>
@@ -18,7 +18,7 @@
 	<displayPriorityInCategory>2000</displayPriorityInCategory>
   </StatDef>
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
 	<defName>WVC_GolemBond</defName>
 	<label>golembond</label>
 	<description>To control golems, just like for mechanoids, bandwidth is required, but to create them, the mechanitor needs golembond. Exceeding or losing golembond does not affect existing golems.</description>
@@ -43,6 +43,19 @@
 	  <!-- </li> -->
 	<!-- </parts> -->
   </StatDef>
+
+  <!-- Visible only with gene -->
+  <!-- <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base"> -->
+	<!-- <defName>WVC_Shapeshifter_MinGenesMatch</defName> -->
+	<!-- <label>shift genes match</label> -->
+	<!-- <description>Minimum genetic match required for shapeshifting. If the percentage of mismatched genes is greater than this value, shapeshifting is not possible. Does not affect true forms.</description> -->
+	<!-- <defaultBaseValue>0.6</defaultBaseValue> -->
+	<!-- <maxValue>1</maxValue> -->
+	<!-- <minValue>0</minValue> -->
+	<!-- <hideAtValue>0</hideAtValue> -->
+	<!-- <alwaysHide>true</alwaysHide> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+  <!-- </StatDef> -->
 
   <StatDef ParentName="MechStatBase">
 	<defName>WVC_GolemBondCost</defName>

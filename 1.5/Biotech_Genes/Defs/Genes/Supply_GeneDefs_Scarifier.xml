@@ -15,6 +15,9 @@
 	<customEffectDescriptions>
 		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li> -->
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">2</WVC_ScarifierScars>
+	</statOffsets>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<selectionWeight>0.00025</selectionWeight>
 	<!-- <makeImmuneTo> -->
@@ -27,9 +30,9 @@
 	  <!-- <li>TraumaSavant</li> -->
 	<!-- </hediffGiversCannotGive> -->
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>2</scarsCount>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>2</scarsCount> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<inheritableGeneDefs>
 			  <li>PerfectImmunity</li>
@@ -79,6 +82,9 @@
 		<!-- <li>Some genes can change the number of scars.</li> -->
 		<!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li> -->
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">6</WVC_ScarifierScars>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>scar</symbol></li>
@@ -87,7 +93,8 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>3</scarsCount>
+			<scarsStatDef>WVC_ScarifierScars</scarsStatDef>
+			<!-- <scarsCount>3</scarsCount> -->
 			<!-- <scarGeneDefs> -->
 			  <!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
 			  <!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
@@ -120,11 +127,14 @@
 	<customEffectDescriptions Inherit="False">
 	  <li>Removes &lt;color=#8a8ae6&gt;xenogerm replication&lt;/color&gt; effects after scarification with a &lt;color=#8a8ae6&gt;scarifier&lt;/color&gt; or similar triggers.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-2</scarsCount>
+			<!-- <scarsCount>-2</scarsCount> -->
 			<intervalRange>122000~840000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>
@@ -152,16 +162,19 @@
 	<customEffectDescriptions>
 	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 1</li> -->
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>habit</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ===================================== -->
@@ -180,6 +193,9 @@
 		<li>Wounds will be automatically treated, but treating each wound has a 20% scar appearance.</li>
 		<li>With the &lt;color=#8a8ae6&gt;"Scarifier"&lt;/color&gt; gene, the number of scars will be limited.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<exclusionTags>
 	  <li>SuperClotting</li>
 	</exclusionTags>
@@ -188,11 +204,11 @@
 		<li><symbol>bleed</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-2</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>-2</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ===================================== -->
@@ -212,6 +228,9 @@
 	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
 	  <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>shield</symbol></li>
@@ -223,7 +242,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Scarifier_Scarshield</hediffDefName>
-			<scarsCount>-2</scarsCount>
+			<!-- <scarsCount>-2</scarsCount> -->
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -245,6 +264,9 @@
 	  <li>Increases nutrition received from food by 5 times.</li>
 	  <li>Max nutrition +0.2 per scar</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
 	</makeImmuneTo>
@@ -266,7 +288,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Scarifier_Scarstomach</hediffDefName>
-			<scarsCount>-2</scarsCount>
+			<!-- <scarsCount>-2</scarsCount> -->
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -301,6 +323,9 @@
 	<customEffectDescriptions>
 	  <li>Melee damage +5% per scar</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
 	<statFactors>
 	  <MeleeDamageFactor>1.5</MeleeDamageFactor>
 	</statFactors>
@@ -310,7 +335,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Scarifier_StrongMelee</hediffDefName>
-			<scarsCount>-2</scarsCount>
+			<!-- <scarsCount>-2</scarsCount> -->
 		</li>
 	</modExtensions>
   </GeneDef>

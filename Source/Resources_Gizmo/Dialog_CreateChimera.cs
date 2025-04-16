@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_CreateChimera : GeneCreationDialogBase
+    public class Dialog_CreateChimera : GeneCreationDialogBase
 	{
 		// private int generationRequestIndex = 1;
 

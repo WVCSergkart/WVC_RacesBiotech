@@ -177,23 +177,28 @@
 	<label>shiftskin</label>
 	<description>Carriers of this gene have unnatural-looking scars all over their bodies, as if they were cut and the wounds healed over and over again.</description>
 	<iconPath>WVC/UI/Genes/Gene_FurskinShift_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ScarsSkin</geneClass>
 	<forcedHeadTypes>
 	  <li>WVC_ShiftSkin_Average</li>
 	</forcedHeadTypes>
 	<biostatCpx>2</biostatCpx>
 	<fur>WVC_ShapeshiftSkin</fur>
 	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
+	  <!-- <WVC_Shapeshifter_MinGenesMatch>-0.1</WVC_Shapeshifter_MinGenesMatch> -->
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>scar</symbol></li>
 		<li><symbol>shift</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>3</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>3</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- Transparent -->

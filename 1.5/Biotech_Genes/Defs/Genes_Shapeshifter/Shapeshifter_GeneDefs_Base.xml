@@ -19,6 +19,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
 	<defName>WVC_Shapeshifter</defName>
 	<label>shapeshifter</label>
+	<labelShortAdj>shifter</labelShortAdj>
 	<description>Carriers of this gene have archites that can completely rearrange and rewrite the genetic code at the request of the carrier. Thanks to this, the xenotype of the carrier can be changed at any time, but the carriers completely lose the accumulated genetic information of the previous form.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
@@ -28,6 +29,9 @@
 		<!-- <li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li> -->
 		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
+	</statOffsets>
 	<displayOrderInCategory>155</displayOrderInCategory>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
@@ -39,7 +43,7 @@
 			<birthQualityOffset>0.25</birthQualityOffset>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-3</scarsCount>
+			<!-- <scarsCount>-3</scarsCount> -->
 			<hediffDefs>
 				<li>WVC_PostshiftMetabolism_HungerFactor</li>
 				<li>WVC_ShapeshifterDeathless</li>
@@ -47,6 +51,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- <shiftStatDef>WVC_Shapeshifter_MinGenesMatch</shiftStatDef> -->
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 				<!-- <li>XenogerminationComa</li> -->

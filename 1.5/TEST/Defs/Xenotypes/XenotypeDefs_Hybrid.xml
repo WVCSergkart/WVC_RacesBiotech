@@ -36,7 +36,7 @@
 	  <li>WVC_RogueFormer</li>
 	  <li>WVC_Undead</li>
 	  <li>WVC_Featherdust</li>
-	  <li>WVC_RuneDryad</li>
+	  <li MayRequire="ludeon.rimworld.ideology">WVC_RuneDryad</li>
 	  <li>WVC_Bloodeater</li>
 	  <li>WVC_Sandycat</li>
 	  <li>WVC_Golemkind</li>
@@ -45,7 +45,7 @@
 	  <li>WVC_CatDeity</li>
 	  <li>WVC_Shadoweater</li>
 	  <li>WVC_Lilith</li>
-	  <li>WVC_Ashen</li>
+	  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 	  <!-- Vanilla -->
 	  <li>Dirtmole</li>
 	  <li>Genie</li>

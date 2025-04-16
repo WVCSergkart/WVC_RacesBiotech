@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
 	<defName>WVC_VoidMechsLimit</defName>
 	<label>void mechs limit</label>
 	<description>How many mechanoids can be skipped using voidlink without disturbing the nociosphere. Each mechanoid controlled above this limit adds 1% chance to skip the sphere.</description>
@@ -13,7 +13,7 @@
 	<toStringStyle>FloatOne</toStringStyle>
   </StatDef>
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
 	<defName>WVC_VoidDamageChance</defName>
 	<label>void damage chance</label>
 	<description>Chance that a mechanoid skipped using voidlink will receive damage.</description>
@@ -27,7 +27,7 @@
   </StatDef>
 
   <!-- Used only for internal calculations. Should be invisible in the stats window. -->
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
 	<defName>WVC_MaxVoidEnergy</defName>
 	<label>max voidlink resource</label>
 	<!-- <description>The maximum amount of void energy that a voidlink can accumulate. This energy is used to summon mechanoids, each mechanoid has its own cost. Mechanoids that are more expensive than this value cannot be summoned.</description> -->

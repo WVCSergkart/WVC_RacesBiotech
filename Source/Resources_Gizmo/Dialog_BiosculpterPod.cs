@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 				if (Mouse.IsOver(rect3))
 				{
 					Widgets.DrawHighlight(rect3);
-					TooltipHandler.TipRegion(rect3, "WVC_XaG_DialogBiosculpterPod_ChanceLabel".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_DialogBiosculpterPod_ChanceDesc".Translate(xenotypeHolder.matchPercent.Value.ToStringPercent()));
+					TooltipHandler.TipRegion(rect3, "WVC_XaG_XenoHolder_GenesMatch".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_DialogBiosculpterPod_ChanceDesc".Translate(xenotypeHolder.matchPercent.Value.ToStringPercent()));
 				}
 			}
 			curX += 34f;

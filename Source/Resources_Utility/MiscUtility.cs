@@ -78,25 +78,34 @@ namespace WVC_XenotypesAndGenes
 			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(spawnCell, map));
 		}
 
-		public static bool CanStartPregnancy_Gestator(Pawn pawn, GeneExtension_Giver giver = null)
+		public static bool CanStartPregnancy_Gestator(Pawn pawn, GeneExtension_Giver giver = null, bool throwMessage = true)
         {
-            if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
+            if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn, throwMessage))
             {
                 return false;
             }
             if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
-            {
-                Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
                 return false;
             }
             if (giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
-            {
-                Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
                 return false;
             }
             if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
 			{
-				Messages.Message("WVC_XaG_Gene_SimpleGestator_ToYoungMessage".Translate(pawn.LabelShortCap).CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_Gene_SimpleGestator_ToYoungMessage".Translate(pawn.LabelShortCap).CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
 				return false;
             }
             return true;

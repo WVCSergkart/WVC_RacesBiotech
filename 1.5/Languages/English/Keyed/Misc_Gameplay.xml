@@ -136,7 +136,7 @@
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>
 
-	<WVC_XaG_DialogBiosculpterPod_ChanceLabel>Genes match</WVC_XaG_DialogBiosculpterPod_ChanceLabel>
+	<WVC_XaG_XenoHolder_GenesMatch>Genes match</WVC_XaG_XenoHolder_GenesMatch>
 	<WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc>
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
@@ -391,9 +391,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ SCARIFIERS ============================ -->
 
 	<!-- <WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>max scars</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars> -->
-	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>The maximum number of scarifications that can be obtained using the scarifier or its subgenes. Affects the effectiveness of some genes in the scarifier series.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>
+	<!-- <WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>The maximum number of scarifications that can be obtained using the scarifier or its subgenes. Affects the effectiveness of some genes in the scarifier series.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc> -->
 
-	<WVC_XaG_ScarifierScars>&lt;color=#8097e1&gt;Scarifier scars&lt;/color&gt;</WVC_XaG_ScarifierScars>
+	<!-- <WVC_XaG_ScarifierScars>&lt;color=#8097e1&gt;Scarifier scars&lt;/color&gt;</WVC_XaG_ScarifierScars> -->
 
 	<!-- ============================ RESURRECTION ============================ -->
 
@@ -557,7 +557,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>Pawn has no xenogens</WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>
 
-	<WVC_XaG_GeneGeneticThief_NullGeneSet>Choose genes</WVC_XaG_GeneGeneticThief_NullGeneSet>
+	<WVC_XaG_GeneGeneticThief_NullGeneSet>Genes are not selected.</WVC_XaG_GeneGeneticThief_NullGeneSet>
 
 	<WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat>
 	<WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant>
@@ -760,6 +760,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
+	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>
 
 	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
 
@@ -767,6 +768,16 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_Endogenous_E>Endo</WVC_Endogenous_E> -->
 	<!-- <WVC_Xenogeneic_X>Xeno</WVC_Xenogeneic_X> -->
+
+	<WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes>
+	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by shapeshifter.</WVC_XaG_GeneticMaterial_GenesDesc>
+	<WVC_XaG_GeneticMaterial_Shifter>Shapeshifter material</WVC_XaG_GeneticMaterial_Shifter>
+	<WVC_XaG_GeneticMaterial_ShifterDesc>Genetic material collected by the shapeshifter gene.</WVC_XaG_GeneticMaterial_ShifterDesc>
+	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has this gene.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
+	<!-- <WVC_XaG_DialogEditShiftGenes_ExcCost>A</WVC_XaG_DialogEditShiftGenes_ExcCost> -->
+	<WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>More genetic material is required.</WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>
+	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material.</WVC_XaG_DialogEditShiftGenes_Explanation>
+	<WVC_XaG_DialogEditShiftGenes_CannotSave>Implantation is not possible. {0}</WVC_XaG_DialogEditShiftGenes_CannotSave>
 
 	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
 	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->
@@ -782,7 +793,13 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->
-	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {0}</WVC_XaG_ShapeshifterGizmoTip>
+	<!-- <WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff and genetic match. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn gets &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, it is summed up.\n\nTo compensate for the genetic match, you can use &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; that accumulates during &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; or with the help of sub-genes.\n\nThere are also xenotypes that are considered &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;. &lt;color=#8a8ae6&gt;Shapeshifting&lt;/color&gt; in them is possible without any restrictions, but it does not accumulate &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.\n\n -  Genetic material: {0}\n -  Min genes match: {1}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {2}</WVC_XaG_ShapeshifterGizmoTip> -->
+	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#8076ff&gt;Genetic material&lt;/color&gt;: {0}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {1}</WVC_XaG_ShapeshifterGizmoTip>
+	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff. After shapeshifting, the pawn is guaranteed to receive genes regrowing, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nSome xenotypes are true forms, these xenotypes can be applied at any time without restrictions. -->
+
+	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff and genetic compliance. After shapeshifting, the pawn gets genes regrowing hediff. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nTo compensate for the genetic discrepancy, you can use genetic material that accumulates during shapeshifting or with the help of sub-genes.\n\nThere are also xenotypes that are considered true forms. Shapeshifting in them is possible without any restrictions, but it does not accumulate genetic material. -->
+
+	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was turned off for the gene.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
 
 	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
 	<WVC_XaG_CellularDestroyBodyDesc>Extract archotechnology shard. Extracting the shard will kill the carrier and nullify its xenotype.</WVC_XaG_CellularDestroyBodyDesc>
@@ -864,7 +881,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
-	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been changed, {TARGET_possessive} xenotype is now {1}.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
 	<!-- <WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>Failed shift</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel> -->
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
