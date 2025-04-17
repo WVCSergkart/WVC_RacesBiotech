@@ -31,6 +31,9 @@
 	  <CancerRate>2</CancerRate>
 	  <ImmunityGainSpeed>0.80</ImmunityGainSpeed>
 	</statFactors>
+	<exclusionTags>
+	  <li>WVC_PostShapeshift_Recovery</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- <scarsCount>1</scarsCount> -->
@@ -65,12 +68,15 @@
 	<statFactors>
 	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
 	</statFactors>
+	<exclusionTags>
+	  <li>WVC_PostShapeshift_Recovery</li>
+	</exclusionTags>
 	<modExtensions>
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
 			<!-- <scarsCount>1</scarsCount> -->
 		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>22</reqGeneMat>
+			<reqGeneMat>28</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -97,7 +103,7 @@
 			<!-- <scarsCount>1</scarsCount> -->
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>6</reqGeneMat>
+			<reqGeneMat>11</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

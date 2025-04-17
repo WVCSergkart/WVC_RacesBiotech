@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects
+	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -19,16 +19,17 @@ namespace WVC_XenotypesAndGenes
 		//public bool xenogermComaAfterShapeshift = true;
 		public bool genesRegrowAfterShapeshift = true;
 
-		//public override void PostAdd()
-		//{
-		//	base.PostAdd();
-		//	if (pawn.genes.IsXenogene(this))
-		//	{
-		//		pawn.genes.RemoveGene(this);
-		//		pawn.genes.AddGene(this.def, false);
-		//		return;
-		//	}
-		//}
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			UpdateMetabolism();
+			//	if (pawn.genes.IsXenogene(this))
+			//	{
+			//		pawn.genes.RemoveGene(this);
+			//		pawn.genes.AddGene(this.def, false);
+			//		return;
+			//	}
+		}
 
 		private Gizmo gizmo;
 
@@ -57,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
+			UpdateMetabolism();
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
@@ -174,6 +176,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.AddGene(geneDef, pawn.genes.IsXenogene(this));
 				AddXenogermReplicating(new() { geneDef });
+				//UpdateMetabolism();
 			}
         }
 
@@ -252,6 +255,14 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
+		public void UpdateMetabolism()
+		{
+			if (!HediffUtility.TryAddOrRemoveHediff(Giver.metHediffDef, pawn, this, Giver.bodyparts))
+			{
+				GeneResourceUtility.UpdMetabolism(pawn);
+			}
+		}
+
 		// Shapeshift
 
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
@@ -269,6 +280,7 @@ namespace WVC_XenotypesAndGenes
 				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
 				//GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
+			UpdateMetabolism();
 		}
 
     }

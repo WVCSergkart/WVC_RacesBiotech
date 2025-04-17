@@ -73,6 +73,7 @@
 	<customEffectDescriptions>
 	  <li>Hunger rate factor x1%</li>
 	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
+	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<!-- <disablesNeeds> -->
 	  <!-- <li>Food</li> -->
@@ -88,6 +89,9 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_DeadStomach_HungerFactor</hediffDefName>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>60</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -21,6 +21,9 @@
 	<initialSeverity>0.5</initialSeverity>
 	<minSeverity>0.0</minSeverity>
 	<maxSeverity>1.25</maxSeverity>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
+	</comps>
   </HediffDef>
 
   <!-- ================================= Former ================================= --> 

@@ -15,6 +15,8 @@
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
+	<WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc>
+
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
 	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
@@ -783,6 +785,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_DialogEditShiftGenes_CannotSave>Implantation is not possible. {0}</WVC_XaG_DialogEditShiftGenes_CannotSave>
 
 	<WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>The implantation will remove some of the pawn's genes.</WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>
+	<WVC_XaG_DialogEditShiftGenes_Warning>Shapeshifter cannot remove genes individually. Implanted genes cannot be removed until the next shapeshift.</WVC_XaG_DialogEditShiftGenes_Warning>
 
 	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
 	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->

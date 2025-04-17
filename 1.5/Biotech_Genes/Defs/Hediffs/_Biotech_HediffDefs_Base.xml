@@ -26,30 +26,30 @@
 
   <!--=====================================================================-->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
-	<defName>WVC_IncompatibilityComa</defName>
-	<label>incompatibility coma</label>
-	<description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description>
-	<duplicationAllowed>false</duplicationAllowed>
-	<stages>
-	  <li>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<setMax>0.10</setMax>
-		  </li>
-		</capMods>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>12000~34000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime"> -->
+	<!-- <defName>WVC_IncompatibilityComa</defName> -->
+	<!-- <label>incompatibility coma</label> -->
+	<!-- <description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description> -->
+	<!-- <duplicationAllowed>false</duplicationAllowed> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.10</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>12000~34000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_MechaClotting_PreventBleeding</defName>

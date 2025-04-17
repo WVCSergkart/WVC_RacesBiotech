@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects
+    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects, IGeneMetabolism
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
         {
             base.PostAdd();
-            Local_AddOrRemoveHediff();
+            UpdateMetabolism();
             if (Current.ProgramState != ProgramState.Playing)
             {
                 StarterPackSetup();
@@ -152,19 +152,14 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        public void Local_AddOrRemoveHediff()
-		{
-			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);
-		}
-
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Giver.metHediffDef, pawn);
 		}
 
 		public void Notify_Override()
 		{
-			Local_AddOrRemoveHediff();
+			UpdateMetabolism();
 		}
 
 		private Gizmo genesGizmo;
@@ -252,18 +247,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			//base.Tick();
-			if (!pawn.IsHashIntervalTick(63333))
-			{
-				return;
-			}
-			Local_AddOrRemoveHediff();
+			//if (!pawn.IsHashIntervalTick(63333))
+			//{
+			//	return;
+			//}
+			//UpdateMetabolism();
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Giver.metHediffDef, pawn);
 		}
 
 		public bool gizmoCollapse = true;
@@ -450,29 +444,32 @@ namespace WVC_XenotypesAndGenes
 
 		// public virtual void ClearChimeraXenogerm()
 		// {
-			// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-			// bool clearXenogerm = true;
-			// if (firstHediffOfDef != null)
-			// {
-				// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
-				// foreach (Ability ability in xenogenesAbilities)
-				// {
-					// if (ability.OnCooldown)
-					// {
-						// clearXenogerm = false;
-						// break;
-					// }
-				// }
-				// if (clearXenogerm)
-				// {
-					// pawn.health.RemoveHediff(firstHediffOfDef);
-				// }
-			// }
+		// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+		// bool clearXenogerm = true;
+		// if (firstHediffOfDef != null)
+		// {
+		// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+		// foreach (Ability ability in xenogenesAbilities)
+		// {
+		// if (ability.OnCooldown)
+		// {
+		// clearXenogerm = false;
+		// break;
+		// }
+		// }
+		// if (clearXenogerm)
+		// {
+		// pawn.health.RemoveHediff(firstHediffOfDef);
+		// }
+		// }
 		// }
 
 		public virtual void UpdateMetabolism()
-        {
-			GeneResourceUtility.UpdMetabolism(pawn);
+		{
+			if (!HediffUtility.TryAddOrRemoveHediff(Giver.metHediffDef, pawn, this, Giver.bodyparts))
+			{
+				GeneResourceUtility.UpdMetabolism(pawn);
+			}
         }
 
         public virtual void DoEffects()

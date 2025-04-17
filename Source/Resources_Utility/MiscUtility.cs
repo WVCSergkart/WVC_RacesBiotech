@@ -16,6 +16,31 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void GetModExtensions(Def def, out GeneExtension_General geneExtension_General, out GeneExtension_Giver geneExtension_Giver)
+		{
+			geneExtension_General = null;
+			geneExtension_Giver = null;
+			if (def.modExtensions == null)
+			{
+				return;
+			}
+			foreach (DefModExtension extension in def.modExtensions)
+            {
+				if (extension is GeneExtension_General general)
+                {
+					geneExtension_General = general;
+				}
+				else if (extension is GeneExtension_Giver giver)
+				{
+					geneExtension_Giver = giver;
+				}
+				if (geneExtension_General != null && geneExtension_Giver != null)
+                {
+					break;
+                }
+			}
+		}
+
 		public static string Reverse(this string text)
 		{
 			char[] cArray = text.ToCharArray();

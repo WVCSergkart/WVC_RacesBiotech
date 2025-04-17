@@ -143,4 +143,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneMetabolism
+	{
+
+		void UpdateMetabolism();
+
+	}
+
 }

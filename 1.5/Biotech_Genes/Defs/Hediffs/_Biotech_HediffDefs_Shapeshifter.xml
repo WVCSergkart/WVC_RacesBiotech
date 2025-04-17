@@ -36,6 +36,7 @@
 	</stages>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
 	</comps>
   </HediffDef>
 
@@ -86,9 +87,9 @@
 	<description>This creature's hunger varies depending on its genetic metabolism.</description>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Metabolism</hediffClass>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
-	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
-	</comps>
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
   </HediffDef>
 
 </Defs>

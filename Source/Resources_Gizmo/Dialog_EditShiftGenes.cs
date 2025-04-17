@@ -192,6 +192,7 @@ namespace WVC_XenotypesAndGenes
                     gene.TryForceGene(geneDefWithChance.geneDef);
                 }
             }
+            gene.UpdateMetabolism();
             gene.DoEffects();
             Close();
         }
@@ -561,11 +562,12 @@ namespace WVC_XenotypesAndGenes
             {
                 if (genesConflict)
                 {
-                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), Accept));
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_Warning".Translate() + "\n\n" + "WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), Accept));
                 }
                 else
                 {
-                    Accept();
+                    //Accept();
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_Warning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), Accept));
                 }
                 return;
             }

@@ -112,6 +112,7 @@ namespace WVC_XenotypesAndGenes
 		// Misc
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
+		public bool hideGeneHediffs = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -252,6 +253,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref pregnantHuman_InheritArchiteGenes, "pregnantHuman_InheritArchiteGenes", defaultValue: false);
 			Scribe_Values.Look(ref geneGizmosDefaultCollapse, "geneGizmosDefaultCollapse", defaultValue: false);
 			Scribe_Values.Look(ref showGenesSettingsGizmo, "showGenesSettingsGizmo", defaultValue: true);
+			Scribe_Values.Look(ref hideGeneHediffs, "hideGeneHediffs", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -352,15 +354,19 @@ namespace WVC_XenotypesAndGenes
 			// listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
 			// Graphic
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_FurskinIsSkinAutopatch".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_FurskinIsSkinAutopatch, "WVC_ToolTip_enable_FurskinIsSkinAutopatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableEyesGraphic".Translate(), ref settings.disableEyesGraphic, "WVC_ToolTip_disableEyesGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_useMaskForFurskinGenes".Translate(), ref settings.useMaskForFurskinGenes, "WVC_ToolTip_useMaskForFurskinGenes".Translate());
+			// UI
+			listingStandard.Gap();
+			listingStandard.Label("WVC_BiotechSettings_Label_UI".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_UI".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_GeneGizmosDefaultCollapse".Translate().Colorize(ColorLibrary.LightBlue), ref settings.geneGizmosDefaultCollapse, "WVC_ToolTip_GeneGizmosDefaultCollapse".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_showGenesSettingsGizmo".Translate().Colorize(ColorLibrary.LightBlue), ref settings.showGenesSettingsGizmo, "WVC_ToolTip_showGenesSettingsGizmo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_hideGeneHediffs".Translate().Colorize(ColorLibrary.LightBlue), ref settings.hideGeneHediffs, "WVC_ToolTip_hideGeneHediffs".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			// Info
 			// listingStandard.Gap();
@@ -1130,6 +1136,7 @@ namespace WVC_XenotypesAndGenes
 			// XaG_PostInitialization.SetValues();
 			WVC_Biotech.settings.geneGizmosDefaultCollapse = settingsDef.geneGizmosDefaultCollapse;
 			WVC_Biotech.settings.showGenesSettingsGizmo = settingsDef.showGenesSettingsGizmo;
+			WVC_Biotech.settings.hideGeneHediffs = settingsDef.hideGeneHediffs;
 			// Initial
 			WVC_Biotech.settings.firstModLaunch = false;
 			WVC_Biotech.settings.Write();

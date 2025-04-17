@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 		// Serums
 		// public static ThingDef WVC_GeneRestorationSerum_Base;
 		// Special Hediffs
-		public static HediffDef WVC_IncompatibilityComa;
+		// public static HediffDef WVC_IncompatibilityComa;
 		// public static HediffDef WVC_XenotypesAndGenes_GeneticStabilityDebuff;
 		// public static HediffDef WVC_XenotypesAndGenes_GeneticInStabilityBuff;
 		// public static HediffDef WVC_SelfPopulationRegulation_Golems;

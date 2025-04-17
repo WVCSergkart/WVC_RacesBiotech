@@ -84,6 +84,21 @@ namespace WVC_XenotypesAndGenes
 			curStage = null;
 		}
 
+		public override void PostRemoved()
+		{
+			base.PostRemoved();
+			if (pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism))
+			{
+				if (HediffUtility.TryAddHediff(def, pawn, null, null))
+				{
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
+				}
+			}
+		}
+
 		public override void ExposeData()
 		{
 			base.ExposeData();

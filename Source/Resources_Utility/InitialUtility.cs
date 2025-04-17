@@ -51,17 +51,16 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
-				GeneExtension_General geneExtension_General = geneDef?.GetModExtension<GeneExtension_General>();
+				MiscUtility.GetModExtensions(geneDef, out GeneExtension_General geneExtension_General, out GeneExtension_Giver geneExtension_Giver);
 				if (geneExtension_General != null)
 				{
 					InheritableGeneStats(geneDef, geneExtension_General);
 					BirthQuality(geneDef, geneExtension_General);
 				}
-                //GeneExtension_Giver geneExtension_Giver = geneDef?.GetModExtension<GeneExtension_Giver>();
-                //if (geneExtension_Giver != null)
-                //{
-                //    GeneExtension_Giver(geneDef, geneExtension_Giver);
-                //}
+                if (geneExtension_Giver != null)
+                {
+                    GeneExtension_Giver(geneDef, geneExtension_Giver);
+                }
                 FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
@@ -69,20 +68,24 @@ namespace WVC_XenotypesAndGenes
 			FlatGenesChances(xenogenesGenes);
 		}
 
-		//public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
-		//{
-		//	if (geneDef.customEffectDescriptions == null)
-		//	{
-		//		geneDef.customEffectDescriptions = new();
-		//	}
-		//	int scarsCount = geneExtension_Giver.scarsCount;
-		//	if (scarsCount != 0)
-		//	{
-		//		geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
-		//	}
-		//}
+		public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
+        {
+            if (geneExtension_Giver.metHediffDef != null && geneDef.IsGeneDefOfType<IGeneMetabolism>())
+			{
+				if (geneDef.customEffectDescriptions == null)
+				{
+					geneDef.customEffectDescriptions = new();
+				}
+				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
+            }
+            //int scarsCount = geneExtension_Giver.scarsCount;
+            //if (scarsCount != 0)
+            //{
+            //    geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
+            //}
+        }
 
-        public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
+		public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
 			if (!WVC_Biotech.settings.enable_birthQualityOffsetFromGenes)
 			{

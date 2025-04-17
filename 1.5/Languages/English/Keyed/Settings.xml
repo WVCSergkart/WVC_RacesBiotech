@@ -7,6 +7,7 @@
 	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotype Serums</WVC_BiotechSettings_Tab_XenotypesFilter>
 
 	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
+	<WVC_BiotechSettings_Label_UI>UI</WVC_BiotechSettings_Label_UI>
 	<!-- <WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info> -->
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Generators>Generator</WVC_BiotechSettings_Label_Generators>
@@ -20,6 +21,7 @@
 	<WVC_XaG_ResetButton_SettingsChanged>The settings have been changed.</WVC_XaG_ResetButton_SettingsChanged>
 
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
+	<WVC_BiotechSettings_Tooltip_UI>Settings responsible for UI elements.</WVC_BiotechSettings_Tooltip_UI>
 	<WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral>General settings affecting most genes in the mod.</WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral>
 	<!-- <WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface. -->
 
@@ -282,5 +284,9 @@ A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 	<!-- ====================================================================================== -->
 	<WVC_Label_showGenesSettingsGizmo>Show genes settings gizmo</WVC_Label_showGenesSettingsGizmo>
 	<WVC_ToolTip_showGenesSettingsGizmo>If enabled, the Genes Settings gizmo will be displayed if there is a gene using it. Genes Settings allows you to conveniently and quickly switch gene settings (which involve simple switches) without bloating the interface with identical buttons.\n\nDisabling will not move the gene buttons to the UI, but will only make them unavailable until you re-enable this option.\n\nThis has a purely cosmetic effect, and should not affect performance.</WVC_ToolTip_showGenesSettingsGizmo>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_hideGeneHediffs>Hide gene hediffs</WVC_Label_hideGeneHediffs>
+	<WVC_ToolTip_hideGeneHediffs>If enabled, some gene hediffs will stop displaying, this will not affect their stats and has only a cosmetic effect. For example, hediffs scarifier, resurgent, random, cellular, etc.</WVC_ToolTip_hideGeneHediffs>
 
 </LanguageData>

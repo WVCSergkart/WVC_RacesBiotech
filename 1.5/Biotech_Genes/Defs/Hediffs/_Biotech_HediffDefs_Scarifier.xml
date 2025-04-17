@@ -11,6 +11,7 @@
 	<maxSeverity>1.0</maxSeverity>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
 	</comps>
   </HediffDef>
 

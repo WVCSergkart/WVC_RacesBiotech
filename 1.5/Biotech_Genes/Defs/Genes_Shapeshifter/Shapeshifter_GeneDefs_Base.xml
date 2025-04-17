@@ -44,9 +44,11 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- <scarsCount>-3</scarsCount> -->
+			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
 			<hediffDefs>
 				<li>WVC_PostshiftMetabolism_HungerFactor</li>
 				<li>WVC_ShapeshifterDeathless</li>
+				<li>WVC_ChimeraMetabolism_HungerFactor</li>
 			</hediffDefs>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">

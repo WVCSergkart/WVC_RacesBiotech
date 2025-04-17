@@ -20,6 +20,7 @@
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromResurgent"/>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
 	</comps>
   </HediffDef>
 

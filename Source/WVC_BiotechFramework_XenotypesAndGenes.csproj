@@ -78,6 +78,9 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
+    <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
+    <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
+    <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
     <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />
     <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Resources_Gizmo\Dialog_EditShiftGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
+    <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />

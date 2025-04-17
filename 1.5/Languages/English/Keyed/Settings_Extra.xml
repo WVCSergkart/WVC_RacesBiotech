@@ -211,8 +211,8 @@ A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
 
 	<!-- ================================== -->
 
-	<WVC_Label_enable_chimeraMetabolismHungerFactor>Сhimera metabolism hunger factor</WVC_Label_enable_chimeraMetabolismHungerFactor>
-	<WVC_ToolTip_enable_chimeraMetabolismHungerFactor>If enabled, the chimera gene will change the hunger factor depending on genetic metabolism, as if there were no limit on the multiplier.
+	<WVC_Label_enable_chimeraMetabolismHungerFactor>Expanded metabolism hunger factor</WVC_Label_enable_chimeraMetabolismHungerFactor>
+	<WVC_ToolTip_enable_chimeraMetabolismHungerFactor>If enabled, the chimera (or shapeshifter) gene will change the hunger factor depending on genetic metabolism, as if there were no limit on the multiplier.
 
 Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
 

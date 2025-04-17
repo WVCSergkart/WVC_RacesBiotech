@@ -206,6 +206,7 @@ namespace WVC_XenotypesAndGenes
 		// Gizmos
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
+		public bool hideGeneHediffs = false;
 
 	}
 

@@ -27,6 +27,7 @@
 	<!-- <link_addedMechlinkWithGene>false</link_addedMechlinkWithGene> -->
 	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
 	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
+	<hideGeneHediffs>true</hideGeneHediffs>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
@@ -85,6 +86,7 @@
 	<enable_StartingFoodPolicies>false</enable_StartingFoodPolicies>
 	<enable_OverOverridableGenesMechanic>false</enable_OverOverridableGenesMechanic>
 	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
+	<hideGeneHediffs>true</hideGeneHediffs>
   </WVC_XenotypesAndGenes.SettingsDef>
 
 	<!-- Default Settings -->
@@ -183,5 +185,6 @@
 	<!-- // Misc -->
 	<!-- public bool geneGizmosDefaultCollapse = false; -->
 	<!-- public bool showGenesSettingsGizmo = true; -->
+	<!-- public bool hideGeneHediffs = false; -->
 
 </Defs>
