@@ -185,12 +185,27 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void DrawSection(Rect rect, List<GeneDef> genes, string label, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref bool? collapsed)
-		{
-			float curX = 4f;
-			if (!label.NullOrEmpty())
-			{
-				Rect rect2 = new(0f, curY, rect.width, Text.LineHeight);
-				rect2.xMax -= (adding ? 16f : (Text.CalcSize("ClickToAddOrRemove".Translate()).x + 4f));
+        {
+            float curX = 4f;
+			Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
+            if (collapsed == true)
+            {
+                if (Event.current.type == EventType.Layout)
+                {
+                    sectionHeight = 0f;
+                }
+                return;
+            }
+            Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
+            DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, containingRect, ref curX, num, ref flag, num2, num3, b, rect3);
+        }
+
+        public static void DrawGenesSections_Label(ref Rect rect, string label, ref float curY, bool adding, ref bool? collapsed)
+        {
+            if (!label.NullOrEmpty())
+            {
+                Rect rect2 = new(0f, curY, rect.width, Text.LineHeight);
+                rect2.xMax -= (adding ? 16f : (Text.CalcSize("ClickToAddOrRemove".Translate()).x + 4f));
 				if (collapsed.HasValue)
 				{
 					Rect position = new(rect2.x, rect2.y + (rect2.height - 18f) / 2f, 18f, 18f);
@@ -215,152 +230,148 @@ namespace WVC_XenotypesAndGenes
 				}
 				Widgets.Label(rect2, label);
 				if (!adding)
-				{
-					Text.Anchor = TextAnchor.UpperRight;
-					GUI.color = ColoredText.SubtleGrayColor;
-					Widgets.Label(new Rect(rect2.xMax - 18f, curY, rect.width - rect2.width, Text.LineHeight), "ClickToAddOrRemove".Translate());
-					GUI.color = Color.white;
-					Text.Anchor = TextAnchor.UpperLeft;
-				}
-				curY += Text.LineHeight + 3f;
-			}
-			if (collapsed == true)
-			{
-				if (Event.current.type == EventType.Layout)
-				{
-					sectionHeight = 0f;
-				}
-				return;
-			}
-			float num = curY;
-			bool flag = false;
-			float num2 = 34f + GeneCreationDialogBase.GeneSize.x + 8f;
-			float num3 = rect.width - 16f;
-			float num4 = num2 + 4f;
-			float b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
-			Rect rect3 = new(0f, curY, rect.width, sectionHeight);
-			if (!adding)
-			{
-				Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
-			}
-			curY += 4f;
-			if (!genes.Any())
-			{
-				Text.Anchor = TextAnchor.MiddleCenter;
-				GUI.color = ColoredText.SubtleGrayColor;
-				Widgets.Label(rect3, "(" + "NoneLower".Translate() + ")");
-				GUI.color = Color.white;
-				Text.Anchor = TextAnchor.UpperLeft;
-			}
-			else
-			{
-				GeneCategoryDef geneCategoryDef = null;
-				int num5 = 0;
-				for (int i = 0; i < genes.Count; i++)
-				{
-					GeneDef geneDef = genes[i];
-					if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)))
-					{
-						continue;
-					}
-					bool flag2 = false;
-					if (curX + num2 > num3)
-					{
-						curX = 4f;
-						curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
-						flag2 = true;
-					}
-					bool flag3 = quickSearchWidget.filter.Active && (matchingGenes.Contains(geneDef) || matchingCategories.Contains(geneDef.displayCategory));
-					bool flag4 = collapsedCategories[geneDef.displayCategory] && !flag3;
-					if (adding && geneCategoryDef != geneDef.displayCategory)
-					{
-						if (!flag2 && flag)
-						{
-							curX = 4f;
-							curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
-						}
-						geneCategoryDef = geneDef.displayCategory;
-						Rect rect4 = new(curX, curY, rect.width - 8f, Text.LineHeight);
-						if (!flag3)
-						{
-							Rect position2 = new(rect4.x, rect4.y + (rect4.height - 18f) / 2f, 18f, 18f);
-							GUI.DrawTexture(position2, flag4 ? TexButton.Reveal : TexButton.Collapse);
-							if (Widgets.ButtonInvisible(rect4))
-							{
-								collapsedCategories[geneDef.displayCategory] = !collapsedCategories[geneDef.displayCategory];
-								if (collapsedCategories[geneDef.displayCategory])
-								{
-									SoundDefOf.TabClose.PlayOneShotOnCamera();
-								}
-								else
-								{
-									SoundDefOf.TabOpen.PlayOneShotOnCamera();
-								}
-							}
-							if (num5 % 2 == 1)
-							{
-								Widgets.DrawLightHighlight(rect4);
-							}
-							if (Mouse.IsOver(rect4))
-							{
-								Widgets.DrawHighlight(rect4);
-							}
-							rect4.xMin += position2.width;
-						}
-						Widgets.Label(rect4, geneCategoryDef.LabelCap);
-						curY += rect4.height;
-						if (!flag4)
-						{
-							GUI.color = Color.grey;
-							Widgets.DrawLineHorizontal(curX, curY, rect.width - 8f);
-							GUI.color = Color.white;
-							curY += 10f;
-						}
-						num5++;
-					}
-					if (adding && flag4)
-					{
-						flag = false;
-						if (Event.current.type == EventType.Layout)
-						{
-							sectionHeight = curY - num;
-						}
-						continue;
-					}
-					curX = Mathf.Max(curX, b);
-					flag = true;
-					if (DrawGene(geneDef, !adding, ref curX, curY, num2, containingRect))
-					{
-						if (selectedGenes.Contains(geneDef))
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-							selectedGenes.Remove(geneDef);
-						}
-						else
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-							selectedGenes.Add(geneDef);
-						}
-						if (!xenotypeNameLocked)
-						{
-							xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
-						}
-						OnGenesChanged();
-						break;
-					}
-				}
-			}
-			if (!adding || flag)
-			{
-				curY += GeneCreationDialogBase.GeneSize.y + 12f;
-			}
-			if (Event.current.type == EventType.Layout)
-			{
-				sectionHeight = curY - num;
-			}
-		}
+                {
+                    Text.Anchor = TextAnchor.UpperRight;
+                    GUI.color = ColoredText.SubtleGrayColor;
+                    Widgets.Label(new Rect(rect2.xMax - 18f, curY, rect.width - rect2.width, Text.LineHeight), "ClickToAddOrRemove".Translate());
+                    GUI.color = Color.white;
+                    Text.Anchor = TextAnchor.UpperLeft;
+                }
+                curY += Text.LineHeight + 3f;
+            }
+        }
 
-		private bool DrawGene(GeneDef geneDef, bool selectedSection, ref float curX, float curY, float packWidth, Rect containingRect)
+        private void DrawGenesSection_Local(Rect rect, List<GeneDef> genes, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref float curX, float num, ref bool flag, float num2, float num3, float b, Rect rect3)
+        {
+            if (!genes.Any())
+			{
+				XaG_UiUtility.MidleLabel_None(rect3);
+			}
+            else
+            {
+                GeneCategoryDef geneCategoryDef = null;
+                int num5 = 0;
+                for (int i = 0; i < genes.Count; i++)
+                {
+                    GeneDef geneDef = genes[i];
+                    if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)))
+                    {
+                        continue;
+                    }
+                    bool flag2 = false;
+                    if (curX + num2 > num3)
+                    {
+                        curX = 4f;
+                        curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
+                        flag2 = true;
+                    }
+                    bool flag3 = quickSearchWidget.filter.Active && (matchingGenes.Contains(geneDef) || matchingCategories.Contains(geneDef.displayCategory));
+                    bool flag4 = collapsedCategories[geneDef.displayCategory] && !flag3;
+                    if (adding && geneCategoryDef != geneDef.displayCategory)
+                    {
+                        if (!flag2 && flag)
+                        {
+                            curX = 4f;
+                            curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
+                        }
+                        geneCategoryDef = geneDef.displayCategory;
+                        Rect rect4 = new(curX, curY, rect.width - 8f, Text.LineHeight);
+                        if (!flag3)
+                        {
+                            Rect position2 = new(rect4.x, rect4.y + (rect4.height - 18f) / 2f, 18f, 18f);
+                            GUI.DrawTexture(position2, flag4 ? TexButton.Reveal : TexButton.Collapse);
+                            if (Widgets.ButtonInvisible(rect4))
+                            {
+                                collapsedCategories[geneDef.displayCategory] = !collapsedCategories[geneDef.displayCategory];
+                                if (collapsedCategories[geneDef.displayCategory])
+                                {
+                                    SoundDefOf.TabClose.PlayOneShotOnCamera();
+                                }
+                                else
+                                {
+                                    SoundDefOf.TabOpen.PlayOneShotOnCamera();
+                                }
+                            }
+                            if (num5 % 2 == 1)
+                            {
+                                Widgets.DrawLightHighlight(rect4);
+                            }
+                            if (Mouse.IsOver(rect4))
+                            {
+                                Widgets.DrawHighlight(rect4);
+                            }
+                            rect4.xMin += position2.width;
+                        }
+                        Widgets.Label(rect4, geneCategoryDef.LabelCap);
+                        curY += rect4.height;
+                        if (!flag4)
+                        {
+                            GUI.color = Color.grey;
+                            Widgets.DrawLineHorizontal(curX, curY, rect.width - 8f);
+                            GUI.color = Color.white;
+                            curY += 10f;
+                        }
+                        num5++;
+                    }
+                    if (adding && flag4)
+                    {
+                        flag = false;
+                        if (Event.current.type == EventType.Layout)
+                        {
+                            sectionHeight = curY - num;
+                        }
+                        continue;
+                    }
+                    curX = Mathf.Max(curX, b);
+                    flag = true;
+                    if (DrawGene(geneDef, !adding, ref curX, curY, num2, containingRect))
+                    {
+                        if (selectedGenes.Contains(geneDef))
+                        {
+                            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                            selectedGenes.Remove(geneDef);
+                        }
+                        else
+                        {
+                            SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                            selectedGenes.Add(geneDef);
+                        }
+                        if (!xenotypeNameLocked)
+                        {
+                            xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
+                        }
+                        OnGenesChanged();
+                        break;
+                    }
+                }
+            }
+            if (!adding || flag)
+            {
+                curY += GeneCreationDialogBase.GeneSize.y + 12f;
+            }
+            if (Event.current.type == EventType.Layout)
+            {
+                sectionHeight = curY - num;
+            }
+        }
+
+        public static void DrawGenesSection_DrawRectFast(ref Rect rect, ref float curY, float sectionHeight, bool adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3)
+        {
+            num = curY;
+            flag = false;
+            num2 = 34f + GeneCreationDialogBase.GeneSize.x + 8f;
+            num3 = rect.width - 16f;
+            float num4 = num2 + 4f;
+            b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
+            rect3 = new(0f, curY, rect.width, sectionHeight);
+            if (!adding)
+            {
+                Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
+            }
+            curY += 4f;
+        }
+
+        private bool DrawGene(GeneDef geneDef, bool selectedSection, ref float curX, float curY, float packWidth, Rect containingRect)
 		{
 			bool result = false;
 			Rect rect = new(curX, curY, packWidth, GeneCreationDialogBase.GeneSize.y + 8f);

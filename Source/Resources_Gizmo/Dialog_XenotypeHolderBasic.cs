@@ -197,11 +197,7 @@ namespace WVC_XenotypesAndGenes
 			curY += 4f;
 			if (!xenoHolders.Any())
 			{
-				Text.Anchor = TextAnchor.MiddleCenter;
-				GUI.color = ColoredText.SubtleGrayColor;
-				Widgets.Label(rect3, "(" + "NoneLower".Translate() + ")");
-				GUI.color = Color.white;
-				Text.Anchor = TextAnchor.UpperLeft;
+				XaG_UiUtility.MidleLabel_None(rect3);
 			}
 			else
 			{

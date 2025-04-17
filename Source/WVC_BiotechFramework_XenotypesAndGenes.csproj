@@ -98,6 +98,7 @@
     <Compile Include="Resources_Genes\Gene_Mechlink_Golemlink.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_EditShiftGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Resources_Genes\Gene_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_BiosculpterPod.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeEyesColor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
@@ -162,7 +162,6 @@
     <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
     <Compile Include="Obsolete_0\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
@@ -211,8 +210,6 @@
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
-    <Compile Include="Resources_Things\CompBiosculpterPod_Cycle.cs" />
-    <Compile Include="Resources_Things\CompProperties_AffectedByFacilities.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />

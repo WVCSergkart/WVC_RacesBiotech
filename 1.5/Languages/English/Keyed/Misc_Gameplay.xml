@@ -556,7 +556,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
 	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
 
-	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Conflicting genes.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
+	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Some of the selected genes are mutually exclusive.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
 	<!-- <WVC_XaG_GeneChimera_TooBigPenaltyMessage>The genetic material has suffered too much loss and requires time to recover.</WVC_XaG_GeneChimera_TooBigPenaltyMessage> -->
 
 	<WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>Pawn has no xenogens</WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>
@@ -777,7 +777,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by shapeshifter.</WVC_XaG_GeneticMaterial_GenesDesc>
 	<WVC_XaG_GeneticMaterial_Shifter>Shapeshifter material</WVC_XaG_GeneticMaterial_Shifter>
 	<WVC_XaG_GeneticMaterial_ShifterDesc>Genetic material collected by the shapeshifter gene.</WVC_XaG_GeneticMaterial_ShifterDesc>
-	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has this gene.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
+	<!-- <WVC_XaG_DialogEditShiftGenes_Label>Genetic shift</WVC_XaG_DialogEditShiftGenes_Label> -->
+	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has one of the selected genes.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
 	<!-- <WVC_XaG_DialogEditShiftGenes_ExcCost>A</WVC_XaG_DialogEditShiftGenes_ExcCost> -->
 	<WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>More genetic material is required.</WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>
 	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material. Implanted genes remove genes with which they conflict.</WVC_XaG_DialogEditShiftGenes_Explanation>

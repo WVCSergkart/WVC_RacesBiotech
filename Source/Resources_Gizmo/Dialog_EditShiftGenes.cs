@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 
         public Gene_Shapeshifter gene;
         public List<GeneDef> pawnGenes;
+        public bool inheritable;
 
         public Dialog_EditShiftGenes(Gene_Shapeshifter gene)
         {
@@ -21,6 +22,7 @@ namespace WVC_XenotypesAndGenes
             pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
             selectedGenes = new();
             allGenes = new();
+            inheritable = !gene.pawn.genes.IsXenogene(gene);
             foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0).ToList())
             {
                 GeneDefWithChance geneDefWithChance = new();
@@ -28,10 +30,13 @@ namespace WVC_XenotypesAndGenes
                 geneDefWithChance.disabled = pawnGenes.Contains(item);
                 // || XaG_GeneUtility.ConflictWith(item, pawnGenes)
                 GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
-                geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
-                if (geneDefWithChance.displayCategory == null)
+                if (geneExtension_Undead.overrideGeneCategory == null)
                 {
                     geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
+                }
+                else
+                {
+                    geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
                 }
                 geneDefWithChance.cost = geneExtension_Undead.reqGeneMat;
                 allGenes.Add(geneDefWithChance);
@@ -189,7 +194,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (gene.TryConsumeResource(geneDefWithChance.cost))
                 {
-                    gene.TryForceGene(geneDefWithChance.geneDef);
+                    gene.TryForceGene(geneDefWithChance.geneDef, inheritable);
                 }
             }
             gene.UpdateMetabolism();
@@ -242,40 +247,10 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private void DrawSection(Rect rect, List<GeneDefWithChance> genes, string label, ref float curY,
-            ref float sectionHeight, bool adding, ref bool? collapsed)
+        private void DrawSection(Rect rect, List<GeneDefWithChance> genes, string label, ref float curY, ref float sectionHeight, bool adding, ref bool? collapsed)
         {
             float curX = 4f;
-            if (!label.NullOrEmpty())
-            {
-                var offset = 4f;
-                Rect rect2 = new(offset, curY, rect.width - 4, Text.LineHeight);
-                rect2.xMax -= offset;
-                if (collapsed.HasValue)
-                {
-                    Rect position = new(rect2.x, rect2.y + (rect2.height - 18f) / 2f, 18f, 18f);
-                    GUI.DrawTexture(position, collapsed.Value ? TexButton.Reveal : TexButton.Collapse);
-                    if (Widgets.ButtonInvisible(rect2))
-                    {
-                        collapsed = !collapsed;
-                        if (collapsed.Value)
-                        {
-                            SoundDefOf.TabClose.PlayOneShotOnCamera();
-                        }
-                        else
-                        {
-                            SoundDefOf.TabOpen.PlayOneShotOnCamera();
-                        }
-                    }
-                    if (Mouse.IsOver(rect2))
-                    {
-                        Widgets.DrawHighlight(rect2);
-                    }
-                    rect2.xMin += position.width;
-                }
-                Widgets.Label(rect2, label);
-                curY += Text.LineHeight + 3f;
-            }
+            Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
             if (collapsed == true)
             {
                 if (Event.current.type == EventType.Layout)
@@ -284,25 +259,15 @@ namespace WVC_XenotypesAndGenes
                 }
                 return;
             }
-            float num = curY;
-            bool flag = false;
-            float num2 = 34f + GeneSize.x + 8f;
-            float num3 = rect.width - 16f;
-            float num4 = num2 + 4f;
-            float b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
-            Rect rect3 = new(4f, curY, rect.width - 10, sectionHeight);
-            if (!adding)
-            {
-                Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
-            }
-            curY += 4f;
+            Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
+            DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, ref curX, num, ref flag, num2, num3, b, rect3);
+        }
+
+        private void DrawGenesSection_Local(Rect rect, List<GeneDefWithChance> genes, ref float curY, ref float sectionHeight, bool adding, ref float curX, float num, ref bool flag, float num2, float num3, float b, Rect rect3)
+        {
             if (!genes.Any())
             {
-                Text.Anchor = TextAnchor.MiddleCenter;
-                GUI.color = ColoredText.SubtleGrayColor;
-                Widgets.Label(rect3, "(" + "NoneLower".Translate() + ")");
-                GUI.color = Color.white;
-                Text.Anchor = TextAnchor.UpperLeft;
+                XaG_UiUtility.MidleLabel_None(rect3);
             }
             else
             {
@@ -418,7 +383,7 @@ namespace WVC_XenotypesAndGenes
             {
                 Widgets.DrawStrongHighlight(rect2.ExpandedBy(6f));
             }
-            GeneUIUtility.DrawGeneDef(geneWithChance.geneDef, rect2, GeneType.Xenogene, () => GeneTip(geneWithChance, selectedSection), doBackground: false, clickable: false, overridden);
+            GeneUIUtility.DrawGeneDef(geneWithChance.geneDef, rect2, (inheritable ? GeneType.Endogene : GeneType.Xenogene), () => GeneTip(geneWithChance, selectedSection), doBackground: false, clickable: false, overridden);
             curX += GeneSize.x + 4f;
             if (Mouse.IsOver(rect))
             {
@@ -618,7 +583,15 @@ namespace WVC_XenotypesAndGenes
                 }
                 return false;
             }
-            if (SelectedGenes.Any((geneChance) => geneChance.disabled) || leftChosenGroups.Any())
+            if (SelectedGenes.Any((geneChance) => geneChance.disabled))
+            {
+                if (throwMessage)
+                {
+                    Messages.Message("WVC_XaG_DialogEditShiftGenes_PawnHasGene".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+                }
+                return false;
+            }
+            if (leftChosenGroups.Any())
             {
                 if (throwMessage)
                 {

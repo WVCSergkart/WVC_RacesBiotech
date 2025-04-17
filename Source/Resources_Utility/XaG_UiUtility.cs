@@ -47,6 +47,10 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_GenesSettings(gene, cachedRemoteControlGenes));
 				}
 			};
+			//if (gene is Gene genegene)
+			//{
+			//	Log.Error(genegene.def.defName);
+			//}
 		}
 
 		public static void RecacheRemoteController(Pawn pawn, ref List<IGeneRemoteControl> cachedRemoteControlGenes, ref bool enabled)
@@ -151,6 +155,15 @@ namespace WVC_XenotypesAndGenes
 			GUI.DrawTexture(iconRect, icon.Texture);
 			Text.Anchor = TextAnchor.MiddleRight;
 			Widgets.LabelFit(new Rect(iconRect.xMax, iconRect.y, 38f - iconWidth, iconWidth), stat);
+			Text.Anchor = TextAnchor.UpperLeft;
+		}
+
+		public static void MidleLabel_None(Rect rect3)
+		{
+			Text.Anchor = TextAnchor.MiddleCenter;
+			GUI.color = ColoredText.SubtleGrayColor;
+			Widgets.Label(rect3, "(" + "NoneLower".Translate() + ")");
+			GUI.color = Color.white;
 			Text.Anchor = TextAnchor.UpperLeft;
 		}
 

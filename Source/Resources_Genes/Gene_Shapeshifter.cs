@@ -170,11 +170,11 @@ namespace WVC_XenotypesAndGenes
             return false;
 		}
 
-        public void TryForceGene(GeneDef geneDef)
+        public void TryForceGene(GeneDef geneDef, bool inheritable)
         {
             if (!geneDef.ConflictsWith(this.def) && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
 			{
-				pawn.genes.AddGene(geneDef, pawn.genes.IsXenogene(this));
+				pawn.genes.AddGene(geneDef, !inheritable);
 				AddXenogermReplicating(new() { geneDef });
 				//UpdateMetabolism();
 			}
