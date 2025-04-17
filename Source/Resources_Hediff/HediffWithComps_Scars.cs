@@ -13,8 +13,8 @@ namespace WVC_XenotypesAndGenes
 		// public StatDef statDef;
 		// public bool useFactorInsteadOffset = false;
 
-		public int cachedScarsCount;
-		public int nextTick = 120;
+		public int cachedScarsCount = 0;
+		public int nextTick = 52988;
 
 		private HediffStage curStage;
 
@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
-			RecacheScars();
+			Reset();
 		}
 
 		public override HediffStage CurStage
@@ -39,7 +39,8 @@ namespace WVC_XenotypesAndGenes
 						statOffsets = new(),
 						statFactors = new()
 					};
-					if (def is XaG_HediffDef newDef && newDef.statModifiers != null && cachedScarsCount > 0)
+					cachedScarsCount = pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification);
+					if (cachedScarsCount > 0 && def is XaG_HediffDef newDef && newDef.statModifiers != null)
 					{
 						if (!newDef.statModifiers.statFactors.NullOrEmpty())
 						{
@@ -70,23 +71,23 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
         {
-            if (GeneResourceUtility.CanTick(ref nextTick, 12000))
+            if (GeneResourceUtility.CanTick(ref nextTick, 52988))
             {
-                RecacheScars();
+                Reset();
             }
         }
 
-        public void RecacheScars()
+        public void Reset()
 		{
-			cachedScarsCount = pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification);
+			cachedScarsCount = 0;
 			curStage = null;
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref cachedScarsCount, "cachedScarsCount", 0);
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref cachedScarsCount, "cachedScarsCount", 0);
+		//}
 	}
 
 	// public class HediffWithComps_Scarshield : HediffWithComps_Scars

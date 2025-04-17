@@ -288,15 +288,24 @@ namespace WVC_XenotypesAndGenes
                         ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
                     }
                 };
-				//yield return new Command_Action
-				//{
-				//	defaultLabel = "DEV: AddAllRemoteControllers",
-				//	action = delegate
-				//	{
-				//		XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
-				//	}
-				//};
-			}
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: NotifyGenesChanged",
+					action = delegate
+					{
+						Pawn pawn = parent as Pawn;
+						ReimplanterUtility.NotifyGenesChanged(pawn);
+					}
+				};
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: AddAllRemoteControllers",
+                    action = delegate
+                    {
+                        XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
+                    }
+                };
+            }
 		}
 
 	}

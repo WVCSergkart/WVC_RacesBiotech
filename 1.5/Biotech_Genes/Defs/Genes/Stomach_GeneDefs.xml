@@ -71,7 +71,7 @@
 	<biostatMet>-8</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-	  <li>Hunger rate factor x1%</li>
+	  <li>Hunger rate factor x10%</li>
 	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
 	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
 	</customEffectDescriptions>

@@ -103,6 +103,7 @@
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
@@ -196,7 +197,7 @@
     <Compile Include="Resources_Hediff\HediffDef.cs" />
     <Compile Include="Resources_Hediff\Hediff_DryadQueen.cs" />
     <Compile Include="Resources_Hediff\Hediff_GestatedDryad.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Metabolism.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_Metabolism.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_Scars.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\Misc.cs" />
@@ -243,7 +244,7 @@
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_NewDefs\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
-    <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
+    <Compile Include="Resources_Things\CompProperties_Humanlike.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />

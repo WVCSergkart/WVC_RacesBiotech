@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (item is HediffWithComps_Scars scarsHediff)
                 {
-                    scarsHediff.RecacheScars();
+                    scarsHediff.Reset();
                 }
 			}
 			foreach (Gene item in pawn.genes.GenesListForReading)

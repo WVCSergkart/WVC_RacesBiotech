@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
 			{
-				metabolism.RecacheHungerFactor();
+				metabolism.Reset();
 				//Log.Error("Upd");
 			}
 		}
