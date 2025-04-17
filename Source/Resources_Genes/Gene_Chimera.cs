@@ -260,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryRemoveHediff(Giver.metHediffDef, pawn);
 		}
 
-		public bool gizmoCollapse = true;
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
 		public override void ExposeData()
 		{
@@ -280,7 +280,7 @@ namespace WVC_XenotypesAndGenes
 					geneSetPresets = new();
 				}
 			}
-			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", true);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 			Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
 		}
 

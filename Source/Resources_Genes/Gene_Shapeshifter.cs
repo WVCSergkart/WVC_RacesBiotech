@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), genesRegrowAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
 
-		public bool gizmoCollapse = true;
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
 		public override void ExposeData()
 		{
@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
 			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
 			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
-			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", true);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
 		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
