@@ -245,7 +245,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (!genes.Any())
 			{
-				XaG_UiUtility.MidleLabel_None(rect3);
+				XaG_UiUtility.MiddleLabel_None(rect3);
 			}
             else
             {

@@ -156,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 			curY += 4f;
 			if (!pawnKinds.Any())
 			{
-				XaG_UiUtility.MidleLabel_None(rect3);
+				XaG_UiUtility.MiddleLabel_None(rect3);
 			}
 			else
 			{

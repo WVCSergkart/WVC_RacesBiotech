@@ -91,6 +91,7 @@ namespace WVC_XenotypesAndGenes
             Text.Anchor = TextAnchor.UpperLeft;
             Widgets.Label(rect3, gene.LabelCap);
             Text.Font = GameFont.Small;
+            SwitchButton(rect3);
             float num3 = Text.LineHeight * 3f;
             rect2.y += 10;
             Rect geneRect = new(rect2.x, rect2.y, rect2.width, rect2.height - num3 - 8f - 50);
@@ -99,8 +100,32 @@ namespace WVC_XenotypesAndGenes
             Rect bioStatsRect = new(rect2.x + 4f, num4, rect.width - 4, num3);
             bioStatsRect.yMax = geneRect.yMax + num3 + 4f;
             Draw(bioStatsRect, AllGeneMat, ReqGeneMat);
-            var bottomAreaRect = new Rect(bioStatsRect.x, bioStatsRect.yMax + 10, bioStatsRect.width, 75);
+            Rect bottomAreaRect = new(bioStatsRect.x, bioStatsRect.yMax + 10, bioStatsRect.width, 75);
             DoBottomButtons(bottomAreaRect);
+        }
+
+        private void SwitchButton(Rect rect3)
+        {
+            string switchButtonText = inheritable ? "WVC_Germline".Translate() : "WVC_Xenogerm".Translate();
+            float buttonWidth = switchButtonText.GetWidthCached() * 1.6f;
+            Rect switchButtonRect = new(rect3.xMax - buttonWidth, rect3.y, buttonWidth, 32);
+            if (Widgets.ButtonText(switchButtonRect, switchButtonText))
+            {
+                Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), delegate
+                {
+                    gene.ChangeType_GermlineXenogerm();
+                    Close();
+                });
+                Find.WindowStack.Add(window);
+            }
+            TaggedString tipText = "WVC_XaG_CurrentGeneType".Translate();
+            float buttonTipWidth = tipText.GetWidthCached();
+            Rect buttonTipRect = new(switchButtonRect.x - buttonTipWidth, switchButtonRect.y + 6, buttonTipWidth, switchButtonRect.height);
+            Text.Font = GameFont.Tiny;
+            GUI.color = Color.grey;
+            Widgets.Label(buttonTipRect, tipText);
+            GUI.color = Color.white;
+            Text.Font = GameFont.Small;
         }
 
         private static float cachedWidth;
@@ -267,7 +292,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (!genes.Any())
             {
-                XaG_UiUtility.MidleLabel_None(rect3);
+                XaG_UiUtility.MiddleLabel_None(rect3);
             }
             else
             {

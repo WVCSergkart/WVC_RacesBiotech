@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 			curY += 4f;
 			if (!genes.Any())
 			{
-				XaG_UiUtility.MidleLabel_None(rect3);
+				XaG_UiUtility.MiddleLabel_None(rect3);
 			}
 			else
 			{
@@ -212,7 +212,7 @@ namespace WVC_XenotypesAndGenes
 			curY += 4f;
 			if (!geneSets.Any())
 			{
-				XaG_UiUtility.MidleLabel_None(rect3);
+				XaG_UiUtility.MiddleLabel_None(rect3);
 			}
 			else
 			{

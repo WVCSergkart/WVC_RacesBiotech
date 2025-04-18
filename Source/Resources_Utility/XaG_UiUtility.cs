@@ -158,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 		}
 
-		public static void MidleLabel_None(Rect rect3)
+		public static void MiddleLabel_None(Rect rect3)
 		{
 			Text.Anchor = TextAnchor.MiddleCenter;
 			GUI.color = ColoredText.SubtleGrayColor;

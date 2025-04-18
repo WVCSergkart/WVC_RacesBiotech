@@ -422,7 +422,7 @@ namespace WVC_XenotypesAndGenes
 		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, bool xenogenes = true, Gene ignoredGene = null)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			if (recipientGenes.Xenogenes.Where((gene) => gene != ignoredGene).ToList().NullOrEmpty() || xenogenes)
 			{
 				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
 				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)

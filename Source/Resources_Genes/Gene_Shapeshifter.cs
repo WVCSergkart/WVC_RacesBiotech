@@ -136,10 +136,29 @@ namespace WVC_XenotypesAndGenes
 		{
 			//xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
 			genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
-			// maxEvolveGenes = oldShapeshifter.maxEvolveGenes;
+			geneticMaterial = oldShapeshifter.geneticMaterial;
+			gizmoCollapse = oldShapeshifter.gizmoCollapse;
 		}
 
-		private int geneticMaterial = 0;
+		public void ChangeType_GermlineXenogerm()
+        {
+            bool xenogene = pawn.genes.IsXenogene(this);
+            if (!XaG_GeneUtility.TryRemoveAllConflicts(pawn, def))
+            {
+                return;
+            }
+            pawn.genes.AddGene(def, !xenogene);
+            Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+            if (gene_Shapeshifter != null)
+            {
+                gene_Shapeshifter.UpdateForNewGene(this);
+                gene_Shapeshifter.AddXenogermReplicating(new() { def });
+                gene_Shapeshifter.DoEffects();
+                Messages.Message("WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+            }
+        }
+
+        private int geneticMaterial = 0;
 
 		public int GeneticMaterial => geneticMaterial;
 

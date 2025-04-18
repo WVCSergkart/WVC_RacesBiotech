@@ -788,6 +788,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>The implantation will remove some of the pawn's genes.</WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>
 	<WVC_XaG_DialogEditShiftGenes_Warning>Shapeshifter cannot remove genes individually. Implanted genes cannot be removed until the next shapeshift.</WVC_XaG_DialogEditShiftGenes_Warning>
 
+	<WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>This action will change the type of shapeshifter gene, if it was xenogene (xenogerm), it will become endogene (germline) and vice versa. The accumulated genetic material will be transferred.\n\nNote that genes implanted at the cost of genetic material are always implanted where the shapeshifter gene is located.</WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>
+	<WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>Shapeshifter changed it's genetic type successfully.</WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>
+
+	<WVC_Germline>Germline</WVC_Germline>
+	<WVC_Xenogerm>Xenogerm</WVC_Xenogerm>
+	<WVC_XaG_CurrentGeneType>Gene type:</WVC_XaG_CurrentGeneType>
 	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
 	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->
 

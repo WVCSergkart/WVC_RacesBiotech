@@ -35,22 +35,23 @@ namespace WVC_XenotypesAndGenes
             }
             else
             {
-                Uncollapsed(topLeft, maxWidth, out Rect rect5);
-                Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-                XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
+                Uncollapsed(topLeft, maxWidth);
             }
             return new GizmoResult(GizmoState.Clear);
         }
 
-        private void Uncollapsed(Vector2 topLeft, float maxWidth, out Rect rect5)
+        private void Uncollapsed(Vector2 topLeft, float maxWidth)
         {
             Rect rect2 = LabelAndTip(topLeft, maxWidth);
             // Button
             Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
             ButtonMenu(rect4);
             // Button
-            rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
+            Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
             ButtonGenes(rect5);
+            // Button
+            Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+            XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
         }
 
         private void Collapsed(Vector2 topLeft, float maxWidth)
