@@ -115,18 +115,22 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityGiveHediff Props => (CompProperties_AbilityGiveHediff)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-			Pawn pawn = target.Pawn;
-			if (Props.hediffDef != null)
-			{
-				Hediff hediff = pawn.health.GetOrAddHediff(Props.hediffDef);
-				PostHediffAdd(hediff);
-				Messages.Message(Props.simpleMessage.Translate(), new LookTargets(target.Pawn, parent.pawn), MessageTypeDefOf.NeutralEvent, historical: false);
-			}
-		}
+        {
+            base.Apply(target, dest);
+            Pawn pawn = target.Pawn;
+            if (Props.hediffDef == null)
+            {
+                return;
+            }
+            Hediff hediff = pawn.health.GetOrAddHediff(Props.hediffDef);
+            PostHediffAdd(hediff);
+            if (!Props.simpleMessage.NullOrEmpty())
+            {
+                Messages.Message(Props.simpleMessage.Translate(), new LookTargets(target.Pawn, parent.pawn), MessageTypeDefOf.NeutralEvent, historical: false);
+            }
+        }
 
-		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
 		{
             Pawn pawn = target.Pawn;
 			if (pawn == null)
@@ -169,6 +173,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-    }
+	}
+
+	public class CompAbilityEffect_ChangeXenotypeHediff : CompAbilityEffect_SimpleGiveHediff
+	{
+
+		public override void PostHediffAdd(Hediff hediff)
+		{
+			HediffComp_ChangeXenotype hediffComp_ChangeXenotype = hediff.TryGetComp<HediffComp_ChangeXenotype>();
+			if (hediffComp_ChangeXenotype != null)
+			{
+				hediffComp_ChangeXenotype.genesOwner = parent.pawn;
+			}
+		}
+
+	}
 
 }

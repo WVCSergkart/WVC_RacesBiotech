@@ -12,32 +12,6 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base">
-	<defName>WVC_Hands_Angel</defName>
-	<label>angel hands</label>
-	<description>Carriers of this gene have glands with mutagene poison on their hands.</description>
-	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
-	<selectionWeight>0.0008</selectionWeight>
-    <iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<!-- <iconColor>(241, 175, 129)</iconColor> -->
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<biostatArc>1</biostatArc>
-	<randomChosen>false</randomChosen>
-	<customEffectDescriptions>
-		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
-	</customEffectDescriptions>
-	<abilities>
-	  <li>WVC_Reimplanter_BlessedTouch</li>
-	</abilities>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_Reimplanter_BlessedTouch</AbilityDef>
-	</descriptionHyperlinks>
-	<exclusionTags Inherit="False"/>
-  </GeneDef>
-
-  <!-- ============================= -->
-
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak" Abstract="True">
 	<!-- <selectionWeight>0.0002</selectionWeight> -->
 	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
