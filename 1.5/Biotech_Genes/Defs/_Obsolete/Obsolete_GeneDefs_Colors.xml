@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Generators -->
+
+  <WVC_XenotypesAndGenes.ColorGeneTemplateDef>
+	<defName>WVC_HairColor</defName>
+	<label>{0} hair</label>
+	<description>Carriers of this gene have a {0} hair color. With multiple hair color genes, one is randomly selected.</description>
+	<iconPath>UI/Icons/Genes/Gene_HairColor</iconPath>
+	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+	<displayCategory>Cosmetic_Hair</displayCategory>
+	<displayOrderOffset>500</displayOrderOffset>
+	<selectionWeight>0.000012</selectionWeight>
+	<skinColor>false</skinColor>
+	<exclusionTags>
+	  <li>HairColor</li>
+	</exclusionTags>
+  </WVC_XenotypesAndGenes.ColorGeneTemplateDef>
+
+  <WVC_XenotypesAndGenes.ColorGeneTemplateDef>
+	<defName>WVC_SkinColor</defName>
+	<label>{0} skin</label>
+	<description>Carriers of this gene have a {0} skin color.</description>
+	<iconPath>UI/Icons/Genes/Gene_SkinColorOverride</iconPath>
+	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+	<displayCategory>Cosmetic_Skin</displayCategory>
+	<displayOrderOffset>500</displayOrderOffset>
+	<selectionWeight>0.000012</selectionWeight>
+	<skinColor>true</skinColor>
+	<exclusionTags>
+	  <li>SkinColor</li>
+	  <li>SkinColorOverride</li>
+	</exclusionTags>
+  </WVC_XenotypesAndGenes.ColorGeneTemplateDef>
+
+</Defs>

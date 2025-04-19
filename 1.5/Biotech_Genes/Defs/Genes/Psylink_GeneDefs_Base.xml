@@ -18,12 +18,12 @@
 		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
 		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
 	</customEffectDescriptions>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>psy</symbol></li>
@@ -52,6 +52,9 @@
 			<bodyparts>
 			  <li>Brain</li>
 			</bodyparts>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>27</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

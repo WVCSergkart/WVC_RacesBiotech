@@ -90,6 +90,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>100</regeneration>
+			<reqGeneMat>75</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

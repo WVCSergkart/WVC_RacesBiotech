@@ -72,6 +72,11 @@
 	</statOffsets>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>27</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">

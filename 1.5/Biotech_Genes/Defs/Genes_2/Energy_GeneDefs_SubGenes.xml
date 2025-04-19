@@ -205,6 +205,11 @@
 		<li><symbol>tox</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>89</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base">

@@ -275,7 +275,7 @@ namespace WVC_XenotypesAndGenes
         private void DrawSection(Rect rect, List<GeneDefWithChance> genes, string label, ref float curY, ref float sectionHeight, bool adding, ref bool? collapsed)
         {
             float curX = 4f;
-            Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
+            Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, true, ref collapsed);
             if (collapsed == true)
             {
                 if (Event.current.type == EventType.Layout)
