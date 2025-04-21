@@ -764,7 +764,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
-	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>
+	<!-- <WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent> -->
+	<!-- <WVC_XaG_ClearGenesWarning>Genes of the selected type will be removed.</WVC_XaG_ClearGenesWarning> -->
 
 	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
 

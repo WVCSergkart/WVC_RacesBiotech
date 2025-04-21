@@ -199,56 +199,56 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
-		public static ThingDef GetFromGauranlenGeneModeTemplate(ThingDef thingDef)
-		{
-			ThingDef dryadDef = new()
-			{
-				defName = "WVC_XaG_" + thingDef.defName,
-				label = thingDef.label,
-				description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve(),
-				descriptionHyperlinks = thingDef.descriptionHyperlinks,
-				modContentPack = WVC_Biotech.settings.Mod.Content,
-				statBases = thingDef.statBases,
-				uiIconScale = thingDef.uiIconScale,
-				tools = thingDef.tools,
-				tradeTags = thingDef.tradeTags,
-				race = thingDef.race,
-				comps = new(),
-				thingCategories = thingDef.thingCategories,
-				recipes = thingDef.recipes,
-				thingClass = thingDef.thingClass,
-				category = thingDef.category,
-				selectable = thingDef.selectable,
-				containedItemsSelectable = thingDef.containedItemsSelectable,
-				containedPawnsSelectable = thingDef.containedPawnsSelectable,
-				tickerType = thingDef.tickerType,
-				altitudeLayer = thingDef.altitudeLayer,
-				useHitPoints = thingDef.useHitPoints,
-				hasTooltip = thingDef.hasTooltip,
-				soundImpactDefault = thingDef.soundImpactDefault,
-				drawHighlight = thingDef.drawHighlight,
-				inspectorTabs = thingDef.inspectorTabs,
-				drawGUIOverlay = thingDef.drawGUIOverlay,
-				modExtensions = thingDef.modExtensions
-			};
-			dryadDef.race.allowedOnCaravan = true;
-			dryadDef.race.disableAreaControl = false;
-			if (!thingDef.comps.NullOrEmpty())
-			{
-				foreach (CompProperties item in thingDef.comps)
-				{
-					dryadDef.comps.Add(item);
-				}
-			}
-			if (dryadDef.GetCompProperties<CompProperties_GestatedDryad>() == null)
-			{
-				CompProperties_GestatedDryad dryad_comp = new();
-				dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
-				dryadDef.comps.Add(dryad_comp);
-			}
-			return dryadDef;
-		}
+		//[Obsolete]
+		//public static ThingDef GetFromGauranlenGeneModeTemplate(ThingDef thingDef)
+		//{
+		//	ThingDef dryadDef = new()
+		//	{
+		//		defName = "WVC_XaG_" + thingDef.defName,
+		//		label = thingDef.label,
+		//		description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve(),
+		//		descriptionHyperlinks = thingDef.descriptionHyperlinks,
+		//		modContentPack = WVC_Biotech.settings.Mod.Content,
+		//		statBases = thingDef.statBases,
+		//		uiIconScale = thingDef.uiIconScale,
+		//		tools = thingDef.tools,
+		//		tradeTags = thingDef.tradeTags,
+		//		race = thingDef.race,
+		//		comps = new(),
+		//		thingCategories = thingDef.thingCategories,
+		//		recipes = thingDef.recipes,
+		//		thingClass = thingDef.thingClass,
+		//		category = thingDef.category,
+		//		selectable = thingDef.selectable,
+		//		containedItemsSelectable = thingDef.containedItemsSelectable,
+		//		containedPawnsSelectable = thingDef.containedPawnsSelectable,
+		//		tickerType = thingDef.tickerType,
+		//		altitudeLayer = thingDef.altitudeLayer,
+		//		useHitPoints = thingDef.useHitPoints,
+		//		hasTooltip = thingDef.hasTooltip,
+		//		soundImpactDefault = thingDef.soundImpactDefault,
+		//		drawHighlight = thingDef.drawHighlight,
+		//		inspectorTabs = thingDef.inspectorTabs,
+		//		drawGUIOverlay = thingDef.drawGUIOverlay,
+		//		modExtensions = thingDef.modExtensions
+		//	};
+		//	dryadDef.race.allowedOnCaravan = true;
+		//	dryadDef.race.disableAreaControl = false;
+		//	if (!thingDef.comps.NullOrEmpty())
+		//	{
+		//		foreach (CompProperties item in thingDef.comps)
+		//		{
+		//			dryadDef.comps.Add(item);
+		//		}
+		//	}
+		//	if (dryadDef.GetCompProperties<CompProperties_GestatedDryad>() == null)
+		//	{
+		//		CompProperties_GestatedDryad dryad_comp = new();
+		//		dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
+		//		dryadDef.comps.Add(dryad_comp);
+		//	}
+		//	return dryadDef;
+		//}
 
 		// XenoForcers
 

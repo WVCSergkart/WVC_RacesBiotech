@@ -110,10 +110,21 @@ namespace WVC_XenotypesAndGenes
 			//}
 			else
             {
-				if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+                Rect storeButton = new(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y);
+                if (Widgets.ButtonText(storeButton, "WVC_XaG_StorageImplanter_Apply".Translate()))
 				{
 					Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
 				}
+				//Rect clearXenogenes = new(storeButton.xMax - ButSize.x, storeButton.y, storeButton.width, storeButton.height);
+				//if (Widgets.ButtonText(clearXenogenes, "WVC_Xenogerm".Translate()))
+				//{
+				//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
+				//}
+				//Rect clearEndogenes = new(clearXenogenes.xMax - ButSize.x, clearXenogenes.y, clearXenogenes.width, clearXenogenes.height);
+				//if (Widgets.ButtonText(clearEndogenes, "WVC_Germline".Translate()))
+				//{
+				//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
+				//}
 			}
 		}
 

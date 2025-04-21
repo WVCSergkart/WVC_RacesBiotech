@@ -5,7 +5,9 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class SpawnerGeneTemplateDef : Def
+
+	[Obsolete]
+	public class SpawnerGeneTemplateDef : Def
 	{
 
 		public IntRange spawnIntervalRange = new(120000, 300000);

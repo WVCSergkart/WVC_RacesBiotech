@@ -113,11 +113,25 @@ namespace WVC_XenotypesAndGenes
 
 		private void Disable()
 		{
+			//foreach (Gene item in gene.pawn.genes.GenesListForReading)
+			//{
+			//	if (item is Gene_Eyes eyes)
+			//	{
+			//		eyes.SetColor(desireColor, false);
+			//	}
+			//}
 			gene.SetColor(desireColor, false);
 		}
 
 		private void Accept()
 		{
+			//foreach (Gene item in gene.pawn.genes.GenesListForReading)
+			//{
+			//	if (item is Gene_Eyes eyes)
+			//	{
+			//		eyes.SetColor(desireColor, true);
+			//	}
+			//}
 			gene.SetColor(desireColor, true);
 		}
 

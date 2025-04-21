@@ -72,7 +72,10 @@ namespace WVC_XenotypesAndGenes
 			int met = 0;
 			foreach (Gene item in genes)
 			{
-				met += item.def.biostatMet;
+				if (!item.Overridden)
+				{
+					met += item.def.biostatMet;
+				}
 			}
 			if (met > 0f)
 			{

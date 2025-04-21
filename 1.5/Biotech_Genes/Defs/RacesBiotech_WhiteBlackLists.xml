@@ -9,13 +9,14 @@
 		<li>WVC_Beholdkind</li>
 		<li>WVC_Nociokin</li>
 		<!-- An undead xenotype has a separate serum mechanic. -->
-		<li>WVC_Undead</li>
+		<!-- <li>WVC_Undead</li> -->
 		<!-- Only undead resurrection -->
-		<li>WVC_Featherdust</li>
-		<li>WVC_Resurgent</li>
-		<li>WVC_Ashen</li>
+		<!-- <li>WVC_Featherdust</li> -->
+		<!-- <li>WVC_Resurgent</li> -->
+		<!-- <li>WVC_Ashen</li> -->
 		<!-- Random -->
 		<li>WVC_Thrall</li>
+		<li>WVC_Hybrid</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_RandomHybrid</li>
 		<li>WVC_RandomHybrid_Blankind</li>
@@ -30,7 +31,7 @@
 		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Undead</li>
 		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Featherdust</li>
 		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Resurgent</li>
-		<li WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
 	</whiteListedXenotypesForResurrectorSerums>
 	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
 	<blackListedBackstoryForChanger>
