@@ -48,6 +48,9 @@ namespace WVC_XenotypesAndGenes
                 collapsedCategories.Add(allDef, value: false);
             }
             OnGenesChanged();
+            doCloseX = true;
+            forcePause = true;
+            absorbInputAroundWindow = true;
         }
 
         protected float scrollHeight;

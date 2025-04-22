@@ -171,28 +171,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			//if (!enabled)
-			//{
-			//	yield break;
-			//}
-			//if (cachedRemoteControlGenes == null)
-			//{
-			//	RecacheGenes();
-			//}
-			//if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
-			//{
-			//	yield break;
-			//}
-			//yield return new Command_Action
-			//{
-			//	defaultLabel = "WVC_XaG_GenesSettings".Translate(),
-			//	defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
-			//	icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
-			//	action = delegate
-			//	{
-			//		Find.WindowStack.Add(new Dialog_GenesSettings(this, cachedRemoteControlGenes));
-			//	}
-			//};
 			if (enabled)
 			{
 				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);

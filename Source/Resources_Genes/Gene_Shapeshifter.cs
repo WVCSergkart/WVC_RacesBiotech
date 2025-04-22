@@ -11,16 +11,17 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism
 	{
-		//public string RemoteActionName => "ERROR";
+		//public string RemoteActionName => "WVC_HideShow".Translate();
 
-		//public string RemoteActionDesc => "ERROR";
+		//public string RemoteActionDesc => "WVC_XaG_Shapeshifter_HideShowDesc".Translate();
 
 		//public void RemoteControl_Action()
 		//{
-
+		//	gizmoCollapse = !gizmoCollapse;
+		//	SetupRemoteContollers(gizmoCollapse);
 		//}
 
-		//public bool RemoteControl_Hide => true;
+		//public bool RemoteControl_Hide => !Active;
 
 		//public bool RemoteControl_Enabled
 		//{
@@ -30,13 +31,18 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//	set
 		//	{
-		//		remoteControllerCached = false;
+
 		//	}
 		//}
 
-		//public void RemoteMainframe_Reset()
+		//public void RemoteControl_Recache()
 		//{
-		//	remoteControllerCached = false;
+
+		//}
+
+		//private void SetupRemoteContollers(bool setAllTo)
+		//{
+		//	XaG_UiUtility.SetAllRemoteControllersTo(pawn, setAllTo);
 		//}
 
 		// ===================
@@ -81,12 +87,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return gizmo;
 		}
-
-        //private void SetupRemoteContollers(bool setAllTo)
-        //{
-        //    XaG_UiUtility.SetAllRemoteControllersTo(pawn, setAllTo, this);
-        //    remoteControllerCached = !setAllTo;
-        //}
 
         public void Notify_OverriddenBy(Gene overriddenBy)
 		{
@@ -220,7 +220,12 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-        public bool TryConsumeResource(int count)
+		public bool TryOffsetResource(Gene gene)
+		{
+			return TryOffsetResource((int)((gene.def.biostatCpx * 0.5f) + (gene.def.biostatArc * 0.2f)));
+		}
+
+		public bool TryConsumeResource(int count)
         {
 			if (count > 0)
             {

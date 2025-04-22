@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Generemover</defName>
+	<label>generemover</label>
+	<description>Carriers of this gene have archites that can selectively destroy the carrier's genes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Generemover</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath>
+	<displayOrderInCategory>190</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<!-- <selectionWeight>0.0001</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>true</canGenerateInGeneSet> -->
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to remove any genes from the current geneset. Genes are removed one at a time.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-1</WVC_ScarifierScars>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>23</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

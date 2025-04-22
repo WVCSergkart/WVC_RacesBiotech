@@ -209,4 +209,92 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Shapeshift_Remote : Gene_ShapeshifterDependant, IGeneRemoteControl
+	{
+
+		public virtual string RemoteActionName => "ERROR";
+
+		public virtual string RemoteActionDesc => "ERROR";
+
+		public virtual void RemoteControl_Action()
+		{
+
+		}
+
+		public virtual bool RemoteControl_Hide => !Active;
+
+		public virtual bool RemoteControl_Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+				remoteControllerCached = false;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+		}
+
+		public bool enabled = true;
+		public bool remoteControllerCached = false;
+
+		public virtual void RemoteControl_Recache()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+			}
+			return null;
+		}
+
+	}
+
+	public class Gene_Generemover : Gene_Shapeshift_Remote
+	{
+
+		public override string RemoteActionName => "WVC_XaG_GeneRemover_Label".Translate();
+
+		public override string RemoteActionDesc => "WVC_XaG_GeneRemover_Desc".Translate();
+
+		public override void RemoteControl_Action()
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
+			{
+				return;
+			}
+			Find.WindowStack.Add(new Dialog_Generemover(pawn, this));
+		}
+
+	}
+
+	public class Gene_Traitshifter : Gene_Shapeshift_Remote
+	{
+
+		public override string RemoteActionName => "WVC_XaG_Traitshifter_Label".Translate();
+
+		public override string RemoteActionDesc => "WVC_XaG_Traitshifter_Desc".Translate();
+
+		public override void RemoteControl_Action()
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
+            {
+				return;
+			}
+			Find.WindowStack.Add(new Dialog_Traitshifter(pawn));
+		}
+
+	}
+
 }

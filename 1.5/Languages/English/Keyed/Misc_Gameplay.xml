@@ -807,6 +807,15 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
 	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
 
+	<WVC_XaG_GeneRemover_Label>Remover</WVC_XaG_GeneRemover_Label>
+	<WVC_XaG_GeneRemover_Desc>Allows to remove any genes from the current geneset. Genes are removed one at a time.</WVC_XaG_GeneRemover_Desc>
+	<WVC_XaG_GeneRemover_Warning>This action will result in the gene being removed from the pawn's geneset, which is irreversible. If the shapeshifter gene is present, this may provide genetic material or, on the contrary, consume it. The amount of genetic material is calculated relative to the complexity and archites of the gene.</WVC_XaG_GeneRemover_Warning>
+
+	<WVC_XaG_Traitshifter_Label>Traits</WVC_XaG_Traitshifter_Label>
+	<WVC_XaG_Traitshifter_Desc>Allows to change the traits of a pawn by removing them or adding new ones, up to a limit of 3 traits.</WVC_XaG_Traitshifter_Desc>
+	<WVC_XaG_Traitshifter_Warning>This action will add/remove the selected trait.</WVC_XaG_Traitshifter_Warning>
+	<WVC_XaG_Traitshifter_Degree>This trait has more than one degree.</WVC_XaG_Traitshifter_Degree>
+
 	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff and genetic match. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn gets &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, it is summed up.\n\nTo compensate for the genetic match, you can use &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; that accumulates during &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; or with the help of sub-genes.\n\nThere are also xenotypes that are considered &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;. &lt;color=#8a8ae6&gt;Shapeshifting&lt;/color&gt; in them is possible without any restrictions, but it does not accumulate &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.\n\n -  Genetic material: {0}\n -  Min genes match: {1}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {2}</WVC_XaG_ShapeshifterGizmoTip> -->
@@ -952,6 +961,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_Start>Start</WVC_Start>
 
 	<WVC_XaG_HideShowDesc>Allows to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
+
+	<!-- <WVC_XaG_Shapeshifter_HideShowDesc>Toggles shifter gizmo collapse and hides/shows the genes settings gizmo relative to this setting.</WVC_XaG_Shapeshifter_HideShowDesc> -->
 
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>

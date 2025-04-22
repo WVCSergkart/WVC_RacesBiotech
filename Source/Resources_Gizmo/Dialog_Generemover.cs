@@ -1,29 +1,23 @@
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-
-    public class Dialog_GenesSettings : Window
+    public class Dialog_Generemover : Window
 	{
 
-		public List<IGeneRemoteControl> genes;
+		public List<Gene> genes;
+		public Gene ignoredGene;
 
-		public Dialog_GenesSettings(Pawn pawn)
+		public Dialog_Generemover(Pawn pawn, Gene ignoredGene = null)
 		{
-			//remoteContoller.RemoteControl_Recache();
-			this.genes = new();
-			foreach (Gene item in pawn.genes.GenesListForReading)
-            {
-				if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
-                {
-					genes.Add(controller);
-                }
-            }
-            forcePause = true;
+			this.ignoredGene = ignoredGene;
+			this.genes = pawn.genes.GenesListForReading;
+			forcePause = true;
 			doCloseButton = true;
 		}
 
@@ -41,12 +35,12 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (IGeneRemoteControl controller in genes)
+			foreach (Gene gene in genes.ToList())
 			{
-				if (controller is Gene gene && num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
+				if (num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
 					Rect rect = new(0f, num2, vector.x, vector.y);
-					TooltipHandler.TipRegion(rect, controller.RemoteActionDesc);
+					TooltipHandler.TipRegion(rect, gene.def.description);
 					if (num3 % 2 == 0)
 					{
 						Widgets.DrawAltRect(rect);
@@ -55,10 +49,21 @@ namespace WVC_XenotypesAndGenes
 					GUI.color = Color.white;
 					Text.Font = GameFont.Small;
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
-					if (Widgets.ButtonText(rect3, controller.RemoteActionName))
+					if (Widgets.ButtonText(rect3, "Remove".Translate()))
 					{
-						controller.RemoteControl_Action();
-						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
+						Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneRemover_Warning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), delegate
+						{
+							gene.pawn.genes.RemoveGene(gene);
+							gene.pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>()?.TryOffsetResource(gene);
+							genes = gene.pawn.genes.GenesListForReading;
+							//SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
+							if (gene == ignoredGene)
+                            {
+								Close();
+                            }
+							ReimplanterUtility.PostImplantDebug(gene.pawn);
+						});
+						Find.WindowStack.Add(window);
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
