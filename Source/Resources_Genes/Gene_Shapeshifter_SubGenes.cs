@@ -307,7 +307,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
 			}
-			Find.WindowStack.Add(new Dialog_Traitshifter(pawn));
+			Find.WindowStack.Add(new Dialog_Traitshifter(this));
 			genesSettings.Close();
 		}
 

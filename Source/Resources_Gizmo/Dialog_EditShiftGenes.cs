@@ -43,14 +43,12 @@ namespace WVC_XenotypesAndGenes
             }
             forcePause = true;
             absorbInputAroundWindow = true;
+            doCloseX = true;
             foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefs)
             {
                 collapsedCategories.Add(allDef, value: false);
             }
             OnGenesChanged();
-            doCloseX = true;
-            forcePause = true;
-            absorbInputAroundWindow = true;
         }
 
         protected float scrollHeight;
@@ -136,7 +134,7 @@ namespace WVC_XenotypesAndGenes
         public static readonly CachedTexture ReqTex = new("WVC/UI/XaG_General/GenMatTex_Req");
         public static readonly CachedTexture HasTex = new("WVC/UI/XaG_General/GenMatTex_Has");
 
-        private struct GeneMatStatData
+        public struct GeneMatStatData
         {
             public string labelKey;
 
