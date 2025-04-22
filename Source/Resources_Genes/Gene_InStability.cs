@@ -201,7 +201,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual string RemoteActionDesc => "WVC_XaG_Gene_GeneticInstabilityDesc".Translate();
 
-		public void RemoteControl_Action()
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			useStabilizerAuto = !useStabilizerAuto;
 		}

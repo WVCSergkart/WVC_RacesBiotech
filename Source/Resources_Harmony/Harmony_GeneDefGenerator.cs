@@ -19,8 +19,8 @@ namespace WVC_XenotypesAndGenes
 				List<GeneDef> geneDefList = values.ToList();
 				GeneratorUtility.Aptitudes(geneDefList);
 				GeneratorUtility.HybridForcerGenes(geneDefList);
-				GeneratorUtility.Spawners(geneDefList);
-				GeneratorUtility.AutoColorGenes(geneDefList);
+				//GeneratorUtility.Spawners(geneDefList);
+				//GeneratorUtility.AutoColorGenes(geneDefList);
 				GeneratorUtility.GauranlenTreeModeDef();
 				return geneDefList;
 			}

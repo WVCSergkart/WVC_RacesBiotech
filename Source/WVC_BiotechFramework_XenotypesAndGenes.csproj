@@ -120,14 +120,12 @@
     <Compile Include="Resources_Holders\XenotypeHolder.cs" />
     <Compile Include="Resources_NewDefs\XenotypesAndGenesListDef.cs" />
     <Compile Include="Resources_NewDefs\SettingsDef.cs" />
-    <Compile Include="Resources_NewDefs\ColorGeneTemplateDef.cs" />
     <Compile Include="Resources_NewDefs\DevXenotypeDef.cs" />
     <Compile Include="Resources_NewDefs\GauranlenGeneModeDef.cs" />
     <Compile Include="Resources_Holders\GeneDefWithChance.cs" />
     <Compile Include="Resources_NewDefs\GolemModeDef.cs" />
     <Compile Include="Resources_Holders\MechanoidHolder.cs" />
     <Compile Include="Resources_NewDefs\SkillsGeneTemplateDef.cs" />
-    <Compile Include="Resources_NewDefs\SpawnerGeneTemplateDef.cs" />
     <Compile Include="Resources_NewDefs\ThrallDef.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_NewDefs\XenotypeForcerGeneTemplateDef.cs" />

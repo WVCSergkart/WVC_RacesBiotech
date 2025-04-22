@@ -193,19 +193,19 @@ A restart is required.</WVC_ToolTip_enableHarmonyTelepathyGene>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_generateSkillGenes>Enable aptitude genes</WVC_Label_generateSkillGenes>
-	<WVC_Label_generateResourceSpawnerGenes>(Obsolete) Enable resource spawner genes</WVC_Label_generateResourceSpawnerGenes>
-	<WVC_Label_generateSkinHairColorGenes>(Obsolete) Enable color generated genes</WVC_Label_generateSkinHairColorGenes>
-	<WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup.
+	<!-- <WVC_Label_generateResourceSpawnerGenes>(Obsolete) Enable resource spawner genes</WVC_Label_generateResourceSpawnerGenes> -->
+	<!-- <WVC_Label_generateSkinHairColorGenes>(Obsolete) Enable color generated genes</WVC_Label_generateSkinHairColorGenes> -->
+	<!-- <WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup. -->
 
-A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
+<!-- A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes> -->
 
 	<WVC_ToolTip_generateTemplateGenes_Aptitudes>If enabled, aptitudes genes will be generated when the game starts. If you don't need them or you have problems starting the game, it is recommended to disable this option.
 
 A restart is required.</WVC_ToolTip_generateTemplateGenes_Aptitudes>
 
-	<WVC_ToolTip_generateSkinHairColorGenes>If enabled, generates genes for hair and skin with colors corresponding to the materials available in the game. Support all possible mods.
+	<!-- <WVC_ToolTip_generateSkinHairColorGenes>If enabled, generates genes for hair and skin with colors corresponding to the materials available in the game. Support all possible mods. -->
 
-A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes>
+<!-- A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes> -->
 
 	<WVC_Label_generateXenotypeForceGenes>(Advanced) Enable endo/xeno-forcer genes</WVC_Label_generateXenotypeForceGenes>
 	<WVC_ToolTip_generateXenoForcerGenes>If enabled, a gene will be generated for each xenotype on the whitelist at startup, which, when added to a pawn, will give it its corresponding xenotype. Use this option only if you are experienced enough in the mechanics of both the game and this mod.

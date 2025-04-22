@@ -153,7 +153,7 @@ It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLa
 	<!-- <WVC_Label_bloodeater_disableAutoFeed>Disable bloodEATer auto-feed</WVC_Label_bloodeater_disableAutoFeed> -->
 	<!-- <WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodEATer gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed> -->
 
-	<WVC_Label_bloodfeeder_AutoBloodfeed>|- Enable bloodFEEDer auto-feed</WVC_Label_bloodfeeder_AutoBloodfeed>
+	<WVC_Label_bloodfeeder_AutoBloodfeed>Enable bloodFEEDer auto-feed</WVC_Label_bloodfeeder_AutoBloodfeed>
 	<WVC_ToolTip_bloodfeeder_AutoBloodfeed>If enabled, then pawns with the bloodFEEDer gene WILL automatically bite colonists.
 
 A new game and restart is required.</WVC_ToolTip_bloodfeeder_AutoBloodfeed>

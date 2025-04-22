@@ -26,8 +26,8 @@ namespace WVC_XenotypesAndGenes
 		// Generator
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
-		public bool generateResourceSpawnerGenes = false;
-		public bool generateSkinHairColorGenes = false;
+		//public bool generateResourceSpawnerGenes = false;
+		//public bool generateSkinHairColorGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
@@ -136,8 +136,8 @@ namespace WVC_XenotypesAndGenes
 			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
-			Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
-			Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
+			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
+			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
 			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
@@ -388,14 +388,14 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateXenoForcerGenes".Translate());
 			}
 			// Outdated. No longer supported and maintained
-			if (settings.generateResourceSpawnerGenes)
-			{
-				listingStandard.CheckboxLabeled("WVC_Label_generateResourceSpawnerGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateResourceSpawnerGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
-			}
-			if (settings.generateSkinHairColorGenes)
-			{
-				listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
-			}
+			//if (settings.generateResourceSpawnerGenes)
+			//{
+			//	listingStandard.CheckboxLabeled("WVC_Label_generateResourceSpawnerGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateResourceSpawnerGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+			//}
+			//if (settings.generateSkinHairColorGenes)
+			//{
+			//	listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
+			//}
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.GapLine();
@@ -1017,8 +1017,8 @@ namespace WVC_XenotypesAndGenes
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = settingsDef.generateSkillGenes;
 			WVC_Biotech.settings.generateXenotypeForceGenes = settingsDef.generateXenotypeForceGenes;
-			WVC_Biotech.settings.generateResourceSpawnerGenes = settingsDef.generateResourceSpawnerGenes;
-			WVC_Biotech.settings.generateSkinHairColorGenes = settingsDef.generateSkinHairColorGenes;
+			//WVC_Biotech.settings.generateResourceSpawnerGenes = settingsDef.generateResourceSpawnerGenes;
+			//WVC_Biotech.settings.generateSkinHairColorGenes = settingsDef.generateSkinHairColorGenes;
 			// Misc
 			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
 			// Fix

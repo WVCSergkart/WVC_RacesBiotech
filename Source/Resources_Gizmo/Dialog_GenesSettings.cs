@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
 					if (Widgets.ButtonText(rect3, controller.RemoteActionName))
 					{
-						controller.RemoteControl_Action();
+						controller.RemoteControl_Action(this);
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);

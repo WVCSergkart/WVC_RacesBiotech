@@ -209,14 +209,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Shapeshift_Remote : Gene_ShapeshifterDependant, IGeneRemoteControl
+	public class Gene_Shapeshift_Remote : Gene_ShapeshifterDependant, IGeneRemoteControl, IGeneWithEffects
 	{
 
 		public virtual string RemoteActionName => "ERROR";
 
 		public virtual string RemoteActionDesc => "ERROR";
 
-		public virtual void RemoteControl_Action()
+		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 
 		}
@@ -259,6 +259,20 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		public virtual void DoEffects()
+		{
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
+		}
+
+		public void DoEffects(Pawn pawn)
+		{
+			DoEffects();
+		}
+
 	}
 
 	public class Gene_Generemover : Gene_Shapeshift_Remote
@@ -268,13 +282,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override string RemoteActionDesc => "WVC_XaG_GeneRemover_Desc".Translate();
 
-		public override void RemoteControl_Action()
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
 			{
 				return;
 			}
-			Find.WindowStack.Add(new Dialog_Generemover(pawn, this));
+			Find.WindowStack.Add(new Dialog_Generemover(this));
+			genesSettings.Close();
 		}
 
 	}
@@ -286,13 +301,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override string RemoteActionDesc => "WVC_XaG_Traitshifter_Desc".Translate();
 
-		public override void RemoteControl_Action()
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
             {
 				return;
 			}
 			Find.WindowStack.Add(new Dialog_Traitshifter(pawn));
+			genesSettings.Close();
 		}
 
 	}

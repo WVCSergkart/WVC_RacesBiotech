@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 
 		public string RemoteActionDesc => "WVC_XaG_Gene_WingsDesc".Translate();
 
-		public void RemoteControl_Action()
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			AddOrRemoveHediff(pawn, Props.hediffDefName, this);
 		}

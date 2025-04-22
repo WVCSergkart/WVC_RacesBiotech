@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneRemoteControl
 	{
 
-		void RemoteControl_Action();
+		void RemoteControl_Action(Dialog_GenesSettings genesSettings);
 
         //void Notify_PawnResurrected();
 
