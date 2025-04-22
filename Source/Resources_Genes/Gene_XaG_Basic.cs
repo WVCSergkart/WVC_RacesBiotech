@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneRemoteControl
 	{
 
-		void RemoteControl();
+		void RemoteControl_Action();
 
         //void Notify_PawnResurrected();
 
@@ -115,10 +115,20 @@ namespace WVC_XenotypesAndGenes
 
 		string RemoteActionDesc { get; }
 
-		bool Enabled { get; set; }
+		bool RemoteControl_Enabled { get; set; }
 
 		void RemoteControl_Recache();
+
+		bool RemoteControl_Hide { get; }
+
 	}
+
+	//public interface IGeneRemoteMainframe
+	//{
+
+	//	void RemoteMainframe_Reset();
+
+	//}
 
 	public interface IGeneChargeable
 	{

@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
+		public static readonly CachedTexture GenesSettingsIcon = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
 
 		public static readonly CachedTexture StyleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
 
@@ -26,9 +27,9 @@ namespace WVC_XenotypesAndGenes
 
 		public static readonly CachedTexture GermlineImplanterIcon = new("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0");
 
-		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, IGeneRemoteControl gene, List<IGeneRemoteControl> cachedRemoteControlGenes)
+		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, bool remoteControllerCached, IGeneRemoteControl gene)
 		{
-			if (cachedRemoteControlGenes == null)
+			if (!remoteControllerCached)
 			{
 				gene.RemoteControl_Recache();
 			}
@@ -44,38 +45,41 @@ namespace WVC_XenotypesAndGenes
 				shrinkable = true,
 				action = delegate
 				{
-					Find.WindowStack.Add(new Dialog_GenesSettings(gene, cachedRemoteControlGenes));
+					Find.WindowStack.Add(new Dialog_GenesSettings(pawn));
 				}
 			};
-			//if (gene is Gene genegene)
+            //if (gene is Gene genegene)
+            //{
+            //    Log.Error(genegene.def.defName);
+            //}
+        }
+
+		public static void RecacheRemoteController(Pawn pawn, ref bool remoteControllerCached, ref bool enabled)
+		{
+			SetAllRemoteControllersTo(pawn, false);
+			//foreach (Gene gene in pawn.genes.GenesListForReading)
 			//{
-			//	Log.Error(genegene.def.defName);
+			//	if (gene is IGeneRemoteControl geneRemoteControl)
+			//	{
+			//		geneRemoteControl.RemoteControl_Enabled = false;
+			//	}
 			//}
+			remoteControllerCached = true;
+			enabled = true;
 		}
 
-		public static void RecacheRemoteController(Pawn pawn, ref List<IGeneRemoteControl> cachedRemoteControlGenes, ref bool enabled)
+		public static void SetAllRemoteControllersTo(Pawn pawn, bool setTo = true)
 		{
-			ResetAllRemoteControllers(ref cachedRemoteControlGenes);
-			cachedRemoteControlGenes = new();
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneRemoteControl geneRemoteControl)
 				{
-					cachedRemoteControlGenes.Add(geneRemoteControl);
-					geneRemoteControl.Enabled = false;
+					geneRemoteControl.RemoteControl_Enabled = setTo;
 				}
-			}
-			enabled = true;
-		}
-
-		public static void ResetAllRemoteControllers(ref List<IGeneRemoteControl> cachedRemoteControlGenes)
-		{
-			if (cachedRemoteControlGenes != null)
-			{
-				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
-				{
-					gene.Enabled = true;
-				}
+				//else if (gene is IGeneRemoteMainframe mainframe && mainframe != mainGene)
+    //            {
+				//	mainframe.RemoteMainframe_Reset();
+				//}
 			}
 		}
 

@@ -11,6 +11,37 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism
 	{
+		//public string RemoteActionName => "ERROR";
+
+		//public string RemoteActionDesc => "ERROR";
+
+		//public void RemoteControl_Action()
+		//{
+
+		//}
+
+		//public bool RemoteControl_Hide => true;
+
+		//public bool RemoteControl_Enabled
+		//{
+		//	get
+		//	{
+		//		return true;
+		//	}
+		//	set
+		//	{
+		//		remoteControllerCached = false;
+		//	}
+		//}
+
+		//public void RemoteMainframe_Reset()
+		//{
+		//	remoteControllerCached = false;
+		//}
+
+		// ===================
+
+		//public override bool Active => !base.Overridden;
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
@@ -32,6 +63,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private Gizmo gizmo;
+		//public bool remoteControllerCached = false;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -39,16 +71,27 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (gizmo == null)
+			//if (!remoteControllerCached)
+   //         {
+   //             SetupRemoteContollers(false);
+   //         }
+            if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+        //private void SetupRemoteContollers(bool setAllTo)
+        //{
+        //    XaG_UiUtility.SetAllRemoteControllersTo(pawn, setAllTo, this);
+        //    remoteControllerCached = !setAllTo;
+        //}
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
+			//SetupRemoteContollers(true);
 		}
 
 		public void RemoveHediffs()
@@ -83,6 +126,7 @@ namespace WVC_XenotypesAndGenes
 				// newShifter.UpdateForNewGene(this);
 			// }
 			RemoveHediffs();
+			//SetupRemoteContollers(true);
 		}
 
 		//public StatDef ShiftStatDef => Props.shiftStatDef;

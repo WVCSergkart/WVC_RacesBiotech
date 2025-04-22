@@ -13,11 +13,18 @@ namespace WVC_XenotypesAndGenes
 
 		public List<IGeneRemoteControl> genes;
 
-		public Dialog_GenesSettings(IGeneRemoteControl remoteContoller, List<IGeneRemoteControl> genes)
+		public Dialog_GenesSettings(Pawn pawn)
 		{
-			remoteContoller.RemoteControl_Recache();
-			this.genes = genes;
-			forcePause = true;
+			//remoteContoller.RemoteControl_Recache();
+			this.genes = new();
+			foreach (Gene item in pawn.genes.GenesListForReading)
+            {
+				if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
+                {
+					genes.Add(controller);
+                }
+            }
+            forcePause = true;
 			doCloseButton = true;
 		}
 
@@ -47,17 +54,13 @@ namespace WVC_XenotypesAndGenes
 					}
 					Widgets.BeginGroup(rect);
 					GUI.color = Color.white;
-					//Rect rect2 = new(rect.width - 36f, (rect.height - 36f) / 2f, 36f, 36f);
-					//TooltipHandler.TipRegionByKey(rect2, deleteTipKey);
-					//Text.Font = GameFont.Small;
 					Text.Font = GameFont.Small;
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
 					if (Widgets.ButtonText(rect3, controller.RemoteActionName))
 					{
-						controller.RemoteControl();
+						controller.RemoteControl_Action();
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
 					}
-					//Text.Anchor = TextAnchor.UpperLeft;
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
 					Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 1.8f));

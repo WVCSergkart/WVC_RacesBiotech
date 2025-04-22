@@ -201,12 +201,14 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual string RemoteActionDesc => "WVC_XaG_Gene_GeneticInstabilityDesc".Translate();
 
-		public void RemoteControl()
+		public void RemoteControl_Action()
 		{
 			useStabilizerAuto = !useStabilizerAuto;
 		}
 
-		public bool Enabled
+		public bool RemoteControl_Hide => !Active;
+
+		public bool RemoteControl_Enabled
 		{
 			get
 			{
@@ -215,28 +217,23 @@ namespace WVC_XenotypesAndGenes
 			set
 			{
 				enabled = value;
+				remoteControllerCached = false;
 			}
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
-		}
-
-		public void RecacheGenes()
-		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
 		public bool enabled = true;
+		public bool remoteControllerCached = false;
 
 		public void RemoteControl_Recache()
 		{
-			RecacheGenes();
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
 		}
-
-		private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
 
 		//===========
@@ -425,7 +422,7 @@ namespace WVC_XenotypesAndGenes
 			//};
 			if (enabled)
 			{
-				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this))
 				{
 					yield return gizmo;
 				}

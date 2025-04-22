@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoMain");
 		private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
 
-		public override bool Visible => true;
+        public override bool Visible => true;
 
 		public GeneGizmo_Shapeshifter(Gene_Shapeshifter geneShapeshifter)
 			: base()
@@ -52,6 +52,9 @@ namespace WVC_XenotypesAndGenes
             // Button
             Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
             XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
+            // Button
+            Rect rect7 = new(rect6.x + 44f, rect6.y, rect6.width, rect6.height);
+            ButtonGenesSettings(rect7);
         }
 
         private void Collapsed(Vector2 topLeft, float maxWidth)
@@ -111,13 +114,27 @@ namespace WVC_XenotypesAndGenes
             TooltipHandler.TipRegion(rect4, "WVC_XaG_ShapeshifterGenesImplant_Desc".Translate(gene.GeneticMaterial));
         }
 
+        private void ButtonGenesSettings(Rect rect4)
+        {
+            Widgets.DrawTextureFitted(rect4, XaG_UiUtility.GenesSettingsIcon.Texture, 1f);
+            if (Mouse.IsOver(rect4))
+            {
+                Widgets.DrawHighlight(rect4);
+                if (Widgets.ButtonInvisible(rect4))
+                {
+                    Find.WindowStack.Add(new Dialog_GenesSettings(pawn));
+                }
+            }
+            TooltipHandler.TipRegion(rect4, "WVC_XaG_GenesSettingsDesc".Translate());
+        }
+
         public override float GetWidth(float maxWidth)
         {
             if (gene.gizmoCollapse)
             {
                 return 96f;
             }
-            return 140f;
+            return 184f;
         }
 
 	}

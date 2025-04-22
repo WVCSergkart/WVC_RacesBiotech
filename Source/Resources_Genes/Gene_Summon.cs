@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public string RemoteActionDesc => "WVC_XaG_RemoteControlMechsSummonAbilityDesc".Translate();
 
-		public void RemoteControl()
+		public void RemoteControl_Action()
 		{
 			if (!Active || nextTick > 0 || pawn.mechanitor == null)
 			{
@@ -54,7 +54,9 @@ namespace WVC_XenotypesAndGenes
 			Find.WindowStack.Add(window);
 		}
 
-		public bool Enabled
+		public bool RemoteControl_Hide => !Active;
+
+		public bool RemoteControl_Enabled
 		{
 			get
 			{
@@ -63,28 +65,23 @@ namespace WVC_XenotypesAndGenes
 			set
 			{
 				enabled = value;
+				remoteControllerCached = false;
 			}
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
-		}
-
-		public void RecacheGenes()
-		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
 		public bool enabled = true;
+		public bool remoteControllerCached = false;
 
 		public void RemoteControl_Recache()
 		{
-			RecacheGenes();
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
 		}
-
-		private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
 		//===========
 
@@ -117,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (enabled)
 			{
-				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
 			return null;
 		}
