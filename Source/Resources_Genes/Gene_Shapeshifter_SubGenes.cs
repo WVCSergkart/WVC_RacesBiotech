@@ -313,4 +313,23 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Skillshifter : Gene_Shapeshift_Remote
+	{
+
+		public override string RemoteActionName => "WVC_XaG_Skillshifter_Label".Translate();
+
+		public override string RemoteActionDesc => "WVC_XaG_Skillshifter_Desc".Translate();
+
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
+			{
+				return;
+			}
+			Find.WindowStack.Add(new Dialog_Skillshifter(this));
+			genesSettings.Close();
+		}
+
+	}
+
 }

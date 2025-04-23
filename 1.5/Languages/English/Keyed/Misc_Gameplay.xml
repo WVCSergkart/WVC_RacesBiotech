@@ -811,20 +811,6 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneRemover_Desc>Allows to remove any genes from the current geneset. Genes are removed one at a time.</WVC_XaG_GeneRemover_Desc>
 	<WVC_XaG_GeneRemover_Warning>This action will result in the gene being removed from the pawn's geneset, which is irreversible. If the shapeshifter gene is present, this may provide genetic material or, on the contrary, consume it. The amount of genetic material is calculated relative to the complexity and archites of the gene.</WVC_XaG_GeneRemover_Warning>
 
-	<WVC_XaG_Traitshifter_Label>Traits</WVC_XaG_Traitshifter_Label>
-	<WVC_XaG_Traitshifter_Apply>Upd traits</WVC_XaG_Traitshifter_Apply>
-	<WVC_XaG_Traitshifter_Desc>Allows to change the traits of a pawn by removing them or adding new ones, up to a limit of 3 traits.</WVC_XaG_Traitshifter_Desc>
-	<WVC_XaG_Traitshifter_Warning>This action will add/remove the selected trait.</WVC_XaG_Traitshifter_Warning>
-	<!-- <WVC_XaG_Traitshifter_Degree>This trait has more than one degree.</WVC_XaG_Traitshifter_Degree> -->
-	<WVC_XaG_Traitshifter_ConflictingTraits>The selected traits conflict with each other.</WVC_XaG_Traitshifter_ConflictingTraits>
-	<WVC_XaG_Traitshifter_ToManyTraits>Too many traits selected.</WVC_XaG_Traitshifter_ToManyTraits>
-	<WVC_XaG_Traitshifter_MaxTraits>Total traits limit</WVC_XaG_Traitshifter_MaxTraits>
-	<WVC_XaG_Traitshifter_MaxTraitsDesc>The maximum number of traits a pawn can have.</WVC_XaG_Traitshifter_MaxTraitsDesc>
-	<WVC_XaG_Traitshifter_SelectedTraits>Selected traits</WVC_XaG_Traitshifter_SelectedTraits>
-	<WVC_XaG_Traitshifter_SelectedTraitsDesc>Number of traits currently selected. Excluding gene traits, forced and unobtainable.</WVC_XaG_Traitshifter_SelectedTraitsDesc>
-	<WVC_XaG_Traitshifter_LockedTrait>This trait is either a gene or quest trait and cannot be removed or added.</WVC_XaG_Traitshifter_LockedTrait>
-	<WVC_XaG_Traitshifter_CannotSave>Unable to apply. Reason: {0}</WVC_XaG_Traitshifter_CannotSave>
-
 	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff and genetic match. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn gets &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, it is summed up.\n\nTo compensate for the genetic match, you can use &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; that accumulates during &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; or with the help of sub-genes.\n\nThere are also xenotypes that are considered &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;. &lt;color=#8a8ae6&gt;Shapeshifting&lt;/color&gt; in them is possible without any restrictions, but it does not accumulate &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.\n\n -  Genetic material: {0}\n -  Min genes match: {1}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {2}</WVC_XaG_ShapeshifterGizmoTip> -->
@@ -835,49 +821,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was turned off for the gene.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
 
-	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
-	<WVC_XaG_CellularDestroyBodyDesc>Extract archotechnology shard. Extracting the shard will kill the carrier and nullify its xenotype.</WVC_XaG_CellularDestroyBodyDesc>
-
-	<!-- <WVC_XaG_GeneMorpherArchitesLevel_Desc>Order the pawn to find the archite capsule and absorb its contents to increase the maximum form limit.</WVC_XaG_GeneMorpherArchitesLevel_Desc> -->
-	<WVC_XaG_GeneMorpherMenu_Desc>Opens a menu where you can view the morpher's saved genesets. Genesets cannot be edited or deleted in this menu.</WVC_XaG_GeneMorpherMenu_Desc>
-
-	<WVC_XaG_GeneMorpherChangeTriggerGene_Desc>Change the trigger gene to any of your choice. You will need archite capsules to change it. The trigger changes only for the current form.</WVC_XaG_GeneMorpherChangeTriggerGene_Desc>
-	<WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>There is no suitable stack of archite capsules within reach.</WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>
-
-	<WVC_XaG_MorpherGizmoTip>&lt;color=#8a8ae6&gt;Morpher&lt;/color&gt; allows a pawn to change its &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; under certain conditions, determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and their &lt;color=#8a8ae6&gt;genes&lt;/color&gt; can be modified without risk of harming another &lt;color=#8a8ae6&gt;form&lt;/color&gt;.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;. Some &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt; cannot be obtained this way.</WVC_XaG_MorpherGizmoTip>
-	 <!-- &lt;color=#8a8ae6&gt;One time genes&lt;/color&gt; that limit the number of morphs also block the change of the &lt;color=#8a8ae6&gt;trigger gene&lt;/color&gt;. -->
-	<!-- \n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, a new one is created. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is chosen randomly, depending on the pawn's &lt;color=#6bb6bb&gt;genes&lt;/color&gt;. -->
-	<!-- \n\nWhen changing a &lt;color=#8a8ae6&gt;form&lt;/color&gt;, the current &lt;color=#6bb6bb&gt;genes&lt;/color&gt; is saved by the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;, and then a choosen saved one is &lt;color=#8a8ae6&gt;implanted&lt;/color&gt; and its information is deleted from the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;. -->
-	 <!-- All &lt;color=#6bb6bb&gt;genetic information&lt;/color&gt; of the &lt;color=#8a8ae6&gt;implanted form&lt;/color&gt; will be the same as it was at the time of its saving. States that involve &lt;color=#6bb6bb&gt;external objects&lt;/color&gt; will not be restored and will require repeated manual intervention. -->
-
-	<WVC_XaG_ArchiverGizmoTip>&lt;color=#8a8ae6&gt;Archiver&lt;/color&gt; allows a pawn to change itself completely under certain conditions determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#b0bf80&gt;version&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and each such &lt;color=#8a8ae6&gt;form&lt;/color&gt; can change genes, clothes, implants, etc. without fear of harming other &lt;color=#8a8ae6&gt;forms&lt;/color&gt;. However, if this gene is removed, all &lt;color=#8a8ae6&gt;forms&lt;/color&gt; will be destroyed.\n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, then a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; pawn is created, which inherits all genes, traits and backstory. Clothes and implants are not inherited in this way.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;.</WVC_XaG_ArchiverGizmoTip>
-
-	<WVC_XaG_GeneAbilityMorphLabel>Morph</WVC_XaG_GeneAbilityMorphLabel>
-	<WVC_XaG_GeneAbilityMorphDesc>Morphing to another form. The form can be selected either from the list of available ones or a new one can be created.</WVC_XaG_GeneAbilityMorphDesc>
-
-	<WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>Try to morph after undead resurrection. The new form is selected randomly.</WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>
-
-	<WVC_XaG_GeneAbilityMorphWarning>The &lt;color=#8a8ae6&gt;morph&lt;/color&gt; will lead to a complete replacement of the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. Also, the next &lt;color=#8a8ae6&gt;form&lt;/color&gt; will be limited in accordance with the new &lt;color=#8a8ae6&gt;gene trigger&lt;/color&gt;, keep in mind that the &lt;color=#8a8ae6&gt;trigger conditions&lt;/color&gt; may be different.\n\nThe pawn will &lt;color=#ff8585&gt;lose all&lt;/color&gt; connections created by the genes. Dryad queen will lose all dryads, and psychic bond its bond, etc.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning>
-	<WVC_XaG_GeneMorphAbilityDisabled>Morph is currently not possible.</WVC_XaG_GeneMorphAbilityDisabled>
-
-	<WVC_XaG_GeneAbilityMorphWarning_Archiver>&lt;color=#8a8ae6&gt;Morphing&lt;/color&gt; will completely &lt;color=#8a8ae6&gt;rewrite&lt;/color&gt; the pawn. Genes, traits, apparels, weapons, implants, thoughts, etc. almost everything will be unique to the new &lt;color=#8a8ae6&gt;form&lt;/color&gt;. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is another version of the current pawn, not just a &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; share only some needs and ideology.\n\nThe current &lt;color=#8a8ae6&gt;form&lt;/color&gt; (pawn) will be saved and can be returned to later.\n\nThe &lt;color=#8a8ae6&gt;morph&lt;/color&gt; conditions and xenotype may also differ from the current one.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning_Archiver>
-
-	<WVC_XaG_GeneAbilityMorphCreateNewForm>(Create new form)</WVC_XaG_GeneAbilityMorphCreateNewForm>
-	<WVC_XaG_GeneAbilityMorpherIsNullMessage>The morpher gene is not active.</WVC_XaG_GeneAbilityMorpherIsNullMessage>
-	<WVC_XaG_GeneMorpherOneTimeMorph>{PAWN_nameDef} has taken {PAWN_possessive} final form.</WVC_XaG_GeneMorpherOneTimeMorph>
-
-	<WVC_XaG_MorpherGizmoLimitTip> -  Morpher forms: {0}/{1}\n -  Morph only once: {2}\n -  Possible xenotypes: {3}</WVC_XaG_MorpherGizmoLimitTip>
-
-	<WVC_XaG_SelectedEndoGeneSetHolder>Endogenes</WVC_XaG_SelectedEndoGeneSetHolder>
-	<WVC_XaG_SelectedXenoGeneSetHolder>Xenogenes</WVC_XaG_SelectedXenoGeneSetHolder>
-
-	<WVC_XaG_ReqAnyGeneSetHolders>There are no saved forms.</WVC_XaG_ReqAnyGeneSetHolders>
-	<WVC_XaG_HasOneTimeMorpherGene>One time morphers cannot change the trigger gene.</WVC_XaG_HasOneTimeMorpherGene>
-	<WVC_XaG_GeneMorpherCannotMorphNow>Morph is not possible at the moment.</WVC_XaG_GeneMorpherCannotMorphNow>
-
-	<!-- Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
-
-	<!-- \n\nThe &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt; can also transfer some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; between &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, provided that the &lt;color=#8a8ae6&gt;form&lt;/color&gt; allows it. The limit of &lt;color=#6bb6bb&gt;genes&lt;/color&gt; for transfer can be increased using &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
+	<!-- ========== GENE SHAPESHIFTER STYLE ========== -->
 
 	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
 
@@ -926,6 +870,77 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes> -->
 	<!-- <WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes> -->
+
+	<!-- ========== GENE CELLULAR ========== -->
+
+	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
+	<WVC_XaG_CellularDestroyBodyDesc>Extract archotechnology shard. Extracting the shard will kill the carrier and nullify its xenotype.</WVC_XaG_CellularDestroyBodyDesc>
+
+	<!-- ========== GENE SKILLSHIFTER ========== -->
+
+	<WVC_XaG_Skillshifter_Label>Skills</WVC_XaG_Skillshifter_Label>
+	<WVC_XaG_Skillshifter_Desc>Allows to redistribute experience in skills.</WVC_XaG_Skillshifter_Desc>
+	<WVC_XaG_Skillshifter_SkillPointsLeft>Skill points left: {0}/{1}</WVC_XaG_Skillshifter_SkillPointsLeft>
+	<WVC_XaG_Skillshifter_Warning>There are {0} unallocated skill points left. After closing the window, all unallocated skill points will be irretrievably lost.</WVC_XaG_Skillshifter_Warning>
+
+	<!-- ========== GENE TRAITSHIFTER ========== -->
+
+	<WVC_XaG_Traitshifter_Label>Traits</WVC_XaG_Traitshifter_Label>
+	<WVC_XaG_Traitshifter_Apply>Upd traits</WVC_XaG_Traitshifter_Apply>
+	<WVC_XaG_Traitshifter_Desc>Allows to change the traits of a pawn by removing them or adding new ones, up to a limit of 3 traits.</WVC_XaG_Traitshifter_Desc>
+	<WVC_XaG_Traitshifter_Warning>This action will add/remove the selected trait.</WVC_XaG_Traitshifter_Warning>
+	<!-- <WVC_XaG_Traitshifter_Degree>This trait has more than one degree.</WVC_XaG_Traitshifter_Degree> -->
+	<WVC_XaG_Traitshifter_ConflictingTraits>The selected traits conflict with each other.</WVC_XaG_Traitshifter_ConflictingTraits>
+	<WVC_XaG_Traitshifter_ToManyTraits>Too many traits selected.</WVC_XaG_Traitshifter_ToManyTraits>
+	<WVC_XaG_Traitshifter_MaxTraits>Total traits limit</WVC_XaG_Traitshifter_MaxTraits>
+	<WVC_XaG_Traitshifter_MaxTraitsDesc>The maximum number of traits a pawn can have.</WVC_XaG_Traitshifter_MaxTraitsDesc>
+	<WVC_XaG_Traitshifter_SelectedTraits>Selected traits</WVC_XaG_Traitshifter_SelectedTraits>
+	<WVC_XaG_Traitshifter_SelectedTraitsDesc>Number of traits currently selected. Excluding gene traits, forced and unobtainable.</WVC_XaG_Traitshifter_SelectedTraitsDesc>
+	<WVC_XaG_Traitshifter_LockedTrait>This trait is either a gene or quest trait and cannot be removed or added.</WVC_XaG_Traitshifter_LockedTrait>
+	<WVC_XaG_Traitshifter_CannotSave>Unable to apply. Reason: {0}</WVC_XaG_Traitshifter_CannotSave>
+
+	<!-- ========== GENE MORPHER ========== -->
+
+	<!-- <WVC_XaG_GeneMorpherArchitesLevel_Desc>Order the pawn to find the archite capsule and absorb its contents to increase the maximum form limit.</WVC_XaG_GeneMorpherArchitesLevel_Desc> -->
+	<WVC_XaG_GeneMorpherMenu_Desc>Opens a menu where you can view the morpher's saved genesets. Genesets cannot be edited or deleted in this menu.</WVC_XaG_GeneMorpherMenu_Desc>
+
+	<WVC_XaG_GeneMorpherChangeTriggerGene_Desc>Change the trigger gene to any of your choice. You will need archite capsules to change it. The trigger changes only for the current form.</WVC_XaG_GeneMorpherChangeTriggerGene_Desc>
+	<WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>There is no suitable stack of archite capsules within reach.</WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>
+
+	<WVC_XaG_MorpherGizmoTip>&lt;color=#8a8ae6&gt;Morpher&lt;/color&gt; allows a pawn to change its &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; under certain conditions, determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and their &lt;color=#8a8ae6&gt;genes&lt;/color&gt; can be modified without risk of harming another &lt;color=#8a8ae6&gt;form&lt;/color&gt;.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;. Some &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt; cannot be obtained this way.</WVC_XaG_MorpherGizmoTip>
+	 <!-- &lt;color=#8a8ae6&gt;One time genes&lt;/color&gt; that limit the number of morphs also block the change of the &lt;color=#8a8ae6&gt;trigger gene&lt;/color&gt;. -->
+	<!-- \n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, a new one is created. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is chosen randomly, depending on the pawn's &lt;color=#6bb6bb&gt;genes&lt;/color&gt;. -->
+	<!-- \n\nWhen changing a &lt;color=#8a8ae6&gt;form&lt;/color&gt;, the current &lt;color=#6bb6bb&gt;genes&lt;/color&gt; is saved by the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;, and then a choosen saved one is &lt;color=#8a8ae6&gt;implanted&lt;/color&gt; and its information is deleted from the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;. -->
+	 <!-- All &lt;color=#6bb6bb&gt;genetic information&lt;/color&gt; of the &lt;color=#8a8ae6&gt;implanted form&lt;/color&gt; will be the same as it was at the time of its saving. States that involve &lt;color=#6bb6bb&gt;external objects&lt;/color&gt; will not be restored and will require repeated manual intervention. -->
+
+	<WVC_XaG_ArchiverGizmoTip>&lt;color=#8a8ae6&gt;Archiver&lt;/color&gt; allows a pawn to change itself completely under certain conditions determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#b0bf80&gt;version&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and each such &lt;color=#8a8ae6&gt;form&lt;/color&gt; can change genes, clothes, implants, etc. without fear of harming other &lt;color=#8a8ae6&gt;forms&lt;/color&gt;. However, if this gene is removed, all &lt;color=#8a8ae6&gt;forms&lt;/color&gt; will be destroyed.\n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, then a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; pawn is created, which inherits all genes, traits and backstory. Clothes and implants are not inherited in this way.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;.</WVC_XaG_ArchiverGizmoTip>
+
+	<WVC_XaG_GeneAbilityMorphLabel>Morph</WVC_XaG_GeneAbilityMorphLabel>
+	<WVC_XaG_GeneAbilityMorphDesc>Morphing to another form. The form can be selected either from the list of available ones or a new one can be created.</WVC_XaG_GeneAbilityMorphDesc>
+
+	<WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>Try to morph after undead resurrection. The new form is selected randomly.</WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>
+
+	<WVC_XaG_GeneAbilityMorphWarning>The &lt;color=#8a8ae6&gt;morph&lt;/color&gt; will lead to a complete replacement of the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. Also, the next &lt;color=#8a8ae6&gt;form&lt;/color&gt; will be limited in accordance with the new &lt;color=#8a8ae6&gt;gene trigger&lt;/color&gt;, keep in mind that the &lt;color=#8a8ae6&gt;trigger conditions&lt;/color&gt; may be different.\n\nThe pawn will &lt;color=#ff8585&gt;lose all&lt;/color&gt; connections created by the genes. Dryad queen will lose all dryads, and psychic bond its bond, etc.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning>
+	<WVC_XaG_GeneMorphAbilityDisabled>Morph is currently not possible.</WVC_XaG_GeneMorphAbilityDisabled>
+
+	<WVC_XaG_GeneAbilityMorphWarning_Archiver>&lt;color=#8a8ae6&gt;Morphing&lt;/color&gt; will completely &lt;color=#8a8ae6&gt;rewrite&lt;/color&gt; the pawn. Genes, traits, apparels, weapons, implants, thoughts, etc. almost everything will be unique to the new &lt;color=#8a8ae6&gt;form&lt;/color&gt;. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is another version of the current pawn, not just a &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; share only some needs and ideology.\n\nThe current &lt;color=#8a8ae6&gt;form&lt;/color&gt; (pawn) will be saved and can be returned to later.\n\nThe &lt;color=#8a8ae6&gt;morph&lt;/color&gt; conditions and xenotype may also differ from the current one.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning_Archiver>
+
+	<WVC_XaG_GeneAbilityMorphCreateNewForm>(Create new form)</WVC_XaG_GeneAbilityMorphCreateNewForm>
+	<WVC_XaG_GeneAbilityMorpherIsNullMessage>The morpher gene is not active.</WVC_XaG_GeneAbilityMorpherIsNullMessage>
+	<WVC_XaG_GeneMorpherOneTimeMorph>{PAWN_nameDef} has taken {PAWN_possessive} final form.</WVC_XaG_GeneMorpherOneTimeMorph>
+
+	<WVC_XaG_MorpherGizmoLimitTip> -  Morpher forms: {0}/{1}\n -  Morph only once: {2}\n -  Possible xenotypes: {3}</WVC_XaG_MorpherGizmoLimitTip>
+
+	<WVC_XaG_SelectedEndoGeneSetHolder>Endogenes</WVC_XaG_SelectedEndoGeneSetHolder>
+	<WVC_XaG_SelectedXenoGeneSetHolder>Xenogenes</WVC_XaG_SelectedXenoGeneSetHolder>
+
+	<WVC_XaG_ReqAnyGeneSetHolders>There are no saved forms.</WVC_XaG_ReqAnyGeneSetHolders>
+	<WVC_XaG_HasOneTimeMorpherGene>One time morphers cannot change the trigger gene.</WVC_XaG_HasOneTimeMorpherGene>
+	<WVC_XaG_GeneMorpherCannotMorphNow>Morph is not possible at the moment.</WVC_XaG_GeneMorpherCannotMorphNow>
+
+	<!-- Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
+
+	<!-- \n\nThe &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt; can also transfer some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; between &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, provided that the &lt;color=#8a8ae6&gt;form&lt;/color&gt; allows it. The limit of &lt;color=#6bb6bb&gt;genes&lt;/color&gt; for transfer can be increased using &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
 
 	<!-- ========== GENE_SPAWNER ========== -->
 
