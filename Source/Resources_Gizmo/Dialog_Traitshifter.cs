@@ -207,11 +207,13 @@ namespace WVC_XenotypesAndGenes
     public class Dialog_Traitshifter : Window
     {
 
-        public List<TraitDef> allTraits;
-        public List<TraitDef> pawnTraits;
+        public List<TraitDefHolder> allTraits;
+        public List<TraitDefHolder> pawnTraits;
+        //public List<TraitDefHolder> lockedDegreeTraits;
         public List<TraitDef> lockedTraits;
         public Pawn pawn;
         public Gene_Traitshifter gene;
+        public List<TraitDefHolder> conflictWithLockedTraits;
 
         public Dialog_Traitshifter(Gene_Traitshifter gene)
         {
@@ -226,24 +228,76 @@ namespace WVC_XenotypesAndGenes
 
         private void UpdTraits(Pawn pawn)
         {
-            this.allTraits = DefDatabase<TraitDef>.AllDefsListForReading.Where((def) => def.GetGenderSpecificCommonality(pawn.gender) > 0f).ToList();
-            this.pawnTraits = new();
+            this.allTraits = new();
             lockedTraits = new();
-            foreach (Trait item in pawn.story.traits.allTraits)
+            foreach (Trait trait in pawn.story.traits.allTraits)
             {
-                if (item.sourceGene != null || item.ScenForced)
+                if (trait.sourceGene != null || trait.ScenForced || trait.def.GetGenderSpecificCommonality(pawn.gender) <= 0f)
                 {
-                    lockedTraits.Add(item.def);
+                    lockedTraits.Add(trait.def);
                 }
-                pawnTraits.Add(item.def);
             }
-            selectedDegrees = new();
-            foreach (Trait item in pawn.story.traits.allTraits)
+            foreach (TraitDef traitDef in DefDatabase<TraitDef>.AllDefsListForReading.Where((def) => def.GetGenderSpecificCommonality(pawn.gender) > 0f).ToList())
             {
-                if (allTraits.Contains(item.def))
+                foreach (TraitDegreeData degreeData in traitDef.degreeDatas)
                 {
-                    selectedDegrees.Add(item.CurrentData);
+                    TraitDefHolder newHolder = new();
+                    newHolder.traitDef = traitDef;
+                    newHolder.traitDegreeData = degreeData;
+                    newHolder.targetPawn = pawn;
+                    newHolder.traitDegreeIndex = degreeData.degree;
+                    if (lockedTraits.Contains(traitDef))
+                    {
+                        newHolder.locked = true;
+                    }
+                    this.allTraits.Add(newHolder);
                 }
+            }
+            this.pawnTraits = new();
+            selectedTraitHolders = new();
+            foreach (TraitDefHolder holder in allTraits)
+            {
+                foreach (Trait trait in pawn.story.traits.allTraits)
+                {
+                    if (!holder.IsSame(trait))
+                    {
+                        continue;
+                    }
+                    pawnTraits.Add(holder);
+                    selectedTraitHolders.Add(holder);
+                }
+            }
+            conflictWithLockedTraits = new();
+            foreach (TraitDefHolder holder in allTraits)
+            {
+                foreach (TraitDef traitDef in lockedTraits)
+                {
+                    if (holder.IsSame(traitDef) || holder.ConflictsWith(traitDef))
+                    {
+                        conflictWithLockedTraits.Add(holder);
+                    }
+                }
+            }
+        }
+
+        private List<TraitDefHolder> cachedTraitsDegree;
+        public List<TraitDefHolder> TraitsInOrder
+        {
+            get
+            {
+                if (cachedTraitsDegree == null)
+                {
+                    cachedTraitsDegree = new();
+                    foreach (TraitDefHolder allDef in allTraits)
+                    {
+                        //if (lockedTraits.Contains(allDef.traitDef))
+                        //{
+                        //    allDef.locked = true;
+                        //}
+                        cachedTraitsDegree.Add(allDef);
+                    }
+                }
+                return cachedTraitsDegree;
             }
         }
 
@@ -269,16 +323,28 @@ namespace WVC_XenotypesAndGenes
 
         protected bool hoveredAnyTrait;
 
-        protected TraitDegreeData hoveredTraitDegree;
+        protected TraitDefHolder hoveredTraitDegree;
 
-        public List<TraitDegreeData> selectedDegrees = new();
+        public List<TraitDefHolder> selectedTraitHolders = new();
 
         public override Vector2 InitialSize => new(750, 800);
         //public List<GeneDefWithChance> SelectedGenes => selectedGenes;
         protected static readonly Vector2 ButSize = new(150f, 38f);
 
-        public int MaxTraits => 3;
-        public int CurrentTraits => selectedDegrees.Count;
+        public int MaxTraits => (int)WVC_Biotech.settings.traitshifter_MaxTraits;
+
+        private int? cachedCount;
+        public int CurrentTraits
+        {
+            get
+            {
+                if (!cachedCount.HasValue)
+                {
+                    cachedCount = selectedTraitHolders.Where((holder) => !holder.locked).ToList().Count;
+                }
+                return cachedCount.Value;
+            }
+        }
 
         public override void DoWindowContents(Rect rect)
         {
@@ -371,19 +437,42 @@ namespace WVC_XenotypesAndGenes
             try
             {
                 TraitSet traitSet = pawn.story.traits;
+                //foreach (TraitDegreeData trait in lockedDegreeTraits)
+                //{
+                //    if (selectedDegrees.Contains(trait))
+                //    {
+                //        selectedDegrees.Remove(trait);
+                //    }
+                //}
+                //foreach (Trait trait in traitSet.allTraits.ToList())
+                //{
+                //    if (trait.sourceGene == null && !selectedDegrees.Contains(trait.CurrentData) && allTraits.Contains(trait.def))
+                //    {
+                //        trait.suppressedByGene = null;
+                //        trait.suppressedByTrait = false;
+                //        traitSet.RemoveTrait(trait, true);
+                //    }
+                //}
+                //foreach (TraitDegreeData degree in selectedDegrees)
+                //{
+                //    Trait newTrait = new(allTraits.First((trait) => trait.degreeDatas.Contains(degree)), degree.degree);
+                //    traitSet.GainTrait(newTrait, true);
+                //}
                 foreach (Trait trait in traitSet.allTraits.ToList())
                 {
-                    if (trait.sourceGene == null && !selectedDegrees.Contains(trait.CurrentData) && allTraits.Contains(trait.def))
+                    if (!lockedTraits.Contains(trait.def))
                     {
                         trait.suppressedByGene = null;
                         trait.suppressedByTrait = false;
                         traitSet.RemoveTrait(trait, true);
                     }
                 }
-                foreach (TraitDegreeData degree in selectedDegrees)
+                foreach (TraitDefHolder holder in selectedTraitHolders)
                 {
-                    Trait newTrait = new(allTraits.First((trait) => trait.degreeDatas.Contains(degree)), degree.degree);
-                    traitSet.GainTrait(newTrait, true);
+                    if (!lockedTraits.Contains(holder.traitDef) && holder.CanAdd() && holder.traitDegreeIndex.HasValue)
+                    {
+                        traitSet.GainTrait(new (holder.traitDef, holder.traitDegreeIndex.Value), true);
+                    }
                 }
                 traitSet.RecalculateSuppression();
                 gene.DoEffects();
@@ -393,28 +482,6 @@ namespace WVC_XenotypesAndGenes
                 Log.Error("Failed update traits for: " + pawn.NameFullColored + ". Reason: " + arg);
             }
             Close();
-        }
-
-
-
-        private List<TraitDegreeData> cachedTraitsDegree;
-        public List<TraitDegreeData> TraitsInOrder
-        {
-            get
-            {
-                if (cachedTraitsDegree == null)
-                {
-                    cachedTraitsDegree = new();
-                    foreach (TraitDef allDef in allTraits)
-                    {
-                        foreach (TraitDegreeData degreeData in allDef.degreeDatas)
-                        {
-                            cachedTraitsDegree.Add(degreeData);
-                        }
-                    }
-                }
-                return cachedTraitsDegree;
-            }
         }
 
         public void DrawGenes(Rect rect)
@@ -431,7 +498,7 @@ namespace WVC_XenotypesAndGenes
             bool? collapsed = null;
             DrawSection(rect, TraitsInOrder, null, ref curY, ref unselectedHeight, ref collapsed, false);
             var rect3 = new Rect(0f, 0f, rect.width, selectedHeight);
-            DrawSection(rect3, selectedDegrees, "Traits".Translate(), ref curY, ref selectedHeight, ref selectedCollapsed, true);
+            DrawSection(rect3, selectedTraitHolders, "Traits".Translate(), ref curY, ref selectedHeight, ref selectedCollapsed, true);
             if (Event.current.type == EventType.Layout)
             {
                 scrollHeight = curY - num2;
@@ -444,7 +511,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private void DrawSection(Rect rect, List<TraitDegreeData> traitDegrees, string label, ref float curY, ref float sectionHeight, ref bool? collapsed, bool adding)
+        private void DrawSection(Rect rect, List<TraitDefHolder> traitDegrees, string label, ref float curY, ref float sectionHeight, ref bool? collapsed, bool adding)
         {
             float curX = 4f;
             if (!label.NullOrEmpty())
@@ -497,35 +564,10 @@ namespace WVC_XenotypesAndGenes
             }
             else
             {
-                //float currentY3 = rect.y;
-                //Widgets.Label(new Rect(rect.x, currentY3, 200f, 30f), "Traits".Translate().AsTipTitle());
-                //currentY3 += 24f;
-                //GenUI.DrawElementStack(new Rect(rect.x, currentY3, rect.width - 5f, rect.height), 22f, traitDegrees, delegate (Rect r, TraitDegreeData trait)
-                //{
-                //    Color color3 = GUI.color;
-                //    GUI.color = new Color(1f, 1f, 1f, 0.1f);
-                //    GUI.DrawTexture(r, BaseContent.WhiteTex);
-                //    GUI.color = color3;
-                //    if (Mouse.IsOver(r))
-                //    {
-                //        Widgets.DrawHighlight(r);
-                //    }
-                //    if (conflictingTraits.Contains(trait))
-                //    {
-                //        GUI.color = ColoredText.SubtleGrayColor;
-                //    }
-                //    Widgets.Label(new Rect(r.x + 5f, r.y, r.width - 10f, r.height), trait.GetLabelFor(pawn).CapitalizeFirst());
-                //    GUI.color = Color.white;
-                //    if (Mouse.IsOver(r))
-                //    {
-                //        TraitDegreeData trLocal = trait;
-                //        TooltipHandler.TipRegion(tip: new TipSignal(() => trLocal.description.Formatted(pawn.Named("PAWN")).AdjustedFor(pawn).Resolve().ToString(), (int)currentY3 * 37), rect: r);
-                //    }
-                //}, (TraitDegreeData trait) => Text.CalcSize(trait.LabelCap).x + 10f, 4f, 5f, allowOrderOptimization: false);
                 for (int i = 0; i < traitDegrees.Count; i++)
                 {
-                    TraitDegreeData traitDegree = traitDegrees[i];
-                    string labelCap = traitDegree.GetLabelFor(pawn).CapitalizeFirst();
+                    TraitDefHolder traitDegree = traitDegrees[i];
+                    string labelCap = traitDegree.LabelCap;
                     float num2 = 12f + Text.CalcSize(labelCap).x;
                     //float num2 = 32f;
                     float num3 = rect.width - 16f;
@@ -539,15 +581,22 @@ namespace WVC_XenotypesAndGenes
                     curX = Mathf.Max(curX, 4);
                     if (DrawTraitDegree(labelCap, traitDegree, ref curX, curY, num2))
                     {
-                        if (selectedDegrees.Contains(traitDegree))
+                        if (!lockedTraits.Contains(traitDegree.traitDef))
                         {
-                            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-                            selectedDegrees.Remove(traitDegree);
+                            if (selectedTraitHolders.Contains(traitDegree))
+                            {
+                                SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                                selectedTraitHolders.Remove(traitDegree);
+                            }
+                            else
+                            {
+                                SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                                selectedTraitHolders.Add(traitDegree);
+                            }
                         }
                         else
                         {
-                            SoundDefOf.Tick_High.PlayOneShotOnCamera();
-                            selectedDegrees.Add(traitDegree);
+                            SoundDefOf.ClickReject.PlayOneShotOnCamera();
                         }
                         OnTraitsChanged();
                         break;
@@ -562,17 +611,17 @@ namespace WVC_XenotypesAndGenes
         }
 
 
-        private bool DrawTraitDegree(string labelCap, TraitDegreeData degreeData, ref float curX, float curY, float packWidth)
+        private bool DrawTraitDegree(string labelCap, TraitDefHolder holder, ref float curX, float curY, float packWidth)
         {
             bool result = false;
             Rect rect = new(curX, curY, packWidth, 22);
-            bool selected = selectedDegrees.Contains(degreeData);
+            bool selected = selectedTraitHolders.Contains(holder);
             //Widgets.DrawOptionBackground(rect, selected);
             Color color3 = GUI.color;
             if (selected)
             {
                 GUI.color = ColorLibrary.DarkOrange;
-                Widgets.DrawBox(rect.ExpandedBy(3f), 1);
+                Widgets.DrawBox(rect.ExpandedBy(1f), 1);
             }
             GUI.color = new Color(1f, 1f, 1f, 0.1f);
             GUI.DrawTexture(rect, BaseContent.WhiteTex);
@@ -583,11 +632,20 @@ namespace WVC_XenotypesAndGenes
             }
             curX += 5f;
             //Rect xenoRect = new(curX, curY + 4f, Text.CalcSize(labelCap).x + 8f, 32);
-            DrawLabel(labelCap, rect, conflictingTraits.Contains(degreeData));
+            bool locked = holder.locked;
+            bool overridden = !locked && (conflictingTraits.Contains(holder) || conflictWithLockedTraits.Contains(holder) || (!selected && conflictingWithSelectedTrait.Contains(holder)));
+            DrawLabel(labelCap, rect, overridden, locked);
             if (Mouse.IsOver(rect))
             {
-                string text = labelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + degreeData.description.Formatted(pawn.Named("PAWN")).AdjustedFor(pawn).Resolve().ToString();
-                text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
+                string text = holder.Description;
+                if (locked)
+                {
+                    text += "\n\n" + "WVC_XaG_Traitshifter_LockedTrait".Translate().Colorize(ColoredText.SubtleGrayColor);
+                }
+                else
+                {
+                    text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
+                }
                 TooltipHandler.TipRegion(rect, text);
             }
             curX += Text.CalcSize(labelCap).x;
@@ -599,7 +657,7 @@ namespace WVC_XenotypesAndGenes
             return result;
         }
 
-        public static void DrawLabel(string labelCap, Rect traitRect, bool overridden)
+        public void DrawLabel(string labelCap, Rect traitRect, bool overridden, bool locked)
         {
             GUI.BeginGroup(traitRect);
             Text.Anchor = TextAnchor.MiddleCenter;
@@ -611,6 +669,10 @@ namespace WVC_XenotypesAndGenes
             if (overridden)
             {
                 GUI.color = Color.grey;
+            }
+            else if (locked)
+            {
+                GUI.color = ColoredText.GeneColor;
             }
             Widgets.Label(new Rect(rect3.x + 5f, rect3.y, rect3.width - 10f, rect3.height), labelCap);
             //Widgets.Label(rect3, labelCap);
@@ -682,57 +744,90 @@ namespace WVC_XenotypesAndGenes
         //    return (selectedDegrees.Contains(trait) ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
         //}
 
-        public List<TraitDegreeData> conflictingTraits = new();
+        public List<TraitDefHolder> conflictingTraits = new();
+        public List<TraitDefHolder> conflictingWithSelectedTrait = new();
 
         public void OnTraitsChanged()
         {
+            cachedCount = null;
             conflictingTraits = new();
-            List<TraitDef> traitDefs = new();
-            foreach (TraitDegreeData degreeData in selectedDegrees)
+            conflictingWithSelectedTrait = new();
+            //List<TraitDef> traitDefs = new();
+            //foreach (TraitDegreeData degreeData in selectedDegrees)
+            //{
+            //    traitDefs.Add(allTraits.First((trait) => trait.degreeDatas.Contains(degreeData)));
+            //}
+            //foreach (TraitDef traitDef in traitDefs)
+            //{
+            //    if (traitDefs.FindAll((def) => def == traitDef).Count > 1)
+            //    {
+            //        foreach (TraitDegreeData selectedData in traitDef.degreeDatas)
+            //        {
+            //            conflictingTraits.Add(selectedData);
+            //        }
+            //    }
+            //    foreach (TraitDef traitDef2 in traitDefs)
+            //    {
+            //        if (traitDef == traitDef2)
+            //        {
+            //            continue;
+            //        }
+            //        if (traitDef.ConflictsWith(traitDef2))
+            //        {
+            //            foreach (TraitDegreeData selectedData in traitDef.degreeDatas)
+            //            {
+            //                conflictingTraits.Add(selectedData);
+            //            }
+            //        }
+            //    }
+            //    foreach (TraitDef lockedTrait in lockedTraits)
+            //    {
+            //        if (lockedTrait.ConflictsWith(traitDef))
+            //        {
+            //            foreach (TraitDegreeData selectedData in traitDef.degreeDatas)
+            //            {
+            //                conflictingTraits.Add(selectedData);
+            //            }
+            //        }
+            //    }
+            //}
+            //foreach (TraitDegreeData lockedTrait in lockedDegreeTraits)
+            //{
+            //    if (selectedDegrees.Contains(lockedTrait))
+            //    {
+            //        conflictingTraits.Add(lockedTrait);
+            //    }
+            //}
+            foreach (TraitDefHolder holder in selectedTraitHolders)
             {
-                traitDefs.Add(allTraits.First((trait) => trait.degreeDatas.Contains(degreeData)));
-            }
-            foreach (TraitDef traitDef in traitDefs)
-            {
-                if (traitDefs.FindAll((def) => def == traitDef).Count > 1)
+                if (selectedTraitHolders.FindAll((def) => def.traitDef == holder.traitDef).Count > 1)
                 {
-                    foreach (TraitDegreeData selectedData in traitDef.degreeDatas)
+                    conflictingTraits.Add(holder);
+                }
+                foreach (TraitDefHolder holder2 in selectedTraitHolders)
+                {
+                    if (!holder.IsSame(holder2) && holder.ConflictsWith(holder2))
                     {
-                        conflictingTraits.Add(selectedData);
+                        conflictingTraits.Add(holder);
+                        conflictingTraits.Add(holder2);
                     }
                 }
-                foreach (TraitDef traitDef2 in traitDefs)
+                foreach (TraitDefHolder holder2 in pawnTraits)
                 {
-                    if (traitDef == traitDef2)
+                    if (!holder.IsSame(holder2) && holder.ConflictsWith(holder2))
                     {
-                        continue;
-                    }
-                    if (traitDef.ConflictsWith(traitDef2))
-                    {
-                        foreach (TraitDegreeData selectedData in traitDef.degreeDatas)
-                        {
-                            conflictingTraits.Add(selectedData);
-                        }
+                        conflictingTraits.Add(holder);
+                        conflictingTraits.Add(holder2);
                     }
                 }
-                //foreach (TraitDegreeData degreeData in traitDef.degreeDatas)
-                //{
-                //    foreach (TraitDegreeData selectedData in selectedDegrees)
-                //    {
-                //        if (selectedData == degreeData)
-                //        {
-                //            conflictingTraits.Add(selectedData);
-                //        }
-                //    }
-                //}
             }
-            foreach (TraitDef lockedTrait in lockedTraits)
+            foreach (TraitDefHolder holder in allTraits)
             {
-                foreach (TraitDegreeData selectedData in lockedTrait.degreeDatas)
+                foreach (TraitDefHolder holder2 in selectedTraitHolders)
                 {
-                    if (selectedDegrees.Contains(selectedData))
+                    if (holder.ConflictsWith(holder2))
                     {
-                        conflictingTraits.Add(selectedData);
+                        conflictingWithSelectedTrait.Add(holder);
                     }
                 }
             }

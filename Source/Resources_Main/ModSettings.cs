@@ -83,11 +83,12 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
-		// Shapeshifter Morpher Archiver
+		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
+		public float traitshifter_MaxTraits = 3f;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraStartingGenes = 5f;
@@ -224,6 +225,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
 			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
+			Scribe_Values.Look(ref traitshifter_MaxTraits, "traitshifter_MaxTraits", defaultValue: 3f);
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
 			//Scribe_Values.Look(ref chimeraMinGeneCopyChance, "chimeraMinGeneCopyChance", defaultValue: 0.35f);
@@ -888,6 +890,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferWornApparel".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferWornApparel, "WVC_ToolTip_archiver_transferWornApparel".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferEquipedWeapon".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferEquipedWeapon, "WVC_ToolTip_archiver_transferEquipedWeapon".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_traitshifter_MaxTraits".Translate((settings.traitshifter_MaxTraits).ToString()), ref settings.traitshifter_MaxTraits, 1f, 50f, round: 0, tooltip: "WVC_ToolTip_traitshifter_MaxTraits".Translate());
 			}
 			listingStandard.GapLine();
             // =
@@ -1091,6 +1094,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.archiver_transferEquipedWeapon = settingsDef.archiver_transferEquipedWeapon;
 			WVC_Biotech.settings.archiver_transferWornApparel = settingsDef.archiver_transferWornApparel;
+			// =
+			WVC_Biotech.settings.traitshifter_MaxTraits = settingsDef.traitshifter_MaxTraits;
 			// =
 			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = settingsDef.enable_dryadQueenMechanicGenerator;
 			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = settingsDef.gestatedDryads_FilthRateFactor;

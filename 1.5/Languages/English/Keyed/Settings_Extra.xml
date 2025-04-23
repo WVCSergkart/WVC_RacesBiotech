@@ -282,4 +282,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_archiver_transferEquipedWeapon>Archiver: Transfer equipment and equiped weapon</WVC_Label_archiver_transferEquipedWeapon>
 	<WVC_ToolTip_archiver_transferEquipedWeapon>If enabled, the archiver transfers equipment between forms.\n\nThis is disabled by default, for better compatibility with mods. If you use any mods that change inventory or change/add weapon equip mechanics, do not enable this option.\n\nBoth options are required to transfer inventory.</WVC_ToolTip_archiver_transferEquipedWeapon>
 
+	<!-- ================================== -->
+
+	<WVC_Label_traitshifter_MaxTraits>Traitshifter traits limit: {0}</WVC_Label_traitshifter_MaxTraits>
+	<WVC_ToolTip_traitshifter_MaxTraits>Responsible for the maximum number of traits that traitshifter can add. The gene ignores script, gene, and non-generated traits.</WVC_ToolTip_traitshifter_MaxTraits>
+
 </LanguageData>

@@ -117,6 +117,7 @@
     <Compile Include="Resources_Holders\PawnGeneSetHolder.cs" />
     <Compile Include="Resources_Holders\SaveableXenotypeHolder.cs" />
     <Compile Include="Resources_Holders\ThrallHolder.cs" />
+    <Compile Include="Resources_Holders\TraitDefHolder.cs" />
     <Compile Include="Resources_Holders\XenotypeHolder.cs" />
     <Compile Include="Resources_NewDefs\XenotypesAndGenesListDef.cs" />
     <Compile Include="Resources_NewDefs\SettingsDef.cs" />
