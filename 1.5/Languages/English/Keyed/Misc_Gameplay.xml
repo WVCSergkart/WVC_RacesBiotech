@@ -822,7 +822,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Traitshifter_MaxTraitsDesc>The maximum number of traits a pawn can have.</WVC_XaG_Traitshifter_MaxTraitsDesc>
 	<WVC_XaG_Traitshifter_SelectedTraits>Selected traits</WVC_XaG_Traitshifter_SelectedTraits>
 	<WVC_XaG_Traitshifter_SelectedTraitsDesc>Number of traits currently selected. Excluding gene traits, forced and unobtainable.</WVC_XaG_Traitshifter_SelectedTraitsDesc>
-	<WVC_XaG_Traitshifter_LockedTrait>This trait cannot be obtained for the selected pawn.</WVC_XaG_Traitshifter_LockedTrait>
+	<WVC_XaG_Traitshifter_LockedTrait>This trait is either a gene or quest trait and cannot be removed or added.</WVC_XaG_Traitshifter_LockedTrait>
+	<WVC_XaG_Traitshifter_CannotSave>Unable to apply. Reason: {0}</WVC_XaG_Traitshifter_CannotSave>
 
 	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
 	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->

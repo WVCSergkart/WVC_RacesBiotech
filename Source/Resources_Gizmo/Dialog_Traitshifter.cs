@@ -245,7 +245,7 @@ namespace WVC_XenotypesAndGenes
                     newHolder.traitDef = traitDef;
                     newHolder.traitDegreeData = degreeData;
                     newHolder.targetPawn = pawn;
-                    newHolder.traitDegreeIndex = degreeData.degree;
+                    newHolder.traitDegree = degreeData.degree;
                     if (lockedTraits.Contains(traitDef))
                     {
                         newHolder.locked = true;
@@ -369,8 +369,8 @@ namespace WVC_XenotypesAndGenes
 
         private static float cachedWidth;
 
-        public static readonly CachedTexture ReqTex = new("WVC/UI/XaG_General/GenMatTex_Req");
-        public static readonly CachedTexture HasTex = new("WVC/UI/XaG_General/GenMatTex_Has");
+        public static readonly CachedTexture ReqTex = new("WVC/UI/XaG_General/TraitsTex_Req");
+        public static readonly CachedTexture HasTex = new("WVC/UI/XaG_General/TraitsTex_Has");
 
         private readonly Dialog_EditShiftGenes.GeneMatStatData[] NewStats = new Dialog_EditShiftGenes.GeneMatStatData[2]
         {
@@ -469,9 +469,9 @@ namespace WVC_XenotypesAndGenes
                 }
                 foreach (TraitDefHolder holder in selectedTraitHolders)
                 {
-                    if (!lockedTraits.Contains(holder.traitDef) && holder.CanAdd() && holder.traitDegreeIndex.HasValue)
+                    if (!lockedTraits.Contains(holder.traitDef) && holder.CanAdd() && holder.traitDegree.HasValue)
                     {
-                        traitSet.GainTrait(new (holder.traitDef, holder.traitDegreeIndex.Value), true);
+                        traitSet.GainTrait(new (holder.traitDef, holder.traitDegree.Value), true);
                     }
                 }
                 traitSet.RecalculateSuppression();
@@ -579,7 +579,7 @@ namespace WVC_XenotypesAndGenes
                         curY += 26;
                     }
                     curX = Mathf.Max(curX, 4);
-                    if (DrawTraitDegree(labelCap, traitDegree, ref curX, curY, num2))
+                    if (DrawTraitDegree(labelCap, traitDegree, ref curX, curY, num2, adding))
                     {
                         if (!lockedTraits.Contains(traitDegree.traitDef))
                         {
@@ -611,7 +611,7 @@ namespace WVC_XenotypesAndGenes
         }
 
 
-        private bool DrawTraitDegree(string labelCap, TraitDefHolder holder, ref float curX, float curY, float packWidth)
+        private bool DrawTraitDegree(string labelCap, TraitDefHolder holder, ref float curX, float curY, float packWidth, bool adding)
         {
             bool result = false;
             Rect rect = new(curX, curY, packWidth, 22);
@@ -633,7 +633,7 @@ namespace WVC_XenotypesAndGenes
             curX += 5f;
             //Rect xenoRect = new(curX, curY + 4f, Text.CalcSize(labelCap).x + 8f, 32);
             bool locked = holder.locked;
-            bool overridden = !locked && (conflictingTraits.Contains(holder) || conflictWithLockedTraits.Contains(holder) || (!selected && conflictingWithSelectedTrait.Contains(holder)));
+            bool overridden = conflictingTraits.Contains(holder) || conflictWithLockedTraits.Contains(holder) || (!adding && conflictingWithSelectedTrait.Contains(holder));
             DrawLabel(labelCap, rect, overridden, locked);
             if (Mouse.IsOver(rect))
             {
@@ -666,13 +666,13 @@ namespace WVC_XenotypesAndGenes
             float num2 = Text.CalcHeight(labelCap, rect.width);
             Rect rect3 = new(0f, rect.y, rect.width, num2);
             //GUI.DrawTexture(new(rect3.x, rect3.y, Text.CalcSize(labelCap).x + 4f, num2), TexUI.GrayTextBG);
-            if (overridden)
-            {
-                GUI.color = Color.grey;
-            }
-            else if (locked)
+            if (locked)
             {
                 GUI.color = ColoredText.GeneColor;
+            }
+            else if (overridden)
+            {
+                GUI.color = Color.grey;
             }
             Widgets.Label(new Rect(rect3.x + 5f, rect3.y, rect3.width - 10f, rect3.height), labelCap);
             //Widgets.Label(rect3, labelCap);
@@ -802,34 +802,64 @@ namespace WVC_XenotypesAndGenes
             {
                 if (selectedTraitHolders.FindAll((def) => def.traitDef == holder.traitDef).Count > 1)
                 {
-                    conflictingTraits.Add(holder);
+                    AddToList(holder);
                 }
                 foreach (TraitDefHolder holder2 in selectedTraitHolders)
                 {
-                    if (!holder.IsSame(holder2) && holder.ConflictsWith(holder2))
+                    if (!holder.IsSame(holder2, false) && holder.ConflictsWith(holder2))
                     {
-                        conflictingTraits.Add(holder);
-                        conflictingTraits.Add(holder2);
+                        AddToList(holder);
+                        AddToList(holder2);
                     }
                 }
                 foreach (TraitDefHolder holder2 in pawnTraits)
                 {
-                    if (!holder.IsSame(holder2) && holder.ConflictsWith(holder2))
+                    if (!holder.IsSame(holder2, false) && holder.ConflictsWith(holder2))
                     {
-                        conflictingTraits.Add(holder);
-                        conflictingTraits.Add(holder2);
+                        AddToList(holder);
+                        AddToList(holder2);
+                    }
+                }
+                foreach (TraitDefHolder holder2 in allTraits)
+                {
+                    if (holder.IsSame(holder2, false) || holder.ConflictsWith(holder2))
+                    {
+                        AddToList_Visual(holder);
+                        AddToList_Visual(holder2);
                     }
                 }
             }
-            foreach (TraitDefHolder holder in allTraits)
+            if (DebugSettings.ShowDevGizmos)
             {
-                foreach (TraitDefHolder holder2 in selectedTraitHolders)
+                DevGetErrorList("conflictingWithSelectedTrait", conflictingWithSelectedTrait);
+                DevGetErrorList("conflictingTraits", conflictingTraits);
+            }
+            void AddToList(TraitDefHolder holder)
+            {
+                if (!conflictingTraits.Contains(holder))
                 {
-                    if (holder.ConflictsWith(holder2))
-                    {
-                        conflictingWithSelectedTrait.Add(holder);
-                    }
+                    conflictingTraits.Add(holder);
                 }
+                AddToList_Visual(holder);
+            }
+            void AddToList_Visual(TraitDefHolder holder)
+            {
+                if (!conflictingWithSelectedTrait.Contains(holder))
+                {
+                    conflictingWithSelectedTrait.Add(holder);
+                }
+            }
+        }
+
+        private void DevGetErrorList(string text, List<TraitDefHolder> list)
+        {
+            if (!list.NullOrEmpty())
+            {
+                Log.Warning(text + ":\n" + list.Select((TraitDefHolder x) => x.traitDef.defName).ToLineList(" - "));
+            }
+            else
+            {
+                Log.Warning(text + " is null");
             }
         }
 
@@ -844,6 +874,14 @@ namespace WVC_XenotypesAndGenes
                 Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_Traitshifter_Warning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), Accept));
                 return;
             }
+            if (!conflictingTraits.Empty())
+            {
+                DrawCannotReason(cannotReasonRect, "WVC_XaG_Traitshifter_ConflictingTraits".Translate());
+            }
+            else if (CurrentTraits > MaxTraits)
+            {
+                DrawCannotReason(cannotReasonRect, "WVC_XaG_Traitshifter_ToManyTraits".Translate());
+            }
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Tiny;
             var explanationRect = new Rect(rect.x, saveGenelineRect.yMax + 15, rect.width, 50);
@@ -853,14 +891,14 @@ namespace WVC_XenotypesAndGenes
             Text.Font = GameFont.Small;
         }
 
-        //private static void DrawCannotReason(Rect rect, string text)
-        //{
-        //    text = "WVC_XaG_DialogEditShiftGenes_CannotSave".Translate(text);
-        //    GUI.color = ColorLibrary.RedReadable;
-        //    var labelRect = new Rect(rect.x, rect.y, rect.width, rect.height);
-        //    Widgets.Label(labelRect, text);
-        //    GUI.color = Color.white;
-        //}
+        private static void DrawCannotReason(Rect rect, string text)
+        {
+            text = "WVC_XaG_Traitshifter_CannotSave".Translate(text);
+            GUI.color = ColorLibrary.RedReadable;
+            var labelRect = new Rect(rect.x, rect.y, rect.width, rect.height);
+            Widgets.Label(labelRect, text);
+            GUI.color = Color.white;
+        }
 
         public bool CanAccept(bool throwMessage = false)
         {
