@@ -40,6 +40,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneOverOverridable
+	{
+
+		void Notify_OverriddenBy(Gene overriddenBy);
+
+	}
+
 	public interface IGeneDryadQueen
 	{
 

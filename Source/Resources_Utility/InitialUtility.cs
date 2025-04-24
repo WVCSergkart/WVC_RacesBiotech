@@ -201,7 +201,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!geneDef.IsGeneDefOfType<Gene_OverOverridable>())
+			if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
 			{
 				return;
 			}

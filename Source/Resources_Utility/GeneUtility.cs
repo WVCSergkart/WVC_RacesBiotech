@@ -199,6 +199,25 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public static void Notify_GenesConflicts(Pawn pawn, GeneDef geneDef, Gene thisGene = null)
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene.def == geneDef)
+                {
+					continue;
+                }
+				if (thisGene != null && gene.overriddenByGene != thisGene)
+                {
+					continue;
+                }
+				if (geneDef.ConflictsWith(gene.def))
+				{
+					gene.OverrideBy(thisGene);
+				}
+			}
+		}
+
 		public static bool TryAddOrRemoveGene(this Pawn pawn, Gene ignoredGene = null, Gene removeGene = null, GeneDef geneDefToAdd = null, bool inheritable = true)
 		{
 			if (geneDefToAdd != null && (ignoredGene == null || !geneDefToAdd.ConflictsWith(ignoredGene.def)) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDefToAdd, pawn) || !XaG_GeneUtility.HasXenogene(geneDefToAdd, pawn)))

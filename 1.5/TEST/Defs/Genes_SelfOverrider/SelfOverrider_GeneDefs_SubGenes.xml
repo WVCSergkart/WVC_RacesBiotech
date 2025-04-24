@@ -3,10 +3,11 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
 	<displayOrderInCategory>500</displayOrderInCategory>
-	<selectionWeight>0.001</selectionWeight>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<biostatArc>3</biostatArc>
+	<biostatArc>1</biostatArc>
   </GeneDef>
 
   <!-- ============================= -->
@@ -20,7 +21,10 @@
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath>
 	<displayOrderInCategory>505</displayOrderInCategory>
 	<painFactor>0.0</painFactor>
-	<biostatArc>1</biostatArc>
+	<biostatMet>-6</biostatMet>
+	<statOffsets>
+	  <PainShockThreshold>1.0</PainShockThreshold>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>dull</symbol></li>
@@ -31,26 +35,83 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider"> -->
+	<!-- <defName>WVC_Deathrest_Overrider</defName> -->
+	<!-- <label>overrided deathrest</label> -->
+	<!-- <description>Carriers of this gene must periodically regenerate themselves in a special coma called deathrest. Deathrest takes days, but can confer substantial bonuses. Deathrest can be accelerated and its effects enhanced by the use of a variety of special buildings and technologies.\n\nThose who put off deathresting will suffer from deathrest exhaustion.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_SelfOverrider</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath> -->
+	<!-- <displayOrderInCategory>510</displayOrderInCategory> -->
+	<!-- <biostatArc>2</biostatArc> -->
+	<!-- <causesNeed>Deathrest</causesNeed> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <disablesNeeds> -->
+	  <!-- <li>Rest</li> -->
+	<!-- </disablesNeeds> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefs> -->
+			  <!-- <li>Deathrest</li> -->
+			  <!-- <li>DeathrestExhaustion</li> -->
+			  <!-- <li>InterruptedDeathrest</li> -->
+			<!-- </hediffDefs> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <inheritableGeneDefs> -->
+			  <!-- <li>Deathrest</li> -->
+			<!-- </inheritableGeneDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
-	<defName>WVC_Deathrest_Overrider</defName>
-	<label>overrided deathrest</label>
-	<description>Carriers of this gene must periodically regenerate themselves in a special coma called deathrest. Deathrest takes days, but can confer substantial bonuses. Deathrest can be accelerated and its effects enhanced by the use of a variety of special buildings and technologies.\n\nThose who put off deathresting will suffer from deathrest exhaustion.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_SelfOverrider</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath>
-	<displayOrderInCategory>510</displayOrderInCategory>
-	<biostatArc>2</biostatArc>
-	<causesNeed>Deathrest</causesNeed>
-	<minAgeActive>3</minAgeActive>
-	<disablesNeeds>
-	  <li>Rest</li>
-	</disablesNeeds>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<inheritableGeneDefs>
-			  <li>Deathrest</li>
-			</inheritableGeneDefs>
-		</li>
-	</modExtensions>
+	<defName>WVC_WoundHealing_Overrider</defName>
+	<label>overrided healing</label>
+	<labelShortAdj>over-heal</labelShortAdj>
+	<description>Carriers of this gene have archites that significantly increase natural wound healing and regrow lost organs and limbs, but impair metabolism.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Healing</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath>
+	<displayOrderInCategory>515</displayOrderInCategory>
+	<biostatMet>-12</biostatMet>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Healing: 100 hp/day</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>regen</symbol></li>
+		<li><symbol>heal</symbol></li>
+		<li><symbol>heale</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Stomach_Overrider</defName>
+	<label>overrided stomach</label>
+	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Stomach</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath>
+	<displayOrderInCategory>520</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<customEffectDescriptions>
+	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
+	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Any ingestibles cause food poisoning.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hunger</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
   </GeneDef>
 
 </Defs>

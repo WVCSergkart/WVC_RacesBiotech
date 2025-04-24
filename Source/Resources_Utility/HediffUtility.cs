@@ -10,6 +10,16 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static List<HediffDef> ConvertToDef(this List<Hediff> list)
+		{
+			List<HediffDef> newList = new();
+			foreach (Hediff item in list)
+			{
+				newList.Add(item.def);
+			}
+			return newList;
+		}
+
 		public static void AddParentGenes(Pawn parent, GeneSet geneSet)
 		{
 			if (parent?.genes == null)
