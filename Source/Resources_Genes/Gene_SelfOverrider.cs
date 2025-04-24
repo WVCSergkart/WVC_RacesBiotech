@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverridden, IGeneMetabolism
 	{
 
+		private int lastTick = -1;
+
 		private bool? metHediifDisabled;
 		private HediffDef metHediffDef;
         public HediffDef MetHediffDef
@@ -30,18 +32,30 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public virtual string RemoteActionName => XaG_UiUtility.OnOrOff(!Overridden);
+        public virtual string RemoteActionName
+        {
+            get
+			{
+                int tick = lastTick - Find.TickManager.TicksGame;
+                if (tick > 0)
+				{
+					return tick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				}
+				return XaG_UiUtility.OnOrOff(!Overridden);
+            }
+        }
 
-		public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
+        public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
 
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			if (base.overriddenByGene != null && base.overriddenByGene != this)
+			if (base.overriddenByGene != null && base.overriddenByGene != this || lastTick > Find.TickManager.TicksGame)
 			{
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
 			}
 			cycleTry = 0;
+			lastTick = Find.TickManager.TicksGame + 120;
 			if (Overridden)
 			{
 				overrided = false;
@@ -59,6 +73,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual bool RemoteControl_Hide => false;
 
 		private bool overrided = false;
+		public bool OverridedBeforeSave => overrided;
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
@@ -157,81 +172,114 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    //public class Gene_Deathrest_SelfOverrider : Gene_Deathrest, IGeneRemoteControl
-    //{
+    public class Gene_SelfOverrider_Deathrest : Gene_SelfOverrider
+	{
 
-    //	public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		private int deathrestCapacity = 0;
+		private bool deathrestAdded = false;
 
-    //	public virtual string RemoteActionName => XaG_UiUtility.OnOrOff(!Overridden);
+		public void Notify_GeneDeathrest()
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+				if (gene is Gene_Deathrest deathrest)
+				{
+					//Log.Error("Saved capacity: " + deathrestCapacity);
+					//Log.Error("Target capacity: " + (deathrestCapacity - deathrest.CurrentCapacity));
+					deathrest.OffsetCapacity(Mathf.Clamp(deathrestCapacity - deathrest.DeathrestCapacity, 0, 999), false);
+                }
+            }
+		}
 
-    //	public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
+		private bool? cachedIsXenogene;
+        public bool IsXenogene
+        {
+            get
+            {
+				if (!cachedIsXenogene.HasValue)
+                {
+					cachedIsXenogene = pawn.genes.IsXenogene(this);
+				}
+                return cachedIsXenogene.Value;
+            }
+        }
 
-    //	public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-    //	{
-    //		if (Overridden)
-    //		{
-    //			OverrideBy(null);
-    //			base.PostAdd();
-    //		}
-    //		else
-    //		{
-    //			OverrideBy(this);
-    //			SelfOverrideReset();
-    //		}
-    //		MiscUtility.Notify_DebugPawn(pawn);
-    //	}
+		//private Gene_Deathrest gene_Deathrest;
 
-    //	public void SelfOverrideReset()
-    //	{
-    //		List<HediffDef> removeList = new();
-    //		removeList.AddRange(pawn.health.hediffSet.hediffs.Where((hediff) => hediff.def.removeOnDeathrestStart).ToList().ConvertToDef());
-    //		if (Giver?.hediffDefs != null)
-    //		{
-    //			removeList.AddRange(Giver.hediffDefs);
-    //		}
-    //		HediffUtility.RemoveHediffsFromList(pawn, removeList);
-    //		RemoveOldDeathrestBonuses();
-    //	}
+		public void UpdGeneDeathrest()
+		{
+			Gene_Deathrest gene_Deathrest = pawn.genes.GetFirstGeneOfType<Gene_Deathrest>();
+			if (Overridden)
+			{
+				if (gene_Deathrest != null)
+				{
+					//Log.Error("Capacity: " + gene_Deathrest.DeathrestCapacity);
+					deathrestCapacity = gene_Deathrest.DeathrestCapacity;
+					//Log.Error("Saved capacity: " + deathrestCapacity);
+				}
+				RemoveDeathrestGene();
+			}
+            else
+			{
+				if (gene_Deathrest == null)
+				{
+					pawn.genes.AddGene(WVC_GenesDefOf.Deathrest, IsXenogene);
+					deathrestAdded = true;
+				}
+				Notify_GeneDeathrest();
+			}
+        }
 
-    //	public virtual bool RemoteControl_Hide => false;
+        public override void PostAdd()
+		{
+			base.PostAdd();
+			UpdGeneDeathrest();
+		}
 
-    //	public virtual bool RemoteControl_Enabled
-    //	{
-    //		get
-    //		{
-    //			return enabled;
-    //		}
-    //		set
-    //		{
-    //			enabled = value;
-    //			remoteControllerCached = false;
-    //		}
-    //	}
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
+			UpdGeneDeathrest();
+		}
 
-    //	public override void PostRemove()
-    //	{
-    //		base.PostRemove();
-    //		XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-    //	}
+		public override void Notify_Override()
+		{
+			base.Notify_Override();
+			if (!OverridedBeforeSave)
+			{
+				UpdGeneDeathrest();
+			}
+		}
 
-    //	public bool enabled = true;
-    //	public bool remoteControllerCached = false;
+		public override void PostRemove()
+        {
+            base.PostRemove();
+            RemoveDeathrestGene();
+        }
 
-    //	public virtual void RemoteControl_Recache()
-    //	{
-    //		XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
-    //	}
+        private void RemoveDeathrestGene()
+        {
+			if (!deathrestAdded)
+            {
+				return;
+            }
+            foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
+            {
+                if (gene is Gene_Deathrest deathrest)
+                {
+                    pawn.genes.RemoveGene(deathrest);
+                }
+            }
+        }
 
-    //	public override IEnumerable<Gizmo> GetGizmos()
-    //	{
-    //		if (enabled)
-    //		{
-    //			return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-    //		}
-    //		return null;
-    //	}
+        public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref deathrestCapacity, "deathrestCapacity", defaultValue: 0);
+			Scribe_Values.Look(ref deathrestAdded, "deathrestAdded", defaultValue: false);
+		}
 
-    //}
+	}
 
     public class Gene_SelfOverrider_Healing : Gene_SelfOverrider
 	{

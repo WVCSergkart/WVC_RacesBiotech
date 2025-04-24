@@ -199,6 +199,19 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		//private static GeneDef deathrestGeneDef;
+		//public static GeneDef GeneDeathrest
+		//{
+		//	get
+		//	{
+		//		if (deathrestGeneDef == null)
+		//		{
+		//			deathrestGeneDef = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef def) => def.IsVanillaDef() && def.IsGeneDefOfType<Gene_Deathrest>()).FirstOrDefault();
+		//		}
+		//		return deathrestGeneDef;
+		//	}
+		//}
+
 		public static void Notify_GenesConflicts(Pawn pawn, GeneDef geneDef, Gene thisGene = null)
 		{
 			foreach (Gene gene in pawn.genes.GenesListForReading)

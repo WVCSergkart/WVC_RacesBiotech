@@ -40,34 +40,18 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider"> -->
-	<!-- <defName>WVC_Deathrest_Overrider</defName> -->
-	<!-- <label>overrided deathrest</label> -->
-	<!-- <description>Carriers of this gene must periodically regenerate themselves in a special coma called deathrest. Deathrest takes days, but can confer substantial bonuses. Deathrest can be accelerated and its effects enhanced by the use of a variety of special buildings and technologies.\n\nThose who put off deathresting will suffer from deathrest exhaustion.</description> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_SelfOverrider</geneClass> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath> -->
-	<!-- <displayOrderInCategory>510</displayOrderInCategory> -->
-	<!-- <biostatArc>2</biostatArc> -->
-	<!-- <causesNeed>Deathrest</causesNeed> -->
-	<!-- <minAgeActive>3</minAgeActive> -->
-	<!-- <disablesNeeds> -->
-	  <!-- <li>Rest</li> -->
-	<!-- </disablesNeeds> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <hediffDefs> -->
-			  <!-- <li>Deathrest</li> -->
-			  <!-- <li>DeathrestExhaustion</li> -->
-			  <!-- <li>InterruptedDeathrest</li> -->
-			<!-- </hediffDefs> -->
-		<!-- </li> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <inheritableGeneDefs> -->
-			  <!-- <li>Deathrest</li> -->
-			<!-- </inheritableGeneDefs> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </GeneDef> -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Deathrest_Overrider</defName>
+	<label>overrided deathrest</label>
+	<description>Carriers of this gene have archites that remove toxins from the brain, allowing the carrier to not sleep, but form the deathrest gene.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Deathrest</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath>
+	<displayOrderInCategory>510</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<disablesNeeds>
+	  <li>Rest</li>
+	</disablesNeeds>
+  </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_WoundHealing_Overrider</defName>

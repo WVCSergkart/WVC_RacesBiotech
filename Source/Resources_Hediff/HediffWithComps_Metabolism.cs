@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return cachedMetabolism > 0 ? "+" : "" + cachedMetabolism.ToString();
+				return (cachedMetabolism > 0 ? "+" : "") + cachedMetabolism.ToString();
 			}
 		}
 
