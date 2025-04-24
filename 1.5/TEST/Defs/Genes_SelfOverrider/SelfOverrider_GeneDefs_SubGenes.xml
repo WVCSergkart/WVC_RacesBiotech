@@ -8,6 +8,11 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->

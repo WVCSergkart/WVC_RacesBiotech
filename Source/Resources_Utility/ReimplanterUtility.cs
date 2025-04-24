@@ -269,20 +269,31 @@ namespace WVC_XenotypesAndGenes
         // =============================== New ===============================
 
         public static void PostImplantDebug(Pawn pawn)
-		{
-            foreach (Gene item in pawn.genes.GenesListForReading)
+        {
+            try
             {
-                if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, pawn))
+                foreach (Gene item in pawn.genes.GenesListForReading)
                 {
-                    item.OverrideBy(null);
+                    if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, pawn))
+                    {
+                        item.OverrideBy(null);
+                    }
+                }
+                XaG_GameComponent.AddMissingGeneAbilities(pawn);
+                ReimplanterUtility.FixGeneTraits(pawn);
+                NotifyGenesChanged(pawn);
+                if (DebugSettings.ShowDevGizmos)
+                {
+                    Log.Warning("Post implant debug called.");
                 }
             }
-            XaG_GameComponent.AddMissingGeneAbilities(pawn);
-			ReimplanterUtility.FixGeneTraits(pawn);
-			NotifyGenesChanged(pawn);
-		}
+            catch (Exception arg)
+			{
+				Log.Error("Failed do post implant debug. Reason: " + arg);
+			}
+        }
 
-		public static void NotifyGenesChanged(Pawn pawn)
+        public static void NotifyGenesChanged(Pawn pawn)
 		{
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
@@ -290,6 +301,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					targetGene.Notify_GenesChanged(null);
 				}
+				//if (item is IGeneMetabolism metabol)
+				//{
+				//	metabol.UpdateMetabolism();
+				//}
 			}
 		}
 
@@ -419,7 +434,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, bool xenogenes = true, Gene ignoredGene = null)
+		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, bool xenogenes = true, Gene ignoredGene = null, bool debug = false)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
 			if (recipientGenes.Xenogenes.Where((gene) => gene != ignoredGene).ToList().NullOrEmpty() || xenogenes)
@@ -465,7 +480,10 @@ namespace WVC_XenotypesAndGenes
 				pawn.TryAddOrRemoveGene(ignoredGene, null, geneDef, xenotypeHolder.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-			ReimplanterUtility.PostImplantDebug(pawn);
+			if (debug)
+			{
+				ReimplanterUtility.PostImplantDebug(pawn);
+			}
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)

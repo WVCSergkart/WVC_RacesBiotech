@@ -1,4 +1,5 @@
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 
@@ -18,6 +19,16 @@ namespace WVC_XenotypesAndGenes
 		public override bool Visible => cachedMetabolism != 0f;
 
 		public bool Enabled => WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor;
+
+		public override Color LabelColor => GeneUtility.METColor;
+
+		public override string LabelInBrackets
+		{
+			get
+			{
+				return cachedMetabolism > 0 ? "+" : "" + cachedMetabolism.ToString();
+			}
+		}
 
 		public override void PostAdd(DamageInfo? dinfo)
 		{

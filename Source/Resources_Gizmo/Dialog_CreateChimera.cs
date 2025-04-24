@@ -843,6 +843,7 @@ namespace WVC_XenotypesAndGenes
 					implantedGenes.Add(geneDef);
 				}
 			}
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			gene.UpdateChimeraXenogerm(implantedGenes);
 			gene.DoEffects();
 			gene.UpdateMetabolism();
@@ -906,7 +907,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
 		}
 
@@ -915,6 +915,7 @@ namespace WVC_XenotypesAndGenes
 			// gene.ClearChimeraXenogerm();
 			ClearGenes();
 			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			gene.DoEffects();
 			gene.UpdateMetabolism();
 			Close(doCloseSound: false);

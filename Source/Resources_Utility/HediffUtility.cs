@@ -10,6 +10,36 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		private static HediffDef metHediffDef;
+		public static HediffDef MetHediffDef
+		{
+			get
+			{
+				if (metHediffDef == null)
+                {
+					metHediffDef = DefDatabase<HediffDef>.AllDefsListForReading.Where((def) => def.IsHediffDefOfType<HediffWithComps_Metabolism>()).FirstOrDefault();
+				}
+				return metHediffDef;
+			}
+		}
+
+        public static void TryAddOrUpdMetabolism(Pawn pawn, Gene gene)
+        {
+			TryAddOrUpdMetabolism(MetHediffDef, pawn, gene);
+		}
+
+        public static void TryAddOrUpdMetabolism(HediffDef metHediffDef, Pawn pawn, Gene gene)
+		{
+			if (!WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor)
+            {
+				return;
+            }
+			if (!HediffUtility.TryAddOrRemoveHediff(metHediffDef, pawn, gene, null))
+			{
+				GeneResourceUtility.UpdMetabolism(pawn);
+			}
+		}
+
 		public static List<HediffDef> ConvertToDef(this List<Hediff> list)
 		{
 			List<HediffDef> newList = new();

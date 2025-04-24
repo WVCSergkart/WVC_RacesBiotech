@@ -9,10 +9,28 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverridden
+	public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverridden, IGeneMetabolism
 	{
 
-		public virtual string RemoteActionName => XaG_UiUtility.OnOrOff(!Overridden);
+		private bool? metHediifDisabled;
+		private HediffDef metHediffDef;
+        public HediffDef MetHediffDef
+        {
+            get
+            {
+				if (!metHediifDisabled.HasValue)
+                {
+					metHediifDisabled = (metHediffDef = def?.GetModExtension<GeneExtension_Giver>()?.metHediffDef) != null;
+				}
+				if (!metHediifDisabled.Value)
+				{
+					return null;
+				}
+				return metHediffDef;
+            }
+        }
+
+        public virtual string RemoteActionName => XaG_UiUtility.OnOrOff(!Overridden);
 
 		public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
 
@@ -33,6 +51,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				overrided = true;
 				OverrideBy(this);
+				UpdateMetabolism();
 			}
 			MiscUtility.Notify_DebugPawn(pawn);
 		}
@@ -75,6 +94,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				XaG_GeneUtility.Notify_GenesConflicts(pawn, def, this);
 			}
+			UpdateMetabolism();
 		}
 
 		public virtual bool RemoteControl_Enabled
@@ -88,6 +108,12 @@ namespace WVC_XenotypesAndGenes
 				enabled = value;
 				remoteControllerCached = false;
 			}
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			UpdateMetabolism();
 		}
 
 		public override void PostRemove()
@@ -122,6 +148,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref overrided, "overrided", defaultValue: false);
+		}
+
+		public void UpdateMetabolism()
+		{
+			HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
 		}
 
 	}

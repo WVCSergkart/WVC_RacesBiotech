@@ -324,16 +324,13 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void UpdateMetabolism()
-		{
-			if (!HediffUtility.TryAddOrRemoveHediff(Giver.metHediffDef, pawn, this, Giver.bodyparts))
-			{
-				GeneResourceUtility.UpdMetabolism(pawn);
-			}
-		}
+        {
+			HediffUtility.TryAddOrUpdMetabolism(Giver.metHediffDef, pawn, this);
+        }
 
-		// Shapeshift
+        // Shapeshift
 
-		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+        public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			if (!genesRegrowing)
 			{
@@ -349,6 +346,7 @@ namespace WVC_XenotypesAndGenes
 				//GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
 			UpdateMetabolism();
+			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
     }

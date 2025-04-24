@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
                 {
 					continue;
                 }
-				if (thisGene != null && gene.overriddenByGene != thisGene)
+				if (thisGene != null && gene.overriddenByGene != null && gene.overriddenByGene != thisGene)
                 {
 					continue;
                 }
@@ -337,6 +337,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			chimera.UpdateMetabolism();
+			//ReimplanterUtility.PostImplantDebug(p);
 		}
 
 		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())

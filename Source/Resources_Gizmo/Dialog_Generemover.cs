@@ -439,8 +439,8 @@ namespace WVC_XenotypesAndGenes
             {
 				effecter.DoEffects();
 			}
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			ReimplanterUtility.TrySetSkinAndHairGenes(gene.pawn);
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			UpdateGenesInforamtion();
 			Close();
 		}

@@ -440,6 +440,8 @@ namespace WVC_XenotypesAndGenes
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
 				+ "\n\n" + dialog.selectedXenoHolder.Description,
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
+				num = 5;
+				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
 				return true;
 			}
 			catch (Exception arg)

@@ -466,11 +466,8 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void UpdateMetabolism()
 		{
-			if (!HediffUtility.TryAddOrRemoveHediff(Giver.metHediffDef, pawn, this, Giver.bodyparts))
-			{
-				GeneResourceUtility.UpdMetabolism(pawn);
-			}
-        }
+			HediffUtility.TryAddOrUpdMetabolism(Giver.metHediffDef, pawn, this);
+		}
 
         public virtual void DoEffects()
 		{
