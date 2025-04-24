@@ -2,6 +2,16 @@
 <Patch>
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="Deathrest"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_Deathrest</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
 	  <safetyDepth>2</safetyDepth>
 	  <value>

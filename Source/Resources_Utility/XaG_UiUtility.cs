@@ -83,9 +83,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static string OnOrOff(bool onOrOff)
+		public static string OnOrOff(bool on)
 		{
-			if (onOrOff)
+			if (on)
 			{
 				return "On".Translate().Colorize(ColorLibrary.Green);
 			}

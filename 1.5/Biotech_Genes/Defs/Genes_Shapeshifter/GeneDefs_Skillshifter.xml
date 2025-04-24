@@ -7,7 +7,7 @@
 	<description>Carriers of this gene have archites that are able to change neural connections and create new ones. Which allows the carriers to redistribute the experience accumulated in skills.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Skillshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Traitshifter_v0</iconPath>
-	<displayOrderInCategory>195</displayOrderInCategory>
+	<displayOrderInCategory>200</displayOrderInCategory>
 	<prerequisite></prerequisite>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
