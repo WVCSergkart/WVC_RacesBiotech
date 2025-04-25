@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class XaG_CountWithChance
+    public class GeneralHolder
 	{
 		// GenePacks
 		public int genesCount = 0;
@@ -35,8 +35,19 @@ namespace WVC_XenotypesAndGenes
 		public GeneDef reqGeneDef;
 		public bool reqOneManArmy = false;
 		public List<GeneDef> genes;
+		// CopyPaste
+		public GeneDef copyFromGeneDef;
+		public bool copyExclusionTags = true;
+		public bool copyMakeImmuneTo = true;
+		public bool copyHediffGiversCannotGive = true;
+		public bool copySuppressedTraits = true;
+		public bool copyForcedTraits = true;
+		public bool copyConditionalStatAffecters = true;
+		public bool copyStatFactors = true;
+		public bool copyStatOffsets = true;
+		public bool copySymbolPack = true;
 
-        public bool CanAddGene(Pawn pawn)
+		public bool CanAddGene(Pawn pawn)
 		{
 			return genes != null && (!reqOneManArmy || StaticCollectionsClass.oneManArmyMode) && (reqGeneDef == null || XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn));
 		}
@@ -125,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 		public List<HediffDef> blockingHediffs;
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;
-		public List<XaG_CountWithChance> possibleTraits;
+		public List<GeneralHolder> possibleTraits;
 		public StatDef shiftStatDef;
 		public int reqGeneMat = -1;
 		public GeneCategoryDef overrideGeneCategory;
@@ -146,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> chimeraGenesTools;
 		public List<GeneDef> humanBasicGenes;
 		//public List<GeneDef> chimeraOneManArmyGenes;
-		public List<XaG_CountWithChance> chimeraConditionalGenes;
+		public List<GeneralHolder> chimeraConditionalGenes;
 		// Fleshmass
 		//public int maxMutationLevel = 5;
 		//Chimera
@@ -174,6 +185,8 @@ namespace WVC_XenotypesAndGenes
 		public float recruitChance = 0.5f;
 		public bool canBePredatorPrey = true;
 		public List<GeneDef> inheritableGeneDefs;
+		public List<GeneralHolder> copyFromGeneDefs;
+		//public bool removeExclusionTags = false;
 		// public PawnKindDef inheritFromPawnKind;
 		// Undead Resurrection Component
 		public bool shouldResurrect = false;
@@ -193,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 		// Genepack Components
-		public List<XaG_CountWithChance> genesCountProbabilities;
+		public List<GeneralHolder> genesCountProbabilities;
 		public RulePackDef genepackNamer;
 		public bool supportMutants = true;
 		public List<MutantDef> supportedMutantDefs;
@@ -287,7 +300,7 @@ namespace WVC_XenotypesAndGenes
 		// Morpher
 		public List<XenotypeDef> xenotypeDefs;
 		// Colorable Eyes
-		public List<XaG_CountWithChance> holofaces;
+		public List<GeneralHolder> holofaces;
 		public Color defaultColor;
 		//Morpher
 		public GeneDef morpherTriggerGene;

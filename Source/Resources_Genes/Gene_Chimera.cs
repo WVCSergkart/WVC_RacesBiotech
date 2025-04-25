@@ -90,8 +90,8 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            List<XaG_CountWithChance> chimeraConditionalGenes = pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Undead>()?.chimeraConditionalGenes;
-            if (chimeraConditionalGenes != null && chimeraConditionalGenes.TryRandomElementByWeight((count) => count.chance, out XaG_CountWithChance geneSet))
+            List<GeneralHolder> chimeraConditionalGenes = pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Undead>()?.chimeraConditionalGenes;
+            if (chimeraConditionalGenes != null && chimeraConditionalGenes.TryRandomElementByWeight((count) => count.chance, out GeneralHolder geneSet))
             {
                 XaG_GeneUtility.AddGenesToChimera(pawn, geneSet.genes);
             }
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
                 return false;
             }
 			List<GeneDefWithChance> genesWithChance = new();
-            foreach (XaG_CountWithChance counter in Props.chimeraConditionalGenes)
+            foreach (GeneralHolder counter in Props.chimeraConditionalGenes)
             {
                 if (!counter.CanAddGene(pawn))
                 {

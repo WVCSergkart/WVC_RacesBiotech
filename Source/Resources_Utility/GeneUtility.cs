@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetGenesInPack(XaG_CountWithChance geneCount, GeneSet geneSet)
+		public static void SetGenesInPack(GeneralHolder geneCount, GeneSet geneSet)
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
 			for (int j = 0; j < geneCount.genesCount; j++)
@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet, XaG_CountWithChance geneCount)
+		public static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet, GeneralHolder geneCount)
 		{
 			if (!gene.IsXenoGenesDef())
 			{

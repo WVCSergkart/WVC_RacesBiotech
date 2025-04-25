@@ -56,6 +56,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					InheritableGeneStats(geneDef, geneExtension_General);
 					BirthQuality(geneDef, geneExtension_General);
+					//if (geneExtension_General.removeExclusionTags)
+					//{
+					//	geneDef.exclusionTags = new();
+					//}
 				}
                 if (geneExtension_Giver != null)
                 {
@@ -122,12 +126,24 @@ namespace WVC_XenotypesAndGenes
 
 		private static void InheritableGeneStats(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
-			List<GeneDef> inheritableGeneDefs = geneExtension_General?.inheritableGeneDefs;
-			if (!inheritableGeneDefs.NullOrEmpty())
+			List<GeneDef> inheritableGeneDefs = geneExtension_General.inheritableGeneDefs;
+            List<GeneralHolder> copyFromGeneDefs = geneExtension_General.copyFromGeneDefs;
+            if (inheritableGeneDefs != null)
 			{
 				foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 				{
-					MiscUtility.CopyStatsFromGeneDef(geneDef, inheritableGeneDef);
+					MiscUtility.CopyFromGeneDef(geneDef, inheritableGeneDef);
+				}
+			}
+			else if (copyFromGeneDefs != null)
+			{
+				foreach (GeneralHolder inheritableGeneDef in copyFromGeneDefs)
+				{
+					if (inheritableGeneDef == null)
+                    {
+						continue;
+                    }
+					MiscUtility.CopyFromGeneDef(geneDef, inheritableGeneDef);
 				}
 			}
 		}

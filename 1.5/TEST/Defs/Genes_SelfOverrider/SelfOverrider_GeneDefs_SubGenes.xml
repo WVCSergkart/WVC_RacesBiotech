@@ -2,6 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
@@ -20,13 +21,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_Pain_Overrider</defName>
 	<label>overrided pain</label>
-	<labelShortAdj>pain-deaf</labelShortAdj>
+	<labelShortAdj>over-pain</labelShortAdj>
 	<description>Carriers of this gene have archites that are able to nullify any pain.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass> -->
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath>
 	<displayOrderInCategory>505</displayOrderInCategory>
 	<painFactor>0.0</painFactor>
-	<biostatMet>-6</biostatMet>
+	<biostatMet>-4</biostatMet>
 	<statOffsets>
 	  <PainShockThreshold>1.0</PainShockThreshold>
 	</statOffsets>
@@ -40,18 +41,9 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
-	<defName>WVC_Deathrest_Overrider</defName>
-	<label>overrided deathrest</label>
-	<description>Carriers of this gene have archites that remove toxins from the brain, allowing the carrier to not sleep, but form the deathrest gene.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Deathrest</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath>
-	<displayOrderInCategory>510</displayOrderInCategory>
-	<biostatMet>-8</biostatMet>
-	<disablesNeeds>
-	  <li>Rest</li>
-	</disablesNeeds>
-  </GeneDef>
+  <!-- 510 -->
+  <!-- 510 -->
+  <!-- 510 -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_WoundHealing_Overrider</defName>
@@ -78,12 +70,71 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_PerfectImmunity_Overrider</defName>
+	<label>overrided immunity</label>
+	<labelShortAdj>over-immunity</labelShortAdj>
+	<description>Carriers of this gene have archites that completely protect the carrier from diseases.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath>
+	<displayOrderInCategory>520</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<statFactors>
+	  <ImmunityGainSpeed>8</ImmunityGainSpeed>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<copyFromGeneDefs>
+			  <li>
+				<copyFromGeneDef>PerfectImmunity</copyFromGeneDef>
+				<copyExclusionTags>false</copyExclusionTags>
+			  </li>
+			  <li>
+				<copyFromGeneDef>DiseaseFree</copyFromGeneDef>
+				<copyExclusionTags>false</copyExclusionTags>
+			  </li>
+			</copyFromGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_OverallAdaptation_Overrider</defName>
+	<label>overrided adaptation</label>
+	<labelShortAdj>over-adaptation</labelShortAdj>
+	<description>Carriers of this gene have archites that completely protect the carrier from the environment.</description>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath>
+	<displayOrderInCategory>525</displayOrderInCategory>
+	<biostatMet>-10</biostatMet>
+	<statOffsets>
+	  <ToxicResistance>1</ToxicResistance>
+	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+	</statOffsets>
+	<makeImmuneTo>
+	  <li>LungRot</li>
+	  <li>LungRotExposure</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<copyFromGeneDefs>
+			  <li MayRequire="sirmashedpotato.ashlands">
+				<copyFromGeneDef>Mashed_Ashlands_AshResistance_Perfect</copyFromGeneDef>
+				<copyExclusionTags>false</copyExclusionTags>
+			  </li>
+			</copyFromGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_Stomach_Overrider</defName>
 	<label>overrided stomach</label>
+	<labelShortAdj>over-hunger</labelShortAdj>
 	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Stomach</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath>
-	<displayOrderInCategory>520</displayOrderInCategory>
+	<displayOrderInCategory>530</displayOrderInCategory>
 	<biostatMet>-8</biostatMet>
 	<customEffectDescriptions>
 	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>

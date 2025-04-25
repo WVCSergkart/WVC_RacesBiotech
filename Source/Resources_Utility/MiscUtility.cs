@@ -964,199 +964,271 @@ namespace WVC_XenotypesAndGenes
 
 		// Inherit
 
-		public static void CopyStatsFromGeneDef(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+		public static void CopyFromGeneDef(GeneDef childGeneDef, GeneralHolder holder)
+		{
+			// Tags
+			string phase = "initial";
+			try
+			{
+				phase = "exclusionTags";
+				if (holder.copyExclusionTags)
+					CopyExclusionTags(childGeneDef, holder.copyFromGeneDef);
+				phase = "makeImmuneTo";
+				if (holder.copyMakeImmuneTo)
+					CopyMakeImunne(childGeneDef, holder.copyFromGeneDef);
+				phase = "hediffGiversCannotGive";
+				if (holder.copyHediffGiversCannotGive)
+					CopyHediffGivers(childGeneDef, holder.copyFromGeneDef);
+				phase = "suppressedTraits";
+				if (holder.copySuppressedTraits)
+					CopySuppressedTraits(childGeneDef, holder.copyFromGeneDef);
+				phase = "forcedTraits";
+				if (holder.copyForcedTraits)
+					CopyForcedTraits(childGeneDef, holder.copyFromGeneDef);
+				phase = "conditionalStatAffecters";
+				if (holder.copyConditionalStatAffecters)
+					CopyStatAffecters(childGeneDef, holder.copyFromGeneDef);
+				phase = "statFactors";
+				if (holder.copyStatFactors)
+					CopyStatFactors(childGeneDef, holder.copyFromGeneDef);
+				phase = "statOffsets";
+				if (holder.copyStatOffsets)
+					CopyStatOffsets(childGeneDef, holder.copyFromGeneDef);
+				phase = "symbolPack";
+				if (holder.copySymbolPack)
+					CopySymbolPack(childGeneDef, holder.copyFromGeneDef);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed inherit from gene: " + holder.copyFromGeneDef.defName + ". For gene: " + childGeneDef.defName + ". On phase: " + phase + ". Reason: " + arg);
+			}
+		}
+
+		public static void CopyFromGeneDef(GeneDef childGeneDef, GeneDef parentGeneDef)
         {
 			// Tags
 			string phase = "initial";
             try
             {
-				phase = "exclusionTags";
-				if (sourceGeneDef.exclusionTags != null)
-                {
-                    if (targetGeneDef.exclusionTags == null)
-                    {
-                        targetGeneDef.exclusionTags = new();
-                    }
-                    foreach (string item in sourceGeneDef.exclusionTags)
-                    {
-                        targetGeneDef.exclusionTags.Add(item);
-                    }
-                }
-				// Log.Error("1");
-				// Immunity
-				phase = "makeImmuneTo";
-				if (sourceGeneDef.makeImmuneTo != null)
-                {
-                    if (targetGeneDef.makeImmuneTo == null)
-                    {
-                        targetGeneDef.makeImmuneTo = new();
-                    }
-                    foreach (HediffDef item in sourceGeneDef.makeImmuneTo)
-                    {
-                        if (!targetGeneDef.makeImmuneTo.Contains(item))
-                        {
-                            targetGeneDef.makeImmuneTo.Add(item);
-                        }
-                    }
-				}
-				phase = "hediffGiversCannotGive";
-				// Log.Error("2");
-				if (sourceGeneDef.hediffGiversCannotGive != null)
-                {
-                    if (targetGeneDef.hediffGiversCannotGive == null)
-                    {
-                        targetGeneDef.hediffGiversCannotGive = new();
-                    }
-                    foreach (HediffDef item in sourceGeneDef.hediffGiversCannotGive)
-                    {
-                        if (!targetGeneDef.hediffGiversCannotGive.Contains(item))
-                        {
-                            targetGeneDef.hediffGiversCannotGive.Add(item);
-                        }
-                    }
-                }
-				// Log.Error("3");
-				// Traits
-				phase = "suppressedTraits";
-				if (sourceGeneDef.suppressedTraits != null)
-                {
-                    if (targetGeneDef.suppressedTraits == null)
-                    {
-                        targetGeneDef.suppressedTraits = new();
-                    }
-                    foreach (GeneticTraitData item in sourceGeneDef.suppressedTraits)
-                    {
-						//GeneticTraitData newData = new();
-						//newData.def = item.def;
-						//newData.degree = item.degree;
-						//geneDef.suppressedTraits.Add(newData);
-                        if (!targetGeneDef.suppressedTraits.Contains(item))
-                        {
-                            targetGeneDef.suppressedTraits.Add(item);
-                        }
-                    }
-                }
-				// Log.Error("4");
-				phase = "forcedTraits";
-				if (sourceGeneDef.forcedTraits != null)
-                {
-                    if (targetGeneDef.forcedTraits == null)
-                    {
-                        targetGeneDef.forcedTraits = new();
-                    }
-                    foreach (GeneticTraitData item in sourceGeneDef.forcedTraits)
-					{
-						//GeneticTraitData newData = new();
-						//newData.def = item.def;
-						//newData.degree = item.degree;
-						//geneDef.forcedTraits.Add(newData);
-                        if (!targetGeneDef.forcedTraits.Contains(item))
-                        {
-                            targetGeneDef.forcedTraits.Add(item);
-                        }
-                    }
-                }
-				// Log.Error("5");
-				// Stats
-				phase = "conditionalStatAffecters";
-				if (sourceGeneDef.conditionalStatAffecters != null)
-                {
-                    if (targetGeneDef.conditionalStatAffecters == null)
-                    {
-                        targetGeneDef.conditionalStatAffecters = new();
-                    }
-                    foreach (ConditionalStatAffecter item in sourceGeneDef.conditionalStatAffecters)
-                    {
-						targetGeneDef.conditionalStatAffecters.Add(item);
-                    }
-                }
-				// Log.Error("6");
-				phase = "statFactors";
-				if (sourceGeneDef.statFactors != null)
-                {
-                    if (targetGeneDef.statFactors == null)
-                    {
-                        targetGeneDef.statFactors = new();
-                    }
-                    foreach (StatModifier item in sourceGeneDef.statFactors)
-                    {
-                        if (!targetGeneDef.statFactors.Contains(item))
-                        {
-                            targetGeneDef.statFactors.Add(item);
-                        }
-                    }
-                }
-				// Log.Error("7");
-				phase = "statOffsets";
-				if (sourceGeneDef.statOffsets != null)
-                {
-                    if (targetGeneDef.statOffsets == null)
-                    {
-                        targetGeneDef.statOffsets = new();
-                    }
-                    foreach (StatModifier item in sourceGeneDef.statOffsets)
-                    {
-                        if (!targetGeneDef.statOffsets.Contains(item))
-                        {
-                            targetGeneDef.statOffsets.Add(item);
-                        }
-                    }
-                }
-				// Log.Error("8");
-				// Symbols
-				phase = "symbolPack";
-				if (sourceGeneDef.symbolPack != null)
-                {
-                    if (targetGeneDef.symbolPack == null)
-                    {
-                        targetGeneDef.symbolPack = new();
-                    }
-					// Log.Error("9");
-					phase = "symbolPack prefixSymbols";
-					if (sourceGeneDef.symbolPack.prefixSymbols != null)
-					{
-						if (targetGeneDef.symbolPack.prefixSymbols == null)
-						{
-							targetGeneDef.symbolPack.prefixSymbols = new();
-						}
-						foreach (WeightedSymbol item in sourceGeneDef.symbolPack.prefixSymbols)
-                        {
-                            targetGeneDef.symbolPack.prefixSymbols.Add(item);
-                        }
-                    }
-					// Log.Error("10");
-					phase = "symbolPack suffixSymbols";
-					if (sourceGeneDef.symbolPack.suffixSymbols != null)
-					{
-						if (targetGeneDef.symbolPack.suffixSymbols == null)
-						{
-							targetGeneDef.symbolPack.suffixSymbols = new();
-						}
-						foreach (WeightedSymbol item in sourceGeneDef.symbolPack.suffixSymbols)
-                        {
-                            targetGeneDef.symbolPack.suffixSymbols.Add(item);
-                        }
-                    }
-					// Log.Error("11");
-					phase = "symbolPack wholeNameSymbols";
-					if (sourceGeneDef.symbolPack.wholeNameSymbols != null)
-					{
-						if (targetGeneDef.symbolPack.wholeNameSymbols == null)
-						{
-							targetGeneDef.symbolPack.wholeNameSymbols = new();
-						}
-						foreach (WeightedSymbol item in sourceGeneDef.symbolPack.wholeNameSymbols)
-                        {
-                            targetGeneDef.symbolPack.wholeNameSymbols.Add(item);
-                        }
-                    }
-                }
+                phase = "exclusionTags";
+                CopyExclusionTags(childGeneDef, parentGeneDef);
+                phase = "makeImmuneTo";
+                CopyMakeImunne(childGeneDef, parentGeneDef);
+                phase = "hediffGiversCannotGive";
+                CopyHediffGivers(childGeneDef, parentGeneDef);
+                phase = "suppressedTraits";
+                CopySuppressedTraits(childGeneDef, parentGeneDef);
+                phase = "forcedTraits";
+                CopyForcedTraits(childGeneDef, parentGeneDef);
+                phase = "conditionalStatAffecters";
+                CopyStatAffecters(childGeneDef, parentGeneDef);
+                phase = "statFactors";
+                CopyStatFactors(childGeneDef, parentGeneDef);
+                phase = "statOffsets";
+                CopyStatOffsets(childGeneDef, parentGeneDef);
+                phase = "symbolPack";
+                CopySymbolPack(childGeneDef, parentGeneDef);
             }
             catch (Exception arg)
             {
-				Log.Error("Failed inherit from gene: " + sourceGeneDef.defName + ". For gene: " + targetGeneDef.defName + ". On phase: " + phase + ". Reason: " + arg);
+				Log.Error("Failed inherit from gene: " + parentGeneDef.defName + ". For gene: " + childGeneDef.defName + ". On phase: " + phase + ". Reason: " + arg);
             }
         }
 
+        private static void CopyExclusionTags(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.exclusionTags != null)
+            {
+                if (targetGeneDef.exclusionTags == null)
+                {
+                    targetGeneDef.exclusionTags = new();
+                }
+                foreach (string item in sourceGeneDef.exclusionTags)
+                {
+                    targetGeneDef.exclusionTags.Add(item);
+                }
+            }
+        }
+
+        private static void CopyMakeImunne(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.makeImmuneTo != null)
+            {
+                if (targetGeneDef.makeImmuneTo == null)
+                {
+                    targetGeneDef.makeImmuneTo = new();
+                }
+                foreach (HediffDef item in sourceGeneDef.makeImmuneTo)
+                {
+                    if (!targetGeneDef.makeImmuneTo.Contains(item))
+                    {
+                        targetGeneDef.makeImmuneTo.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopyHediffGivers(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.hediffGiversCannotGive != null)
+            {
+                if (targetGeneDef.hediffGiversCannotGive == null)
+                {
+                    targetGeneDef.hediffGiversCannotGive = new();
+                }
+                foreach (HediffDef item in sourceGeneDef.hediffGiversCannotGive)
+                {
+                    if (!targetGeneDef.hediffGiversCannotGive.Contains(item))
+                    {
+                        targetGeneDef.hediffGiversCannotGive.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopySuppressedTraits(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.suppressedTraits != null)
+            {
+                if (targetGeneDef.suppressedTraits == null)
+                {
+                    targetGeneDef.suppressedTraits = new();
+                }
+                foreach (GeneticTraitData item in sourceGeneDef.suppressedTraits)
+                {
+                    //GeneticTraitData newData = new();
+                    //newData.def = item.def;
+                    //newData.degree = item.degree;
+                    //geneDef.suppressedTraits.Add(newData);
+                    if (!targetGeneDef.suppressedTraits.Contains(item))
+                    {
+                        targetGeneDef.suppressedTraits.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopyForcedTraits(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.forcedTraits != null)
+            {
+                if (targetGeneDef.forcedTraits == null)
+                {
+                    targetGeneDef.forcedTraits = new();
+                }
+                foreach (GeneticTraitData item in sourceGeneDef.forcedTraits)
+                {
+                    //GeneticTraitData newData = new();
+                    //newData.def = item.def;
+                    //newData.degree = item.degree;
+                    //geneDef.forcedTraits.Add(newData);
+                    if (!targetGeneDef.forcedTraits.Contains(item))
+                    {
+                        targetGeneDef.forcedTraits.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopyStatAffecters(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.conditionalStatAffecters != null)
+            {
+                if (targetGeneDef.conditionalStatAffecters == null)
+                {
+                    targetGeneDef.conditionalStatAffecters = new();
+                }
+                foreach (ConditionalStatAffecter item in sourceGeneDef.conditionalStatAffecters)
+                {
+                    targetGeneDef.conditionalStatAffecters.Add(item);
+                }
+            }
+        }
+
+        private static void CopyStatFactors(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.statFactors != null)
+            {
+                if (targetGeneDef.statFactors == null)
+                {
+                    targetGeneDef.statFactors = new();
+                }
+                foreach (StatModifier item in sourceGeneDef.statFactors)
+                {
+                    if (!targetGeneDef.statFactors.Contains(item))
+                    {
+                        targetGeneDef.statFactors.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopyStatOffsets(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.statOffsets != null)
+            {
+                if (targetGeneDef.statOffsets == null)
+                {
+                    targetGeneDef.statOffsets = new();
+                }
+                foreach (StatModifier item in sourceGeneDef.statOffsets)
+                {
+                    if (!targetGeneDef.statOffsets.Contains(item))
+                    {
+                        targetGeneDef.statOffsets.Add(item);
+                    }
+                }
+            }
+        }
+
+        private static void CopySymbolPack(GeneDef targetGeneDef, GeneDef sourceGeneDef)
+        {
+            if (sourceGeneDef.symbolPack != null)
+            {
+                if (targetGeneDef.symbolPack == null)
+                {
+                    targetGeneDef.symbolPack = new();
+                }
+                // Log.Error("9");
+                //phase = "symbolPack prefixSymbols";
+                if (sourceGeneDef.symbolPack.prefixSymbols != null)
+                {
+                    if (targetGeneDef.symbolPack.prefixSymbols == null)
+                    {
+                        targetGeneDef.symbolPack.prefixSymbols = new();
+                    }
+                    foreach (WeightedSymbol item in sourceGeneDef.symbolPack.prefixSymbols)
+                    {
+                        targetGeneDef.symbolPack.prefixSymbols.Add(item);
+                    }
+                }
+                // Log.Error("10");
+                //phase = "symbolPack suffixSymbols";
+                if (sourceGeneDef.symbolPack.suffixSymbols != null)
+                {
+                    if (targetGeneDef.symbolPack.suffixSymbols == null)
+                    {
+                        targetGeneDef.symbolPack.suffixSymbols = new();
+                    }
+                    foreach (WeightedSymbol item in sourceGeneDef.symbolPack.suffixSymbols)
+                    {
+                        targetGeneDef.symbolPack.suffixSymbols.Add(item);
+                    }
+                }
+                // Log.Error("11");
+                //phase = "symbolPack wholeNameSymbols";
+                if (sourceGeneDef.symbolPack.wholeNameSymbols != null)
+                {
+                    if (targetGeneDef.symbolPack.wholeNameSymbols == null)
+                    {
+                        targetGeneDef.symbolPack.wholeNameSymbols = new();
+                    }
+                    foreach (WeightedSymbol item in sourceGeneDef.symbolPack.wholeNameSymbols)
+                    {
+                        targetGeneDef.symbolPack.wholeNameSymbols.Add(item);
+                    }
+                }
+            }
+        }
     }
 }

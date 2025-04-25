@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 				if (colors == null)
 				{
 					colors = new List<Color>();
-					foreach (XaG_CountWithChance colorHolder in gene.Props.holofaces)
+					foreach (GeneralHolder colorHolder in gene.Props.holofaces)
 					{
 						if (colors.Contains(colorHolder.color))
 						{

@@ -72,8 +72,8 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool RemoteControl_Hide => false;
 
-		private bool overrided = false;
-		public bool OverridedBeforeSave => overrided;
+		public bool overrided = false;
+		//public bool OverridedBeforeSave => overrided;
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
@@ -176,10 +176,22 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		private int deathrestCapacity = 0;
+		private float deathrestNeed = 1f;
 		private bool deathrestAdded = false;
+		private bool firtsAdded = false;
+
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			firtsAdded = false;
+			base.RemoteControl_Action(genesSettings);
+		}
 
 		public void Notify_GeneDeathrest()
 		{
+			//if (!deathrestAdded)
+			//{
+			//	return;
+			//}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
             {
 				if (gene is Gene_Deathrest deathrest)
@@ -187,7 +199,12 @@ namespace WVC_XenotypesAndGenes
 					//Log.Error("Saved capacity: " + deathrestCapacity);
 					//Log.Error("Target capacity: " + (deathrestCapacity - deathrest.CurrentCapacity));
 					deathrest.OffsetCapacity(Mathf.Clamp(deathrestCapacity - deathrest.DeathrestCapacity, 0, 999), false);
-                }
+					Need_Deathrest deathrestNeed1 = deathrest.DeathrestNeed;
+					if (deathrestNeed1 != null)
+					{
+                        deathrestNeed1.CurLevel = deathrestNeed;
+					}
+				}
             }
 		}
 
@@ -215,6 +232,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					//Log.Error("Capacity: " + gene_Deathrest.DeathrestCapacity);
 					deathrestCapacity = gene_Deathrest.DeathrestCapacity;
+					deathrestNeed = gene_Deathrest.DeathrestNeed.CurLevel;
 					//Log.Error("Saved capacity: " + deathrestCapacity);
 				}
 				RemoveDeathrestGene();
@@ -230,22 +248,44 @@ namespace WVC_XenotypesAndGenes
 			}
         }
 
-        public override void PostAdd()
+
+		public override void PostMake()
 		{
-			base.PostAdd();
-			UpdGeneDeathrest();
+			base.PostMake();
+			firtsAdded = true;
 		}
 
-		public override void Notify_OverriddenBy(Gene overriddenBy)
+		public override void PostAdd()
+		{
+			base.PostAdd();
+            if (!firtsAdded)
+            {
+                UpdGeneDeathrest();
+            }
+			else
+            {
+				overrided = true;
+				OverrideBy(this);
+            }
+        }
+
+        public override void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			base.Notify_OverriddenBy(overriddenBy);
-			UpdGeneDeathrest();
+			if (!firtsAdded)
+			{
+				UpdGeneDeathrest();
+			}
 		}
 
 		public override void Notify_Override()
 		{
 			base.Notify_Override();
-			if (!OverridedBeforeSave)
+			if (firtsAdded)
+			{
+				OverrideBy(this);
+			}
+			else if(!overrided)
 			{
 				UpdGeneDeathrest();
 			}
@@ -254,7 +294,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
         {
             base.PostRemove();
-            RemoveDeathrestGene();
+			if (!firtsAdded)
+			{
+				RemoveDeathrestGene();
+			}
         }
 
         private void RemoveDeathrestGene()
@@ -277,6 +320,7 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref deathrestCapacity, "deathrestCapacity", defaultValue: 0);
 			Scribe_Values.Look(ref deathrestAdded, "deathrestAdded", defaultValue: false);
+			Scribe_Values.Look(ref deathrestNeed, "deathrestNeed", defaultValue: 1);
 		}
 
 	}
@@ -342,6 +386,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+            {
+				return;
+            }
 			MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
 		}
 

@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				ThingDef thingDef = this.def;
 				GeneSet newGeneSet = new();
-				XaG_CountWithChance geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+				GeneralHolder geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((GeneralHolder x) => x.chance);
 				XaG_GeneUtility.SetGenesInPack(geneCount, newGeneSet);
 				newGeneSet.SortGenes();
 				XaG_GeneUtility.GenerateGenepackName(newGeneSet, xag_genepack.genepackNamer);
@@ -71,11 +71,11 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> xenotypeDefs;
 
-		public List<XaG_CountWithChance> genepacks;
+		public List<GeneralHolder> genepacks;
 
 		public string uniqueTag = "XaG_GeneSetter";
 
-		public List<XaG_CountWithChance> genesCountProbabilities;
+		public List<GeneralHolder> genesCountProbabilities;
 		public RulePackDef genepackNamer;
 		public ThingStyleDef styleDef;
 

@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
             {
                 SetColor(pawn.genes.Xenotype.GetModExtension<GeneExtension_Giver>().defaultColor, true);
             }
-            else if (Props.holofaces.Where((XaG_CountWithChance x) => x.visible).ToList().TryRandomElement(out XaG_CountWithChance countWithChance))
+            else if (Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
 				SetColor(countWithChance.color, countWithChance.visible);
 			}

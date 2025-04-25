@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- DEV only -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Deathrest_Overrider</defName>
+	<label>overrided deathrest</label>
+	<description>Carriers of this gene have archites that remove toxins from the brain, allowing the carrier to not sleep, but form the deathrest gene.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Deathrest</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath>
+	<displayOrderInCategory>510</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<customEffectDescriptions>
+		<li>Implant deathrest gene.</li>
+	</customEffectDescriptions>
+	<disablesNeeds>
+	  <li>Rest</li>
+	</disablesNeeds>
+  </GeneDef>
+
+</Defs>

@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef reqGeneDef;
 
-		public List<XaG_CountWithChance> buildings;
+		public List<GeneralHolder> buildings;
 
 		public override void TransformValue(StatRequest req, ref float val)
 		{
@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (Building item in allBuildingsColonist)
 				{
-					foreach (XaG_CountWithChance band in buildings)
+					foreach (GeneralHolder band in buildings)
 					{
 						if (band.thingDef == item.def && !item.def.IsFrame)
 						{
@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				foreach (XaG_CountWithChance band in buildings)
+				foreach (GeneralHolder band in buildings)
 				{
 					if (band.thingDef == item.def)
 					{
