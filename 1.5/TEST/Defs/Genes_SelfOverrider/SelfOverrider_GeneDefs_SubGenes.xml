@@ -3,6 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
@@ -23,8 +24,7 @@
 	<label>overrided pain</label>
 	<labelShortAdj>over-pain</labelShortAdj>
 	<description>Carriers of this gene have archites that are able to nullify any pain.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass> -->
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath> -->
 	<displayOrderInCategory>505</displayOrderInCategory>
 	<painFactor>0.0</painFactor>
 	<biostatMet>-4</biostatMet>
@@ -51,7 +51,7 @@
 	<labelShortAdj>over-heal</labelShortAdj>
 	<description>Carriers of this gene have archites that significantly increase natural wound healing and regrow lost organs and limbs, but impair metabolism.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Healing</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath> -->
 	<displayOrderInCategory>515</displayOrderInCategory>
 	<biostatMet>-12</biostatMet>
 	<statFactors>
@@ -74,8 +74,7 @@
 	<label>overrided immunity</label>
 	<labelShortAdj>over-immunity</labelShortAdj>
 	<description>Carriers of this gene have archites that completely protect the carrier from diseases.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass> -->
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath> -->
 	<displayOrderInCategory>520</displayOrderInCategory>
 	<biostatMet>-8</biostatMet>
 	<statFactors>
@@ -102,7 +101,7 @@
 	<label>overrided adaptation</label>
 	<labelShortAdj>over-adaptation</labelShortAdj>
 	<description>Carriers of this gene have archites that completely protect the carrier from the environment.</description>
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath> -->
 	<displayOrderInCategory>525</displayOrderInCategory>
 	<biostatMet>-10</biostatMet>
 	<statOffsets>
@@ -133,7 +132,7 @@
 	<labelShortAdj>over-hunger</labelShortAdj>
 	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Stomach</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath> -->
 	<displayOrderInCategory>530</displayOrderInCategory>
 	<biostatMet>-8</biostatMet>
 	<customEffectDescriptions>
