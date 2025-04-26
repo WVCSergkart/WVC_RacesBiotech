@@ -10,6 +10,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
+	<minAgeActive>3</minAgeActive>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
@@ -27,10 +28,13 @@
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath> -->
 	<displayOrderInCategory>505</displayOrderInCategory>
 	<painFactor>0.0</painFactor>
-	<biostatMet>-4</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<statOffsets>
-	  <PainShockThreshold>1.0</PainShockThreshold>
+	  <PainShockThreshold>0.5</PainShockThreshold>
 	</statOffsets>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Tough</li> -->
+	<!-- </exclusionTags> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>dull</symbol></li>
@@ -41,9 +45,13 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- ==== -->
+
   <!-- 510 -->
   <!-- 510 -->
   <!-- 510 -->
+
+  <!-- ==== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_WoundHealing_Overrider</defName>
@@ -53,12 +61,12 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Healing</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath> -->
 	<displayOrderInCategory>515</displayOrderInCategory>
-	<biostatMet>-12</biostatMet>
+	<biostatMet>-6</biostatMet>
 	<statFactors>
-	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	  <InjuryHealingFactor>4</InjuryHealingFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Healing: 100 hp/day</li>
+		<li>Healing: 40 hp/day</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -67,7 +75,17 @@
 		<li><symbol>heale</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Healing</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>40</regeneration>
+		</li>
+	</modExtensions>
   </GeneDef>
+
+  <!-- ==== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_PerfectImmunity_Overrider</defName>
@@ -76,10 +94,13 @@
 	<description>Carriers of this gene have archites that completely protect the carrier from diseases.</description>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath> -->
 	<displayOrderInCategory>520</displayOrderInCategory>
-	<biostatMet>-8</biostatMet>
+	<biostatMet>-4</biostatMet>
 	<statFactors>
-	  <ImmunityGainSpeed>8</ImmunityGainSpeed>
+	  <ImmunityGainSpeed>4</ImmunityGainSpeed>
 	</statFactors>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Immunity</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<copyFromGeneDefs>
@@ -96,14 +117,35 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Health_Overrider</defName>
+	<label>overrided health</label>
+	<labelShortAdj>over-health</labelShortAdj>
+	<description>Carriers of this gene have archites that significantly improve metabolism, completely nullifying immunity and tissue regeneration.</description>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Health</iconPath> -->
+	<displayOrderInCategory>525</displayOrderInCategory>
+	<biostatMet>4</biostatMet>
+	<statFactors>
+	  <ImmunityGainSpeed>0</ImmunityGainSpeed>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	</statFactors>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Immunity</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+  <!-- ==== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_OverallAdaptation_Overrider</defName>
 	<label>overrided adaptation</label>
 	<labelShortAdj>over-adaptation</labelShortAdj>
 	<description>Carriers of this gene have archites that completely protect the carrier from the environment.</description>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath> -->
-	<displayOrderInCategory>525</displayOrderInCategory>
-	<biostatMet>-10</biostatMet>
+	<displayOrderInCategory>530</displayOrderInCategory>
+	<biostatMet>-5</biostatMet>
 	<statOffsets>
 	  <ToxicResistance>1</ToxicResistance>
 	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
@@ -114,6 +156,9 @@
 	  <li>LungRot</li>
 	  <li>LungRotExposure</li>
 	</makeImmuneTo>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Environment</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<copyFromGeneDefs>
@@ -126,30 +171,89 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ==== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_Stomach_Overrider</defName>
 	<label>overrided stomach</label>
 	<labelShortAdj>over-hunger</labelShortAdj>
-	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
+	<description>Carriers of this gene have archites that process all the nutrients accumulated by the body at an incredible speed, which makes the carriers' stomachs practically bottomless.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Stomach</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath> -->
-	<displayOrderInCategory>530</displayOrderInCategory>
-	<biostatMet>-8</biostatMet>
+	<displayOrderInCategory>535</displayOrderInCategory>
+	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
-	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
-	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
+	  <!-- <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li> -->
+	  <!-- <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li> -->
+	  <li>If the pawn is &lt;color=#8a8ae6&gt;not downed, deathrest or sleeping&lt;/color&gt;, then the hunger bar is spent on an additional 10% (from 1.00) per day. This happens regardless of the hunger multiplier.</li>
 	  <li>&lt;color=#ff8585&gt;Any ingestibles cause food poisoning.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>12.0</MaxNutrition>
+	</statOffsets>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
 	</makeImmuneTo>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Overrider_Stomach</li> -->
+	<!-- </exclusionTags> -->
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>hunger</symbol></li>
+		<li><symbol>over</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
-		<li><symbol>less</symbol></li>
+		<li><symbol>hunger</symbol></li>
 	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Tough_Overrider</defName>
+	<label>overrided tough</label>
+	<labelShortAdj>over-tough</labelShortAdj>
+	<description>Carriers of this gene have archites that make them more resilient.</description>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Tough</iconPath> -->
+	<displayOrderInCategory>540</displayOrderInCategory>
+	<biostatMet>-6</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.33</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.33</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.33</ArmorRating_Heat>
+	</statOffsets>
+	<statFactors>
+	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+	</statFactors>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fort</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Wimp_Overrider</defName>
+	<label>overrided wimp</label>
+	<labelShortAdj>over-wimp</labelShortAdj>
+	<description>Carriers of this gene have archites which make them fragile.</description>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Wimp</iconPath> -->
+	<displayOrderInCategory>545</displayOrderInCategory>
+	<biostatMet>4</biostatMet>
+	<statOffsets>
+	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+	</statOffsets>
+	<statFactors>
+	  <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.5</ArmorRating_Heat>
+	</statFactors>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>glass</symbol></li>
+	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
 

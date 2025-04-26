@@ -305,9 +305,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool PawnDowned(Pawn pawn)
+		public static bool DownedSleepOrInBed(Pawn pawn)
 		{
-			if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn))
+			if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn) || !pawn.Awake())
 			{
 				return true;
 			}

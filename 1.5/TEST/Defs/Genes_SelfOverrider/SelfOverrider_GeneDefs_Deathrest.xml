@@ -9,7 +9,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Deathrest</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath> -->
 	<displayOrderInCategory>510</displayOrderInCategory>
-	<biostatMet>-8</biostatMet>
+	<biostatMet>-4</biostatMet>
 	<customEffectDescriptions>
 		<li>Implant deathrest gene.</li>
 	</customEffectDescriptions>

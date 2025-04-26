@@ -112,37 +112,50 @@ namespace WVC_XenotypesAndGenes
 				{
 					XaG_UiUtility.DrawGeneBasics(gene.def, geneRect, geneType, doBackground, clickable, !gene.Active);
 					if (Mouse.IsOver(geneRect))
-					{
-						string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
-						// text += GeneUiUtility.AdditionalInfo_Gene(gene);
-						text += XaG_UiUtility.AdditionalInfo_GeneDef(gene.def);
-						if (gene.Overridden)
-						{
-							text += "\n\n";
-							text = ((gene.overriddenByGene.def != gene.def) ? (text + ("OverriddenByGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)) : (text + ("OverriddenByIdenticalGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)));
-						}
-						// else if (!gene.Active)
-						// {
-							// text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
-						// }
-						if (Prefs.DevMode)
-						{
-							text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
-							text += "\n - defName: " + gene.def.defName.ToString();
-							text += "\n - geneClass: " + gene.GetType().ToString();
-						}
-						if (clickable)
-						{
-							text += "\n\n" + "ClickForMoreInfo".Translate().ToString().Colorize(ColoredText.SubtleGrayColor);
-						}
-						TooltipHandler.TipRegion(geneRect, text);
-					}
-					return false;
+                    {
+                        string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
+                        // text += GeneUiUtility.AdditionalInfo_Gene(gene);
+                        text += XaG_UiUtility.AdditionalInfo_GeneDef(gene.def);
+                        text = OverridenByGene(gene, text);
+                        // else if (!gene.Active)
+                        // {
+                        // text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
+                        // }
+                        if (Prefs.DevMode)
+                        {
+                            text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
+                            text += "\n - defName: " + gene.def.defName.ToString();
+                            text += "\n - geneClass: " + gene.GetType().ToString();
+                        }
+                        if (clickable)
+                        {
+                            text += "\n\n" + "ClickForMoreInfo".Translate().ToString().Colorize(ColoredText.SubtleGrayColor);
+                        }
+                        TooltipHandler.TipRegion(geneRect, text);
+                    }
+                    return false;
 				}
 				return true;
 			}
 
-			public static bool Xag_DrawGeneDef(ref GeneDef gene, ref Rect geneRect, ref GeneType geneType, ref Func<string> extraTooltip, ref bool doBackground, ref bool clickable, ref bool overridden)
+            private static string OverridenByGene(Gene gene, string text)
+            {
+                if (gene.Overridden)
+                {
+                    text += "\n\n";
+					if (gene.overriddenByGene != gene)
+					{
+						text = ((gene.overriddenByGene.def != gene.def) ? (text + ("OverriddenByGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)) : (text + ("OverriddenByIdenticalGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)));
+					}
+					else
+					{
+						text += ("WVC_XaG_OverriddenByItself".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable);
+					}
+                }
+                return text;
+            }
+
+            public static bool Xag_DrawGeneDef(ref GeneDef gene, ref Rect geneRect, ref GeneType geneType, ref Func<string> extraTooltip, ref bool doBackground, ref bool clickable, ref bool overridden)
 			{
 				if (gene.IsXenoGenesDef())
 				{

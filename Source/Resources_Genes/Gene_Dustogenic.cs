@@ -240,7 +240,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			//base.Notify_IngestedThing(thing, numTaken);
-			if (thing.IsDustogenicFood() || GeneResourceUtility.PawnDowned(pawn))
+			if (thing.IsDustogenicFood() || GeneResourceUtility.DownedSleepOrInBed(pawn))
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
 				MiscUtility.TryFinalizeAllIngestJobs(pawn);

@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
-				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !GeneResourceUtility.PawnDowned(pawn))
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !GeneResourceUtility.DownedSleepOrInBed(pawn))
 				{
 					continue;
 				}

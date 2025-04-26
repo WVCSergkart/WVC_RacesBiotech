@@ -63,7 +63,12 @@
 
 	<WVC_XaG_NoSuitableTargets>There are no suitable targets.</WVC_XaG_NoSuitableTargets>
 
+
+	<WVC_XaG_OverriddenByItself>Overridden by itself</WVC_XaG_OverriddenByItself>
+	<!-- <WVC_XaG_SelfOverriderGene>&lt;color=#ff8585&gt;This gene can only be overriden by itself.&lt;/color&gt;</WVC_XaG_SelfOverriderGene> -->
+
 	<WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene>
+
 	<WVC_XaG_GenesSettings_DescTip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
 
 	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>

@@ -48,29 +48,41 @@ namespace WVC_XenotypesAndGenes
         public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
 
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-		{
-			if (base.overriddenByGene != null && base.overriddenByGene != this || lastTick > Find.TickManager.TicksGame)
-			{
-				SoundDefOf.ClickReject.PlayOneShotOnCamera();
-				return;
-			}
-			cycleTry = 0;
-			lastTick = Find.TickManager.TicksGame + 120;
-			if (Overridden)
-			{
-				overrided = false;
-				OverrideBy(null);
-			}
-			else
-			{
-				overrided = true;
-				OverrideBy(this);
-				UpdateMetabolism();
-			}
-			MiscUtility.Notify_DebugPawn(pawn);
+        {
+            if (OverridedByNonOverrider || lastTick > Find.TickManager.TicksGame)
+            {
+                SoundDefOf.ClickReject.PlayOneShotOnCamera();
+                return;
+            }
+            cycleTry = 0;
+			ResetCooldown();
+            if (Overridden)
+            {
+                overrided = false;
+                OverrideBy(null);
+            }
+            else
+            {
+                overrided = true;
+                OverrideBy(this);
+                UpdateMetabolism();
+            }
+            MiscUtility.Notify_DebugPawn(pawn);
 		}
 
-		public virtual bool RemoteControl_Hide => false;
+		public void ResetCooldown()
+		{
+			int cooldown = 30000;
+			if (MetHediffDef == null)
+            {
+				cooldown = 120;
+			}
+			lastTick = Find.TickManager.TicksGame + cooldown;
+		}
+
+		public bool OverridedByNonOverrider => base.overriddenByGene != null && base.overriddenByGene != this && base.overriddenByGene?.overriddenByGene != this;
+
+        public virtual bool RemoteControl_Hide => OverridedByNonOverrider;
 
 		public bool overrided = false;
 		//public bool OverridedBeforeSave => overrided;
@@ -90,6 +102,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				XaG_GeneUtility.Notify_GenesConflicts(pawn, def);
 			}
+			HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
 		}
 
 		private int cycleTry = 0;
@@ -134,6 +147,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
@@ -328,6 +342,8 @@ namespace WVC_XenotypesAndGenes
     public class Gene_SelfOverrider_Healing : Gene_SelfOverrider
 	{
 
+		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+
 		private bool? regenerateEyes;
 		public bool RegenerateEyes
 		{
@@ -348,7 +364,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, 100, WVC_Biotech.settings.totalHealingIgnoreScarification, 676, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 713, RegenerateEyes);
 		}
 
 	}
@@ -356,35 +372,39 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SelfOverrider_Stomach : Gene_SelfOverrider, IGeneNotifyGenesChanged
 	{
 
-		private float? cachedOffset;
-		public float Offset
-		{
-			get
-			{
-				if (!cachedOffset.HasValue)
-				{
-					cachedOffset = Gene_HungerlessStomach.GetFoodOffset(pawn);
-				}
-				return cachedOffset.Value;
+        private float? cachedOffset;
+        public float Offset
+        {
+            get
+            {
+                if (!cachedOffset.HasValue)
+                {
+                    cachedOffset = 0.1f / 60000 * 3101;
+                }
+                return cachedOffset.Value;
+            }
+        }
+
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+            cachedOffset = null;
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+            if (!pawn.IsHashIntervalTick(3101))
+            {
+                return;
 			}
-		}
-
-		public void Notify_GenesChanged(Gene changedGene)
-		{
-			cachedOffset = null;
-		}
-
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(3101))
+			if (GeneResourceUtility.DownedSleepOrInBed(pawn))
 			{
 				return;
 			}
 			GeneResourceUtility.OffsetNeedFood(pawn, Offset);
-		}
+        }
 
-		public override void Notify_IngestedThing(Thing thing, int numTaken)
+        public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			if (!Active)
             {

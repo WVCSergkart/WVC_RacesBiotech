@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- DEV NAME overrider -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Overrider</defName>
+	<label>overrider</label>
+	<description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
+	<displayPriority>-230</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<!-- basic set -->
+		<li>WVC_Chimera</li>
+		<li>WVC_Shapeshifter</li>
+		<li>WVC_CyberSkin</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>Hair_SnowWhite</li>
+		<li>Body_Standard</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<!-- <li>Ageless</li> -->
+		<!-- = Main feature = -->
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_WoundHealing_Overrider</li>
+		<li>WVC_Pain_Overrider</li>
+		<li>WVC_PerfectImmunity_Overrider</li>
+		<li>WVC_Health_Overrider</li>
+		<li>WVC_OverallAdaptation_Overrider</li>
+		<li>WVC_Stomach_Overrider</li>
+		<li>WVC_Wimp_Overrider</li>
+		<li>WVC_Tough_Overrider</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

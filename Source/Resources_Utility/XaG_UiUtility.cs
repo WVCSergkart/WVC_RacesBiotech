@@ -190,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 		public static string AdditionalInfo_GeneDef(GeneDef def)
 		{
 			string text = "";
-			if (def?.fur != null)
+			if (def.fur != null)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin".Translate().Colorize(ColoredText.TipSectionTitleColor);
 				if (!def.forcedHeadTypes.NullOrEmpty())
@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (def.selectionWeight == 0 || !def.canGenerateInGeneSet)
+			if (def.selectionWeight <= 0 || !def.canGenerateInGeneSet)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
