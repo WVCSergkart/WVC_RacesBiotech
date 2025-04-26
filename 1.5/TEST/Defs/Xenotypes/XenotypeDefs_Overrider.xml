@@ -18,9 +18,9 @@
 		<li>WVC_Chimera</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_CyberSkin</li>
-		<li>WVC_SkinColor_Slate</li>
 		<li>Hair_SnowWhite</li>
-		<li>Body_Standard</li>
+		<li>Skin_SheerWhite</li>
+		<!-- <li>WVC_Chameleon</li> -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- <li>Ageless</li> -->
 		<!-- = Main feature = -->
@@ -33,6 +33,8 @@
 		<li>WVC_Stomach_Overrider</li>
 		<li>WVC_Wimp_Overrider</li>
 		<li>WVC_Tough_Overrider</li>
+		<li>WVC_Learning_Overrider</li>
+		<li>WVC_NoLearning_Overrider</li>
 	</genes>
   </XenotypeDef>
 

@@ -290,11 +290,11 @@ namespace WVC_XenotypesAndGenes
                 };
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: NotifyGenesChanged",
+					defaultLabel = "DEV: DebugGenes",
 					action = delegate
 					{
 						Pawn pawn = parent as Pawn;
-						ReimplanterUtility.NotifyGenesChanged(pawn);
+						ReimplanterUtility.PostImplantDebug(pawn);
 					}
 				};
                 yield return new Command_Action

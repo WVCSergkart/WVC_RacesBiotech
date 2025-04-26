@@ -257,7 +257,7 @@ namespace WVC_XenotypesAndGenes
 			return west != null || south != null || east != null || north != null;
 		}
 
-		public static List<AbilityDef> ConvertAbilitiesInAbilityDefs(List<Ability> abilities)
+		public static List<AbilityDef> ConvertToDef(this List<Ability> abilities)
 		{
 			List<AbilityDef> list = new();
 			foreach (Ability item in abilities)
@@ -423,94 +423,94 @@ namespace WVC_XenotypesAndGenes
 
 		// Traits
 
-		public static bool HasAnyTraits(List<TraitDef> traitDefs, Pawn pawn)
-		{
-			List<Trait> traits = pawn?.story?.traits?.allTraits;
-			if (traits.NullOrEmpty() || traitDefs.NullOrEmpty())
-			{
-				return false;
-			}
-			for (int i = 0; i < traitDefs.Count; i++)
-			{
-				for (int j = 0; j < traits.Count; j++)
-				{
-					if (traits[j].def == traitDefs[i])
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
+		//public static bool HasAnyTraits(List<TraitDef> traitDefs, Pawn pawn)
+		//{
+		//	List<Trait> traits = pawn?.story?.traits?.allTraits;
+		//	if (traits.NullOrEmpty() || traitDefs.NullOrEmpty())
+		//	{
+		//		return false;
+		//	}
+		//	for (int i = 0; i < traitDefs.Count; i++)
+		//	{
+		//		for (int j = 0; j < traits.Count; j++)
+		//		{
+		//			if (traits[j].def == traitDefs[i])
+		//			{
+		//				return true;
+		//			}
+		//		}
+		//	}
+		//	return false;
+		//}
 
-		public static bool TraitHasAnyConflicts(List<Trait> traits, Trait trait)
-		{
-			foreach (Trait item in traits)
-			{
-				if (item.def.ConflictsWith(trait))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		//public static bool TraitHasAnyConflicts(List<Trait> traits, Trait trait)
+		//{
+		//	foreach (Trait item in traits)
+		//	{
+		//		if (item.def.ConflictsWith(trait))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
 		// public static void TransferTraits(Pawn target, Pawn source)
 		// {
-			// foreach (Trait trait in target.story.traits.allTraits.ToList())
-			// {
-				// target.story.traits.RemoveTrait(trait, true);
-				// if (target.story.traits.allTraits.Contains(trait) && trait.def.GetGenderSpecificCommonality(target.gender) > 0f)
-				// {
-					// target.story.traits.allTraits.Remove(trait);
-				// }
-			// }
-			// foreach (Trait trait in source.story.traits.allTraits.ToList())
-			// {
-				// if (trait.suppressedByGene != null || trait.sourceGene != null || trait.def.GetGenderSpecificCommonality(target.gender) <= 0f)
-				// {
-					// continue;
-				// }
-				// target.story.traits.GainTrait(trait, true);
-			// }
+		// foreach (Trait trait in target.story.traits.allTraits.ToList())
+		// {
+		// target.story.traits.RemoveTrait(trait, true);
+		// if (target.story.traits.allTraits.Contains(trait) && trait.def.GetGenderSpecificCommonality(target.gender) > 0f)
+		// {
+		// target.story.traits.allTraits.Remove(trait);
+		// }
+		// }
+		// foreach (Trait trait in source.story.traits.allTraits.ToList())
+		// {
+		// if (trait.suppressedByGene != null || trait.sourceGene != null || trait.def.GetGenderSpecificCommonality(target.gender) <= 0f)
+		// {
+		// continue;
+		// }
+		// target.story.traits.GainTrait(trait, true);
+		// }
 		// }
 
 		// Shape
 
 		// public static List<TraitDef> GetAllShiftProhibitedTraits()
 		// {
-			// List<TraitDef> list = new();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// list.AddRange(item.shapeShift_ProhibitedTraits);
-			// }
-			// return list;
+		// List<TraitDef> list = new();
+		// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+		// {
+		// list.AddRange(item.shapeShift_ProhibitedTraits);
+		// }
+		// return list;
 		// }
 
 		// public static List<PreceptDef> GetAllShiftProhibitedPrecepts()
 		// {
-			// List<PreceptDef> list = new();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// list.AddRange(item.shapeShift_ProhibitedPrecepts);
-			// }
-			// return list;
+		// List<PreceptDef> list = new();
+		// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+		// {
+		// list.AddRange(item.shapeShift_ProhibitedPrecepts);
+		// }
+		// return list;
 		// }
 
 		// Gene Spawner
 
-		public static List<ThingDef> GetAllThingInStuffCategory(StuffCategoryDef stuffCategoryDef)
-		{
-			List<ThingDef> list = new();
-			foreach (ThingDef item in DefDatabase<ThingDef>.AllDefsListForReading)
-			{
-				if (item.stuffProps != null && item.stuffProps.categories.Contains(stuffCategoryDef))
-				{
-					list.Add(item);
-				}
-			}
-			return list;
-		}
+		//public static List<ThingDef> GetAllThingInStuffCategory(StuffCategoryDef stuffCategoryDef)
+		//{
+		//	List<ThingDef> list = new();
+		//	foreach (ThingDef item in DefDatabase<ThingDef>.AllDefsListForReading)
+		//	{
+		//		if (item.stuffProps != null && item.stuffProps.categories.Contains(stuffCategoryDef))
+		//		{
+		//			list.Add(item);
+		//		}
+		//	}
+		//	return list;
+		//}
 
 		// Researchs
 
@@ -580,40 +580,24 @@ namespace WVC_XenotypesAndGenes
 			return dryad.TryGetComp<CompGestatedDryad>()?.Master;
 		}
 
-		[Obsolete]
-		public static int CountAllPlayerXenos()
-		{
-			int mult = 0;
-			// List<Map> maps = Find.Maps;
-			// for (int i = 0; i < maps.Count; i++)
-			// {
-				// foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				// {
-					// if (!item.IsHuman())
-					// {
-						// continue;
-					// }
-					// if (XaG_GeneUtility.PawnIsBaseliner(item))
-					// {
-						// continue;
-					// }
-					// mult++;
-				// }
-			// }
-			foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists)
-			{
-				if (!item.IsHuman())
-				{
-					continue;
-				}
-				if (XaG_GeneUtility.PawnIsBaseliner(item))
-				{
-					continue;
-				}
-				mult++;
-			}
-			return mult;
-		}
+		//[Obsolete]
+		//public static int CountAllPlayerXenos()
+		//{
+		//	int mult = 0;
+		//	foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists)
+		//	{
+		//		if (!item.IsHuman())
+		//		{
+		//			continue;
+		//		}
+		//		if (XaG_GeneUtility.PawnIsBaseliner(item))
+		//		{
+		//			continue;
+		//		}
+		//		mult++;
+		//	}
+		//	return mult;
+		//}
 
 		public static void CountAllPlayerControlledPawns_StaticCollection()
 		{

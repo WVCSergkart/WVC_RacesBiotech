@@ -257,4 +257,48 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Learning_Overrider</defName>
+	<label>overrided learning</label>
+	<labelShortAdj>over-learning</labelShortAdj>
+	<description>Carriers of this gene have archites that comprehensively develop the carrier on a permanent basis.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Learning</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_GoodLearning</iconPath> -->
+	<displayOrderInCategory>550</displayOrderInCategory>
+	<biostatMet>-6</biostatMet>
+	<forcedTraits>
+	  <li>
+		<def>PerfectMemory</def>
+	  </li>
+	</forcedTraits>
+	<customEffectDescriptions>
+	  <li>Guaranteed to teach &lt;color=#8a8ae6&gt;1 level&lt;/color&gt; in each skill every 12 days.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gen</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ius</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_NoLearning_Overrider</defName>
+	<label>overrided no-learning</label>
+	<labelShortAdj>over-no-learning</labelShortAdj>
+	<description>Carriers of this gene have archites that prevent standard skill learning but increase metabolism.</description>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoLearning</iconPath> -->
+	<displayOrderInCategory>555</displayOrderInCategory>
+	<biostatMet>6</biostatMet>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
 </Defs>

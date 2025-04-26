@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	[Obsolete]
+    [Obsolete]
 	public class Gene_Faceless : Gene
 	{
 
@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
             {
                 SetColor(pawn.genes.Xenotype.GetModExtension<GeneExtension_Giver>().defaultColor, true);
             }
-            else if (Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+            else if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
 				SetColor(countWithChance.color, countWithChance.visible);
 			}
@@ -92,13 +92,13 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: EyesColor",
 					action = delegate
                     {
-                        ChangeEyesColor();
+                        ChangeColor();
                     }
                 };
 			}
 		}
 
-        public void ChangeEyesColor(bool closeOnAccept = true)
+        public virtual void ChangeColor(bool closeOnAccept = true)
 		{
 			Find.WindowStack.Add(new Dialog_ChangeEyesColor(this, closeOnAccept));
 			//        List<FloatMenuOption> list = new();
@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 
         public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			ChangeEyesColor();
+			ChangeColor();
 			genesSettings.Close();
 		}
 

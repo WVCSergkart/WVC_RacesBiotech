@@ -260,7 +260,7 @@ namespace WVC_XenotypesAndGenes
                     Gene_Eyes gene_Eyes = pawn.genes.GetFirstGeneOfType<Gene_Eyes>();
                     if (gene_Eyes != null)
                     {
-						gene_Eyes.ChangeEyesColor(false);
+						gene_Eyes.ChangeColor(false);
 					}
 					else
 					{

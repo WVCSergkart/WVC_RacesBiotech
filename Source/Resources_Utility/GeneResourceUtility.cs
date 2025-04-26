@@ -403,26 +403,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		[Obsolete]
-		public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
-		{
-			TraitSet traitSet = pawn.story.traits;
-			if (geneExtension == null || traitSet.allTraits.Count > 1)
-			{
-				return;
-			}
-			GeneralHolder traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneralHolder x) => x.weight);
-			float chance = traitDefWithWeight.weight;
-			Trait trait = new(traitDefWithWeight.traitDef);
-			if (traitSet.allTraits.Contains(trait) || MiscUtility.TraitHasAnyConflicts(traitSet.allTraits, trait))
-			{
-				return;
-			}
-			if (Rand.Chance(chance))
-			{
-				traitSet.GainTrait(trait);
-			}
-		}
+		//[Obsolete]
+		//public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
+		//{
+		//	TraitSet traitSet = pawn.story.traits;
+		//	if (geneExtension == null || traitSet.allTraits.Count > 1)
+		//	{
+		//		return;
+		//	}
+		//	GeneralHolder traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneralHolder x) => x.weight);
+		//	float chance = traitDefWithWeight.weight;
+		//	Trait trait = new(traitDefWithWeight.traitDef);
+		//	if (traitSet.allTraits.Contains(trait) || MiscUtility.TraitHasAnyConflicts(traitSet.allTraits, trait))
+		//	{
+		//		return;
+		//	}
+		//	if (Rand.Chance(chance))
+		//	{
+		//		traitSet.GainTrait(trait);
+		//	}
+		//}
 
 		// Shapeshift
 		public static bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)

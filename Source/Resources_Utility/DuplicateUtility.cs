@@ -156,10 +156,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (trait.sourceGene == null)
 				{
-					trait.suppressedByGene = null;
-					trait.sourceGene = null;
-					trait.suppressedByTrait = false;
-					trait.pawn?.story?.traits?.RemoveTrait(trait, true);
+					//trait.suppressedByGene = null;
+					//trait.sourceGene = null;
+					//trait.suppressedByTrait = false;
+					//trait.pawn?.story?.traits?.RemoveTrait(trait, true);
+					trait.RemoveTrait(trait.pawn);
 					traitsCount++;
 				}
 			}
@@ -525,10 +526,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Trait trait in traits.ToList())
 			{
-				trait.suppressedByGene = null;
-				trait.sourceGene = null;
-				trait.suppressedByTrait = false;
-				trait.pawn?.story?.traits?.RemoveTrait(trait, true);
+				//trait.suppressedByGene = null;
+				//trait.sourceGene = null;
+				//trait.suppressedByTrait = false;
+				//trait.pawn?.story?.traits?.RemoveTrait(trait, true);
+				trait.RemoveTrait(trait.pawn);
 			}
 		}
 

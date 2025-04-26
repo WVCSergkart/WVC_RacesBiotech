@@ -462,9 +462,10 @@ namespace WVC_XenotypesAndGenes
                 {
                     if (!lockedTraits.Contains(trait.def))
                     {
-                        trait.suppressedByGene = null;
-                        trait.suppressedByTrait = false;
-                        traitSet.RemoveTrait(trait, true);
+                        //trait.suppressedByGene = null;
+                        //trait.suppressedByTrait = false;
+                        //traitSet.RemoveTrait(trait, true);
+                        trait.RemoveTrait(pawn);
                     }
                 }
                 foreach (TraitDefHolder holder in selectedTraitHolders)

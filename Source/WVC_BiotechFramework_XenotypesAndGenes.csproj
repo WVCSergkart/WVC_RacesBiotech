@@ -79,6 +79,7 @@
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
+    <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
     <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
     <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Utility\InitialUtility.cs" />
     <Compile Include="Resources_Utility\InteractionUtility.cs" />
+    <Compile Include="Resources_Utility\TraitsUtility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />

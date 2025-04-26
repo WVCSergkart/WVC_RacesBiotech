@@ -72,6 +72,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetCooldown()
 		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				return;
+			}
 			int cooldown = 30000;
 			if (MetHediffDef == null)
             {
@@ -397,6 +401,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			if (GeneResourceUtility.DownedSleepOrInBed(pawn))
 			{
 				return;
@@ -415,4 +423,75 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SelfOverrider_Learning : Gene_SelfOverrider
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			AddTraits();
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(37194))
+			{
+				return;
+			}
+			AutoLearning();
+		}
+
+		private void AutoLearning()
+		{
+			foreach (SkillRecord skillRecord in pawn.skills.skills)
+			{
+				if (!skillRecord.TotallyDisabled)
+                {
+					skillRecord.Learn(skillRecord.XpRequiredForLevelUp * (1f / (60000 * 12) * 37194), false, true);
+				}
+			}
+		}
+
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
+			GeneTraitUpd();
+		}
+
+		public override void Notify_Override()
+		{
+			base.Notify_Override();
+			GeneTraitUpd();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			RemoveTraits();
+		}
+
+		public void GeneTraitUpd()
+        {
+            if (Active)
+            {
+                AddTraits();
+            }
+            else
+            {
+                RemoveTraits();
+            }
+        }
+
+        private void AddTraits()
+        {
+			TraitsUtility.AddGeneTraits(pawn, this);
+        }
+
+        private void RemoveTraits()
+        {
+			TraitsUtility.RemoveGeneTraits(pawn, this);
+        }
+
+    }
 }

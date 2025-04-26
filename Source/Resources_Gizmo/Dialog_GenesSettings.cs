@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -13,21 +14,26 @@ namespace WVC_XenotypesAndGenes
 		public List<IGeneRemoteControl> genes;
 
 		public Dialog_GenesSettings(Pawn pawn)
-		{
-			//remoteContoller.RemoteControl_Recache();
-			this.genes = new();
-			foreach (Gene item in pawn.genes.GenesListForReading)
+        {
+            //remoteContoller.RemoteControl_Recache();
+            UpdGenes(pawn);
+            forcePause = true;
+            doCloseButton = true;
+        }
+
+        private void UpdGenes(Pawn pawn)
+        {
+            this.genes = new();
+            foreach (Gene item in pawn.genes.GenesListForReading)
             {
-				if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
+                if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
                 {
-					genes.Add(controller);
+                    genes.Add(controller);
                 }
             }
-            forcePause = true;
-			doCloseButton = true;
-		}
+        }
 
-		protected Vector2 scrollPosition;
+        protected Vector2 scrollPosition;
 		protected float bottomAreaHeight;
 
 		public override void DoWindowContents(Rect inRect)
@@ -59,6 +65,8 @@ namespace WVC_XenotypesAndGenes
 					{
 						controller.RemoteControl_Action(this);
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
+						UpdGenes(gene.pawn);
+						break;
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;

@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_Eyes gene = pawn?.genes?.GetFirstGeneOfType<Gene_Eyes>();
 			if (gene != null && gene.def.geneClass == typeof(Gene_Eyes))
 			{
-				gene.ChangeEyesColor();
+				gene.ChangeColor();
 			}
 		}
 

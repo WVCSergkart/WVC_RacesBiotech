@@ -272,16 +272,25 @@ namespace WVC_XenotypesAndGenes
         {
             try
             {
-                foreach (Gene item in pawn.genes.GenesListForReading)
+				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDef();
+                List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+                foreach (Gene item in genesListForReading)
                 {
-                    if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, pawn))
+                    if (item.overriddenByGene != null && !genesListForReading.Contains(item))
                     {
                         item.OverrideBy(null);
                     }
+                    //if (item.Active)
+                    //{
+                    //	TraitsUtility.AddGeneTraits(pawn, item);
+                    //	//XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
+                    //}
+                    XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
+                    NotifyGenesChanged(item);
                 }
-                XaG_GameComponent.AddMissingGeneAbilities(pawn);
-                ReimplanterUtility.FixGeneTraits(pawn);
-                NotifyGenesChanged(pawn);
+                //XaG_GameComponent.AddMissingGeneAbilities(pawn);
+                TraitsUtility.FixGeneTraits(pawn, genesListForReading);
+                //NotifyGenesChanged(pawn);
                 if (DebugSettings.ShowDevGizmos)
                 {
                     Log.Warning("Post implant debug called.");
@@ -293,6 +302,15 @@ namespace WVC_XenotypesAndGenes
 			}
         }
 
+        public static void NotifyGenesChanged(Gene item)
+        {
+            if (item is IGeneNotifyGenesChanged iGeneNotifyGenesChanged)
+            {
+                iGeneNotifyGenesChanged.Notify_GenesChanged(null);
+            }
+        }
+
+        [Obsolete]
         public static void NotifyGenesChanged(Pawn pawn)
 		{
 			foreach (Gene item in pawn.genes.GenesListForReading)
@@ -312,7 +330,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Gene item in genes)
 			{
-				if (item.def.ConflictsWith(gene.def))
+				if (item != gene && item.def.ConflictsWith(gene.def))
 				{
 					item.OverrideBy(gene);
 				}
@@ -354,45 +372,6 @@ namespace WVC_XenotypesAndGenes
                 xenotypeHasHairColor = true;
             }
         }
-
-        public static void FixGeneTraits(Pawn pawn)
-		{
-			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
-			{
-				if (trait.sourceGene != null && !XaG_GeneUtility.HasGene(trait.sourceGene.def, pawn))
-				{
-					trait.sourceGene = null;
-					trait.suppressedByGene = null;
-					trait.suppressedByTrait = false;
-					pawn.story.traits.RemoveTrait(trait, true);
-					pawn.story.traits.allTraits?.Remove(trait);
-				}
-				if (trait.suppressedByGene != null && !XaG_GeneUtility.HasGene(trait.suppressedByGene.def, pawn))
-				{
-					trait.suppressedByGene = null;
-				}
-			}
-			//foreach (Trait trait in pawn.story.traits.allTraits.ToList())
-			//{
-			//	if (trait.suppressedByTrait && !TraitHasConflicts(pawn, trait))
-			//	{
-			//		trait.suppressedByTrait = false;
-			//	}
-			//}
-		}
-
-		public static bool TraitHasConflicts(Pawn pawn, Trait selectedTrait)
-		{
-			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
-			{
-				if (selectedTrait.def.ConflictsWith(trait))
-				{
-					//Log.Error(trait.def.defName + " conflict with " + selectedTrait.def.defName);
-					return true;
-				}
-			}
-			return false;
-		}
 
 		// =============================== Setter ===============================
 

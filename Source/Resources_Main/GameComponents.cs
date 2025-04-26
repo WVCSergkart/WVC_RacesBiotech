@@ -148,23 +148,28 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddMissingGeneAbilities(Pawn item)
 		{
-			List<AbilityDef> pawnAbilities = MiscUtility.ConvertAbilitiesInAbilityDefs(item.abilities.AllAbilitiesForReading);
+			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDef(item.abilities.AllAbilitiesForReading);
 			foreach (Gene gene in item.genes.GenesListForReading)
-			{
-				if (gene.def?.abilities != null)
-				{
-					foreach (AbilityDef ability in gene.def.abilities)
-					{
-						if (!pawnAbilities.Contains(ability))
-						{
-							item.abilities.GainAbility(ability);
-						}
-					}
-				}
-			}
-		}
+            {
+                AddMissingGeneAbilities(item, pawnAbilities, gene);
+            }
+        }
 
-		private static void ResetGenes()
+		public static void AddMissingGeneAbilities(Pawn item, List<AbilityDef> pawnAbilities, Gene gene)
+        {
+            if (gene.def?.abilities != null)
+            {
+                foreach (AbilityDef ability in gene.def.abilities)
+                {
+                    if (!pawnAbilities.Contains(ability))
+                    {
+                        item.abilities.GainAbility(ability);
+                    }
+                }
+            }
+        }
+
+        private static void ResetGenes()
 		{
 			if (WVC_Biotech.settings.resetGenesOnLoad)
 			{
