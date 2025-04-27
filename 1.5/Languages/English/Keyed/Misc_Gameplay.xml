@@ -995,6 +995,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_SelfOverrideDesc>Allows to override the gene at any time.</WVC_XaG_SelfOverrideDesc>
 
+	<WVC_Style>Style</WVC_Style>
+
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>
 	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>

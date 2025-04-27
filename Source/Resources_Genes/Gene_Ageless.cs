@@ -13,7 +13,8 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> endogenes = pawn.genes.Endogenes;
 			if (endogenes.Contains(this))
 			{
-				AgelessUtility.Rejuvenation(pawn);
+				//AgelessUtility.Rejuvenation(pawn);
+				AgelessUtility.InitialRejuvenation(pawn);
 			}
 		}
 
@@ -30,19 +31,16 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!Active)
-			{
-				return;
-			}
-			Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
-			if (gene_Resurgent != null)
-			{
-				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
-				// {
-				// pawn.ageTracker.AgeBiologicalTicks = (oneYear * humanAdultAge) + 100000;
-				// }
-				AgelessUtility.Rejuvenation(pawn);
-			}
+			//if (!Active)
+			//{
+			//	return;
+			//}
+			//Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
+			//if (gene_Resurgent != null)
+			//{
+			//	AgelessUtility.Rejuvenation(pawn);
+			//}
+			AgelessUtility.InitialRejuvenation(pawn);
 			ResetInterval();
 		}
 
@@ -117,19 +115,15 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!Active)
-			{
-				return;
-			}
-			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (Resurgent != null)
-			{
-				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
-				// {
-				// pawn.ageTracker.AgeBiologicalTicks = (oneYear * humanAdultAge) + 100000;
-				// }
-				AgelessUtility.Rejuvenation(pawn);
-			}
+			//if (!Active)
+			//{
+			//	return;
+			//}
+			//if (Resurgent != null)
+			//{
+			//	AgelessUtility.Rejuvenation(pawn);
+			//}
+			AgelessUtility.InitialRejuvenation(pawn);
 			ResetInterval();
 		}
 

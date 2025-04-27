@@ -494,4 +494,31 @@ namespace WVC_XenotypesAndGenes
         }
 
     }
+
+    public class Gene_SelfOverrider_Ageless : Gene_SelfOverrider
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			AgelessUtility.InitialRejuvenation(pawn);
+		}
+
+		public void AgeRevers()
+		{
+			AgelessUtility.TryAgeReverse(pawn);
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(59001))
+			{
+				return;
+			}
+			AgeRevers();
+		}
+
+	}
+
 }

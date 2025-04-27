@@ -6,13 +6,13 @@ namespace WVC_XenotypesAndGenes
 {
     public class Gene_Chameleon : Gene, IGeneRemoteControl
 	{
-		public string RemoteActionName => "WVC_Color".Translate();
+		public string RemoteActionName => "WVC_Style".Translate();
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
+		public string RemoteActionDesc => "WVC_XaG_GeneShapeshifterStyles_Desc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			Find.WindowStack.Add(new Dialog_StylingGene(pawn, this, false, true));
+			Find.WindowStack.Add(new Dialog_StylingGene(pawn, this, true, true));
 			genesSettings.Close();
 		}
 

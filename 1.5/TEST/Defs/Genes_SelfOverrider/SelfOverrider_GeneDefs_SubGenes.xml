@@ -301,4 +301,49 @@
 	</statFactors>
   </GeneDef>
 
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Ageless_Overrider</defName>
+	<label>overrided ageless</label>
+	<labelShortAdj>over-age</labelShortAdj>
+	<description>Carriers of this gene have archites that stop aging and rejuvenate.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Ageless</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Ageless</iconPath> -->
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>560</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>If the pawn's age is above 18, it will begin to rejuvenate by 1 year every day.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Aging_Overrider</defName>
+	<label>overrided aging</label>
+	<labelShortAdj>over-aging</labelShortAdj>
+	<description>Carriers of this gene have archites that improve metabolism but lead to rapid aging.</description>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_FastAging</iconPath> -->
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>565</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Lovin is triggered 12 times less often.</li>
+	</customEffectDescriptions>
+	<lovinMTBFactor>12</lovinMTBFactor>
+	<statFactors>
+	  <LifespanFactor>0.2</LifespanFactor>
+	  <CancerRate>8</CancerRate>
+	</statFactors>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 8)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+  </GeneDef>
+
 </Defs>

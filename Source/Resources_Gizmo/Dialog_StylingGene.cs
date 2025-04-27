@@ -119,16 +119,28 @@ namespace WVC_XenotypesAndGenes
 							allHairColors.Add(color);
 						}
 					}
+					foreach (GeneDef allDef in DefDatabase<GeneDef>.AllDefsListForReading)
+					{
+						if (!allDef.hairColorOverride.HasValue)
+                        {
+							continue;
+                        }
+						Color color = allDef.hairColorOverride.Value;
+						if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+						{
+							allHairColors.Add(color);
+						}
+					}
 					allHairColors.SortByColor((Color x) => x);
 				}
 				return allHairColors;
 			}
 		}
 
-		public bool unlockRecolor;
+		public bool unlockTattoos;
 		public bool unlockEyesRecolor;
 
-		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockRecolor, bool unlockEyesRecolor = true)
+		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockEyesRecolor = true)
 		{
 			this.pawn = pawn;
 			this.gene = gene;
@@ -137,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 			initialBeardDef = pawn.style.beardDef;
 			initialFaceTattoo = pawn.style.FaceTattoo;
 			initialBodyTattoo = pawn.style.BodyTattoo;
-			this.unlockRecolor = unlockRecolor;
+			this.unlockTattoos = unlockTattoos;
 			this.unlockEyesRecolor = unlockEyesRecolor;
 			forcePause = true;
 			showClothes = false;
@@ -242,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 					curTab = StylingTab.Beard;
 				}, curTab == StylingTab.Beard));
 			}
-			if (unlockRecolor)
+			if (unlockTattoos)
 			{
 				tabs.Add(new TabRecord("TattooFace".Translate().CapitalizeFirst(), delegate
 				{
@@ -288,7 +300,7 @@ namespace WVC_XenotypesAndGenes
 				}, delegate(HairDef h)
 				{
 					pawn.story.hairDef = h;
-				}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockRecolor);
+				}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockTattoos);
 				break;
 			case StylingTab.Beard:
 				DrawStylingItemType(rect, ref beardScrollPosition, delegate(Rect r, BeardDef b)

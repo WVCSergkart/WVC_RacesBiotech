@@ -25,6 +25,14 @@ namespace WVC_XenotypesAndGenes
 			AddAge(pawn, ageInYears * 3600000);
 		}
 
+		public static void InitialRejuvenation(Pawn pawn)
+		{
+			if (Current.ProgramState != ProgramState.Playing)
+			{
+				AgelessUtility.Rejuvenation(pawn);
+			}
+		}
+
 		public static void Rejuvenation(Pawn pawn)
 		{
 			if ((3600000 * 18) <= pawn.ageTracker.AgeBiologicalTicks)
@@ -78,5 +86,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-	}
+		public static bool TryAgeReverse(Pawn pawn)
+        {
+            if (CanAgeReverse(pawn))
+			{
+				AgeReverse(pawn);
+				return true;
+			}
+			return false;
+        }
+
+    }
 }

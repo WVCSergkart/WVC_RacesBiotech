@@ -15,14 +15,22 @@
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 		<!-- basic set -->
-		<li>WVC_Chimera</li>
-		<li>WVC_Shapeshifter</li>
-		<li>WVC_CyberSkin</li>
-		<li>Hair_SnowWhite</li>
-		<li>Skin_SheerWhite</li>
-		<!-- <li>WVC_Chameleon</li> -->
-		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_DeathRefusal</li>
+		<!-- <li>WVC_Chimera</li> -->
+		<!-- <li>WVC_Shapeshifter</li> -->
+		<!-- <li>WVC_Eyes_Colorful</li> -->
+		<li>WVC_Chameleon</li>
+		<!-- <li>WVC_CyberSkin</li> -->
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_FleshmassArmor</li>
+		<li>WVC_FleshmassRegeneration</li>
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_MilkWhite</li>
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
 		<!-- <li>Ageless</li> -->
+		<li>WVC_LongTentacleTail</li>
 		<!-- = Main feature = -->
 		<li>WVC_MechaPowerSource_Tox</li>
 		<li>WVC_WoundHealing_Overrider</li>
@@ -35,7 +43,15 @@
 		<li>WVC_Tough_Overrider</li>
 		<li>WVC_Learning_Overrider</li>
 		<li>WVC_NoLearning_Overrider</li>
+		<li>WVC_Aging_Overrider</li>
+		<li>WVC_Ageless_Overrider</li>
 	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(161, 161, 255)</defaultColor>
+			<morpherTriggerGene>WVC_MorphCondition_DeathRefusal</morpherTriggerGene>
+		</li>
+	</modExtensions>
   </XenotypeDef>
 
 </Defs>
