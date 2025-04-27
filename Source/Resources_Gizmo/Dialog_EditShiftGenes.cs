@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
         {
             this.gene = gene;
             //this.callback = callback;
-            pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+            pawnGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading);
             selectedGenes = new();
             allGenes = new();
             inheritable = !gene.pawn.genes.IsXenogene(gene);

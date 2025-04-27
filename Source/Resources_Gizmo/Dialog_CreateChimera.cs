@@ -884,9 +884,9 @@ namespace WVC_XenotypesAndGenes
         {
             //selectedGenes = new();
             cachedGeneDefsInOrder = new();
-            pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-            pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-            pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+            pawnGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading);
+            pawnXenoGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.Xenogenes);
+            pawnEndoGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.Endogenes);
             allGenes = gene.CollectedGenes;
             eatedGenes = gene.EatedGenes;
 			selectedGenes = pawnXenoGenes;

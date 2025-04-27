@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = target.Pawn;
 			if (pawn != null && ChimeraGene != null)
 			{
-				if (ChimeraGene.TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading), out GeneDef result))
+				if (ChimeraGene.TryGetGene(XaG_GeneUtility.ConvertToDefs(pawn.genes.GenesListForReading), out GeneDef result))
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(parent.pawn.NameShortColored, result.label), parent.pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}

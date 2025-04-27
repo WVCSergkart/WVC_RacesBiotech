@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn)
 		{
-			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
+			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
 			ThrallMaker(innerPawn, thrallDef);
 			if (thrallDef.addGenesFromAbility)
 			{
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			List<GeneDef> currentPawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
+			List<GeneDef> currentPawnGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
 			if (!oldXenotypeGenes.NullOrEmpty())
 			{
 				int count = (int)(oldXenotypeGenes.Count * 0.2f);
@@ -141,8 +141,8 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
 			}
-			currentPawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
-			List<GeneDef> allMasterGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(parent.pawn.genes.GenesListForReading);
+			currentPawnGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
+			List<GeneDef> allMasterGenes = XaG_GeneUtility.ConvertToDefs(parent.pawn.genes.GenesListForReading);
 			if (!allMasterGenes.NullOrEmpty())
 			{
 				int count = (int)(allMasterGenes.Count * 0.2f);

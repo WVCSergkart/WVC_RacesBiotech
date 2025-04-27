@@ -346,7 +346,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryGetRandomHumanGene(victim, out GeneDef result) || TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(genes), out result))
+			if (TryGetRandomHumanGene(victim, out GeneDef result) || TryGetGene(XaG_GeneUtility.ConvertToDefs(genes), out result))
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}

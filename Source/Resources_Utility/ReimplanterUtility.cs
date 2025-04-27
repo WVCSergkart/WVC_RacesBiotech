@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 			// pawn.genes.xenotypeName = "WVC_XaG_SubXenotypeUnknownXenotypeError".Translate();
 			// pawn.genes.iconDef = WVC_GenesDefOf.WVC_XenoRandomKindc;
 			pawn.genes?.SetXenotypeDirect(XenotypeDefOf.Baseliner);
-			pawn.genes.xenotypeName = xenotypeName ?? GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading));
+			pawn.genes.xenotypeName = xenotypeName ?? GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertToDefs(pawn.genes.GenesListForReading));
 			pawn.genes.iconDef = xenotypeIconDef ?? DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
 
@@ -272,7 +272,7 @@ namespace WVC_XenotypesAndGenes
         {
             try
             {
-				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDef();
+				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDefs();
                 List<Gene> genesListForReading = pawn.genes.GenesListForReading;
                 foreach (Gene item in genesListForReading)
                 {

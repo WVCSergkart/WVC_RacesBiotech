@@ -449,7 +449,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedGeneDefsInOrder = new();
 			allGenes = new();
-			foreach (GeneDef item in XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading))
+			foreach (GeneDef item in XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading))
             {
 				if (!allGenes.Contains(item))
 				{

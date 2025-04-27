@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<TraitDef> checkedList = pawn.story.traits.allTraits.ConvertToDef();
+			List<TraitDef> checkedList = pawn.story.traits.allTraits.ConvertToDefs();
 			foreach (GeneticTraitData geneticTraitData in gene.def.forcedTraits)
 			{
 				if (!checkedList.Contains(geneticTraitData.def))
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.story.traits.allTraits.Remove(trait);
 		}
 
-		public static List<TraitDef> ConvertToDef(this List<Trait> list)
+		public static List<TraitDef> ConvertToDefs(this List<Trait> list)
 		{
 			List<TraitDef> newList = new();
 			foreach (Trait item in list)

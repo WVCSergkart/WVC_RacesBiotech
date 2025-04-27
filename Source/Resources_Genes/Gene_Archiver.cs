@@ -388,11 +388,11 @@ namespace WVC_XenotypesAndGenes
 				List<GeneDef> selectedGenes = new();
 				if (!geneTracker.Xenogenes.NullOrEmpty())
 				{
-					selectedGenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(geneTracker.Xenogenes));
+					selectedGenes.AddRange(XaG_GeneUtility.ConvertToDefs(geneTracker.Xenogenes));
 				}
 				if (!geneTracker.Endogenes.NullOrEmpty())
 				{
-					selectedGenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(geneTracker.Endogenes));
+					selectedGenes.AddRange(XaG_GeneUtility.ConvertToDefs(geneTracker.Endogenes));
 				}
 				if (!selectedGenes.Contains(def))
 				{

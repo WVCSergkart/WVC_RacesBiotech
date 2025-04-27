@@ -67,9 +67,9 @@ namespace WVC_XenotypesAndGenes
 			return TrySetHybridXenotype(pawn, devXenotypeDef.genes, firstXenotype.genes, secondXenotype.genes, devXenotypeDef.inheritable, devXenotypeDef.exceptedGenes);
 		}
 
-		public static bool TrySetHybridXenotype(Pawn caster, Pawn victim, Gene implanterGene, bool inheritable)
+		public static bool TrySetHybridXenotype(Pawn caster, Pawn victim, List<Gene> ignoredGenes, bool inheritable)
 		{
-			return TrySetHybridXenotype(caster, new() { implanterGene.def }, XaG_GeneUtility.ConvertGenesInGeneDefs(caster.genes.GenesListForReading), XaG_GeneUtility.ConvertGenesInGeneDefs(victim.genes.GenesListForReading), inheritable, new());
+			return TrySetHybridXenotype(caster, ignoredGenes.ConvertToDefs(), XaG_GeneUtility.ConvertToDefs(caster.genes.GenesListForReading), XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading), inheritable, new());
 		}
 
 		private static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> mainXenotypeGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
@@ -78,7 +78,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            pawn.genes.Endogenes.RemoveAllGenes(mainXenotypeGenes);
+			if (!inheritable)
+			{
+				pawn.genes.Endogenes.RemoveAllGenes(mainXenotypeGenes);
+			}
             pawn.genes.Xenogenes.RemoveAllGenes(mainXenotypeGenes);
             AddGenes(pawn, allNewGenes, inheritable, new());
 			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
@@ -340,7 +343,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddGenes(Pawn pawn, List<GeneDef> genes, bool inheritable, List<GeneDef> removeGenes)
 		{
-			List<GeneDef> genesListForReading = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
+			List<GeneDef> genesListForReading = XaG_GeneUtility.ConvertToDefs(pawn.genes.GenesListForReading);
 			for (int i = 0; i < genes.Count; i++)
 			{
 				if (!removeGenes.Contains(genes[i]) && !genesListForReading.Contains(genes[i]))

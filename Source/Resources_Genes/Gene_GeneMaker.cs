@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 		private GeneDef GetGene(Pawn pawn)
 		{
 			List<XenotypeDef> allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), Props.matchPercent);
-			List<GeneDef> allGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
+			List<GeneDef> allGenes = XaG_GeneUtility.ConvertToDefs(pawn.genes.GenesListForReading);
 			foreach (XenotypeDef xenoDef in allMatchedXenotypes)
 			{
 				foreach (GeneDef geneDef in xenoDef.genes)

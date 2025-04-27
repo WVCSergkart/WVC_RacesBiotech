@@ -363,7 +363,7 @@ namespace WVC_XenotypesAndGenes
 			selectedEndogenes = new();
 			if (!selectedGeneSetHolder.endogenes.NullOrEmpty())
 			{
-				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(selectedGeneSetHolder.endogenes));
+				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.endogenes));
 			}
 			else if (!selectedGeneSetHolder.endogeneDefs.NullOrEmpty())
 			{
@@ -372,7 +372,7 @@ namespace WVC_XenotypesAndGenes
 			selectedXenogenes = new();
 			if (!selectedGeneSetHolder.xenogenes.NullOrEmpty())
 			{
-				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(selectedGeneSetHolder.xenogenes));
+				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.xenogenes));
 			}
 			else if (!selectedGeneSetHolder.xenogeneDefs.NullOrEmpty())
 			{
@@ -380,8 +380,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (selectedGeneSetHolder is PawnContainerHolder holder)
 			{
-				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(holder.holded.genes.Endogenes));
-				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(holder.holded.genes.Xenogenes));
+				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertToDefs(holder.holded.genes.Endogenes));
+				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertToDefs(holder.holded.genes.Xenogenes));
 			}
 			selectedEndogenes.SortGeneDefs();
 			selectedXenogenes.SortGeneDefs();

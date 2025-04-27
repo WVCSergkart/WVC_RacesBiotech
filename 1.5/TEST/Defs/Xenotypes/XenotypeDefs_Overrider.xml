@@ -31,7 +31,9 @@
 		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
 		<!-- <li>Ageless</li> -->
 		<li>WVC_LongTentacleTail</li>
+		<li>WVC_Neversleep</li>
 		<!-- = Main feature = -->
+		<li>WVC_HybridImplanter</li>
 		<li>WVC_MechaPowerSource_Tox</li>
 		<li>WVC_WoundHealing_Overrider</li>
 		<li>WVC_Pain_Overrider</li>

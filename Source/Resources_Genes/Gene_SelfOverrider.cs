@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
+        public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate() + ":\n\n" + def.DescriptionFull;
 
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
         {

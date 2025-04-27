@@ -387,7 +387,7 @@ namespace WVC_XenotypesAndGenes
             return true;
 		}
 
-		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
+		public static List<GeneDef> ConvertToDefs(this List<Gene> genes)
 		{
 			List<GeneDef> geneDefs = new();
 			if (genes.NullOrEmpty())

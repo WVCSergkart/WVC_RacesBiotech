@@ -32,7 +32,12 @@ namespace WVC_XenotypesAndGenes
 			if (victim != null)
 			{
                 Pawn caster = parent.pawn;
-                if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, Gene, Gene.IsEndogene))
+                List<Gene> ignoredGenes = Gene.IsEndogene ? caster.genes.Endogenes : caster.genes.Xenogenes;
+				if (!ignoredGenes.Contains(Gene))
+				{
+					ignoredGenes.Add(Gene);
+				}
+				if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, ignoredGenes, false))
 				{
 					if (Props.xenotypeDef != null && (caster.genes.Xenotype is not DevXenotypeDef hybrid || !hybrid.isHybrid))
 					{

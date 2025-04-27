@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error("Parent is null");
 				return;
 			}
-			List<GeneDef> genes = XaG_GeneUtility.ConvertGenesInGeneDefs(parent.genes.Endogenes);
+			List<GeneDef> genes = XaG_GeneUtility.ConvertToDefs(parent.genes.Endogenes);
 			foreach (GeneDef gene in genes)
 			{
 				if (geneSet.GenesListForReading.Contains(gene))

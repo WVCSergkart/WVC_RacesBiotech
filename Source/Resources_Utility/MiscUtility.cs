@@ -257,7 +257,7 @@ namespace WVC_XenotypesAndGenes
 			return west != null || south != null || east != null || north != null;
 		}
 
-		public static List<AbilityDef> ConvertToDef(this List<Ability> abilities)
+		public static List<AbilityDef> ConvertToDefs(this List<Ability> abilities)
 		{
 			List<AbilityDef> list = new();
 			foreach (Ability item in abilities)

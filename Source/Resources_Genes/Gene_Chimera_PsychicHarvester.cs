@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (Chimera.TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(genes), out GeneDef result))
+				if (Chimera.TryGetGene(XaG_GeneUtility.ConvertToDefs(genes), out GeneDef result))
 				{
 					victim.genes.RemoveGene(victim.genes.GetGene(result));
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);

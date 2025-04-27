@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddMissingGeneAbilities(Pawn item)
 		{
-			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDef(item.abilities.AllAbilitiesForReading);
+			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDefs(item.abilities.AllAbilitiesForReading);
 			foreach (Gene gene in item.genes.GenesListForReading)
             {
                 AddMissingGeneAbilities(item, pawnAbilities, gene);
