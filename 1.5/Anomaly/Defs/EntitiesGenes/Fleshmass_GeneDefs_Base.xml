@@ -28,7 +28,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
 	<defName>WVC_FleshmassNucleus</defName>
 	<label>fleshmass nucleus</label>
-	<description>Carriers of this gene have archites that form inside the fleshmass nucleus. It gives incredibly fast regeneration and causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass heart.</description>
+	<description>Carriers of this gene have archites that form inside the fleshmass nucleus. It causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass heart.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassNucleus</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassNucleus_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
