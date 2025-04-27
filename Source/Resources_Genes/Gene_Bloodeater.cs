@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(canAutoFeed);
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(spawnGenepack);
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlGeneMakerDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlGeneMakerDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

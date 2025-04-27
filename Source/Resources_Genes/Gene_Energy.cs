@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -301,7 +301,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoCharge);
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlHemogenRechargeDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlHemogenRechargeDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

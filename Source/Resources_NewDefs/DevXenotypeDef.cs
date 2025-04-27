@@ -117,7 +117,7 @@ namespace WVC_XenotypesAndGenes
             }
             XenotypeDef firstXenotypeDef = xenotypeDefs.First();
             XenotypeDef secondXenotypeDef = xenotypeDefs.Last();
-            if (!SubXenotypeUtility.TryGetHybridGenes(firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes))
+            if (!SubXenotypeUtility.TryGetHybridGenes(firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes, new()))
             {
                 description = "ERROR. FAILED CREATE HYBRID XENOTYPE FROM: Undead and Duplicator. Before reporting a problem, please make sure it is not caused by third-party changes.";
                 Log.Error("Failed create hybrid from: " + firstXenotypeDef.defName + " and " + secondXenotypeDef.defName + ". Because their total metabolism is not compatible. Please set other xenotypes in xenotypeDefs.");

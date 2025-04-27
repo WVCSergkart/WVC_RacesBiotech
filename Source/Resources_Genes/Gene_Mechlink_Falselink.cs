@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(summonMechanoids);
 
-		public string RemoteActionDesc => "WVC_XaG_Gene_DustMechlinkDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_Gene_DustMechlinkDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

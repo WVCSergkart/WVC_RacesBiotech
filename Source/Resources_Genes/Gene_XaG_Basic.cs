@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 
         string RemoteActionName { get; }
 
-		string RemoteActionDesc { get; }
+		TaggedString RemoteActionDesc { get; }
 
 		bool RemoteControl_Enabled { get; set; }
 

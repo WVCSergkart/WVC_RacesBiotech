@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => "WVC_HideShow".Translate();
 
-		public string RemoteActionDesc => "WVC_XaG_HideShowDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_HideShowDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -235,7 +235,7 @@ namespace WVC_XenotypesAndGenes
 		//	return null;
 		//}
 
-		public override string RemoteActionDesc => "WVC_XaG_Gene_GeneticThrallDesc".Translate();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_Gene_GeneticThrallDesc".Translate();
 
 		//public override IEnumerable<Gizmo> GetGizmos()
 		//{

@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public virtual string RemoteActionName => "WVC_Start".Translate();
 
-		public string RemoteActionDesc => Desc;
+		public TaggedString RemoteActionDesc => Desc;
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

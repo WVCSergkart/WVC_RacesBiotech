@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public string RemoteActionDesc => "WVC_XaG_RemoteControlMechsSummonAbilityDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlMechsSummonAbilityDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

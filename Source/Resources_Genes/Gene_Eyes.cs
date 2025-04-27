@@ -131,7 +131,7 @@ namespace WVC_XenotypesAndGenes
 	{
         public string RemoteActionName => "WVC_Color".Translate();
 
-        public string RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
+        public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
 
         public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

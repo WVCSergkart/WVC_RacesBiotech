@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => Wings();
 
-		public string RemoteActionDesc => "WVC_XaG_Gene_WingsDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_Gene_WingsDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

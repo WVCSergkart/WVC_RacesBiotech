@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public string RemoteActionName => "WVC_Style".Translate();
 
-		public string RemoteActionDesc => "WVC_XaG_GeneShapeshifterStyles_Desc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_GeneShapeshifterStyles_Desc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

@@ -45,9 +45,19 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public virtual string RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate() + ":\n\n" + def.DescriptionFull;
+        public virtual TaggedString RemoteActionDesc
+        {
+            get
+            {
+				string text = "WVC_XaG_SelfOverrideDesc".Translate();
+				text += "\n\n" + "Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + def.biostatCpx.ToStringWithSign();
+				text += "\n" + "Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + def.biostatMet.ToStringWithSign();
+				text += "\n" + "ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + def.biostatArc.ToStringWithSign();
+				return text;
+            }
+        }
 
-		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+        public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
         {
             if (OverridedByNonOverrider || lastTick > Find.TickManager.TicksGame)
             {

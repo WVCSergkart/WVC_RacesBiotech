@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_Toughspike">
+  <!-- Toughspikes gene is now mutually exclusive with wings. -->
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_BackPart_Base"> -->
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>BMT_ImpalingClaws</li> -->
+	  <!-- <li>ToughspikeSpikes</li> -->
+	  <!-- <li>Wing</li> -->
+	  <!-- <li>Wings</li> -->
+	  <!-- <li>AG_Wings</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef>
 	<defName>WVC_Toughspike</defName>
 	<label>toughspike</label>
 	<description>Carriers of this gene grow two spiked limbs that help a little in combat.</description>
@@ -148,87 +164,5 @@
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>
-
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_Toughspike"> -->
-	<!-- <defName>WVC_ToughspikeB</defName> -->
-	<!-- <label>double toughspike</label> -->
-	<!-- <description>Carriers of this gene grow four spiked limbs that help a little in combat.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_Toughspike_v0</iconPath> -->
-	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
-	<!-- <displayOrderInCategory>27</displayOrderInCategory> -->
-	<!-- <biostatMet>-1</biostatMet> -->
-	<!-- <statOffsets> -->
-	  <!-- <MeleeDamageFactor>0.1</MeleeDamageFactor> -->
-	<!-- </statOffsets> -->
-	<!-- <renderNodeProperties> -->
-	  <!-- <li> -->
-		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
-		<!-- <debugLabel>SpikeL</debugLabel> -->
-		<!-- <texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath> -->
-		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
-		<!-- <baseLayer>10</baseLayer> -->
-		<!-- <colorType>Skin</colorType> -->
-		<!-- <parentTagDef>Body</parentTagDef> -->
-		<!-- <useRottenColor>true</useRottenColor> -->
-		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
-		<!-- <drawSize>1.1</drawSize> -->
-		<!-- <visibleFacing> -->
-		  <!-- <li>South</li> -->
-		  <!-- <li>North</li> -->
-		  <!-- <li>West</li> -->
-		<!-- </visibleFacing> -->
-		<!-- <drawData> -->
-			<!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
-			<!-- <dataNorth> -->
-			  <!-- <offset>(-0.14, 0.4, 0.07)</offset> -->
-			  <!-- <rotationOffset>-80</rotationOffset> -->
-			<!-- </dataNorth> -->
-			<!-- <dataSouth> -->
-			  <!-- <offset>(0.25, -0.4, 0.07)</offset> -->
-			  <!-- <rotationOffset>50</rotationOffset> -->
-			<!-- </dataSouth> -->
-			<!-- <dataWest> -->
-			  <!-- <offset>(0.15, 0.4, 0.15)</offset> -->
-			  <!-- <rotationOffset>60</rotationOffset> -->
-			  <!-- <flip>true</flip> -->
-			<!-- </dataWest> -->
-		<!-- </drawData> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
-		<!-- <debugLabel>SpikeR</debugLabel> -->
-		<!-- <texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath> -->
-		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
-		<!-- <baseLayer>10</baseLayer> -->
-		<!-- <colorType>Skin</colorType> -->
-		<!-- <parentTagDef>Body</parentTagDef> -->
-		<!-- <useRottenColor>true</useRottenColor> -->
-		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
-		<!-- <drawSize>1.1</drawSize> -->
-		<!-- <visibleFacing> -->
-		  <!-- <li>South</li> -->
-		  <!-- <li>North</li> -->
-		  <!-- <li>East</li> -->
-		<!-- </visibleFacing> -->
-		<!-- <drawData> -->
-			<!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
-			<!-- <dataNorth> -->
-			  <!-- <offset>(0.14, 0.4, 0.07)</offset> -->
-			  <!-- <rotationOffset>80</rotationOffset> -->
-			  <!-- <flip>true</flip> -->
-			<!-- </dataNorth> -->
-			<!-- <dataSouth> -->
-			  <!-- <offset>(-0.25, -0.4, 0.07)</offset> -->
-			  <!-- <rotationOffset>-50</rotationOffset> -->
-			  <!-- <flip>true</flip> -->
-			<!-- </dataSouth> -->
-			<!-- <dataEast> -->
-			  <!-- <offset>(-0.15, 0.4, 0.15)</offset> -->
-			  <!-- <rotationOffset>-60</rotationOffset> -->
-			<!-- </dataEast> -->
-		<!-- </drawData> -->
-	  <!-- </li> -->
-	<!-- </renderNodeProperties> -->
-  <!-- </GeneDef> -->
 
 </Defs>

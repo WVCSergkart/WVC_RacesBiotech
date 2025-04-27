@@ -214,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual string RemoteActionName => "ERROR";
 
-		public virtual string RemoteActionDesc => "ERROR";
+		public virtual TaggedString RemoteActionDesc => "ERROR";
 
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -280,7 +280,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string RemoteActionName => "WVC_XaG_GeneRemover_Label".Translate();
 
-		public override string RemoteActionDesc => "WVC_XaG_GeneRemover_Desc".Translate();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_GeneRemover_Desc".Translate();
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -299,7 +299,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string RemoteActionName => "WVC_XaG_Traitshifter_Label".Translate();
 
-		public override string RemoteActionDesc => "WVC_XaG_Traitshifter_Desc".Translate();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_Traitshifter_Desc".Translate();
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -318,7 +318,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string RemoteActionName => "WVC_XaG_Skillshifter_Label".Translate();
 
-		public override string RemoteActionDesc => "WVC_XaG_Skillshifter_Desc".Translate();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_Skillshifter_Desc".Translate();
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{

@@ -52,8 +52,7 @@ namespace WVC_XenotypesAndGenes
 				if (controller is Gene gene && num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
 					Rect rect = new(0f, num2, vector.x, vector.y);
-					TaggedString taggedString = controller.RemoteActionDesc;
-					TooltipHandler.TipRegion(rect, taggedString);
+					TooltipHandler.TipRegion(rect, controller.RemoteActionDesc);
 					if (num3 % 2 == 0)
 					{
 						Widgets.DrawAltRect(rect);

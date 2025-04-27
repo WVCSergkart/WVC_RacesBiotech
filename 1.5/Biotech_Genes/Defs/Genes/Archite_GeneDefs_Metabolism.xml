@@ -10,7 +10,7 @@
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayCategory>Archite</displayCategory>
-	<displayOrderInCategory>-6</displayOrderInCategory>
+	<displayOrderInCategory>1</displayOrderInCategory>
 	<marketValueFactor>1.1</marketValueFactor>
 	<selectionWeight>0.00075</selectionWeight>
 	<biostatCpx>5</biostatCpx>
