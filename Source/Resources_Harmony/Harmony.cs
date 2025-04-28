@@ -368,7 +368,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
-				XaG_GeneUtility.ResetGenesInspectString(pawn);
+				ReimplanterUtility.PostImplantDebug(pawn);
 			}
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)

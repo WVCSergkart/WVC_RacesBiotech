@@ -290,8 +290,9 @@ namespace WVC_XenotypesAndGenes
                 }
                 //XaG_GameComponent.AddMissingGeneAbilities(pawn);
                 TraitsUtility.FixGeneTraits(pawn, genesListForReading);
-                //NotifyGenesChanged(pawn);
-                if (DebugSettings.ShowDevGizmos)
+				//NotifyGenesChanged(pawn);
+				XaG_GeneUtility.ResetGenesInspectString(pawn);
+				if (DebugSettings.ShowDevGizmos)
                 {
                     Log.Warning("Post implant debug called.");
                 }

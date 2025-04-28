@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MainframeDependant</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
@@ -11,6 +11,22 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<minAgeActive>3</minAgeActive>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Metabolism</defName>
+	<label>overrided metabolism</label>
+	<description>Carriers of this gene have a wider range of metabolic possibilities.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Mainframe</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath> -->
+	<displayOrderInCategory>500</displayOrderInCategory>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>energy</symbol></li>
+		<li><symbol>main</symbol></li>
+		<li><symbol>frame</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
@@ -185,7 +201,7 @@
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li> -->
 	  <!-- <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li> -->
-	  <li>If the pawn is &lt;color=#8a8ae6&gt;not downed, deathrest or sleeping&lt;/color&gt;, then the hunger bar is spent on an additional 10% (from 1.00) per day. This happens regardless of the hunger multiplier.</li>
+	  <li>If the pawn is &lt;color=#8a8ae6&gt;not downed, deathrest or sleeping&lt;/color&gt;, then the hunger bar is spent on an additional 10% (from 10.00) per day. This happens regardless of the hunger multiplier.</li>
 	  <li>&lt;color=#ff8585&gt;Any ingestibles cause food poisoning.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
@@ -292,10 +308,14 @@
 	<defName>WVC_NoLearning_Overrider</defName>
 	<label>overrided no-learning</label>
 	<labelShortAdj>over-no-learning</labelShortAdj>
-	<description>Carriers of this gene have archites that prevent standard skill learning but increase metabolism.</description>
+	<description>Carriers of this gene have archites that prevent standard skill learning but increase metabolism and help the carrier to have passive fun.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_NoLearning</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoLearning</iconPath> -->
 	<displayOrderInCategory>555</displayOrderInCategory>
-	<biostatMet>6</biostatMet>
+	<biostatMet>4</biostatMet>
+	<customEffectDescriptions>
+	  <li>Recreation: 10 %/day</li>
+	</customEffectDescriptions>
 	<statFactors>
 	  <GlobalLearningFactor>0</GlobalLearningFactor>
 	</statFactors>
@@ -322,6 +342,8 @@
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
   </GeneDef>
+
+  <!-- ==== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_Aging_Overrider</defName>
