@@ -81,8 +81,8 @@
     <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
-    <Compile Include="Resources_Genes\Gene_Mainframe.cs" />
-    <Compile Include="Resources_Genes\Gene_MainframeDependant.cs" />
+    <Compile Include="Resources_Genes\Gene_Overrider.cs" />
+    <Compile Include="Resources_Genes\Gene_OverriderDependant.cs" />
     <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
     <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />

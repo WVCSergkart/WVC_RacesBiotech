@@ -11,7 +11,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Photosynthesis : Gene_FoodEfficiency
+	public class Gene_Photosynthesis : Gene_FoodEfficiency, IGeneNotifyGenesChanged
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -19,29 +19,34 @@ namespace WVC_XenotypesAndGenes
 		private float? cachedNutritionPerTick;
 
 		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(541))
-			{
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				InCaravan();
-				return;
-			}
-			if (!pawn.Position.InSunlight(pawn.Map))
-			{
-				return;
-			}
-			if (pawn.apparel.AnyClothing)
-			{
-				return;
-			}
-			ReplenishHunger();
-		}
+        {
+            base.Tick();
+            if (!pawn.IsHashIntervalTick(541))
+            {
+                return;
+            }
+            SolarEating();
+        }
 
-		private void InCaravan()
+        private void SolarEating()
+        {
+            if (pawn.Map == null)
+            {
+                InCaravan();
+                return;
+            }
+            if (!pawn.Position.InSunlight(pawn.Map))
+            {
+                return;
+            }
+            if (pawn.apparel.AnyClothing)
+            {
+                return;
+            }
+            ReplenishHunger();
+        }
+
+        private void InCaravan()
 		{
 			Caravan caravan = pawn.GetCaravan();
 			if (caravan?.NightResting != false)
@@ -60,7 +65,12 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
-	}
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+			cachedNutritionPerTick = null;
+        }
+
+    }
 
 	public class Gene_DeadlyUVSensitivity : Gene
 	{

@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_MainframeDependant</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_OverriderDependant</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
@@ -11,15 +11,22 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<minAgeActive>3</minAgeActive>
+	<prerequisite>WVC_Overrider</prerequisite>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
-	<defName>WVC_Metabolism</defName>
-	<label>overrided metabolism</label>
+	<defName>WVC_Overrider</defName>
+	<label>overrider</label>
 	<description>Carriers of this gene have a wider range of metabolic possibilities.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Mainframe</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Overrider</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath> -->
 	<displayOrderInCategory>500</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<customEffectDescriptions>
+		<li>Decreases or increases &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; for each &lt;color=#8a8ae6&gt;overrided&lt;/color&gt; gene.</li>
+		<li>Allows the &lt;color=#8a8ae6&gt;shapshifter&lt;/color&gt; to gain &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; while &lt;color=#8a8ae6&gt;charging&lt;/color&gt;.</li>
+		<li>Allows &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt; to implant a series of &lt;color=#8a8ae6&gt;overrided&lt;/color&gt; genes.</li>
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>energy</symbol></li>
@@ -30,6 +37,9 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>89</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -59,6 +69,12 @@
 		<li><symbol>pain</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>34</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -97,6 +113,8 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>40</regeneration>
+			<reqGeneMat>66</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -130,6 +148,10 @@
 			  </li>
 			</copyFromGeneDefs>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>46</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
 	</modExtensions>
   </GeneDef>
 
@@ -150,6 +172,12 @@
 	<!-- <exclusionTags> -->
 		<!-- <li>WVC_Overrider_Immunity</li> -->
 	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>22</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -183,6 +211,10 @@
 				<copyExclusionTags>false</copyExclusionTags>
 			  </li>
 			</copyFromGeneDefs>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>57</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -221,6 +253,12 @@
 		<li><symbol>hunger</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>55</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -246,6 +284,12 @@
 		<li><symbol>fort</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>75</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -271,6 +315,12 @@
 		<li><symbol>glass</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>30</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -300,6 +350,12 @@
 		<li><symbol>ius</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>61</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -319,6 +375,12 @@
 	<statFactors>
 	  <GlobalLearningFactor>0</GlobalLearningFactor>
 	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>59</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -341,6 +403,12 @@
 		<li>(18.5, 0)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>24</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ==== -->
@@ -366,6 +434,43 @@
 		<li>(0, 8)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>33</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Solar_Overrider</defName>
+	<label>overrided solar</label>
+	<labelShortAdj>over-solar</labelShortAdj>
+	<description>Carriers of this gene have archites that can absorb sunlight to generate nutrients needed by the body.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Solar</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Solar</iconPath> -->
+	<displayOrderInCategory>570</displayOrderInCategory>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>While &lt;color=#8a8ae6&gt;in sunlight&lt;/color&gt;, slowly &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt; bar.</li>
+	  <li>Triggers subgenes of &lt;color=#8a8ae6&gt;charger&lt;/color&gt; genes, as when using chargers.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>solar</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>power</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>48</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

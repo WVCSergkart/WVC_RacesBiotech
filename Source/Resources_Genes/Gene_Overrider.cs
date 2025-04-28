@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Mainframe : Gene, IGeneMetabolism, IGeneOverridden
+    public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged
 	{
 
 		//private int? cahcedLimit;
@@ -63,16 +63,42 @@ namespace WVC_XenotypesAndGenes
 		public void UpdateMetabolism()
 		{
 			HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
+        }
+
+        //private int resource = 0;
+
+        //public override void ExposeData()
+        //{
+        //	base.ExposeData();
+        //	Scribe_Values.Look(ref resource, "resource", 0);
+        //}
+
+        private bool? isShapeshifter;
+        public bool IsShapeshifter
+        {
+            get
+            {
+				if (!isShapeshifter.HasValue)
+                {
+					isShapeshifter = Shapeshifter != null;
+				}
+                return isShapeshifter.Value;
+            }
 		}
 
-		private int resource = 0;
-
-		public override void ExposeData()
+		public void Notify_GenesChanged(Gene changedGene)
 		{
-			base.ExposeData();
-			Scribe_Values.Look(ref resource, "resource", 0);
+			isShapeshifter = null;
 		}
 
-	}
+		public void Notify_Charging(float chargePerTick, int tick, float factor)
+		{
+			if (IsShapeshifter)
+            {
+				Shapeshifter.TryOffsetResource(1);
+			}
+        }
+
+    }
 
 }

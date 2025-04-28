@@ -25,6 +25,10 @@ namespace WVC_XenotypesAndGenes
             inheritable = !gene.pawn.genes.IsXenogene(gene);
             foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0).ToList())
             {
+                if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+                {
+                    continue;
+                }
                 GeneDefWithChance geneDefWithChance = new();
                 geneDefWithChance.geneDef = item;
                 geneDefWithChance.disabled = pawnGenes.Contains(item);

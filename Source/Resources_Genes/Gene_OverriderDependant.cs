@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -6,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_MainframeDependant : Gene_SelfOverrider
+    public class Gene_OverriderDependant : Gene_SelfOverrider
 	{
 
 		// public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
@@ -24,15 +25,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[Unsaved(false)]
-		private Gene_Mainframe cachedGene;
+		private Gene_Overrider cachedGene;
 
-		public Gene_Mainframe Energy
+		public Gene_Overrider Energy
 		{
 			get
 			{
 				if (cachedGene == null || !cachedGene.Active)
 				{
-					cachedGene = pawn?.genes?.GetFirstGeneOfType<Gene_Mainframe>();
+					cachedGene = pawn?.genes?.GetFirstGeneOfType<Gene_Overrider>();
 				}
 				return cachedGene;
 			}
@@ -85,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Deathrest : Gene_MainframeDependant
+	public class Gene_SelfOverrider_Deathrest : Gene_OverriderDependant
 	{
 
 		private int deathrestCapacity = 0;
@@ -238,7 +239,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Healing : Gene_MainframeDependant
+	public class Gene_SelfOverrider_Healing : Gene_OverriderDependant
 	{
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
@@ -268,7 +269,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Stomach : Gene_MainframeDependant, IGeneNotifyGenesChanged
+	public class Gene_SelfOverrider_Stomach : Gene_OverriderDependant, IGeneNotifyGenesChanged
 	{
 
 		private float? cachedOffset;
@@ -318,7 +319,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Learning : Gene_MainframeDependant
+	public class Gene_SelfOverrider_Learning : Gene_OverriderDependant
 	{
 
 		public override void PostAdd()
@@ -390,7 +391,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Ageless : Gene_MainframeDependant
+	public class Gene_SelfOverrider_Ageless : Gene_OverriderDependant
 	{
 
 		public override void PostAdd()
@@ -416,7 +417,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_NoLearning : Gene_MainframeDependant
+	public class Gene_SelfOverrider_NoLearning : Gene_OverriderDependant
 	{
 
 		public override void Tick()
@@ -439,5 +440,71 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	public class Gene_SelfOverrider_Solar : Gene_OverriderDependant
+	{
+
+		public int basicTick = 7119;
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(basicTick))
+			{
+				return;
+			}
+			Charge();
+		}
+
+		private float? cachedNutritionPerTick;
+
+		private float Nutrition
+		{
+			get
+			{
+				if (!cachedNutritionPerTick.HasValue)
+				{
+					cachedNutritionPerTick = 0.1f / 60000 * basicTick;
+				}
+				return cachedNutritionPerTick.Value;
+			}
+		}
+
+		public void Charge()
+		{
+			SolarEating();
+			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Nutrition, basicTick, 0.5f);
+		}
+
+		private void SolarEating()
+		{
+			if (pawn.Map == null)
+			{
+				InCaravan();
+				return;
+			}
+			if (!pawn.Position.InSunlight(pawn.Map))
+			{
+				return;
+			}
+			ReplenishHunger();
+		}
+
+		private void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan?.NightResting != false)
+			{
+				return;
+			}
+			ReplenishHunger();
+		}
+
+		public void ReplenishHunger()
+        {
+            GeneResourceUtility.OffsetNeedFood(pawn, Nutrition);
+		}
+
+    }
 
 }

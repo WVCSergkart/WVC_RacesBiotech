@@ -37,7 +37,7 @@
 		<!-- = Main feature = -->
 		<li>WVC_HybridImplanter</li>
 		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_Metabolism</li>
+		<li>WVC_Overrider</li>
 		<li>WVC_WoundHealing_Overrider</li>
 		<li>WVC_Pain_Overrider</li>
 		<li>WVC_PerfectImmunity_Overrider</li>
@@ -50,6 +50,7 @@
 		<li>WVC_NoLearning_Overrider</li>
 		<li>WVC_Aging_Overrider</li>
 		<li>WVC_Ageless_Overrider</li>
+		<li>WVC_Solar_Overrider</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

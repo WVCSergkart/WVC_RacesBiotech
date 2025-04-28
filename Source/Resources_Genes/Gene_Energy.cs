@@ -187,25 +187,30 @@ namespace WVC_XenotypesAndGenes
 		private int chargingTick = 0;
 
 		public void Notify_Charging(float chargePerTick, int tick = 60)
-		{
-			if (!GeneResourceUtility.CanTick(ref chargingTick, tick))
-			{
-				return;
-			}
-			if (pawn.needs?.food != null)
-			{
-				pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
-			}
-			foreach (Gene gene in pawn.genes.GenesListForReading)
+        {
+            if (!GeneResourceUtility.CanTick(ref chargingTick, tick))
             {
-				if (gene is IGeneChargeable charge && gene.Active)
-                {
-					charge.Notify_Charging(chargePerTick, tick, Props.chargeSpeedFactor);
-				}
+                return;
             }
-		}
+            if (pawn.needs?.food != null)
+            {
+                pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
+            }
+            NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor);
+        }
 
-		public void Notify_StopCharging()
+        public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor)
+        {
+            foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+                if (gene is IGeneChargeable charge && gene.Active)
+                {
+                    charge.Notify_Charging(chargePerTick, tick, chargeSpeedFactor);
+                }
+            }
+        }
+
+        public void Notify_StopCharging()
 		{
 			currentCharger = null;
 			if (Opinion?.MeAboutThoughtDef != null)
