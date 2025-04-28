@@ -308,22 +308,18 @@ namespace WVC_XenotypesAndGenes
             if (item is IGeneNotifyGenesChanged iGeneNotifyGenesChanged)
             {
                 iGeneNotifyGenesChanged.Notify_GenesChanged(null);
-            }
-        }
+			}
+			//if (item is IGeneMetabolism metabol)
+			//{
+			//	metabol.UpdateMetabolism();
+			//}
+		}
 
-        [Obsolete]
-        public static void NotifyGenesChanged(Pawn pawn)
+		public static void NotifyGenesChanged(Pawn pawn)
 		{
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
-				if (item is IGeneNotifyGenesChanged targetGene)
-				{
-					targetGene.Notify_GenesChanged(null);
-				}
-				//if (item is IGeneMetabolism metabol)
-				//{
-				//	metabol.UpdateMetabolism();
-				//}
+				NotifyGenesChanged(item);
 			}
 		}
 

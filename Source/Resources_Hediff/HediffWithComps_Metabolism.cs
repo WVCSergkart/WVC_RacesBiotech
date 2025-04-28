@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemoved()
         {
             base.PostRemoved();
-            if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism))
+            if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism && gene.Active))
             {
                 if (HediffUtility.TryAddHediff(def, pawn, null, null))
                 {
@@ -111,12 +111,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        //public override void ExposeData()
-        //{
-        //	base.ExposeData();
-        //	Scribe_Values.Look(ref cachedMetabolism, "cachedMetabolism", 0);
-        //}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref cachedMetabolism, "cachedMetabolism", 0);
+		//}
 
-    }
+	}
 
 }

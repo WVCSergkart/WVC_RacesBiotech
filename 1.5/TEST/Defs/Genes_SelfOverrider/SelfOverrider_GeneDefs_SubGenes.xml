@@ -19,7 +19,7 @@
 	<label>overrider</label>
 	<description>Carriers of this gene have a wider range of metabolic possibilities.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Overrider</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<prerequisite></prerequisite>
 	<customEffectDescriptions>
@@ -36,6 +36,7 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDef>WVC_Overrider_PsychicSensitivity</hediffDef>
 			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
@@ -44,6 +45,14 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- TEMP -->
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Overrider_PsychicSensitivity</defName>
+	<label>overrider</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_PsychicSensitivity</hediffClass>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+  </HediffDef>
+
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
@@ -51,7 +60,7 @@
 	<label>overrided pain</label>
 	<labelShortAdj>over-pain</labelShortAdj>
 	<description>Carriers of this gene have archites that are able to nullify any pain.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoPain</iconPath>
 	<displayOrderInCategory>505</displayOrderInCategory>
 	<painFactor>0.0</painFactor>
 	<biostatMet>-2</biostatMet>
@@ -91,7 +100,7 @@
 	<labelShortAdj>over-heal</labelShortAdj>
 	<description>Carriers of this gene have archites that significantly increase natural wound healing and regrow lost organs and limbs, but impair metabolism.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Healing</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Healing</iconPath>
 	<displayOrderInCategory>515</displayOrderInCategory>
 	<biostatMet>-6</biostatMet>
 	<statFactors>
@@ -126,7 +135,7 @@
 	<label>overrided immunity</label>
 	<labelShortAdj>over-immunity</labelShortAdj>
 	<description>Carriers of this gene have archites that completely protect the carrier from diseases.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_PerfectCombo</iconPath>
 	<displayOrderInCategory>520</displayOrderInCategory>
 	<biostatMet>-4</biostatMet>
 	<statFactors>
@@ -162,7 +171,7 @@
 	<label>overrided health</label>
 	<labelShortAdj>over-health</labelShortAdj>
 	<description>Carriers of this gene have archites that significantly improve metabolism, completely nullifying immunity and tissue regeneration.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Health</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Health</iconPath>
 	<displayOrderInCategory>525</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
 	<statFactors>
@@ -187,7 +196,7 @@
 	<label>overrided adaptation</label>
 	<labelShortAdj>over-adaptation</labelShortAdj>
 	<description>Carriers of this gene have archites that completely protect the carrier from the environment.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath>
 	<displayOrderInCategory>530</displayOrderInCategory>
 	<biostatMet>-5</biostatMet>
 	<statOffsets>
@@ -227,7 +236,7 @@
 	<labelShortAdj>over-hunger</labelShortAdj>
 	<description>Carriers of this gene have archites that process all the nutrients accumulated by the body at an incredible speed, which makes the carriers' stomachs practically bottomless.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Stomach</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Stomach</iconPath>
 	<displayOrderInCategory>535</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
@@ -268,7 +277,7 @@
 	<label>overrided tough</label>
 	<labelShortAdj>over-tough</labelShortAdj>
 	<description>Carriers of this gene have archites that make them more resilient.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Tough</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Tough</iconPath>
 	<displayOrderInCategory>540</displayOrderInCategory>
 	<biostatMet>-6</biostatMet>
 	<statOffsets>
@@ -299,7 +308,7 @@
 	<label>overrided wimp</label>
 	<labelShortAdj>over-wimp</labelShortAdj>
 	<description>Carriers of this gene have archites which make them fragile.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Wimp</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Wimp</iconPath>
 	<displayOrderInCategory>545</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
 	<statOffsets>
@@ -331,7 +340,7 @@
 	<labelShortAdj>over-learning</labelShortAdj>
 	<description>Carriers of this gene have archites that comprehensively develop the carrier on a permanent basis.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Learning</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_GoodLearning</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_GoodLearning</iconPath>
 	<displayOrderInCategory>550</displayOrderInCategory>
 	<biostatMet>-6</biostatMet>
 	<forcedTraits>
@@ -366,11 +375,11 @@
 	<labelShortAdj>over-no-learning</labelShortAdj>
 	<description>Carriers of this gene have archites that prevent standard skill learning but increase metabolism and help the carrier to have passive fun.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_NoLearning</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoLearning</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_NoLearning</iconPath>
 	<displayOrderInCategory>555</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
-	  <li>Recreation: 10 %/day</li>
+	  <li>Recreation: 33 %/day</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <GlobalLearningFactor>0</GlobalLearningFactor>
@@ -391,7 +400,7 @@
 	<labelShortAdj>over-age</labelShortAdj>
 	<description>Carriers of this gene have archites that stop aging and rejuvenate.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Ageless</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Ageless</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Ageless</iconPath>
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>560</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -418,7 +427,7 @@
 	<label>overrided aging</label>
 	<labelShortAdj>over-aging</labelShortAdj>
 	<description>Carriers of this gene have archites that improve metabolism but lead to rapid aging.</description>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_FastAging</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_FastAging</iconPath>
 	<biostatMet>3</biostatMet>
 	<displayOrderInCategory>565</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -450,7 +459,7 @@
 	<labelShortAdj>over-solar</labelShortAdj>
 	<description>Carriers of this gene have archites that can absorb sunlight to generate nutrients needed by the body.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Solar</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Solar</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Solar</iconPath>
 	<displayOrderInCategory>570</displayOrderInCategory>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>

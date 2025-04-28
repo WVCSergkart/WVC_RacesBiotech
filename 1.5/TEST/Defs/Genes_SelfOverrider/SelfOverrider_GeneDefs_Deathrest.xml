@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- DEV only -->
+  <!-- in TEST -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
 	<defName>WVC_Deathrest_Overrider</defName>
 	<label>overrided deathrest</label>
 	<description>Carriers of this gene have archites that remove toxins from the brain, allowing the carrier to not sleep, but form the deathrest gene.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Deathrest</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Deathrest</iconPath>
 	<displayOrderInCategory>510</displayOrderInCategory>
 	<biostatMet>-4</biostatMet>
 	<customEffectDescriptions>
@@ -16,6 +16,12 @@
 	<disablesNeeds>
 	  <li>Rest</li>
 	</disablesNeeds>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>50</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

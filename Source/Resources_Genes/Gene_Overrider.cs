@@ -1,46 +1,89 @@
-﻿using Verse;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged
+    public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged, IGeneRemoteControl
 	{
+		public string RemoteActionName => addPsychicSensitivity ? "WVC_XaG_Increase".Translate() : "WVC_XaG_Decrease".Translate();
 
-		//private int? cahcedLimit;
-		//public int GenesLimit
-		//{
-		//	get
-		//	{
-		//		if (!cahcedLimit.HasValue)
-		//		{
-		//			cahcedLimit = (int)Mathf.Clamp(DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count * 0.33f, 3, 14);
-		//		}
-		//		return cahcedLimit.Value;
-		//	}
-		//}
+		public TaggedString RemoteActionDesc => "WVC_XaG_Gene_OverriderDesc".Translate();
 
-		//public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			addPsychicSensitivity = !addPsychicSensitivity;
+			Notify_HediffReset();
+		}
 
-		private bool? metHediifDisabled;
-		private HediffDef metHediffDef;
-		public HediffDef MetHediffDef
+		public bool RemoteControl_Hide => !Active;
+
+		public bool RemoteControl_Enabled
 		{
 			get
 			{
-				if (!metHediifDisabled.HasValue)
-				{
-					metHediifDisabled = (metHediffDef = def?.GetModExtension<GeneExtension_Giver>()?.metHediffDef) != null;
-				}
-				if (!metHediifDisabled.Value)
-				{
-					return null;
-				}
-				return metHediffDef;
+				return enabled;
 			}
+			set
+			{
+				enabled = value;
+				remoteControllerCached = false;
+			}
+		}
+
+		public bool enabled = true;
+		public bool remoteControllerCached = false;
+
+		public void RemoteControl_Recache()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+			}
+			return null;
+		}
+
+        //===========
+
+        private int? cahcedSubGeneCount;
+        public int SubGenesCount
+        {
+            get
+            {
+                if (!cahcedSubGeneCount.HasValue)
+                {
+                    cahcedSubGeneCount = DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_OverriderDependant>()).ToList().Count;
+                }
+                return cahcedSubGeneCount.Value;
+            }
+        }
+
+        //public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
+
+        public HediffDef MetHediffDef => Giver?.metHediffDef;
+		public HediffDef PsyHediffDef => Giver?.hediffDef;
+
+        public List<HediffDef> Hediffs
+        {
+            get
+            {
+                List<HediffDef> list = new();
+				list.Add(MetHediffDef);
+				list.Add(PsyHediffDef);
+				return list;
+            }
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
+			HediffUtility.RemoveHediffsFromList(pawn, Hediffs);
+			//HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
 		}
 
 		public void Notify_Override()
@@ -51,13 +94,16 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			UpdateMetabolism();
+			//UpdateMetabolism();
+			HediffUtility.TryAddOrRemoveHediff(PsyHediffDef, pawn, this);
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
+			//HediffUtility.TryRemoveHediff(MetHediffDef, pawn);
+			HediffUtility.RemoveHediffsFromList(pawn, Hediffs);
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
 		public void UpdateMetabolism()
@@ -65,13 +111,15 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
         }
 
-        //private int resource = 0;
+		//private int resource = 0;
 
-        //public override void ExposeData()
-        //{
-        //	base.ExposeData();
-        //	Scribe_Values.Look(ref resource, "resource", 0);
-        //}
+		public bool addPsychicSensitivity = true;
+
+		public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref addPsychicSensitivity, "addPsychicSensitivity", true);
+        }
 
         private bool? isShapeshifter;
         public bool IsShapeshifter
@@ -89,6 +137,8 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_GenesChanged(Gene changedGene)
 		{
 			isShapeshifter = null;
+			Notify_HediffReset();
+			UpdateMetabolism();
 		}
 
 		public void Notify_Charging(float chargePerTick, int tick, float factor)
@@ -97,8 +147,19 @@ namespace WVC_XenotypesAndGenes
             {
 				Shapeshifter.TryOffsetResource(1);
 			}
-        }
+		}
 
-    }
+		public void Notify_HediffReset()
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+            {
+				if (hediff is Hediff_PsychicSensitivity hediffWithComps)
+                {
+					hediffWithComps.Reset();
+				}
+            }
+		}
+
+	}
 
 }

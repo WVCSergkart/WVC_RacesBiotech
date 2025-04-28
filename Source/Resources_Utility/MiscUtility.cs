@@ -76,6 +76,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.Notify_DisabledWorkTypesChanged();
 			XaG_GeneUtility.ResetGenesInspectString(pawn);
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+			ReimplanterUtility.NotifyGenesChanged(pawn);
 		}
 
 		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
@@ -938,7 +939,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static StatModifier MakeStatModifier(StatModifier statModifier)
+		public static StatModifier CopyStatModifier(StatModifier statModifier)
 		{
 			StatModifier newStatMod = new();
 			newStatMod.value = statModifier.value;

@@ -39,6 +39,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			base.RemoteControl_Action(genesSettings);
+			Notify_Overrider();
+		}
+
 		public override void ResetCooldown()
 		{
 			if (DebugSettings.ShowDevGizmos)
@@ -48,43 +54,36 @@ namespace WVC_XenotypesAndGenes
 			lastTick = Find.TickManager.TicksGame + 30000;
 		}
 
-		//public override void Notify_OverriddenBy(Gene overriddenBy)
-		//{
-		//	base.Notify_OverriddenBy(overriddenBy);
-		//	Notify_Mainframe();
-		//}
+        public override void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            base.Notify_OverriddenBy(overriddenBy);
+            Notify_Overrider();
+        }
 
-		//public override void Notify_Override()
-		//{
-		//	base.Notify_Override();
-		//	Notify_Mainframe();
-		//}
+        public override void Notify_Override()
+        {
+            base.Notify_Override();
+            Notify_Overrider();
+        }
 
-		//public override void PostAdd()
-		//{
-		//	base.PostAdd();
-		//	Notify_Mainframe();
-		//}
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            Notify_Overrider();
+        }
 
-		//public override void PostRemove()
-		//{
-		//	base.PostRemove();
-		//	Notify_Mainframe();
-		//}
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            Notify_Overrider();
+        }
 
-		//public void Notify_Mainframe()
-		//{
-		//	if (Energy == null)
-		//	{
-		//		return;
-		//	}
-		//	if (Energy.GenesLimit < CurrentGenes)
-		//	{
+        public void Notify_Overrider()
+		{
+			Energy?.Notify_HediffReset();
+		}
 
-		//	}
-		//}
-
-	}
+    }
 
 	public class Gene_SelfOverrider_Deathrest : Gene_OverriderDependant
 	{
@@ -435,13 +434,13 @@ namespace WVC_XenotypesAndGenes
 			Need_Joy recreation = pawn.needs.joy;
 			if (recreation != null)
 			{
-				recreation.CurLevelPercentage += 0.1f / 60000 * 11345;
+				recreation.CurLevelPercentage += 0.33f / 60000 * 11345;
 			}
 		}
 
 	}
 
-	public class Gene_SelfOverrider_Solar : Gene_OverriderDependant
+	public class Gene_SelfOverrider_Solar : Gene_OverriderDependant, IGeneNotifyGenesChanged
 	{
 
 		public int basicTick = 7119;
@@ -464,7 +463,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedNutritionPerTick.HasValue)
 				{
-					cachedNutritionPerTick = 0.1f / 60000 * basicTick;
+					cachedNutritionPerTick = 0.8f / 60000 * basicTick;
 				}
 				return cachedNutritionPerTick.Value;
 			}
@@ -503,6 +502,11 @@ namespace WVC_XenotypesAndGenes
 		public void ReplenishHunger()
         {
             GeneResourceUtility.OffsetNeedFood(pawn, Nutrition);
+		}
+
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+			cachedNutritionPerTick = null;
 		}
 
     }

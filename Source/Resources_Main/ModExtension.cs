@@ -255,6 +255,7 @@ namespace WVC_XenotypesAndGenes
 	public class GeneExtension_Giver : DefModExtension
 	{
 		public HediffDef hediffDefName;
+		public HediffDef hediffDef;
 		public List<HediffDef> hediffDefs;
 		public List<BodyPartDef> bodyparts;
 		public BackstoryDef childBackstoryDef;

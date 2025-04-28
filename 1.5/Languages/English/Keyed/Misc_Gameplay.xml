@@ -139,6 +139,10 @@
 
 	<WVC_XaG_HemogenicMetabolism_LowHemogen>Hemogen level too low. Conversion of hemogen into nutrients is no longer possible.</WVC_XaG_HemogenicMetabolism_LowHemogen>
 
+	<WVC_XaG_Increase>Increase</WVC_XaG_Increase>
+	<WVC_XaG_Decrease>Decrease</WVC_XaG_Decrease>
+	<WVC_XaG_Gene_OverriderDesc>Allows to change the bonus from overrided genes, changing it between positive or negative values.</WVC_XaG_Gene_OverriderDesc>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
