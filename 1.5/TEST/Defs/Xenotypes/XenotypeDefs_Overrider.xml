@@ -51,6 +51,7 @@
 		<li>WVC_Aging_Overrider</li>
 		<li>WVC_Ageless_Overrider</li>
 		<li>WVC_Solar_Overrider</li>
+		<li>WVC_Scars_Overrider</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

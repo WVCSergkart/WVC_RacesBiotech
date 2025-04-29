@@ -482,4 +482,30 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ==== -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Scars_Overrider</defName>
+	<label>overrided scars</label>
+	<labelShortAdj>over-scars</labelShortAdj>
+	<description>Carriers of this gene have archites that enhance the scarifier potential.</description>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Scars</iconPath>
+	<displayOrderInCategory>575</displayOrderInCategory>
+	<biostatMet>-3</biostatMet>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">6</WVC_ScarifierScars>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>scar</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>77</reqGeneMat>
+			<overrideGeneCategory>WVC_Energy</overrideGeneCategory>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

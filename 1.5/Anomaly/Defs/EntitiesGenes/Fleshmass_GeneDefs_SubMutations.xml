@@ -114,7 +114,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
 	<defName>WVC_FleshmassRegeneration</defName>
 	<label>fleshmass regeneration</label>
-	<description>Carriers of this gene have archites that regenerate wounds and restore lost limbs depending on the number of wounds and scars.</description>
+	<description>Carriers of this gene have cancerous mass of semi-sentient flesh that regenerate wounds and restore lost limbs depending on the number of wounds and scars.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassRegeneration</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>

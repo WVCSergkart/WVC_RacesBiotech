@@ -375,8 +375,15 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-		}
+        }
 
-	}
+    }
+
+    //public class Gene_FleshmassImmunity : Gene
+    //{
+
+
+
+    //}
 
 }

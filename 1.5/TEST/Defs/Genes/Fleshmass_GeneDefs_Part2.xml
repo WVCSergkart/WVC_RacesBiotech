@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations"> -->
+	<!-- <defName>WVC_FleshmassImmunity</defName> -->
+	<!-- <label>fleshmass immunity</label> -->
+	<!-- <description>Carriers of this gene have a special cancerous mass of semi-sentient flesh organ that adapts to diseases, providing permanent immunity to known diseases.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_FleshmassImmunity</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>35</displayOrderInCategory> -->
+	<!-- <minAgeActive>0</minAgeActive> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li> -->
+		<!-- <li>Forms &lt;color=#8a8ae6&gt;permanent immunity&lt;/color&gt; to diseases some time after receiving them.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>20</reqGeneMat> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>
