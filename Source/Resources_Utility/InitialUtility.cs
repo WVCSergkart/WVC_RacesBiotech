@@ -64,8 +64,8 @@ namespace WVC_XenotypesAndGenes
                 if (geneExtension_Giver != null)
                 {
                     GeneExtension_Giver(geneDef, geneExtension_Giver);
-                }
-                FurskinIsSkin(geneDef);
+				}
+				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
 			AnomalyPatch(xenogenesGenes);
@@ -208,27 +208,31 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void UniqueDescAutopatch(GeneDef geneDef)
-		{
-			if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
-			{
-				geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
-			}
-			if (!WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
-			{
-				return;
-			}
-			if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
-			{
-				return;
-			}
-			if (geneDef.customEffectDescriptions == null)
-			{
-				geneDef.customEffectDescriptions = new();
-			}
-			geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
-		}
+        {
+            if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
+            {
+                geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
+            }
+            if (geneDef.customEffectDescriptions == null)
+            {
+                geneDef.customEffectDescriptions = new();
+            }
+            if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
+            {
+                geneDef.exclusionTags = null;
+                geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
+            }
+            if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
+            {
+                if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
+                {
+                    return;
+                }
+                geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
+            }
+        }
 
-		private static void AnomalyPatch(List<GeneDef> xenogenesGenes)
+        private static void AnomalyPatch(List<GeneDef> xenogenesGenes)
 		{
 			if (ModsConfig.AnomalyActive)
 			{
@@ -422,7 +426,7 @@ namespace WVC_XenotypesAndGenes
 
 				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(xenotypeDef.defName, out _))
 				{
-					if (xenotypeDef.modContentPack?.IsOfficialMod == true)
+					if (xenotypeDef.IsVanillaDef())
 					{
 						WVC_Biotech.cachedXenotypesFilter[xenotypeDef.defName] = _ = true;
 					}

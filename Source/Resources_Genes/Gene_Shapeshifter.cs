@@ -202,11 +202,11 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private int geneticMaterial = 0;
+        private float geneticMaterial = 0;
 
-		public int GeneticMaterial => geneticMaterial;
+		public int GeneticMaterial => (int)geneticMaterial;
 
-		public bool TryOffsetResource(int count)
+		public bool TryOffsetResource(float count)
         {
 			if (!genesRegrowAfterShapeshift && count > 0)
             {
@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryOffsetResource(Gene gene)
 		{
-			return TryOffsetResource((int)((gene.def.biostatCpx * 0.5f) + (gene.def.biostatArc * 0.2f)));
+			return TryOffsetResource((gene.def.biostatCpx * 0.5f) + (gene.def.biostatArc * 0.2f));
 		}
 
 		public bool TryConsumeResource(int count)

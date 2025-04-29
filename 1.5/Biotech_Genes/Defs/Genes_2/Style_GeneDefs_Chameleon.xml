@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef>
+  <GeneDef MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_Chameleon</defName>
 	<label>chameleon</label>
 	<description>Carriers of this gene can change certain aspects of their appearance at will at any time.</description>

@@ -177,7 +177,7 @@
   <GeneDef>
 	<defName>WVC_Aptitudes_GreatEqualizer</defName>
 	<label>great equalizer</label>
-	<description>Nullifying all aptitudes. Aptitude acts like an offset on skill level.</description>
+	<description>Carriers of this gene have archites which nullify all aptitudes. Aptitude acts like an offset on skill level.</description>
 	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>

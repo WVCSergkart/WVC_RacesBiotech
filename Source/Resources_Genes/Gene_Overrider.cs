@@ -144,8 +144,8 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Charging(float chargePerTick, int tick, float factor)
 		{
 			if (IsShapeshifter)
-            {
-				Shapeshifter.TryOffsetResource(1);
+			{
+				Shapeshifter.TryOffsetResource(Mathf.Clamp(chargePerTick, 0.01f, 1f));
 			}
 		}
 
