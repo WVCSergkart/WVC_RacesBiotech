@@ -24,6 +24,7 @@
 		<li>WVC_FleshmassSkin</li>
 		<li>WVC_FleshmassArmor</li>
 		<li>WVC_FleshmassRegeneration</li>
+		<li>WVC_FleshmassImmunity</li>
 		<!-- <li>Hair_SnowWhite</li> -->
 		<!-- <li>Skin_SheerWhite</li> -->
 		<li>WVC_HairColor_Slate</li>
@@ -38,20 +39,20 @@
 		<li>WVC_HybridImplanter</li>
 		<li>WVC_MechaPowerSource_Tox</li>
 		<li>WVC_Overrider</li>
-		<li>WVC_WoundHealing_Overrider</li>
+		<!-- <li>WVC_WoundHealing_Overrider</li> -->
 		<li>WVC_Pain_Overrider</li>
-		<li>WVC_PerfectImmunity_Overrider</li>
-		<li>WVC_Health_Overrider</li>
-		<li>WVC_OverallAdaptation_Overrider</li>
+		<!-- <li>WVC_PerfectImmunity_Overrider</li> -->
+		<!-- <li>WVC_Health_Overrider</li> -->
+		<!-- <li>WVC_OverallAdaptation_Overrider</li> -->
 		<li>WVC_Stomach_Overrider</li>
-		<li>WVC_Wimp_Overrider</li>
-		<li>WVC_Tough_Overrider</li>
-		<li>WVC_Learning_Overrider</li>
-		<li>WVC_NoLearning_Overrider</li>
+		<!-- <li>WVC_Wimp_Overrider</li> -->
+		<!-- <li>WVC_Tough_Overrider</li> -->
+		<!-- <li>WVC_Learning_Overrider</li> -->
+		<!-- <li>WVC_NoLearning_Overrider</li> -->
 		<li>WVC_Aging_Overrider</li>
 		<li>WVC_Ageless_Overrider</li>
 		<li>WVC_Solar_Overrider</li>
-		<li>WVC_Scars_Overrider</li>
+		<!-- <li>WVC_Scars_Overrider</li> -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

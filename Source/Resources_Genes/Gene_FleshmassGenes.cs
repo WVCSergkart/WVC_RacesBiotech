@@ -379,11 +379,75 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    //public class Gene_FleshmassImmunity : Gene
-    //{
+    public class Gene_FleshmassImmunity : Gene_AddOrRemoveHediff
+	{
 
+		private List<HediffDef> immunizedHediffs = new();
+		public List<HediffDef> ImmunizedHediffs => immunizedHediffs;
 
+		public void ImmunizeHediff(HediffDef hediffDef)
+        {
+			if (!immunizedHediffs.Contains(hediffDef))
+            {
+				immunizedHediffs.Add(hediffDef);
+				foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+                {
+					if (hediff is Hediff_FleshmassImmunity fleshmass)
+                    {
+						fleshmass.Reset();
+                    }
+                }
+			}
+		}
 
-    //}
+		private int nextTick = 6000;
+
+        public override void Tick()
+        {
+            base.Tick();
+			if (GeneResourceUtility.CanTick(ref nextTick, 66966))
+            {
+                TryImmunizeNewHediffs();
+            }
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryImmunizeNewHediffs",
+					action = delegate
+					{
+						TryImmunizeNewHediffs();
+					}
+				};
+			}
+		}
+
+		public void TryImmunizeNewHediffs()
+        {
+            foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+            {
+                HediffComp_Immunizable hediffComp_Immunizable = hediff.TryGetComp<HediffComp_Immunizable>();
+                if (hediffComp_Immunizable != null)
+                {
+                    ImmunizeHediff(hediff.def);
+                }
+            }
+        }
+
+        public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref immunizedHediffs, "immunizedHediffs", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && immunizedHediffs != null && immunizedHediffs.RemoveAll((HediffDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null hediffDef(s)");
+			}
+		}
+
+	}
 
 }

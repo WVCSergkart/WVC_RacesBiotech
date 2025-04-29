@@ -114,6 +114,7 @@
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
+    <Compile Include="Resources_Hediff\Hediff_FleshmassImmunity.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChimeraDeathMark.cs" />
     <Compile Include="Resources_Hediff\Hediff_PsychicSensitivity.cs" />

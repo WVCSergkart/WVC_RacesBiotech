@@ -49,6 +49,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Overrider_PsychicSensitivity</defName>
 	<label>overrider</label>
+	<description>Effect of the overrider gene on psychic sensitivity induced by bond with subgenes.</description>
 	<hediffClass>WVC_XenotypesAndGenes.Hediff_PsychicSensitivity</hediffClass>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
   </HediffDef>

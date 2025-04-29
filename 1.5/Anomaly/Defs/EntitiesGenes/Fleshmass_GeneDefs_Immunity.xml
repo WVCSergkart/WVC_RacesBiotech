@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassImmunity</defName>
+	<label>fleshmass immunity</label>
+	<description>Carriers of this gene have a special cancerous mass of semi-sentient flesh organ that adapts to diseases, providing permanent immunity to known diseases.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassImmunity</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassImmunity</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Forms &lt;color=#8a8ae6&gt;permanent immunity&lt;/color&gt; to diseases some time after receiving them.</li>
+		<li>Does &lt;color=#8a8ae6&gt;not cure&lt;/color&gt; an already acquired disease.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_FleshmassImmunity</hediffDefName>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>20</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
