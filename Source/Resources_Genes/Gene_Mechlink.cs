@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanDoOrbitalSummon()
         {
-            if (CanDoOrbitalSummon())
+            if (CanDoOrbitalSummon(pawn))
             {
                 return true;
             }

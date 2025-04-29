@@ -150,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalGolembond(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond, cacheStaleAfterTicks: 3000);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
 		}
 
 		public static float GetConsumedGolembond(Pawn mechanitor)
@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost, cacheStaleAfterTicks: 360000);
+				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 			}
 			return result;
 		}
