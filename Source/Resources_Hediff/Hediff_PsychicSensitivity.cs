@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool ShouldRemove => false;
 
-		public override bool Visible => false;
+		public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
 
 		//public override string LabelInBrackets
 		//{

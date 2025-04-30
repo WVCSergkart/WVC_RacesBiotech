@@ -16,6 +16,90 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		//public static void BackCompatability()
+		//{
+		//	foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+		//	{
+		//		if (pawn.genes == null)
+		//		{
+		//			continue;
+		//		}
+		//		List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
+		//		foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
+		//		{
+		//			bool xenogene = pawn.genes.IsXenogene(gene);
+		//			string backCompt = MiscUtility.BackCompatibleDefName(gene.def.GetType(), gene.def.defName);
+		//			if (backCompt != null)
+		//			{
+		//				pawn.genes.RemoveGene(gene);
+		//				pawn.genes.AddGene(allDefsListForReading.Where((def) => def.defName == backCompt).ToList().First(), xenogene);
+		//			}
+		//		}
+		//		ReimplanterUtility.PostImplantDebug(pawn);
+		//	}
+		//}
+
+		//public static string BackCompatibleDefName(Type defType, string defName)
+		//{
+		//	if (defType == typeof(GeneDef))
+		//	{
+		//		if (defName == "WVC_CrossPlate_Yellow" || defName == "WVC_FacelessEyes_ffffff_HEX" || defName == "WVC_FacelessEyes_afafaf_HEX" || defName == "WVC_FacelessEyes_afafaf_HEX" || defName == "WVC_FacelessEyes_7c69ce_HEX" || defName == "WVC_FacelessEyes_69a2ce_HEX" || defName == "WVC_FacelessEyes_69ce7a_HEX" || defName == "WVC_FacelessEyes_c8ce69_HEX" || defName == "WVC_FacelessEyes_ce69c3_HEX" || defName == "WVC_FacelessEyes_ce6969_HEX" || defName == "WVC_FacelessEyes_ceae69_HEX" || defName == "WVC_FacelessEyes_69cec6_HEX")
+		//		{
+		//			return "WVC_Eyes_Holoeyes";
+		//		}
+		//		if (defName == "WVC_Eyes_ffffff_HEX" || defName == "WVC_Eyes_afafaf_HEX" || defName == "WVC_Eyes_7c69ce_HEX" || defName == "WVC_Eyes_69a2ce_HEX" || defName == "WVC_FacelessEyes_7c69ce_HEX" || defName == "WVC_Eyes_69ce7a_HEX" || defName == "WVC_Eyes_c8ce69_HEX" || defName == "WVC_Eyes_ce69c3_HEX" || defName == "WVC_Eyes_ce6969_HEX" || defName == "WVC_Eyes_ceae69_HEX" || defName == "WVC_Eyes_69cec6_HEX")
+		//		{
+		//			return "WVC_Eyes_Colorful";
+		//		}
+		//		if (defName == "WVC_GenePackSpawner_Vanilla" || defName == "WVC_GenePackSpawner_Base" || defName == "WVC_GenePackSpawner_Ultra" || defName == "WVC_GenePackSpawner_Mecha" || defName == "WVC_GenePackSpawner_AlphaBase" || defName == "WVC_GenePackSpawner_AlphaMixed" || defName == "WVC_GenePackSpawner_Disable" || defName == "WVC_XenotypeSerumSpawner_Random" || defName == "WVC_XenotypeSerumSpawner_HybridRandom")
+		//		{
+		//			return "WVC_Genemaker";
+		//		}
+		//		if (defName == "WVC_NaturalUndead")
+		//		{
+		//			return "WVC_Undead";
+		//		}
+		//		if (defName == "WVC_ReimplanterXenotype")
+		//		{
+		//			return "WVC_StorageImplanter";
+		//		}
+		//		if (defName == "WVC_HairColor_DarkGray")
+		//		{
+		//			return "WVC_HairColor_Slate";
+		//		}
+		//		if (defName == "WVC_SkinColor_DarkGray")
+		//		{
+		//			return "WVC_SkinColor_Slate";
+		//		}
+		//		if (defName == "WVC_Mecha_NoEars")
+		//		{
+		//			return "Headbone_Human";
+		//		}
+		//	}
+		//	if (defType == typeof(AbilityDef))
+		//	{
+		//		if (defName == "WVC_ReimplanterXenotype")
+		//		{
+		//			return "WVC_StorageImplanter";
+		//		}
+		//	}
+		//	if (defType == typeof(ScenarioDef))
+		//	{
+		//		if (defName == "WVC_XenotypesAndGenes_Blank")
+		//		{
+		//			return "WVC_XenotypesAndGenes_Meca";
+		//		}
+		//	}
+		//	if (defType == typeof(HediffDef))
+		//	{
+		//		if (defName == "WVC_GeneSavant")
+		//		{
+		//			return "TraumaSavant";
+		//		}
+		//	}
+		//	return null;
+		//}
+
 		public static void GetModExtensions(Def def, out GeneExtension_General geneExtension_General, out GeneExtension_Giver geneExtension_Giver)
 		{
 			geneExtension_General = null;
