@@ -35,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public GeneDef reqGeneDef;
 		public bool reqOneManArmy = false;
 		public List<GeneDef> genes;
+		public List<BiomeDef> biomeDefs;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;
@@ -51,6 +52,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			return genes != null && (!reqOneManArmy || StaticCollectionsClass.oneManArmyMode) && (reqGeneDef == null || XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn));
 		}
+
 	}
 
 	// Exten

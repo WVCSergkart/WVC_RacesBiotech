@@ -20,6 +20,15 @@
 		<li>If there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony, then the carrier receive a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;. The memory lasts for about a day.</li>
 		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_OneManArmy"> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeDodgeChance>3</MeleeDodgeChance> -->
+		  <!-- <MeleeHitChance>3</MeleeHitChance> -->
+		  <!-- <ShootingAccuracyPawn>3</ShootingAccuracyPawn> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>recluse</symbol></li>

@@ -50,6 +50,8 @@
 	<WVC_XaG_ScenPart_NullifySkills>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_NullifySkills>
 	<WVC_XaG_ScenPart_StartingGenes>Starting xenogenes</WVC_XaG_ScenPart_StartingGenes>
 	<WVC_XaG_ScenPart_ChimeraStartingGenes>Chimera starting xenogenes</WVC_XaG_ScenPart_ChimeraStartingGenes>
+	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>For other biomes</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>
+	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>Chimera genes for biomes: {0}</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>
 	<!-- <WVC_XaG_ScenPart_ChimeraStartingEvolution>The chimera will have a unique endogenes set.</WVC_XaG_ScenPart_ChimeraStartingEvolution> -->
 	<WVC_XaG_ScenPart_StartingMutations>Starting pawns will have {0} random mutations.</WVC_XaG_ScenPart_StartingMutations>
 	<WVC_XaG_ScenPart_AddChronoAge>Additional chronological age: {0}~{1} years.</WVC_XaG_ScenPart_AddChronoAge>
