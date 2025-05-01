@@ -271,7 +271,7 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
-    <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
+    <Compile Include="Resources_Genes\Gene_Resurgent.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Eyes.cs" />
     <Compile Include="Resources_Genes\Gene_Gestator.cs" />

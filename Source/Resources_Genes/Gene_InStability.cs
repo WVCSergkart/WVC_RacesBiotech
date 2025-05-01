@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentStability : Gene_ResurgentCellsGain
+	public class Gene_ResurgentStability : Gene_ResurgentOffset
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();

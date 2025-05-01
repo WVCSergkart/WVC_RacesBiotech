@@ -25,15 +25,15 @@ namespace WVC_XenotypesAndGenes
 		public override bool CompShouldRemove => Resurgent == null;
 
 		[Unsaved(false)]
-		private Gene_ResurgentCells cachedResurgentGene;
+		private Gene_Resurgent cachedResurgentGene;
 
-		private Gene_ResurgentCells Resurgent
+		private Gene_Resurgent Resurgent
 		{
 			get
 			{
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
-					cachedResurgentGene = base.Pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+					cachedResurgentGene = base.Pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				}
 				return cachedResurgentGene;
 			}

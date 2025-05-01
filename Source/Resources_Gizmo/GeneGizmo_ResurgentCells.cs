@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public Gene_ResurgentAgeless ageReversionGene = null;
 		public Gene_ResurgentClotting woundClottingGene = null;
 
-		public GeneGizmo_ResourceResurgentCells(Gene_ResurgentCells gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
+		public GeneGizmo_ResourceResurgentCells(Gene_Resurgent gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
 			: base(gene, drainGenes, barColor, barhighlightColor)
 		{
 			this.gene = gene;
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void DrawHeader(Rect headerRect, ref bool mouseOverElement)
 		{
-			if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_ResurgentCells cellsGene)
+			if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_Resurgent cellsGene)
 			{
 				if (totalHealingGene != null)
 				{

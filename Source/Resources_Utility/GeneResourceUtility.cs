@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 			// colonists.Shuffle();
 			foreach (Pawn colonist in colonists)
 			{
-				Gene_ResurgentCells gene = colonist?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				Gene_Resurgent gene = colonist?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				if (gene == null)
 				{
 					continue;
@@ -546,7 +546,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetResurgentCells(Pawn pawn, float offset)
 		{
-			Gene_ResurgentCells gene_Hemogen = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			Gene_Resurgent gene_Hemogen = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 			if (gene_Hemogen != null)
 			{
 				OffsetResource(gene_Hemogen, offset);

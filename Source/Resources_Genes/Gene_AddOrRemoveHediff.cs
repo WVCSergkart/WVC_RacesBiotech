@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Active)
 			{
-				Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				Gene_Resurgent gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				if (gene_Resurgent != null)
 				{
 					if (gene_Resurgent.Value >= def.resourceLossPerDay)

@@ -17,7 +17,7 @@
 	<defName>WVC_ResurgentCells</defName>
 	<label>resurgent</label>
 	<description>Carriers of this gene, over time, accumulate a neural cellular resource called resurgent cells. This resource can be used for rapid regeneration, rejuvenation, strengthening immunity, etc.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Resurgent</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
 	<resourceLabel>cells</resourceLabel>
@@ -67,7 +67,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentOffset</geneClass>
 	<resourceLabel>cells</resourceLabel>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
   </GeneDef>

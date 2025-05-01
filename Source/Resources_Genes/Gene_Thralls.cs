@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
         public override void PostAdd()
         {
             base.PostAdd();
-			shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
+			shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>() != null;
 		}
 
         public bool shouldDrawGizmo = true;

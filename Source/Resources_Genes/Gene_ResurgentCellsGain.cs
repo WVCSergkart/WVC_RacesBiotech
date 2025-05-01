@@ -12,15 +12,15 @@ namespace WVC_XenotypesAndGenes
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		[Unsaved(false)]
-		private Gene_ResurgentCells cachedHemogenGene;
+		private Gene_Resurgent cachedHemogenGene;
 
-		public Gene_ResurgentCells Cells
+		public Gene_Resurgent Cells
 		{
 			get
 			{
 				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
 				{
-					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				}
 				return cachedHemogenGene;
 			}
@@ -61,15 +61,15 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		[Unsaved(false)]
-		private Gene_ResurgentCells cachedResurgentGene;
+		private Gene_Resurgent cachedResurgentGene;
 
-		public Gene_ResurgentCells Resurgent
+		public Gene_Resurgent Resurgent
 		{
 			get
 			{
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
-					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				}
 				return cachedResurgentGene;
 			}
@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentCellsGain : Gene_ResurgentDependent, IGeneResourceDrain
+    public class Gene_ResurgentOffset : Gene_ResurgentDependent, IGeneResourceDrain
 	{
 
 		public Gene_Resource Resource => Resurgent;
@@ -112,7 +112,18 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentFungus : Gene_ResurgentCellsGain
+	[Obsolete]
+	public class Gene_ResurgentCellsGain : Gene_ResurgentOffset
+    {
+
+    }
+
+    //public class Gene_ArchitesOffset : Gene_ResurgentDependent, IGeneResourceDrain
+    //   {
+
+    //   }
+
+    public class Gene_ResurgentFungus : Gene_ResurgentOffset
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();

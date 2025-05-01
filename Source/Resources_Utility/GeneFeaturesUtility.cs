@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MiscUtility.BasicTargetValidation(biter, victim))
 			{
-				Gene_ResurgentCells cells = victim.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				Gene_Resurgent cells = victim.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 				if (cells == null)
 				{
 					return false;

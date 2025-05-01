@@ -9,13 +9,13 @@ namespace WVC_XenotypesAndGenes
 	{
 		public new CompProperties_AbilityResurgentCost Props => (CompProperties_AbilityResurgentCost)props;
 
-		private Gene_ResurgentCells cachedResugentGene = null;
+		private Gene_Resurgent cachedResugentGene = null;
 
 		private void Cache()
 		{
 			if (cachedResugentGene == null || !cachedResugentGene.Active)
 			{
-				cachedResugentGene = parent.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				cachedResugentGene = parent.pawn.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 			}
 		}
 
