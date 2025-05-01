@@ -97,7 +97,8 @@
 		<li>WVC_Chameleon</li>
 		<li>WVC_HybridImplanter</li>
 		<li>WVC_Incrementer</li>
-		<li>WVC_VoidMechlink</li>
+		<!-- <li>WVC_VoidMechlink</li> -->
+		<li>WVC_WoundHealing_SelfRepair</li>
 		<li>WVC_Overrider</li>
 		<li>WVC_Ageless_Overrider</li>
 		<li>WVC_Health_Overrider</li>
@@ -121,25 +122,31 @@
 		<li>WVC_Pain_Overrider</li>
 		<li>Sterile</li>
 		<!-- = -->
-		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
-		<li>WVC_MechaPowerSource_Vanometric</li>
-		<li>ArchiteMetabolism</li>
-		<!-- <li>Hemogenic</li> -->
-		<!-- <li>Bloodfeeder</li> -->
-		<!-- <li>WVC_Bloodeater</li> -->
-		<!-- <li>WVC_BloodyGrowths</li> -->
-		<li>WVC_MechaPowerSource_Tox</li>
+		<!-- <li>WVC_MechaPowerSource_Vanometric</li> -->
+		<!-- <li>ArchiteMetabolism</li> -->
+		<li>WVC_MechaPowerSource_Stable</li>
 		<li>WVC_Stomach_Overrider</li>
-		<li>FireWeakness</li>
-		<li>FireTerror</li>
+		<!-- <li>FireWeakness</li> -->
+		<!-- <li>FireTerror</li> -->
 		<li>Hair_ShortOnly</li>
+		<li>WVC_OneManArmy</li>
+		<li>Deathrest</li>
+		<li>Neversleep</li>
+		<!-- = -->
+		<li>Hemogenic</li>
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
+		<li>WVC_BloodyGrowths</li>
+		<li>WVC_HemogenGain</li>
+		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
+		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
 	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(161, 161, 255)</defaultColor>
-			<morpherTriggerGene>WVC_MorphCondition_DeathRefusal</morpherTriggerGene>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <defaultColor>(161, 161, 255)</defaultColor> -->
+			<!-- <morpherTriggerGene>WVC_MorphCondition_DeathRefusal</morpherTriggerGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

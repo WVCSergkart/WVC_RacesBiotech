@@ -9,16 +9,16 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<selectionWeight>0.003</selectionWeight>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<exclusionTags>
 	  <li>WVC_PsychicSunSensitivity</li>
 	</exclusionTags>
@@ -106,6 +106,7 @@
   <!-- UV Psychic Sensitivity -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<!-- old defName -->
 	<defName>WVC_DebuffUV_StrongPsychicSensitivity</defName>
 	<label>UV psychically dull</label>
 	<description>Carriers of this gene partially lose psi-sensitivity when exposed to the sun.</description>
@@ -126,6 +127,7 @@
 	</conditionalStatAffecters>
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<!-- old defName -->
 	<defName>WVC_DebuffUV_ExtremePsychicSensitivity</defName>
 	<label>UV psychically deaf</label>
 	<description>Carriers of this gene lose psi-sensitivity when exposed to the sun.</description>

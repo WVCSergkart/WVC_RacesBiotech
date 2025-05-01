@@ -304,7 +304,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			GeneResourceUtility.OffsetNeedFood(pawn, Offset);
+			GeneResourceUtility.OffsetNeedFood(pawn, -1 * Offset);
 		}
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
