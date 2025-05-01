@@ -42,7 +42,7 @@
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HybridImplanter</compClass>
-		<xenotypeDef>WVC_Hybrid</xenotypeDef>
+		<!-- <xenotypeDef>WVC_Hybrid</xenotypeDef> -->
 	  </li>
 	</comps>
   </AbilityDef>
