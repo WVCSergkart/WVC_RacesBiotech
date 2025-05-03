@@ -192,7 +192,7 @@
 		<!-- <li>WVC_AgeDebuff_</li> -->
 		<!-- = -->
 		<li>WVC_Undead</li>
-		<li>WVC_NaturalUndead</li>
+		<!-- <li>WVC_NaturalUndead</li> -->
 		<li>WVC_ResurgentCellsGain</li>
 		<li>WVC_ResurgentCells_TotalHealing</li>
 		<li>WVC_ResurgentCells_Ageless</li>

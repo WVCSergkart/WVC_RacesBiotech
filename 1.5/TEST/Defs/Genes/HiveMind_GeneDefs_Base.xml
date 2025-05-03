@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_HiveMind</defName>
+	<label>hive mind</label>
+	<description>Carriers of this gene has TEST.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath>
+	<selectionWeight>0</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mind</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_HiveMind</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>
