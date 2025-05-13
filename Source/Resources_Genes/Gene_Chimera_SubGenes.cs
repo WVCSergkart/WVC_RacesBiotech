@@ -31,6 +31,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Tick()
+		{
+			
+		}
+
 	}
 
 	public class Gene_ChimeraGenesGen : Gene_ChimeraDependant
@@ -199,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 		public override void GetRandomGene()
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && (x.canGenerateInGeneSet && x.selectionWeight > 0f || x.IsVanillaDef()) && x.biostatArc == 0 && x.biostatMet == 0 && x.biostatCpx == 0).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && (x.canGenerateInGeneSet && x.selectionWeight > 0f || x.IsVanillaDef()) && x.biostatArc == 0 && x.biostatMet == 0 && x.biostatCpx == 0).TryRandomElementByWeight((GeneDef gene) => 1f + gene.selectionWeight, out GeneDef result))
 			{
 				Chimera.TryAddGene(result);
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);

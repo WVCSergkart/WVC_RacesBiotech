@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -19,7 +20,17 @@ namespace WVC_XenotypesAndGenes
         {
             this.gene = gene;
             this.pawn = gene.pawn;
-            maxSkillPoints = pawn.skills.skills.Sum((x) => x.levelInt);
+            //maxSkillPoints = pawn.skills.skills.Sum((x) => x.levelInt);
+            maxSkillPoints = 0;
+            foreach (SkillRecord skillRecord in skills)
+            {
+                int skillLevel = skillRecord.levelInt;
+                while (skillLevel > 0)
+                {
+                    maxSkillPoints += skillLevel;
+                    skillLevel--;
+                }
+            }
             UpdSkills(pawn);
             forcePause = true;
             doCloseButton = false;
@@ -61,12 +72,16 @@ namespace WVC_XenotypesAndGenes
                     Rect buttonPlus = new(rect3.x, rect3.y, rect3.width / 2, rect3.height);
                     if (Widgets.ButtonText(buttonPlus, "+"))
                     {
-                        if (skillRecord.levelInt < 20 && leftSkillPoints > 0)
+                        if (skillRecord.levelInt < 20 && leftSkillPoints >= skillRecord.levelInt + 1)
                         {
-                            leftSkillPoints--;
                             skillRecord.levelInt++;
+                            leftSkillPoints -= skillRecord.levelInt;
                             UpdSkills(pawn);
                             anyChanges = true;
+                        }
+                        else
+                        {
+                            SoundDefOf.ClickReject.PlayOneShotOnCamera();
                         }
                     }
                     Rect buttonMinus = new(rect3.x + (rect3.width / 2), rect3.y, rect3.width / 2, rect3.height);
@@ -74,10 +89,14 @@ namespace WVC_XenotypesAndGenes
                     {
                         if (skillRecord.levelInt > 0)
                         {
-                            leftSkillPoints++;
+                            leftSkillPoints += skillRecord.levelInt;
                             skillRecord.levelInt--;
                             UpdSkills(pawn);
                             anyChanges = true;
+                        }
+                        else
+                        {
+                            SoundDefOf.ClickReject.PlayOneShotOnCamera();
                         }
                     }
                     Rect rect4 = new(4f, 0f, rect.width - rect3.width, rect.height);
