@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 					if (cachedGenes > 0)
                     {
 						float offset = 0;
-						float genesFactor = 1f / Overrider.SubGenesCount;
+						float genesFactor = 1f / Gene_Overrider.SubGenesCount;
 						if (Overrider.addPsychicSensitivity)
                         {
 							offset = cachedGenes * (genesFactor * 1.5f);

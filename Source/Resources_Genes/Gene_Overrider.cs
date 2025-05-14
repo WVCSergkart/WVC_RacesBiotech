@@ -51,8 +51,8 @@ namespace WVC_XenotypesAndGenes
 
         //===========
 
-        private int? cahcedSubGeneCount;
-        public int SubGenesCount
+        private static int? cahcedSubGeneCount;
+        public static int SubGenesCount
         {
             get
             {
