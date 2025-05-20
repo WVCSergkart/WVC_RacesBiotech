@@ -224,15 +224,15 @@ namespace WVC_XenotypesAndGenes
     public class Gene_PostImplanter : Gene
 	{
 
-		private CompAbilityEffect_RiseFromTheDead cachedReimplanterComp;
+		private CompAbilityEffect_PostImplanter cachedReimplanterComp;
 
-		public CompAbilityEffect_RiseFromTheDead ReimplanterComp
+		public CompAbilityEffect_PostImplanter ReimplanterComp
 		{
 			get
 			{
 				if (cachedReimplanterComp == null && def.abilities != null)
 				{
-					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_RiseFromTheDead>();
+					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_PostImplanter>();
 				}
 				return cachedReimplanterComp;
 			}
@@ -265,7 +265,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_PostImplanter_Brainwash : Gene_PostImplanterDependant
+    public class Gene_PostImplanter_Recruit : Gene_PostImplanterDependant
 	{
 
 		public override void Notify_TargetResurrected(Pawn target)
@@ -276,6 +276,25 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
 				target.ideo?.SetIdeo(pawn.ideo.Ideo);
 			}
+		}
+
+	}
+
+	[Obsolete]
+	public class Gene_PostImplanter_Brainwash : Gene_PostImplanter_Recruit
+	{
+
+	}
+
+	public class Gene_PostImplanter_Convert : Gene_PostImplanterDependant
+	{
+
+		public override void Notify_TargetResurrected(Pawn target)
+		{
+			if (target.ideo?.Ideo != null && pawn.ideo?.Ideo != null && target.ideo.Ideo != pawn.ideo.Ideo)
+            {
+				target.ideo.SetIdeo(pawn.ideo.Ideo);
+            }
 		}
 
 	}

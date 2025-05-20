@@ -3,10 +3,10 @@
 
   <GeneDef>
 	<defName>WVC_PostImplanterBrainwash</defName>
-	<label>post-brainwash</label>
+	<label>post-recruit</label>
 	<description>Carriers of this gene can instantly recruit pawns resurrected by post-implanter genes.</description>
-	<iconPath>WVC/UI/Genes/Gene_PostImplanterBrainwash_v0</iconPath>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter_Brainwash</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostImplanter_Recruit_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter_Recruit</geneClass>
 	<selectionWeight>0.0022</selectionWeight>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>120</displayOrderInCategory>
@@ -18,8 +18,29 @@
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>brain</symbol></li>
-		<li><symbol>wash</symbol></li>
+		<li><symbol>recruit</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology">
+	<defName>WVC_PostImplanter_Convert</defName>
+	<label>post-convert</label>
+	<description>Carriers of this gene can instantly convert pawns resurrected by post-implanter genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_PostImplanter_Convert_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter_Convert</geneClass>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>121</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Using a &lt;color=#8a8ae6&gt;post-implanter&lt;/color&gt; is guaranteed to convert the target.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>convert</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>

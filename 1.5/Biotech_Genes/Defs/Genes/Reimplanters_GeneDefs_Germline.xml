@@ -131,7 +131,7 @@
 		<!-- </anyOfGenes> -->
 	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_RiseFromTheDead</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_PostImplanter</compClass>
 		<!-- <afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef> -->
 		<!-- <resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef> -->
 		<!-- <resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef> -->
