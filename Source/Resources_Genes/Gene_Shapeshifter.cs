@@ -300,7 +300,7 @@ namespace WVC_XenotypesAndGenes
             int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
             int nonArchiteCount = genes.Count - architeCount;
             int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
-            int count = days * 60000;
+            int count = (days + (StaticCollectionsClass.cachedColonistsCount * 3)) * 60000;
             ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
         }
 
