@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
             this.gene = gene;
             this.pawn = gene.pawn;
             //maxSkillPoints = pawn.skills.skills.Sum((x) => x.levelInt);
+            UpdSkills(pawn);
             maxSkillPoints = 0;
             foreach (SkillRecord skillRecord in skills)
             {
@@ -31,7 +32,6 @@ namespace WVC_XenotypesAndGenes
                     skillLevel--;
                 }
             }
-            UpdSkills(pawn);
             forcePause = true;
             doCloseButton = false;
         }

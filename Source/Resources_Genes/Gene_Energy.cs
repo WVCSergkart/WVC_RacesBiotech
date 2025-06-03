@@ -400,8 +400,12 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_Charging(float chargePerTick, int tick, float factor)
-        {
-            Hemogen.Value += chargePerTick * tick * factor;
+		{
+			if (Rechargeable == null || Hemogen == null)
+			{
+				return;
+			}
+			Hemogen.Value += chargePerTick * tick * factor;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
