@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
+	<defName>WVC_VoidMechlink</defName>
+	<label>void mechlink</label>
+	<description>Carriers of this gene have corrupted archites that connect them to the void. They are able to skip mechanoids from different parts of the universe and take control of them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Voidlink</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Voidlink</resourceGizmoType>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>75</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_VoidMechlink_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>0</biostatMet>
+	<marketValueFactor>2</marketValueFactor>
+	<!-- gain per day -->
+	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Allows to skip any mechanoids.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Bandwidth&lt;/color&gt; has a relative limit and increases with the number of mechanoids.</li>
+		<!-- <li>Each &lt;color=#ff8585&gt;occupied bandwidth reduces&lt;/color&gt; the &lt;color=#8a8ae6&gt;social stats&lt;/color&gt;.</li> -->
+		<li>Each occupied &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; reduces &lt;color=#ff8585&gt;social stats&lt;/color&gt; and the chance of a &lt;color=#8a8ae6&gt;nervous breakdown&lt;/color&gt;.</li>
+		<li>Instead of mech, a &lt;color=#b0bf80&gt;nociosphere&lt;/color&gt; can be skipped. Each controlled mech increases this chance by 1%. &lt;color=#b0bf80&gt;Nociosphere&lt;/color&gt; will be immediately &lt;color=#ff8585&gt;activated&lt;/color&gt;.</li>
+		<li>&lt;color=#ff8585&gt;Any nociosphere presence prevent skipping.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+		<MechFormingSpeed>0.1</MechFormingSpeed>
+	</statFactors>
+	<statOffsets>
+		<WVC_VoidMechsLimit>7</WVC_VoidMechsLimit>
+		<WVC_VoidDamageChance>0.22</WVC_VoidDamageChance>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<mechanitorHediff>WVC_VoidMechlink</mechanitorHediff>
+			<mechHediff>WVC_VoidMechanoid</mechHediff>
+			<voidMechsLimit_StatDef>WVC_VoidMechsLimit</voidMechsLimit_StatDef>
+			<voidDamageChance_StatDef>WVC_VoidDamageChance</voidDamageChance_StatDef>
+			<voidMaxResource_StatDef>WVC_MaxVoidEnergy</voidMaxResource_StatDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Nociokin</xenotypeDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- =========================================== -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes" Abstract="True">
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>75.01</displayOrderInCategory>
+	<displayCategory>WVC_Energy</displayCategory>
+	<prerequisite>WVC_VoidMechlink</prerequisite>
+	<minAgeActive>3</minAgeActive>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkDependant</geneClass>
+  </GeneDef>
+
+  <!-- ====================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_IncreasedVoidLimit</defName>
+	<label>increased void limit</label>
+	<description>Carriers of this gene have archites that make the connection with the void more reliable, but less stable. Which leads to the fact that the chance of summoning a nociosphere becomes less, but the mechanoids are more likely to receive damage when summoned.</description>
+	<iconPath>WVC/UI/Genes/Gene_IncreasedVoidLimit_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.05</displayOrderInCategory>
+	<biostatCpx>-2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<statOffsets>
+		<WVC_VoidMechsLimit>5</WVC_VoidMechsLimit>
+		<WVC_VoidDamageChance>0.25</WVC_VoidDamageChance>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_IncreasedVoidLimit</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_DecreasedVoidLimit</defName>
+	<label>decreased void limit</label>
+	<description>Carriers of this gene have archites that make the connection with the void more stable, but less reliable. Because of this, the number of mechanoids that can be safely summoned is smaller, as is the chance of them being damaged when summoned.</description>
+	<iconPath>WVC/UI/Genes/Gene_DecreasedVoidLimit_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.10</displayOrderInCategory>
+	<biostatCpx>-2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<statOffsets>
+		<WVC_VoidMechsLimit>-3</WVC_VoidMechsLimit>
+		<WVC_VoidDamageChance>-0.2</WVC_VoidDamageChance>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_IncreasedVoidLimit</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ====================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_VoidResourceGain</defName>
+	<label>void enery gain</label>
+	<description>Carriers of this gene are better at accumulating the void energy needed to summon mechanoids.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidResourceGain_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkOffset</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.15</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<!-- gain per day -->
+	<resourceLossPerDay>0.04</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Generates an additional 4 energy per day.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_VoidResourceGain</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes"> -->
+	<!-- <defName>WVC_VoidResourceGain</defName> -->
+	<!-- <label>void enery gain</label> -->
+	<!-- <description>Carriers of this gene are much better at accumulating the void energy needed to summon mechanoids.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_VoidResourceGain_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>75.20</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-6</biostatMet> -->
+	<!-- <resourceLossPerDay>0.3</resourceLossPerDay> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Generates an additional 30 energy per day.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_VoidResourceGain</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_MaxVoidEnergy_AccurateSummon</defName>
+	<label>accurate summon</label>
+	<description>Carriers of this gene have archites that help them more accurately distinguish mechanoids from nociospheres, but because of this, carriers have a more limited choice for summoning.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidHide_v0</iconPath>
+	<!-- Any VoidlinkDependant class is req. for the WVC_MaxVoidEnergy stat. Otherwise, errors and bugs may occur. -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkDependant</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.30</displayOrderInCategory>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<statOffsets>
+		<WVC_MaxVoidEnergy>-0.80</WVC_MaxVoidEnergy>
+		<WVC_VoidMechsLimit>11</WVC_VoidMechsLimit>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -12,15 +13,26 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		static XaG_PostInitialization()
-		{
-			InitialUtility.InitializeModSettings();
-			// Hediffs();
-			InitialUtility.GenesAndMutants();
-			//InitialUtility.ThingDefs();
-			//InitialUtility.XenotypeDefs();
-			HarmonyPatches.HarmonyUtility.PostInitialPatches();
-		}
+        {
+            string phase = "";
+            try
+            {
+                phase = "mod settings";
+                InitialUtility.InitializeModSettings();
+                // Hediffs();
+                phase = "genes setup";
+                InitialUtility.GenesAndMutants();
+                //InitialUtility.ThingDefs();
+                //InitialUtility.XenotypeDefs();
+                phase = "harmony";
+                HarmonyPatches.HarmonyUtility.PostInitialPatches();
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Initial error on phase: " + phase + ". Reason: " + arg);
+            }
+        }
 
-	}
+    }
 
 }

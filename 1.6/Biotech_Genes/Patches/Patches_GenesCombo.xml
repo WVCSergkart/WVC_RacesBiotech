@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Bloodfeeder patch -->
+
+	<!-- Replaced by harmony patch -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/AbilityDef[defName="Bloodfeed" or defName="VRE_SanguoFeed"]/comps</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>golembond_ShrinesStatPartOffset</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/StatDef[defName="WVC_GolemBond"]/parts</xpath>
+		  <order>Prepend</order>
+		  <value>
+			  <!-- To-Do: Remove after adding alternative mechanics. -->
+			  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
+				<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
+				<reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef>
+				<buildings>
+				  <li MayRequire="Ludeon.RimWorld.Royalty">
+					<thingDef>NatureShrine_Small</thingDef>
+					<bandwidth>0.2</bandwidth>
+				  </li>
+				  <li MayRequire="Ludeon.RimWorld.Royalty">
+					<thingDef>NatureShrine_Large</thingDef>
+					<bandwidth>0.5</bandwidth>
+				  </li>
+				  <li MayRequire="Ludeon.RimWorld.Royalty">
+					<thingDef>AnimusStone</thingDef>
+					<bandwidth>1</bandwidth>
+				  </li>
+				  <li MayRequire="redmattis.dryads">
+					<thingDef>Dryad_GauranlenShrine_Large</thingDef>
+					<bandwidth>0.5</bandwidth>
+				  </li>
+				  <li MayRequire="redmattis.dryads">
+					<thingDef>Dryad_GauranlenShrine_Small</thingDef>
+					<bandwidth>0.2</bandwidth>
+				  </li>
+				  <li MayRequire="redmattis.dryads">
+					<thingDef>Dryad_VikingShrine</thingDef>
+					<bandwidth>0.1</bandwidth>
+				  </li>
+				</buildings>
+			  </li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
+	  <value>
+		<li>WVC_XaG_ImplanterFangsMark</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>bloodeater_SafeBloodfeed</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath>
+				  <order>Prepend</order>
+				  <value>
+					  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySafeBloodfeed"/>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>bloodfeeder_AutoBloodfeed</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]/geneClass</xpath>
+				  <success>Invert</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]</xpath>
+				  <success>Always</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath>
+	  <order>Prepend</order>
+	  <value>
+		<li>
+		  <compClass>WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted</compClass>
+		</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_birthQualityOffsetFromGenes</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/RitualOutcomeEffectDef[defName="ChildBirth"]/comps</xpath>
+		  <order>Prepend</order>
+		  <value>
+			<li Class="WVC_XenotypesAndGenes.RitualOutcomeComp_PawnGenes">
+			  <label>{PAWN_labelShort}'s genes</label>
+			  <labelAbstract>mother's genes</labelAbstract>
+			  <roleId>mother</roleId>
+			</li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<!-- Patch for special food for dustogenics -->
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>useAlternativeDustogenicFoodJob</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalStarving"]/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
+
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/geneClass</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+				<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableUniqueXenotypeScenarios</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+				  <xpath>/Defs/ScenarioDef[@WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"]</xpath>
+				  <success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<!-- ================== -->
+
+	<!-- The new way of displaying information is designed only for humans. Patches for HAR need to be added separately. -->
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThingDef[defName="Human"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <comps/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGenesInfo</settingName> -->
+		<!-- <caseTrue Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]</xpath> -->
+		  <!-- <safetyDepth>1</safetyDepth> -->
+		  <!-- <value> -->
+			<!-- <comps> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"> -->
+				<!-- <uniqueTag>XaG_HumanUndead</uniqueTag> -->
+				<!-- <resurrectionDelay>8200~39000</resurrectionDelay> -->
+				<!-- <recacheFrequency>11435</recacheFrequency> -->
+			  <!-- </li> -->
+			<!-- </comps> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_xagHumanComponent</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike">
+				<!-- <bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef> -->
+				<resurrectionDelay>8200~39000</resurrectionDelay>
+			  </li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"> -->
+			<!-- <shouldResurrect>true</shouldResurrect> -->
+			<!-- <uniqueTag>XaG_HumanUndead</uniqueTag> -->
+			<!-- <resurrectionDelay>8200~39000</resurrectionDelay> -->
+			<!-- <recacheFrequency>11435</recacheFrequency> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThingDef[defName="Human"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <modExtensions/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <value> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Human"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <modExtensions> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <shouldResurrect>true</shouldResurrect> -->
+			<!-- <uniqueTag>XaG_HumanUndead</uniqueTag> -->
+			<!-- <resurrectionDelay>8200~39000</resurrectionDelay> -->
+		  <!-- </li> -->
+		<!-- </modExtensions> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/GeneDef[defName="Ageless"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_DiseaseFree</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_DiseaseFree</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_Ageless</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_Ageless</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech"> -->
+			<!-- <stat>PsychicSensitivity</stat> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

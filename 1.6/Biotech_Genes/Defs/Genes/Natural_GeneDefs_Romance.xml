@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneIncestous_Base" Abstract="True">
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<selectionWeight>0.0011</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_IncestLover</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneIncestous_Base">
+	<defName>WVC_IncestLover</defName>
+	<label>incest lover</label>
+	<description>Carriers of this gene have a strange attraction to their blood relatives.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_IncestLover</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Incestous_v0</iconPath>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+	  <li>Significantly increases the chance of romance with blood relatives.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- Romance -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Abstract="True">
+	<displayCategory>Reproduction</displayCategory>
+	<description>Carriers of this gene have certain habits that help them identify and choose the best partner.</description>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>553</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<selectionWeight>0.0005</selectionWeight>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>phero</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mones</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+	<defName>WVC_RomanceChanceA</defName>
+	<label>picky A</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceA_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_A</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+	<defName>WVC_RomanceChanceB</defName>
+	<label>picky B</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceB_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_B</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+	<defName>WVC_RomanceChanceC</defName>
+	<label>picky C</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceC_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_C</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+	<defName>WVC_RomanceChanceNeutralized</defName>
+	<label>not picky</label>
+	<description>Carriers of this gene are common in their preferences when choosing a partner.</description>
+	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
+	<displayOrderInCategory>554</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceDull_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_A</li>
+	  <li>WVC_RomanceChance_B</li>
+	  <li>WVC_RomanceChance_C</li>
+	  <li>WVC_RomanceChance_D</li>
+	  <li>WVC_RomanceChance_E</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

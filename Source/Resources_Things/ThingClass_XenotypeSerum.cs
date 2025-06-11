@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 						foreach (Pawn item in base.Map.mapPawns.AllPawnsSpawned)
 						{
 							Pawn pawn = item;
-							if (!pawn.IsQuestLodger() && pawn.IsHuman() && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonyMutant && pawn.IsGhoul)))
+							if (!pawn.IsQuestLodger() && pawn.IsHuman() && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonySubhuman && pawn.IsGhoul)))
 							{
 								list.Add(new FloatMenuOption(pawn.LabelShortCap + ", " + pawn.genes.XenotypeLabelCap, delegate
 								{

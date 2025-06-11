@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Body size -->
+
+	<GeneDef Name="WVC_XenotypesAndGenes_BodySize_Base" Abstract="True">
+		<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BodySize</geneClass> -->
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<displayCategory>Cosmetic_Body</displayCategory>
+		<displayOrderInCategory>220</displayOrderInCategory>
+		<iconColor>(0.75, 0.75, 0.75)</iconColor>
+		<selectionWeight>0.003</selectionWeight>
+		<!-- <minAgeActive>13</minAgeActive> -->
+		<exclusionTags>
+			<li>BodySize</li>
+			<li>AG_BodySize</li>
+		</exclusionTags>
+	</GeneDef>
+
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
+		<defName>WVC_BodySize_Small</defName>
+		<label>small size</label>
+		<description>Carriers of this gene are slightly smaller than baseline humans.</description>
+		<displayOrderInCategory>220</displayOrderInCategory>
+		<iconPath>WVC/UI/Genes/BodySize_Small</iconPath>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<statFactors>
+		  <!-- <MeleeDamageFactor>0.8</MeleeDamageFactor> -->
+		  <!-- <Mass>0.8</Mass> -->
+		  <!-- <MeatAmount>0.8</MeatAmount> -->
+		  <!-- <LeatherAmount>0.8</LeatherAmount> -->
+		  <!-- <CarryingCapacity>0.8</CarryingCapacity> -->
+		  <!-- <ArrestSuccessChance>0.8</ArrestSuccessChance> -->
+		  <!-- 0.9 -->
+		  <!-- <MaxNutrition>1.25</MaxNutrition> -->
+		  <!-- 0.8 -->
+		  <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition>
+		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier>
+		</statFactors>
+		<statOffsets>
+		  <MoveSpeed>0.2</MoveSpeed>
+		</statOffsets>
+		<symbolPack>
+		  <prefixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+		  </prefixSymbols>
+		  <suffixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+		  </suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
+		<defName>WVC_BodySize_Average</defName>
+		<label>average size</label>
+		<description>Carriers of this gene have a normal baseline human size.</description>
+		<displayOrderInCategory>230</displayOrderInCategory>
+		<iconPath>WVC/UI/Genes/BodySize_Average</iconPath>
+		<biostatCpx>0</biostatCpx>
+		<biostatMet>0</biostatMet>
+	</GeneDef>
+
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
+		<defName>WVC_BodySize_Large</defName>
+		<label>large size</label>
+		<description>Carriers of this gene are slightly larger than baseline humans.</description>
+		<displayOrderInCategory>240</displayOrderInCategory>
+		<iconPath>WVC/UI/Genes/BodySize_Large</iconPath>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<statFactors>
+		  <!-- <MeleeDamageFactor>1.2</MeleeDamageFactor> -->
+		  <!-- <Mass>1.2</Mass> -->
+		  <!-- <MeatAmount>1.2</MeatAmount> -->
+		  <!-- <LeatherAmount>1.2</LeatherAmount> -->
+		  <!-- <CarryingCapacity>1.2</CarryingCapacity> -->
+		  <!-- <ArrestSuccessChance>1.2</ArrestSuccessChance> -->
+		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.2</VEF_BodySize_Multiplier>
+		</statFactors>
+		<statOffsets>
+		  <MoveSpeed>-0.2</MoveSpeed>
+		</statOffsets>
+		<symbolPack>
+		  <prefixSymbols>
+			<li><symbol>giant</symbol></li>
+			<li><symbol>big</symbol></li>
+		  </prefixSymbols>
+		  <suffixSymbols>
+			<li><symbol>giant</symbol></li>
+			<li><symbol>big</symbol></li>
+		  </suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+  <!-- ======================================================= -->
+
+
+</Defs>

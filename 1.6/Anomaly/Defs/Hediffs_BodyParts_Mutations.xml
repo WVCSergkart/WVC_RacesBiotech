@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- Mutations -->
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassJaw</defName>
+	<label>fleshmass jaw</label>
+	<labelNoun>a fleshmass jaw</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It has several extra rows of teeth, allowing the owner to chew food much more effectively.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Jaw</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.05</painOffset>
+		<statOffsets>
+		  <EatingSpeed>0.5</EatingSpeed>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass jaw has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassEar</defName>
+	<label>fleshmass ear</label>
+	<labelNoun>a fleshmass ear</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It can analyze sound, helping the carrier react more quickly to enemy attacks in close combat.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Ear</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.03</painOffset>
+		<statOffsets>
+		  <MeleeDodgeChance>6</MeleeDodgeChance>
+		  <PawnBeauty>-1</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <!-- <partEfficiency>1.2</partEfficiency> -->
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass ear has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassEye</defName>
+	<label>fleshmass eye</label>
+	<labelNoun>a fleshmass eye</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It is capable of reacting aggressively to threats, enhancing the carrier's combat skills.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Eye</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.03</painOffset>
+		<statOffsets>
+		  <MeleeHitChance>4</MeleeHitChance>
+		  <ShootingAccuracyPawn>4</ShootingAccuracyPawn>
+		  <PawnBeauty>-1</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <!-- <partEfficiency>1.2</partEfficiency> -->
+	</addedPartProps>
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+		<texPath>WVC/BodyParts/Eyes/FleshmassEye</texPath>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.15</drawSize>
+		<drawData>
+		  <defaultData>
+			<layer>56</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		  <dataWest>
+			<flip>true</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass eye has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <!-- Doesn't work, mutations can only be solid or cause bugs. -->
+  <!-- <HediffDef ParentName="ImplantHediffBase"> -->
+	<!-- <defName>WVC_FleshmassShell</defName> -->
+	<!-- <label>fleshmass shell</label> -->
+	<!-- <labelNoun>a fleshmass shell</labelNoun> -->
+	<!-- <description>A cancerous mass of semi-sentient flesh. It integrates with the wearer's skin, making it stronger, but the wearer's appearance is noticeably disfigured.\n\nThe organ has its own neural structures and may become dangerous if removed.</description> -->
+	<!-- <defaultInstallPart>Torso</defaultInstallPart> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <statOffsets> -->
+		  <!-- <ArmorRating_Sharp>0.35</ArmorRating_Sharp> -->
+		  <!-- <ArmorRating_Blunt>0.3</ArmorRating_Blunt> -->
+		  <!-- <ArmorRating_Heat>-0.2</ArmorRating_Heat> -->
+		  <!-- <PawnBeauty>-2</PawnBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_FleshbeastEmerge"> -->
+		<!-- <letterLabel>Fleshmass operation</letterLabel> -->
+		<!-- <letterText>Attempting to remove {PAWN_nameDef}'s fleshmass shell has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassHeart</defName>
+	<label>fleshmass heart</label>
+	<labelNoun>a fleshmass heart</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It stabilizes blood flow and improves the natural healing process of wounds.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Heart</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.08</painOffset>
+		<naturalHealingFactor>1.5</naturalHealingFactor>
+		<totalBleedFactor>0.5</totalBleedFactor>
+		<!-- <makeImmuneTo> -->
+		  <!-- <li>HeartArteryBlockage</li> -->
+		  <!-- <li>HeartAttack</li> -->
+		<!-- </makeImmuneTo> -->
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <!-- <partEfficiency>1.20</partEfficiency> -->
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass heart has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassLiver</defName>
+	<label>fleshmass liver</label>
+	<labelNoun>a fleshmass liver</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. The tissues constantly and unlimitedly self-replicate and are capable of restoring severely damaged or even destroyed organs.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Liver</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.08</painOffset>
+		<regeneration>10</regeneration>
+		<!-- <statOffsets> -->
+		  <!-- <ImmunityGainSpeed>0.1</ImmunityGainSpeed> -->
+		<!-- </statOffsets> -->
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass liver has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassKidney</defName>
+	<label>fleshmass kidney</label>
+	<labelNoun>a fleshmass kidney</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It effectively filters toxins and increases immunity.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Kidney</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.06</painOffset>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+		  <ToxicResistance>0.2</ToxicResistance>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass kidney has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassSpine</defName>
+	<label>fleshmass spine</label>
+	<labelNoun>a fleshmass spine</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It is capable of bending at unnatural angles, which improves flexibility.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Spine</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.08</painOffset>
+		<statOffsets>
+		  <IncomingDamageFactor>-0.1</IncomingDamageFactor>
+		</statOffsets>
+		<capMods>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>0.1</offset>
+		  </li>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>0.1</offset>
+		  </li>
+		</capMods>
+		<!-- <makeImmuneTo> -->
+		  <!-- <li>BadBack</li> -->
+		  <!-- <li>Frail</li> -->
+		<!-- </makeImmuneTo> -->
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <!-- <partEfficiency>1.20</partEfficiency> -->
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass spine has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassLeg</defName>
+	<label>fleshmass leg</label>
+	<labelNoun>a fleshmass leg</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. The joints of this leg can bend in any direction, improving speed and making it easier to dodge in close combat.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Leg</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.06</painOffset>
+		<statOffsets>
+		  <MoveSpeed>0.4</MoveSpeed>
+		  <MeleeDodgeChance>3</MeleeDodgeChance>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass leg has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+</Defs>

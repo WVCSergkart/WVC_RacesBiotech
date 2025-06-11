@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef>
+	<defName>WVC_NutrientsInjector</defName>
+	<label>nutrients injector</label>
+	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection. Dustogenic pawns will try to use these injectors instead of regular food.
+
+Poisonous for non-dustogenic pawns.</description>
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Dustogenic</GeneDef>
+	</descriptionHyperlinks>
+	<techLevel>Ultra</techLevel>
+	<category>Item</category>
+	<thingClass>ThingWithComps</thingClass>
+	<drawerType>MapMeshOnly</drawerType>
+	<useHitPoints>true</useHitPoints>
+	<healthAffectsPrice>false</healthAffectsPrice>
+	<selectable>true</selectable>
+	<stackLimit>25</stackLimit>
+	<tickerType>Rare</tickerType>
+	<possessionCount>5</possessionCount>
+	<socialPropernessMatters>true</socialPropernessMatters>
+	<alwaysHaulable>true</alwaysHaulable>
+	<pathCost>14</pathCost>
+	<allowedArchonexusCount>40</allowedArchonexusCount>
+	<resourceReadoutPriority>Last</resourceReadoutPriority>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <!-- <texPath>WVC/Things/XaG_Items/DustNutrients</texPath> -->
+	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/DustInjector_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <!-- <drawSize>0.85</drawSize> -->
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>60</MaxHitPoints>
+	  <DeteriorationRate>5</DeteriorationRate>
+	  <Mass>0.50</Mass>
+	  <Flammability>0.4</Flammability>
+	  <Nutrition>1.2</Nutrition>
+	  <Beauty>0</Beauty>
+	  <MarketValue>35</MarketValue>
+	  <FoodPoisonChanceFixedHuman>0.22</FoodPoisonChanceFixedHuman>
+	</statBases>
+	<thingCategories>
+	  <li>Foods</li>
+	</thingCategories>
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <foodType>Fluid</foodType>
+	  <preferability>DesperateOnly</preferability>
+	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	  <babiesCanIngest>true</babiesCanIngest>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestSound>HemogenPack_Consume</ingestSound>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_GiveHediff">
+		  <hediffDef>WVC_NutrientsInjector_HungerFactor</hediffDef>
+		  <severity>1.0</severity>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<comps>
+	  <li Class="CompProperties_Forbiddable"/>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(241, 175, 129, 0)</glowColor> -->
+	  <!-- </li> -->
+	</comps>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDustogenic>true</isDustogenic>
+		</li>
+	</modExtensions>
+  </ThingDef>
+
+  <!-- ========================================================== -->
+
+  <ThingDef ParentName="MealBase" Name="WVC_XenotypesAndGenes_SpecialMeal_Base" Abstract="True">
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Dustogenic</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Dustogenic</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <FoodPoisonChanceFixedHuman>0.16</FoodPoisonChanceFixedHuman>
+	</statBases>
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <preferability>DesperateOnly</preferability>
+	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	  <ingestEffect>EatVegetarian</ingestEffect>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestSound>Meal_Eat</ingestSound>
+	</ingestible>
+	<allowedArchonexusCount>40</allowedArchonexusCount>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDustogenic>true</isDustogenic>
+		</li>
+	</modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
+	<defName>WVC_MealDustPack</defName>
+	<label>packaged dustogenic meal</label>
+	<!-- Dust food provokes the nerve areas of the dustogenic pawn, which causes dust cells to become active, so that the food does not lose its effectiveness. -->
+	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.
+
+Poisonous for non-dustogenic pawns.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/DustPack</texPath>
+	  <!-- <graphicClass>Graphic_MealVariants</graphicClass> -->
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <!-- <color>(249,241,148)</color> -->
+	  <color>(255,249,153)</color>
+	</graphicData>
+	<statBases>
+	  <DeteriorationRate>0.25</DeteriorationRate>
+	  <MarketValue>24</MarketValue>
+	  <Mass>0.3</Mass>
+	  <WorkToMake>450</WorkToMake>
+	  <Nutrition>1.2</Nutrition>
+	</statBases>
+	<ingestible>
+	</ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
+	<defName>WVC_MealDustogenicPaste</defName>
+	<label>dustogenic paste meal</label>
+	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.
+
+Poisonous for non-dustogenic pawns.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/NutrientPaste</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <color>(255,193,149)</color>
+	  <!-- <color>(249,241,148)</color> -->
+	</graphicData>
+	<statBases>
+	  <MarketValue>10</MarketValue>
+	  <Mass>0.3</Mass>
+	  <WorkToMake>450</WorkToMake>
+	  <Nutrition>1.2</Nutrition>
+	</statBases>
+	<ingestible>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_OffsetHemogen">
+		  <offset>0.4</offset>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<tradeability>Buyable</tradeability>
+	<comps>
+	  <li Class="CompProperties_Rottable">
+		<daysToRotStart>6</daysToRotStart>
+		<rotDestroys>true</rotDestroys>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

@@ -20,6 +20,8 @@ namespace WVC_XenotypesAndGenes
 			deleteTipKey = "DeleteThisXenotype";
 		}
 
+		private Vector2 scrollPosition;
+
 		public override void DoWindowContents(Rect inRect)
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);

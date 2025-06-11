@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base" Abstract="True">
+	<iconColor>(255,255,255)</iconColor>
+	<selectionWeight>0.0005</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>prey</symbol></li>
+		<li><symbol>tasty</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>prey</symbol></li>
+		<li><symbol>tasty</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_BePredatorPrey</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
+	<defName>WVC_PredatorPrey_NotTasty</defName>
+	<label>not tasty</label>
+	<description>Carriers of this gene have very unnutritious and tasteless flesh, and the almost imperceptible smell repels most predators.</description>
+	<iconPath>WVC/UI/Genes/Prey_B</iconPath>
+	<displayOrderInCategory>-120</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Predators do not prey on carriers of this gene.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MeatAmount>0.2</MeatAmount>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<canBePredatorPrey>false</canBePredatorPrey>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
+	<defName>WVC_PredatorPrey_Tasty</defName>
+	<label>tasty</label>
+	<description>Carriers of this gene have very nutritious flesh.</description>
+	<iconPath>WVC/UI/Genes/Prey_A</iconPath>
+	<displayOrderInCategory>-115</displayOrderInCategory>
+	<statFactors>
+	  <MeatAmount>1.6</MeatAmount>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

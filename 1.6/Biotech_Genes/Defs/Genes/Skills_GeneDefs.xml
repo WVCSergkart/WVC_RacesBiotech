@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneAptitudes_Base" Abstract="True"> -->
+	<!-- <displayCategory>WVC_Aptitudes</displayCategory> -->
+	<!-- <selectionWeight>0.0008</selectionWeight> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>-200</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+  <!-- </GeneDef> -->
+
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAptitudes_Base"> -->
+	<!-- <defName>WVC_Scarifier_StrongMelee</defName> -->
+	<!-- <label>scarifier melee</label> -->
+	<!-- <description>Carriers of this gene do more damage in close-quarters combat. But they understand agriculture and gastronomy much less well.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_SemiAptitudes_StrongMelee_v0</iconPath> -->
+	<!-- <displayOrderInCategory>40</displayOrderInCategory> -->
+	<!-- <displayCategory>WVC_Scarifier</displayCategory> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <statFactors> -->
+	  <!-- <MeleeDamageFactor>1.5</MeleeDamageFactor> -->
+	<!-- </statFactors> -->
+	<!-- <aptitudes> -->
+	  <!-- <Plants>-8</Plants> -->
+	  <!-- <Cooking>-8</Cooking> -->
+	  <!-- <Animals>-8</Animals> -->
+	<!-- </aptitudes> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>MeleeDamage</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

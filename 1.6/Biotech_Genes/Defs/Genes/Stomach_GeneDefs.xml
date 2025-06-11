@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneStomach_Base" Abstract="True">
+	<selectionWeight>0.00025</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>11</displayOrderInCategory>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>worldeater</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>eater</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>vore</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_SuperStomach</defName>
+	<label>super stomach</label>
+	<description>Carriers of this gene receive more nutrients when ingesting, and they can get full from almost anything.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SuperStomach_v0</iconPath>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<dontMindRawFood>true</dontMindRawFood>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+	  <!-- <li>Any ingestible things completely replenish hunger.</li> -->
+	  <li>Increases nutrition received from food by 5 times.</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base"> -->
+	<!-- <defName>WVC_HealthStomach</defName> -->
+	<!-- <label>health stomach</label> -->
+	<!-- <description>Carriers of this gene regenerate wounds and recover from diseases when they eat.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HealthStomach</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_StomachHealth_v0</iconPath> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>-6</biostatMet> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Food heal wounds and immunizes diseases.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_DeadStomach</defName>
+	<label>dead stomach</label>
+	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HungerlessStomach</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeadStomach_v0</iconPath>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>-4</displayOrderInCategory>
+	<biostatCpx>7</biostatCpx>
+	<biostatMet>-8</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <li>Hunger rate factor x10%</li>
+	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
+	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on overall &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<!-- <disablesNeeds> -->
+	  <!-- <li>Food</li> -->
+	<!-- </disablesNeeds> -->
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	  <li>WVC_XaG_Rechargeable</li>
+	  <li>WVC_XaG_EternalHunger</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_DeadStomach_HungerFactor</hediffDefName>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>60</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_SleepyStomach</defName>
+	<label>sleepy stomach</label>
+	<description>Carriers of this gene get tired very quickly due to their slow metabolism, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/SleepyStomach</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x20%</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <RestFallRateFactor>2.0</RestFallRateFactor>
+	  <RestRateMultiplier>0.5</RestRateMultiplier>
+	</statFactors>
+	<biostatMet>1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>bed</symbol></li>
+		<li><symbol>somno</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>loaf</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags Inherit="False"/> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_SleepyStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_StoneStomach</defName>
+	<label>stone stomach</label> 
+	<labelShortAdj>very slow</labelShortAdj>
+	<description>Carriers of this gene move extremely slowly, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/StoneStomach_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconColor>(105,95,97)</iconColor>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x20%</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MoveSpeed>0.4</MoveSpeed>
+	</statFactors>
+	<statOffsets>
+	  <WVC_GolemBond>4</WVC_GolemBond>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<biostatMet>1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>plod</symbol></li>
+		<li><symbol>grado</symbol></li>
+		<li><symbol>letho</symbol></li>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>slack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>plodder</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags Inherit="False"/> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_StoneStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

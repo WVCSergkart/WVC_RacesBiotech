@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 						}
 						stringBuilder.AppendLine();
 						phase = "get MechWeightClass";
-						stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
+						stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.LabelCap);
 						cachedDescription = stringBuilder.ToString();
 					}
                     catch (Exception arg)

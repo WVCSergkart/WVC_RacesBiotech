@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" Abstract="True">
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<prerequisite>WVC_Morpher</prerequisite>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" Name="WVC_XenotypesAndGenes_GeneMorpher_Triggers" Abstract="True">
+	<prerequisite></prerequisite>
+	<exclusionTags>
+		<li>MorphCondition</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ===================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Ability</defName>
+	<label>ability trigger</label>
+	<description>Carriers of this gene can morph at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AbilityMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Ability</iconPath>
+	<displayOrderInCategory>-95</displayOrderInCategory>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-6</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;any time&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Nocturnal</defName>
+	<label>nocturnal trigger</label>
+	<description>Carriers of this gene are subject to morphing in nocturnal time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_NocturnalMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Nocturnal</iconPath>
+	<displayOrderInCategory>-90.100</displayOrderInCategory>
+	<biostatMet>2</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;nocturnal time&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Diurnal</defName>
+	<label>diurnal trigger</label>
+	<description>Carriers of this gene are subject to morphing in diurnal time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DiurnalMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Diurnal</iconPath>
+	<displayOrderInCategory>-90.090</displayOrderInCategory>
+	<biostatMet>2</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;diurnal time&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Seasonal</defName>
+	<label>seasonal trigger</label>
+	<description>Carriers of this gene are subject to morphing with the changing seasons.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SeasonalMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Seasonal</iconPath>
+	<displayOrderInCategory>-90.080</displayOrderInCategory>
+	<biostatMet>6</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows morph &lt;color=#8a8ae6&gt;after season change&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Damage</defName>
+	<label>damage trigger</label>
+	<description>Carriers of this gene are susceptible to morphing when injured.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DamageMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Damage</iconPath>
+	<displayOrderInCategory>-80.100</displayOrderInCategory>
+	<biostatMet>2</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;health drops below 80%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Deathless</defName>
+	<label>deathless trigger</label>
+	<description>Carriers of this gene can only morph in a fatal state.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathlessMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Deathless</iconPath>
+	<displayOrderInCategory>-80.090</displayOrderInCategory>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn is in a &lt;color=#8a8ae6&gt;deathless state&lt;/color&gt; on the verge of death.</li>
+		<li>Morph &lt;color=#8a8ae6&gt;heals&lt;/color&gt; all wounds and illnesses. Including restoring lost organs and limbs.</li>
+		<li>&lt;color=#ffec85&gt;Does not take into account other death-protective conditions.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Hemogen</defName>
+	<label>hemogen trigger</label>
+	<description>Carriers of this gene can morph only with sufficient levels of hemogen.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Hemogen</iconPath>
+	<displayOrderInCategory>-70.100</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;hemogen over 80%&lt;/color&gt;</li>
+		<li>Morphing consumes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;, dropping it to 10%.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Deathrest</defName>
+	<label>deathrest trigger</label>
+	<description>Carriers of this gene are only susceptible to morphing when sufficiently deathrested.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathrestMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Deathrest</iconPath>
+	<displayOrderInCategory>-70.090</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;need for deathrest over 80%&lt;/color&gt;</li>
+		<li>Morphing consumes &lt;color=#8a8ae6&gt;deathrest&lt;/color&gt; need, dropping it to 10%.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.royalty" ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Psyfocus</defName>
+	<label>psyfocus trigger</label>
+	<description>Carriers of this gene can morph only with a sufficient level of psyfocus.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PsyfocusMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Psyfocus</iconPath>
+	<displayOrderInCategory>-70.050</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;psyfocus over 80%&lt;/color&gt;</li>
+		<li>Morphing consumes all &lt;color=#8a8ae6&gt;psyfocus&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Undead</defName>
+	<label>undead trigger</label>
+	<description>Carriers of this gene can only morph after resurrection.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_UndeadMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Undead</iconPath>
+	<displayOrderInCategory>-65</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph after resurrection during &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt;.</li>
+		<li>After morphing, extends &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt; by 10 days.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphEffects_OneTimeUse</defName>
+	<label>one time morph</label>
+	<description>Carriers of this gene can morph only once.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherOneTimeUse</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_OneTimeUse</iconPath>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Morph &lt;color=#8a8ae6&gt;removes&lt;/color&gt; the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt; and its &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt; after using the &lt;color=#8a8ae6&gt;trigger gene&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_OneTimeUse</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

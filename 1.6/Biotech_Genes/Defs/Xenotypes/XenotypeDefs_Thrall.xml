@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- thrall -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+	<defName>WVC_Thrall</defName>
+	<label>thrall</label>
+	<description>Thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.
+
+The genetic make-up of thralls varies from thrall to thrall and is highly dependent on the thrall's master. Despite the existence of the so-called "thrall master", thralls are not weak-willed servants. They can make decisions on their own and even leave the master.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; All pawns with this xenotype must regularly cellsfeed on resurgent pawns or they will die.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Spawn):&lt;/color&gt; Pawns generated with this xenotype will receive one of the random sets of genes from existing thralls in the game.</description>
+	<descriptionShort>Thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death or transformation into a ghoul.</descriptionShort>
+	<displayPriority>-230</displayPriority>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0.01</factionlessGenerationWeight>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Thrall_x1c_v0</iconPath>
+	<generateWithXenogermReplicatingHediffChance>0.38</generateWithXenogermReplicatingHediffChance>
+	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
+	<isThrall>true</isThrall>
+	<thrallDefs>
+	  <li>WVC_Fielder</li>
+	  <li>WVC_Striker</li>
+	  <li>WVC_Artister</li>
+	  <li>WVC_Smartkin</li>
+	  <li>WVC_Gardernkind</li>
+	  <li>WVC_Molekin</li>
+	</thrallDefs>
+	<guaranteedGenes>
+		<li>WVC_Thrall</li>
+	</guaranteedGenes>
+  </XenotypeDef>
+
+</Defs>

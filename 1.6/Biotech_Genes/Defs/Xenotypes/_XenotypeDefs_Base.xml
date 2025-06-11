@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- General -->
+  <XenotypeDef Name="WVC_RB_Xenotypes_Base" Abstract="True">
+	<!-- <defName>WVC_Pearler</defName> -->
+	<!-- <label>pearler</label> -->
+	<!-- Temporary description -->
+	<description>A unique xenohuman variant with a set of xenogenes that do not fall into any known xenotype.</description>
+	<!-- <descriptionShort>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</descriptionShort> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</iconPath>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<combatPowerFactor>2.5</combatPowerFactor>
+	<factionlessGenerationWeight>0.17</factionlessGenerationWeight>
+	<inheritable>true</inheritable>
+	<genes>
+	</genes>
+  </XenotypeDef>
+
+  <!-- Undead sub-xenotypes -->
+  <XenotypeDef Name="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Abstract="True">
+	<displayPriority>-220</displayPriority>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Undead</XenotypeDef>
+	</descriptionHyperlinks>
+	<!-- <doubleXenotypeChances> -->
+		<!-- <WVC_Undead>1.0</WVC_Undead> -->
+	<!-- </doubleXenotypeChances> -->
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<combatPowerFactor>3.2</combatPowerFactor>
+	<factionlessGenerationWeight>0.14</factionlessGenerationWeight>
+	<inheritable>true</inheritable>
+  </XenotypeDef>
+
+  <!-- General undead sub-xenotype info -->
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef Name="WVC_XenotypesAndGenes_SubXenotypeDef_Undead" Abstract="True"> -->
+	<!-- <label>genetic changes</label> -->
+	<!-- <description>How will the set of genes change if the xenotype is “native”.</description> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
+
+</Defs>

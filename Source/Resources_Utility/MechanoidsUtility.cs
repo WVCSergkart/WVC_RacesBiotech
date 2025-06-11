@@ -25,16 +25,28 @@ namespace WVC_XenotypesAndGenes
 			newOverseer.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
 		}
 
-		public static float ToFloatFactor(this MechWeightClass weightClass)
+		public static float ToFloatFactor(this MechWeightClassDef weightClass)
 		{
-			return weightClass switch
+			//return weightClass switch
+			//{
+			//	MechWeightClassDefOf.Light => 1,
+			//	MechWeightClassDefOf.Medium => 2,
+			//	MechWeightClassDefOf.Heavy => 3,
+			//	MechWeightClassDefOf.UltraHeavy => 4,
+			//	_ => 5,
+			//};
+			if (weightClass == MechWeightClassDefOf.Light)
+            {
+				return 1;
+			}
+			else if (weightClass == MechWeightClassDefOf.Medium || weightClass == MechWeightClassDefOf.Heavy)
 			{
-				MechWeightClass.Light => 1,
-				MechWeightClass.Medium => 2,
-				MechWeightClass.Heavy => 3,
-				MechWeightClass.UltraHeavy => 4,
-				_ => 5,
-			};
+				return 3;
+			}
+			else
+			{
+				return 5;
+			}
 		}
 
 		// Golems
@@ -216,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 		// return true;
 		// }
 
-		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<MechWeightClass> allowedMechWeightClasses, out List<Thing> summonList, HediffDef hediffDef = null)
+		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<MechWeightClassDef> allowedMechWeightClasses, out List<Thing> summonList, HediffDef hediffDef = null)
         {
             List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, allowedMechWeightClasses)).ToList();
             return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
@@ -381,7 +393,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		// Mecha summon
-		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, List<MechWeightClass> allowedMechWeightClasses)
+		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, List<MechWeightClassDef> allowedMechWeightClasses)
 		{
 			if (!MechanoidIsPlayerMechanoid(mech)
 			|| !mech.defName.Contains("Mech_")

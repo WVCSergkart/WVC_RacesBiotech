@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Duplicator -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_RogueFormer</defName>
+	<!-- <label>rogkind</label> -->
+	<label>duplicator</label>
+	<!-- Dark origin, strange appearance, unstable genes, archite hatred -->
+	<description>Duplicators are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong and fairly resilient. They are vulnerable to light, but gain an advantage in the dark. And their language is understandable only to themselves. But their main feature is the ability to create duplicates.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype can create duplicates, similar to the duplicator obelisk. If an anomaly is present, the duplicates may have defects.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Interactions):&lt;/color&gt; This xenotype cannot talk, they are considered mute by everyone. No speeches or other royalty or ideology features related to talking. But they can interact with each other.</description>
+	<descriptionShort>Duplicators are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong and fairly resilient. They are vulnerable to light, but gain an advantage in the dark. And their language is understandable only to themselves. But their main feature is the ability to create duplicates.</descriptionShort>
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Duplicator_v0</iconPath>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<displayPriority>-1100</displayPriority>
+	<factionlessGenerationWeight>0.1</factionlessGenerationWeight>
+	<genes>
+		<!-- <li>WVC_NodeSkin</li> -->
+		<!-- <li>WVC_Eyes_Holoeyes</li> -->
+		<!-- <li>WVC_VoiceMechaTesseron</li> -->
+		<!-- <li>WVC_Mecha_NoTail</li> -->
+		<!-- <li>WVC_Mecha_ConnectorTail</li> -->
+		<!-- <li>Ears_Human</li> -->
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<!-- <li>WVC_Mecha_RedFormerEarsDouble</li> -->
+		<!-- <li>WVC_Mecha_RedFormerSpikesDouble</li> -->
+		<!-- <li>WVC_Mecha_YellowFormerAntennaDouble</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Body_Thin</li> -->
+		<!-- <li>WVC_HairColor_DarkGray</li> -->
+		<!-- <li>WVC_SkinColor_DarkGray</li> -->
+		<!-- <li>WVC_EndogermReimplanter</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<!-- <li>WVC_DebuffUV_ExtremeInjuryHealing</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
+		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+		<!-- <li>WVC_MecaBodyParts_Nose</li> -->
+		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
+		<!-- <li>WVC_RandomGeneticSpeciality</li> -->
+		<!-- <li>WVC_RandomMetabolism</li> -->
+		<!-- <li>WVC_MechaPowerSource_Unstable</li> -->
+		<!-- ========= NEW ========= -->
+		<!-- Graphic -->
+		<li>WVC_NodeSkin</li>
+		<li>WVC_Eyes_Holoeyes</li>
+		<li>WVC_VoiceMechaTesseron</li>
+		<li>Body_Standard</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_DragonTailA</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Slate</li>
+		<!-- Stats -->
+		<li>PsychicAbility_Enhanced</li>
+		<li>WVC_Duplicator</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
+		<li>WVC_MechaAI_FirmwareRogueMachine</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<li>WVC_MecaBodyParts_Nose</li>
+		<li>WVC_RandomGeneticSpeciality</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_MechaPowerSource_Unstable</li>
+		<li>WVC_WoundHealing_Unnatural</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_FurskinInstincts_NightHunter</li>
+		<li>WVC_SlaveSuppression_Submissive</li>
+		<li>WVC_FurskinInstincts_PredatorSense</li>
+		<li>Sterile</li>
+		<!-- Anomaly -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_DarknessExposure</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- orange -->
+			<!-- <defaultColor>(255, 216, 133)</defaultColor> -->
+			<!-- anomaly red -->
+			<defaultColor>(214, 49, 49)</defaultColor>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Traitshifter</defName>
+	<label>traitshifter</label>
+	<description>Carriers of this gene have archites that can influence their character, changing it at the will of the carrier.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Traitshifter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Traitshifter_v0</iconPath>
+	<displayOrderInCategory>195</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to change traits.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>48</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

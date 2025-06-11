@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+	<defName>WVC_DoBillsCraftSerums</defName>
+	<label>make things at xenogenes serum lab</label>
+	<giverClass>WorkGiver_DoBill</giverClass>
+	<workType>Crafting</workType>
+	<priorityInType>75</priorityInType>
+	<fixedBillGiverDefs>
+	  <li>WVC_SerumCraftingTable</li>
+	</fixedBillGiverDefs>
+	<verb>work at</verb>
+	<gerund>working at</gerund>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+	<prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Serums -->
+  <ThingDef ParentName="BenchBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_SerumCraftingTable</defName>
+	<label>xenogenes serum lab</label>
+	<description>A high-tech workbench for the production of serums.</description>
+	<descriptionHyperlinks>
+	  <!-- <ThingDef>WVC_EmptyXenotypeSerum</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerumCapsule</ThingDef> -->
+	</descriptionHyperlinks>
+	<thingClass>Building_WorkTable</thingClass>
+	<canOverlapZones>false</canOverlapZones>
+	<passability>PassThroughOnly</passability>
+	<fillPercent>0.3</fillPercent>
+	<pathCost>33</pathCost>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/SerumCraftingTable/SerumCraftingTable2</texPath>
+	  <!-- <texPath>Things/Building/Production/SubcoreEncoder</texPath> -->
+	  <graphicClass>Graphic_Multi</graphicClass>
+	  <drawSize>(3,2)</drawSize>
+	  <shadowData>
+		<volume>(3, 2, 1.9)</volume>
+	  </shadowData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+	<building>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <buildingTags>
+		<li>Biotech</li>
+	  </buildingTags>
+	</building>
+	<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+	<designationCategory>Biotech</designationCategory>
+	<uiOrder>2430</uiOrder>
+	<tradeability>Sellable</tradeability>
+	<statBases>
+	  <MaxHitPoints>200</MaxHitPoints>
+	  <WorkToBuild>8000</WorkToBuild>
+	  <Mass>25</Mass>
+	  <Flammability>0.5</Flammability>
+	</statBases>
+	<size>(3,2)</size>
+	<costList>
+	  <Steel>120</Steel>
+	  <ComponentIndustrial>5</ComponentIndustrial>
+	</costList>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
+	</researchPrerequisites>
+	<hasInteractionCell>true</hasInteractionCell>
+	<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+	<inspectorTabs>
+	  <li>ITab_Bills</li>
+	</inspectorTabs>
+	<comps>
+	  <!-- <li MayRequire="vanillaexpanded.vnutriente" Class="PipeSystem.CompProperties_Resource"> -->
+		<!-- <pipeNet>VNPE_NutrientPasteNet</pipeNet> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_MoteEmitter">
+		<perRotationMotes>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <!-- <li>Mote_SubcoreEncoderNorth</li> -->
+		  <!-- <li>Mote_SubcoreEncoderEast</li> -->
+		  <!-- <li>Mote_SubcoreEncoderSouth</li> -->
+		  <!-- <li>Mote_SubcoreEncoderEast</li> -->
+		</perRotationMotes>
+		<offsetNorth>(0, 0, -0.34)</offsetNorth>
+		<offsetSouth>(0, 0, 0.66)</offsetSouth>
+		<offsetWest>(0.575, 0, 0.24)</offsetWest>
+		<offsetEast>(-0.575, 0, 0.24)</offsetEast>
+		<useParentRotation>true</useParentRotation>
+	  </li>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>50</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Flickable"/>
+	</comps>
+	<placeWorkers>
+	  <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+	</placeWorkers>
+  </ThingDef>
+
+  <!-- ========================================================== -->
+
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings">
+	<defName>WVC_XenotypesAndGenes_UltranitesSpawner</defName>
+	<label>subcore gestation vat</label>
+	<!-- <description>Artificial environment for gestation of microscopic hybrid machines.</description> -->
+	<description>Artificial environment saturated with mechanites for growing mechanoid subcores.</description>
+	<descriptionHyperlinks>
+	  <!-- <ThingDef>WVC_UniversalFuel</ThingDef> -->
+	  <ThingDef>SubcoreBasic</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/Ultranites_Spawner</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <drawSize>(2, 2)</drawSize>
+	  <shadowData>
+		<volume>(1.8, 1.0, 0.2)</volume>
+		<offset>(0.0, 0.0, -0.4)</offset>
+	  </shadowData>
+	</graphicData>
+	<thingCategories>
+	  <li>BuildingsSpecial</li>
+	</thingCategories>
+	<costList>
+	  <Steel>175</Steel>
+	  <Plasteel>25</Plasteel>
+	  <SignalChip>1</SignalChip>
+	  <ComponentIndustrial>6</ComponentIndustrial>
+	</costList>
+	<building>
+	  <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+	</building>
+	<comps>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>300</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Breakdownable"/>
+	  <li Class="CompProperties_Flickable"/>
+	  <li Class="CompProperties_Spawner">
+		<requiresPower>true</requiresPower>
+		<thingToSpawn>SubcoreBasic</thingToSpawn>
+		<spawnCount>1</spawnCount>
+		<spawnIntervalRange><min>240000</min><max>540000</max></spawnIntervalRange>
+		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+		<showMessageIfOwned>false</showMessageIfOwned>
+	  </li>
+	</comps>
+	<altitudeLayer>Building</altitudeLayer>
+	<statBases>
+	  <MarketValue>780</MarketValue>
+	  <MaxHitPoints>120</MaxHitPoints>
+	  <Flammability>0.2</Flammability>
+	  <Beauty>-10</Beauty>
+	  <Mass>35</Mass>
+	  <WorkToBuild>18000</WorkToBuild>
+	</statBases>
+	<thingSetMakerTags>
+	  <li>RewardStandardCore</li>
+	</thingSetMakerTags>
+	<tickerType>Rare</tickerType>
+	<size>(2, 2)</size>
+	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	<fillPercent>0.7</fillPercent>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+	<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	<passability>PassThroughOnly</passability>
+	<pathCost>70</pathCost>
+	<rotatable>false</rotatable>
+	<canOverlapZones>false</canOverlapZones>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<tradeability>Sellable</tradeability>
+	<!-- <designationCategory>Biotech</designationCategory> -->
+	<designationCategory/>
+	<researchPrerequisites/>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>WVC_XenotypesAndGenes_SerumLab</li> -->
+	  <!-- <li>BasicMechtech</li> -->
+	<!-- </researchPrerequisites> -->
+	<tradeTags>
+	  <li>ExoticBuilding</li>
+	</tradeTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler</defName>
+	<label>uranium recycler</label>
+	<description>A glittertech device that deconstructs toxic wastepacks into uranium using advanced molecular processes. The process requires considerable amounts of power.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>Uranium</ThingDef>
+	</descriptionHyperlinks>
+	<thingClass>Building_WastepackAtomizer</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
+	<tickerType>Normal</tickerType>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/UltranitesRecycler</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <drawSize>(2,2)</drawSize>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<canOverlapZones>false</canOverlapZones>
+	<pathCost>42</pathCost>
+	<blockWind>true</blockWind>
+	<castEdgeShadows>true</castEdgeShadows>
+	<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	<fillPercent>0.5</fillPercent>
+	<tradeability>Sellable</tradeability>
+	<building>
+	  <buildingTags>
+		<li>Biotech</li>
+	  </buildingTags>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <wastepackAtomizerBottomGraphic>
+		<texPath>WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Bottom</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawRotated>false</drawRotated>
+		<allowFlip>false</allowFlip>
+		<drawSize>(2,2)</drawSize>
+	  </wastepackAtomizerBottomGraphic>
+	  <wastepackAtomizerWindowGraphic>
+		<texPath>WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Window</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawRotated>false</drawRotated>
+		<allowFlip>false</allowFlip>
+		<drawSize>(2,2)</drawSize>
+	  </wastepackAtomizerWindowGraphic>
+	  <wastepackAtomizerOperationEffecter>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</wastepackAtomizerOperationEffecter>
+	</building>
+	<!-- <designationCategory>Biotech</designationCategory> -->
+	<hasInteractionCell>true</hasInteractionCell>
+	<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+	<statBases>
+	  <MaxHitPoints>500</MaxHitPoints>
+	  <WorkToBuild>30000</WorkToBuild>
+	  <Mass>80</Mass>
+	  <Flammability>0.2</Flammability>
+	</statBases>
+	<size>(2,2)</size>
+	<costList>
+	  <Steel>150</Steel>
+	  <Plasteel>50</Plasteel>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <NanostructuringChip>1</NanostructuringChip>
+	</costList>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>WastepackAtomizer</li> -->
+	  <!-- <li>WVC_XenotypesAndGenes_SerumLab</li> -->
+	<!-- </researchPrerequisites> -->
+	<designationCategory/>
+	<researchPrerequisites/>
+	<thingSetMakerTags>
+	  <li>RewardStandardQualitySuper</li>
+	</thingSetMakerTags>
+	<tradeTags>
+	  <li>ExoticBuilding</li>
+	</tradeTags>
+	<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	<comps>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>400</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Atomizer">
+		<thingDef>Wastepack</thingDef>
+		<stackLimit>15</stackLimit>
+		<drawContainedThing>false</drawContainedThing>
+		<ticksPerAtomize>30000</ticksPerAtomize>
+		<resolveEffecter>AtomizerResolve</resolveEffecter>
+		<workingEffecter>WastepackAtomizer_Working</workingEffecter>
+		<materialsAddedSound>WastepackAtomizer_MaterialInserted</materialsAddedSound>
+		<contentsDrawOffset>(0.05, 0, 0.2)</contentsDrawOffset>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_RecyclerSpawner">
+		<productDef>Uranium</productDef>
+		<productCount>3</productCount>
+		<ticksUntilSpawn>12000~17000</ticksUntilSpawn>
+	  </li>
+	  <li Class="CompProperties_Flickable"/>
+	</comps>
+  </ThingDef>
+
+  <EffecterDef>
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</defName>
+	<children>
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+		<fleckDef>WVC_XenotypesAndGenes_UltraniteRecycler_Forward</fleckDef>
+		<spawnLocType>BetweenPositions</spawnLocType>
+		<positionLerpFactor>0.6</positionLerpFactor>
+		<positionOffset>(0, 0, 0.15)</positionOffset>
+		<rotation>0</rotation>
+		<ticksBetweenMotes>180</ticksBetweenMotes>
+		<speed>-0.52</speed>
+		<angle>0</angle>
+		<useTargetBInitialRotation>true</useTargetBInitialRotation>
+		<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+	  </li>
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+		<fleckDef>WVC_XenotypesAndGenes_UltraniteRecycler_Backward</fleckDef>
+		<spawnLocType>BetweenPositions</spawnLocType>
+		<positionLerpFactor>1.3</positionLerpFactor>
+		<positionOffset>(0, 0, 0.15)</positionOffset>
+		<rotation>0</rotation>
+		<ticksBetweenMotes>180</ticksBetweenMotes>
+		<initialDelayTicks>120</initialDelayTicks>
+		<speed>1</speed>
+		<angle>0</angle>
+		<useTargetBInitialRotation>true</useTargetBInitialRotation>
+		<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+	  </li>
+	</children>
+  </EffecterDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Forward</defName>
+	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>
+	<fadeInTime>0.1</fadeInTime>
+	<solidTime>1.8</solidTime>
+	<fadeOutTime>0.4</fadeOutTime>
+	<graphicData>
+	  <texPath>Things/Mote/BrightFlash</texPath>
+	  <drawSize>(2,1)</drawSize>
+	  <color>(255, 182, 133, 155)</color>
+	</graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Backward</defName>
+	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>
+	<fadeInTime>0.1</fadeInTime>
+	<solidTime>0.4</solidTime>
+	<fadeOutTime>0.3</fadeOutTime>
+	<graphicData>
+	  <texPath>Things/Mote/BrightFlash</texPath>
+	  <drawSize>(2,1)</drawSize>
+	  <color>(255, 182, 133, 155)</color>
+	</graphicData>
+  </FleckDef>
+
+</Defs>

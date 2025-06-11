@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneChimera_SubGenes" Abstract="True">
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<selectionWeight>0.000094</selectionWeight>
+	<displayOrderInCategory>145</displayOrderInCategory>
+	<prerequisite>WVC_Chimera</prerequisite>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes" Name="WVC_XenotypesAndGenes_GeneChimera_OneManArmySubGenes" Abstract="True">
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_Geneharvest</defName>
+	<label>geneharvest</label>
+	<description>Carriers of this gene have a special organ that allows them to copy genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Geneharvest_v0</iconPath>
+	<abilities>
+	  <li>WVC_Chimera_Geneharvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Geneharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Copies a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; from the target and adds it to the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt;.</li>
+		<li>After use it has a cooldown of 9 days.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>10</selectionWeight>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Abilities -->
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Chimera_Geneharvest</defName>
+	<label>geneharvest</label>
+	<description>Bite the target and copy gene directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Geneharvest_v0</iconPath>
+	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetPawns>true</canTargetPawns>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetBloodfeeders>true</canTargetBloodfeeders>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_CopyGene</compClass>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_Packharvest</defName>
+	<label>packharvest</label>
+	<description>Carriers of this gene have a special organ that allows them to extract genes from genepacks.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Packharvest_v0</iconPath>
+	<abilities>
+	  <li>WVC_Chimera_Packharvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Packharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Copies &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; contained in the target &lt;color=#8a8ae6&gt;genepack&lt;/color&gt;. Genepack is destroyed in the process.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>10</selectionWeight>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Abilities -->
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Chimera_Packharvest</defName>
+	<label>packharvest</label>
+	<description>Break down the target genepack and absorb random gene it contains.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Packharvest_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetItems>true</canTargetItems>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+		<thingCategory>Item</thingCategory>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_CopyGeneFromGenepack</compClass>
+	  </li>
+	  <!-- <li Class="CompProperties_AbilityFleckOnTarget"> -->
+		<!-- <fleckDef>BloodSplash</fleckDef> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

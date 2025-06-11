@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_FurskinNatural" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<description>TEST DESC</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>400</displayOrderInCategory>
+	<selectionWeight>0.00185</selectionWeight>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<!-- <randomChosen>false</randomChosen> -->
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<marketValueFactor>1.2</marketValueFactor>
+	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
+	<minAgeActive>0</minAgeActive>
+	<skinIsHairColor>false</skinIsHairColor>
+	<tattoosVisible>true</tattoosVisible>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li> -->
+		<!-- <debugLabel>Fur</debugLabel> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_Fur</workerClass> -->
+		<!-- <baseLayer>5</baseLayer> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <useSkinShader>true</useSkinShader> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
+	<exclusionTags>
+	  <li>AG_Bodies</li>
+	  <li>Bodies</li>
+	  <!-- <li>Body</li> -->
+	  <!-- <li>Skin</li> -->
+	  <li>Fur</li>
+	  <li>Jaw</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <!-- Rune -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_RuneSkin</defName>
+	<label>runeskin</label>
+	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/Gene_FurskinE_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_RuneSkin_Average</li>
+	</forcedHeadTypes>
+	<statOffsets>
+	  <WVC_GolemBond>6</WVC_GolemBond>
+	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+	</statOffsets>
+	<missingGeneRomanceChanceFactor>0.65</missingGeneRomanceChanceFactor>
+	<fur>WVC_RuneSkin</fur>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rune</symbol></li>
+		<li><symbol>runic</symbol></li>
+		<li><symbol>run</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>nic</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>e</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Stone -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_StoneSkin</defName>
+	<label>stoneskin</label>
+	<description>The body of carriers of this gene is all covered with stone-like growths.</description>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<iconPath>WVC/UI/Genes/Gene_FurskinC_v0</iconPath>
+	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
+	<marketValueFactor>1.5</marketValueFactor>
+	<forcedHeadTypes>
+	  <li>WVC_StoneSkin_Average</li>
+	</forcedHeadTypes>
+	<statOffsets>
+	  <WVC_GolemBond>12</WVC_GolemBond>
+	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.11</ArmorRating_Heat>
+	</statOffsets>
+	<statFactors>
+	  <Flammability>0.2</Flammability>
+	</statFactors>
+	<fur>WVC_StoneSkin</fur>
+	<tattoosVisible>false</tattoosVisible>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stone</symbol></li>
+		<li><symbol>slate</symbol></li>
+		<li><symbol>marble</symbol></li>
+		<li><symbol>sand</symbol></li>
+		<li><symbol>lime</symbol></li>
+		<li><symbol>granite</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>stone</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Patch -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_PatchSkin</defName>
+	<label>patchskin</label>
+	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinA_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_PatchSkin_Average</li>
+	</forcedHeadTypes>
+	<fur>WVC_PatchSkin</fur>
+	<missingGeneRomanceChanceFactor>0.85</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>un</symbol></li>
+		<li><symbol>dead</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Feathered -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_FeatherSkin</defName>
+	<label>featherskin</label>
+	<description>Carriers of this gene grow feathers on some parts of the body.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>Male_AverageNormal</li>
+	  <li>Male_AveragePointy</li>
+	  <li>Female_AverageNormal</li>
+	  <li>Female_AveragePointy</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
+	</statOffsets>
+	<fur>WVC_FeatheredSkin</fur>
+	<missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags Inherit="False"> -->
+	  <!-- <li>AG_Bodies</li> -->
+	  <!-- <li>Bodies</li> -->
+	  <!-- <li>Fur</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+  <!-- Shift -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_ShapeshiftSkin</defName>
+	<label>shiftskin</label>
+	<description>Carriers of this gene have unnatural-looking scars all over their bodies, as if they were cut and the wounds healed over and over again.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinShift_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ScarsSkin</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_ShiftSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>2</biostatCpx>
+	<fur>WVC_ShapeshiftSkin</fur>
+	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li MayRequire="ludeon.rimworld.ideology">Scarifications of the &lt;color=#8a8ae6&gt;scarifier&lt;/color&gt; provide &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; for the shapeshifter.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
+	  <!-- <WVC_Shapeshifter_MinGenesMatch>-0.1</WVC_Shapeshifter_MinGenesMatch> -->
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>scar</symbol></li>
+		<li><symbol>shift</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>3</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<overrideGeneCategory>Cosmetic</overrideGeneCategory>
+			<reqGeneMat>15</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Transparent -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_TransparentSkin</defName>
+	<label>transkin</label>
+	<description>Carriers of this gene have a translucent body. Their insides and skeleton can be easily seen, which looks somewhat repulsive.</description>
+	<iconPath>WVC/UI/Genes/Gene_TransparentSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_TransparentSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<fur>WVC_TransparentSkin</fur>
+	<statOffsets>
+	  <PawnBeauty>-1</PawnBeauty>
+	</statOffsets>
+	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>trans</symbol></li>
+		<li><symbol>lucent</symbol></li>
+		<li><symbol>bony</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Eyeless -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin</defName>
+	<label>eyeless</label>
+	<description>Carriers of this gene have a translucent organic plate on their face. This plate closes the eyes but does not interfere with vision at all.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Eyeless</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FurskinG_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<forcedHeadTypes>
+	  <li>WVC_Faceless_NodeSkin</li>
+	</forcedHeadTypes>
+	<renderNodeProperties Inherit="False"/>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>eyeless</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>eye</symbol></li>
+		<li><symbol>blind</symbol></li>
+		<li><symbol>face</symbol></li>
+		<li><symbol>form</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags Inherit="False">
+	  <li>Jaw</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Gauntskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_GauntSkin</defName>
+	<label>gauntskin</label>
+	<description>Carriers of this gene do not store body fat well, which is why their bodies are very thin and anorexic.</description>
+	<iconPath>WVC/UI/Genes/Gene_GauntSkin_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauntSkin</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_GauntSkin_Gaunt</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statFactors>
+	  <MeatAmount>0.4</MeatAmount>
+	</statFactors>
+	<fur>WVC_GauntSkin</fur>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Does not support fat and hulk bodies.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gaunt</symbol></li>
+		<li><symbol>anore</symbol></li>
+		<li><symbol>thin</symbol></li>
+		<li><symbol>bony</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Semifur -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_SemifurSkin</defName>
+	<label>semifurskin</label>
+	<description>Carriers of this gene have short fur covering most of the body.</description>
+	<iconPath>WVC/UI/Genes/Gene_SemifurSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>Male_AverageNormal</li>
+	  <li>Male_AveragePointy</li>
+	  <li>Female_AverageNormal</li>
+	  <li>Female_AveragePointy</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <ComfyTemperatureMin>-6</ComfyTemperatureMin>
+	</statOffsets>
+	<hairTagFilter>
+	  <whitelist>false</whitelist>
+	  <tags>
+		<li>Bald</li>
+		<li>Shaved</li>
+		<li>Balding</li>
+	  </tags>
+	</hairTagFilter>
+	<fur>WVC_SemifurSkin</fur>
+	<tattoosVisible>false</tattoosVisible>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>HairStyle</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>fur</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Dryadskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_DryadSkin</defName>
+	<label>dryadskin</label>
+	<description>Carriers of this gene always have very feminine appearance, and their skin resembles that of dryads.</description>
+	<iconPath>WVC/UI/Genes/Gene_DryadSkin_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_DryadSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<beardTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<li>NoBeard</li>
+	  </tags>
+	</beardTagFilter>
+	<statOffsets>
+	  <PawnBeauty>1</PawnBeauty>
+	  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+	  <WVC_DryadsLimit MayRequire="ludeon.rimworld.ideology">2</WVC_DryadsLimit>
+	</statOffsets>
+	<fur>WVC_DryadSkin</fur>
+	<missingGeneRomanceChanceFactor>0.90</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>BodyType</li> -->
+	  <!-- <li>WVC_BodyChanger</li> -->
+	  <li>BeardStyle</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dryad</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>girly</symbol></li>
+		<li><symbol>fem</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Fishskin -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_FishSkin</defName> -->
+	<!-- <label>fishskin</label> -->
+	<!-- <description>Carriers of this gene have slippery, hydrophobic skin.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Fishskin_v0</iconPath> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <statOffsets> -->
+	  <!-- <ComfyTemperatureMin>-3</ComfyTemperatureMin> -->
+	<!-- </statOffsets> -->
+	<!-- <fur>WVC_FishSkin</fur> -->
+	<!-- <missingGeneRomanceChanceFactor>0.70</missingGeneRomanceChanceFactor> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>fish</symbol></li> -->
+		<!-- <li><symbol>merm</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+</Defs>

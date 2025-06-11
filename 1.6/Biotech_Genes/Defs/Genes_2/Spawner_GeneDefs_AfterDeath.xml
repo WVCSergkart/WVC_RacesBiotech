@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_SoftwareManipulation</defName>
+	<!-- <label>improved intuition</label> -->
+	<label>horror plating</label>
+	<description>Carriers of this gene have archites that create bioferrite muscle fibers, which improve physical parameters and form plate-like growths that improve armor.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HorrorPlating</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_BioferritePlating_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>1</biostatMet>
+	<!-- <displayCategory>Violence</displayCategory> -->
+	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
+	<customEffectDescriptions>
+		<li>Upon death, it spawns &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt; and some &lt;color=#8a8ae6&gt;bioferrite&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#ff8585&gt;Destroys carrier corpse.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.2</offset>
+	  </li>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<statFactors>
+	  <Flammability>1.5</Flammability>
+	</statFactors>
+	<statOffsets>
+	  <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+	  <!-- <ArmorRating_Heat>0.08</ArmorRating_Heat> -->
+	  <!-- <MoveSpeed>-0.2</MoveSpeed> -->
+	</statOffsets>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPath>WVC/BodyParts/Plates/Plating_A</texPath>
+		<color>(255, 255, 255)</color>
+		<baseLayer>5</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Body</parentTagDef>
+		<drawData>
+		  <dataNorth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		  <dataWest>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataWest>
+		  <dataEast>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataEast>
+		  <bodyTypeScales>
+			<Thin>0.9</Thin>
+		  </bodyTypeScales>
+		</drawData>
+		<children>
+		  <li>
+			<texPath>WVC/BodyParts/Plates/Plating_B</texPath>
+		  </li>
+		  <li>
+			<texPath>WVC/BodyParts/Plates/Plating_C</texPath>
+			<!-- <visibleFacing> -->
+			  <!-- <offset>(0, 0, -0.13)</offset> -->
+			<!-- </visibleFacing> -->
+			<drawData>
+			  <bodyTypeScales>
+				<Thin>0</Thin>
+			  </bodyTypeScales>
+			</drawData>
+		  </li>
+		</children>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+</Defs>

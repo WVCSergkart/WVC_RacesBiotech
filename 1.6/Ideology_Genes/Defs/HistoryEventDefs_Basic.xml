@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HistoryEventDef>
+	<defName>WVC_Shapeshift</defName>
+	<label>shapeshift</label>
+  </HistoryEventDef>
+
+  <HistoryEventDef>
+	<defName>WVC_XenotypeSerumUsed</defName>
+	<label>xenotype serum used</label>
+  </HistoryEventDef>
+
+  <HistoryEventDef>
+	<defName>WVC_ReimplanterResurrection</defName>
+	<label>reimplanter resurrection</label>
+  </HistoryEventDef>
+
+  <HistoryEventDef>
+	<defName>WVC_UndeadResurrection</defName>
+	<label>undead resurrection</label>
+  </HistoryEventDef>
+
+  <HistoryEventDef>
+	<defName>WVC_Morph</defName>
+	<label>morph</label>
+  </HistoryEventDef>
+
+  <!-- <HistoryEventDef> -->
+	<!-- <defName>WVC_ChimeraEvolve</defName> -->
+	<!-- <label>chimera evolve</label> -->
+  <!-- </HistoryEventDef> -->
+
+  <HistoryEventDef>
+	<defName>WVC_OneManArmy</defName>
+	<label>being alone and not having rituals</label>
+  </HistoryEventDef>
+
+</Defs>

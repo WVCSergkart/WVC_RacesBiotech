@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DryadQueen" Abstract="True">
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1.0</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DryadQueen">
+	<defName>WVC_DryadQueen_MaxNutrition</defName>
+	<label>dryad queen</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_DryadQueen</hediffClass>
+	<!-- <statModifiers> -->
+	  <!-- <statOffsets> -->
+		<!-- <MaxNutrition>0.1</MaxNutrition> -->
+	  <!-- </statOffsets> -->
+	<!-- </statModifiers> -->
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_FilthFactor</defName>
+	<label>gestated dryad</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_GestatedDryad</hediffClass>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_Tough</defName>
+	<label>tough</label>
+	<hediffClass>Hediff</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_ArmorSkin</defName>
+	<label>armor skin</label>
+	<hediffClass>Hediff</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_WasteDryads</defName>
+	<label>toxic metabolism</label>
+	<description>This dryad has toxic metabolic processes and as a result its waste can pollute the soil.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_WithInspectString</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>true</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Spawner">
+			<thingDef>Wastepack</thingDef>
+			<stackCount>2</stackCount>
+			<intervals>360000~720000</intervals>
+			<showMessage>false</showMessage>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_MeleeDamageFactor</defName>
+	<label>melee damage factor</label>
+	<hediffClass>Hediff</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <MeleeDamageFactor>0.5</MeleeDamageFactor>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>

@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.AppendLine();
 					stringBuilder.AppendLine("WVC_XaG_OrbitalSummon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + CanBeSummoned.ToStringYesNo());
 					stringBuilder.AppendLine();
-					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
+					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.LabelCap);
 					cachedDescription = stringBuilder.ToString();
 				}
 				return cachedDescription;

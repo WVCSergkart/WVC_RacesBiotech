@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base" Name="WVC_XenotypesAndGenes_GeneGauranlen_Gestator" Abstract="True">
+	<selectionWeight>0.0001</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayCategory>WVC_Gauranlen</displayCategory>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Gestator">
+	<defName>WVC_DryadQueen</defName>
+	<label>dryad queen</label>
+	<description>Carriers of this gene have archites which transform them into a symbiotic organism similar to the dryad queen. The body of gene carriers undergoes a number of changes so that they can gestate dryads and maintain a brood. They lose the ability to reproduce, and they develop a special organ that accumulates nutrients for the brood. With the help of a psychic connection that is formed with each gestated dryad, they can partially control them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DryadQueen</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
+	<iconPath>WVC/UI/Genes/Gene_DryadQueen_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>7</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>13</minAgeActive>
+	<statOffsets>
+	  <PruningSpeed>0.5</PruningSpeed>
+	  <WVC_DryadsLimit>4</WVC_DryadsLimit>
+	</statOffsets>
+	<customEffectDescriptions>
+	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>
+	  <li>Each &lt;color=#8a8ae6&gt;dryad's caste&lt;/color&gt; is chosen &lt;color=#ff8585&gt;manually, separately&lt;/color&gt;.</li>
+	  <li>&lt;color=#8a8ae6&gt;Dryads do not require food&lt;/color&gt;, and each dryad &lt;color=#8a8ae6&gt;increases max nutrition&lt;/color&gt; and &lt;color=#8a8ae6&gt;hunger rate&lt;/color&gt; by 0.1</li>
+	  <li>&lt;color=#ff8585&gt;Dryads always follow their queen.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gauranlen</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<defaultDryadPawnKindDef>Dryad_Basic</defaultDryadPawnKindDef>
+			<postGestationSickness>WVC_XenotypesAndGenes_PostGestationRecovery</postGestationSickness>
+			<dryadsStatLimit>WVC_DryadsLimit</dryadsStatLimit>
+			<connectedDryadsLimit>6</connectedDryadsLimit>
+			<spawnIntervalRange>480000~600000</spawnIntervalRange>
+			<dryadDiedMemoryDef>DryadDied</dryadDiedMemoryDef>
+			<initialHediffDef>WVC_GauranlenDryads_FilthFactor</initialHediffDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_DryadQueen_MaxNutrition</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Dummy Dryad -->
+
+  <!-- Dryads which also need to be patched regardless of GauranlenTreeModeDefs. -->
+  <WVC_XenotypesAndGenes.DummyDryadTemplateDef>
+	<defName>WVC_XaG_Dryad_Basic</defName>
+	<dryadDefs>
+	  <li>Dryad_Basic</li>
+	</dryadDefs>
+  </WVC_XenotypesAndGenes.DummyDryadTemplateDef>
+
+</Defs>

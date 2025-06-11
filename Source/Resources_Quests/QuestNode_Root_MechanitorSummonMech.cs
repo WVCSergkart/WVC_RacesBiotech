@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<HediffDef> hediffDefs;
 
-		public List<MechWeightClass> allowedMechWeightClasses;
+		public List<MechWeightClassDef> allowedMechWeightClasses;
 
 		public bool summonGolems = false;
 		//public bool summonLightMechs = false;

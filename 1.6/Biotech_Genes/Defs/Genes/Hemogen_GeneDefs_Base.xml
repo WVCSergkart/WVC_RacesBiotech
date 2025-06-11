@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneHemogen_Base" Abstract="True">
+	<resourceLabel>hemogen</resourceLabel>
+	<prerequisite>Hemogenic</prerequisite>
+	<displayCategory>Hemogen</displayCategory>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <selectionWeight>0.0011</selectionWeight> -->
+	<!-- Cause Vanilla -->
+	<selectionWeight>0.0007</selectionWeight>
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_HemogenPsylink</defName>
+	<label>blood psylink</label>
+	<!-- <description>Carriers of this gene gain psionic power from the hemogen.</description> -->
+	<description>Carriers of this gene have a natural tendency towards psychic abilities.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<resourceLossPerDay>0.10</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
+		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; level, at low values ​​it begins to &lt;color=#8a8ae6&gt;consume psyfocus&lt;/color&gt; replenishing hemogen.</li>
+		<li>Bloodfeeding replenishes &lt;color=#8a8ae6&gt;psyfocus&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>psy</symbol></li>
+		<li><symbol>focus</symbol></li>
+		<li><symbol>god</symbol></li>
+		<!-- <li><symbol>inexhaustible</symbol></li> -->
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Psylink</li>
+	  <li>AbilityPsylink</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<curve>
+			  <!-- <points> -->
+				<!-- <li>(0,0.01)</li> -->
+				<!-- <li>(6,0.02)</li> -->
+				<!-- <li>(12,0.03)</li> -->
+				<!-- <li>(30,0.04)</li> -->
+				<!-- <li>(100,0.10)</li> -->
+			  <!-- </points> -->
+			  <points>
+				<!-- Vanilla -->
+				<li>(0,-0.1)</li>
+				<li>(0.2,0.0)</li>
+				<li>(0.5,0.01)</li>
+				<li>(1,0.02)</li>
+				<li>(5,0.1)</li>
+			  </points>
+			</curve>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_HemogenGain</defName>
+	<label>hemogen gain</label>
+	<labelShortAdj>gaining</labelShortAdj>
+	<description>Carriers gain an 12 hemogen per day from biological recovery.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenOffset</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenicGain_v0</iconPath>
+	<prerequisite>Hemogenic</prerequisite>
+	<resourceLossPerDay>-0.12</resourceLossPerDay>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-4</biostatMet>
+  </GeneDef>
+
+</Defs>

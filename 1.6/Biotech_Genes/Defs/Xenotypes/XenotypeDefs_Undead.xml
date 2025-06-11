@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- undead -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Undeads">
+	<defName>WVC_Undead</defName>
+	<!-- undead necrokind necrokin necromantic -->
+	<label>undead</label>
+	<!-- Experiments, eternal youth, critical failure, side effect -->
+	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Ability):&lt;/color&gt; This xenotype can resurrect the dead and recruit them when possible.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; After resurrection, it can morph into one of the sub-xenotypes.</description>
+	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
+	<displayPriority>-200</displayPriority>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Featherdust</XenotypeDef>
+	  <XenotypeDef>WVC_Resurgent</XenotypeDef>
+	  <XenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_Ashen</XenotypeDef>
+	</descriptionHyperlinks>
+	<!-- Evolve -->
+	<!-- <shapeshiftChance>0.22</shapeshiftChance> -->
+	<!-- <xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath> -->
+	<!-- <xenotypeCanEvolveOvertime>false</xenotypeCanEvolveOvertime> -->
+	<!-- <subXenotypeDefs> -->
+	  <!-- <li>WVC_Featherdust</li> -->
+	  <!-- <li>WVC_Resurgent</li> -->
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
+	<!-- </subXenotypeDefs> -->
+	<!-- Evolve -->
+	<genes>
+		<!-- Morpher -->
+		<li>WVC_Morpher</li>
+		<li>WVC_MorphCondition_Undead</li>
+		<li>WVC_MorphEffects_OneTimeUse</li>
+		<li>WVC_MorphTargeter_Undead</li>
+		<!-- Base -->
+		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
+		<li>WVC_PostImplanterBrainwash</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<!-- <li>WVC_MildGeneticInstability</li> -->
+		<li>WVC_Undead</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_ToxResist_Total</li>
+		<li>WVC_Fragile</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>StrongStomach</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_PatchSkin</li>
+		<!-- Random -->
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <morpherXenotypeDefs> -->
+			  <!-- <li>WVC_Featherdust</li> -->
+			  <!-- <li>WVC_Resurgent</li> -->
+			  <!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
+			<!-- </morpherXenotypeDefs> -->
+			<!-- or -->
+			<!-- <morpherXenotypeChances> -->
+			  <!-- <WVC_Resurgent>0.80</WVC_Resurgent> -->
+			  <!-- <WVC_Featherdust>0.33</WVC_Featherdust> -->
+			  <!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.11</WVC_Ashen> -->
+			<!-- </morpherXenotypeChances> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+</Defs>

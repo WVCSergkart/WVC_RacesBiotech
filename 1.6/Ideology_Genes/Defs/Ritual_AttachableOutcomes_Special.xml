@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_ShapeshifterRecruit</defName>
+	<label>shapeshifter recruit</label>
+	<effectDesc>20% chance of shapeshifter recruit of the same ideoligion joining your colony.</effectDesc>
+	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
+	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
+	<requiredMemeAny>
+	  <li>WVC_XenotypesSupremacy</li>
+	</requiredMemeAny>
+	<!-- <disallowedRituals> -->
+	  <!-- <li>FuneralStandard</li> -->
+	  <!-- <li>FuneralNoCorpse</li> -->
+	<!-- </disallowedRituals> -->
+	<onlyBestOutcome>true</onlyBestOutcome>
+	<onlyNegativeOutcomes>false</onlyNegativeOutcomes>
+	<onlyPositiveOutcomes>false</onlyPositiveOutcomes>
+	<onlyWorstOutcome>false</onlyWorstOutcome>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<!-- <pawnKindDef>WVC_Ashen_Player</pawnKindDef> -->
+			<xenotypeChances>
+			  <WVC_Ashen>1</WVC_Ashen>
+			</xenotypeChances>
+			<recruitChance>0.20</recruitChance>
+		</li>
+	</modExtensions>
+  </RitualAttachableOutcomeEffectDef>
+
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_UndeadRecruit</defName>
+	<label>undead recruit</label>
+	<effectDesc>20% chance of undead recruit of the same ideoligion joining your colony.</effectDesc>
+	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
+	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
+	<requiredMemeAny>
+	  <li>WVC_Undeadist</li>
+	</requiredMemeAny>
+	<!-- <disallowedRituals> -->
+	  <!-- <li>FuneralStandard</li> -->
+	  <!-- <li>FuneralNoCorpse</li> -->
+	<!-- </disallowedRituals> -->
+	<!-- <allowedRituals> -->
+	  <!-- <li>FuneralStandard</li> -->
+	  <!-- <li>FuneralNoCorpse</li> -->
+	<!-- </allowedRituals> -->
+	<onlyBestOutcome>false</onlyBestOutcome>
+	<onlyNegativeOutcomes>false</onlyNegativeOutcomes>
+	<onlyPositiveOutcomes>true</onlyPositiveOutcomes>
+	<onlyWorstOutcome>false</onlyWorstOutcome>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<!-- <pawnKindDef>WVC_Undead_Player</pawnKindDef> -->
+			<xenotypeChances>
+			  <WVC_Undead>0.60</WVC_Undead>
+			  <WVC_Featherdust>0.16</WVC_Featherdust>
+			  <WVC_Resurgent>0.17</WVC_Resurgent>
+			</xenotypeChances>
+			<recruitChance>0.20</recruitChance>
+		</li>
+	</modExtensions>
+  </RitualAttachableOutcomeEffectDef>
+
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_BlankindRecruit</defName>
+	<label>subject recruit</label>
+	<effectDesc>40% chance of blankind, sandycat, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>
+	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
+	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
+	<requiredMemeAny>
+	  <li>WVC_XenotypesSupremacy</li>
+	</requiredMemeAny>
+	<!-- <disallowedRituals> -->
+	  <!-- <li>FuneralStandard</li> -->
+	  <!-- <li>FuneralNoCorpse</li> -->
+	<!-- </disallowedRituals> -->
+	<onlyBestOutcome>false</onlyBestOutcome>
+	<onlyNegativeOutcomes>false</onlyNegativeOutcomes>
+	<onlyPositiveOutcomes>false</onlyPositiveOutcomes>
+	<onlyWorstOutcome>true</onlyWorstOutcome>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<!-- <pawnKindDef>WVC_Blank_Player</pawnKindDef> -->
+			<xenotypeChances>
+			  <WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.05</WVC_Lilith>
+			  <WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.07</WVC_CatDeity>
+			  <WVC_Sandycat>0.05</WVC_Sandycat>
+			  <WVC_Blank>0.9</WVC_Blank>
+			</xenotypeChances>
+			<recruitChance>0.4</recruitChance>
+		</li>
+	</modExtensions>
+  </RitualAttachableOutcomeEffectDef>
+  
+</Defs>

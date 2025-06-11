@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Firmware -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_GenePatternAptitude_Base" Abstract="True">
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>WVC_PatternAptitudes</displayCategory>
+	<label>pattern aptitude</label>
+	<labelShortAdj>pattern aptitude</labelShortAdj>
+	<description>Carriers of this gene have a predetermined pattern aptitude. Pattern aptitude acts like an offset on all skills, giving significant advantages in some skills and disadvantages in others. Does not affect passion.</description>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesFarmer_v0</iconPath>
+	<marketValueFactor>1.2</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<randomChosen>true</randomChosen>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li MayRequire="imranfish.xmlextensions">Expectations are always 0 and cannot be higher or lower.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<exclusionTags>
+	  <li>WVC_MechaAI_Firmware</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>firm</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>firm</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isAptitude>true</isAptitude>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Aptitudes -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
+	<label>pattern aptitude (creator)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesCreator_v0</iconPath>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.2</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator 42 -->
+	  <Construction>8</Construction>
+	  <Intellectual>16</Intellectual>
+	  <Crafting>14</Crafting>
+	  <Artistic>4</Artistic>
+	  <!-- war -32 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-10</Shooting>
+	  <Melee>-6</Melee>
+	  <!-- green -46 -->
+	  <Plants>-10</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-14</Animals>
+	  <Social>-16</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
+	<label>pattern aptitude (war)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesWar_v0</iconPath>
+	<!-- <socialFightChanceFactor>2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>0.6</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -54 -->
+	  <Construction>-8</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-14</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war 44 -->
+	  <Mining>12</Mining>
+	  <Shooting>16</Shooting>
+	  <Melee>16</Melee>
+	  <!-- green -26 -->
+	  <Plants>-4</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-2</Animals>
+	  <Social>-12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
+	<label>pattern aptitude (green)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesFarmer_v0</iconPath>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -50 -->
+	  <Construction>-12</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-16</Artistic>
+	  <!-- war -28 -->
+	  <Mining>-4</Mining>
+	  <Shooting>-12</Shooting>
+	  <Melee>-12</Melee>
+	  <!-- green 42 -->
+	  <Plants>12</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>12</Animals>
+	  <Social>12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
+	<label>pattern aptitude (rogue)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesRogue_v0</iconPath>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>0.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -24 -->
+	  <Construction>-6</Construction>
+	  <Intellectual>4</Intellectual>
+	  <Crafting>-4</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war -2 -->
+	  <Mining>-10</Mining>
+	  <Shooting>0</Shooting>
+	  <Melee>8</Melee>
+	  <!-- green -10 -->
+	  <Plants>-6</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-6</Animals>
+	  <Social>8</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
+	<label>pattern aptitude (propaganda)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesPropaganda_v0</iconPath>
+	<!-- <socialFightChanceFactor>2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -26 -->
+	  <Construction>-14</Construction>
+	  <Intellectual>12</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war -34 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-12</Shooting>
+	  <Melee>-6</Melee>
+	  <!-- green 24 -->
+	  <Plants>-2</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>2</Animals>
+	  <Social>18</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_MechaAI_FirmwareMechanitorMachine</defName>
+	<label>pattern aptitude (mechanitor)</label>
+	<iconPath>WVC/UI/Genes/Gene_AptitudesMechanitor_v0</iconPath>
+	<!-- <socialFightChanceFactor>1.2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.5</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator 22 -->
+	  <Construction>8</Construction>
+	  <Intellectual>6</Intellectual>
+	  <Crafting>14</Crafting>
+	  <Artistic>-6</Artistic>
+	  <!-- war -4 -->
+	  <Mining>-16</Mining>
+	  <Shooting>6</Shooting>
+	  <Melee>6</Melee>
+	  <!-- green -54 -->
+	  <Plants>-12</Plants>
+	  <Cooking>-12</Cooking>
+	  <Animals>-14</Animals>
+	  <Social>-16</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePatternAptitude_Base">
+	<defName>WVC_PatternAptitude_Shapeshifter</defName>
+	<label>pattern aptitude (shapeshifter)</label>
+	<iconPath>WVC/UI/Genes/Gene_PatternAptitude_Shapeshifter_v0</iconPath>
+	<biostatCpx>-5</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>8</biostatMet>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">4</WVC_ScarifierScars>
+	</statOffsets>
+	<aptitudes>
+	  <Construction>-6</Construction>
+	  <Intellectual>-6</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-6</Artistic>
+	  <Mining>-6</Mining>
+	  <Shooting>-6</Shooting>
+	  <Melee>-6</Melee>
+	  <Plants>-6</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-6</Animals>
+	  <Social>-6</Social>
+	  <Medicine>-6</Medicine>
+	</aptitudes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>4</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

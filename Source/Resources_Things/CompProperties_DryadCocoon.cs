@@ -235,7 +235,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompTick()
 		{
-			innerContainer.ThingOwnerTick();
+			//innerContainer.ThingOwnerTick();
 			if (tickComplete >= 0)
 			{
 				if (DryadComp?.Gene_GauranlenConnection == null)
@@ -320,7 +320,7 @@ namespace WVC_XenotypesAndGenes
 			parent.Destroy();
 		}
 
-		public override void PostDeSpawn(Map map)
+		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
 		{
 			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
 			{
@@ -385,7 +385,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostDeSpawn(Map map)
+		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
 		{
 			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
 			{

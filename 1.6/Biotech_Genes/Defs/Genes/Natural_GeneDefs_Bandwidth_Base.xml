@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Psychic ability -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneMechBandwidthBase" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<selectionWeight>0.003</selectionWeight>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<exclusionTags>
+	  <li>WVC_MechanitorGenes</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
+	<defName>WVC_MechBandwidth_Enchanced</defName>
+	<label>enchanced bandwidth</label>
+	<labelShortAdj>bandwidth</labelShortAdj>
+	<description>Carriers of this gene control mechanoids better.</description>
+	<iconPath>WVC/UI/Genes/MechBandwidth_Enchanced</iconPath>
+	<displayOrderInCategory>1090</displayOrderInCategory>
+	<statOffsets>
+		<MechBandwidth>4</MechBandwidth>
+		<MechControlGroups>1</MechControlGroups>
+	</statOffsets>
+	<biostatMet>-2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
+	<defName>WVC_MechBandwidth_Extreme</defName>
+	<label>extreme bandwidth</label> 
+	<labelShortAdj>bandwidth</labelShortAdj>
+	<description>Carriers of this gene control mechanoids much better.</description>
+	<iconPath>WVC/UI/Genes/MechBandwidth_Extreme</iconPath>
+	<displayOrderInCategory>1091</displayOrderInCategory>
+	<statOffsets>
+		<MechBandwidth>8</MechBandwidth>
+		<MechControlGroups>2</MechControlGroups>
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_ArchiteFleetConnected</defName>
+	<label>fleet connected</label> 
+	<labelShortAdj>connected</labelShortAdj>
+	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
+	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <iconColor>(255, 230, 215)</iconColor> -->
+	<!-- <iconColor>(79, 80, 81)</iconColor> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<displayOrderInCategory>234</displayOrderInCategory>
+	<!-- <prerequisite>WVC_ArchiteMechlink</prerequisite> -->
+	<marketValueFactor>3</marketValueFactor>
+	<!-- <selectionWeight>0.00125</selectionWeight> -->
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<statOffsets>
+		<!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+		<MechBandwidth>74</MechBandwidth>
+		<MechControlGroups>6</MechControlGroups>
+		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
+		<MechFormingSpeed>1</MechFormingSpeed>
+		<MechRepairSpeed>1</MechRepairSpeed>
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_MechanitorNetwork</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>connect</symbol></li>
+		<li><symbol>con</symbol></li>
+		<li><symbol>connec</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Light</li> -->
+	  <!-- <li>WVC_MechSummon_Medium</li> -->
+	  <!-- <li>WVC_MechSummon_Heavy</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Light</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Medium</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Heavy</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+  </GeneDef>
+
+</Defs>

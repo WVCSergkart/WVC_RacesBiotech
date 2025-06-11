@@ -196,7 +196,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		protected override void Tick()
 		{
 			base.Tick();
 			if (currentlyChargingMech != null && (RechargeableStomach == null || currentlyChargingMech.CurJob.targetA.Thing != this))

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Base thrall stats -->
+
+  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+	<label>thrall</label>
+	<description>An ordinary thrall with its own strengths and weaknesses.</description>
+	<!-- Unused -->
+	<!-- <generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death or transformation into a ghoul.</generalDesc> -->
+	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
+	<xenotypeDef>WVC_Thrall</xenotypeDef>
+	<acceptableRotStages>
+		<li>Fresh</li>
+		<li>Rotting</li>
+	</acceptableRotStages>
+	<genes>
+		<li>WVC_GeneSavant</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<li>Aggression_DeadCalm</li>
+		<li>Learning_Slow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Basic</defName>
+	<label>basic</label>
+	<selectionWeight>1</selectionWeight>
+	<genes Inherit="False"/>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <!-- Base thrall appearance -->
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base" Name="WVC_XenotypesAndGenes_ThrallDefs_Undead" Abstract="True">
+	<selectionWeight>0.33</selectionWeight>
+	<reqGeneDef>WVC_ResurgentCells</reqGeneDef>
+	<genes>
+		<li>WVC_GauntSkin</li>
+		<li>WVC_SkinColor_Granite</li>
+		<li>Hair_BaldOnly</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <!-- ================================ -->
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Fielder</defName>
+	<label>fielder</label>
+	<description>Field modification of the thrall. They have a bonus to speed and can easily recover from cutting wounds.</description>
+	<selectionWeight>1.1</selectionWeight>
+	<genes>
+		<li>Superclotting</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>MoveSpeed_VeryQuick</li>
+		<li>WVC_Delicate</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Striker</defName>
+	<label>striker</label>
+	<description>Combat modification of the thrall. These thralls are excellent fighters.</description>
+	<selectionWeight>1.1</selectionWeight>
+	<genes>
+		<li>Superclotting</li>
+		<li>MeleeDamage_Strong</li>
+		<li>AptitudeStrong_Shooting</li>
+		<li>AptitudeStrong_Melee</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Artister</defName>
+	<label>artister</label>
+	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters.</description>
+	<selectionWeight>0.6</selectionWeight>
+	<genes>
+		<li>DarkVision</li>
+		<li>ElongatedFingers</li>
+		<li>AptitudeStrong_Crafting</li>
+		<li>AptitudeRemarkable_Artistic</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Smartkin</defName>
+	<label>smartkin</label>
+	<description>Research modification of the thrall. These thralls are excellent doctors and researchers.</description>
+	<selectionWeight>1.0</selectionWeight>
+	<genes>
+		<li>WVC_PsychicAbility_Dull</li>
+		<li>WVC_Fragile</li>
+		<li>AptitudeStrong_Medicine</li>
+		<li>AptitudeStrong_Intellectual</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Gardernkind</defName>
+	<label>gardernkind</label>
+	<description>Green modification of the thrall. These thralls are excellent gardeners and tamers. They also have excellent innate armor and bonus to speed.</description>
+	<genes>
+		<li>WVC_ArmoredSkin_Stone</li>
+		<li>MoveSpeed_VeryQuick</li>
+		<li>AptitudeStrong_Plants</li>
+		<li>AptitudeRemarkable_Animals</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Molekin</defName>
+	<label>molekin</label>
+	<description>Mining modification of the thrall. These thralls are excellent cooks and miners.</description>
+	<genes>
+		<li>WVC_Delicate</li>
+		<li>DarkVision</li>
+		<li>AptitudeStrong_Mining</li>
+		<li>AptitudeStrong_Cooking</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Carrier</defName>
+	<label>carrier</label>
+	<description>Power modification of the thrall. These thralls have very good innate armor, and can also carry significantly more weight.</description>
+	<genes>
+		<li>WVC_ArmoredSkin_Plasteel</li>
+		<li>WVC_MecaBodyParts_Spine</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
+	<defName>WVC_Fortkind</defName>
+	<label>fortkind</label>
+	<description>Defensive modification of the thrall. These thralls are incredibly durable.</description>
+	<genes>
+		<li>WVC_ArmoredSkin_Fortress</li>
+		<li>WVC_Pain_Nullified</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+</Defs>

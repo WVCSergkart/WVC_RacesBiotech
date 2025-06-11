@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" WVC_XaG_XenotypeRemoveTag="Undeads">
+	<defName>WVC_MorphTargeter_Undead</defName>
+	<label>targeted morph (undead)</label>
+	<description>Carriers of this gene can only morph into undead sub-xenotypes.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Featherdust</XenotypeDef>
+	  <XenotypeDef>WVC_Resurgent</XenotypeDef>
+	  <XenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_Ashen</XenotypeDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_TargetUndead</iconPath>
+	<displayOrderInCategory>-50.100</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 3 possible xenotypes: &lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt;, &lt;color=#8a8ae6&gt;Featherdust&lt;/color&gt; and &lt;color=#8a8ae6&gt;Ashen&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherXenotypeChances>
+			  <WVC_Resurgent>0.70</WVC_Resurgent>
+			  <WVC_Featherdust>0.22</WVC_Featherdust>
+			  <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.08</WVC_Ashen>
+			</morpherXenotypeChances>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef MayRequire="vanillaracesexpanded.lycanthrope.forked" ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphTargeter_Wolfman</defName>
+	<label>targeted morph (wolfman)</label>
+	<description>Carriers of this gene can only morph into wolfman xenotype.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>VRE_Wolfman</XenotypeDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_TargetXenotype_Wolfman</iconPath>
+	<displayOrderInCategory>-50.110</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 1 possible xenotype: &lt;color=#8a8ae6&gt;Wolfman&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherXenotypeChances>
+			  <VRE_Wolfman>1.0</VRE_Wolfman>
+			</morpherXenotypeChances>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef MayRequire="vanillaracesexpanded.lycanthrope.forked" ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphTargeter_Lycan</defName>
+	<label>targeted morph (lycan)</label>
+	<description>Carriers of this gene can only morph into lycan xenotype.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>VRE_Lycan</XenotypeDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_TargetXenotype_Lycan</iconPath>
+	<displayOrderInCategory>-50.120</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 1 possible xenotype: &lt;color=#8a8ae6&gt;Lycan&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherXenotypeChances>
+			  <VRE_Lycan>1.0</VRE_Lycan>
+			</morpherXenotypeChances>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

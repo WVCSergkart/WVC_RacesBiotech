@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="FleshWhip" or defName="FleshTentacle"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassNucleus</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li>WVC_FleshmassSkin</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef/genes/li[@WVC_Tag="AnomalyInhumanizedGene"]</xpath>
+	  <value>
+		  <li>WVC_Inhumanized</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'DarkVision')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_FleshmassSkin</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="DeathPall" or defName="GrayPall" or defName="DeadlifeDust"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Deadlife</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_DarknessExposure</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="ApparelDamaged" or defName="DeadMansApparel"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassArmor</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+</Patch>

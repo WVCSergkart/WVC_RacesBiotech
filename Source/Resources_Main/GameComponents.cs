@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
 			{
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -176,7 +176,7 @@ namespace WVC_XenotypesAndGenes
 				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
 				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
 				// Log.Error("1");
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -210,7 +210,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
 			{
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{

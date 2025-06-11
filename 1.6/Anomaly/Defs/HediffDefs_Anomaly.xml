@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XaG_FleshmassImmunity</defName>
+	<label>fleshmass immunity</label>
+	<description>Diseases from which the fleshmass immunity gene protects.</description>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_FleshmassImmunity</hediffClass>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneOrientationBase" Abstract="True">
+	<displayCategory>Reproduction</displayCategory>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <description>The vast majority of carriers of this gene are attracted to their gender.</description> -->
+	<!-- <description>The vast majority of carriers of this gene are attracted to both gender.</description> -->
+	<!-- <description>The vast majority of carriers of this gene are not attracted to any gender.</description> -->
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>552</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Orientation</iconPath>
+	<selectionWeight>0.0005</selectionWeight>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Bisexual</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<exclusionTags>
+		<li>SexualOrientation</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sexua</symbol></li>
+		<li><symbol>sexu</symbol></li>
+		<li><symbol>sex</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>list</symbol></li>
+		<li><symbol>lis</symbol></li>
+		<li><symbol>li</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneOrientationBase">
+	<defName>WVC_Orientation_Straight</defName>
+	<label>straight</label>
+	<description>The vast majority of carriers of this gene are attracted to opposite gender.</description>
+	<iconColor>(255, 135, 135)</iconColor>
+	<suppressedTraits>
+	  <li>
+		<def>Bisexual</def>
+	  </li>
+	  <li>
+		<def>Gay</def>
+	  </li>
+	  <li>
+		<def>Asexual</def>
+	  </li>
+	</suppressedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneOrientationBase">
+	<defName>WVC_Orientation_Bisexual</defName>
+	<label>bisexual</label>
+	<description>The vast majority of carriers of this gene are attracted to both gender.</description>
+	<iconColor>(135, 135, 255)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Bisexual</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneOrientationBase">
+	<defName>WVC_Orientation_Gay</defName>
+	<label>gay</label>
+	<description>The vast majority of carriers of this gene are attracted to their gender.</description>
+	<iconColor>(135, 200, 255)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Gay</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneOrientationBase">
+	<defName>WVC_Orientation_Asexual</defName>
+	<label>asexual</label>
+	<description>The vast majority of carriers of this gene are not attracted to any gender.</description>
+	<iconColor>(175, 175, 175)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Asexual</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+
+</Defs>

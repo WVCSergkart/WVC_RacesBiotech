@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_Nociokin</defName>
+	<!-- chimechkin, nociokin -->
+	<label>nociokin</label>
+	<description>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can skip mechs from the void to help them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Can replenish hemogen on rechargers or by biting mechs.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; Can summon (skip) mechanoids using a special resource.</description>
+	<descriptionShort>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can skip mechs from the void to help them.</descriptionShort>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</iconPath>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Shadoweater</XenotypeDef>
+	</descriptionHyperlinks>
+	<displayPriority>-190</displayPriority>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_Eyes_Colorful</li>
+		<li>Hemogenic</li>
+		<!-- <li>Bloodfeeder</li> -->
+		<!-- <li>WVC_Bloodeater</li> -->
+		<li>WVC_NaturalAgeless</li>
+		<li>Hair_ShortOnly</li>
+		<!-- <li>WVC_DryadSkin</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<li>DarkVision</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<li>LongjumpLegs</li>
+		<li>Deathrest</li>
+		<li>Neversleep</li>
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<li>ToxResist_Total</li>
+		<li>FireWeakness</li>
+		<li>FireTerror</li>
+		<!-- <li>WVC_BloodfeederBeauty</li> -->
+		<!-- <li>WVC_HemogenicMetabolism</li> -->
+		<!-- <li>WVC_SkinColor_DarkBlue</li> -->
+		<!-- <li>WVC_HeadBoneHorns</li> -->
+		<li>WVC_DemonTailA</li>
+		<li>WVC_Ears_PointedB</li>
+		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
+		<!-- <li>WVC_HealingStomach</li> -->
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_ImplanterFangs</li> -->
+		<li>PiercingSpine</li>
+		<li>WVC_Tough</li>
+		<li>WVC_Chimera</li>
+		<!-- new -->
+		<li>WVC_CyberSkin</li>
+		<!-- <li>WVC_MechaPowerSource_Unstable</li> -->
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_MilkWhite</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_HemogenicCharge</li>
+		<li>WVC_VoidMechlink</li>
+		<li>WVC_MechaAI_MechanitorNetwork</li>
+		<li>WVC_OneManArmy</li>
+		<li>Sterile</li>
+		<li>WVC_WoundHealing_SelfRepair</li>
+		<li>WVC_Mechfeeder</li>
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isChimerkin>true</isChimerkin>
+			<!-- <isEvolvedChimerkin>true</isEvolvedChimerkin> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(161, 161, 255)</defaultColor>
+			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

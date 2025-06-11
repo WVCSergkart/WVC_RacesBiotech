@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_EternalHungerBite</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_BiteTarget</driverClass> -->
+	<!-- <reportString>trying bite TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter"> -->
+			<!-- <warmupStartSound>Bloodfeed_Cast</warmupStartSound> -->
+			<!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </JobDef> -->
+
+  <JobDef>
+	<defName>WVC_XaG_CastBloodfeedOnPawnMelee</defName>
+	<!-- <driverClass>JobDriver_CastAbilityMelee</driverClass> -->
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_CastBloodfeedMelee</driverClass>
+	<casualInterruptible>false</casualInterruptible>
+	<collideWithPawns>false</collideWithPawns>
+	<neverShowWeapon>true</neverShowWeapon>
+	<suspendable>true</suspendable>
+	<!-- <reportString>trying bite TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+  </JobDef>
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XaG_CastCellsfeedOnPawnMelee</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_CastCellsfeedMelee</driverClass> -->
+	<!-- <casualInterruptible>false</casualInterruptible> -->
+	<!-- <collideWithPawns>false</collideWithPawns> -->
+	<!-- <neverShowWeapon>true</neverShowWeapon> -->
+	<!-- <suspendable>true</suspendable> -->
+  <!-- </JobDef> -->
+
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ResurrectAndChangeXenotype</driverClass>
+	<reportString>resurrecting TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_AbsorbXenogerm</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass>
+	<reportString>absorbing xenogerm from TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+			<reimplantEndogenes>false</reimplantEndogenes>
+			<reimplantXenogenes>true</reimplantXenogenes>
+		</li>
+	</modExtensions>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_AbsorbEndogerm</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass>
+	<reportString>absorbing endogerm from TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+			<reimplantEndogenes>true</reimplantEndogenes>
+			<reimplantXenogenes>false</reimplantXenogenes>
+		</li>
+	</modExtensions>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_AbsorbGenogerm</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass>
+	<reportString>absorbing endo/xenogerm from TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+			<reimplantEndogenes>true</reimplantEndogenes>
+			<reimplantXenogenes>true</reimplantXenogenes>
+		</li>
+	</modExtensions>
+  </JobDef>
+  
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_RetuneSerum</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_RetuneSerum</driverClass>
+	<reportString>retuning TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XaG_FeedTargetWithOwnBlood</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_FeedTargetWithOwnBlood</driverClass>
+	<reportString>feeding TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_RechargeableStomach</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_StomachCharge</driverClass> -->
+	<!-- <reportString>charging.</reportString> -->
+  <!-- </JobDef> -->
+
+  <JobDef>
+	<defName>WVC_XaG_DestroyCellularBody</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_DestroyCellularBody</driverClass>
+	<reportString>smashing TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XaG_ChangeGolemType</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ChangeGolemType</driverClass>
+	<reportString>changing type.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

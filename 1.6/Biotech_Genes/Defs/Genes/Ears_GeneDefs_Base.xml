@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneEarsBase" Name="WVC_XenotypesAndGenes_GeneEars_Base" Abstract="True">
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<selectionWeight>0.00125</selectionWeight>
+  </GeneDef>
+
+  <!-- Ears -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base" Name="WVC_XenotypesAndGenes_GeneEars_KittyEars" Abstract="True">
+	<!-- <defName>WVC_Mecha_EarsCat</defName> -->
+	<label>mecha-cat ears</label>
+	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
+	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
+	<selectionWeight>0.00125</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<minAgeActive>0</minAgeActive>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+		<li><symbol>kitty</symbol></li>
+		<li><symbol>kit</symbol></li>
+		<li><symbol>tabby</symbol></li>
+		<li><symbol>tom</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>cat</symbol></li>
+		<li><symbol>kitten</symbol></li>
+		<li><symbol>tabby</symbol></li>
+		<li><symbol>tom</symbol></li>
+		<li><symbol>ear</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_CatEarsA</defName>
+	<label>cat ears</label>
+	<description>Carriers of this gene have cat-like ears.</description>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPath>WVC/BodyParts/MecaGene_Ears/NaturalCatEars</texPath>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.02</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_FoxEarsA</defName>
+	<label>spikelike ears</label>
+	<description>Carriers of this gene have spike-like ears.</description>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPath>WVC/BodyParts/MecaGene_Ears/FoxEars</texPath>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.02</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_Mecha_EarsCat</defName>
+	<label>cat ears</label>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/CatEars</li>
+			<li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.25</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_Mecha_RedFormerEarsDouble</defName>
+	<label>spikelike ears</label>
+	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</li>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.25</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_Mecha_RedFormerSpikesDouble</defName>
+	<label>headspikes</label>
+	<description>Carriers of this gene grow 2 to 4 mechalike spikes on their heads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_HeadSpikes</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
+	<biostatArc>1</biostatArc>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</li>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<statOffsets>
+	  <ArmorRating_Heat>0.27</ArmorRating_Heat>
+	</statOffsets>
+	<exclusionTags>
+	  <li>Headbone</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_Mecha_YellowFormerAntennaDouble</defName>
+	<label>head antenna</label>
+	<description>Carriers of this gene grow 2 to 4 mechalike antenna on their heads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_HeadAntenna</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
+	<biostatArc>1</biostatArc>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</li>
+			<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<statOffsets>
+	  <MechControlGroups>4</MechControlGroups>
+	</statOffsets>
+	<exclusionTags>
+	  <li>Headbone</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

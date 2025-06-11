@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneEnergy_Base" Abstract="True">
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<selectionWeight>0.00125</selectionWeight>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_HemogenicCharge</defName>
+	<label>hemogenic charge</label>
+	<description>Carriers of this gene have a special organ that, when stimulated by electricity, generates hemogen.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenRecharge</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenicCharge_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Recharging&lt;/color&gt; generates &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;.</li>
+		<li>The carrier of the gene will &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; attempt to recharge when &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; is low.</li>
+		<li>Any corresponding &lt;color=#8a8ae6&gt;recharge gene&lt;/color&gt; is required for recharge.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <foodPoisoningFromFood>false</foodPoisoningFromFood> -->
+			<rechargeableStomachJobDef>WVC_RechargeableHemogen</rechargeableStomachJobDef>
+			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
+			<!-- <chargeSpeedFactor>0.8</chargeSpeedFactor> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ======================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>sweet voice</label>
+	<description>Carriers of this gene have archites that modify their voice so that it sounds perfect to everyone.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SweetVoice</geneClass>
+	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <li>When &lt;color=#8a8ae6&gt;interacting&lt;/color&gt;, it has a chance to temporarily improve the target's opinion by 100</li>
+	  <li>Target must be &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt;.</li>
+	  <li>Opinion lasts 2 days and stacks up to 4 times.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>AnnoyingVoice</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <SocialImpact>2.0</SocialImpact>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_SweetVoice</AboutMeThoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- = -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
+	<label>binary voice</label>
+	<description>Carriers of this gene have archites that alter the functioning of their vocal cords, making their speech sound like machine binary signals, making it difficult for them to communicate.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BinaryVoice</geneClass>
+	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>210</displayOrderInCategory>
+	<statFactors>
+	  <TradePriceImprovement>0.0</TradePriceImprovement>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<customEffectDescriptions>
+	  <li>Carriers can initiate social interaction only with each other.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion"> -->
+			<!-- <MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef> -->
+			<!-- <ignoreIfHasGene>true</ignoreIfHasGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base">
+	<defName>WVC_MechaAI_PsychicDull</defName>
+	<label>telepathy network</label>
+	<description>Carriers of this gene have archites that create a psychic-telepathic network that allows the owners of the gene to communicate and exchange skills, and also provides some psychic protection.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PsychicNetwork</geneClass>
+	<iconPath>WVC/UI/Genes/PsyDull_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<selectionWeight>0.00125</selectionWeight>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt; pawn on the map, if target have &lt;color=#8a8ae6&gt;same gene&lt;/color&gt;.</li>
+		<li>Sometimes instead of social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt;, carrier can receive 5% exp from a random target &lt;color=#8a8ae6&gt;skill&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <PsychicSensitivity>0.5</PsychicSensitivity>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
+	</statFactors>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>2</degree>
+	  </li>
+	</suppressedTraits>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tele</symbol></li>
+		<li><symbol>path</symbol></li>
+		<li><symbol>net</symbol></li>
+		<li><symbol>psy</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Telepathy</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- =========================== Over Overridable =========================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToxResist_Super">
+	<defName>WVC_MecaBodyParts_Lung</defName>
+	<label>overall adaptation</label>
+	<description>Carriers of this gene have complete immunity to environmental threats; they are not afraid of toxins or dangerous temperatures.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_OverOverridable</geneClass>
+	<!-- <geneClass>Gene</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_TemperatureAdaptation_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<statOffsets>
+	  <ToxicResistance>1</ToxicResistance>
+	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+	</statOffsets>
+	<makeImmuneTo>
+	  <li>LungRot</li>
+	  <li>LungRotExposure</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>MinTemperature</li>
+	  <li>MaxTemperature</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>over</symbol></li>
+		<li><symbol>all</symbol></li>
+		<li><symbol>adapt</symbol></li>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>tox</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>89</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base">
+	<defName>WVC_MecaBodyParts_Liver</defName>
+	<label>machine senescent</label>
+	<description>Carriers of this gene have archites that provide them with very adaptive immunity and protect against chronic diseases.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MachineSenescent</geneClass>
+	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>When carrier infected with &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt;, it will &lt;color=#8a8ae6&gt;emerge&lt;/color&gt; after a while, preventing it from growing.</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
+		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<statFactors>
+	  <ImmunityGainSpeed>8</ImmunityGainSpeed>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>OrganDecay</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base">
+	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
+	<label>regeneration sleep</label>
+	<description>Carriers of this gene have archites that optimize metabolic processes, allowing clusters of neurons to sleep while the rest of the brain stays awake. They can also put the carrier into a regeneration coma or wake up from it at any time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_RegenerationSleep</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_RegenerationSleep</resourceGizmoType>
+	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
+	<showGizmoOnMultiSelect>false</showGizmoOnMultiSelect>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<marketValueFactor>1.5</marketValueFactor>
+	<selectionWeight>0.00125</selectionWeight>
+	<biostatMet>2</biostatMet>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <li>Allows to put a pawn into or wake them up from a &lt;color=#8a8ae6&gt;regeneration coma&lt;/color&gt; at any time.</li>
+	  <!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<disablesNeeds>
+	  <li>Rest</li>
+	  <li>Comfort</li>
+	</disablesNeeds>
+	<suppressedTraits>
+	  <li>
+		<def>QuickSleeper</def>
+	  </li>
+	</suppressedTraits>
+	<makeImmuneTo>
+	  <li>SleepingSickness</li>
+	</makeImmuneTo>
+  </GeneDef>
+
+</Defs>

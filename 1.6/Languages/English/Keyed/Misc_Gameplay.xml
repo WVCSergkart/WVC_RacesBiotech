@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- <WVC_XaG_ModUpdatedLetter>{0} has gestated new pawn.</WVC_XaG_ModUpdatedLetter> -->
+
+	<!-- ================================== -->
+
+	<WVC_XaG_NoDescError>No information available.</WVC_XaG_NoDescError>
+
+	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
+
+	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
+
+	<WVC_XaG_CollapseButtonDesc>Allows to toggle the size of the displayed window, making it smaller or larger.</WVC_XaG_CollapseButtonDesc>
+
+	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
+
+	<WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc>
+
+	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
+	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
+	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
+	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
+	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, gestation will begin, which will impose a moving and manipulation debuff, and also increase hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
+
+	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will become pregnant. The child will receive all of the mother's germline genes, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
+	<WVC_XaG_Gene_ParthenogenesisDesc>Conceive a child without a partner.</WVC_XaG_Gene_ParthenogenesisDesc>
+
+	<WVC_XaG_Gene_ImmaculateConception>{0} gave birth.</WVC_XaG_Gene_ImmaculateConception>
+
+	<WVC_RB_Gene_GolemGestator>{0}'s mechanoid has finished the gestation process.</WVC_RB_Gene_GolemGestator>
+
+	<!-- <WVC_RB_Gene_MechaGestator_PawnReady>{0} pawn ready for gestation.</WVC_RB_Gene_MechaGestator_PawnReady> -->
+	<!-- <WVC_RB_Gene_MechaGestator_PawnNotReady>The gestator is still charging.</WVC_RB_Gene_MechaGestator_PawnNotReady> -->
+
+	<WVC_RB_Gene_Summoner>The package is already on its way!</WVC_RB_Gene_Summoner>
+	<WVC_XaG_MechanoidSummon_Label>New mechanoids</WVC_XaG_MechanoidSummon_Label>
+	<WVC_XaG_MechanoidSummon_Letter>A {0} has dropped from orbit and is placing itself under the control of {1_nameDef}.</WVC_XaG_MechanoidSummon_Letter>
+	<!-- \n\nIt seems to have been attached to {1_possessive} mechlink and is eager to serve its purpose once again. -->
+	<WVC_XaG_OrbitalSummon>Orbital summon</WVC_XaG_OrbitalSummon>
+
+	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
+
+	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
+	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
+	<WVC_XaG_ThrallMakerNonThrallSelected>First you need to choose the type of thrall.</WVC_XaG_ThrallMakerNonThrallSelected>
+
+	<WVC_XaG_ScenPart_AddMechlink>Starting pawns will receive mechlink.</WVC_XaG_ScenPart_AddMechlink>
+	<WVC_XaG_ScenPart_NullifyBackstory>The backstory of the starting pawns is unknown.</WVC_XaG_ScenPart_NullifyBackstory>
+	<WVC_XaG_ScenPart_NullifySkills>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_NullifySkills>
+	<WVC_XaG_ScenPart_StartingGenes>Starting xenogenes</WVC_XaG_ScenPart_StartingGenes>
+	<WVC_XaG_ScenPart_ChimeraStartingGenes>Chimera starting xenogenes</WVC_XaG_ScenPart_ChimeraStartingGenes>
+	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>For other biomes</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>
+	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>Chimera genes for biomes: {0}</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>
+	<!-- <WVC_XaG_ScenPart_ChimeraStartingEvolution>The chimera will have a unique endogenes set.</WVC_XaG_ScenPart_ChimeraStartingEvolution> -->
+	<WVC_XaG_ScenPart_StartingMutations>Starting pawns will have {0} random mutations.</WVC_XaG_ScenPart_StartingMutations>
+	<WVC_XaG_ScenPart_AddChronoAge>Additional chronological age: {0}~{1} years.</WVC_XaG_ScenPart_AddChronoAge>
+	<!-- <WVC_XaG_ScenPart_EmbraceTheVoid>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_EmbraceTheVoid> -->
+	<!-- <WVC_XaG_ScenPart_ForcedGender>The gender of starting pawns is always: {0}.</WVC_XaG_ScenPart_ForcedGender> -->
+	<!-- <WVC_XaG_ScenPart_ForcedPregnancy>The gender of starting pawns is always {0}</WVC_XaG_ScenPart_ForcedPregnancy> -->
+
+	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
+
+	<WVC_XaG_BirthQuality>Birth quality offset: {0}%</WVC_XaG_BirthQuality>
+
+	<WVC_XaG_NoSuitableTargets>There are no suitable targets.</WVC_XaG_NoSuitableTargets>
+
+
+	<WVC_XaG_OverriddenByItself>Overridden by itself</WVC_XaG_OverriddenByItself>
+	<!-- <WVC_XaG_SelfOverriderGene>&lt;color=#ff8585&gt;This gene can only be overriden by itself.&lt;/color&gt;</WVC_XaG_SelfOverriderGene> -->
+
+	<WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene>
+
+	<WVC_XaG_GenesSettings_DescTip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
+
+	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>
+
+	<WVC_Custom>custom</WVC_Custom>
+
+	<WVC_Reset>Reset</WVC_Reset>
+
+	<WVC_XaG_FleshmassNucleusOvergrow>Next fleshmass overgrow in</WVC_XaG_FleshmassNucleusOvergrow>
+
+	<WVC_EyesColor>Eyes color</WVC_EyesColor>
+	<WVC_XaG_Message_EyesColor_Error>The pawn does not have the gene for recoloring eyes.</WVC_XaG_Message_EyesColor_Error>
+
+	<WVC_MechWeightClass>Mech weight class</WVC_MechWeightClass>
+
+	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
+	<WVC_CustomXenotypes>Custom xenotypes</WVC_CustomXenotypes>
+
+	<WVC_XaG_ReqGene>Require gene: {0}</WVC_XaG_ReqGene>
+
+	<WVC_SelectedXenotypeGenes>Selected xenotype genes</WVC_SelectedXenotypeGenes>
+
+	<WVC_XaG_DigestedBy>{0} digested by {1}.</WVC_XaG_DigestedBy>
+	<WVC_XaG_HasReceivedA>{0} has received a {1}.</WVC_XaG_HasReceivedA>
+	<WVC_XaG_MutationProgressing>{0} is progressing!</WVC_XaG_MutationProgressing>
+
+	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>
+	
+	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
+	
+	<WVC_XaG_SubXenotypeUnknownXenotypeError>unknown</WVC_XaG_SubXenotypeUnknownXenotypeError>
+
+	<WVC_XaG_GeneralTargetTooFar>No one can reach.</WVC_XaG_GeneralTargetTooFar>
+
+	<WVC_XaG_General_DisabledIdeo>{PAWN_nameDef}'s ideology prevents {PAWN_objective} from using this ability.</WVC_XaG_General_DisabledIdeo>
+
+	<WVC_XaG_AddedDeathRefusalAttempt>{0} received a death refusal from the {1} gene.</WVC_XaG_AddedDeathRefusalAttempt>
+
+	<!-- <WVC_XaG_RecommendedRole>Recommended role</WVC_XaG_RecommendedRole> -->
+
+	<WVC_XaG_MessageWrongRottingStage>The target has an inappropriate rotting stage.</WVC_XaG_MessageWrongRottingStage>
+
+	<WVC_XaG_AcceptableRotStages>Acceptable rot stages</WVC_XaG_AcceptableRotStages>
+
+	<WVC_XaG_GestatedDryad>gestated</WVC_XaG_GestatedDryad>
+
+	<WVC_XaG_MetalhorrorReasonGeneRejection>{INFECTED_nameDef}'s metalhorror emerged for genetic rejection.</WVC_XaG_MetalhorrorReasonGeneRejection>
+
+	<WVC_XaG_ErrorMessage>Not possible in the current state.</WVC_XaG_ErrorMessage>
+	<WVC_XaG_PawnIsQuestLodgerMessage>{0} must belong to the player's faction.</WVC_XaG_PawnIsQuestLodgerMessage>
+	<WVC_InMentalState>{0} in mental state.</WVC_InMentalState>
+	<WVC_IsUnconscious>{0} is unconscious.</WVC_IsUnconscious>
+	<WVC_IsIncapacitated>{0} is incapacitated.</WVC_IsIncapacitated>
+	<WVC_IsDeathresting>{0} is deathresting.</WVC_IsDeathresting>
+	<WVC_InPainShock>{0} is pain shock.</WVC_InPainShock>
+
+	<!-- <WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription> -->
+
+	<WVC_XaG_GeneImplantImplanter_Succes>The implant was successfully implanted.</WVC_XaG_GeneImplantImplanter_Succes>
+
+	<WVC_Repair>Repair</WVC_Repair>
+
+	<WVC_OrderToRepair>Order to repair</WVC_OrderToRepair>
+	<WVC_OrderToRepairDesc>Give the order to one of the controlled mechanoids to repair the mechanitor.</WVC_OrderToRepairDesc>
+
+	<!-- <WVC_XaG_DarknessExposureImmunity>darkness adaptation</WVC_XaG_DarknessExposureImmunity> -->
+	<!-- <WVC_XaG_DarknessExposureImmunityDesc>This creature is not susceptible to the dangers lurking in the unnatural darkness.</WVC_XaG_DarknessExposureImmunityDesc> -->
+
+	<WVC_XaG_HemogenicMetabolism_LowHemogen>Hemogen level too low. Conversion of hemogen into nutrients is no longer possible.</WVC_XaG_HemogenicMetabolism_LowHemogen>
+
+	<WVC_XaG_Increase>Increase</WVC_XaG_Increase>
+	<WVC_XaG_Decrease>Decrease</WVC_XaG_Decrease>
+	<WVC_XaG_Gene_OverriderDesc>Allows to change the bonus from overrided genes, changing it between positive or negative values.</WVC_XaG_Gene_OverriderDesc>
+
+	<WVC_XaG_Gene_OverriderDependantDesc>&lt;color=#ffec85&gt;This gene is not mutually exclusive with similar genes.&lt;/color&gt;</WVC_XaG_Gene_OverriderDependantDesc>
+
+	<!-- ============================ BiosculpterPod ============================ -->
+
+	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>
+
+	<WVC_XaG_XenoHolder_GenesMatch>Genes match</WVC_XaG_XenoHolder_GenesMatch>
+	<WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>No xenotypes available.</WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
+
+	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
+
+	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>
+	<WVC_XaG_GeneNaturalMechlinkLetterDesc>{PAWN_nameDef} has been feeling strange for a long time, {PAWN_pronoun} feels the psychic presence of the mechanoids more clearly every day. And now {PAWN_possessive} overseer potential has been fully realized, {PAWN_pronoun} has formed a mechlink.</WVC_XaG_GeneNaturalMechlinkLetterDesc>
+
+	<WVC_XaG_GeneNaturalPsylinkLetterLabel>Natural psylink</WVC_XaG_GeneNaturalPsylinkLetterLabel>
+	<WVC_XaG_GeneNaturalPsylinkLetterDesc>{PAWN_nameDef} has been feeling strange for a long time, {PAWN_possessive} sense of the world has become clearer every day. And now {PAWN_possessive} psychic potential has been fully revealed, {PAWN_pronoun} has formed a psylink.</WVC_XaG_GeneNaturalPsylinkLetterDesc>
+
+	<!-- ============================ COLORABLE EYES ============================ -->
+
+	<WVC_XaG_ColorableEyesLabel>Eyes color</WVC_XaG_ColorableEyesLabel>
+	<WVC_XaG_ColorableEyesDesc>Eye color can be changed at any time.</WVC_XaG_ColorableEyesDesc>
+
+	<WVC_XaG_ResetEyesColorWarning>The pawn does not have a default eye color.</WVC_XaG_ResetEyesColorWarning>
+
+	<!-- ============================ FOOD POLICY ============================ -->
+
+	<WVC_XaG_BloodEaterFoodPolicy>Bloodeater</WVC_XaG_BloodEaterFoodPolicy>
+	<WVC_XaG_EnergyFoodPolicy>Rechargeable</WVC_XaG_EnergyFoodPolicy>
+
+	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
+
+	<WVC_XaG_AdministerXenogermWarningDesc>Depending on the type of serum, its use may put {PAWN_nameDef} in a coma as the xenogerm integrates itself. On average, this lasts for {COMADURATION}.</WVC_XaG_AdministerXenogermWarningDesc>
+	
+	<WVC_XaG_SuremRetuneJob_Label>Retune</WVC_XaG_SuremRetuneJob_Label>
+	<WVC_XaG_SuremRetuneJob_Desc>You can change the xenotype that the serum is tuned to.</WVC_XaG_SuremRetuneJob_Desc>
+	<WVC_XaG_SuremRetuneJob_ChangeDesc>You have chosen the {0} xenotype. Are you sure of your choice?</WVC_XaG_SuremRetuneJob_ChangeDesc>
+	<WVC_XaG_SuremRetuneJob_ResearchPrerequisites>{0} technology is required.</WVC_XaG_SuremRetuneJob_ResearchPrerequisites>
+	
+	<WVC_XaG_SerumCustomMode_Label>Custom</WVC_XaG_SerumCustomMode_Label>
+	<WVC_XaG_SerumCustomMode_Desc>Allows to switch between standard and custom mode. Custom xenotypes are always randomized.</WVC_XaG_SerumCustomMode_Desc>
+	
+	<WVC_XaG_Untuned>Untuned</WVC_XaG_Untuned>
+	
+	<WVC_ImplantXenogermSerum>Administer serum</WVC_ImplantXenogermSerum>
+	<WVC_ImplantXenogermSerumDesc>Administer the serum for the selected pawn.</WVC_ImplantXenogermSerumDesc>
+	
+	<WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>Should be tuned</WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>
+	
+	<WVC_XaG_SuremRetuneUntuned_Label>Untuned</WVC_XaG_SuremRetuneUntuned_Label>
+	
+	<WVC_XaG_GeneGiverPawnHasGene_Label>{0} already has this gene.</WVC_XaG_GeneGiverPawnHasGene_Label>
+	
+	<WVC_XaG_GeneGiverImplanted_Label>Gene implanted</WVC_XaG_GeneGiverImplanted_Label>
+	<WVC_XaG_GeneGiverImplanted_Desc>{0} received the "{1}" gene, due to this {0}'s genes will be regrowing.</WVC_XaG_GeneGiverImplanted_Desc>
+
+	<WVC_XaG_Gene_GeneticInstability>Use stabilizer</WVC_XaG_Gene_GeneticInstability>
+	<WVC_XaG_Gene_GeneticInstabilityDesc>Pawn will automatically try to use the stabilizer when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticInstabilityDesc>
+	
+	<WVC_XaG_DaysGainFromBite>Instability delay</WVC_XaG_DaysGainFromBite>
+	
+	<WVC_XaG_Gene_GeneticThrallLabel>Delay death</WVC_XaG_Gene_GeneticThrallLabel>
+	<WVC_XaG_Gene_GeneticThrallDesc>Archites will automatically absorb the psychic activity of resurgent cells or the pawn will automatically use genetic stabilizer serum when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc>
+
+	<WVC_XaG_LetterLabelThrallImplanted>thrall created</WVC_XaG_LetterLabelThrallImplanted>
+	<WVC_XaG_LetterTextThrallIImplanted>{CASTER_nameDef} has implanted a xenogerm into {TARGET_nameDef}, passing choosed genes onto {TARGET_objective}.\n\n{TARGET_nameDef} became a genetic thrall, thralls have their own strengths and weaknesses, but the main drawback of thralls is that in order to survive they need to regularly delay instabilization by absorbing the resurgent cells of living resurgent pawns.</WVC_XaG_LetterTextThrallIImplanted>
+
+	<WVC_XaG_LetterLabelThrallTransformedIntoGhoul>thrall transformed</WVC_XaG_LetterLabelThrallTransformedIntoGhoul>
+	<WVC_XaG_LetterDescThrallTransformedIntoGhoul>Due to instabilization, {0_nameDef}'s archites got out of control. {0_possessive} body was irreversibly changed, and {0_possessive} consciousness lost any clarity. Now {0_nameDef} is an eternally hungry, brainless monster.</WVC_XaG_LetterDescThrallTransformedIntoGhoul>
+
+  <!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
+	
+	<WVC_ForceXenogermImplantation>Force genes implantation</WVC_ForceXenogermImplantation>
+	<WVC_ForceXenogermImplantationDesc>Force this person to implant their genes into another individual using a special injector organ. If this person's genes are currently regrowing, they will die in the process.\n\nWhen implanted, the new genes will overwrite the target genes according to the type of the implanter gene.</WVC_ForceXenogermImplantationDesc>
+
+	<!-- ============================ REIMPLANTER GENE ============================ -->
+
+	<WVC_XaG_ReimplantResurrectionRecruiting>{0_nameDef} decides to join our colony.</WVC_XaG_ReimplantResurrectionRecruiting>
+	<WVC_XaG_ReimplantResurrectionRecruiting_FailWarning>{PAWN_nameDef} belongs to {1} faction, and even if resurrected, it will not join your settlement.</WVC_XaG_ReimplantResurrectionRecruiting_FailWarning>
+
+	<!-- ============================ GENE INFO ============================ -->
+
+	<!-- Red -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive>Gene is not active</WVC_XaG_NewBack_GeneIsNotActive> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_WrongFace>Faceplate removed by augmentation or loss of eye</WVC_XaG_NewBack_GeneIsNotActive_WrongFace> -->
+	<!-- Yellow -->
+	<WVC_XaG_NewBack_GeneIsFurskin>Overrides body</WVC_XaG_NewBack_GeneIsFurskin>
+	<WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>and head</WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>
+	<!-- Gray -->
+	<WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>Cannot spawn in genepacks.</WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>
+	<WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>Graphics can be disabled in the settings.</WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>
+	<!-- <WVC_XaG_NewBack_GeneIsRandom>This gene will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom> -->
+	<!-- <WVC_XaG_NewBack_GeneIsShuffle>This gene has a 20% chance to be replaced by another gene.</WVC_XaG_NewBack_GeneIsShuffle> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>Increases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease> -->
+	<!-- <WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>Decreases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease> -->
+	<!-- <WVC_XaG_ScarifierScarsOffset>&lt;color=#3c3c3c&gt;Scarifier&lt;/color&gt; scars: {0}</WVC_XaG_ScarifierScarsOffset> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>Some gene re-implanters will not work for carriers of this gene.</WVC_XaG_NewBack_GeneIsNonCandidatesForSerum> -->
+	<!-- <WVC_XaG_NewBack_GeneIsAngelicStability>Removing this gene is guaranteed to kill the carrier.</WVC_XaG_NewBack_GeneIsAngelicStability> -->
+	<!-- <WVC_XaG_NewBack_GeneIsGeneticStability>Removing this gene causes temporary damage to the host's immune system.</WVC_XaG_NewBack_GeneIsGeneticStability> -->
+	<!-- <WVC_XaG_NewBack_GeneIsGeneticInStability>Removing this gene will temporarily speed up gene regrowing.</WVC_XaG_NewBack_GeneIsGeneticInStability> -->
+	<!-- <WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum>Carriers of this gene do not lose consciousness after using xenotype serums.</WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction>The pawn does not belong to the player's faction.</WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung>The age of the pawn does not meet the requirements.</WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells>There are not enough resurgent cells.</WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells> -->
+	<!-- <WVC_XaG_NewBack_GeneIsRandom>The gene is randomized, when adding/reimplanting/transferring this gene, it can/will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead>The resurrection effect is disabled.</WVC_XaG_NewBack_GeneIsNotActive_Undead> -->
+	<!-- <WVC_XaG_NewBack_GeneIsActive_Undead>The resurrection effect is active.</WVC_XaG_NewBack_GeneIsActive_Undead> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>The reincarnation effect is active.</WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate> -->
+
+	<!-- ============================ SUB-XENOTYPE ============================ -->
+
+	<WVC_XaG_SubXeno_OverrideExistingGenes>Rewrite xenotype</WVC_XaG_SubXeno_OverrideExistingGenes>
+	<WVC_XaG_SubXeno_OverrideExistingGenes_Desc>Does this sub-xenotype overwrite existing genes.</WVC_XaG_SubXeno_OverrideExistingGenes_Desc>
+	<WVC_XaG_SubXeno_IgnoreExistingGenes>Expand existing</WVC_XaG_SubXeno_IgnoreExistingGenes>
+	<WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>Does this sub-xenotype add its own genes to the existing ones.</WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>
+
+	<WVC_XaG_SubXeno_Endogenes>Endogenes (Germline)</WVC_XaG_SubXeno_Endogenes>
+	<WVC_XaG_SubXeno_Endogenes_Desc>Always added to the germline.</WVC_XaG_SubXeno_Endogenes_Desc>
+	<WVC_XaG_SubXeno_Xenogenes>Xenogenes (Xenogerm)</WVC_XaG_SubXeno_Xenogenes>
+	<WVC_XaG_SubXeno_Xenogenes_Desc>Always added as xenogenes.</WVC_XaG_SubXeno_Xenogenes_Desc>
+	<WVC_XaG_SubXeno_RemovedGenes>Removed genes</WVC_XaG_SubXeno_RemovedGenes>
+	<WVC_XaG_SubXeno_RemovedGenes_Desc>These genes will be removed from the gene set if present.</WVC_XaG_SubXeno_RemovedGenes_Desc>
+	<WVC_XaG_SubXeno_RandomGenes>Possible genes</WVC_XaG_SubXeno_RandomGenes>
+	<WVC_XaG_SubXeno_RandomGenes_Desc>Some of these genes can be added to a gene set.</WVC_XaG_SubXeno_RandomGenes_Desc>
+
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath>Evolve on death</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath>
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime>Evolve overtime</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime>
+
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc>Can this xenotype evolve into another xenotype if it dies.</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc>
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc>Can this xenotype evolve into another xenotype over time.</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc>
+
+	<WVC_XaG_SubXeno_EvolveChance>Chance to evolve/shapeshift</WVC_XaG_SubXeno_EvolveChance>
+	<WVC_XaG_SubXeno_EvolveChance_Desc>The chance with which this xenotype evolves when special conditions are met.</WVC_XaG_SubXeno_EvolveChance_Desc>
+
+	<WVC_XaG_SubXeno_SubXenotypesList>Sub-Xenotypes</WVC_XaG_SubXeno_SubXenotypesList>
+	<WVC_XaG_SubXeno_SubXenotypesList_Desc>Xenotypes into which this xenotype can evolve.</WVC_XaG_SubXeno_SubXenotypesList_Desc>
+
+	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the type of thrall for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
+
+	<WVC_XaG_DevXenotypeDef_XenotypeDesc>A unique variation of super xenohuman that resulted from the hybridization of {0} and {1} xenotypes. This one has half the genetic diversity of both xenotypes, combining both strengths and weaknesses.</WVC_XaG_DevXenotypeDef_XenotypeDesc>
+
+	<!-- ============================ XENOGERMINATION ============================ -->
+
+	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
+
+	<WVC_XaG_Extreme_GeneticInstabilityMessage>Due to genetic instability, {0} lost consciousness.</WVC_XaG_Extreme_GeneticInstabilityMessage>
+
+	<WVC_XaG_RegenerationSleepGizmoTip>Pawn can be put into &lt;color=#6bb6bb&gt;regeneration coma&lt;/color&gt; at any time, but it will take an hour to come out of it. When falling into a coma, the pawn receives all the same effects as when falling into it from the &lt;color=#6bb6bb&gt;deathless&lt;/color&gt; gene. It will last either until &lt;color=#8a8ae6&gt;full recovery&lt;/color&gt;, or end when &lt;color=#8a8ae6&gt;time expires&lt;/color&gt;.\n\nYou can also &lt;color=#8a8ae6&gt;extend&lt;/color&gt; the pawn's coma. The coma is always &lt;color=#8a8ae6&gt;extended&lt;/color&gt; for an additional 6 days.</WVC_XaG_RegenerationSleepGizmoTip>
+
+	<WVC_XaG_RegenerationSleepAddHediffTip>Put the pawn into regeneration coma or extend it for 6 days.</WVC_XaG_RegenerationSleepAddHediffTip>
+	<WVC_XaG_RegenerationSleepRemoveHediffTip>Reset the coma to an hour.</WVC_XaG_RegenerationSleepRemoveHediffTip>
+	<WVC_Coma>Coma</WVC_Coma>
+
+	<!-- ============================ UNDEAD RESURRECTION ============================ -->
+
+	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>
+	<WVC_LetterTextSecondChance_GeneUndead>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living.
+
+It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndead>
+
+	<WVC_LetterTextSecondChance_GeneUndeadShapeshift>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living. However, this caused a side effect. {PAWN_nameDef}'s genes have been changed and {PAWN_possessive} xenotype is now {2}.
+
+It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndeadShapeshift>
+
+	<WVC_LetterTextSecondChance_GeneUndeadResurgent>{TARGET_nameDef} gets another life.</WVC_LetterTextSecondChance_GeneUndeadResurgent>
+
+	<WVC_ResurgentGeneAgeReversalCompletedMessage>{PAWN_labelShort} completed {PAWN_possessive} age reversal cycle.</WVC_ResurgentGeneAgeReversalCompletedMessage>
+
+	<!-- ============================ RISED FROM THE DEAD ============================ -->
+
+	<WVC_LetterLabel_GeneRiseFromTheDead>Rised from the dead</WVC_LetterLabel_GeneRiseFromTheDead>
+	<WVC_LetterText_GeneRiseFromTheDead>{TARGET_nameDef} was resurrected, but this left a mark on {TARGET_objective}, now {TARGET_nameDef} is completely different.</WVC_LetterText_GeneRiseFromTheDead>
+
+	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
+
+	<WVC_XaG_Label_CompHiveSpawnAnimals>Time to next spawn: {0}</WVC_XaG_Label_CompHiveSpawnAnimals>
+	<WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>Walking corpses</WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>
+	<WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>Accumulated spawns</WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>
+
+	<!-- ============================ RESURGENT COST ============================ -->
+
+	<WVC_XaG_AbilityResurgentCost>Resurgent cells cost</WVC_XaG_AbilityResurgentCost>
+	<WVC_XaG_AbilityResurgentGain>Base resurgent cells gain</WVC_XaG_AbilityResurgentGain>
+	<WVC_XaG_AbilityDisabledNoResurgentGene>{0_labelShort} is not resurgent.</WVC_XaG_AbilityDisabledNoResurgentGene>
+	<WVC_XaG_AbilityDisabledNoResurgent>{0_labelShort} does not have enough resurgent cells.</WVC_XaG_AbilityDisabledNoResurgent>
+
+	<!-- ============================ DUST HUNGER ============================ -->
+
+	<WVC_XaG_AbilityPawnNutritionCost>Nutrition cost</WVC_XaG_AbilityPawnNutritionCost>
+	<WVC_XaG_AbilityDustGain>Base nutrition gain</WVC_XaG_AbilityDustGain>
+	<WVC_XaG_AbilityDisabledNoDustGene>{0_labelShort} is not organic.</WVC_XaG_AbilityDisabledNoDustGene>
+	<WVC_XaG_AbilityDisabledNoDust>{0_labelShort} does not have enough nutrition.</WVC_XaG_AbilityDisabledNoDust>
+
+	<!-- ============================ ABILITY CHECKER ============================ -->
+
+	<WVC_XaG_AbilityGeneIsActive_PawnBaseliner>Pawn must not have this ability.</WVC_XaG_AbilityGeneIsActive_PawnBaseliner>
+	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required genes or it is not active</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
+	<WVC_XaG_AbilityGeneIsActive_PawnWrongGender>Wrong gender.</WVC_XaG_AbilityGeneIsActive_PawnWrongGender>
+
+	<WVC_XaG_AbilitySpawn_WrongTarget>Incorrect target.</WVC_XaG_AbilitySpawn_WrongTarget>
+	<WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>The target must be soil.</WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>
+	
+	<WVC_XaG_PawnShouldBeMechanitor>{0} should be a mechanitor.</WVC_XaG_PawnShouldBeMechanitor>
+	<WVC_XaG_OverseerShouldHaveGene>Overseer should have "{0}" gene.</WVC_XaG_OverseerShouldHaveGene>
+
+	<!-- ============================ RESURGENT GIZMO BUTTONS ============================ -->
+
+	<WVC_XaG_AutoBaseDesc>Determines whether the gene will be triggered automatically.</WVC_XaG_AutoBaseDesc>
+
+	<WVC_XaG_AutoTotalHealingDesc>\n\nAuto total healing is currently {ONOFF}.</WVC_XaG_AutoTotalHealingDesc>
+	<WVC_XaG_AutoAgeReversionDesc>\n\nAuto age reversion is currently {ONOFF}.</WVC_XaG_AutoAgeReversionDesc>
+	<WVC_XaG_AutoWoundClottingDesc>\n\nAuto clotting is currently {ONOFF}.</WVC_XaG_AutoWoundClottingDesc>
+	<!-- <WVC_XaG_SpawnResurgentTreeSeedDesc>\n\nSpawn resurgent tree spore {ONOFF}.</WVC_XaG_SpawnResurgentTreeSeedDesc> -->
+
+	<!-- <WVC_XaG_ResurgentSporesCapacity>Determines whether the gene will be triggered automatically.</WVC_XaG_ResurgentSporesCapacity> -->
+
+	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
+
+	<!-- <WVC_XenotypeSerumThing_XenotypeLabel>xenotype</WVC_XenotypeSerumThing_XenotypeLabel> -->
+	<!-- <WVC_XenotypeSerumThing_XenotypeDesc>xenotype contained in the serum</WVC_XenotypeSerumThing_XenotypeDesc> -->
+
+	<WVC_XaG_MechanitorShouldBeLich>The user must be a mechanitor and have the "Spore mechlink" gene.</WVC_XaG_MechanitorShouldBeLich>
+
+	<WVC_XaG_PercentPerDay>{0}% / day</WVC_XaG_PercentPerDay>
+	<WVC_XaG_PerDay>{0} / day</WVC_XaG_PerDay>
+
+	<!-- ============================ BABY SPAWNER ============================ -->
+
+	<WVC_XaG_GeneBabyTree_label>Baby spawner</WVC_XaG_GeneBabyTree_label>
+	<WVC_XaG_GeneBabyTree_desc>If enabled, the baby will be spawned at the end of the countdown.</WVC_XaG_GeneBabyTree_desc>
+
+	<!-- ============================ WINGS ============================ -->
+
+	<WVC_XaG_Gene_Wings>Terrain ignore</WVC_XaG_Gene_Wings>
+	<WVC_XaG_Gene_WingsDesc>Allows to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
+	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
+	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
+
+	<!-- ============================ INFO STATS ============================ -->
+
+	<WVC_XaG_Gene_Wings_On_Info>Ignores terrain</WVC_XaG_Gene_Wings_On_Info>
+	<!-- <WVC_XaG_Gene_Undead_On_Info>Undead (Can resurrect)</WVC_XaG_Gene_Undead_On_Info> -->
+	<WVC_XaG_Gene_Undead_On_Info>Resurrect in case of death</WVC_XaG_Gene_Undead_On_Info>
+	<!-- <WVC_XaG_Gene_DustUndead_On_Info>Reincarnate in case of death</WVC_XaG_Gene_DustUndead_On_Info> -->
+	<WVC_XaG_Gene_Blesslin_On_Info>Next summon in</WVC_XaG_Gene_Blesslin_On_Info>
+	<WVC_XaG_Gene_Scarifier_On_Info>Next scarification in</WVC_XaG_Gene_Scarifier_On_Info>
+	<WVC_XaG_Gene_GeneticInstability_On_Info>Next genetic instabilization in</WVC_XaG_Gene_GeneticInstability_On_Info>
+	<WVC_XaG_Gene_UndeadResurrectionCorpse_Info>Will be resurrected in</WVC_XaG_Gene_UndeadResurrectionCorpse_Info>
+	<!-- <WVC_XaG_Gene_GeneticStability_On_Info>Next genetic stabilization in</WVC_XaG_Gene_GeneticStability_On_Info> -->
+
+	<!-- ============================ SCARIFIERS ============================ -->
+
+	<!-- <WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>max scars</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars> -->
+	<!-- <WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>The maximum number of scarifications that can be obtained using the scarifier or its subgenes. Affects the effectiveness of some genes in the scarifier series.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc> -->
+
+	<!-- <WVC_XaG_ScarifierScars>&lt;color=#8097e1&gt;Scarifier scars&lt;/color&gt;</WVC_XaG_ScarifierScars> -->
+
+	<!-- ============================ RESURRECTION ============================ -->
+
+	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>Responsible for whether the pawn can be auto-resurrected after death. If the body deteriorates or rots, then resurrection will be impossible.</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>Any of prevent resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>
+	<WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>The only way to kill is to destroy the body.</WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>
+
+	<!-- ============================ REINCARNATION ============================ -->
+
+	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>reincarnation</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>Responsible for whether the descendant of the pawn will appear in case of death. The minimum chronological age must be greater than {0} years.</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>
+
+	<!-- ============================ SHAPESHIFT ============================ -->
+
+	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>shapeshift</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>Responsible for whether the pawn's genes will change after auto-resurrection. This is influenced by the set of genes and xenotype.</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>
+
+	<!-- ============================ MECHLINK SUMMONING ============================ -->
+
+	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
+	<!-- To summon, it is required that there be at least one powered comm console on the same map as the mechanitor. -->
+	<WVC_XaG_Gene_DustMechlinkDesc>Allows to toggle the automatic mechs summoning. Mechanoids summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_DustMechlinkDesc>
+	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
+	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
+
+	<WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees>Resurgent trees connection</WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees>
+	<WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc>Affects whether resurgent trees will react to the psionic presence of the gene carrier. Resurgent trees only animate golems if they can find at least one psionic presence.</WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc>
+
+	<!-- ============================ ETERNAL HUNGER ============================ -->
+
+	<WVC_XaG_Gene_EternalHunger_HuntWarning>{0} is going to bite one of the colonists!</WVC_XaG_Gene_EternalHunger_HuntWarning>
+
+	<WVC_XaG_Gene_HemogenicMetabolismDesc>If enabled, it replenishes the hunger bar, but significantly increases the hemogen consumption. If the bar reaches its maximum or the hemogen drops too low, the effect will automatically turn off.</WVC_XaG_Gene_HemogenicMetabolismDesc>
+
+	<WVC_FeedDownedBloodeaterForced>Downed bloodfeed</WVC_FeedDownedBloodeaterForced>
+	<WVC_FeedDownedBloodeaterForcedDesc>If the bloodeater is unable to eat on its own, you can feed it manually.</WVC_FeedDownedBloodeaterForcedDesc>
+
+	<WVC_FeedWithBlood>Feed with own blood</WVC_FeedWithBlood>
+	<WVC_NotEnoughBlood>Not enough blood</WVC_NotEnoughBlood>
+
+	<WVC_ForceRecharge>Force recharge</WVC_ForceRecharge>
+	<WVC_ForceHemogenRecharge>Force hemogen recharge</WVC_ForceHemogenRecharge>
+	<!-- <WVC_ForceRechargeDesc>Order the pawn to urgently search for a charger for subsequent charging.</WVC_ForceRechargeDesc> -->
+
+	<WVC_StatsReport_RechargerGeneClass>Required genes</WVC_StatsReport_RechargerGeneClass>
+	<WVC_StatsReport_RechargerGeneClass_Desc>Genes with which xenohumans can use this recharger. The following genes are compatible</WVC_StatsReport_RechargerGeneClass_Desc>
+
+	<!-- ============================ INVISIBILITY ============================ -->
+
+	<WVC_XaG_Gene_InvisibilityDesc>Allows to turn invisibility on and off.</WVC_XaG_Gene_InvisibilityDesc>
+	
+	<WVC_XaG_Gene_InvisibilityCD>On cooldown.</WVC_XaG_Gene_InvisibilityCD>
+
+	<!-- ============================ GOLEMS ============================ -->
+	<!-- ============================ GOLEMS ============================ -->
+	<!-- ============================ GOLEMS ============================ -->
+
+	<!-- <WVC_XaG_GolemBandwidth>Golembond</WVC_XaG_GolemBandwidth> -->
+
+	<WVC_XaG_GolemBandwidth>Golems</WVC_XaG_GolemBandwidth>
+	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can oversee as many &lt;color=#8a8ae6&gt;golems&lt;/color&gt; as &lt;color=#8a8ae6&gt;mechanoids&lt;/color&gt;, but creating &lt;color=#8a8ae6&gt;new&lt;/color&gt; ones requires a &lt;color=#8a8ae6&gt;golembond&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;golem&lt;/color&gt; consumes a different amount of &lt;color=#8a8ae6&gt;golembond&lt;/color&gt;.\n\nGain more golembond with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
+
+	<WVC_XaG_DialogGolemlink_Golemnoids>Golemnoids</WVC_XaG_DialogGolemlink_Golemnoids>
+	<WVC_XaG_DialogGolemlink_SelectedGolemnoids>Selected golemnoids</WVC_XaG_DialogGolemlink_SelectedGolemnoids>
+
+	<WVC_XaG_GolemBandwidthUsage>Golembond usage</WVC_XaG_GolemBandwidthUsage>
+	<!-- <WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed> -->
+
+	<WVC_XaG_GeneGolemlinkSummonSettings_Desc>Opens a menu where you can configure which golems will be animated by archites. Does not affect summoning.</WVC_XaG_GeneGolemlinkSummonSettings_Desc>
+
+	<WVC_XaG_GolemnoidsGeneralDesc>In general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechs, but very quickly restore the lost charge in shutdown mode.</WVC_XaG_GolemnoidsGeneralDesc>
+
+	<WVC_XaG_AddToList>Add</WVC_XaG_AddToList>
+	<WVC_XaG_RemoveFromList>Remove</WVC_XaG_RemoveFromList>
+
+	<WVC_XaG_Dialog_Golemlink_Stats>Mechanoid stats</WVC_XaG_Dialog_Golemlink_Stats>
+	<WVC_XaG_Dialog_Golemlink_Weapon>Possible weapon</WVC_XaG_Dialog_Golemlink_Weapon>
+
+	<WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond>Not enough golembond or no available chunks in range.</WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond>
+	<WVC_XaG_ChangeGolemCasteDescFull>Give the golem the order to change type. The golem will try to find a free chunk, and then the archites will move from the old body to the new one. In the process, this golem will be converted into a chunk. The new golem will not inherit anything from the old one.\n\nDo you wish to continue?</WVC_XaG_ChangeGolemCasteDescFull>
+	<!-- <WVC_XaG_ChooseGolemCasteModeInitialDesc>Stats</WVC_XaG_ChooseGolemCasteModeInitialDesc> -->
+	<WVC_XaG_ChangeGolemMode>Change golem type</WVC_XaG_ChangeGolemMode>
+	<WVC_XaG_ChangeGolemModeDesc>Archites in a golem can be ordered to change their golem type. This requires a free chunk and enough golembond.</WVC_XaG_ChangeGolemModeDesc>
+
+	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
+
+	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>
+
+	<WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>Animate chunks</WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>
+
+	<WVC_XaG_Gene_Golemlink_On_Info>Next golems animated or summoned in</WVC_XaG_Gene_Golemlink_On_Info>
+
+	<!-- <WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth> -->
+	<!-- <WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough golembond to do so. Each corpse consumes a different amount of golembond.\n\nGain more golembond by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip> -->
+
+	<!-- <WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage> -->
+	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->
+
+	<WVC_XaG_ThrallsBandwidthGizmoLabel>Thralls</WVC_XaG_ThrallsBandwidthGizmoLabel>
+	<WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will start dying or turning into ghouls.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip>
+
+	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
+	<WVC_XaG_CooldownIn>Cooldown in {0}</WVC_XaG_CooldownIn>
+
+	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
+
+	<WVC_XaG_GolemEnergyRecovery_Info>Self-charge: {0} (+{1} / day)</WVC_XaG_GolemEnergyRecovery_Info>
+
+	<!-- ============================ DRYADS ============================ -->
+	<!-- ============================ DRYADS ============================ -->
+	<!-- ============================ DRYADS ============================ -->
+
+	<WVC_XaG_BroodmindLimit>Dryads</WVC_XaG_BroodmindLimit>
+	<WVC_XaG_BroodmindLimitGizmoTip>The dryad master can partially control an unlimited number of dryads, but dryadbond is required to gestate new ones.\n\nEach dryad, regardless of type, consumes 1 dryadbond. Gain more dryadbond by connecting with &lt;color=#f76d6b&gt;gauranlen trees&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.\n\nThe level of connection with &lt;color=#f76d6b&gt;gauranlen trees&lt;/color&gt; does not affect the bonus.</WVC_XaG_BroodmindLimitGizmoTip>
+
+	<WVC_XaG_BroodmindUsage>Dryadbond usage</WVC_XaG_BroodmindUsage>
+
+	<WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>Next dryad in</WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>
+
+	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>Dryad gestation</WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>
+	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>Allows to enable or disable the gestation of new dryads.</WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>
+
+	<WVC_XaG_ChooseDryadCasteModeInitialDesc>Here you can choose a caste for the {0}.</WVC_XaG_ChooseDryadCasteModeInitialDesc>
+	<WVC_XaG_ChangeDreadCasteDescFull>It will take several days for the dryad to change caste, during which time the dryad will be immobilized and defenseless.</WVC_XaG_ChangeDreadCasteDescFull>
+
+	<WVC_XaG_CompGauranlenDryad_ChangeMode>Change caste for this dryad.</WVC_XaG_CompGauranlenDryad_ChangeMode>
+
+	<WVC_XaG_DryadQueenSelectAllDryads>Select dryads</WVC_XaG_DryadQueenSelectAllDryads>
+	<WVC_XaG_DryadQueenSelectAllDryads_Desc>Select all dryads associated with the queen.</WVC_XaG_DryadQueenSelectAllDryads_Desc>
+	<WVC_XaG_DryadQueenSelectAllDryads_NonDryads>There are no living dryads.</WVC_XaG_DryadQueenSelectAllDryads_NonDryads>
+
+	<WVC_XaG_GeneDryadsSelectDryadQueen>Select dryad queen</WVC_XaG_GeneDryadsSelectDryadQueen>
+	<WVC_XaG_GeneDryadsSelectDryadQueen_Desc>Select dryad queen to whom this dryad belongs.</WVC_XaG_GeneDryadsSelectDryadQueen_Desc>
+
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+
+	<WVC_XaG_Gene_Chimera_GizmoLabel>Chimera`s genes</WVC_XaG_Gene_Chimera_GizmoLabel>
+	<WVC_XaG_Gene_Chimera_GizmoTip>A chimera can &lt;color=#aad8a2&gt;collect&lt;/color&gt; an unlimited number of genes. &lt;color=#aad8a2&gt;Collecting&lt;/color&gt; methods depend on &lt;color=#6bb6bb&gt;abilities&lt;/color&gt;.\n\n&lt;color=#aad8a2&gt;Collected genes&lt;/color&gt; can be implanted or removed at any time, but this will cause &lt;color=#6bb6bb&gt;genes&lt;/color&gt; to &lt;color=#6bb6bb&gt;regrowing&lt;/color&gt;. Genes are always &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; as &lt;color=#6bb6bb&gt;xenogenes&lt;/color&gt;. Please note that a chimera cannot &lt;color=#aad8a2&gt;collect&lt;/color&gt; its owner's genes.\n\n&lt;color=#b26160&gt;Eated genes&lt;/color&gt; cannot be &lt;color=#aad8a2&gt;collected&lt;/color&gt; or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;; these genes are lost for this particular chimera. Some genes provide special effects relative to the number of genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, but the chimera itself does not have any special bonuses from this.\n\n -  &lt;color=#aad8a2&gt;Collected genes&lt;/color&gt;: {0}\n -  &lt;color=#b26160&gt;Eated genes&lt;/color&gt;: {1}\n -  &lt;color=#999999&gt;Destroyed genes&lt;/color&gt;: {2}</WVC_XaG_Gene_Chimera_GizmoTip>
+
+	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Eated genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>
+
+	<WVC_XaG_GeneChimeraGizmoLabel>Chimera</WVC_XaG_GeneChimeraGizmoLabel>
+
+	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
+	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
+	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->
+	<WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene>
+	<WVC_XaG_GeneGeneticThief_EatGene>Eat selected genes</WVC_XaG_GeneGeneticThief_EatGene>
+	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
+	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
+
+	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\nIf the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.\n\nIf the pawn already has genes regrowing, then all xenogene abilities will have a cooldown after implantation.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
+	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
+
+	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Some of the selected genes are mutually exclusive.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
+	<!-- <WVC_XaG_GeneChimera_TooBigPenaltyMessage>The genetic material has suffered too much loss and requires time to recover.</WVC_XaG_GeneChimera_TooBigPenaltyMessage> -->
+
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>Pawn has no xenogens</WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes>
+
+	<WVC_XaG_GeneGeneticThief_NullGeneSet>Genes are not selected.</WVC_XaG_GeneGeneticThief_NullGeneSet>
+
+	<WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat>
+	<WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant>
+
+	<WVC_XaG_GeneChimera_EntityImplant>Chimera evolution applied.</WVC_XaG_GeneChimera_EntityImplant>
+
+	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
+	<WVC_XaG_GeneGeneticThief_GeneObtained>{0} obtained the {1} gene.</WVC_XaG_GeneGeneticThief_GeneObtained>
+	<WVC_XaG_GeneGeneticThief_GenesHarvested>{0}'s genes were harvested, {0}'s xenotype was reset to the baseliner.</WVC_XaG_GeneGeneticThief_GenesHarvested>
+	<WVC_XaG_WarningPawnWillDieFromHarvesting>Warning: {PAWN_nameDef}'s genes are currently regrowing. If {PAWN_pronoun} will be harvested before {PAWN_possessive} genes are fully regrown, it will kill {PAWN_objective}.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromHarvesting>
+	<WVC_XaG_ChimeraDeathMark_GenesObtained>{0}'s genes were obtained.</WVC_XaG_ChimeraDeathMark_GenesObtained>
+
+	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
+
+	<WVC_XaG_CreateChimera_PresetsNameMessageError>The preset must have a name.</WVC_XaG_CreateChimera_PresetsNameMessageError>
+	<WVC_XaG_CreateChimera_NewPresetSaved>Preset saved.</WVC_XaG_CreateChimera_NewPresetSaved>
+	<WVC_XaG_CreateChimera_PresetsIsNull>This chimera has no presets.</WVC_XaG_CreateChimera_PresetsIsNull>
+
+	<WVC_XaG_CreateChimera_PresetsNameTextField>Preset name</WVC_XaG_CreateChimera_PresetsNameTextField>
+
+	<WVC_XaG_CreateChimera_PresetsLoad>Load</WVC_XaG_CreateChimera_PresetsLoad>
+	<WVC_XaG_CreateChimera_PresetsSave>Save</WVC_XaG_CreateChimera_PresetsSave>
+
+	<WVC_XaG_Dialog_ChimeraPresetsList_Load>The selected preset will replace the selected genes.</WVC_XaG_Dialog_ChimeraPresetsList_Load>
+
+	<WVC_XaG_ChimeraApply_Implant>Implant</WVC_XaG_ChimeraApply_Implant>
+	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
+	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
+
+	<WVC_XaG_ChimeraDeathMarkAdded>Mark added to target.</WVC_XaG_ChimeraDeathMarkAdded>
+
+	<!-- =============== HYBRID IMPLANTER =============== -->
+
+	<WVC_XaG_Implanter_MissingGeneMessage>Gene implanter is missing.</WVC_XaG_Implanter_MissingGeneMessage>
+
+	<WVC_XaG_HybridImplanterFail>The implanter was unable to create a hybrid geneset. The target and caster's genetic metabolisms are incompatible.</WVC_XaG_HybridImplanterFail>
+
+	<WVC_XaG_HybridImplanter_Warning>Warning! After using the ability, half of the caster's genes will be lost. These genes are randomly selected relative to all the caster's genes and their number. This will also lead to the reimplantation of the current genes, which will lead to their reset.</WVC_XaG_HybridImplanter_Warning>
+
+	<!-- =============== STORAGE IMPLANTER =============== -->
+
+	<WVC_XaG_StorageImplanter_Apply>Store</WVC_XaG_StorageImplanter_Apply>
+	<WVC_XaG_StorageImplanter_Warning>If a pawn has a storage implanter gene, then the selected genes/geneset/xenotype can be written into it and then implanted using the appropriate implanter ability.\n\nIf the storage implanter already contains gene information, it will be overwritten.\n\nNote that in some cases the selected genes will be extracted from the source and cannot be returned. For example, the chimera will lose these genes if they were stored in it.</WVC_XaG_StorageImplanter_Warning>
+	<WVC_XaG_StorageImplanter_Message>The genetic information has been successfully saved.</WVC_XaG_StorageImplanter_Message>
+	<WVC_XaG_StorageImplanter_ErrorMessage>Storage implanter gene is missing.</WVC_XaG_StorageImplanter_ErrorMessage>
+	<WVC_XaG_StorageImplanter_NonValidMessage>Storage implanter is empty or missing.</WVC_XaG_StorageImplanter_NonValidMessage>
+
+	<WVC_XaG_StorageImplanter_ExtraTooltip> -  Xenotype: {0}\n -  Total genes: {1}\n -  Inheritable: {2}\n -  Unique: {3}</WVC_XaG_StorageImplanter_ExtraTooltip>
+
+	<!-- =============== CHIMERA EVOLVE =============== -->
+
+	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
+
+	<!-- <WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene> -->
+	<WVC_XaG_GeneChimeraReqGene>Entityty study is not complete or the pawn does not have the chimera gene.</WVC_XaG_GeneChimeraReqGene>
+
+	<WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>Devour will destroy the fleshmass nucleus and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones related to the fleshmass. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>
+
+	<WVC_XaG_GeneChimeraDevourNociosphereWarning>Devour will destroy the nociosphere and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourNociosphereWarning>
+
+	<!-- =============== VOID MECHLINK =============== -->
+
+	<WVC_XaG_Gene_Voidlink_GizmoLabel>Voidlink</WVC_XaG_Gene_Voidlink_GizmoLabel>
+	<WVC_XaG_Gene_Voidlink_GizmoTip>&lt;color=#8a8ae6&gt;Voidlink&lt;/color&gt; allows to skip any &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; using a special resource called &lt;color=#80b5e1&gt;voidsence&lt;/color&gt;. This resource is replenished gradually on its own. The cost of skipping &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; depends on their class and purpose. All skipped mechanoids can &lt;color=#8a8ae6&gt;self-repair&lt;/color&gt;, and after death they skip back.\n\nSkipping can provoke the appearance of an &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;, which will instantly attack. The more &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; under mechanitor control, the higher the chance of triggering a &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; above {0} increases the chance by 1%, up to 50%.\n\n -  Controlled mechs {1}/{0}\n -  Nociosphere chance {2}%\n\n&lt;color=#ff8585&gt;Note that all mechs under the pawn's control are taken into account.&lt;/color&gt;</WVC_XaG_Gene_Voidlink_GizmoTip>
+	<!-- Each summoned &lt;color=#8a8ae6&gt;mech&lt;/color&gt; can slowly repair itself automatically, and upon death, it returns back to the &lt;color=#8a8ae6&gt;void&lt;/color&gt;.\n\nSummoning &lt;color=#8a8ae6&gt;mechs&lt;/color&gt; consumes a resource - &lt;color=#80b5e1&gt;voidsence&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; has its own summoning cost, depending on its class and purpose.  -->
+	<!-- For each &lt;color=#8a8ae6&gt;mech&lt;/color&gt; summoned, the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; receives a &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; equal to the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; consumed by the &lt;color=#8a8ae6&gt;mech&lt;/color&gt;, so the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; becomes formally &lt;color=#8a8ae6&gt;infinite&lt;/color&gt;. -->
+
+	<WVC_XaG_Gene_Voidlink_GizmoResourceLabel>{0}/{1} {2}</WVC_XaG_Gene_Voidlink_GizmoResourceLabel>
+
+	<WVC_XaG_Gene_VoidlinkKillAllVoidMechs>Return mechs to the void. By doing this, &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; will be restored relative to the number of mechs.</WVC_XaG_Gene_VoidlinkKillAllVoidMechs>
+
+	<WVC_XaG_Gene_VoidlinkKillVoidMechLabel>Return to the Void</WVC_XaG_Gene_VoidlinkKillVoidMechLabel>
+	<WVC_XaG_Gene_VoidlinkKillVoidMechDesc>Return this mechanoid to where it was skipped. This action will return 25% of the &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; spent on its skipping.</WVC_XaG_Gene_VoidlinkKillVoidMechDesc>
+	<WVC_XaG_Gene_VoidlinkKillAllVoidMechsWarning>Returns all skipped mechanoids back and refunds part of the &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; spent on their skips. Mechs obtained in other ways, without the help of voidlink, are ignored.\n\nContinue?</WVC_XaG_Gene_VoidlinkKillAllVoidMechsWarning>
+
+	<WVC_XaG_Gene_VoidlinkSummonSettings_Desc>Opens a menu where you can select mechs to skip.</WVC_XaG_Gene_VoidlinkSummonSettings_Desc>
+
+	<WVC_XaG_DialogVoidlink_Mechs>Mechs</WVC_XaG_DialogVoidlink_Mechs>
+	<WVC_XaG_DialogVoidlink_SelectedMechs>Mechs for skip</WVC_XaG_DialogVoidlink_SelectedMechs>
+
+	<!-- <WVC_XaG_DialogVoidlink_DescEnergyCost>&lt;color=#6c92ca&gt;Void energy cost&lt;/color&gt;: {0}</WVC_XaG_DialogVoidlink_DescEnergyCost> -->
+	<WVC_XaG_DialogVoidlink_DescEnergyCost>&lt;color=#80b5e1&gt;Voidsence cost&lt;/color&gt;: {0}</WVC_XaG_DialogVoidlink_DescEnergyCost>
+
+	<WVC_XaG_Gene_Voidlink_CannotSummon>Not enough resource or space for skipping.</WVC_XaG_Gene_Voidlink_CannotSummon>
+	<WVC_XaG_Gene_Voidlink_NociospherePresence>Skipping is not possible due to the presence of nociosphere.</WVC_XaG_Gene_Voidlink_NociospherePresence>
+
+	<WVC_XaG_DialogVoidlink_VoidEnergyLabel>Voidsence cost</WVC_XaG_DialogVoidlink_VoidEnergyLabel>
+	<WVC_XaG_DialogVoidlink_VoidEnergyDesc>Cost of skipping this mechanoid. If the cost exceeds the current &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; level, the skip will be cancelled.</WVC_XaG_DialogVoidlink_VoidEnergyDesc>
+
+	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
+
+	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
+
+	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
+
+	<WVC_XaG_ChosenLichLabel>Assign lich</WVC_XaG_ChosenLichLabel>
+	<WVC_XaG_ChosenLichDesc>Allows to select the mechanitor to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
+	<WVC_XaG_MechanitorIsChosen>{0} is assigned as master of {1}.</WVC_XaG_MechanitorIsChosen>
+
+	<WVC_XaG_ChosenWalkerLabel>Assign golem</WVC_XaG_ChosenWalkerLabel>
+	<WVC_XaG_ChosenWalkerDesc>Allows to select the type of walker that will spawn the tree.</WVC_XaG_ChosenWalkerDesc>
+	<WVC_XaG_WalkerIsChosen>{0} now spawns {1}.</WVC_XaG_WalkerIsChosen>
+	<WVC_XaG_WalkerCost>Golembond cost: {0}</WVC_XaG_WalkerCost>
+
+	<WVC_XaG_LichTreeCurrentOwnerLabel>Current owner</WVC_XaG_LichTreeCurrentOwnerLabel>
+	<WVC_XaG_LichTreeCurrentSpawnLabel>Current spawn</WVC_XaG_LichTreeCurrentSpawnLabel>
+	<WVC_XaG_ResurgentTreeIsDormantLabel>Dormant.</WVC_XaG_ResurgentTreeIsDormantLabel>
+
+	<WVC_XaG_AlwaysRandomizeLabel>Randomize: \n{0}</WVC_XaG_AlwaysRandomizeLabel>
+	<WVC_XaG_AlwaysRandomizeDesc>If enabled, after each spawn, the mechanitor and the next spawn are randomized.</WVC_XaG_AlwaysRandomizeDesc>
+
+	<!-- ============================ XENO TREE SPAWNER ============================ -->
+
+	<WVC_XaG_XenoTreeBirthLabel>Gestation complete</WVC_XaG_XenoTreeBirthLabel>
+	<WVC_XaG_XenoTreeBirthDesc>{0} has completed the gestation process. The selected xenotype can be re-selected.</WVC_XaG_XenoTreeBirthDesc>
+
+	<!-- <WVC_XaG_XenoTreeBirthInspect>Time to next baby spawn: {0}</WVC_XaG_XenoTreeBirthInspect> -->
+
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to next baby spawn: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
+
+	<WVC_XaG_XenoTreeXenotypeChangeCooldown>Xenotype can be changed after: {0}</WVC_XaG_XenoTreeXenotypeChangeCooldown>
+	<!-- <WVC_XaG_XenoTreeXenotypeRecentlyChanged>The xenotype has recently been changed.</WVC_XaG_XenoTreeXenotypeRecentlyChanged> -->
+
+	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
+	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
+
+	<WVC_XaG_XenoTreeXenotypeChooseLabel>Choose xenotype</WVC_XaG_XenoTreeXenotypeChooseLabel>
+	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
+	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
+	<WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>First you need to choose a xenotype.</WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>
+	<WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>{0} should grow to at least {1}%</WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>
+
+	<WVC_XaG_CurrentXenotype>Current xenotype</WVC_XaG_CurrentXenotype>
+
+	<WVC_XaG_TreeGrowthInPercents>{0} has grown by {1}%</WVC_XaG_TreeGrowthInPercents>
+
+	<!-- <WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount> -->
+
+	<!-- ========== XENO BULB ========== -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_ReqRootConnection>{0} must be connected to the tree by its roots!</WVC_XaG_XenoTreeXenoBulb_ReqRootConnection> -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection>Roots connection cooldown: {0}</WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection> -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_NextGenMat>Next genetic material in: {0}</WVC_XaG_XenoTreeXenoBulb_NextGenMat> -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Complexity&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Metabolism&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Archites&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Toxins&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox> -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Genetic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Organic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Mutagen&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Embryo&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
+
+	<!-- <WVC_XaG_XenoTreeChooseLabel>Connect roots</WVC_XaG_XenoTreeChooseLabel> -->
+	<!-- <WVC_XaG_XenoTreeChooseDesc>Allows to select a tree to whose roots the bulb is connected. Re-selection will be available after the cooldown.</WVC_XaG_XenoTreeChooseDesc> -->
+	<!-- <WVC_XaG_XenoTreeChooseAssigned>{0} is assigned to {1}.</WVC_XaG_XenoTreeChooseAssigned> -->
+
+	<!-- <WVC_XaG_XenoTreeCreateBulbLabel>Create bulb</WVC_XaG_XenoTreeCreateBulbLabel> -->
+	<!-- <WVC_XaG_XenoTreeCreateBulbDesc>Creates a xeno-bulb that slowly produces the resources needed to change the xenotype, gestate a baby, or create new bulbs.</WVC_XaG_XenoTreeCreateBulbDesc> -->
+
+	<!-- <WVC_XaG_XenoTree_PawnConnectionLabel>Release spores</WVC_XaG_XenoTree_PawnConnectionLabel> -->
+	<!-- <WVC_XaG_XenoTree_PawnConnectionDesc>{0} releases spores that infect the entire region, infecting psi-sensitive humans. If the disease is not cured as soon as possible, then the infected will be connected to the {0}.</WVC_XaG_XenoTree_PawnConnectionDesc> -->
+	<!-- <WVC_XaG_XenoTree_PawnConnectionAssigned>{0} is connected to {1}.</WVC_XaG_XenoTree_PawnConnectionAssigned> -->
+
+	<!-- <WVC_XaG_XenoTree_PawnInfectedLetterLabel>{0} is infected</WVC_XaG_XenoTree_PawnInfectedLetterLabel> -->
+	<!-- <WVC_XaG_XenoTree_PawnInfectedLetterDesc>{0} was infected with {1} spores. If the disease is not cured as soon as possible, {0}'s mind will be connected to the {1}.</WVC_XaG_XenoTree_PawnInfectedLetterDesc> -->
+
+	<!-- ========== GENE XENO GESTATOR ========== -->
+
+	<!-- <WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label> -->
+	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype and the gestation period of the gene carrier.</WVC_XaG_GeneXenoGestator_Desc>
+	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot be used before cooldown ends.</WVC_XaG_GeneXenoGestator_Disabled> -->
+	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot start the gestation process due to the {0}.</WVC_XaG_GeneXenoGestator_Disabled> -->
+
+	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
+
+	<WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch>
+
+	<WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter>This person can gestate any xenotype due to its genetic characteristics.</WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter>
+
+	<WVC_XaG_GeneXenoGestator_GestationWarning>The gestation process will take time. During this time, the pawn will experience severe hunger and increased fatigue.</WVC_XaG_GeneXenoGestator_GestationWarning>
+
+	<WVC_XaG_GeneXenoGestator_CooldownLetterLabel>Gestator is ready</WVC_XaG_GeneXenoGestator_CooldownLetterLabel>
+	<WVC_XaG_GeneXenoGestator_CooldownLetterDesc>{0} can reuse the gestator.</WVC_XaG_GeneXenoGestator_CooldownLetterDesc>
+
+	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>Gestator activated</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>
+	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>{TARGET_nameDef} has started the gestation process, it will take some time. During this period, {TARGET_nameDef} will receive a number of debuffs.</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>
+
+	<WVC_XaG_GeneGestator_ComplitionDesc>{0} has completed the gestation process. The gestator will not be available for some time. The gestation process can be restarted later, after the post gestation period and the gestator cooldown have ended.</WVC_XaG_GeneGestator_ComplitionDesc>
+
+	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
+	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
+	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
+
+	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
+	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
+	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
+	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
+	<!-- <WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent> -->
+	<!-- <WVC_XaG_ClearGenesWarning>Genes of the selected type will be removed.</WVC_XaG_ClearGenesWarning> -->
+
+	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
+
+	<WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>Expected number of xenotype genes. This does not reflect the exact number of genes in the xenotype.</WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>
+
+	<!-- <WVC_Endogenous_E>Endo</WVC_Endogenous_E> -->
+	<!-- <WVC_Xenogeneic_X>Xeno</WVC_Xenogeneic_X> -->
+
+	<WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes>
+	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by shapeshifter.</WVC_XaG_GeneticMaterial_GenesDesc>
+	<WVC_XaG_GeneticMaterial_Shifter>Shapeshifter material</WVC_XaG_GeneticMaterial_Shifter>
+	<WVC_XaG_GeneticMaterial_ShifterDesc>Genetic material collected by the shapeshifter gene.</WVC_XaG_GeneticMaterial_ShifterDesc>
+	<!-- <WVC_XaG_DialogEditShiftGenes_Label>Genetic shift</WVC_XaG_DialogEditShiftGenes_Label> -->
+	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has one of the selected genes.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
+	<!-- <WVC_XaG_DialogEditShiftGenes_ExcCost>A</WVC_XaG_DialogEditShiftGenes_ExcCost> -->
+	<WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>More genetic material is required.</WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>
+	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material. Implanted genes remove genes with which they conflict.</WVC_XaG_DialogEditShiftGenes_Explanation>
+	 <!-- If genes conflict with existing genes, they cannot be implanted. -->
+	<WVC_XaG_DialogEditShiftGenes_CannotSave>Implantation is not possible. {0}</WVC_XaG_DialogEditShiftGenes_CannotSave>
+
+	<WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>The implantation will remove some of the pawn's genes.</WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>
+	<WVC_XaG_DialogEditShiftGenes_Warning>Shapeshifter cannot remove genes individually. Implanted genes cannot be removed until the next shapeshift.</WVC_XaG_DialogEditShiftGenes_Warning>
+
+	<WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>This action will change the type of shapeshifter gene, if it was xenogene (xenogerm), it will become endogene (germline) and vice versa. The accumulated genetic material will be transferred.\n\nNote that genes implanted at the cost of genetic material are always implanted where the shapeshifter gene is located.</WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>
+	<WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>Shapeshifter changed it's genetic type successfully.</WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>
+
+	<WVC_Germline>Germline</WVC_Germline>
+	<WVC_Xenogerm>Xenogerm</WVC_Xenogerm>
+	<WVC_XaG_CurrentGeneType>Gene type:</WVC_XaG_CurrentGeneType>
+	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
+	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->
+
+	<WVC_Inheritable>Inheritable</WVC_Inheritable>
+	<WVC_DoubleXenotypes>Double xenotypes</WVC_DoubleXenotypes>
+	<WVC_AllowedXenotypes>Allowed xenotypes</WVC_AllowedXenotypes>
+	<WVC_XaG_DoubleXenotypeWithChanceText>{0} with chance: {1}%</WVC_XaG_DoubleXenotypeWithChanceText>
+	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>Responsible for whether the genes of this xenotype are endogenous or xenogenous. The final xenotype of the pawn will be chosen relative to the xenogenes.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
+
+	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
+	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
+
+	<WVC_XaG_GeneRemover_Label>Remover</WVC_XaG_GeneRemover_Label>
+	<WVC_XaG_GeneRemover_Desc>Allows to remove any genes from the current geneset. Genes are removed one at a time.</WVC_XaG_GeneRemover_Desc>
+	<WVC_XaG_GeneRemover_Warning>This action will result in the gene being removed from the pawn's geneset, which is irreversible. If the shapeshifter gene is present, this may provide genetic material or, on the contrary, consume it. The amount of genetic material is calculated relative to the complexity and archites of the gene.</WVC_XaG_GeneRemover_Warning>
+
+	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
+	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->
+	<!-- <WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff and genetic match. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn gets &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, it is summed up.\n\nTo compensate for the genetic match, you can use &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; that accumulates during &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; or with the help of sub-genes.\n\nThere are also xenotypes that are considered &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;. &lt;color=#8a8ae6&gt;Shapeshifting&lt;/color&gt; in them is possible without any restrictions, but it does not accumulate &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.\n\n -  Genetic material: {0}\n -  Min genes match: {1}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {2}</WVC_XaG_ShapeshifterGizmoTip> -->
+	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#8076ff&gt;Genetic material&lt;/color&gt;: {0}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {1}</WVC_XaG_ShapeshifterGizmoTip>
+	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff. After shapeshifting, the pawn is guaranteed to receive genes regrowing, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nSome xenotypes are true forms, these xenotypes can be applied at any time without restrictions. -->
+
+	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff and genetic compliance. After shapeshifting, the pawn gets genes regrowing hediff. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nTo compensate for the genetic discrepancy, you can use genetic material that accumulates during shapeshifting or with the help of sub-genes.\n\nThere are also xenotypes that are considered true forms. Shapeshifting in them is possible without any restrictions, but it does not accumulate genetic material. -->
+
+	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was turned off for the gene.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
+
+	<!-- ========== GENE SHAPESHIFTER STYLE ========== -->
+
+	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
+
+	<!-- <WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>Add/Remove</WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove> -->
+
+	<!-- <WVC_XaG_GeneShapeshifterHeritableGenes_Desc>Opens a menu in which you can select which genes will be transfered between forms (xenotypes) during shapeshift.</WVC_XaG_GeneShapeshifterHeritableGenes_Desc> -->
+
+	<!-- <WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are too many evolve genes or the pawn already has this gene.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots> -->
+
+	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
+	<!-- <WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc> -->
+	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens the ideology style menu. Which allows to change the appearance of the pawn. (req Ideology DLC)</WVC_XaG_GeneShapeshifterStyles_Desc>
+
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode> -->
+
+	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>
+
+	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>Some xenogene xenotypes are related to endogene xenotypes. If a xenogene xenotype has a double xenotype, then the shapeshifter can implant the genes of that xenotype.</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>
+
+	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>Clear xenogenes</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>If enabled, xenogens will be removed when implanting an endogene xenotype. For xenogene xenotypes, xenogenes will be removed regardless of this option.</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>
+
+	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
+
+	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>
+	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>Does a pawn fall into a xenogermination coma after a shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>
+
+	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>Shapeshift regrow</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>
+	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>Will pawn genes be regrow after shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>
+
+	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
+
+	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn's xenotype will be changed to the selected xenotype, and the pawn will lose the genes of the previous xenotype and receive new ones. The shapeshifter gene will not be removed regardless of the selected xenotype.\n\nAfter implantation of new genes, the pawn receives xenogermination coma and genes regrowing.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
+
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
+	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been changed, {TARGET_possessive} xenotype is now {1}.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
+
+	<!-- <WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>Failed shift</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel> -->
+	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
+	<!-- <WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>{TARGET_nameDef} loses the {1} gene and is therefore no longer able to use shapeshift abilities.</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc> -->
+
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel> -->
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc> -->
+
+	<!-- <WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes> -->
+	<!-- <WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes> -->
+
+	<!-- ========== GENE CELLULAR ========== -->
+
+	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
+	<WVC_XaG_CellularDestroyBodyDesc>Extract archotechnology shard. Extracting the shard will kill the carrier and nullify its xenotype.</WVC_XaG_CellularDestroyBodyDesc>
+
+	<!-- ========== GENE SKILLSHIFTER ========== -->
+
+	<WVC_XaG_Skillshifter_Label>Skills</WVC_XaG_Skillshifter_Label>
+	<WVC_XaG_Skillshifter_Desc>Allows to redistribute experience in skills.</WVC_XaG_Skillshifter_Desc>
+	<WVC_XaG_Skillshifter_SkillPointsLeft>Skill points left: {0}/{1}</WVC_XaG_Skillshifter_SkillPointsLeft>
+	<WVC_XaG_Skillshifter_Warning>There are {0} unallocated skill points left. After closing the window, all unallocated skill points will be irretrievably lost.</WVC_XaG_Skillshifter_Warning>
+
+	<!-- ========== GENE TRAITSHIFTER ========== -->
+
+	<WVC_XaG_Traitshifter_Label>Traits</WVC_XaG_Traitshifter_Label>
+	<WVC_XaG_Traitshifter_Apply>Upd traits</WVC_XaG_Traitshifter_Apply>
+	<WVC_XaG_Traitshifter_Desc>Allows to change the traits of a pawn by removing them or adding new ones, up to a limit of 3 traits.</WVC_XaG_Traitshifter_Desc>
+	<WVC_XaG_Traitshifter_Warning>This action will add/remove the selected trait.</WVC_XaG_Traitshifter_Warning>
+	<!-- <WVC_XaG_Traitshifter_Degree>This trait has more than one degree.</WVC_XaG_Traitshifter_Degree> -->
+	<WVC_XaG_Traitshifter_ConflictingTraits>The selected traits conflict with each other.</WVC_XaG_Traitshifter_ConflictingTraits>
+	<WVC_XaG_Traitshifter_ToManyTraits>Too many traits selected.</WVC_XaG_Traitshifter_ToManyTraits>
+	<WVC_XaG_Traitshifter_MaxTraits>Total traits limit</WVC_XaG_Traitshifter_MaxTraits>
+	<WVC_XaG_Traitshifter_MaxTraitsDesc>The maximum number of traits a pawn can have.</WVC_XaG_Traitshifter_MaxTraitsDesc>
+	<WVC_XaG_Traitshifter_SelectedTraits>Selected traits</WVC_XaG_Traitshifter_SelectedTraits>
+	<WVC_XaG_Traitshifter_SelectedTraitsDesc>Number of traits currently selected. Excluding gene traits, forced and unobtainable.</WVC_XaG_Traitshifter_SelectedTraitsDesc>
+	<WVC_XaG_Traitshifter_LockedTrait>This trait is either a gene or quest trait and cannot be removed or added.</WVC_XaG_Traitshifter_LockedTrait>
+	<WVC_XaG_Traitshifter_CannotSave>Unable to apply. Reason: {0}</WVC_XaG_Traitshifter_CannotSave>
+
+	<!-- ========== GENE MORPHER ========== -->
+
+	<!-- <WVC_XaG_GeneMorpherArchitesLevel_Desc>Order the pawn to find the archite capsule and absorb its contents to increase the maximum form limit.</WVC_XaG_GeneMorpherArchitesLevel_Desc> -->
+	<WVC_XaG_GeneMorpherMenu_Desc>Opens a menu where you can view the morpher's saved genesets. Genesets cannot be edited or deleted in this menu.</WVC_XaG_GeneMorpherMenu_Desc>
+
+	<WVC_XaG_GeneMorpherChangeTriggerGene_Desc>Change the trigger gene to any of your choice. You will need archite capsules to change it. The trigger changes only for the current form.</WVC_XaG_GeneMorpherChangeTriggerGene_Desc>
+	<WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>There is no suitable stack of archite capsules within reach.</WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>
+
+	<WVC_XaG_MorpherGizmoTip>&lt;color=#8a8ae6&gt;Morpher&lt;/color&gt; allows a pawn to change its &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; under certain conditions, determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#6bb6bb&gt;geneset&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and their &lt;color=#8a8ae6&gt;genes&lt;/color&gt; can be modified without risk of harming another &lt;color=#8a8ae6&gt;form&lt;/color&gt;.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;. Some &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt; cannot be obtained this way.</WVC_XaG_MorpherGizmoTip>
+	 <!-- &lt;color=#8a8ae6&gt;One time genes&lt;/color&gt; that limit the number of morphs also block the change of the &lt;color=#8a8ae6&gt;trigger gene&lt;/color&gt;. -->
+	<!-- \n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, a new one is created. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is chosen randomly, depending on the pawn's &lt;color=#6bb6bb&gt;genes&lt;/color&gt;. -->
+	<!-- \n\nWhen changing a &lt;color=#8a8ae6&gt;form&lt;/color&gt;, the current &lt;color=#6bb6bb&gt;genes&lt;/color&gt; is saved by the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;, and then a choosen saved one is &lt;color=#8a8ae6&gt;implanted&lt;/color&gt; and its information is deleted from the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;. -->
+	 <!-- All &lt;color=#6bb6bb&gt;genetic information&lt;/color&gt; of the &lt;color=#8a8ae6&gt;implanted form&lt;/color&gt; will be the same as it was at the time of its saving. States that involve &lt;color=#6bb6bb&gt;external objects&lt;/color&gt; will not be restored and will require repeated manual intervention. -->
+
+	<WVC_XaG_ArchiverGizmoTip>&lt;color=#8a8ae6&gt;Archiver&lt;/color&gt; allows a pawn to change itself completely under certain conditions determined by &lt;color=#8a8ae6&gt;trigger genes&lt;/color&gt;, each such &lt;color=#b0bf80&gt;version&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and each such &lt;color=#8a8ae6&gt;form&lt;/color&gt; can change genes, clothes, implants, etc. without fear of harming other &lt;color=#8a8ae6&gt;forms&lt;/color&gt;. However, if this gene is removed, all &lt;color=#8a8ae6&gt;forms&lt;/color&gt; will be destroyed.\n\nIf there are no saved &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, then a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; pawn is created, which inherits all genes, traits and backstory. Clothes and implants are not inherited in this way.\n\n&lt;color=#8a8ae6&gt;Trigger genes&lt;/color&gt; can be changed at any time, but this requires an &lt;color=#6bb6bb&gt;archite capsule&lt;/color&gt;.</WVC_XaG_ArchiverGizmoTip>
+
+	<WVC_XaG_GeneAbilityMorphLabel>Morph</WVC_XaG_GeneAbilityMorphLabel>
+	<WVC_XaG_GeneAbilityMorphDesc>Morphing to another form. The form can be selected either from the list of available ones or a new one can be created.</WVC_XaG_GeneAbilityMorphDesc>
+
+	<WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>Try to morph after undead resurrection. The new form is selected randomly.</WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc>
+
+	<WVC_XaG_GeneAbilityMorphWarning>The &lt;color=#8a8ae6&gt;morph&lt;/color&gt; will lead to a complete replacement of the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. Also, the next &lt;color=#8a8ae6&gt;form&lt;/color&gt; will be limited in accordance with the new &lt;color=#8a8ae6&gt;gene trigger&lt;/color&gt;, keep in mind that the &lt;color=#8a8ae6&gt;trigger conditions&lt;/color&gt; may be different.\n\nThe pawn will &lt;color=#ff8585&gt;lose all&lt;/color&gt; connections created by the genes. Dryad queen will lose all dryads, and psychic bond its bond, etc.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning>
+	<WVC_XaG_GeneMorphAbilityDisabled>Morph is currently not possible.</WVC_XaG_GeneMorphAbilityDisabled>
+
+	<WVC_XaG_GeneAbilityMorphWarning_Archiver>&lt;color=#8a8ae6&gt;Morphing&lt;/color&gt; will completely &lt;color=#8a8ae6&gt;rewrite&lt;/color&gt; the pawn. Genes, traits, apparels, weapons, implants, thoughts, etc. almost everything will be unique to the new &lt;color=#8a8ae6&gt;form&lt;/color&gt;. The new &lt;color=#8a8ae6&gt;form&lt;/color&gt; is another version of the current pawn, not just a &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; share only some needs and ideology.\n\nThe current &lt;color=#8a8ae6&gt;form&lt;/color&gt; (pawn) will be saved and can be returned to later.\n\nThe &lt;color=#8a8ae6&gt;morph&lt;/color&gt; conditions and xenotype may also differ from the current one.\n\nDo you still want to change the &lt;color=#8a8ae6&gt;form&lt;/color&gt;?</WVC_XaG_GeneAbilityMorphWarning_Archiver>
+
+	<WVC_XaG_GeneAbilityMorphCreateNewForm>(Create new form)</WVC_XaG_GeneAbilityMorphCreateNewForm>
+	<WVC_XaG_GeneAbilityMorpherIsNullMessage>The morpher gene is not active.</WVC_XaG_GeneAbilityMorpherIsNullMessage>
+	<WVC_XaG_GeneMorpherOneTimeMorph>{PAWN_nameDef} has taken {PAWN_possessive} final form.</WVC_XaG_GeneMorpherOneTimeMorph>
+
+	<WVC_XaG_MorpherGizmoLimitTip> -  Morpher forms: {0}/{1}\n -  Morph only once: {2}\n -  Possible xenotypes: {3}</WVC_XaG_MorpherGizmoLimitTip>
+
+	<WVC_XaG_SelectedEndoGeneSetHolder>Endogenes</WVC_XaG_SelectedEndoGeneSetHolder>
+	<WVC_XaG_SelectedXenoGeneSetHolder>Xenogenes</WVC_XaG_SelectedXenoGeneSetHolder>
+
+	<WVC_XaG_ReqAnyGeneSetHolders>There are no saved forms.</WVC_XaG_ReqAnyGeneSetHolders>
+	<WVC_XaG_HasOneTimeMorpherGene>One time morphers cannot change the trigger gene.</WVC_XaG_HasOneTimeMorpherGene>
+	<WVC_XaG_GeneMorpherCannotMorphNow>Morph is not possible at the moment.</WVC_XaG_GeneMorpherCannotMorphNow>
+
+	<!-- Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
+
+	<!-- \n\nThe &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt; can also transfer some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; between &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, provided that the &lt;color=#8a8ae6&gt;form&lt;/color&gt; allows it. The limit of &lt;color=#6bb6bb&gt;genes&lt;/color&gt; for transfer can be increased using &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
+
+	<!-- ========== GENE_SPAWNER ========== -->
+
+	<WVC_XaG_GeneSpawner_CustomButtonLabel>Change product</WVC_XaG_GeneSpawner_CustomButtonLabel>
+	<WVC_XaG_GeneSpawner_CustomButtonDesc>Allows to select a product for the spawner gene.</WVC_XaG_GeneSpawner_CustomButtonDesc>
+	<WVC_XaG_GeneSpawner_CustomButtonProductChanged>The product {0} spawned has been changed to {1}.</WVC_XaG_GeneSpawner_CustomButtonProductChanged>
+
+	<!-- =============== DUPLICATOR =============== -->
+
+	<WVC_XaG_GeneDuplicationLetterLabel>Gene duplicate</WVC_XaG_GeneDuplicationLetterLabel>
+	<WVC_XaG_GeneDuplicationLetter>{CASTER_nameDef} pulsed with energy and generated a flash of light. {PAWN_nameDef} found {PAWN_objective}self face to face with a copy of {PAWN_objective}self! The duplicate claims to be the real {PAWN_nameDef} and has joined your colony.</WVC_XaG_GeneDuplicationLetter>
+
+	<WVC_XaG_GeneDuplicationSuccessMessage>{PAWN_nameDef} has successfully triggered duplication.</WVC_XaG_GeneDuplicationSuccessMessage>
+
+	<!-- <WVC_XaG_GeneHostileDuplicateLetterLabel>Hostile gene duplicate</WVC_XaG_GeneHostileDuplicateLetterLabel> -->
+	<WVC_XaG_GeneHostileDuplicateLetter>{CASTER_nameDef} pulsed with energy and generated a flash of light. {PAWN_nameDef} found {PAWN_objective}self face to face with a copy of {PAWN_objective}self. The duplicate is approaching {PAWN_nameDef} with murderous intent!</WVC_XaG_GeneHostileDuplicateLetter>
+
+	<WVC_XaG_GeneBackstoryDuplicateLetter>However, it seems {PAWN_nameDef}'s memories of the past have significant discrepancies compared to {PAWN_possessive} original.</WVC_XaG_GeneBackstoryDuplicateLetter>
+
+	<WVC_XaG_GeneTraitsDuplicateLetter>However, it seems {PAWN_possessive} personality is somewhat different from the original.</WVC_XaG_GeneTraitsDuplicateLetter>
+
+	<WVC_XaG_GeneInhumanDuplicateLetter>{CASTER_nameDef} pulsed with energy and generated a flash of light. {PAWN_nameDef} found {PAWN_objective}self face to face with a copy of {PAWN_objective}self. The duplicate is completely out of {PAWN_possessive} mind, mumbling some incomprehensible nonsense and not responding to attempts to talk to {PAWN_objective}. Something has broken deep inside {PAWN_objective}.</WVC_XaG_GeneInhumanDuplicateLetter>
+
+	<WVC_XaG_GeneDuplicatorMutationLetter>But something went wrong and {PAWN_nameDef} developed a mutation!</WVC_XaG_GeneDuplicatorMutationLetter>
+
+	<WVC_XaG_MentalBreakReason_VoidVoice>{PAWN_nameDef}'s words struck a chord with {TARGET_nameDef}'s soul, and the void filled {TARGET_possessive} thoughts.</WVC_XaG_MentalBreakReason_VoidVoice>
+	<WVC_XaG_MentalBreakReason_Inhumanized>This happened because of a genetic predisposition to psychic void patterns.</WVC_XaG_MentalBreakReason_Inhumanized>
+	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
+	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
+
+	<!-- =============== REMOTE CONTROL INTERFACE =============== -->
+
+	<WVC_XaG_RemoteControlBasicDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlBasicDesc>
+
+	<!-- <WVC_XaG_RemoteControlEnergyDesc>This gene responds to the neural activity of the carrier and its activity can be suppressed by willpower.</WVC_XaG_RemoteControlEnergyDesc> -->
+
+	<!-- <WVC_XaG_RemoteActive>Active</WVC_XaG_RemoteActive> -->
+	<!-- <WVC_XaG_RemoteDeActive>Deactive</WVC_XaG_RemoteDeActive> -->
+
+	<WVC_HideShow>Hide/Show</WVC_HideShow>
+
+	<WVC_Start>Start</WVC_Start>
+
+	<WVC_XaG_HideShowDesc>Allows to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
+
+	<!-- <WVC_XaG_Shapeshifter_HideShowDesc>Toggles shifter gizmo collapse and hides/shows the genes settings gizmo relative to this setting.</WVC_XaG_Shapeshifter_HideShowDesc> -->
+
+	<WVC_XaG_SelfOverrideDesc>Allows to override the gene at any time.</WVC_XaG_SelfOverrideDesc>
+
+	<WVC_Style>Style</WVC_Style>
+
+	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
+	<WVC_Color>Color</WVC_Color>
+	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
+	<WVC_XaG_GenesSettingsDesc>Allows to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, mechs summon, etc. If the gene allows to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
+
+	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists.</WVC_XaG_RemoteControlBloodeaterDesc>
+
+	<WVC_XaG_RemoteControlChargerDesc>If on, the pawn will try to use charger instead of food whenever possible.</WVC_XaG_RemoteControlChargerDesc>
+
+	<WVC_XaG_RemoteControlHemogenRechargeDesc>If enabled, the pawn will try to use a recharger instead of hemogen packs whenever possible.</WVC_XaG_RemoteControlHemogenRechargeDesc>
+
+	<WVC_XaG_RemoteControlGeneMakerDesc>If on, genemaker will slowly generate genepacks.</WVC_XaG_RemoteControlGeneMakerDesc>
+
+	<WVC_XaG_RemoteControlDustogenicDesc>If on, the pawn will prefer dustogenic food and will take it whenever possible.</WVC_XaG_RemoteControlDustogenicDesc>
+
+	<WVC_XaG_RemoteControlMechsSummonAbilityDesc>After activating the ability, summons several mechanoids that will automatically attach to the mechanitor.</WVC_XaG_RemoteControlMechsSummonAbilityDesc>
+
+	<!-- <WVC_XaG_RemoteControlColorableEyesDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlColorableEyesDesc> -->
+
+	<!-- =============== QUEST = ANOMALY LOOP =============== -->
+
+	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->
+	<!-- <WVC_XaG_FromTheVoidEndingDesc>Something from the void is calling {PAWN_nameDef}, perhaps if {PAWN_pronoun} listens to this mysterious whisper something will happen.</WVC_XaG_FromTheVoidEndingDesc> -->
+	<!-- <WVC_XaG_FromTheVoidEndingWarning>With each passing second, the whispers of the void become clearer. {PAWN_nameDef} begins to see terrifying images, and the voice becomes more insistent and turns into a scream that only {PAWN_nameDef} can hear. Perhaps if {PAWN_pronoun} does what the voice demands, it will leave {PAWN_nameDef} alone. &lt;color=#ff8585&gt;But is {PAWN_nameDef} willing to pay the price?&lt;/color&gt;</WVC_XaG_FromTheVoidEndingWarning> -->
+	<!-- <WVC_XaG_FromTheVoidEndingWarning2c>If {PAWN_nameDef} agrees to this, there will be no &lt;color=#ff8585&gt;turning back&lt;/color&gt;. {PAWN_nameDef} must be sure that the colony is ready for this. But most importantly, is {PAWN_nameDef} ready?</WVC_XaG_FromTheVoidEndingWarning2c> -->
+	<!-- <WVC_XaG_FromTheVoidEndingLetterLabel>From the Void</WVC_XaG_FromTheVoidEndingLetterLabel> -->
+	<!-- <WVC_XaG_FromTheVoidEndingLetterDesc>The voice from the void drove {PAWN_nameDef} crazy, and the psychic impulse caused by {PAWN_nameDef}'s interaction with the mysterious attracted unwanted attention.\n\nA powerful psychic impulse has damaged or destroyed some electronic devices. Shamblers and horax cultists have surrounded the colony. And a cloud of corrupted archites has blanketed the region. It will be a very long night.\n\nPerhaps these tests will make the colony stronger, but now is the time to &lt;color=#ff8585&gt;look back&lt;/color&gt; at where it all began.</WVC_XaG_FromTheVoidEndingLetterDesc> -->
+	<!-- <WVC_XaG_FromTheVoidEndingLetterDuplicateDesc>A duplicate of {CASTER_nameDef} appeared out of nowhere next to {CASTER_objective}. {PAWN_pronoun} has many similarities with {CASTER_nameDef}, but has some differences.\n\nThe duplicate claims that {PAWN_pronoun} had a vision of a dark future that could happen if we get too carried away studying the monolith. {PAWN_pronoun} has joined us and is ready to help prevent the coming nightmare.\n\nThe duplicate is a shapeshifter, {PAWN_possessive} abilities can definitely help us.</WVC_XaG_FromTheVoidEndingLetterDuplicateDesc> -->
+
+</LanguageData>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDustSupply_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>0.8</marketValueFactor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Dustogenic</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <iconColor>(175, 175, 100)</iconColor> -->
+	<!-- <iconColor>(249, 241, 148)</iconColor> -->
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
+	<defName>WVC_Dustogenic</defName>
+	<label>dustogenic</label>
+	<description>Carriers of this gene have a special resource in their blood called dust. Thanks to dust, under certain conditions, their body can receive significantly more nutrients from food.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Dustogenic</geneClass>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_NutrientsInjector</ThingDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;dustogenic food&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dust</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_FoodEfficiency</geneClass>
+	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
+	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.0009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_WoundHealing</defName>
+	<label>dustogenic wound healing</label>
+	<labelShortAdj>dust-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal. But their body receives less nutrients from food.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustBodyPartsRestoration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0</iconPath>
+	<iconColor>(249, 241, 148)</iconColor>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>Restores a lost body parts every (*DateTime)5-15 days(/DateTime).</li>
+	  <!-- <li>Decreases the nutritional value of consumed food by 16%</li> -->
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 16%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+	<statOffsets>
+	  <MaxNutrition>0.3</MaxNutrition>
+	</statOffsets>
+	<displayOrderInCategory>2</displayOrderInCategory>
+	<resourceLossPerDay>0.16</resourceLossPerDay>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hydra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Ageless</defName>
+	<label>blessed ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18. But their body receives less nutrients from food.</description>
+	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<resourceLossPerDay>0.09</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 9%</li> -->
+		<li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 9%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.2</MaxNutrition>
+	</statOffsets>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>young</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Metabolism</defName>
+	<label>photosynthetic metabolism</label>
+	<labelShortAdj>photosynthesis</labelShortAdj>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Photosynthesis</geneClass>
+	<description>Carriers of this gene can photosynthesize nutrients from sunlight, but obtain significantly less nutrients from food.</description>
+	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<resourceLossPerDay>0.23</resourceLossPerDay>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<customEffectDescriptions>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	  <li>While &lt;color=#8a8ae6&gt;in sunlight&lt;/color&gt;, slowly &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt; bar.</li>
+	  <li>Any non-nudist &lt;color=#ff8585&gt;clothing blocks this effect&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 23%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.5</MaxNutrition>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<passivelyReplenishedNutrition>0.04</passivelyReplenishedNutrition>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty_AngelBeauty">
+	<defName>WVC_Dustogenic_AngelBeauty</defName>
+	<label>dust beauty</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AngelBeauty</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustAngel_v0</iconPath>
+	<displayCategory>WVC_Dustogenic</displayCategory>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 18%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>0</biostatArc>
+	<resourceLossPerDay>0.18</resourceLossPerDay>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Clotting</defName>
+	<label>dustogenic clotting</label>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<!-- <painFactor>1.5</painFactor> -->
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<!-- <statFactors> -->
+	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
+	<!-- </statFactors> -->
+	<resourceLossPerDay>0.04</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>If a pawn is downed/sleep, its wounds will be automatically treated.</li>
+		<li>Each wound costs 0.05 nutrition to treat</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 4%</li> -->
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>WoundHealingRate</li> -->
+	  <li>SuperClotting</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- dustogenic genetic -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_GeneticStability</defName>
+	<label>dustogenic genetic</label>
+	<description>Carriers of this gene have a strong genetic dependence on dust.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AngelicStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AngelicStability_v0</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>6</biostatMet>
+	<!-- <resourceLabel></resourceLabel> -->
+	<customEffectDescriptions>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
+	  <!-- <li>If this gene is removed, the carrier will die.</li> -->
+	  <!-- <li>The amount of dust is no longer subject to biological entropy.</li> -->
+	  <!-- <li>Decreases the nutritional value of consumed food by 15%</li> -->
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 15%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName> -->
+			<intervalRange>122000~440000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True"> -->
+	<!-- <prerequisite>WVC_Dustogenic_GeneticStability</prerequisite> -->
+	<!-- <marketValueFactor>1.4</marketValueFactor> -->
+	<!-- <resourceLabel></resourceLabel> -->
+  <!-- </GeneDef> -->
+
+</Defs>

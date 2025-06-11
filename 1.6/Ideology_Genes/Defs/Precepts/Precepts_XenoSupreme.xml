@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Issue -->
+
+  <IssueDef>
+	<defName>WVC_GeneticSupremacy</defName>
+	<label>xenotype supremacy</label>
+	<iconPath>WVC/UI/Precepts/Precept_GeneticSupremacy_v0</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_GeneticSupremacy_Desired</defName>
+	<issue>WVC_GeneticSupremacy</issue>
+	<label>desired</label>
+	<description>Inferior beings and machines are not tolerated, true superiority is hidden in our genes.</description>
+	<impact>High</impact>
+	<displayOrderInIssue>20</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<statFactors>
+	  <TameAnimalChance>0.2</TameAnimalChance>
+	  <BondAnimalChanceFactor>0.05</BondAnimalChanceFactor>
+	</statFactors>
+	<opposedWorkTypes>
+	  <li>Handling</li>
+	</opposedWorkTypes>
+	<requiredMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</requiredMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_GeneticSupremacy_Desired_Xenotypes</thought>
+		<description>For each xenohuman in faction</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_GeneticSupremacy_Desired_NonHumanlikes</thought>
+		<description>For each non-human in faction</description>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>1</points>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_XenotypeSerumUsed</eventDef>
+		<eventLabel>xenotype serum used</eventLabel>
+		<points>1</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- ============ -->
+
+  <ThoughtDef>
+	<defName>WVC_GeneticSupremacy_Desired_Xenotypes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyXenotypesAndCount</workerClass>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
+	<stages>
+	  <li>
+		<label>xenohumans in faction</label>
+		<description>Genetic diversity is encouraging.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_GeneticSupremacy_Desired_NonHumanlikes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount</workerClass>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
+	<stages>
+	  <li>
+		<label>non-humanlikes in faction</label>
+		<description>These disgusting lower creatures in our faction.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ================================ -->
+
+  <PreceptDef>
+	<defName>WVC_GeneticSupremacy_Preferred</defName>
+	<issue>WVC_GeneticSupremacy</issue>
+	<label>preferred</label>
+	<description>Lower beings can never compare to our perfection.</description>
+	<impact>Medium</impact>
+	<displayOrderInIssue>15</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<statFactors>
+	  <TameAnimalChance>0.6</TameAnimalChance>
+	  <BondAnimalChanceFactor>0.2</BondAnimalChanceFactor>
+	</statFactors>
+	<opposedWorkTypes>
+	  <li>Handling</li>
+	</opposedWorkTypes>
+	<requiredMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</requiredMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_GeneticSupremacy_Preferred_NonHumanlikes</thought>
+		<description>For each non-human in faction</description>
+	  </li>
+	  <!-- <li Class="PreceptComp_DevelopmentPoints"> -->
+		<!-- <eventDef>WVC_Shapeshift</eventDef> -->
+		<!-- <eventLabel>shapeshift</eventLabel> -->
+		<!-- <points>1</points> -->
+	  <!-- </li> -->
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_XenotypeSerumUsed</eventDef>
+		<eventLabel>xenotype serum used</eventLabel>
+		<points>1</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- ============ -->
+
+  <ThoughtDef>
+	<defName>WVC_GeneticSupremacy_Preferred_NonHumanlikes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount</workerClass>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
+	<stages>
+	  <li>
+		<label>non-humanlikes in faction</label>
+		<description>These disgusting lower creatures in our faction.</description>
+		<baseMoodEffect>-3</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+
+</Defs>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities" Abstract="True">
+	<marketValueFactor>1.1</marketValueFactor>
+	<selectionWeight>0.0009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>100</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ================================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>dustogenesis</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Parthenogenesis</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
+		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;germline&lt;/color&gt; genes.</li>
+	</customEffectDescriptions>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_Dustogenic_AbilityImmaculateConception</li> -->
+	<!-- </abilities> -->
+	<exclusionTags>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>partheno</symbol></li>
+		<li><symbol>genesis</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>1.0</birthQualityOffset>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<gender>Female</gender>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_FeatherBlades</defName>
+	<label>sharp feathers</label>
+	<description>Carriers of this gene have sharp feathers with which they can throw them at a distance.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_FeatherBlades</AbilityDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<prerequisite>WVC_Wings_FeatheredWings</prerequisite>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>To use the ability, the &lt;color=#8a8ae6&gt;feathered wings&lt;/color&gt; gene is required.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<abilities>
+	  <li>WVC_Dustogenic_FeatherBlades</li>
+	</abilities>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>feather</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

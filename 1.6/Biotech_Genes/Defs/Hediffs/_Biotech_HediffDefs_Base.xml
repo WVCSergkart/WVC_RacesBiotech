@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef Name="WVC_XenotypesAndGenes_Hediffs_Base" Abstract="True">
+	<label>test</label>
+	<description>Should be invisible.</description>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	<makesAlert>false</makesAlert>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+	<canAffectBionicOrImplant>false</canAffectBionicOrImplant>
+	<duplicationAllowed>true</duplicationAllowed>
+	<isInfection>false</isInfection>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_OneTime" Abstract="True">
+	<duplicationAllowed>false</duplicationAllowed>
+	<keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
+	<everCurableByItem>true</everCurableByItem>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime"> -->
+	<!-- <defName>WVC_IncompatibilityComa</defName> -->
+	<!-- <label>incompatibility coma</label> -->
+	<!-- <description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description> -->
+	<!-- <duplicationAllowed>false</duplicationAllowed> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.10</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>12000~34000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_MechaClotting_PreventBleeding</defName>
+	<label>prevent bleeding</label>
+	<duplicationAllowed>true</duplicationAllowed>
+	<stages>
+	  <li>
+		<totalBleedFactor>0</totalBleedFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+  <!-- <HediffDef> -->
+	<!-- <defName>WVC_MechaskinHunger_HungerFactor</defName> -->
+	<!-- <label>mechanite hunger</label> -->
+	<!-- <description>Due to the lack of a power source, the mechanites temporarily impaired the host's metabolism.</description> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <scenarioCanAdd>false</scenarioCanAdd> -->
+	<!-- <isBad>false</isBad> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <hungerRateFactor>5.0</hungerRateFactor> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>12000~34000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</defName>
+	<label>instant killer</label>
+	<stages>
+	  <li>
+		<minSeverity>0.0</minSeverity>
+		<becomeVisible>false</becomeVisible>
+		<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+		<totalBleedFactor>0</totalBleedFactor>
+		<painFactor>0</painFactor>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_InstantKill"/>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Wings_FeatheredWings</defName>
+	<label>flying</label>
+	<!-- <label>feathered wings</label> -->
+	<description>The pawn completely ignores terrain cost, making movement much easier.</description>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<checkingInterval>1500</checkingInterval>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+	<modExtensions>
+	  <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+		<movementDef>PF_Movement_Flying</movementDef>
+	  </li>
+	</modExtensions>
+  </HediffDef>
+
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_XaG_GeneInvisibility</defName>
+	<label>psychic invisibility</label>
+	<description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
+	<stages>
+	  <li>
+		<hungerRateFactorOffset>5.0</hungerRateFactorOffset>
+		<statOffsets>
+		  <RestFallRateFactor>5.0</RestFallRateFactor>
+		</statOffsets>
+		<!-- <disabledWorkTags>Violent</disabledWorkTags> -->
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_Invisibility">
+		<visibleToPlayer>true</visibleToPlayer>
+	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"> -->
+		<!-- <checkInterval>3246~7831</checkInterval> -->
+		<!-- <geneDef>WVC_Invisibility</geneDef> -->
+	  <!-- </li> -->
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>1250~2400</disappearsAfterTicks>
+		<showRemainingTime>true</showRemainingTime>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Resurgent_UndeadResurrectionRecovery</defName>
+	<label>undead sickness</label>
+	<description>The process of recovery after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description>
+	<stages>
+	  <li>
+		<hungerRateFactor>1.10</hungerRateFactor>
+		<totalBleedFactor>0.90</totalBleedFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>120000~720000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_UndeadResurrection"/> -->
+	</comps>
+  </HediffDef>
+
+  <!-- ================== -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_UndeadRising</defName> -->
+	<!-- <label>undead rising</label> -->
+	<!-- <description>The process of recovery after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_Undead</hediffClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <hungerRateFactor>1.10</hungerRateFactor> -->
+		<!-- <totalBleedFactor>0.90</totalBleedFactor> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>120000~720000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <!-- ================== -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_XaG_LightExposure</defName> -->
+	<!-- <label>light exposure</label> -->
+	<!-- <description>Even the slightest exposure to light causes great discomfort to this creature, slowing it and weakening its attacks.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_LightExposure</hediffClass> -->
+	<!-- <minSeverity>0</minSeverity> -->
+	<!-- <maxSeverity>1</maxSeverity> -->
+	<!-- <initialSeverity>0</initialSeverity> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>initial</label> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>moderate</label> -->
+		<!-- <minSeverity>0.1</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>1.25</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.9</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.05</painOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>serious</label> -->
+		<!-- <minSeverity>0.4</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>1.5</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.8</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.1</painOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>extreme</label> -->
+		<!-- <minSeverity>0.8</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>2</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.5</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.15</painOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_XaG_GeneFrenzy</defName>
+	<label>frenzy</label>
+	<description>This creature's blood is saturated with adrenaline, permitting it to move and attack at high speeds for a short time.</description>
+	<stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<painFactor>0.6</painFactor>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<offset>0.1</offset>
+		  </li>
+		  <li>
+			<capacity>Sight</capacity>
+			<offset>0.2</offset>
+		  </li>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>0.3</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>3000~6000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

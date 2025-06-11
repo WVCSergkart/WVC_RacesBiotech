@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_PostshiftMetabolism_HungerFactor</defName>
+	<label>postshift metabolism</label>
+	<description>A residual shapeshift effect during which the owner's metabolism is significantly enhanced.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.01</hungerRateFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>210000~450000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_ShapeshifterDeathless</defName>
+	<label>cellular</label>
+	<description>This creature is unkillable, it remains alive as long as at least a piece of their flesh exists.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<preventsDeath>true</preventsDeath>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
+	</comps>
+  </HediffDef>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Cellsrest</defName> -->
+	<!-- <label>cellsresting</label> -->
+	<!-- <description>A deep coma-like sleep that lasts several days and restores the body's resources.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_Cellsrest</hediffClass> -->
+	<!-- <recordDownedTale>false</recordDownedTale> -->
+	<!-- <defaultLabelColor>(255, 255, 255)</defaultLabelColor> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.1</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_ShapeshifterDeathless_Disabled</defName> -->
+	<!-- <label>disabled deathless</label> -->
+	<!-- <defaultLabelColor>(255, 255, 255)</defaultLabelColor> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff"> -->
+			<!-- <compClass>WVC_XenotypesAndGenes.HediffComp_ReplaceWhenRemoved</compClass> -->
+			<!-- <hediffDef>WVC_ShapeshifterDeathless</hediffDef> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Shapeshifter</li> -->
+			  <!-- <li>WVC_Shapeshift_Deathless</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_ChimeraMetabolism_HungerFactor</defName>
+	<label>genetic metabolism</label>
+	<description>This creature's hunger varies depending on its genetic metabolism.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Metabolism</hediffClass>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  </HediffDef>
+
+  <!-- Hediff -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_DeathMarkHarvest</defName>
+	<label>chimera mark</label>
+	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<becomeVisible>true</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

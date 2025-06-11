@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (closeTarget && !InteractionUtility.IsGoodPositionForInteraction(pawn, targetPawn))
+				if (closeTarget && !SocialInteractionUtility.IsGoodPositionForInteraction(pawn, targetPawn))
 				{
 					continue;
 				}
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (InteractionUtility.CanReceiveRandomInteraction(targetPawn) && TryGetInteractionDef(pawn, allDefsListForReading, targetPawn, out InteractionDef result, interactionDef))
+				if (SocialInteractionUtility.CanReceiveRandomInteraction(targetPawn) && TryGetInteractionDef(pawn, allDefsListForReading, targetPawn, out InteractionDef result, interactionDef))
 				{
 					if (TryInteractWith(pawn, targetPawn, result, psychicInteraction))
 					{
@@ -73,12 +73,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				resultInteraction = InteractionDefOf.DisturbingChat;
 			}
-			if (resultInteraction != null && InteractionUtility.CanReceiveInteraction(targetPawn, interactionDef))
+			if (resultInteraction != null && SocialInteractionUtility.CanReceiveInteraction(targetPawn, interactionDef))
 			{
 				result = resultInteraction;
 				return true;
 			}
-			return allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => !InteractionUtility.CanReceiveInteraction(targetPawn, interactionDef) ? 0f : x.Worker.RandomSelectionWeight(pawn, targetPawn), out result);
+			return allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => !SocialInteractionUtility.CanReceiveInteraction(targetPawn, interactionDef) ? 0f : x.Worker.RandomSelectionWeight(pawn, targetPawn), out result);
 		}
 
 		public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, bool psychicInteraction)
@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!ignoreTalking)
 			{
-				return InteractionUtility.CanInitiateRandomInteraction(pawn);
+				return SocialInteractionUtility.CanInitiateRandomInteraction(pawn);
 			}
 			if (!Telepath_CanInitiateInteraction(pawn))
 			{

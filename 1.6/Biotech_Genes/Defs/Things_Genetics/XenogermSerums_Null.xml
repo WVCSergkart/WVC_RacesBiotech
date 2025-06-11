@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Nullifier</defName>
+	<label>xenotype nullifier serum</label>
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's skin and hair will lose color&lt;/color&gt;, and the user himself will fall into a two-day coma.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerum_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>1270</MarketValue>
+	  <DeteriorationRate>3.0</DeteriorationRate>
+	</statBases>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_GeneRestoration</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <ComponentSpacer>1</ComponentSpacer>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeNullifier</compClass>
+		<removeSkinColor>true</removeSkinColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Baseliner</defName>
+	<label>xenotype nullifier serum</label>
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's melanin will be randomized&lt;/color&gt;, and the user himself will fall into a two-day coma.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerumB_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeNullifier</compClass>
+		<removeSkinColor>false</removeSkinColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

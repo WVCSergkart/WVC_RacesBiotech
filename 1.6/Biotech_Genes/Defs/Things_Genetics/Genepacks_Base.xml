@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True" WVC_XaG_Tag_Genepacks="AllGenePacks">
+	<label>genepack</label>
+	<description>A small capsule containing a package of genetic information. To use a genepack, it must be placed in a gene bank near a gene assembler and combined into an implantable xenogerm.\n\nIf not kept in a powered gene bank, this genepack will slowly deteriorate.</description>
+	<thingClass>WVC_XenotypesAndGenes.XaG_Genepack</thingClass>
+	<!-- <thingClass>Genepack</thingClass> -->
+	<tickerType>Rare</tickerType>
+	<useHitPoints>true</useHitPoints>
+	<canDeteriorateUnspawned>true</canDeteriorateUnspawned>
+	<deteriorateFromEnvironmentalEffects>false</deteriorateFromEnvironmentalEffects>
+	<inspectorTabs>
+	  <li>ITab_Genes</li>
+	</inspectorTabs>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
+	  <graphicClass>Graphic_Genepack</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<statBases>
+	  <MarketValue>100</MarketValue>
+	  <DeteriorationRate>5</DeteriorationRate>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>Xenogerm</ThingDef>
+	  <ThingDef>GeneAssembler</ThingDef>
+	</descriptionHyperlinks>
+	<tradeTags>
+	  <li>WVC_GenePacks</li>
+	</tradeTags>
+	<thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
+	<comps>
+		<li Class="CompProperties_Styleable" />
+	</comps>
+  </ThingDef>
+
+  <!-- ========== -->
+
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+	<defName>WVC_Genepack</defName>
+	<label>w-pack</label>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
+	</graphicData>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+			<genepackNamer>WVC_NamerGenepack</genepackNamer>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_Genepack</styleDef>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.71</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>4</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+	<defName>WVC_UltraGenepack</defName>
+	<label>ultrapack</label>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
+	</graphicData>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_UltraGenepack</styleDef>
+			<genepackNamer>WVC_NamerUltraGenepack</genepackNamer>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.71</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>4</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			  <!-- Arc -->
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.33</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.06</chance>
+			  </li>
+			  <li>
+				<architeCount>4</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.04</chance>
+			  </li>
+			  <!-- Double -->
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			  <!-- Misc -->
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.07</chance>
+			  </li>
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.05</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.07</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.05</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+	<defName>WVC_MechaGenepack</defName>
+	<label>mechapack</label>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_MechaGenepack</styleDef>
+			<genepackNamer>WVC_NamerMechaGenepack</genepackNamer>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.74</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>4</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</comps>
+  </ThingDef>
+
+  <!-- <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks"> -->
+	<!-- <defName>WVC_XaG_AnomalyGenepack</defName> -->
+	<!-- <label>anomaly-pack</label> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Anomaly_Genepack</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
+			<!-- <genepackNamer>WVC_NamerUltraGenepack</genepackNamer> -->
+			<!-- <styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_GenepackAnomaly</styleDef> -->
+			<!-- <genesCountProbabilities> -->
+			  <!-- <li> -->
+				<!-- <architeCount>1</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.70</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>2</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.11</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>3</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.06</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>4</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.04</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>1</architeCount> -->
+				<!-- <genesCount>3</genesCount> -->
+				<!-- <chance>0.05</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>2</architeCount> -->
+				<!-- <genesCount>1</genesCount> -->
+				<!-- <chance>0.07</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			<!-- </genesCountProbabilities> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+
+  <!-- ======================================================= -->
+
+  <!-- <ThingDef> -->
+	<!-- <defName>WVC_HumanEmbryo</defName> -->
+	<!-- <label>embryo</label> -->
+	<!-- <description>A human embryo which can be implanted in a mother to create a pregnancy.</description> -->
+	<!-- <thingClass>HumanEmbryo</thingClass> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>Things/Item/Special/Embryo</texPath> -->
+	  <!-- <graphicClass>Graphic_Single</graphicClass> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
+	  <!-- <MarketValue>50</MarketValue> -->
+	  <!-- <Mass>0.5</Mass> -->
+	<!-- </statBases> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>ItemsMisc</li> -->
+	<!-- </thingCategories> -->
+	<!-- <category>Item</category> -->
+	<!-- <alwaysHaulable>true</alwaysHaulable> -->
+	<!-- <drawGUIOverlay>true</drawGUIOverlay> -->
+	<!-- <useHitPoints>true</useHitPoints> -->
+	<!-- <selectable>true</selectable> -->
+	<!-- <rotatable>false</rotatable> -->
+	<!-- <pathCost>14</pathCost> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompHumanEmbryo</compClass> -->
+		<!-- <xenotypeDefs> -->
+		  <!-- <li>WVC_Blank</li> -->
+		<!-- </xenotypeDefs> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+	<!-- <inspectorTabs> -->
+	  <!-- <li>ITab_Genes</li> -->
+	<!-- </inspectorTabs> -->
+  <!-- </ThingDef> -->
+
+</Defs>

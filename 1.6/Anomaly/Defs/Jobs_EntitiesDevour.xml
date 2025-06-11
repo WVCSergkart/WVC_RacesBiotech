@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_DevourEntitie</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_DevourEntitie</driverClass>
+	<reportString>devours TargetA.</reportString>
+  </JobDef>
+
+</Defs>

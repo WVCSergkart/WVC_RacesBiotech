@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- <RulePackDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_TotemNames</defName> -->
+	<!-- <rulePack> -->
+	  <!-- <rulesStrings> -->
+		<!-- <li>r_totem_name->[namefile]</li> -->
+	  <!-- </rulesStrings> -->
+	  <!-- <rulesFiles> -->
+		<!-- <li>namefile->Names/WVC_XaG_TotemNames</li> -->
+	  <!-- </rulesFiles> -->
+	<!-- </rulePack> -->
+  <!-- </RulePackDef> -->
+
+  <!-- <RulePackDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_MushroomTreeNames</defName> -->
+	<!-- <rulePack> -->
+	  <!-- <rulesStrings> -->
+		<!-- <li>r_totem_name->[namefile]</li> -->
+	  <!-- </rulesStrings> -->
+	  <!-- <rulesFiles> -->
+		<!-- <li>namefile->Names/WVC_XaG_MushroomTreeNames</li> -->
+	  <!-- </rulesFiles> -->
+	<!-- </rulePack> -->
+  <!-- </RulePackDef> -->
+
+  <!-- ======================================================= -->
+
+  <RulePackDef>
+	<defName>WVC_NamerGenepack</defName>
+	<rulePack>
+	  <rulesStrings>
+		<li>r_name->w-pack ([geneWord][otherGenesInfo])</li>
+
+		<li>otherGenesInfo(geneCount==1)-></li>
+		<li>otherGenesInfo(geneCount>=2)-> +[geneCountMinusOne]</li>
+	  </rulesStrings>
+	</rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+	<defName>WVC_NamerUltraGenepack</defName>
+	<rulePack>
+	  <rulesStrings>
+		<li>r_name->ultrapack ([geneWord][otherGenesInfo])</li>
+
+		<li>otherGenesInfo(geneCount==1)-></li>
+		<li>otherGenesInfo(geneCount>=2)-> +[geneCountMinusOne]</li>
+	  </rulesStrings>
+	</rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+	<defName>WVC_NamerMechaGenepack</defName>
+	<rulePack>
+	  <rulesStrings>
+		<li>r_name->mechapack ([geneWord][otherGenesInfo])</li>
+
+		<li>otherGenesInfo(geneCount==1)-></li>
+		<li>otherGenesInfo(geneCount>=2)-> +[geneCountMinusOne]</li>
+	  </rulesStrings>
+	</rulePack>
+  </RulePackDef>
+
+</Defs>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_FleshmassChimerkin</defName>
+	<label>With All Eyes</label>
+	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</description>
+	<scenario>
+	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary>
+	  <!-- <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Beholdkind>1</WVC_Beholdkind>
+		  </xenotypeChances>
+		  <!-- <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef> -->
+		  <chimeraGeneDefs>
+			<li>WVC_OneManArmy</li>
+			<li>WVC_HumanCentric</li>
+			<li>MaxTemp_LargeIncrease</li>
+			<li>MinTemp_LargeDecrease</li>
+			<li>WVC_TentacleHands</li>
+			<li>WVC_SelfdevourStomach</li>
+			<li>WVC_PredatorPrey_Tasty</li>
+		  </chimeraGeneDefs>
+		  <chimeraGenesPerBiomeDef>
+			  <li>
+				  <biomeDefs>
+					<!-- <li>BorealForest</li> -->
+					<li>Tundra</li>
+					<!-- <li>ColdBog</li> -->
+					<li>IceSheet</li>
+					<li>SeaIce</li>
+				  </biomeDefs>
+				  <genes>
+					<li>WVC_HairColor_Slate</li>
+					<li>WVC_SkinColor_MilkWhite</li>
+					<li>WVC_MinTemp_ArchiteDecrease</li>
+					<li>WVC_OneManArmy</li>
+					<li>WVC_TentacleHands</li>
+					<li>WVC_SelfdevourStomach</li>
+					<li>WVC_LongTentacleTail</li>
+				  </genes>
+			  </li>
+			  <!-- <li> -->
+				  <!-- <biomeDefs> -->
+					<!-- <li>AridShrubland</li> -->
+					<!-- <li>Desert</li> -->
+					<!-- <li>ExtremeDesert</li> -->
+				  <!-- </biomeDefs> -->
+				  <!-- <genes> -->
+					<!-- <li>WVC_HairColor_Slate</li> -->
+					<!-- <li>WVC_MaxTemp_ArchiteIncrease</li> -->
+					<!-- <li>WVC_OneManArmy</li> -->
+					<!-- <li>WVC_HumanCentric</li> -->
+					<!-- <li>WVC_FleshmassRegeneration</li> -->
+					<!-- <li>WVC_SelfdevourStomach</li> -->
+					<!-- <li>WVC_PredatorPrey_Tasty</li> -->
+				  <!-- </genes> -->
+			  <!-- </li> -->
+		  </chimeraGenesPerBiomeDef>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <startingMutations>3</startingMutations>
+		  <additionalChronoAge>900~1500</additionalChronoAge>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1</chance>
+		  <hediff>Malnutrition</hediff>
+		  <severityRange>0.2~0.4</severityRange>
+		</li>
+		<li Class="ScenPart_SetNeedLevel">
+		  <def>SetNeedLevel</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1.0</chance>
+		  <need>Food</need>
+		  <levelRange>0~0.05</levelRange>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<!-- <li Class="ScenPart_DisableMapGen"> -->
+			<!-- <def>AnimaTrees</def> -->
+		<!-- </li> -->
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_MechaChimerkin</defName>
+	<label>From the Void</label>
+	<description>When you opened your eyes, you saw a completely unfamiliar landscape. All your memories were confused and blurred. You barely remembered your name, and your past was a complete fog, and your skills, if there were any, were gone. The only thing you clearly understood was the feeling of hunger, which was growing with each passing second.</description>
+	<scenario>
+	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Nociokin>1</WVC_Nociokin>
+		  </xenotypeChances>
+		  <!-- <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef> -->
+		  <chimeraGeneDefs>
+			<li>WVC_Inhumanized</li>
+			<li>WVC_SleepResearch</li>
+			<li>WVC_Chimera_Corpseharvest</li>
+			<li>HemogenDrain</li>
+			<li>WVC_MecaBodyParts_Heart</li>
+			<!-- <li>WVC_MecaBodyParts_Leg</li> -->
+			<li>WVC_MaxVoidEnergy_AccurateSummon</li>
+			<!-- <li>WVC_MecaBodyParts_Spine</li> -->
+			<li>WVC_PredatorPrey_NotTasty</li>
+		  </chimeraGeneDefs>
+		  <addMechlink>true</addMechlink>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <nullifySkills>true</nullifySkills>
+		  <gender>Female</gender>
+		  <startingPawnsIsPregnant>true</startingPawnsIsPregnant>
+		  <!-- <newGamePlus>true</newGamePlus> -->
+		  <!-- <embraceTheVoid>true</embraceTheVoid> -->
+		  <additionalChronoAge>888~1777</additionalChronoAge>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1</chance>
+		  <hediff>Malnutrition</hediff>
+		  <severityRange>0.2~0.4</severityRange>
+		</li>
+		<li Class="ScenPart_SetNeedLevel">
+		  <def>SetNeedLevel</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1.0</chance>
+		  <need>Food</need>
+		  <levelRange>0~0.05</levelRange>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>When you opened your eyes, you saw a completely unfamiliar landscape. All your memories were confused and blurred. You barely remembered your name, and your past was a complete fog, and your skills, if there were any, were gone. The only thing you clearly understood was the feeling of hunger, which was growing with each passing second.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Starting research -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>MicroelectronicsBasics</project> -->
+		<!-- </li> -->
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>BasicMechtech</project>
+		</li>
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>Batteries</project> -->
+		<!-- </li> -->
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<!-- <li Class="ScenPart_DisableMapGen"> -->
+			<!-- <def>AnimaTrees</def> -->
+		<!-- </li> -->
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneHeadboneBase" Name="WVC_XenotypesAndGenes_GeneHeadbone_Base" Abstract="True">
+	<description>Carriers of this gene grow two horns protruding from the forehead.</description>
+	<selectionWeight>0.0012</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>horn</symbol></li>
+		<li><symbol>knob</symbol></li>
+		<li><symbol>spike</symbol></li>
+		<li><symbol>devil</symbol></li>
+		<li><symbol>demon</symbol></li>
+		<li><symbol>luci</symbol></li>
+		<li><symbol>beelze</symbol></li>
+		<li><symbol>hell</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>horn</symbol></li>
+		<li><symbol>spike</symbol></li>
+		<li><symbol>vil</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadBoneHorns</defName>
+	<label>horns</label>
+	<iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/HornsA</li>
+		  <li>WVC/BodyParts/Horns/HornsC</li>
+		  <li>WVC/BodyParts/Horns/HornsBrokenA</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.04)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadSkinHorns</defName>
+	<label>skin horns</label>
+	<description>Carriers of this gene grow two large horns the color of their skin.</description>
+	<iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/ColorHornsA</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.04)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(0.03, 0, 0.0)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(-0.03, 0, 0.0)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadBoneDoubleHorn</defName>
+	<label>double horn</label>
+	<iconPath>WVC/UI/Genes/HornsB_Icon_v0</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/HornsB</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.04)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<layer>10</layer>
+		  </dataEast>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadBoneCurveHorns</defName>
+	<label>curved horns</label>
+	<iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/CurveHornsA</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.13)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(0.05, 0, 0.0)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(-0.05, 0, 0.0)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+</Defs>

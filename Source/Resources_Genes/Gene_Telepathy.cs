@@ -16,10 +16,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TryInteract()
 		{
-			if (!WVC_Biotech.settings.enableHarmonyTelepathyGene)
-			{
-				GeneInteractionsUtility.TryInteractRandomly(pawn, true, true, false, out _);
-			}
+			//if (!WVC_Biotech.settings.enableHarmonyTelepathyGene)
+			//{
+			//}
+			GeneInteractionsUtility.TryInteractRandomly(pawn, true, true, false, out _);
 			ResetInterval(new(6600, 22000));
 		}
 

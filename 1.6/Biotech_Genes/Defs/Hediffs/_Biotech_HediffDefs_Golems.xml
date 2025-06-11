@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_XaG_GolemChunk</defName> -->
+	<!-- <label>chunk</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_GolemChunk</hediffClass> -->
+  <!-- </HediffDef> -->
+
+  <!-- ============================================= -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
+	<label>bonded</label>
+	<description>Mechanoid's operational sub-core is malfunctioning. Changing the connection network can lead to a critical failure and subsequent self-destruction of the mechanoid.
+
+&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; Mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<priceImpact>true</priceImpact>
+	<priceOffset>-350</priceOffset>
+	<stages>
+	  <li>
+		<statFactors>
+		  <BandwidthCost>0</BandwidthCost>
+		  <!-- <ArmorRating_Blunt>0.75</ArmorRating_Blunt> -->
+		  <!-- <ArmorRating_Sharp>0.75</ArmorRating_Sharp> -->
+		  <!-- <ArmorRating_Heat>0.8</ArmorRating_Heat> -->
+		</statFactors>
+		<statOffsets>
+		  <BandwidthCost>-999</BandwidthCost>
+		  <MechEnergyUsageFactor>0.50</MechEnergyUsageFactor>
+		  <MechEnergyLossPerHP>0.44</MechEnergyLossPerHP>
+		  <!-- <WorkSpeedGlobal>0.20</WorkSpeedGlobal> -->
+		  <ControlTakingTime>188</ControlTakingTime>
+		</statOffsets>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_OnlyOneOverseer"/>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

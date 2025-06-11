@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Genepack -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Genepack"]/comps</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Genepack"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<comps/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Genepack"]/comps/li[@Class="CompProperties_Styleable"]</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Genepack"]/comps</xpath>
+			  <success>Always</success>
+			  <value>
+				<li Class="CompProperties_Styleable" />
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

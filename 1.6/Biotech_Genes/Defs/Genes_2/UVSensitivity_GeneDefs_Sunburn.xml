@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- UV Sensitivity -->
+
+  <GeneDef ParentName="UVSensitivityBase" Name="WVC_XenotypesAndGenes_UVSensitivity_Base" Abstract="True">
+	<selectionWeight>0.0017</selectionWeight>
+	<dislikesSunlight>true</dislikesSunlight>
+	<exclusionTags>
+	  <li>UVSensitivity</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_UVSensitivity_Base">
+	<defName>WVC_UVSensitivity_Deadly</defName>
+	<label>deadly UV sensitivity</label>
+	<labelShortAdj>UV-vulnerable</labelShortAdj>
+	<description>Carriers of this gene have biological compounds in their skin that react very dangerously to UV radiation. They get burned when exposed to sunlight, and prolonged exposure can be fatal.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeadlyUVSensitivity</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeadlyUVSensitivity_v0</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	  <li>If a pawn is &lt;color=#8a8ae6&gt;not fully covered&lt;/color&gt; by clothing, then it regularly &lt;color=#ff8585&gt;receives burns&lt;/color&gt; and a stacking &lt;color=#ff8585&gt;mood debuff&lt;/color&gt;. Burns deal &lt;color=#ff8585&gt;damage to armor&lt;/color&gt;.</li>
+	  <li>Debuff lasts a little less than &lt;color=#ff8585&gt;half a day&lt;/color&gt;, and the stack's effectiveness is halved for each.</li>
+	</customEffectDescriptions>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <MoveSpeed>0.6</MoveSpeed>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>tunnel</symbol></li>
+		<li><symbol>under</symbol></li>
+		<li><symbol>cave</symbol></li>
+		<li><symbol>crypt</symbol></li>
+		<li><symbol>dim</symbol></li>
+		<li><symbol>night</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XaG_DeadlyUVSensitivity</MeAboutThoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- UV Phobia -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_UVSensitivity_Base">
+	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
+	<label>unpleasant UV sensitivity</label>
+	<description>Carriers of this gene have special biological compounds in their skin that react to UV radiation. When exposed to sunlight, their reactions are impaired and they find it difficult to move.</description>
+	<iconPath>WVC/UI/Genes/Gene_SunlightExposureMild_v0</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>5</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+		  <MeleeCooldownFactor>1.5</MeleeCooldownFactor>
+		</statOffsets>
+		<statFactors>
+		  <MoveSpeed>0.8</MoveSpeed>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_UVSensitivity_Base">
+	<defName>WVC_DebuffUV_ExtremeInjuryHealing</defName>
+	<label>noctol light sensitivity</label>
+	<description>Carriers of this gene have special biological compounds in their skin that react to any light. Even the slightest exposure to light causes great discomfort to the carrier, slowing it and weakening its attacks.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_SunlightExposureExtreme_v0</iconPath>
+	<displayOrderInCategory>58</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Carriers of this gene are weakened by any light sources.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_InLight">
+		<statOffsets>
+		  <MeleeCooldownFactor>2</MeleeCooldownFactor>
+		</statOffsets>
+		<statFactors>
+		  <MoveSpeed>0.5</MoveSpeed>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_XaG_LightExposure</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

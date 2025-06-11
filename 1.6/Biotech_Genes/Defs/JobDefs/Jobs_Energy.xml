@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_RechargeableStomach</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_StomachCharge</driverClass>
+	<reportString>charging.</reportString>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_RechargeableHemogen</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_HemogenCharge</driverClass>
+	<reportString>hemogen charging.</reportString>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_RepairXenoHuman</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_RepairHuman</driverClass>
+	<reportString>repairing TargetA.</reportString>
+  </JobDef>
+
+</Defs>

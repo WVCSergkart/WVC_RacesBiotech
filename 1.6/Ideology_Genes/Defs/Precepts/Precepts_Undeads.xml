@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IssueDef>
+	<defName>WVC_Undeads</defName>
+	<label>undeads</label>
+	<iconPath>WVC/UI/Precepts/Precept_Undead</iconPath>
+  </IssueDef>
+
+  <!-- <HistoryEventDef> -->
+	<!-- <defName>WVC_UndeadDied</defName> -->
+	<!-- <label>undead died</label> -->
+  <!-- </HistoryEventDef> -->
+
+  <PreceptDef>
+	<defName>WVC_Undeads_Revered</defName>
+	<issue>WVC_Undeads</issue>
+	<label>revered</label>
+	<description>Undeads should be worshipped. Believers will be happy if there is a undead in the colony.</description>
+	<impact>Medium</impact>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Undeads_Revered_Opinion_Undead</thought>
+		<description>Undead</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Undead_ReveredUndead</thought>
+		<description>Revered undead</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_UndeadColonist_Revered</thought>
+		<thoughtStageDescriptions>
+		  <li>No undeads</li>
+		  <li>No undead leader</li>
+		  <li>Undead leader</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_ReimplanterResurrection</eventDef>
+		<eventLabel>resurrected someone (post reimplanter)</eventLabel>
+		<points>2</points>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_UndeadResurrection</eventDef>
+		<eventLabel>undead resurrection</eventLabel>
+		<points>3</points>
+	  </li>
+	</comps>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+	<!-- </exclusionTags> -->
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Undeads_Reviled</defName>
+	<issue>WVC_Undeads</issue>
+	<label>reviled</label>
+	<description>The dead must remain dead.</description>
+	<impact>Medium</impact>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Undeads_Reviled_Opinion_Undead</thought>
+		<description>Undead</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Undead_ReviledUndead</thought>
+		<description>Undead self hatred</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_UndeadColonist_Reviled</thought>
+		<description>Undead among us</description>
+	  </li>
+	</comps>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Reviled</li> -->
+	<!-- </exclusionTags> -->
+  </PreceptDef>
+
+
+  <!-- Thoughts -->
+
+  <ThoughtDef>
+	<defName>WVC_Undeads_Revered_Opinion_Undead</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Undead_Social</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>undead</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Undeads_Reviled_Opinion_Undead</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Undead_Social</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>undead</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Undead_ReveredUndead</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_IsUndead</workerClass>
+	<stages>
+	  <li>
+		<label>revered undead</label>
+		<description>Let them worship me. My wisdom comes not only from time, but also from my blood.</description>
+		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Undead_ReviledUndead</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_IsUndead</workerClass>
+	<stages>
+	  <li>
+		<label>undead self hatred</label>
+		<description>I am what I hate. I must rid myself of this curse.</description>
+		<baseMoodEffect>-12</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_UndeadColonist_Revered</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_UndeadColonist</workerClass>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<stages>
+	  <li>
+		<label>no undead</label>
+		<description>Without a undead leader, our colony feels incomplete and pointless. We should make a undead our leader.</description>
+		<baseMoodEffect>-2</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>no undead leader</label>
+		<description>Without a undead leader, our colony feels incomplete and pointless. We should make a undead our leader.</description>
+		<baseMoodEffect>-1</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>undead leader</label>
+		<description>The undead's presence is a great honor. May they live forever.</description>
+		<baseMoodEffect>2</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_UndeadColonist_Reviled</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_UndeadPresent</workerClass>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<stages>
+	  <li>
+		<label>undead among us</label>
+		<description>One of them walks among us. We should expel the undead from our home.</description>
+		<baseMoodEffect>-8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

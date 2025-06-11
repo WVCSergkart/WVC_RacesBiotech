@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier" Abstract="True">
+	<label>perfect senescent</label>
+	<description>Carriers of this gene have almost perfect immunity and they never get chronic age-related diseases like cancer, bad back, cataracts, or dementia.</description>
+	<iconPath>WVC/UI/Genes/Gene_PerfectCombo_v0</iconPath>
+	<!-- <suffixDefName>DiseaseFree</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>PerfectImmunity</li> -->
+	  <!-- <li>DiseaseFree</li> -->
+	<!-- </inheritableGeneDefs> -->
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<biostatCpx>6</biostatCpx>
+	<customEffectDescriptions>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li> -->
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">2</WVC_ScarifierScars>
+	</statOffsets>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<selectionWeight>0.00025</selectionWeight>
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>GutWorms</li> -->
+	  <!-- <li>MuscleParasites</li> -->
+	  <!-- <li>FibrousMechanites</li> -->
+	  <!-- <li>SensoryMechanites</li> -->
+	<!-- </makeImmuneTo> -->
+	<!-- <hediffGiversCannotGive> -->
+	  <!-- <li>TraumaSavant</li> -->
+	<!-- </hediffGiversCannotGive> -->
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>2</scarsCount> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
+	<defName>WVC_PerfectImmunity_DiseaseFree</defName>
+	<biostatCpx>6</biostatCpx>
+	<biostatMet>-6</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
+	<defName>WVC_ArchitePerfectImmunity_DiseaseFree</defName>
+	<biostatMet>0</biostatMet>
+	<biostatArc>2</biostatArc>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneScarifier_Base" Abstract="True">
+	<selectionWeight>0.00125</selectionWeight>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier</defName>
+	<label>scarifier</label>
+	<description>Carriers of this gene, due to the instability of the epidermis, get naturally formed scars.</description>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<iconPath>WVC/UI/Genes/Gene_Scarifier_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Scarifier</geneClass>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<!-- <preventPermanentWounds>true</preventPermanentWounds> -->
+	<customEffectDescriptions>
+		<li>Adds a &lt;color=#8a8ae6&gt;scarification&lt;/color&gt; every 4 days</li>
+		<!-- <li>Base number of scars 3</li> -->
+		<!-- <li>Some genes can change the number of scars.</li> -->
+		<!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li> -->
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">6</WVC_ScarifierScars>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>scar</symbol></li>
+		<li><symbol>scari</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsStatDef>WVC_ScarifierScars</scarsStatDef>
+			<!-- <scarsCount>3</scarsCount> -->
+			<!-- <scarGeneDefs> -->
+			  <!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
+			  <!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
+			  <!-- <li>WVC_Scarifier_GeneticStability</li> -->
+			  <!-- <li>WVC_Scarifier_Pain</li> -->
+			  <!-- <li>WVC_ShapeshiftSkin</li> -->
+			  <!-- <li>WVC_Shapeshifter</li> -->
+			  <!-- <li>WVC_Shapeshifter_Rand</li> -->
+			  <!-- <li>WVC_Scarifier_Scarshield</li> -->
+			  <!-- <li>WVC_Scarifier_Scarstomach</li> -->
+			  <!-- <li>WVC_Scarifier_ArchiteScarstomach</li> -->
+			  <!-- <li>WVC_Scarifier_StrongMelee</li> -->
+			<!-- </scarGeneDefs> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
+	<defName>WVC_Scarifier_GeneticStability</defName>
+	<label>scarifier stability</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ScarifierStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_GeneticStability_v0</iconPath>
+	<iconColor>(60, 60, 60)</iconColor>
+	<selectionWeight>0.00125</selectionWeight>
+	<biostatCpx>-8</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions Inherit="False">
+	  <li>Removes &lt;color=#8a8ae6&gt;xenogerm replication&lt;/color&gt; effects after scarification with a &lt;color=#8a8ae6&gt;scarifier&lt;/color&gt; or similar triggers.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <scarsCount>-2</scarsCount> -->
+			<intervalRange>122000~840000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePain_Base">
+	<defName>WVC_Scarifier_Pain</defName>
+	<label>habitual pain</label>
+	<labelShortAdj>habity</labelShortAdj>
+	<description>Carriers of this gene are less susceptible to mild pain, and pain itself is nothing more than a signal for them.</description>
+	<iconPath>WVC/UI/Genes/Gene_Pain_Scarifier_v0</iconPath>
+	<selectionWeight>0.00125</selectionWeight>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<painOffset>-0.2</painOffset>
+	<customEffectDescriptions>
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 1</li> -->
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>habit</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier_Clotting</defName>
+	<label>scarifier clotting</label>
+	<description>Carriers of this gene have special coagulation factors in the blood, due to which wounds are treated on their own. However, because of this, there is a chance of scarring.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ScarifierClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ScarifierClotting_v0</iconPath>
+	<iconColor>(70, 70, 70)</iconColor>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Wounds will be automatically treated, but treating each wound has a 20% scar appearance.</li>
+		<li>With the &lt;color=#8a8ae6&gt;"Scarifier"&lt;/color&gt; gene, the number of scars will be limited.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<exclusionTags>
+	  <li>SuperClotting</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>-2</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier_Scarshield</defName>
+	<label>scarshield</label>
+	<description>Carriers of this gene become stronger when they receive scars.</description>
+	<iconPath>WVC/UI/Genes/Gene_Scarshield_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+	  <li>Incoming damage -15% per scar</li>
+	  <!-- <li>Melee damage +5% per scar</li> -->
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
+	  <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>shield</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Toughness</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_Scarshield</hediffDefName>
+			<!-- <scarsCount>-2</scarsCount> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base" Name="WVC_XenotypesAndGenes_GeneScarifier_Stomach" Abstract="True">
+	<label>scarstomach</label>
+	<description>Carriers of this gene receive more nutrients when ingesting, and they can get full from almost anything.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ScarStomach_v0</iconPath>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<dontMindRawFood>true</dontMindRawFood>
+	<selectionWeight>0.00025</selectionWeight>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+	  <!-- <li>Any ingestible things completely replenish hunger.</li> -->
+	  <li>Increases nutrition received from food by 5 times.</li>
+	  <li>Max nutrition +0.2 per scar</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>worldeater</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>eater</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>vore</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_Scarstomach</hediffDefName>
+			<!-- <scarsCount>-2</scarsCount> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+	<defName>WVC_Scarifier_Scarstomach</defName>
+	<!-- <biostatCpx>-6</biostatCpx> -->
+	<biostatMet>-6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>30</displayOrderInCategory>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+	<defName>WVC_Scarifier_ArchiteScarstomach</defName>
+	<!-- <biostatCpx>-6</biostatCpx> -->
+	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
+	<displayOrderInCategory>32</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier_StrongMelee</defName>
+	<label>scarifier melee</label>
+	<description>Carriers of this gene do more damage in close-quarters combat. Extra-strong fast-twitch muscle fibers make their strikes accurate and powerful. Scars greatly enhance this effect.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SemiAptitudes_StrongMelee_v0</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>Melee damage +5% per scar</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-2</WVC_ScarifierScars>
+	</statOffsets>
+	<statFactors>
+	  <MeleeDamageFactor>1.5</MeleeDamageFactor>
+	</statFactors>
+	<exclusionTags>
+	  <li>MeleeDamage</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_StrongMelee</hediffDefName>
+			<!-- <scarsCount>-2</scarsCount> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base" MayRequire="ludeon.rimworld.royalty"> -->
+	<!-- <defName>WVC_ScarifierPsylink</defName> -->
+	<!-- <label>scarifier psylink</label> -->
+	<!-- <description>Carriers of this gene gain psionic power from the hemogen.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Psylink</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Psylink_Scarifier_v0</iconPath> -->
+	<!-- <displayOrderInCategory>45</displayOrderInCategory> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>psy</symbol></li> -->
+		<!-- <li><symbol>focus</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>Psylink</li> -->
+	  <!-- <li>AbilityPsylink</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>-2</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  
+</Defs>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_ChestFur</defName>
+	<label>chest fur</label>
+	<description>Carriers of this gene grow fur on their chest.</description>
+	<iconPath>WVC/UI/Genes/FurChest_Icon_v0</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<statOffsets>
+	  <ComfyTemperatureMin>-5</ComfyTemperatureMin>
+	</statOffsets>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Body</workerClass>
+		<!-- <texPath>WVC/BodyParts/Chest/FurChest</texPath> -->
+		<baseLayer>5</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Hair</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/BodyParts/Chest/FurChest</Male>
+		  <Female>WVC/BodyParts/Chest/FurChest_Female</Female>
+		  <Fat>WVC/BodyParts/Chest/FurChest_Fat</Fat>
+		  <Thin>WVC/BodyParts/Chest/FurChest_Thin</Thin>
+		  <Hulk>WVC/BodyParts/Chest/FurChest_Hulk</Hulk>
+		</bodyTypeGraphicPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fur</symbol></li>
+		<li><symbol>chest</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

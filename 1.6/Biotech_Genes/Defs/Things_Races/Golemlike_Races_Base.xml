@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
+		<statBases>
+			<BandwidthCost>0.2</BandwidthCost>
+			<!-- <MechEnergyUsageFactor>1.0</MechEnergyUsageFactor> -->
+			<MechEnergyLossPerHP>1.0</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0</WastepacksPerRecharge>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">148</ControlTakingTime>
+			<MarketValue>70</MarketValue>
+			<!-- Work -->
+			<FoodPoisonChance>0</FoodPoisonChance>
+			<MiningSpeed>0.50</MiningSpeed>
+			<PlantWorkSpeed>0.50</PlantWorkSpeed>
+			<ConstructionSpeed>0.50</ConstructionSpeed>
+			<SmoothingSpeed>0.50</SmoothingSpeed>
+			<GeneralLaborSpeed>0.50</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.50</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.50</MedicalOperationSpeed>
+			<CookSpeed>0.50</CookSpeed>
+			<SmeltingSpeed>0.50</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.50</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.50</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.50</ButcheryMechanoidSpeed>
+			<CleaningSpeed>0.50</CleaningSpeed>
+			<!-- Other -->
+			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>2.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.8</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<body>Mech_Light</body>
+			<maxMechEnergy>30</maxMechEnergy>
+			<mechFixedSkillLevel>8</mechFixedSkillLevel>
+			<!-- <deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse"> -->
+				<!-- <deSpawn>false</deSpawn> -->
+			<!-- </deathAction> -->
+			<hasCorpse>false</hasCorpse>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<!-- <mechWeightClass>Golem</mechWeightClass> -->
+			<lifeStageAges Inherit="False">
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
+					<!-- <soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded> -->
+				</li>
+			</lifeStageAges>
+			<hediffGiverSets Inherit="False"/>
+		</race>
+		<butcherProducts Inherit="False">
+			<Steel>5</Steel>
+		</butcherProducts>
+	</ThingDef>
+
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Abstract="True">
+		<allowInMechClusters>false</allowInMechClusters>
+		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+		<isFighter>false</isFighter>
+		<abilities>
+			<li>WVC_XenotypesAndGenes_GolemlikeInstantKill</li>
+		</abilities>
+	</PawnKindDef>
+
+	<!-- Abilities -->
+
+  <AbilityDef Name="WVC_GestationAbilities_Base" Abstract="True">
+	<label>gestator</label>
+	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+	<canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<showPsycastEffects>False</showPsycastEffects>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<showWhenDrafted>false</showWhenDrafted>
+	<hostile>false</hostile>
+	<targetRequired>False</targetRequired>
+	<showCastingProgressBar>True</showCastingProgressBar>
+	<!-- <category>WVC_Mechalike</category> -->
+	<!-- <groupDef>WVC_MechaGestator</groupDef> -->
+	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
+	<overrideGroupCooldown>True</overrideGroupCooldown>
+	<groupAbility>True</groupAbility>
+	<statBases>
+	  <Ability_Duration>5010</Ability_Duration>
+	</statBases>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <label>start gestation</label>
+	  <warmupTime>3</warmupTime>
+	  <range>0</range>
+	  <drawAimPie>False</drawAimPie>
+	  <requireLineOfSight>False</requireLineOfSight>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetSelf>True</canTargetSelf>
+		<canTargetBuildings>False</canTargetBuildings>
+		<canTargetAnimals>False</canTargetAnimals>
+		<!-- <thingCategory>Item</thingCategory> -->
+		<!-- <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable> -->
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+  </AbilityDef>
+
+	<AbilityDef ParentName="WVC_GestationAbilities_Base">
+		<defName>WVC_XenotypesAndGenes_GolemlikeInstantKill</defName>
+		<label>permanent shutdown</label>
+		<description>Order the archites to disperse, which will result in the instant death of the golem.</description>
+		<iconPath>WVC/UI/XaG_General/Ui_InstantKill</iconPath>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+			<hediffDef>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffDef>
+			<onlyApplyToSelf>true</onlyApplyToSelf>
+			<onlyReproductive>false</onlyReproductive>
+		  </li>
+		</comps>
+		<confirmationDialogText>After using the ability, the golem will instantly die.\n\nAre you sure?</confirmationDialogText>
+	</AbilityDef>
+
+	<AbilityDef ParentName="WVC_GestationAbilities_Base">
+		<defName>WVC_MechanoidAbility_ActivateGestator</defName>
+		<label>gestator</label>
+		<description>This mechanoid has a large accumulation of archites, sufficient to form organic life.</description>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+			<hediffDef>WVC_MechanoidAbility_ActivateGestator</hediffDef>
+			<onlyApplyToSelf>true</onlyApplyToSelf>
+			<onlyReproductive>false</onlyReproductive>
+			<mechanoidCheck>true</mechanoidCheck>
+			<overseerShouldHaveGene>WVC_SwarmConnection_Golems</overseerShouldHaveGene>
+		  </li>
+		</comps>
+		<confirmationDialogText>After activating the ability, the golem will begin gestation, during which time it will continue to do its job. When the gestation process is over, the golemnoid will die. The process cannot be interrupted.\n\nPlease note that if the golemnoid loses connection with the overseer during the process, it will immediately die.\n\nDo you still need a new pawn?</confirmationDialogText>
+	</AbilityDef>
+
+  <PawnRenderTreeDef>
+	<defName>WVC_Golemnoid_Tree</defName>
+	<root Class="PawnRenderNodeProperties_Parent">
+	  <debugLabel>Root</debugLabel>
+	  <tagDef>Root</tagDef>
+	  <children>
+		<li>
+		  <debugLabel>Body</debugLabel>
+		  <tagDef>Body</tagDef>
+		  <useRottenColor>false</useRottenColor>
+		  <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_Golemnoid</nodeClass>
+		  <children>
+			<li>
+			  <debugLabel>Firefoam</debugLabel>
+			  <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+			  <workerClass>PawnRenderNodeWorker_OverlayFirefoam</workerClass>
+			  <overlayLayer>Body</overlayLayer>
+			  <useGraphic>false</useGraphic>
+			  <baseLayer>10</baseLayer>
+			</li>
+			<li Class="PawnRenderNodeProperties_Carried">
+			  <debugLabel>Carried thing</debugLabel>
+			  <workerClass>PawnRenderNodeWorker_Carried</workerClass>
+			</li>
+		  </children>
+		</li>
+	  </children>
+	</root>
+  </PawnRenderTreeDef>
+
+</Defs>

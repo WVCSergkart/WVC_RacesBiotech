@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneSleepBase" Name="WVC_XenotypesAndGenes_GeneSleep_Base" Abstract="True">
+	<selectionWeight>0.0025</selectionWeight>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- Archite version -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base">
+	<defName>WVC_Neversleep</defName>
+	<label>never rest</label>
+	<description>Carriers of this gene have a unique metabolic process which allows clusters of neurons to sleep while the rest of the brain stays awake. They never need to sleep.</description>
+	<iconPath>WVC/UI/Genes/Gene_NeverRest_v0</iconPath>
+	<marketValueFactor>1.5</marketValueFactor>
+	<displayOrderInCategory>31</displayOrderInCategory>
+	<selectionWeight>0.00125</selectionWeight>
+	<disablesNeeds>
+	  <li>Rest</li>
+	  <li>Comfort</li>
+	</disablesNeeds>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DisableComfort</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wake</symbol></li>
+		<li><symbol>night</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base"> -->
+	<!-- <defName>WVC_MecaUpgrades_EnergySavingMode</defName> -->
+	<!-- <label>healthy sleep</label> -->
+	<!-- <description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath> -->
+	<!-- <displayOrderInCategory>-10</displayOrderInCategory> -->
+	<!-- <selectionWeight>0.00125</selectionWeight> -->
+	<!-- <biostatMet>5</biostatMet> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>QuickSleeper</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>SleepingSickness</li> -->
+	<!-- </makeImmuneTo> -->
+  <!-- </GeneDef> -->
+
+</Defs>

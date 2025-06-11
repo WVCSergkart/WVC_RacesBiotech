@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FurDef Name="WVC_XenotypesAndGenes_FurDef_Base" Abstract="True">
+	<noGraphic>true</noGraphic>
+	<!-- <requiredGene>WVC_MechaSkin</requiredGene> -->
+	<!-- Default bodies paths -->
+	<bodyTypeGraphicPaths>
+	  <Male>Things/Pawn/Humanlike/Bodies/Naked_Male</Male>
+	  <Female>Things/Pawn/Humanlike/Bodies/Naked_Female</Female>
+	  <Hulk>Things/Pawn/Humanlike/Bodies/Naked_Hulk</Hulk>
+	  <Fat>Things/Pawn/Humanlike/Bodies/Naked_Fat</Fat>
+	  <Thin>Things/Pawn/Humanlike/Bodies/Naked_Thin</Thin>
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <!-- ==================================== -->
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_RuneSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/RunicGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/RunicGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/RunicGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/RunicGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/RunicGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_StoneSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/StoneGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/StoneGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/StoneGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/StoneGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/StoneGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_PatchSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/UndeadGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/UndeadGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/UndeadGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/UndeadGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/UndeadGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_ShapeshiftSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Shapeshifter_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Shapeshifter_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Shapeshifter_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Shapeshifter_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Shapeshifter_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_TransparentSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Transparent_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Transparent_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Transparent_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Transparent_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Transparent_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinTransparent>true</furIsSkinTransparent>
+			<alpha>0.9</alpha>
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_GauntSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Gauntskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Gauntskin_Body/Naked_Female</Female>
+	  <Thin>WVC/Bodies/Gauntskin_Body/Naked_Thin</Thin>
+	  <!-- A fat and a hulk cannot be anorexic thin.. -->
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_MechaSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/MecaGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/MecaGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithMask>true</furIsSkinWithMask>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_CyberSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Cyberskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Cyberskin_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Cyberskin_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Cyberskin_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Cyberskin_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithMask>true</furIsSkinWithMask>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_DryadSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <!-- Only Female -->
+	  <Female>WVC/Bodies/Dryad_Body/Naked_Female</Female>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <!-- <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base"> -->
+	<!-- <defName>WVC_NodeSkin</defName> -->
+	<!-- <bodyTypeGraphicPaths> -->
+	  <!-- <Male>WVC/Bodies/NodeGene_Body/Naked_Male</Male> -->
+	  <!-- <Female>WVC/Bodies/NodeGene_Body/Naked_Female</Female> -->
+	  <!-- <Hulk>WVC/Bodies/NodeGene_Body/Naked_Hulk</Hulk> -->
+	  <!-- <Fat>WVC/Bodies/NodeGene_Body/Naked_Fat</Fat> -->
+	  <!-- <Thin>WVC/Bodies/NodeGene_Body/Naked_Thin</Thin> -->
+	<!-- </bodyTypeGraphicPaths> -->
+  <!-- </FurDef> -->
+
+  <!-- <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base"> -->
+	<!-- <defName>WVC_FishSkin</defName> -->
+	<!-- <bodyTypeGraphicPaths> -->
+	  <!-- <Male>WVC/Bodies/Mermaid_Body/Naked_Male</Male> -->
+	  <!-- <Female>WVC/Bodies/Mermaid_Body/Naked_Female</Female> -->
+	  <!-- <Hulk>WVC/Bodies/Mermaid_Body/Naked_Hulk</Hulk> -->
+	  <!-- <Fat>WVC/Bodies/Mermaid_Body/Naked_Fat</Fat> -->
+	  <!-- <Thin>WVC/Bodies/Mermaid_Body/Naked_Thin</Thin> -->
+	<!-- </bodyTypeGraphicPaths> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic"> -->
+			<!-- <furIsSkin>true</furIsSkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </FurDef> -->
+
+  <!-- ==================================== -->
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_FeatheredSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Feathered_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Feathered_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Feathered_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithHair>true</furIsSkinWithHair>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_SemifurSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Semifur_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Semifur_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Semifur_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Semifur_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Semifur_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithHair>true</furIsSkinWithHair>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+</Defs>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Monolith</defName>
+	<label>monolith trigger</label>
+	<description>Carriers of this gene can only morph when the monolith is embraced.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MonolithMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Monolith</iconPath>
+	<displayOrderInCategory>-95.100</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>Allows &lt;color=#8a8ae6&gt;morph&lt;/color&gt; when &lt;color=#b0bf80&gt;monolith is embraced&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_DeathRefusal</defName>
+	<label>death refusal trigger</label>
+	<description>Carriers of this gene can morph at the cost of death refusal attempts.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathRefusalMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_DearhRefusal</iconPath>
+	<displayOrderInCategory>-95.110</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <selectionWeight>0.00</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<customEffectDescriptions>
+		<li>Allows &lt;color=#8a8ae6&gt;morph&lt;/color&gt; using &lt;color=#b0bf80&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; consumes 1 attempt per use.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphEffects_Mutations</defName>
+	<label>mutation morph</label>
+	<description>Carriers of this gene are subject to flesh mutations during morph.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorphMutations</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_RandXenos</iconPath>
+	<displayOrderInCategory>-45</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>After &lt;color=#8a8ae6&gt;morph&lt;/color&gt; causes a random &lt;color=#b0bf80&gt;mutation&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

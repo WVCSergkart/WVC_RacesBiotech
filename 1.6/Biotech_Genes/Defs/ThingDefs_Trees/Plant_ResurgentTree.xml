@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="TreeBase">
+	<defName>WVC_Plant_TreeResurgent</defName>
+	<label>resurgent tree</label>
+	<description>Resurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread small fungi. These trees are largely harmless, except for pollution.</description>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef> -->
+	  <!-- <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+	<tickerType>Long</tickerType>
+	<statBases>
+	  <Beauty>12</Beauty>
+	  <BeautyOutdoors>6</BeautyOutdoors>
+	  <Flammability>0.5</Flammability>
+	  <MaxHitPoints>850</MaxHitPoints>
+	</statBases>
+	<ingestible />
+	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+	<canScatterOver>false</canScatterOver>
+	<specialDisplayRadius>19.9</specialDisplayRadius>
+	<plant>
+	  <interferesWithRoof>false</interferesWithRoof>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <growDays>10</growDays>
+	  <visualSizeRange>1.5~2.1</visualSizeRange>
+	  <sowMinSkill>0</sowMinSkill>
+	  <sowTags Inherit="False"/>
+	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <sowWork>400</sowWork>
+	  <harvestYield>30</harvestYield>
+	  <treeCategory>Super</treeCategory>
+	  <dieIfNoSunlight>false</dieIfNoSunlight>
+	  <sowResearchPrerequisites Inherit="False" />
+	  <dieFromToxicFallout>False</dieFromToxicFallout>
+	  <showGrowthInInspectPane>false</showGrowthInInspectPane>
+	  <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+	  <warnIfMarkedForCut>true</warnIfMarkedForCut>
+	  <harvestWork>1000</harvestWork>
+	  <choppedThingDef>ChoppedStump_Polluted</choppedThingDef>
+	  <smashedThingDef>SmashedStump_Polluted</smashedThingDef>
+	  <immatureGraphicPath>WVC/Things/XaG_Buildings/MushroomTreeBulbs/Bulb_A</immatureGraphicPath>
+	</plant>
+	<comps>
+	  <li Class="CompProperties_SelfhealHitpoints">
+		<ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
+	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_WalkingCorpsesSpawner"> -->
+		<!-- <ticksBetweenSpawn>120000~900000</ticksBetweenSpawn> -->
+		<!-- <canBeCustomized>true</canBeCustomized> -->
+		<!-- <filthDef>Filth_CorpseBile</filthDef> -->
+		<!-- <summonsList> -->
+		  <!-- <li>WVC_Golem_Skeleton</li> -->
+		  <!-- <li>WVC_Golem_Bonepile</li> -->
+		  <!-- <li>WVC_Golem_Funghead</li> -->
+		  <!-- <li>WVC_Golem_Aberration</li> -->
+		<!-- </summonsList> -->
+	  <!-- </li> -->
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
+		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<cellsToPollute>12</cellsToPollute>
+		<radius>19.9</radius>
+	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>5.5</glowRadius>
+		<glowColor>(125,150,125, 0)</glowColor>
+	  </li>
+	  <li Class="CompProperties_SpawnSubplant">
+		<compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass>
+		<subplant>WVC_Plant_MossResurgent</subplant>
+		<maxRadius>7.9</maxRadius>
+		<subplantSpawnDays>1</subplantSpawnDays>
+		<minGrowthForSpawn>0.6</minGrowthForSpawn>
+		<initialGrowthRange>0.2~0.8</initialGrowthRange>
+		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName"> -->
+		<!-- <nameMaker>WVC_XenotypesAndGenes_MushroomTreeNames</nameMaker> -->
+	  <!-- </li> -->
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantBaseNonEdible">
+	<defName>WVC_Plant_MossResurgent</defName>
+	<label>resurgent moss</label>
+	<description>Symbiotic moss that grows near resurgent trees.</description>
+	<statBases>
+	  <MaxHitPoints>100</MaxHitPoints>
+	  <Beauty>4</Beauty>
+	  <BeautyOutdoors>4</BeautyOutdoors>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree_Moss</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<plant>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <sowMinSkill>0</sowMinSkill>
+	  <growDays>5</growDays>
+	  <visualSizeRange>0.5~0.7</visualSizeRange>
+	  <topWindExposure>0</topWindExposure>
+	  <allowAutoCut>false</allowAutoCut>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <maxMeshCount>4</maxMeshCount>
+	</plant>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_ResurgentSeed</defName>
+	<label>resurgent spore</label>
+	<description>The spore of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<stackLimit>5</stackLimit>
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <Mass>0.3</Mass>
+	  <Beauty>0</Beauty>
+	  <MarketValue>720</MarketValue>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/ResurgentSeed</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>(1.0, 1.0)</drawSize>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XaG_TreeSeeds</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<!-- <thingSetMakerTags> -->
+	  <!-- <li>RewardStandardLowFreq</li> -->
+	<!-- </thingSetMakerTags> -->
+	<comps>
+	  <li Class="CompProperties_Plantable">
+		<plantDefToSpawn>WVC_Plant_TreeResurgent</plantDefToSpawn>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

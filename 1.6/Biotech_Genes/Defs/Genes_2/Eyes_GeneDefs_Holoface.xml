@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================= -->
+
+   <!-- ParentName="GeneEyeColor" -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" Name="WVC_XenotypesAndGenes_GeneEyeColor_Holoface" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
+	<defName>WVC_Eyes_Holoeyes</defName>
+	<label>holoeyes</label>
+	<description>Carriers of this gene have archites that create a holographic projection over their face that can change color at the will of the carrier.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Holoface</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
+	<prerequisite>WVC_NodeSkin</prerequisite>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayOrderInCategory>4</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<statOffsets>
+	  <SocialImpact>0.1</SocialImpact>
+	</statOffsets>
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/HoloEyeTriple</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeOrbital</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeMeca</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeDouble</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh</rotDrawMode>
+		<shaderTypeDef>MoteGlow</shaderTypeDef>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.25</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/HoloEyeTriple</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeOrbital</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeMeca</li>
+			<li>WVC/BodyParts/Eyes/HoloEyeDouble</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh</rotDrawMode>
+		<shaderTypeDef>MoteGlow</shaderTypeDef>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.25</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	  <!-- <li> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableBody</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksA</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksB</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksC</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksD</li> -->
+		<!-- </texPaths> -->
+		<!-- <color>(255, 255, 255)</color> -->
+		<!-- <rotDrawMode>Fresh</rotDrawMode> -->
+		<!-- <shaderTypeDef>MoteGlow</shaderTypeDef> -->
+		<!-- <drawSize>0.25</drawSize> -->
+		<!-- <baseLayer>6</baseLayer> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0, 0, 0)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(0.05, 0, 0)</offset> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(-0.05, 0, 0)</offset> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+		<!-- <visibleFacing> -->
+		  <!-- <li>East</li> -->
+		  <!-- <li>South</li> -->
+		  <!-- <li>West</li> -->
+		<!-- </visibleFacing> -->
+	  <!-- </li> -->
+	</renderNodeProperties>
+  </GeneDef>
+
+</Defs>

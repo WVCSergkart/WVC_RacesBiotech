@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_SelfRepair</defName>
+	<label>self-repair wound healing</label>
+	<description>Carriers of this gene have archites that replace their body's natural regenerative system. They heal wounds and restore lost limbs and organs. However, for them to work, the carrier must focus part of their attention on their work, directing their actions.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfRepair</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfRepairWoundHealing_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>85</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 50 hp/day</li>
+		<li>If the pawn is &lt;color=#ff8585&gt;downed, sleep or drafted&lt;/color&gt; the effect does not work.</li>
+		<li>&lt;color=#ff8585&gt;Mechanitors&lt;/color&gt; and &lt;color=#ff8585&gt;controlled mechs&lt;/color&gt; can repair the carrier if it is &lt;color=#ff8585&gt;downed&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	  <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<repairJobDef>WVC_RepairXenoHuman</repairJobDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>50</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_Unnatural</defName>
+	<label>unnatural wound healing</label>
+	<description>Carriers of this gene have archites that regenerate wounds and lost organs, but their natural regeneration leaves much to be desired.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MachineWoundHealing</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_UnnaturalWoundHealing_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>88</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 25 hp/day</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>25</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_MecaBodyParts_Kidney</defName>
+	<label>machine wound healing</label>
+	<description>Carriers of this gene have archites that regenerate wounds and lost organs, but they do not have natural regeneration.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MachineWoundHealing</geneClass>
+	<iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 100 hp/day</li>
+		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>100</regeneration>
+			<reqGeneMat>75</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- UV Phobia -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base"> -->
+	<!-- <defName>WVC_DebuffUV_StrongInjuryHealing</defName> -->
+	<!-- <label>weakened UV healing</label> -->
+	<!-- <description>Carriers of this gene have biological compounds in their skin that react dangerously to UV radiation. Their wound regeneration is significantly slower.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/SunDebuff_Heal1</iconPath> -->
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<!-- <dislikesSunlight>true</dislikesSunlight> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>3</biostatMet> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DebuffUV_InjuryHealing</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="ConditionalStatAffecter_InSunlight"> -->
+		<!-- <statFactors> -->
+		  <!-- <InjuryHealingFactor>0.5</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base"> -->
+	<!-- <defName>WVC_DebuffUV_ExtremeInjuryHealing</defName> -->
+	<!-- <label>dangerous UV healing</label> -->
+	<!-- <description>Carriers of this gene have biological compounds in their skin that react dangerously to UV radiation. Their wound regeneration is completely stopped.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/SunDebuff_Heal2</iconPath> -->
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<!-- <dislikesSunlight>true</dislikesSunlight> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>6</biostatMet> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DebuffUV_InjuryHealing</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="ConditionalStatAffecter_InSunlight"> -->
+		<!-- <statFactors> -->
+		  <!-- <InjuryHealingFactor>0.01</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+  <!-- </GeneDef> -->
+
+</Defs>

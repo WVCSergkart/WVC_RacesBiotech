@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_XaG_CreateAndEnterCocoon</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_NewDryads_CreateAndEnterCocoon</driverClass>
+	<reportString>creating cocoon.</reportString>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_XaG_DryadCocoon</thingDefToSpawn>
+		</li>
+	</modExtensions>
+  </JobDef>
+
+  <JobDef>
+	<defName>WVC_XaG_CreateAndEnterHealingPod</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_NewDryads_CreateAndEnterHealingPod</driverClass>
+	<reportString>creating healing pod.</reportString>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_XaG_DryadHealingPod</thingDefToSpawn>
+		</li>
+	</modExtensions>
+  </JobDef>
+
+</Defs>

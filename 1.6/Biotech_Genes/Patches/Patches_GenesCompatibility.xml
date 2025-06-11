@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- ============================ -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>onlyXenotypesMode</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/TraderKindDef[defName="WVC_Orbital_GenePackTrader"]</xpath>
+					<success>Always</success>
+				</li>
+
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath>
+					<success>Always</success>
+					<value>
+					  <tradeTags>
+						<li>ExoticMisc</li>
+					  </tradeTags>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath>
+					<success>Always</success>
+					<value>
+					  <tradeability>Sellable</tradeability>
+					</value>
+				</li>
+
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+
+			</operations>
+		</caseTrue>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+				  <value>
+					  <li Class="StockGenerator_Tag">
+						<tradeTag>WVC_GenePacks</tradeTag>
+						<thingDefCountRange>0~3</thingDefCountRange>
+						<countRange>1~1</countRange>
+					  </li>
+				  </value>
+				</li>
+
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"> -->
+						<!-- <xenotypeCostMult>320</xenotypeCostMult> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>spawnXenoForcerSerumsFromTraders</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+							  <value>
+								  <li Class="StockGenerator_Tag">
+									<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+									<thingDefCountRange>0~2</thingDefCountRange>
+									<countRange>1~1</countRange>
+								  </li>
+							  </value>
+							</li>
+						</operations>
+					</caseTrue>
+				</li>
+
+			</operations>
+		</caseFalse>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>hideXaGGenes</settingName>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
+				  <value>
+					  <displayCategory>WVC_CosmeticVoices</displayCategory>
+				  </value>
+				</li>
+
+			</operations>
+		</caseFalse>
+	</Operation>
+
+	<!-- ======================================================== -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/FactionDef/caravanTraderKinds[li="Caravan_Outlander_Exotic"]</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GenePackTrader</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'ToxResist_Total') or contains(text(),'ToxicEnvironmentResistance_Total') or contains(text(),'Mashed_Ashlands_AshResistance_Perfect')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_ToxResist_Total</li>
+		  <li>WVC_ToxResist_Archite</li>
+		  <li>WVC_MecaBodyParts_Lung</li>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HeadTypeDef[defName="Gaunt"]/requiredGenes</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GauntSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'RobustDigestion')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_EternalHunger</li>
+		  <li>WVC_SuperStomach</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
+		  <li>WVC_MecaBodyParts_Stomach</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'Furskin')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_SemifurSkin</li>
+		  <li>WVC_CyberSkin</li>
+		  <li>WVC_MechaSkin</li>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[replaceThoughts[li[contains(text(),'AteLavishMeal')]] or replaceThoughts[li[contains(text(),'AteFineMeal')]]]/replaceThoughts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_WellCharged</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- ======================================================== -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingGenes/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_Scarifier_Pain</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Scarifier_Pain</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pretty" or defName="Ugly"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MechaAI_SoftwareMoving</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="SoakingWet"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li>WVC_FishSkin</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <willNeverEat/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath> -->
+	  <!-- <value> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingGenes/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath> -->
+	  <!-- <value> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Feminine</li>
+		  <li>WVC_DryadSkin</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- ============================================================ -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>WVC - Work Modes</li>
+		</mods>
+		<match Class="PatchOperationRemove">
+			<xpath>/Defs/DesignationCategoryDef[defName="Biotech"]/researchPrerequisites</xpath>
+			<success>Always</success>
+		</match>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationFindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>Alpha Genes</li> -->
+		<!-- </mods> -->
+		<!-- <match Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[@Name="WVC_NaturalArmorBase"]/displayCategory</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <displayCategory>AG_Armour</displayCategory> -->
+					<!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[@Name="WVC_MonogenderBase"]/displayCategory</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <displayCategory>AG_Gender</displayCategory> -->
+					<!-- </value> -->
+				<!-- </li> -->
+
+			<!-- </operations> -->
+		<!-- </match> -->
+	<!-- </Operation> -->
+
+	<!-- ============================================================ -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/minValue</xpath>
+		<success>Always</success>
+		<value>
+			<minValue>0</minValue>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]/minValue</xpath>
+		<success>Always</success>
+		<value>
+			<minValue>0.1</minValue>
+		</value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[defName="Bow_Recurve"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<weaponTags>
+		  <li>WVC_XaG_GolemGun_Militoid</li>
+		</weaponTags>
+	  </value>
+	</Operation>
+
+</Patch>

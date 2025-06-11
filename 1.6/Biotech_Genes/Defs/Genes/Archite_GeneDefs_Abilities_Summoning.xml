@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities" Name="WVC_XenotypesAndGenes_MechSummoning" Abstract="True">
+	<!-- <defName>WVC_GeneSummoner_TEST</defName> -->
+	<!-- <label>TEST SUMMONER</label> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_MechsSummon</geneClass>
+	<description>Carriers of this gene have a special bond with the mechanoid fleet and can sometimes summon mechanoids.</description>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <marketValueFactor>5</marketValueFactor> -->
+	<iconPath>WVC/UI/Genes/MechSummon</iconPath>
+	<displayOrderInCategory>464</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <selectionWeight>0.0075</selectionWeight> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Recommended to be combined with the "Fleet connected" gene.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_Summoner_TEST</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_Summoner_TEST</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_MechSummonGenes</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>over</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>seer</symbol></li>
+		<li><symbol>lord</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
+	<defName>WVC_MechSummon_Light</defName>
+	<label>light mech summon</label>
+	<biostatCpx>2</biostatCpx>
+	<customEffectDescriptions>
+		<li>After activating the ability, summons from 1 to 5 light class mechanoids.</li>
+		<li>Cooldown 15 days.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+		<MechBandwidth>4</MechBandwidth>
+		<!-- <MechControlGroups>1</MechControlGroups> -->
+	</statOffsets>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Light</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Light</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>900000</spawnIntervalRange>
+			<summonRange>1~5</summonRange>
+			<!-- <summonQuest>WVC_MechanitorSummonLightMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Light</li>
+			</allowedMechWeightClasses>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
+	<defName>WVC_MechSummon_Medium</defName>
+	<label>medium mech summon</label>
+	<biostatCpx>3</biostatCpx>
+	<!-- <biostatArc>1</biostatArc> -->
+	<customEffectDescriptions>
+		<li>After activating the ability, summons from 1 to 2 medium class mechanoids.</li>
+		<li>Cooldown 15 days.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+		<MechBandwidth>6</MechBandwidth>
+		<!-- <MechControlGroups>1</MechControlGroups> -->
+	</statOffsets>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Medium</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Medium</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>900000</spawnIntervalRange>
+			<summonRange>1~2</summonRange>
+			<!-- <summonQuest>WVC_MechanitorSummonMediumMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Medium</li>
+			</allowedMechWeightClasses>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
+	<defName>WVC_MechSummon_Heavy</defName>
+	<label>heavy mech summon</label>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>After activating the ability, summons 1 heavy class mechanoid.</li>
+		<li>Cooldown 15 days.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+		<MechBandwidth>8</MechBandwidth>
+		<MechControlGroups>1</MechControlGroups>
+	</statOffsets>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Heavy</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Heavy</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>900000</spawnIntervalRange>
+			<summonRange>1</summonRange>
+			<!-- <summonQuest>WVC_MechanitorSummonHeavyMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Heavy</li>
+			</allowedMechWeightClasses>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
+	<defName>WVC_MechSummon_UltraHeavy</defName>
+	<label>ultra mech summon</label>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<customEffectDescriptions>
+		<li>After activating the ability, summons 1 ultra heavy class mechanoid.</li>
+		<li>Cooldown 30 days.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+		<MechBandwidth>12</MechBandwidth>
+		<MechControlGroups>1</MechControlGroups>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>1800000</spawnIntervalRange>
+			<summonRange>1</summonRange>
+			<!-- <summonQuest>WVC_MechanitorSummonUltraHeavyMech</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>UltraHeavy</li>
+			</allowedMechWeightClasses>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

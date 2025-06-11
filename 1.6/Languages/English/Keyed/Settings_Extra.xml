@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<!-- <WVC_BiotechSettings_Label_ExtraGenes>Info</WVC_BiotechSettings_Label_Extra> -->
+
+	<!-- <WVC_BiotechSettings_Tab_XenotypeGestatorSettings>Xenotype Gestator</WVC_BiotechSettings_Tab_XenotypeGestatorSettings> -->
+
+	<WVC_BiotechSettings_Tab_ExtraSettings>Extra</WVC_BiotechSettings_Tab_ExtraSettings>
+
+	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
+	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation)</WVC_XaGGeneSettings_Undead>
+	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
+	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
+	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator, Archiver</WVC_XaGGeneSettings_Shapeshifer>
+	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
+	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
+	<WVC_XaGGeneSettings_AcceptablePrey>Tasty (Acceptable Prey)</WVC_XaGGeneSettings_AcceptablePrey>
+	<WVC_XaGGeneSettings_Telepath>Telepath</WVC_XaGGeneSettings_Telepath>
+	<WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic>
+	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
+	<WVC_XaGGeneSettings_Hemogenic>Hemogenic</WVC_XaGGeneSettings_Hemogenic>
+	<WVC_XaGGeneSettings_Energy>Energy (Rechargeable)</WVC_XaGGeneSettings_Energy>
+	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlinks and Psylinks</WVC_XaGGeneSettings_MechAndPsyLinks>
+	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
+	<WVC_XaGGeneSettings_Fleshmass>Anomaly (Fleshmass)</WVC_XaGGeneSettings_Fleshmass>
+	<WVC_XaGGeneSettings_Learning>Learning genes</WVC_XaGGeneSettings_Learning>
+
+	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
+	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for some complex genes to work. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
+
+This should not have an impact on performance since these are one time triggers that only fire under certain conditions.
+
+An approximate list of affected mechanics: All hemogen genes triggered by a bite (bloodfeed), all body genes, all genes that add hediffs or have similar mechanics.
+
+Use this option only as a last resort and if you know what you are doing.
+
+A restart is required.</WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>
+
+	<WVC_Label_enable_xagHumanComponent>Enable human component</WVC_Label_enable_xagHumanComponent>
+	<WVC_ToolTip_enable_xagHumanComponent>If enabled, the mod will add a special component to humans. It is needed for the functioning of some visual information contained in genes, such as displaying a timer before spawning items in the pawn inspect menu and drop-down lists when right-clicking on a pawn.
+
+This component is also responsible for the operation of the undead gene mechanics.
+
+It should not affect performance, since the comp caches all the necessary information and requests it only when the player directly interacts with the pawn (like opening the inspect panel).
+
+Use this option only as a last resort and if you know what you are doing.
+
+A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
+
+	<WVC_Label_enable_StartingFoodPolicies>Enable starting food policies</WVC_Label_enable_StartingFoodPolicies>
+	<WVC_ToolTip_enable_StartingFoodPolicies>If enabled, food policies will be generated for genes that require a certain diet. Affects only the start of a new game.</WVC_ToolTip_enable_StartingFoodPolicies>
+
+	<WVC_Label_enable_OverOverridableGenesMechanic>Enable over-overriadable mechanics</WVC_Label_enable_OverOverridableGenesMechanic>
+	<WVC_ToolTip_enable_OverOverridableGenesMechanic>Some genes cannot be overridden regardless of their type (endogene\xenogene), they always override conflicting genes.
+
+This does not affect overriding genes with which these genes are not mutually exclusive.
+
+This option also patches the gene copying of the duplicator anomaly, making it more compatible with mods and adding a debugger to it.
+
+A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
+
+	<!-- <WVC_Label_forceSatisfyingNeeds_CustomEaterGenes>Custom eater genes force pawns</WVC_Label_forceSatisfyingNeeds_CustomEaterGenes> -->
+	<!-- <WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes>If enabled, a pawn with genes such as rechargeable, bloodeater and dustogenic will abandon their current tasks to satisfy hunger. This is currently an experimental option.</WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_genesCanTickOnlyOnMap>(Dev) Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
+	<WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map.
+
+Use this option only if you are sure of what you are doing.
+
+A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
+
+	<WVC_Label_flatGenesSpawnChances>Flat genes selection weight</WVC_Label_flatGenesSpawnChances>
+	<WVC_ToolTip_flatGenesSpawnChances>If enabled, the chances of genes spawning will be equalized like vanilla genes.
+
+A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
+
+	<!-- <WVC_Label_enable_ReplaceSimilarGenesAutopatch>(Experimental) Replace similar genes</WVC_Label_enable_ReplaceSimilarGenesAutopatch> -->
+	<!-- <WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>If enabled, xenotypes will have some genes replaced with similar genes from the mod. This will not remove genes, but only replace them in xenotypes. -->
+
+<!-- The genes to replace are specified manually in xml. -->
+
+<!-- A restart is required.</WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch> -->
+
+	<!-- <WVC_Label_enableBodySizeGenes>Enable body size genes</WVC_Label_enableBodySizeGenes> -->
+	<!-- <WVC_ToolTip_enableBodySizeGenes>If enabled, body size genes will visually change the size of pawns. -->
+
+<!-- A restart is required.</WVC_ToolTip_enableBodySizeGenes> -->
+
+	<!-- <WVC_Label_autoPatchVanillaArchiteImmunityGenes>Auto patch vanilla archite immunity genes</WVC_Label_autoPatchVanillaArchiteImmunityGenes> -->
+	<!-- <WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes>If enabled, then when the game starts, it adds all diseases present in the game to the non-senescent and perfect immunity genes. Including from mods. -->
+
+<!-- Experimental option. -->
+
+<!-- A restart is required.</WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>
+	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixGenesOnLoad>
+
+	<WVC_Label_fixGeneAbilitiesOnLoad>Fix broken gene abilities on load</WVC_Label_fixGeneAbilitiesOnLoad>
+	<WVC_ToolTip_fixGeneAbilitiesOnLoad>If enabled, it should fix all potentially broken abilities. Please note that this will reset all gene abilities.</WVC_ToolTip_fixGeneAbilitiesOnLoad>
+
+	<WVC_Label_fixGeneTypesOnLoad>Fix broken gene types on load</WVC_Label_fixGeneTypesOnLoad>
+	<WVC_ToolTip_fixGeneTypesOnLoad>If enabled, it should fix all potentially broken gene types (classes). Safe version of "Fix broken genes". Since it only affects genes with wrong classes. If any genes have an incorrect class, messages will appear in the log.</WVC_ToolTip_fixGeneTypesOnLoad>
+
+	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save. The effect must affect all pawns owned by the player.
+
+It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
+
+	<!-- <WVC_Label_fixThrallTypesOnLoad>Fix thrall desc link</WVC_Label_fixThrallTypesOnLoad> -->
+	<!-- <WVC_ToolTip_fixThrallTypesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixThrallTypesOnLoad> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_birthQualityOffsetFromGenes>Enable birth quality offset from genes</WVC_Label_enable_birthQualityOffsetFromGenes>
+	<WVC_ToolTip_enable_birthQualityOffsetFromGenes>If enabled, some genes will affect birth quality. Due to the way the rituals window works, there may be a slight impact on performance in the corresponding window.
+
+A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
+
+	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
+	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
+
+	<WVC_Label_hemogenic_ImplanterFangsChanceFactor>Bloodfeed: Genes reimplant factor x{0}%</WVC_Label_hemogenic_ImplanterFangsChanceFactor>
+
+	<!-- ================================== -->
+
+	<WVC_Label_reincarnation_EnableMechanic>Enable reincarnation mechanic</WVC_Label_reincarnation_EnableMechanic>
+	<WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic>
+
+	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
+
+	<WVC_Label_reincarnation_Chance>Reincarnation chance {0}%</WVC_Label_reincarnation_Chance>
+
+	<!-- ================================== -->
+
+	<WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>Thralls inherit master unique genes</WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>
+	<WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>If enabled, thralls will, in addition to the basic set of genes, receive some rare master genes.</WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>
+
+	<WVC_Label_thrallMaker_cooldownOverride>Thrall maker cooldown {0} days</WVC_Label_thrallMaker_cooldownOverride>
+
+	<!-- ================================== -->
+
+	<WVC_Label_enableInstabilityLastChanceMechanic>Enbale instability last chance</WVC_Label_enableInstabilityLastChanceMechanic>
+	<WVC_ToolTip_enableInstabilityLastChanceMechanic>If enabled, then instabilization, having reached a critical point, will give a small head start to the pawn, provided that the pawn is not able to take care of itself.
+
+It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLastChanceMechanic>
+
+	<!-- ================================== -->
+
+	<!-- <WVC_Label_bloodeater_disableAutoFeed>Disable bloodEATer auto-feed</WVC_Label_bloodeater_disableAutoFeed> -->
+	<!-- <WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodEATer gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed> -->
+
+	<WVC_Label_bloodfeeder_AutoBloodfeed>Enable bloodFEEDer auto-feed</WVC_Label_bloodfeeder_AutoBloodfeed>
+	<WVC_ToolTip_bloodfeeder_AutoBloodfeed>If enabled, then pawns with the bloodFEEDer gene WILL automatically bite colonists.
+
+A new game and restart is required.</WVC_ToolTip_bloodfeeder_AutoBloodfeed>
+
+	<WVC_Label_bloodeater_SafeBloodfeed>Safe bloodfeed</WVC_Label_bloodeater_SafeBloodfeed>
+	<WVC_ToolTip_bloodeater_SafeBloodfeed>If enabled, using the bloodfeed ability will not kill pawns if there is not enough blood. Instead, the blood loss value will drop to the minimum non-fatal level.
+
+A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
+
+	<!-- ================================== -->
+
+	<WVC_Label_link_addedMechlinkWithGene>Added mechlink with gene</WVC_Label_link_addedMechlinkWithGene>
+	<WVC_ToolTip_link_addedMechlinkWithGene>If enabled, then the corresponding genes, when added, will give the pawn a mechlink.</WVC_ToolTip_link_addedMechlinkWithGene>
+
+	<WVC_Label_link_addedPsylinkWithGene>Added psylink with gene</WVC_Label_link_addedPsylinkWithGene>
+	<WVC_ToolTip_link_addedPsylinkWithGene>If enabled, then the corresponding genes, when added, will give the pawn a psylink.</WVC_ToolTip_link_addedPsylinkWithGene>
+
+	<!-- <WVC_Label_link_removeMechlinkWithGene>Remove mechlink with gene</WVC_Label_link_removeMechlinkWithGene> -->
+	<!-- <WVC_ToolTip_link_removeMechlinkWithGene>If enabled, when the corresponding gene is removed, the mechlink is removed too. -->
+
+<!-- Removing a mechlink shouldn't cause any bugs, at least in the vanilla game. Use at your own risk.</WVC_ToolTip_link_removeMechlinkWithGene> -->
+
+	<!-- <WVC_Label_link_removePsylinkWithGene>Remove psylink with gene</WVC_Label_link_removePsylinkWithGene> -->
+	<!-- <WVC_ToolTip_link_removePsylinkWithGene>If enabled, when the corresponding gene is removed, the psylink is removed too. -->
+
+<!-- Removing a psylink should not lead to serious bugs, but unexpected errors and conflicts may arise. Use at your own risk.</WVC_ToolTip_link_removePsylinkWithGene> -->
+	<WVC_Label_mechlink_HediffFromGeneChance>Mechlink from gene chance {0}%</WVC_Label_mechlink_HediffFromGeneChance>
+	<WVC_Label_psylink_HediffFromGeneChance>Psylink from gene chance {0}%</WVC_Label_psylink_HediffFromGeneChance>
+
+	<WVC_Label_golemnoids_ShutdownRechargePerTick>Golems recharge per hour {0}</WVC_Label_golemnoids_ShutdownRechargePerTick>
+
+	<WVC_Label_golembond_ShrinesStatPartOffset>Enable golembond shrines offset</WVC_Label_golembond_ShrinesStatPartOffset>
+	<WVC_ToolTip_golembond_ShrinesStatPartOffset>If enabled, shrines from the Royalty DLC will increase golembond.
+
+A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
+
+	<WVC_Label_golemlink_spawnIntervalRange>Golemlink interval range {0} days</WVC_Label_golemlink_spawnIntervalRange>
+	<WVC_Label_golemlink_golemsToSpawnRange>Golemlink spawn count {0}</WVC_Label_golemlink_golemsToSpawnRange>
+	<WVC_Label_falselink_spawnIntervalRange>Falselink interval range {0} days</WVC_Label_falselink_spawnIntervalRange>
+	<WVC_Label_falselink_mechsToSpawnRange>Falselink spawn count {0}</WVC_Label_falselink_mechsToSpawnRange>
+
+	<WVC_Label_voidlink_mechCostFactor>Voidlink mechs cost x{0}</WVC_Label_voidlink_mechCostFactor>
+	<WVC_ToolTip_voidlink_mechCostFactor>Multiplies the cost of mechs by the specified value. The higher the value, the more &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; is needed to summon. Default is 2.</WVC_ToolTip_voidlink_mechCostFactor>
+	<WVC_Label_voidlink_mechCostLimit>Voidlink mechs max cost {0}</WVC_Label_voidlink_mechCostLimit>
+	<WVC_ToolTip_voidlink_mechCostLimit>Determines the maximum possible cost of summoning a mechanoid. Values ​​above 99 are not displayed in the interface.</WVC_ToolTip_voidlink_mechCostLimit>
+
+	<!-- ================================== -->
+
+	<!-- <WVC_Label_shapeshifter_enableStyleButton>Enable style button</WVC_Label_shapeshifter_enableStyleButton> -->
+	<!-- <WVC_ToolTip_shapeshifter_enableStyleButton>If enabled, the shapeshifter gene will also allow you to change the style of the pawn at any time. This option allows you to change the hairstyle and its color, the beard and its color, tattoos for the face and body. -->
+
+<!-- Acts the same as the styling station from ideology, but does not allow you to dye clothes. -->
+
+<!-- Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enableStyleButton> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_chimeraMetabolismHungerFactor>Expanded metabolism hunger factor</WVC_Label_enable_chimeraMetabolismHungerFactor>
+	<WVC_ToolTip_enable_chimeraMetabolismHungerFactor>If enabled, the chimera (or shapeshifter) gene will change the hunger factor depending on genetic metabolism, as if there were no limit on the multiplier.
+
+Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
+
+	<WVC_Label_enable_chimeraStartingTools>Сhimera guaranteed tools</WVC_Label_enable_chimeraStartingTools>
+	<WVC_ToolTip_enable_chimeraStartingTools>If enabled, when starting a new game, the chimera gets 1 guaranteed tool-gene as a bonus to the rest of the genes. Also, after "eating" genes, there is a 1% chance to get a tool-gene for each gene eaten.</WVC_ToolTip_enable_chimeraStartingTools>
+
+	<WVC_Label_chimeraMinGeneCopyChance>Min gene copy chance +{0}%</WVC_Label_chimeraMinGeneCopyChance>
+
+	<WVC_Label_shapeshifer_GeneCellularRegeneration>Cellular regeneration rate +{0} hp/day</WVC_Label_shapeshifer_GeneCellularRegeneration>
+
+	<!-- <WVC_Label_shapeshifer_GeneCellularTickFrequency>Cellular tick freq {0} hours</WVC_Label_shapeshifer_GeneCellularTickFrequency> -->
+
+	<WVC_Label_chimeraStartingGenes>Chimera new game genes count: {0}</WVC_Label_chimeraStartingGenes>
+
+	<WVC_Label_enable_MorpherExperimentalMode>Morpher experimental mode</WVC_Label_enable_MorpherExperimentalMode>
+	<WVC_ToolTip_enable_MorpherExperimentalMode>&lt;color=#999999&gt;This option allows you to switch Morpher to a mode in which it saves ALL gene information. Chimera keeps the copied genes, Deathrest remembers the maximum limit, etc. This affects all possible genes and transfers everything that is saved in them, including the cache.\n\nA number of long tests have shown that this should not have any critical problems (like broken saves or crashes), except for a small desynchronization of some genes displaying the interface bar. For example, Deathrest will show a false need level in the gizmo with frequent morphing. This should be easily fixed via save-load.\n\nHowever, I can not predict what other consequences this may have.\n\nI am still developing a solution and countermeasures against this, but my current level of knowledge of the game code and programming does not allow me to completely fix these problems.\n\nBy the way, such a problem did not arise with the genes from my mod, which led me to the conclusion that the problems and bugs for all mods will be different.\n\nUse this option only if you play on a modlist with less than 120 mods, and only for a new game.&lt;/color&gt;\n\nSolved. Use the archivier gene instead of this mode.</WVC_ToolTip_enable_MorpherExperimentalMode>
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_dryadQueenMechanicGenerator>Dryad queen mechanics</WVC_Label_enable_dryadQueenMechanicGenerator>
+	<WVC_ToolTip_enable_dryadQueenMechanicGenerator>If enabled, the patches necessary for the Dryad queen gene to work will be initialized. This includes a small change to dryad thinkTree to support alternate behavior and an autopatcher that removes some dryad restrictions, such as the inability to travel in a caravan.
+
+This should not affect performance, but if you encounter problems with dryads, it is recommended to disable this option.
+
+A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
+
+	<WVC_Label_gestatedDryads_FilthRateFactor>Gestated dryads filth factor x{0}%</WVC_Label_gestatedDryads_FilthRateFactor>
+
+	<WVC_Label_gestatedDryads_AnomalyRegeneration>Gestated dryads healing {0} hp/day</WVC_Label_gestatedDryads_AnomalyRegeneration>
+
+	<!-- ================================== -->
+
+	<WVC_Label_disableNonAcceptablePreyGenes>Disable non acceptable prey mechanic</WVC_Label_disableNonAcceptablePreyGenes>
+	<WVC_ToolTip_disableNonAcceptablePreyGenes>If enabled, the "not tasty" gene will not have any effect on protecting against predators. As well as genes with similar mechanics.
+
+Enabling may slightly increase performance in some situations when predators are looking for prey.
+
+A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
+
+	<!-- ================================== -->
+
+	<!-- <WVC_Label_rechargeable_enablefoodPoisoningFromFood>Enable food poisoning from any food</WVC_Label_rechargeable_enablefoodPoisoningFromFood> -->
+	<!-- <WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>If enabled, pawns with the "Rechargeable" gene will get poisoned from food. -->
+
+<!-- This affects all rechargeable class genes that cause poisoning.</WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_duplicator_RandomOutcomeChance>Duplicator random outcome chance {0}%</WVC_Label_duplicator_RandomOutcomeChance>
+	<WVC_Tooltip_duplicator_RandomOutcomeChance>Affects the chance that something will be wrong with the duplicate. Requires the Anomaly DLC, for obvious reasons.</WVC_Tooltip_duplicator_RandomOutcomeChance>
+
+	<!-- ================================== -->
+
+	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>
+	<WVC_ToolTip_fleshmass_MaxMutationsLevel>The maximum possible level that mutations created by the fleshmass nucleus gene can gain. The special bonus is present only for level 5, lower or higher mutation will receive a standard bonus only to efficiency and regeneration.</WVC_ToolTip_fleshmass_MaxMutationsLevel>
+
+	<!-- ================================== -->
+
+	<WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>Cycl. self-learn. max level {0}</WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>
+	<WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>Affects the skill level up to which the gene will give experience. By default, 20, which means that when the skill reaches level 20, the gene stops giving experience to this skill.\n\nIt is not recommended to set values ​​higher than 20, unless you have mods that raise the cap.</WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>
+
+	<!-- ================================== -->
+
+	<WVC_Label_archiver_transferWornApparel>Archiver: Transfer worn apparels</WVC_Label_archiver_transferWornApparel>
+	<WVC_ToolTip_archiver_transferWornApparel>If enabled, the archiver transfers worn apparel between forms.\n\nThis is disabled by default, for better compatibility with mods like VFE - Pirates. If you use any mods that change inventory or change/add apparel mechanics, do not enable this option.\n\nBoth options are required to transfer inventory.</WVC_ToolTip_archiver_transferWornApparel>
+
+	<WVC_Label_archiver_transferEquipedWeapon>Archiver: Transfer equipment and equiped weapon</WVC_Label_archiver_transferEquipedWeapon>
+	<WVC_ToolTip_archiver_transferEquipedWeapon>If enabled, the archiver transfers equipment between forms.\n\nThis is disabled by default, for better compatibility with mods. If you use any mods that change inventory or change/add weapon equip mechanics, do not enable this option.\n\nBoth options are required to transfer inventory.</WVC_ToolTip_archiver_transferEquipedWeapon>
+
+	<!-- ================================== -->
+
+	<WVC_Label_traitshifter_MaxTraits>Traitshifter traits limit: {0}</WVC_Label_traitshifter_MaxTraits>
+	<WVC_ToolTip_traitshifter_MaxTraits>Responsible for the maximum number of traits that traitshifter can add. The gene ignores script, gene, and non-generated traits.</WVC_ToolTip_traitshifter_MaxTraits>
+
+</LanguageData>

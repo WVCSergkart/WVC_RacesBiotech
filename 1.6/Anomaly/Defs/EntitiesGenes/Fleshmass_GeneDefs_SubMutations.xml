@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassBrain</defName>
+	<label>fleshmass thinker</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh in their brains, capable of some limited thought and communication with the carrier. This allows them to process information from several points of view and conduct passive research.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBrain</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassBrain_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <ResearchSpeed>0.1</ResearchSpeed>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_AutoResearch</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>56</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassArmor</defName>
+	<label>fleshmass armor</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh all over their skin which provides decent protection but damages clothing due to constant growths.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassArmor</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassArmor_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>1</biostatMet>
+	<minAgeActive>0</minAgeActive>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.63</ArmorRating_Sharp>
+	  <ArmorRating_Heat>-0.12</ArmorRating_Heat>
+	</statOffsets>
+	<statFactors>
+	  <IncomingDamageFactor>0.8</IncomingDamageFactor>
+	  <Flammability>1.2</Flammability>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Damage to apparels: 40 hp/day</li>
+		<li>&lt;color=#ffec85&gt;Ignores nudist clothing.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>48</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassBuilder</defName>
+	<label>deadlife builder</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh with nests of archites capable of performing some construction work and repairing buildings.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBuilder</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassBuilder_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Occasionally &lt;color=#8a8ae6&gt;repairs or constructs&lt;/color&gt; buildings.</li>
+		<li>Can only work on 3 &lt;color=#8a8ae6&gt;buildings&lt;/color&gt; or &lt;color=#8a8ae6&gt;frames&lt;/color&gt; at a time.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Construction or repair by this gene creates deadlife gas.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Does not haul resources and does not repair breakdowns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <ConstructionSpeed>0.2</ConstructionSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_SelfdevourStomach</defName>
+	<label>self-devour stomach</label>
+	<description>Carriers of this gene have archites that can recycle organs and limbs to satisfy the carrier's hunger.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfDevourStomach</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfeaterStomach_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>When &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is low, &lt;color=#8a8ae6&gt;destroys&lt;/color&gt; a random limb or organ and restores the &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; bar.</li>
+		<li>The amount of nutrition received depends on the amount of meat, the factor for raw nutrition and the maximum nutrtion of the pawn.</li>
+		<li>&lt;color=#ffec85&gt;Can kill the carrier.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>56</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassRegeneration</defName>
+	<label>fleshmass regeneration</label>
+	<description>Carriers of this gene have cancerous mass of semi-sentient flesh that regenerate wounds and restore lost limbs depending on the number of wounds and scars.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassRegeneration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>66</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ======================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Deadlife</defName>
+	<label>deadlife breath</label>
+	<description>Carriers of this gene have corrupted archites. Their bodies are practically woven from them, their very presence in the region leads to the raising of the dead.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deadlife</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Deadlife_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-7</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively creates &lt;color=#8a8ae6&gt;deadlife gas&lt;/color&gt; and &lt;color=#8a8ae6&gt;shamblers&lt;/color&gt; if there are &lt;color=#8a8ae6&gt;corpses&lt;/color&gt; on the map.</li>
+		<li>If there are no &lt;color=#8a8ae6&gt;corpses&lt;/color&gt;, the gene goes into a cooldown of 24 hours.</li>
+		<li>&lt;color=#8a8ae6&gt;Shamblers&lt;/color&gt; only live for a few hours.</li>
+		<li>Slowly accumulates &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 increases the cooldown and slows down the accumulation of &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li Class="PawnRenderNodeProperties_Overlay"> -->
+		<!-- <debugLabel>Shambler wounds</debugLabel> -->
+		<!-- <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass> -->
+		<!-- <overlayLayer>Body</overlayLayer> -->
+		<!-- <baseLayer>20</baseLayer> -->
+		<!-- <pawnType>HumanlikeOnly</pawnType> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <debugLabel>Shambler wounds</debugLabel> -->
+		<!-- <nodeClass>PawnRenderNode_AnimalPart</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass> -->
+		<!-- <overlayLayer>Body</overlayLayer> -->
+		<!-- <baseLayer>20</baseLayer> -->
+		<!-- <pawnType>NonHumanlikeOnly</pawnType> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
+  </GeneDef>
+
+</Defs>

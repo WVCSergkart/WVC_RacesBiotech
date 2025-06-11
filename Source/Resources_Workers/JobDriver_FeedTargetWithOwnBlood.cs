@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// SanguophageUtility.DoBite(Victim, pawn, 0.1f, 0.1f, 0.2f, 0f, new(0, 1));
 				// SanguophageUtility.DoBite(Victim, pawn, 0.1f, 0.05f, 0.2245f, 0f, IntRange.one, ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
-				SanguophageUtility.DoBite(Victim, pawn, 0.2f, 0.1f, 0.4499f, 1f, IntRange.one, ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				SanguophageUtility.DoBite(Victim, pawn, 0.2f, 0.1f, 0.4499f, 1f, new(0, 1), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 			});
 		}
 

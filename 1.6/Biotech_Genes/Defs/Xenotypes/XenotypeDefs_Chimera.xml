@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_Shadoweater</defName>
+	<!-- <label>shadoweater</label> -->
+	<!-- <label>chimera</label> -->
+	<label>chimerkin</label>
+	<description>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogenes at any time.</description>
+	<descriptionShort>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.</descriptionShort>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</iconPath>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Bloodeater</XenotypeDef>
+	</descriptionHyperlinks>
+	<genes>
+		<!-- Graphic -->
+		<!-- <li>Eyes_Red</li> -->
+		<li>WVC_SkinColor_DarkBlue</li>
+		<!-- <li>WVC_Eyes_ce6969_HEX</li> -->
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_DemonTailA</li>
+		<li>WVC_Ears_PointedB</li>
+		<!-- Set -->
+		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
+		<li>WVC_UVSensitivity_Deadly</li>
+		<li>WVC_HealingStomach</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<!-- = -->
+		<li>WVC_ImplanterFangs</li>
+		<li>PiercingSpine</li>
+		<li>WVC_Tough</li>
+		<li>WVC_Chimera</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isChimerkin>true</isChimerkin>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(255, 133, 133)</defaultColor>
+			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- possible genesets: non player -->
+			<chimeraConditionalGenes>
+			  <!-- mechalike -->
+			  <li>
+				<chance>1.0</chance>
+				<genes>
+					<li>WVC_CyberSkin</li>
+					<li>WVC_MechaPowerSource_Unstable</li>
+					<li>WVC_HairColor_Slate</li>
+					<li>Skin_SheerWhite</li>
+					<li>WVC_HeadBoneCurveHorns</li>
+				</genes>
+			  </li>
+			  <!-- dryads and golems -->
+			  <li>
+				<chance>0.45</chance>
+				<genes>
+					<li>WVC_SwarmConnection_Golems</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+					<li>WVC_StoneSkin</li>
+					<li>WVC_SkinColor_Slate</li>
+				</genes>
+			  </li>
+			  <!-- undead -->
+			  <li>
+				<chance>1.0</chance>
+				<genes>
+					<li>WVC_Undead</li>
+					<li>WVC_PredatorPrey_NotTasty</li>
+					<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
+				</genes>
+			  </li>
+			  <!-- dryads -->
+			  <li MayRequire="ludeon.rimworld.ideology">
+				<chance>0.86</chance>
+				<genes>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_DryadbondEnchanced</li>
+				</genes>
+			  </li>
+			  <!-- golems -->
+			  <li>
+				<chance>0.83</chance>
+				<genes>
+					<li>WVC_SwarmConnection_Golems</li>
+					<li>WVC_StoneSkin</li>
+					<li>WVC_SkinColor_Slate</li>
+				</genes>
+			  </li>
+			</chimeraConditionalGenes>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

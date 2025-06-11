@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Stone" Abstract="True">
+		<statBases>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<MoveSpeed>3.6</MoveSpeed>
+			<Mass>83</Mass>
+		</statBases>
+		<race>
+			<renderTree>WVC_Golemnoid_Tree</renderTree>
+		</race>
+		<comps>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
+				<refreshHours>2</refreshHours>
+				<changeCasteJob>WVC_XaG_ChangeGolemType</changeCasteJob>
+			</li>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
+				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>
+				<filthDefToSpawn>Filth_RubbleRock</filthDefToSpawn>
+				<thingDefsToSpawn>
+				  <li>ChunkMarble</li>
+				  <li>ChunkSlate</li>
+				  <li>ChunkLimestone</li>
+				  <li>ChunkGranite</li>
+				  <li>ChunkSandstone</li>
+				</thingDefsToSpawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
+		<!-- <alternateGraphicChance>1.0</alternateGraphicChance> -->
+		<alternateGraphics>
+			<!-- slate -->
+			<li><color>(70,70,70)</color></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color></li>
+		</alternateGraphics>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>liftoid</label>
+		<description>This light golemnoid is an excellent cleaner, and is also capable of carrying loads and doing basic work such as flipping switches. It is quite fast compared to other golems, but it is not well suited for battles and can easily die in battle.</description>
+		<statBases>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+			<MoveSpeed>3.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <li>BasicWorker</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <li>Cleaning</li>
+			  <li>Hauling</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>liftoid</label>
+		<race>WVC_Golem_Liftoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemLifter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>structoid</label>
+		<description>This light golemnoid serves as a builder and gardener. It can build well and does an excellent job in the garden, but its speed, like most golems, leaves much to be desired. It also has good armor and can provide support in battle.</description>
+		<statBases>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<MoveSpeed>2.4</MoveSpeed>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>10</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <li>PlantCutting</li>
+			  <li>Growing</li>
+			  <!-- <li>Crafting</li> -->
+			  <li>Construction</li>
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>structoid</label>
+		<race>WVC_Golem_Constructoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemConstructor</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>craftoid</label>
+		<description>This light golemnoid is capable of crafting and cooking, but the quality of its work leaves much to be desired. It is quite slow, but has good armor and can provide support in battle.</description>
+		<statBases>
+			<WVC_GolemBondCost>2</WVC_GolemBondCost>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<MoveSpeed>2.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>8</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <li>Crafting</li>
+			  <li>Smithing</li>
+			  <li>Tailoring</li>
+			  <li>Cooking</li>
+			  <!-- <li>Doctor</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>craftoid</label>
+		<race>WVC_Golem_Crafter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemCrafter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+		<defName>WVC_Golem_Miner</defName>
+		<label>minenoid</label>
+		<description>This light golemnoid serves as a miner, but can also do firefighter work. It has good armor and speed compared to other golems. It can help a lot by providing support in battle.</description>
+		<statBases>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<MoveSpeed>2.6</MoveSpeed>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>4</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <li>Firefighter</li>
+			  <li>Mining</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Smithing</li> -->
+			  <!-- <li>Tailoring</li> -->
+			  <!-- <li>Cooking</li> -->
+			  <!-- <li>Doctor</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Miner</defName>
+		<label>minenoid</label>
+		<race>WVC_Golem_Miner</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemMiner</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>hunteroid</label>
+		<description>This light golemnoid serves as a hunter. It has poor armor but very high speed, and its long-range slugthrower can provide good support in battle.</description>
+		<statBases>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>6</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <li>Hunting</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>hunteroid</label>
+		<race>WVC_Golem_Hunter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemHunter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponTags>
+			<li>WVC_GolemGun_Slugthrower</li>
+		</weaponTags>
+	</PawnKindDef>
+
+  <!-- SlugGun -->
+  <ThingDef ParentName="LightMechanoidGunRanged">
+	<defName>WVC_GolemGun_Slugthrower</defName>
+	<label>stonethrower</label>
+	<description>A compact single-shot stone thrower designed to be mounted on a light combat golemnoid.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Mechanoids_Golems_Guns/Slugthrower</texPath>
+	  <!-- <color>(70,70,70)</color> -->
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>1000</MarketValue>
+	  <Mass>1.5</Mass>
+	  <AccuracyTouch>0.20</AccuracyTouch>
+	  <AccuracyShort>0.30</AccuracyShort>
+	  <AccuracyMedium>0.40</AccuracyMedium>
+	  <AccuracyLong>0.95</AccuracyLong>
+	  <RangedWeapon_Cooldown>4.0</RangedWeapon_Cooldown>
+	</statBases>
+	<costStuffCount>40</costStuffCount>
+	<stuffCategories>
+	  <li>Stony</li>
+	</stuffCategories>
+	<weaponTags>
+	  <li>WVC_GolemGun_Slugthrower</li>
+	</weaponTags>
+	<verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<defaultProjectile>Bullet_Slugthrower</defaultProjectile>
+		<warmupTime>0.3</warmupTime>
+		<range>19.9</range>
+		<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		<burstShotCount>1</burstShotCount>
+		<soundCast>Shot_Slugthrower</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+	</verbs>
+	<tools>
+	  <li>
+		<label>barrel</label>
+		<capacities>
+		  <li>Blunt</li>
+		  <li>Poke</li>
+		</capacities>
+		<power>9</power>
+		<cooldownTime>2.6</cooldownTime>
+	  </li>
+	</tools>
+  </ThingDef>
+
+	<!-- ======================= -->
+
+	<!-- Militor -->
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+	  <defName>WVC_Golem_Militoid</defName>
+	  <label>militoid</label>
+	  <description>This light golemnoid, which looks like a militor, is a hunter. It is armed with a bow and has light armor and good speed. It can provide good support in battle.</description>
+	  <statBases>
+		<MoveSpeed>3.1</MoveSpeed>
+		<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+		<WVC_GolemBondCost>2</WVC_GolemBondCost>
+	  </statBases>
+	  <race>
+		<mechFixedSkillLevel>4</mechFixedSkillLevel>
+		<mechEnabledWorkTypes>
+		  <li>Hunting</li>
+		</mechEnabledWorkTypes>
+	  </race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+	  <defName>WVC_Golem_Militoid</defName>
+	  <label>militoid</label>
+	  <race>WVC_Golem_Militoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemMilitoid</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	  <weaponTags>
+		<li>WVC_XaG_GolemGun_Militoid</li>
+	  </weaponTags>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<!-- Cleansweeper -->
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+	  <defName>WVC_Golem_Cleanoid</defName>
+	  <label>cleanoid</label>
+	  <description>This light golemnoid is a cleaner. It has no weapons, is very weak and has poor armor. But it requires less bandwidth than other light golemnoids.</description>
+	  <statBases>
+		<BandwidthCost>0.1</BandwidthCost>
+		<MoveSpeed>3.1</MoveSpeed>
+		<ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+		<WVC_GolemBondCost>1</WVC_GolemBondCost>
+	  </statBases>
+	  <race>
+		<mechFixedSkillLevel>2</mechFixedSkillLevel>
+		<mechEnabledWorkTypes>
+		  <li>Cleaning</li>
+		</mechEnabledWorkTypes>
+	  </race>
+	  <tools Inherit="False">
+		<li>
+			<label>head</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>8</power>
+			<cooldownTime>2.5</cooldownTime>
+			<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+		</li>
+	  </tools>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+	  <defName>WVC_Golem_Cleanoid</defName>
+	  <label>cleanoid</label>
+	  <race>WVC_Golem_Cleanoid</race>
+	  <lifeStages>
+		<li>
+			<bodyGraphicData>
+				<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Cleanoid</texPath>
+				<drawSize>1</drawSize>
+			</bodyGraphicData>
+		</li>
+	  </lifeStages>
+	</PawnKindDef>
+
+</Defs>

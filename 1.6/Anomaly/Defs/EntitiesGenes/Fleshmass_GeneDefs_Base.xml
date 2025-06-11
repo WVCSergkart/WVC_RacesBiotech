@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_Fleshmass</defName>
+	<label>fleshmass</label>
+	<displayPriorityInXenotype>525.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFleshmass_Mutations" Abstract="True">
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<marketValueFactor>5</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
+	<!-- Unused -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isFleshmass>true</isFleshmass> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassNucleus</defName>
+	<label>fleshmass nucleus</label>
+	<description>Carriers of this gene have archites that form inside the fleshmass nucleus. It causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass heart.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassNucleus</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassNucleus_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>5</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Healing: 100 hp/day</li> -->
+		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fleshmass heart&lt;/color&gt;.</li>
+		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
+		<li>Mutations obtained in this way differ from the standard ones.</li>
+		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
+	</customEffectDescriptions>
+	<!-- <statFactors> -->
+	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">4.0</VEF_BodySize_Multiplier> -->
+	  <!-- <VEF_CosmeticBodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.25</VEF_CosmeticBodySize_Multiplier> -->
+	<!-- </statFactors> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- unused -->
+			<!-- <regeneration>100</regeneration> -->
+			<!-- <maxMutationLevel>5</maxMutationLevel> -->
+			<!-- unused -->
+			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Beholdkind</xenotypeDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================ -->
+
+
+</Defs>

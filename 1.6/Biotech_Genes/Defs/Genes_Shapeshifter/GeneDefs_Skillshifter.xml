@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Skillshifter</defName>
+	<label>skillshifter</label>
+	<description>Carriers of this gene have archites that are able to change neural connections and create new ones. Which allows the carriers to redistribute the experience accumulated in skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Skillshifter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Traitshifter_v0</iconPath>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to redistribute experience in skills.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>77</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

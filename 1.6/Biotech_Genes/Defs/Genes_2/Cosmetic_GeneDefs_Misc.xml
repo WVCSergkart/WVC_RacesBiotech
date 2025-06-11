@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Toughspikes gene is now mutually exclusive with wings. -->
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_BackPart_Base"> -->
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>BMT_ImpalingClaws</li> -->
+	  <!-- <li>ToughspikeSpikes</li> -->
+	  <!-- <li>Wing</li> -->
+	  <!-- <li>Wings</li> -->
+	  <!-- <li>AG_Wings</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef>
+	<defName>WVC_Toughspike</defName>
+	<label>toughspike</label>
+	<description>Carriers of this gene grow two spiked limbs that help a little in combat.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_Toughspike_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<statOffsets>
+	  <MeleeDamageFactor>0.05</MeleeDamageFactor>
+	</statOffsets>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows the pawn to attack with spikes in melee combat.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<renderNodeProperties>
+	  <!-- <li> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/BodyParts_Wings/Toughspike</li> -->
+		<!-- </texPaths> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <drawSize>1.5</drawSize> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <defaultData> -->
+			<!-- <layer>-2</layer> -->
+		  <!-- </defaultData> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0, 0.4, 0.07)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataNorth> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0, -0.4, 0.05)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(-0.04, 0.4, 0.04)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(0.04, 0.4, 0.04)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+	  <!-- </li> -->
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<!-- The animation has too many visual problems.  -->
+		<!-- For example, the center of the texture starts to float, plus on some bodytypes the coordinates start to diverge.  -->
+		<!-- Humans are not suitable for animation. -->
+		 <!-- Class="PawnRenderNodeProperties_Spastic" -->
+		<!-- <rotationRange>-30~30</rotationRange> -->
+		<!-- <durationTicksRange>10~35</durationTicksRange> -->
+		<!-- <nextSpasmTicksRange>10~50</nextSpasmTicksRange> -->
+		<!-- <rotateFacing>false</rotateFacing> -->
+		<debugLabel>SpikeL</debugLabel>
+		<texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<baseLayer>10</baseLayer>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<useRottenColor>true</useRottenColor>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.1</drawSize>
+		<visibleFacing>
+		  <li>South</li>
+		  <li>North</li>
+		  <li>West</li>
+		</visibleFacing>
+		<drawData>
+			<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+			<dataNorth>
+			  <offset>(-0.14, 0.4, 0.07)</offset>
+			  <rotationOffset>-80</rotationOffset>
+			</dataNorth>
+			<dataSouth>
+			  <offset>(0.25, -0.4, 0.07)</offset>
+			  <rotationOffset>50</rotationOffset>
+			</dataSouth>
+			<dataWest>
+			  <offset>(0.15, 0.4, 0.15)</offset>
+			  <rotationOffset>60</rotationOffset>
+			  <flip>true</flip>
+			</dataWest>
+		</drawData>
+	  </li>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		 <!-- Class="PawnRenderNodeProperties_Spastic" -->
+		<!-- <rotationRange>-30~30</rotationRange> -->
+		<!-- <durationTicksRange>10~35</durationTicksRange> -->
+		<!-- <nextSpasmTicksRange>10~50</nextSpasmTicksRange> -->
+		<!-- <rotateFacing>false</rotateFacing> -->
+		<debugLabel>SpikeR</debugLabel>
+		<texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<baseLayer>10</baseLayer>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<useRottenColor>true</useRottenColor>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.1</drawSize>
+		<visibleFacing>
+		  <li>South</li>
+		  <li>North</li>
+		  <li>East</li>
+		</visibleFacing>
+		<drawData>
+			<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+			<dataNorth>
+			  <offset>(0.14, 0.4, 0.07)</offset>
+			  <rotationOffset>80</rotationOffset>
+			  <flip>true</flip>
+			</dataNorth>
+			<dataSouth>
+			  <offset>(-0.25, -0.4, 0.07)</offset>
+			  <rotationOffset>-50</rotationOffset>
+			  <flip>true</flip>
+			</dataSouth>
+			<dataEast>
+			  <offset>(-0.15, 0.4, 0.15)</offset>
+			  <rotationOffset>-60</rotationOffset>
+			</dataEast>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<exclusionTags>
+	  <li>BMT_ImpalingClaws</li>
+	  <li>ToughspikeSpikes</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_ToughspikeSpike</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Torso</li> -->
+			<!-- </bodyparts> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

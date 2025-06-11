@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
+	<defName>WVC_RacesBiotech_XenotypesAndGenes</defName>
+	<!-- Xenotypes not selected for random serum. Any string -->
+	<blackListedXenotypesForSerums>
+		<li>Baseliner</li>
+		<li>WVC_Beholdkind</li>
+		<li>WVC_Nociokin</li>
+		<!-- An undead xenotype has a separate serum mechanic. -->
+		<!-- <li>WVC_Undead</li> -->
+		<!-- Only undead resurrection -->
+		<!-- <li>WVC_Featherdust</li> -->
+		<!-- <li>WVC_Resurgent</li> -->
+		<!-- <li>WVC_Ashen</li> -->
+		<!-- Random -->
+		<li>WVC_Thrall</li>
+		<li>WVC_Hybrid</li>
+		<li>WVC_Shapeshifter</li>
+		<li>WVC_RandomHybrid</li>
+		<li>WVC_RandomHybrid_Blankind</li>
+		<!-- Other -->
+		<li>AG_RandomCustom</li>
+		<li>VREA_AndroidBasic</li>
+		<li>VREA_AndroidAwakened</li>
+		<li>VREA_</li>
+	</blackListedXenotypesForSerums>
+	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
+	<whiteListedXenotypesForResurrectorSerums>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Undead</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Featherdust</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Resurgent</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
+	</whiteListedXenotypesForResurrectorSerums>
+	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
+	<blackListedBackstoryForChanger>
+		<li>Newborn79</li>
+		<li>Colonist97</li>
+		<li>ColonyChild59</li>
+		<li>Child27</li>
+		<li>ChildTribal</li>
+		<li>TribeChild19</li>
+		<li>TribeMember57</li>
+		<li>VatgrownChild11</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownChildhood</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownAdulthood</li>
+	</blackListedBackstoryForChanger>
+	<!-- Words that should not be in the defName of Mechanoids. Used to random summon mechanoids. Required any string -->
+	<mechDefNameShouldNotContain>
+		<li>TEST</li>
+		<li>NonPlayer</li>
+		<li>NonPlayable</li>
+		<li>Unplayable</li>
+		<li>Random</li>
+		<li>Golem_</li>
+		<li>Zombie_</li>
+		<li>Undead_</li>
+		<li>Corpse_</li>
+		<li>Android_</li>
+		<li>Medieval_</li>
+	</mechDefNameShouldNotContain>
+	<!-- Work only for WVC -XaG CompSpawnSubplant. Required thing defNames -->
+	<!-- WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants or WVC_XenotypesAndGenes.CompSpawnSubplantDuration -->
+	<plantsToNotOverwrite_SpawnSubplant>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_PodGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
+	</plantsToNotOverwrite_SpawnSubplant>
+	<!-- XaG genes that will work with mutants. Required any GeneDefs -->
+	<anomalyXenoGenesExceptions>
+		<li>WVC_GeneSavant</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_Wings_Levitation</li>
+		<li>WVC_Wings_MembranousWings</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<!-- = -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier</li>
+		<!-- <li>WVC_Scarifier_Clotting</li> -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarshield</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_StrongMelee</li>
+		<!-- = -->
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<!-- = -->
+		<li>WVC_Feminine</li>
+		<!-- = -->
+		<li>WVC_RandomGeneticSpeciality</li>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_Undead</li>
+		<li>WVC_NeverDead</li>
+		<!-- <li>WVC_NaturalUndead</li> -->
+		<!-- = -->
+		<li>WVC_BodySize_Large</li>
+		<li>WVC_BodySize_Average</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- = -->
+		<li MayRequire="ludeon.rimworld.royalty">WVC_Invisibility</li>
+		<!-- = -->
+		<li>WVC_StoneStomach</li>
+		<li>WVC_SleepyStomach</li>
+		<li>WVC_DeadStomach</li>
+		<li>WVC_SuperStomach</li>
+		<!-- = -->
+		<li>WVC_Mecha_ScytheTail</li>
+		<li>WVC_MechaHidden_ArchiteForge</li>
+		<li>WVC_Mecha_AntennaTail</li>
+		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
+		<!-- = -->
+		<li>WVC_NoLearning</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<!-- = -->
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<li>WVC_MecaBodyParts_Claws</li>
+	</anomalyXenoGenesExceptions>
+	<!-- Ignored mutants. Required any MutantDefs -->
+	<xenoGenesMutantsExceptions>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Thrall</li> -->
+	</xenoGenesMutantsExceptions>
+	<!-- Ignored dryad modes by dryad queen gene. Required any GauranlenTreeModeDefs -->
+	<ignoredGauranlenTreeModeDefs>
+		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
+		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
+	</ignoredGauranlenTreeModeDefs>
+	<!-- Xenotypes ignored by the mod's base filter.  -->
+	<!-- Used to filter out xenotypes that are not xenotypes in the standard sense. For example, Thralls. -->
+	<!-- Required any XenotypeDefs -->
+	<devXenotypeDefs>
+		<li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Hybrid</li> -->
+		<li MayRequire="wvc.sergkart.test.tools">WVC_Hybrid</li>
+	</devXenotypeDefs>
+  </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
+
+  <!-- ======================================================================= -->
+
+  <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android">
+	<defName>WVC_RacesBiotech_AndroidConvertableGenes</defName>
+	<geneCategories>
+		<li>WVC_Cosmetic</li>
+		<li>WVC_CosmeticVoices</li>
+	</geneCategories>
+  </VREAndroids.AndroidConvertableGenesDef>
+
+  <!-- ======================================================================= -->
+
+  <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
+	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
+	<blackListedGenes>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_MaleOnly</li>
+		<li>WVC_Monogender_Disabled</li>
+		<!-- Cause dangerous effect -->
+		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+		<li>WVC_AgeDebuff_Armless</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_NoLearning</li>
+		<!-- <li>WVC_DisabledAllWork_</li> -->
+		<li>WVC_DisabledAllWork_Useless</li>
+		<li>WVC_DisabledAllWork_Blank</li>
+		<li>WVC_Thrall</li>
+		<li>WVC_DeadlyGeneticInstability</li>
+		<!-- = -->
+		<li>WVC_MechaSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
+		<li>WVC_ShapeshiftSkin</li>
+		<li>WVC_TransparentSkin</li>
+		<li>WVC_GauntSkin</li>
+		<li>WVC_SemifurSkin</li>
+		<!-- = -->
+		<li>WVC_MecaBodyParts_Claws</li>
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<!-- <li>WVC_AgeDebuff_</li> -->
+		<!-- = -->
+		<li>WVC_Undead</li>
+		<!-- <li>WVC_NaturalUndead</li> -->
+		<li>WVC_ResurgentCellsGain</li>
+		<li>WVC_ResurgentCells_TotalHealing</li>
+		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Blood</li>
+		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_Sleep</li>
+		<li>WVC_ReimplanterThrallMaker</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<!-- = -->
+		<li>WVC_GeneticStability</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
+		<!-- = -->
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<!-- <li>WVC_Dustogenic_MechPsylink</li> -->
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
+		<!-- = -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_MajorGeneticInstability</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+		<!-- = -->
+		<!-- <li>WVC_ArchiteDisableJoy</li> -->
+		<!-- <li>WVC_NaturalDisableJoy</li> -->
+		<!-- <li>WVC_ArchiteDisableBeauty</li> -->
+		<!-- <li>WVC_NaturalDisableBeauty</li> -->
+		<!-- <li>WVC_ArchiteDisableOutdoors</li> -->
+		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
+		<!-- <li>WVC_ArchiteDisableComfort</li> -->
+		<!-- <li>WVC_NaturalDisableComfort</li> -->
+		<!-- = -->
+	</blackListedGenes>
+  </AlphaGenes.WretchBlacklistDef>
+
+</Defs>

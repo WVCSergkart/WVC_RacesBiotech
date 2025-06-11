@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <WorkGiverDef Name="WVC_HaulToGeneBank_Base" Abstract="True"> -->
+	<!-- <workType>Hauling</workType> -->
+	<!-- <verb>bank</verb> -->
+	<!-- <gerund>banking</gerund> -->
+	<!-- <priorityInType>111</priorityInType> -->
+	<!-- <requiredCapacities> -->
+	  <!-- <li>Manipulation</li> -->
+	<!-- </requiredCapacities> -->
+  <!-- </WorkGiverDef> -->
+
+  <!-- <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base"> -->
+	<!-- <defName>WVC_HaulToGeneBank_BasePack</defName> -->
+	<!-- <label>bank w-pack</label> -->
+	<!-- <giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_BasePack</giverClass> -->
+  <!-- </WorkGiverDef> -->
+
+  <!-- <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base"> -->
+	<!-- <defName>WVC_HaulToGeneBank_UltraPack</defName> -->
+	<!-- <label>bank ultrapack</label> -->
+	<!-- <giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_UltraPack</giverClass> -->
+  <!-- </WorkGiverDef> -->
+
+  <!-- <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base"> -->
+	<!-- <defName>WVC_HaulToGeneBank_MechaPack</defName> -->
+	<!-- <label>bank mechapack</label> -->
+	<!-- <giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_MechaPack</giverClass> -->
+  <!-- </WorkGiverDef> -->
+
+</Defs>

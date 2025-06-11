@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_PsychicHarvester_Lover</defName>
+	<label>psychic geneharvest (lover)</label>
+	<description>Carriers of this gene can copy the genes of pawns with whom they have a love affair.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Lover</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<!-- <biostatArc>0</biostatArc> -->
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>145.015</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>With a &lt;color=#8a8ae6&gt;7% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;love relationship&lt;/color&gt;.</li>
+		<li>Supported relations: Lover, fiance, spouse. And any other &lt;color=#8a8ae6&gt;reflexive&lt;/color&gt; relationships.</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Chimera_PsychicHarvester</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>2</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>44444~67565</spawnIntervalRange>
+			<chance>0.07</chance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_PsychicHarvester_Friend</defName>
+	<label>psychic geneharvest (friend)</label>
+	<description>Carriers of this gene can copy the genes of those with whom they have friendly relations.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Friend</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Friend_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<!-- <biostatArc>0</biostatArc> -->
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>145.020</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>With a &lt;color=#8a8ae6&gt;4% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;friend relationship&lt;/color&gt;.</li>
+		<li>Supported relationships with opnion +40 for both sides</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Chimera_PsychicHarvester</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>4</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>54444~67565</spawnIntervalRange>
+			<chance>0.04</chance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_PsychicHarvester_Rival</defName>
+	<label>psychic geneharvest (rival)</label>
+	<description>Carriers of this gene can copy the genes of those with whom they have a rival relationship.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Rival</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Rival_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<!-- <biostatArc>0</biostatArc> -->
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>145.025</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>With a &lt;color=#8a8ae6&gt;33% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;rival relationship&lt;/color&gt;.</li>
+		<li>Supported relationships with opnion -40 for both sides</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Chimera_PsychicHarvester</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>3</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>34444~57565</spawnIntervalRange>
+			<chance>0.33</chance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_PsychicHarvester_Family</defName>
+	<label>psychic geneharvest (family)</label>
+	<description>Carriers of this gene can copy the genes of those with whom they have blood ties.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Family</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Family_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<!-- <biostatArc>0</biostatArc> -->
+	<biostatMet>1</biostatMet>
+	<displayOrderInCategory>145.030</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>With a &lt;color=#8a8ae6&gt;50% chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;family relationship&lt;/color&gt;.</li>
+		<li>Supported any blood family relationships.</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Chimera_PsychicHarvester</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>1</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>44444~57565</spawnIntervalRange>
+			<chance>0.5</chance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+</Defs>

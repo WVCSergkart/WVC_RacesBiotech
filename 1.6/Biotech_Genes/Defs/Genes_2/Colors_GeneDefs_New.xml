@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_DarkBlue</defName>
+	<label>dark blue skin</label>
+	<skinColorOverride>(60,65,82)</skinColorOverride>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_FleshRed</defName>
+	<label>flesh red skin</label>
+	<skinColorOverride>(202,153,153)</skinColorOverride>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_FleshPink</defName>
+	<label>flesh pink skin</label>
+	<skinColorOverride>(200,150,159)</skinColorOverride>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_MilkWhite</defName>
+	<label>milk white skin</label>
+	<skinColorOverride>(214,208,211)</skinColorOverride>
+  </GeneDef>
+
+</Defs>

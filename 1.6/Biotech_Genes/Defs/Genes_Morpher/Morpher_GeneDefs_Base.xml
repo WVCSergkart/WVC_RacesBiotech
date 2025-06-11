@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneMorpher">
+	<defName>WVC_Morpher</defName>
+	<label>morpher</label>
+	<description>Carriers of this gene have archites, which, under certain conditions, can completely rewrite the owner's genetic code.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Morpher</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Morpher</resourceGizmoType>
+	<iconPath>WVC/UI/Genes/Gene_Morpher_v0</iconPath>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered only by &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li> -->
+		<li>Sets are stored in the &lt;color=#8a8ae6&gt;gene's memory&lt;/color&gt; and are called &lt;color=#8a8ae6&gt;forms&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#ffec85&gt;Can only remember one custom xenotype at a time.&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Experimental.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>VRE_Morphs</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
+			<morpherTriggerChangeJob>WVC_ChangeMorpherTriggerGene</morpherTriggerChangeJob>
+			<morpherTriggerGenes>
+			  <li>WVC_MorphCondition_Diurnal</li>
+			  <li>WVC_MorphCondition_Nocturnal</li>
+			  <li>WVC_MorphCondition_Seasonal</li>
+			  <li>WVC_MorphCondition_Damage</li>
+			</morpherTriggerGenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+</Defs>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="HemogenPack"]/comps/li[@Class="CompProperties_Styleable"]</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="HemogenPack"]/comps</xpath>
+			  <success>Always</success>
+			  <value>
+				<li Class="CompProperties_Styleable" />
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Scarifier</li>
+		  <li>WVC_Scarifier_Clotting</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/PreceptDef[defName="AnimalVenerated" or defName="PreferredXenotype"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<conflictingMemes>
+		  <li>WVC_XenotypesSupremacy</li>
+		</conflictingMemes>
+	  </value>
+	</Operation>
+
+	<!-- ============================================================ -->
+
+	<!-- Golem -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_Golemist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_Golemist</li>
+		</value>
+	</Operation>
+
+	<!-- Dead -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Skullspike_Desired"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_Undeadist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Comfort_Ignored" or defName="Pain_Idealized"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_Undeadist</li>
+		</value>
+	</Operation>
+
+	<!-- Shape -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_XenotypesSupremacy</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Bonding_Disapproved"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_XenotypesSupremacy</li>
+		</value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/MemeDef[defName="NaturePrimacy" or defName="AnimalPersonhood" or defName="FleshPurity" or defName="Rancher"]/exclusionTags</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GeneticSupremacy_Shapeshifter</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+</Patch>

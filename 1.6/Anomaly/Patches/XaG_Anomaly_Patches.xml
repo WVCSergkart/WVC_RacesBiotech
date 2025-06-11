@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/genes/li[@Tag="AnomalySkin"]</xpath>
+	  <value>
+		<li>WVC_GhoulSkin</li>
+	  </value>
+	</Operation>
+
+</Patch>

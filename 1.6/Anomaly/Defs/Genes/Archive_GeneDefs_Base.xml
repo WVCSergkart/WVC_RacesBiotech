@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher">
+	<defName>WVC_Archiver</defName>
+	<label>archiver</label>
+	<description>Carriers of this gene have archites that are capable of completely rewriting the carrier, creating an alternative version of it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Archiver</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Archivator_v0</iconPath>
+	<biostatArc>5</biostatArc>
+	<displayOrderInCategory>-110</displayOrderInCategory>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<customEffectDescriptions>
+		<li>Creates a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; that can be used as a &lt;color=#8a8ae6&gt;form&lt;/color&gt;.</li>
+		<li>For each &lt;color=#8a8ae6&gt;form&lt;/color&gt;, all genes, clothing, relationships, etc. are separate.</li>
+		<!-- <li>The &lt;color=#8a8ae6&gt;forms&lt;/color&gt; are psychically connected to each other, and can receive some thoughts from each other.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; kills all saved &lt;color=#b0bf80&gt;duplicates&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+</Defs>

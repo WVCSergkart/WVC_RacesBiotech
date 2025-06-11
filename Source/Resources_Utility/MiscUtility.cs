@@ -304,7 +304,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			ActiveDropPodInfo activeDropPodInfo = new();
+			ActiveTransporterInfo activeDropPodInfo = new();
 			activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
 			IntVec3 cell = DropCellFinder.TradeDropSpot(map);
             DropPodUtility.MakeDropPodAt(cell, map, activeDropPodInfo);
@@ -695,7 +695,7 @@ namespace WVC_XenotypesAndGenes
 			//bool presentShapeshifter = false;
 			//bool leaderIsUndead = false;
 			//bool presentUndead = false;
-			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
+			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction;
 			foreach (Pawn item in pawns)
 			{
 				if (item.IsQuestLodger())

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_GeneFrenzy</defName>
+	<label>frenzy heart</label>
+	<description>Carriers of this gene can, at will, saturate the bloodstream with adrenaline, allowing the user to move and attack at high speeds for a short time.</description>
+	<iconPath>WVC/UI/Genes/Gene_Frenzy_v0</iconPath>
+	<displayCategory>Ability</displayCategory>
+	<selectionWeight>0.0022</selectionWeight>
+	<abilities>
+	  <li>WVC_GeneFrenzy</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_GeneFrenzy</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatMet>-1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rush</symbol></li>
+		<li><symbol>frenzy</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <AbilityDef>
+	<defName>WVC_GeneFrenzy</defName>
+	<label>frenzy</label>
+	<description>Saturate the bloodstream with adrenaline, permitting the user to move and attack at high speeds for a short time.</description>
+	<iconPath>WVC/UI/Genes/Gene_Frenzy_v0</iconPath>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+	<hostile>false</hostile>
+	<groupAbility>true</groupAbility>
+	<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+	<aiCanUse>true</aiCanUse>
+	<ai_IsOffensive>true</ai_IsOffensive>
+	<targetRequired>false</targetRequired>
+	<statBases>
+	  <Ability_Duration>15</Ability_Duration>
+	</statBases>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <requireLineOfSight>false</requireLineOfSight>
+	  <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+	  <soundCast>Pawn_Monkey_Angry</soundCast>
+	  <targetable>false</targetable>
+	  <targetParams>
+		<canTargetSelf>true</canTargetSelf>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="CompProperties_AbilityGiveHediff">
+		<compClass>CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_XaG_GeneFrenzy</hediffDef>
+		<onlyApplyToSelf>True</onlyApplyToSelf>
+		<replaceExisting>true</replaceExisting>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

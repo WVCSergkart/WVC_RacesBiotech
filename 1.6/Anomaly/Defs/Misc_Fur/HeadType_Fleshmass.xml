@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- <HeadTypeDef ParentName="AverageBase"> -->
+	<!-- <defName>WVC_Ghoul_Normal</defName> -->
+	<!-- <graphicPath>Things/Pawn/Ghoul/Heads/GhoulskinHead_Normal</graphicPath> -->
+	<!-- <gender>None</gender> -->
+	<!-- <randomChosen>false</randomChosen> -->
+	<!-- <eyeOffsetEastWest>(0.13, 0, 0.17)</eyeOffsetEastWest> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_GhoulSkin</li> -->
+	<!-- </requiredGenes> -->
+  <!-- </HeadTypeDef> -->
+
+  <!-- <HeadTypeDef ParentName="AverageBase"> -->
+	<!-- <defName>WVC_Ghoul_Heavy</defName> -->
+	<!-- <graphicPath>Things/Pawn/Ghoul/Heads/GhoulskinHead_Heavy</graphicPath> -->
+	<!-- <gender>None</gender> -->
+	<!-- <randomChosen>false</randomChosen> -->
+	<!-- <eyeOffsetEastWest>(0.13, 0, 0.17)</eyeOffsetEastWest> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_GhoulSkin</li> -->
+	<!-- </requiredGenes> -->
+  <!-- </HeadTypeDef> -->
+
+  <!-- <HeadTypeDef ParentName="NarrowBase"> -->
+	<!-- <defName>WVC_Ghoul_Narrow</defName> -->
+	<!-- <graphicPath>Things/Pawn/Ghoul/Heads/GhoulskinHead_Narrow</graphicPath> -->
+	<!-- <gender>None</gender> -->
+	<!-- <randomChosen>false</randomChosen> -->
+	<!-- <eyeOffsetEastWest>(0.13, 0, 0.18)</eyeOffsetEastWest> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_GhoulSkin</li> -->
+	<!-- </requiredGenes> -->
+  <!-- </HeadTypeDef> -->
+
+  <!-- <HeadTypeDef> -->
+	<!-- <defName>WVC_Ghoul_Wide</defName> -->
+	<!-- <graphicPath>Things/Pawn/Ghoul/Heads/GhoulskinHead_Wide</graphicPath> -->
+	<!-- <gender>None</gender> -->
+	<!-- <hairMeshSize>(1.5, 1.5)</hairMeshSize> -->
+	<!-- <beardMeshSize>(1.7, 1.5)</beardMeshSize> -->
+	<!-- <randomChosen>false</randomChosen> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>Jaw_Heavy</li> -->
+	  <!-- <li>WVC_GhoulSkin</li> -->
+	<!-- </requiredGenes> -->
+	<!-- <eyeOffsetEastWest>(0.15, 0, 0.18)</eyeOffsetEastWest> -->
+  <!-- </HeadTypeDef> -->
+
+  <HeadTypeDef ParentName="WVC_XenotypesAndGenes_AverageBase">
+	<defName>WVC_FleshmassHead</defName>
+	<graphicPath>WVC/Heads/Fleshmass_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_FleshmassSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+</Defs>

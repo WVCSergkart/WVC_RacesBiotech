@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneticStabilizerSerum_Base</defName>
+	<label>genetic stabilizer</label>
+	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 8 days. The effect can be cumulative.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerum_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_MildGeneticInstability</GeneDef>
+	  <GeneDef>WVC_MajorGeneticInstability</GeneDef>
+	  <GeneDef>WVC_ExtremeGeneticInstability</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList Inherit="False">
+	  <Steel>30</Steel>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <Silver>4</Silver>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
+		<daysDelay>8</daysDelay>
+		<canBeUsedInCaravan>true</canBeUsedInCaravan>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneticStabilizerSerum_Archotech</defName>
+	<label>archotech genetic stabilizer</label>
+	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 80 years.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerumArcho_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_MildGeneticInstability</GeneDef>
+	  <GeneDef>WVC_MajorGeneticInstability</GeneDef>
+	  <GeneDef>WVC_ExtremeGeneticInstability</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>3670</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
+		<!-- 288 000 000 ticks = 4800 days = 80 years -->
+		<daysDelay>4800</daysDelay>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
+	<label>shift serum (genes regrow)</label>
+	<description>A one-use super-dose of mechanics tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer receive genes regrow after shapeshifting.</description>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
+	</graphicData>
+	<statBases>
+	  <MarketValue>4670</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
+		<disableShapeshiftGenesRegrowAfterUse>true</disableShapeshiftGenesRegrowAfterUse>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneRestorationSerum_Base</defName>
+	<label>gene restoration serum</label>
+	<description>A one-use super-dose of mechanites tuned to restore the user's genes. After using the serum, it removes from the user the effect associated with xenogerm reimplantation.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneResorationSerum_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False"/>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
+		<hediffsToRemove>
+		  <!-- Vanilla -->
+		  <li>XenogermReplicating</li>
+		  <li>XenogerminationComa</li>
+		  <li>XenogermLossShock</li>
+		  <!-- Mod -->
+		  <li>WVC_Dustogenic_DelayedReimplanter</li>
+		</hediffsToRemove>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<label>duplicate restoration serum</label>
+	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Duplicator</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	</graphicData>
+	<costList>
+	  <Uranium>30</Uranium>
+	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
+		<hediffsToRemove>
+		  <!-- Vanilla -->
+		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedCreepjoiner</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMind</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumbledMind</li>
+		  <!-- Mod -->
+		  <!-- <li">WVC_DuplicateSickness</li> -->
+		</hediffsToRemove>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneDuplicatorResetAbility</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

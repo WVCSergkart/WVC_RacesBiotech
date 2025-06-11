@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_ReimplanterThrallMaker</defName>
+	<label>thrall master</label>
+	<description>Carriers of this gene can implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive and are therefore often dependent on those who created them.</description>
+	<iconPath>WVC/UI/Genes/Gene_ThrallMaster_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1490</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<abilities>
+	  <li>WVC_ReimplanterThrallMaker</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterThrallMaker</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;random caster genes&lt;/color&gt;, &lt;color=#8a8ae6&gt;thrall gene&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_ReimplanterThrallMaker</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<filledBlockColor>(149, 208, 252)</filledBlockColor>
+			<recacheFrequency>1329</recacheFrequency>
+		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>35</reqGeneMat> -->
+		<!-- </li> -->
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
+	<defName>WVC_ReimplanterThrallMaker</defName>
+	<label>thrall maker</label>
+	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
+	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
+	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
+	<gizmoClass>WVC_XenotypesAndGenes.Command_HiddenAbility</gizmoClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>
+		<geneDefs>
+		  <li>WVC_Thrall</li>
+		  <!-- <li>WVC_DeadStomach</li> -->
+		  <!-- <li>WVC_Neversleep</li> -->
+		</geneDefs>
+		<inheritableGenes>
+		  <!-- Undead -->
+		  <li>WVC_Undead</li>
+		  <li>Ageless</li>
+		  <li>WVC_NeverDead</li>
+		  <li>Deathless</li>
+		  <!-- Special -->
+		  <li>DarkVision</li>
+		  <li>WVC_GeneSavant</li>
+		  <!-- Rare Super -->
+		  <li>DiseaseFree</li>
+		  <li>PerfectImmunity</li>
+		  <li>WVC_DeadStomach</li>
+		  <!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
+		  <!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
+		  <!-- <li>ToxResist_Total</li> -->
+		  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		  <li>WVC_ToxResist_Archite</li>
+		  <li>TotalHealing</li>
+		  <!-- Vampire Thralls -->
+		  <li>Bloodfeeder</li>
+		  <li>WVC_Bloodeater</li>
+		  <li>WVC_BloodyGrowths</li>
+		  <li>WVC_HemogenScarless</li>
+		  <li>WVC_HemogenGain</li>
+		  <!-- Golem Thralls -->
+		  <!-- <li>WVC_StoneSkin</li> -->
+		  <!-- <li>WVC_SkinColor_Granite</li> -->
+		  <!-- <li>WVC_SkinColor_Limestone</li> -->
+		  <!-- <li>WVC_SkinColor_Marble</li> -->
+		  <!-- <li>WVC_SkinColor_Sandstone</li> -->
+		  <!-- <li>WVC_SkinColor_Slate</li> -->
+		  <!-- Graphic -->
+		  <li>WVC_HeadBoneHorns</li>
+		  <li>WVC_DemonTailA</li>
+		  <li>Ears_Pointed</li>
+		  <li>WVC_Ears_PointedA</li>
+		  <li>WVC_Ears_PointedB</li>
+		  <li>WVC_Hair_NonBald</li>
+		  <li>WVC_BodySize_Small</li>
+		  <li>WVC_BodySize_Large</li>
+		  <!-- <li>WVC_Wings_FeatheredWings</li> -->
+		  <li>WVC_Wings_MembranousWings</li>
+		</inheritableGenes>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

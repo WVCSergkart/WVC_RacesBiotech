@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="GolemMasters">
+	<defName>WVC_RuneDryad</defName>
+	<label>golyad</label>
+	<!-- old runeex -->
+	<!-- goldrykin, ryadkin, ryadems, goledry, golyad -->
+	<!-- A successful experiment, not the most useful aspects, "and so it will do" conclusion -->
+	<description>Golyads are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems and dryads.</description>
+	<descriptionShort>Golyads are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems and dryads.</descriptionShort>
+	<!-- <iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
+	<genes>
+		<!-- Dryads -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenConnection</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_DryadbondEnchanced</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_TotalHealing</li> -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_ArmorSkin</li>
+		<!-- Golems -->
+		<li>WVC_SwarmConnection_Golems</li>
+		<!-- = -->
+		<li>Immunity_SuperStrong</li>
+		<!-- <li>WoundHealing_Fast</li> -->
+		<li>WVC_WoundHealing_SuperSlowHealing</li>
+		<li>WVC_AgeDebuff_MoveSpeed</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<li>WVC_SleepyStomach</li>
+		<!-- <li>WVC_Fragile</li> -->
+		<li>StrongStomach</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<!-- <li>AptitudeRemarkable_Crafting</li> -->
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<!-- Graphic -->
+		<li>WVC_Ears_DoublePointedA</li>
+		<li>WVC_SkinnyTailA</li>
+		<li>WVC_RuneSkin</li>
+		<li>Body_Standard</li>
+		<li>Hair_DarkBlack</li>
+		<li>WVC_SkinColor_ffdcb4_HEX</li>
+		<!-- <li>WVC_SkinColor_ffb4b4_HEX</li> -->
+		<!-- <li>WVC_Eyes_ceae69_HEX</li> -->
+		<li>WVC_Eyes_Colorful</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(255, 216, 133)</defaultColor>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeIconDef>
+	<defName>WVC_XenoMecha1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno1</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoMecha3c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno3</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoMecha4c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno4</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoRogueFormer1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Roguekind1</texPath>
+  </XenotypeIconDef>
+
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead2c</defName>
+	<!-- <label>resurgent</label> -->
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead3c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v2</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead4c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v3</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead5c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v4</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_XenoDeadCat0c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoBloodeaterCat0c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Bloodeater_v1</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Masks -->
+  <XenotypeIconDef>
+	<defName>WVC_MaskGood1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksGood</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskNeutral1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksNeutral</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskEvil1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksEvil</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskShapeShifter1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MaskShapeShifter1</texPath>
+  </XenotypeIconDef>
+
+  <!-- Shapeshifter -->
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterBasic1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterFur1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterFur_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterHorns1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterHorns</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Faceless -->
+  <XenotypeIconDef>
+	<defName>WVC_FacelessHorns1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_FacelessHorns2c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Lilith_v2</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Sanguophage -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Vampire1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Vampire_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire2c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire3c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Eyes_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire4c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Anomaly -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_DeadFace0c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</texPath> -->
+  <!-- </XenotypeIconDef> -->
+
+  <!-- Golem -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_DoubleEars1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Duplicator -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Duplicator1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Duplicator_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+</Defs>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<!-- <WVC_BiotechSettings_Label_ExtraGenes>Info</WVC_BiotechSettings_Label_Extra> -->
+
+	<!-- <WVC_BiotechSettings_Tab_XenotypeGestatorSettings>Xenotype Gestator</WVC_BiotechSettings_Tab_XenotypeGestatorSettings> -->
+
+	<WVC_BiotechSettings_Tab_XenotypesSettings>Xenotypes</WVC_BiotechSettings_Tab_XenotypesSettings>
+
+	<!-- <WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator> -->
+	<!-- <WVC_XaGGeneSettings_Undead>Undead</WVC_XaGGeneSettings_Undead> -->
+	<!-- <WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls> -->
+	<!-- <WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation> -->
+	<!-- <WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer> -->
+	<!-- <WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing> -->
+	<!-- <WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover> -->
+	<!-- <WVC_XaGGeneSettings_Telepath>Telepath</WVC_XaGGeneSettings_Telepath> -->
+	<!-- <WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic> -->
+	<!-- <WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions</WVC_Label_enable_spawnXenotypesInFactions>
+	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable the spawning of xenotypes from the mod in factions, taking into account their balance and design.
+
+By default, xenotypes should not be found in factions and only occasionally appear as factionless wanderers. Enabling this option may simplify the game too much in some situations. If you are looking for a challenge, ignore this option.
+
+A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
+
+	<WVC_Label_disableXenotypes_MainSwitch>Disable xenotype-related things</WVC_Label_disableXenotypes_MainSwitch>
+	<WVC_ToolTip_disableXenotypes_MainSwitch>Removes things associated with xenotypes. Mandatory option to disable any xenotypes.
+
+Please note that this may impact some mechanics, which may become unavailable or severely limited as a result.
+
+A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
+
+	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>
+	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent.</WVC_ToolTip_disableXenotypes_Undeads>
+
+	<WVC_Label_disableXenotypes_Psycasters>|- Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
+	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
+
+	<WVC_Label_disableXenotypes_Mechalike>|- Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
+	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin.</WVC_ToolTip_disableXenotypes_Mechalike>
+
+	<WVC_Label_disableXenotypes_GolemMasters>|- Disable golemists</WVC_Label_disableXenotypes_GolemMasters>
+	<WVC_ToolTip_disableXenotypes_GolemMasters>Golyad, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
+
+	<WVC_Label_disableXenotypes_Bloodeaters>|- Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
+	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater, Chimerkin, Nociokin, Beholdkind.</WVC_ToolTip_disableXenotypes_Bloodeaters>
+
+	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
+	<WVC_ToolTip_disableXenotypes_Misc>Thrall.</WVC_ToolTip_disableXenotypes_Misc>
+
+</LanguageData>

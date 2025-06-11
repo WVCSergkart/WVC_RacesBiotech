@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Base</defName>
+	<label>xenotype serum</label>
+	<statBases>
+	  <MarketValue>4350</MarketValue>
+	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Base</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
+		<xenotypeType>Base</xenotypeType>
+		<removeEndogenes>false</removeEndogenes>
+		<removeXenogenes>true</removeXenogenes>
+		<jobString>Retune</jobString>
+		<retuneJob>WVC_XenotypesAndGenes_RetuneSerum</retuneJob>
+		<researchPrerequisites>
+		  <li>WVC_XenotypesAndGenes_RetuneSerum</li>
+		</researchPrerequisites>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Ultra</defName>
+	<label>archotype serum</label>
+	<statBases>
+	  <MarketValue>8570</MarketValue>
+	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <displayPriority>-19</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>10</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
+		<xenotypeType>Archite</xenotypeType>
+		<removeEndogenes>false</removeEndogenes>
+		<removeXenogenes>true</removeXenogenes>
+		<jobString>Retune</jobString>
+		<retuneJob>WVC_XenotypesAndGenes_RetuneSerum</retuneJob>
+		<researchPrerequisites>
+		  <li>WVC_XenotypesAndGenes_RetuneSerum</li>
+		</researchPrerequisites>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Hybrid</defName>
+	<label>hybridtype serum</label>
+	<statBases>
+	  <MarketValue>12220</MarketValue>
+	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <displayPriority>-18</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>10</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Mecha</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_Hybrid</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_SubXenotypeSerum_Undead</defName>
+	<label>undeadtype serum</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Cannot be retuned.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
+	</graphicData>
+	<statBases>
+	  <MarketValue>18850</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
+		<possibleXenotypes>
+		  <li>WVC_Featherdust</li>
+		  <li>WVC_Resurgent</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+		</possibleXenotypes>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
+	<label>xenotype resurrector</label>
+	<statBases>
+	  <MarketValue>12850</MarketValue>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompTargetEffect_DoJobOnTarget_XenogermSerum</compClass>
+		<moteDef>Mote_ResurrectFlash</moteDef>
+		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
+	<label>xenotype resurrector</label>
+	<statBases>
+	  <MarketValue>10850</MarketValue>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerum_v0</texPath>
+	</graphicData>
+	<costList>
+	  <ComponentSpacer>1</ComponentSpacer>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	</costList>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Base</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompTargetEffect_DoJobOnTarget_XenogermSerum</compClass>
+		<moteDef>Mote_ResurrectFlash</moteDef>
+		<xenotypeDef>WVC_Undead</xenotypeDef>
+		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

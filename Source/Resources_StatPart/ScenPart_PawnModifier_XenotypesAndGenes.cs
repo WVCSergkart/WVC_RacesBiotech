@@ -182,34 +182,34 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            if (chimeraGenesPerBiomeDef != null && Find.GameInitData != null)
-            {
-                GetGenesSetPerBiome(Find.World.grid[Find.GameInitData.startingTile].biome, out GeneralHolder genesHolder);
-                if (genesHolder != null && genesHolder.genes != null)
-                {
-                    XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes);
-                    return;
-                }
-            }
+            //if (chimeraGenesPerBiomeDef != null && Find.GameInitData != null)
+            //{
+            //    GetGenesSetPerBiome(Find.World.grid[Find.GameInitData.startingTile].biome, out GeneralHolder genesHolder);
+            //    if (genesHolder != null && genesHolder.genes != null)
+            //    {
+            //        XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes);
+            //        return;
+            //    }
+            //}
             XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
         }
 
-        private bool GetGenesSetPerBiome(BiomeDef biomeDef, out GeneralHolder genesHolder)
-        {
-            genesHolder = null;
-            foreach (GeneralHolder holder in chimeraGenesPerBiomeDef)
-            {
-                foreach (BiomeDef item in holder.biomeDefs)
-                {
-                    if (item == biomeDef)
-                    {
-                        genesHolder = holder;
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+        //private bool GetGenesSetPerBiome(BiomeDef biomeDef, out GeneralHolder genesHolder)
+        //{
+        //    genesHolder = null;
+        //    foreach (GeneralHolder holder in chimeraGenesPerBiomeDef)
+        //    {
+        //        foreach (BiomeDef item in holder.biomeDefs)
+        //        {
+        //            if (item == biomeDef)
+        //            {
+        //                genesHolder = holder;
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    return false;
+        //}
 
         //private void ChimeraEvolve(Pawn p)
         //{
@@ -320,26 +320,26 @@ namespace WVC_XenotypesAndGenes
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
                 }
-                if (chimeraGenesPerBiomeDef != null)
-                {
-                    stringBuilder.AppendLine();
-                    int count = -1;
-                    foreach (GeneralHolder generalHolder in chimeraGenesPerBiomeDef)
-                    {
-                        count++;
-                        if (count > 0)
-                        {
-                            stringBuilder.AppendLine();
-                        }
-                        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome".Translate(generalHolder.biomeDefs.Select((BiomeDef def) => def.label).ToCommaList(useAnd: true).CapitalizeFirst()).CapitalizeFirst() + ":\n" + generalHolder.genes.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-                    }
-                    if (chimeraGeneDefs != null)
-                    {
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-                    }
-                }
-                else if (!chimeraGeneDefs.NullOrEmpty())
+                //if (chimeraGenesPerBiomeDef != null)
+                //{
+                //    stringBuilder.AppendLine();
+                //    int count = -1;
+                //    foreach (GeneralHolder generalHolder in chimeraGenesPerBiomeDef)
+                //    {
+                //        count++;
+                //        if (count > 0)
+                //        {
+                //            stringBuilder.AppendLine();
+                //        }
+                //        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome".Translate(generalHolder.biomeDefs.Select((BiomeDef def) => def.label).ToCommaList(useAnd: true).CapitalizeFirst()).CapitalizeFirst() + ":\n" + generalHolder.genes.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+                //    }
+                //    if (chimeraGeneDefs != null)
+                //    {
+                //        stringBuilder.AppendLine();
+                //        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+                //    }
+                //}
+                if (!chimeraGeneDefs.NullOrEmpty())
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));

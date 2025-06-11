@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneMechlink_Base" Abstract="True">
+	<label>mechlink</label> 
+	<labelShortAdj>mechlinked</labelShortAdj>
+	<description>Carriers of this gene have a natural tendency to overseer mechanoid-like life forms.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Mechlink</geneClass>
+	<selectionWeight>0.003</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>1125</displayOrderInCategory>
+	<customEffectDescriptions>
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
+	</customEffectDescriptions>
+	<marketValueFactor>1.8</marketValueFactor>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
+	  <li>WVC_GeneMechlink</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks" Abstract="True">
+	<selectionWeight>0.002</selectionWeight>
+	<marketValueFactor>2</marketValueFactor>
+	<exclusionTags Inherit="False">
+	  <!-- <li>AbilityMechlink</li> -->
+	  <!-- <li>Mechlink</li> -->
+	  <!-- <li>WVC_GeneMechlink</li> -->
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- Mechlink -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+	<defName>WVC_ArchiteMechlink</defName>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<selectionWeight>0.00125</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+	<defName>WVC_NaturalMechlink</defName>
+	<label>natural mechlink</label> 
+	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
+	<statOffsets>
+	  <WVC_GolemBond>4</WVC_GolemBond>
+	  <MechBandwidth>-4</MechBandwidth>
+	  <MechControlGroups>-1</MechControlGroups>
+	</statOffsets>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>27</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
+	<defName>WVC_Dustogenic_Blesslink</defName>
+	<label>false mechlink</label>
+	<description>Carriers of this gene have a psychic signature that misleads mechanoids. They can take control of malfunctioning mechanoids and call upon their aid. However, because of this, they are completely unable to create new mechanoids.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Falselink</geneClass>
+	<displayCategory>WVC_Dustogenic</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Allows to toggle mechanoid summoning.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Summon mechs&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
+		<!-- <li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li> -->
+		<li>&lt;color=#ff8585&gt;Increases the gestation time of mechs by x20&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MechBandwidth>0.5</MechBandwidth>
+	  <MechFormingSpeed>0.05</MechFormingSpeed>
+	</statFactors>
+	<statOffsets>
+	  <MechControlGroups>2</MechControlGroups>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<!-- <spawnIntervalRange>480000~960000</spawnIntervalRange> -->
+			<!-- <summonRange>1~6</summonRange> -->
+			<!-- <summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest> -->
+			<allowedMechWeightClasses>
+			  <li>Light</li>
+			  <li>Medium</li>
+			  <li>Heavy</li>
+			  <!-- <li>UltraHeavy</li> -->
+			</allowedMechWeightClasses>
+			<mechHediff>WVC_DustMechanoid_OnlyOneOverseer</mechHediff>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Golemlink -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_ExtraLinks">
+	<defName>WVC_SwarmConnection_Golems</defName>
+	<label>golem mechlink</label>
+	<description>Carriers of this gene have archites capable of animating stone chunks, turning them into stone mechanoids - golems.</description>
+	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Golemlink</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golemlink</resourceGizmoType>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<displayOrderInCategory>1130</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 3 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)4-7 days(/DateTime).</li>
+		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead. &lt;color=#ff8585&gt;Summoned golems are limited to simple types.&lt;/color&gt;</li>
+		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;medicoroid golem&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_GolemBond>8</WVC_GolemBond>
+	  <MechBandwidth>2</MechBandwidth>
+	  <MechControlGroups>1</MechControlGroups>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<filledBlockColor>(249, 115, 6)</filledBlockColor>
+			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
+			<tipSectionTip>WVC_XaG_GolemBandwidthGizmoTip</tipSectionTip>
+			<golemistTypeIndex>0</golemistTypeIndex>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<!-- <spawnIntervalRange>240000~420000</spawnIntervalRange> -->
+			<!-- <summonRange>1~3</summonRange> -->
+			<!-- <summonQuest>WVC_MechanitorSummonGolems</summonQuest> -->
+			<golemModeDefs>
+			  <li>WVC_Golem_Liftoid</li>
+			  <li>WVC_Golem_Constructoid</li>
+			  <li>WVC_Golem_Crafter</li>
+			  <li>WVC_Golem_Miner</li>
+			  <li>WVC_Golem_Hunter</li>
+			  <li>WVC_Golem_Cleanoid</li>
+			  <!-- <li>WVC_Golem_Behemoth</li> -->
+			  <!-- <li>WVC_Golem_Medicor</li> -->
+			  <li>WVC_Golem_Militoid</li>
+			</golemModeDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

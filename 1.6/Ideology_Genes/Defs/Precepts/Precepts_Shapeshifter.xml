@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IssueDef>
+	<defName>WVC_Shapeshifters</defName>
+	<label>shapeshifters</label>
+	<iconPath>WVC/UI/Precepts/Precept_Shapeshifter2_v0</iconPath>
+  </IssueDef>
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_Recluse</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>recluse</label>
+	<description>We don't need many people to survive; we are strong not in numbers, but in form.</description>
+	<!-- &lt;color=#f5ffa2&gt;Gameplay Effect (Mood):&lt;/color&gt; Quest pawns and anomaly duplicates are ignored. -->
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_ColonistInColony"> -->
+		<!-- <colonistsLimit>5</colonistsLimit> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_Recluse_Opinion_Shapeshifter</thought>
+		<description>Shapeshifter</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_Recluse_Humanlikes</thought>
+		<description>For each colonist (non-quest, non-duplicate, non-deathresting) above 5</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_ShapeshifterColonist_Recluse</thought>
+		<thoughtStageDescriptions>
+		  <li>No shapeshifters</li>
+		  <li>No shapeshifter leader</li>
+		  <li>Shapeshifter leader</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>6</points>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Morph</eventDef>
+		<eventLabel>morphing</eventLabel>
+		<points>3</points>
+	  </li>
+	</comps>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+	<!-- </exclusionTags> -->
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_Revered</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>required</label>
+	<description>Shapeshifters should be worshipped. Believers will be happy if there is a shapeshifter in the colony.</description>
+	<impact>Medium</impact>
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_Revered_Opinion_Shapeshifter</thought>
+		<description>Shapeshifter</description>
+	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_Shapeshifter_ReveredShapeshifter</thought> -->
+		<!-- <description>Revered shapeshifter</description> -->
+	  <!-- </li> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_ShapeshifterColonist_Revered</thought>
+		<thoughtStageDescriptions>
+		  <li>No shapeshifters</li>
+		  <li>No shapeshifter leader</li>
+		  <li>Shapeshifter leader</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>2</points>
+	  </li>
+	</comps>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+	<!-- </exclusionTags> -->
+  </PreceptDef>
+
+  <!-- <PreceptDef> -->
+	<!-- <defName>WVC_Shapeshifters_Reviled</defName> -->
+	<!-- <issue>WVC_Shapeshifters</issue> -->
+	<!-- <label>reviled</label> -->
+	<!-- <description>How can you trust those who change their faces like masks?</description> -->
+	<!-- <impact>Medium</impact> -->
+	<!-- <comps> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_Shapeshifters_Reviled_Opinion_Shapeshifter</thought> -->
+		<!-- <description>Shapeshifter</description> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_Shapeshifter_ReviledShapeshifter</thought> -->
+		<!-- <description>Shapeshifter self hatred</description> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_ShapeshifterColonist_Reviled</thought> -->
+		<!-- <description>Shapeshifter among us</description> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </PreceptDef> -->
+
+
+  <!-- Thoughts -->
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_Recluse_Opinion_Shapeshifter</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Shapeshifter_Social</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>shapeshifter</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_Revered_Opinion_Shapeshifter</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Shapeshifter_Social</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>shapeshifter</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_Shapeshifters_Reviled_Opinion_Shapeshifter</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Shapeshifter_Social</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>shapeshifter</label> -->
+		<!-- <baseOpinionOffset>-40</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_Shapeshifter_ReveredShapeshifter</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_IsShapeshifter</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>revered shapeshifter</label> -->
+		<!-- <description>Let them worship me. There is no more perfect creature than me.</description> -->
+		<!-- <baseMoodEffect>4</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_Shapeshifter_ReviledShapeshifter</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_IsShapeshifter</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>shapeshifter self hatred</label> -->
+		<!-- <description>I am what I hate. I must rid myself of this curse.</description> -->
+		<!-- <baseMoodEffect>-12</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <ThoughtDef>
+	<defName>WVC_ShapeshifterColonist_Revered</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_ShapeshifterColonist</workerClass>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<stages>
+	  <li>
+		<label>no shapeshifter</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<baseMoodEffect>-8</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>no shapeshifter leader</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>shapeshifter leader</label>
+		<description>The shapeshifter's presence is a great honor. May they live forever.</description>
+		<baseMoodEffect>2</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_ShapeshifterColonist_Reviled</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_ShapeshifterPresent</workerClass> -->
+	<!-- <nullifiedIfNotColonist>true</nullifiedIfNotColonist> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>shapeshifter among us</label> -->
+		<!-- <description>One of them walks among us. We should expel the shapeshifter from our home.</description> -->
+		<!-- <baseMoodEffect>-8</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <ThoughtDef>
+	<defName>WVC_ShapeshifterColonist_Recluse</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_ShapeshifterColonist</workerClass>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<stages>
+	  <li>
+		<label>no shapeshifter</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<baseMoodEffect>-16</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>no shapeshifter leader</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>shapeshifter leader</label>
+		<description>The shapeshifter's presence is a great honor. May they live forever.</description>
+		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_Recluse_Humanlikes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanFiveColonistsInFaction</workerClass>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
+	<stages>
+	  <li>
+		<label>recluse</label>
+		<description>There are too many of us. Someone needs to leave our colony.</description>
+		<baseMoodEffect>-8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

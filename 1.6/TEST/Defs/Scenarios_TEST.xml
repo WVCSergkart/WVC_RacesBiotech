@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Mechalike</defName>
+	<label>TEST MECHALIKE</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Meca>0.5</WVC_Meca>
+			<WVC_GeneThrower>0.35</WVC_GeneThrower>
+			<WVC_RogueFormer>0.15</WVC_RogueFormer>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Subject</defName>
+	<label>TEST SUBJECT</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.35</WVC_Lilith>
+			<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.35</WVC_CatDeity>
+			<WVC_Sandycat>0.35</WVC_Sandycat>
+			<WVC_Blank>0.30</WVC_Blank>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Golemist</defName>
+	<label>TEST GOLEMISTS</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_RuneDryad>0.5</WVC_RuneDryad>
+			<WVC_Golemkind>0.5</WVC_Golemkind>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Undead</defName>
+	<label>TEST UNDEAD</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Undead>0.60</WVC_Undead>
+			<WVC_Featherdust>0.16</WVC_Featherdust>
+			<WVC_Resurgent>0.17</WVC_Resurgent>
+			<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Chimera</defName>
+	<label>TEST CHIMERA</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Shadoweater>1</WVC_Shadoweater>
+			<WVC_Beholdkind>1</WVC_Beholdkind>
+			<WVC_Nociokin>1</WVC_Nociokin>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef ParentName="ScenarioBase">
+	<defName>WVC_XaG_Test_Hybrid</defName>
+	<label>TEST HYBRID</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>TEST</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>8</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Hybrid>1</WVC_Hybrid>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_StatFactor">
+			<def>StatFactor</def>
+			<stat>MentalBreakThreshold</stat>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <!-- <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"> -->
+	<!-- <defName>WVC_LongNight</defName> -->
+	<!-- <label>Long night</label> -->
+	<!-- <description>TEST.</description> -->
+	<!-- <scenario> -->
+	  <!-- <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary> -->
+	  <!-- <playerFaction> -->
+		<!-- <def>PlayerFaction</def> -->
+		<!-- <factionDef>PlayerTribe</factionDef> -->
+	  <!-- </playerFaction> -->
+	  <!-- <parts> -->
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>1</pawnCount> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <context>PlayerStarter</context> -->
+		  <!-- <xenotypeChances> -->
+			<!-- <WVC_RogueFormer>1</WVC_RogueFormer> -->
+		  <!-- </xenotypeChances> -->
+		  <!-- <questScriptDef>WVC_UnnaturalDarkness</questScriptDef> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_SetNeedLevel"> -->
+		  <!-- <def>SetNeedLevel</def> -->
+		  <!-- <visible>false</visible> -->
+		  <!-- <context>PlayerStarter</context> -->
+		  <!-- <chance>1.0</chance> -->
+		  <!-- <need>Food</need> -->
+		  <!-- <levelRange>0.3~0.5</levelRange> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_DisableIncident"> -->
+			<!-- <def>DisableIncident</def> -->
+			<!-- <incident>UnnaturalDarkness</incident> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_GameStartDialog"> -->
+		  <!-- <def>GameStartDialog</def> -->
+		  <!-- <text>TEST.</text> -->
+		  <!-- <closeSound>GameStartSting</closeSound> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_NoPossessions"> -->
+		  <!-- <def>NoPossessions</def> -->
+		<!-- </li> -->
+
+	  <!-- </parts> -->
+	<!-- </scenario> -->
+  <!-- </ScenarioDef> -->
+
+  <!-- ========================================================= -->
+
+  <!-- <ScenarioDef> -->
+	<!-- <defName>WVC_HybridStart</defName> -->
+	<!-- <label>TEST HYBRID</label> -->
+	<!-- <description>TEST</description> -->
+	<!-- <scenario> -->
+	  <!-- <summary>TEST</summary> -->
+	  <!-- <playerFaction> -->
+		<!-- <def>PlayerFaction</def> -->
+		<!-- <factionDef>PlayerColony</factionDef> -->
+	  <!-- </playerFaction> -->
+	  <!-- <parts> -->
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>8</pawnCount> -->
+		  <!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <hybridXenotype>WVC_Hybrid</hybridXenotype> -->
+		  <!-- <hybridGenes> -->
+			<!-- <li>WVC_SwarmConnection_Golems</li> -->
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li> -->
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li> -->
+			<!-- <li>WVC_StoneSkin</li> -->
+			<!-- <li>WVC_SkinColor_Slate</li> -->
+		  <!-- </hybridGenes> -->
+		  <!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_GameStartDialog"> -->
+		  <!-- <def>GameStartDialog</def> -->
+		  <!-- <text>TEST</text> -->
+		  <!-- <closeSound>GameStartSting</closeSound> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_Naked"> -->
+			<!-- <def>Naked</def> -->
+			<!-- <chance>0.25</chance> -->
+			<!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PawnFilter_Age"> -->
+			<!-- <def>PawnFilter_Age</def> -->
+			<!-- <allowedAgeRange>16~21</allowedAgeRange> -->
+			<!-- <visible>false</visible> -->
+		<!-- </li> -->
+
+	  <!-- </parts> -->
+	<!-- </scenario> -->
+  <!-- </ScenarioDef> -->
+
+</Defs>

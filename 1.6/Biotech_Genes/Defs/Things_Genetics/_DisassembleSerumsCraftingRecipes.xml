@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ======================================================================= -->
+
+  <RecipeDef Name="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base" Abstract="True">
+	<label>disassemble the serum</label>
+	<description>Disassemble the serum.</description>
+	<jobString>Disassembles serum.</jobString>
+	<workAmount>7000</workAmount>
+	<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	<workSkill>Crafting</workSkill>
+	<effectWorking>Smith</effectWorking>
+	<soundWorking>Recipe_Machining</soundWorking>
+	<skillRequirements>
+	  <Crafting>6</Crafting>
+	  <!-- <Intellectual>8</Intellectual> -->
+	</skillRequirements>
+	<products>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	</products>
+	<recipeUsers>
+	  <li>WVC_SerumCraftingTable</li>
+	</recipeUsers>
+	<displayPriority>-500</displayPriority>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_DisassembleSerum</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+  <!-- ======================================================================= -->
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
+	<defName>WVC_XaG_DisassembleSerums</defName>
+	<label>disassemble serums</label>
+	<description>Disassemble serums.</description>
+	<workAmount>2200</workAmount>
+	<products Inherit="False"/>
+	<skillRequirements Inherit="False">
+	  <Crafting>4</Crafting>
+	</skillRequirements>
+	<displayPriority>-900</displayPriority>
+	<specialProducts>
+	  <li>Butchery</li>
+	  <li>Smelted</li>
+	</specialProducts>
+	<ingredients>
+	  <li>
+		<filter>
+		  <categories>
+			<li>WVC_XenotypeSerums</li>
+		  </categories>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>WVC_XenotypeSerums</li>
+	  </categories>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
+	<defName>WVC_RacesBiotech_DisassembleSerumBase</defName>
+	<label>disassemble base serum</label>
+	<description>Disassemble base serum.</description>
+	<products>
+	  <Uranium>15</Uranium>
+	</products>
+	<ingredients>
+	  <li>
+		<filter>
+		  <categories>
+			<li>WVC_XenotypeSerums_Base</li>
+		  </categories>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>WVC_XenotypeSerums_Base</li>
+	  </categories>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
+	<defName>WVC_RacesBiotech_DisassembleSerumUltra</defName>
+	<label>disassemble ultra serum</label>
+	<description>Disassemble ultra serum.</description>
+	<products>
+	  <Uranium>15</Uranium>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	</products>
+	<ingredients>
+	  <li>
+		<filter>
+		  <categories>
+			<li>WVC_XenotypeSerums_Ultra</li>
+		  </categories>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>WVC_XenotypeSerums_Ultra</li>
+	  </categories>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
+	<defName>WVC_RacesBiotech_DisassembleSerumHybrid</defName>
+	<label>disassemble hybrid serum</label>
+	<description>Disassemble hybrid serum.</description>
+	<products>
+	  <Uranium>30</Uranium>
+	  <ArchiteCapsule>2</ArchiteCapsule>
+	</products>
+	<ingredients>
+	  <li>
+		<filter>
+		  <categories>
+			<li>WVC_XenotypeSerums_Mecha</li>
+		  </categories>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>WVC_XenotypeSerums_Mecha</li>
+	  </categories>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>
