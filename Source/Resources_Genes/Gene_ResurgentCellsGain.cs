@@ -101,12 +101,12 @@ namespace WVC_XenotypesAndGenes
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (pawn.IsHashIntervalTick(1500))
+			if (pawn.IsHashIntervalTick(2400, delta))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 1500);
+				GeneResourceUtility.TickResourceDrain(this, 2400, delta);
 			}
 		}
 

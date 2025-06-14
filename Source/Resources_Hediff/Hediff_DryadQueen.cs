@@ -54,9 +54,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostTick()
+		public override void PostTickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(refreshInterval))
+			if (!pawn.IsHashIntervalTick(refreshInterval, delta))
 			{
 				return;
 			}

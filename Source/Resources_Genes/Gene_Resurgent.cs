@@ -139,12 +139,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void Tick()
+        public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (pawn.IsHashIntervalTick(2500))
+			if (pawn.IsHashIntervalTick(2400, delta))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 2500);
+				GeneResourceUtility.TickResourceDrain(this, 2400, delta);
 			}
 		}
 

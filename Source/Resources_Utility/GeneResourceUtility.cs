@@ -554,21 +554,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ResourceUtility
-		public static void TickResourceDrain(IGeneResourceDrain drain, int tick = 1)
+		public static void TickResourceDrain(IGeneResourceDrain drain, int tick, int delta)
 		{
 			if (drain?.Resource != null && drain.CanOffset)
 			{
-				OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
+				OffsetResource(drain, ((0f - drain.ResourceLossPerDay) * (float)delta / 60000f) * tick);
 			}
 		}
 
-		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1, bool canOffset = false)
+		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick, int delta, bool canOffset = false)
 		{
 			// Log.Error("1 TickHemogenDrain " + tick.ToString() + " | 120");
 			if (drain.Resource != null && canOffset)
 			{
 				// Log.Error("TickHemogenDrain ticks: " + tick.ToString());
-				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
+				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) * (float)delta / 60000f) * tick);
 			}
 		}
 

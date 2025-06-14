@@ -47,14 +47,10 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(8000))
-			{
-				return;
-			}
-			if (!Active)
+			if (!pawn.IsHashIntervalTick(8000, delta))
 			{
 				return;
 			}

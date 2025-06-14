@@ -59,9 +59,17 @@ namespace WVC_XenotypesAndGenes
 
 		//private int tick;
 
-		//private int nextTick = -1;
+		//public override void Tick()
+		//{
+  //          tick--;
+  //          if (tick <= 0)
+  //          {
+  //              tick = 360;
+  //              Log.Error("Tick");
+  //          }
+  //      }
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//tick--;
 			//if (tick <= 0)
@@ -69,13 +77,14 @@ namespace WVC_XenotypesAndGenes
 			//	tick = 360;
 			//	Log.Error("Tick");
 			//}
-			if (pawn.IsHashIntervalTick(360))
+			if (pawn.IsHashIntervalTick(360, delta))
 			//if (GeneResourceUtility.CanTick(ref nextTick, 360))
 			{
+				//Log.Error("tick: " + 360);
 				// Log.Error(tick.ToString() + " | 120");
 				// tick = 0;
 				//Log.Error("TickHemogenDrain");
-                GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
+                GeneResourceUtility.TickHemogenDrain(this, 360, delta, CanOffset);
 			}
 		}
 

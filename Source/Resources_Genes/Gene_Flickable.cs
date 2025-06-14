@@ -108,7 +108,20 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff(pawn, Props.hediffDefName, this);
 		}
 
-		public bool RemoteControl_Hide => !Active;
+		//public int nextFly = 15;
+
+		//public override void Tick()
+		//{
+		//	nextFly--;
+  //          if (nextFly > 0)
+  //          {
+  //              return;
+  //          }
+		//	nextFly = 15;
+		//	pawn.flight?.StartFlying();
+		//}
+
+        public bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{

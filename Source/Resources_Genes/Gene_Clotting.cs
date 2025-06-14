@@ -9,10 +9,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ClottingWithHediff : Gene_AddOrRemoveHediff
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(1500))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(1500, delta))
 			{
 				return;
 			}
@@ -50,10 +50,10 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly FloatRange TendingQualityRange = new(0.8f, 1.0f);
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(3200))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(1500, delta))
 			{
 				return;
 			}
@@ -77,10 +77,10 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(1500))
+			if (!pawn.IsHashIntervalTick(1500, delta))
 			{
 				return;
 			}
@@ -132,10 +132,10 @@ namespace WVC_XenotypesAndGenes
 			scarifierIsNull = null;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(2000))
+			if (!pawn.IsHashIntervalTick(1500, delta))
 			{
 				return;
 			}
@@ -180,10 +180,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GauranlenDryads_Clotting : Gene_DryadQueen_Dependant
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(2789))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(2789, delta))
 			{
 				return;
 			}
@@ -200,10 +200,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ArchiteSkin : Gene
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(11821))
+			if (!pawn.IsHashIntervalTick(11821, delta))
 			{
 				return;
 			}

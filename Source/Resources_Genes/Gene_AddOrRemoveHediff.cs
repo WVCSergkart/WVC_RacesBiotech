@@ -40,10 +40,10 @@ namespace WVC_XenotypesAndGenes
 			Local_AddOrRemoveHediff();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(67200))
+			if (!pawn.IsHashIntervalTick(67200, delta))
 			{
 				return;
 			}
@@ -96,22 +96,22 @@ namespace WVC_XenotypesAndGenes
 
 	// }
 
-	[Obsolete]
-	public class Gene_PermanentHediff : Gene
-	{
+	//[Obsolete]
+	//public class Gene_PermanentHediff : Gene
+	//{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+	//	public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-			{
-				HediffUtility.BodyPartsGiver(Props.bodyparts, pawn, Props.hediffDefName, def);
-			}
-		}
+	//	public override void PostAdd()
+	//	{
+	//		base.PostAdd();
+	//		if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+	//		{
+	//			HediffUtility.BodyPartsGiver(Props.bodyparts, pawn, Props.hediffDefName, def);
+	//		}
+	//	}
 
-	}
+	//}
 
 	public class Gene_GenerateHediffWithRandomSeverity : Gene, IGeneOverridden
 	{
@@ -121,10 +121,6 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			// Hediff hediff = HediffMaker.MakeHediff(HediffDef, pawn);
-			// FloatRange floatRange = new(HediffDef.minSeverity, HediffDef.maxSeverity);
-			// hediff.Severity = floatRange.RandomInRange;
-			// pawn.health.AddHediff(hediff);
 			AddOrRemoveHediff(HediffDef, pawn, this);
 		}
 
@@ -138,10 +134,9 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff(HediffDef, pawn, this);
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(67200))
+			if (!pawn.IsHashIntervalTick(67200, delta))
 			{
 				return;
 			}
@@ -197,10 +192,10 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(67200))
+			//base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(67200, delta))
 			{
 				return;
 			}

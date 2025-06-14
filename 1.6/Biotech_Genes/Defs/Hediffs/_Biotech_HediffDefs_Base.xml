@@ -114,11 +114,9 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Wings_FeatheredWings</defName>
 	<label>flying</label>
-	<!-- <label>feathered wings</label> -->
 	<description>The pawn completely ignores terrain cost, making movement much easier.</description>
 	<stages>
 	  <li>
-		<!-- <becomeVisible>false</becomeVisible> -->
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>

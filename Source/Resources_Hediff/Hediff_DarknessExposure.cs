@@ -52,12 +52,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
+
+		}
+
+		public override void TickInterval(int delta)
+		{
 			nextTick--;
 			if (nextTick > 0)
 			{
 				return;
 			}
-			nextTick = 345612;
+			nextTick = 101568;
 			if (Exposure == null)
 			{
 				pawn?.health?.RemoveHediff(this);

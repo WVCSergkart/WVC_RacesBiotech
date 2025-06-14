@@ -34,10 +34,10 @@ namespace WVC_XenotypesAndGenes
 		//	base.CompPostPostAdd(dinfo);
 		//}
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
 			//base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(1500))
+			if (!Pawn.IsHashIntervalTick(1500, delta))
 			{
 				return;
 			}

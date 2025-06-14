@@ -22,10 +22,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override string CompLabelInBracketsExtra => GetLabel();
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
 			//base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(2200))
+			if (!Pawn.IsHashIntervalTick(2200, delta))
 			{
 				return;
 			}
@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				firstOverseer = Pawn.GetOverseer();
 			}
-			if (!Pawn.IsHashIntervalTick(44000))
+			if (!Pawn.IsHashIntervalTick(22000, delta))
 			{
 				return;
 			}

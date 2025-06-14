@@ -76,14 +76,12 @@
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Allows to toggle terrain ignore.&lt;/color&gt;</li>
-		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
 	</customEffectDescriptions>
-	<!-- <graphicData> -->
-		<!-- <drawLoc>Tailbone</drawLoc> -->
-		<!-- <drawOffsetNorth>(0, 0.4, -0.05)</drawOffsetNorth> -->
-		<!-- <drawOffsetSouth>(0, -0.4, -0.05)</drawOffsetSouth> -->
-		<!-- <drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast> -->
-	<!-- </graphicData> -->
+	<!-- req additional patches -->
+	<!-- <statOffsets> -->
+	  <!-- <MaxFlightTime>120</MaxFlightTime> -->
+	  <!-- <FlightCooldown>70</FlightCooldown> -->
+	<!-- </statOffsets> -->
 	<exclusionTags Inherit="False">
 		<li>Wing</li>
 		<li>Wings</li>
