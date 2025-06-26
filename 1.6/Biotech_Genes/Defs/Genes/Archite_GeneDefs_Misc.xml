@@ -12,7 +12,7 @@
 	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension"> -->
 			<!-- <hideGene>true</hideGene> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -97,7 +97,7 @@
 		<!-- <li>Urchins are not bound to a mechanitor and can run wild if ignored.</li> -->
 	<!-- </customEffectDescriptions> -->
 	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension"> -->
 			<!-- <hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -112,7 +112,7 @@
 		<!-- <li>Spawns a baby-pawn with similar genes every 2 years.</li> -->
 	<!-- </customEffectDescriptions> -->
 	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension"> -->
 			<!-- <hediffToWholeBody>WVC_MechaGestator</hediffToWholeBody> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

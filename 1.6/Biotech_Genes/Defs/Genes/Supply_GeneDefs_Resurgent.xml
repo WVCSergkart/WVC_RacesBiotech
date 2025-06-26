@@ -238,7 +238,7 @@
 	  <!-- <li>Blood</li> -->
 	</exclusionTags>
 	<modExtensions Inherit="False">
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
 			<!-- <customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef> -->
 			<!-- <customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon> -->
 			<!-- <customBloodEffect>WVC_Damage_Hit_Resurgent</customBloodEffect> -->

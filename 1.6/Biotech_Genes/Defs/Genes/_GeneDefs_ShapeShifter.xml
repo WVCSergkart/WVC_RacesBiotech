@@ -32,7 +32,7 @@
 	</customEffectDescriptions>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>
 	</modExtensions>

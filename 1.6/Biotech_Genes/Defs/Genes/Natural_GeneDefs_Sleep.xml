@@ -35,7 +35,7 @@
   </GeneDef>
 
 	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 		<!-- </li> -->

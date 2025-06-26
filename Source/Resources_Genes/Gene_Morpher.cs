@@ -532,15 +532,15 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("PawnGeneSetHolder is null, but morph call debug sequence.");
 				return null;
 			}
-			if (!geneSet.endogenes.NullOrEmpty())
-			{
-				List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList();
-				if (geneDefs.NullOrEmpty())
-				{
-					return null;
-				}
-				return geneDefs.First().def;
-			}
+			//if (!geneSet.endogenes.NullOrEmpty())
+			//{
+			//	List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList();
+			//	if (geneDefs.NullOrEmpty())
+			//	{
+			//		return null;
+			//	}
+			//	return geneDefs.First().def;
+			//}
 			if (!geneSet.endogeneDefs.NullOrEmpty())
 			{
 				List<GeneDef> geneDefs = geneSet.endogeneDefs?.Where((GeneDef gene) => gene.hairColorOverride != null)?.ToList()?.ToList();
@@ -562,15 +562,15 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("PawnGeneSetHolder is null, but morph call debug sequence.");
 				return null;
 			}
-			if (!geneSet.endogenes.NullOrEmpty())
-			{
-				List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList();
-				if (geneDefs.NullOrEmpty())
-				{
-					return null;
-				}
-				return geneDefs.First().def;
-			}
+			//if (!geneSet.endogenes.NullOrEmpty())
+			//{
+			//	List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList();
+			//	if (geneDefs.NullOrEmpty())
+			//	{
+			//		return null;
+			//	}
+			//	return geneDefs.First().def;
+			//}
 			if (!geneSet.endogeneDefs.NullOrEmpty())
 			{
 				List<GeneDef> geneDefs = geneSet.endogeneDefs?.Where((GeneDef gene) => gene.skinColorBase != null || gene.skinColorOverride != null)?.ToList();

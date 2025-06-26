@@ -236,7 +236,7 @@
 	  <li>OrganDecay</li>
 	</makeImmuneTo>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">

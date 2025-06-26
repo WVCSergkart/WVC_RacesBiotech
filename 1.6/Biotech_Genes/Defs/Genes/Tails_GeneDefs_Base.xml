@@ -425,7 +425,7 @@
 			  <li>Torso</li>
 			</bodyparts>
 		</li>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
 			<!-- <offsets> -->
 			 <!-- <east> -->
 			  <!-- <bodyTypes> -->
@@ -497,7 +497,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
 			<!-- <offsets> -->
 			 <!-- <east> -->
 			  <!-- <bodyTypes> -->

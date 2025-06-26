@@ -12,7 +12,7 @@
 	<!-- <biostatArc>0</biostatArc> -->
 	<!-- <biostatMet>0</biostatMet> -->
 	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VEF.Genes.GeneExtension"> -->
 			<!-- <hideGene>true</hideGene> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

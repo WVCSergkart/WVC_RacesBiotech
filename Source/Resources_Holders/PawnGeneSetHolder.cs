@@ -16,8 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeIconDef iconDef = null;
 
-		public List<Gene> endogenes = null;
-		public List<Gene> xenogenes = null;
+		//public List<Gene> endogenes = null;
+		//public List<Gene> xenogenes = null;
 
 		public List<GeneDef> endogeneDefs = null;
 		public List<GeneDef> xenogeneDefs = null;
@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 		public Dictionary<NeedDef, float> savedPawnNeeds;
 		public Dictionary<GeneDef, float> savedPawnResources;
 
-		public bool SaveAndLoadGenes => WVC_Biotech.settings.enable_MorpherExperimentalMode;
+		//public bool SaveAndLoadGenes => WVC_Biotech.settings.enable_MorpherExperimentalMode;
 
 		//public Color? savedHairColor;
 		//public Color? savedSkinColorOverride;
@@ -128,137 +128,42 @@ namespace WVC_XenotypesAndGenes
                     newOverrideSaver.overriderIsXenogene = pawn.genes.IsXenogene(gene.overriddenByGene);
 					overrideSaverList.Add(newOverrideSaver);
 				}
-            }
-            if (SaveAndLoadGenes)
-            {
-                xenogenes = new();
-                endogenes = new();
-                foreach (Gene gene in pawn.genes.Endogenes.ToList())
-                {
-                    if (gene != morpher)
-                    {
-                        //gene.PostRemove();
-                        endogenes.Add(gene);
-                    }
-                }
-                foreach (Gene gene in pawn.genes.Endogenes.ToList())
-                {
-                    morpher.RemoveGene(gene);
-                }
-                foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-                {
-                    if (gene != morpher)
-                    {
-                        //gene.PostRemove();
-                        xenogenes.Add(gene);
-                    }
-                }
-                foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-                {
-                    morpher.RemoveGene(gene);
-                }
-                foreach (Gene gene in endogenes)
-                {
-                    gene.overriddenByGene = morpher;
-                }
-                foreach (Gene gene in xenogenes)
-                {
-                    gene.overriddenByGene = morpher;
-                }
-            }
-            else
-            {
-                xenogeneDefs = new();
-                endogeneDefs = new();
-                foreach (Gene gene in pawn.genes.Endogenes.ToList())
-                {
-                    if (gene != morpher)
-                    {
-                        endogeneDefs.Add(gene.def);
-                    }
-                }
-                foreach (Gene gene in pawn.genes.Endogenes.ToList())
-                {
-                    morpher.RemoveGene(gene);
-                }
-                foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-                {
-                    if (gene != morpher)
-                    {
-                        xenogeneDefs.Add(gene.def);
-                    }
-                }
-                foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-                {
-                    morpher.RemoveGene(gene);
-                }
-            }
-        }
+			}
+			xenogeneDefs = new();
+			endogeneDefs = new();
+			foreach (Gene gene in pawn.genes.Endogenes.ToList())
+			{
+				if (gene != morpher)
+				{
+					endogeneDefs.Add(gene.def);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Endogenes.ToList())
+			{
+				morpher.RemoveGene(gene);
+			}
+			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			{
+				if (gene != morpher)
+				{
+					xenogeneDefs.Add(gene.def);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			{
+				morpher.RemoveGene(gene);
+			}
+		}
 
         public void LoadGenes(Pawn pawn, Gene_Morpher morpher)
 		{
-			if (SaveAndLoadGenes)
+			foreach (GeneDef gene in endogeneDefs)
 			{
-				try
-				{
-					Dictionary<Gene, int> savedEndogenesIDs = new();
-					//Dictionary<Gene, Gene> savedEndogenesOverrides = new();
-					foreach (Gene gene in endogenes)
-					{
-						morpher.AddGene(gene.def, true);
-						Gene sourceGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def);
-						savedEndogenesIDs[sourceGene] = sourceGene.loadID;
-						//savedEndogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
-						morpher.CopyGeneID(gene, sourceGene, pawn.genes.Endogenes);
-					}
-					Dictionary<Gene, int> savedXenogenesIDs = new();
-					//Dictionary<Gene, Gene> savedXenogenesOverrides = new();
-					foreach (Gene gene in xenogenes)
-					{
-						morpher.AddGene(gene.def, false);
-						Gene sourceGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def);
-						savedXenogenesIDs[sourceGene] = sourceGene.loadID;
-						//savedXenogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
-						morpher.CopyGeneID(gene, sourceGene, pawn.genes.Xenogenes);
-					}
-					foreach (var item in savedEndogenesIDs)
-					{
-						Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-						targetGene.loadID = item.Value;
-					}
-					foreach (var item in savedXenogenesIDs)
-					{
-						Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-						targetGene.loadID = item.Value;
-					}
-					//foreach (var item in savedEndogenesOverrides)
-					//{
-					//	Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					//	targetGene.overriddenByGene = item.Value;
-					//}
-					//foreach (var item in savedXenogenesOverrides)
-					//{
-					//	Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					//	targetGene.overriddenByGene = item.Value;
-					//}
-					savedEndogenesIDs = null;
-					savedXenogenesIDs = null;
-				}
-				catch (Exception arg)
-				{
-					Log.Error("Failed copy genes. Reason: " + arg);
-				}
+				morpher.AddGene(gene, true);
 			}
-			else
+			foreach (GeneDef gene in xenogeneDefs)
 			{
-				foreach (GeneDef gene in endogeneDefs)
-				{
-					morpher.AddGene(gene, true);
-				}
-				foreach (GeneDef gene in xenogeneDefs)
-				{
-					morpher.AddGene(gene, false);
-				}
+				morpher.AddGene(gene, false);
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
@@ -360,15 +265,8 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (!cachedGenesCount.HasValue)
-                {
-					if (SaveAndLoadGenes)
-					{
-						cachedGenesCount = endogenes.Count + xenogenes.Count;
-					}
-					else
-					{
-						cachedGenesCount = endogeneDefs.Count + xenogeneDefs.Count;
-					}
+				{
+					cachedGenesCount = endogeneDefs.Count + xenogeneDefs.Count;
 				}
 				return cachedGenesCount.Value;
 			}
@@ -380,8 +278,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref name, "name");
 			Scribe_Defs.Look(ref iconDef, "iconDef");
 			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
-			Scribe_Collections.Look(ref endogenes, "endogenes", LookMode.Deep);
-			Scribe_Collections.Look(ref xenogenes, "xenogenes", LookMode.Deep);
+			//Scribe_Collections.Look(ref endogenes, "endogenes", LookMode.Deep);
+			//Scribe_Collections.Look(ref xenogenes, "xenogenes", LookMode.Deep);
 			Scribe_Collections.Look(ref endogeneDefs, "endogeneDefs", LookMode.Def);
 			Scribe_Collections.Look(ref xenogeneDefs, "xenogeneDefs", LookMode.Def);
 			Scribe_Collections.Look(ref savedPawnNeeds, "savedPawnNeeds", LookMode.Def, LookMode.Value);
@@ -397,10 +295,10 @@ namespace WVC_XenotypesAndGenes
 			//Load
 			if (Scribe.mode == LoadSaveMode.LoadingVars)
 			{
-				if ((xenogenes != null && xenogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0) || (endogenes != null && endogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0))
-				{
-					Log.Warning("Removed null gene(s)");
-				}
+				//if ((xenogenes != null && xenogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0) || (endogenes != null && endogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0))
+				//{
+				//	Log.Warning("Removed null gene(s)");
+				//}
 				if ((endogeneDefs != null && endogeneDefs.RemoveAll((GeneDef x) => x == null) > 0) || (xenogeneDefs != null && xenogeneDefs.RemoveAll((GeneDef x) => x == null) > 0))
 				{
 					Log.Warning("Removed null geneDef(s)");

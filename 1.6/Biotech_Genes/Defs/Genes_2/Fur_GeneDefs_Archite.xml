@@ -65,7 +65,7 @@
 	  <!-- <li>Fur</li> -->
 	<!-- </exclusionTags> -->
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>

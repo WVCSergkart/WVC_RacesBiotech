@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
-		public bool enable_MorpherExperimentalMode = false;
+		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
 		public float traitshifter_MaxTraits = 3f;
@@ -220,7 +220,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
-			Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
+			//Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferWornApparel, "archiver_transferWornApparel", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
@@ -885,10 +885,10 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
-				if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
-				{
-					listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
-				}
+				//if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
+				//{
+				//	listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
+				//}
 				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferWornApparel".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferWornApparel, "WVC_ToolTip_archiver_transferWornApparel".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_archiver_transferEquipedWeapon".Translate().Colorize(ColorLibrary.LightBlue), ref settings.archiver_transferEquipedWeapon, "WVC_ToolTip_archiver_transferEquipedWeapon".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_traitshifter_MaxTraits".Translate((settings.traitshifter_MaxTraits).ToString()), ref settings.traitshifter_MaxTraits, 1f, 50f, round: 0, tooltip: "WVC_ToolTip_traitshifter_MaxTraits".Translate());
@@ -1047,7 +1047,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = settingsDef.canNonPlayerPawnResurrect;
-			WVC_Biotech.settings.enable_MorpherExperimentalMode = settingsDef.enable_MorpherExperimentalMode;
+			//WVC_Biotech.settings.enable_MorpherExperimentalMode = settingsDef.enable_MorpherExperimentalMode;
 			//WVC_Biotech.settings.allowShapeshiftAfterDeath = settingsDef.allowShapeshiftAfterDeath;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;

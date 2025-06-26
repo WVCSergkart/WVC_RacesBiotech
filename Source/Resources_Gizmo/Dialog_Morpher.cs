@@ -309,7 +309,7 @@ namespace WVC_XenotypesAndGenes
 			//	iconColor.a = 0.5f;
 			//	GUI.color = ColoredText.SubtleGrayColor;
 			//}
-			CachedTexture cachedTexture = geneSet.xenogenes.NullOrEmpty() ? EndotypeBackground : XenotypeBackground;
+			CachedTexture cachedTexture = geneSet.xenogeneDefs.NullOrEmpty() ? EndotypeBackground : XenotypeBackground;
 			GUI.DrawTexture(rect2, cachedTexture.Texture);
             Def defIcon = geneSet.xenotypeDef;
             if (geneSet.iconDef != null)
@@ -361,20 +361,20 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			selectedEndogenes = new();
-			if (!selectedGeneSetHolder.endogenes.NullOrEmpty())
-			{
-				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.endogenes));
-			}
-			else if (!selectedGeneSetHolder.endogeneDefs.NullOrEmpty())
+			//if (!selectedGeneSetHolder.endogenes.NullOrEmpty())
+			//{
+			//	selectedEndogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.endogenes));
+			//}
+			if (!selectedGeneSetHolder.endogeneDefs.NullOrEmpty())
 			{
 				selectedEndogenes.AddRange(selectedGeneSetHolder.endogeneDefs);
 			}
 			selectedXenogenes = new();
-			if (!selectedGeneSetHolder.xenogenes.NullOrEmpty())
-			{
-				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.xenogenes));
-			}
-			else if (!selectedGeneSetHolder.xenogeneDefs.NullOrEmpty())
+			//if (!selectedGeneSetHolder.xenogenes.NullOrEmpty())
+			//{
+			//	selectedXenogenes.AddRange(XaG_GeneUtility.ConvertToDefs(selectedGeneSetHolder.xenogenes));
+			//}
+			if (!selectedGeneSetHolder.xenogeneDefs.NullOrEmpty())
 			{
 				selectedXenogenes.AddRange(selectedGeneSetHolder.xenogeneDefs);
 			}
