@@ -113,16 +113,15 @@ namespace WVC_XenotypesAndGenes
 			pawn.genes.iconDef = xenotypeIconDef ?? DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
 
-		public static List<XenotypeDef> chimerkinXenotyps;
-
+		private static List<XenotypeDef> cachedChimerkinXenotypes;
 		public static void UnknownChimerkin(Pawn recipient)
 		{
-			if (chimerkinXenotyps == null)
+			if (cachedChimerkinXenotypes == null)
 			{
-				chimerkinXenotyps = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((xenotypeDef) => xenotypeDef?.GetModExtension<GeneExtension_General>()?.isChimerkin == true).ToList();
+				cachedChimerkinXenotypes = ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef?.GetModExtension<GeneExtension_General>()?.isChimerkin == true).ToList();
 			}
 			XenotypeDef xenotypeDef = null;
-			foreach (XenotypeDef xenos in chimerkinXenotyps)
+			foreach (XenotypeDef xenos in cachedChimerkinXenotypes)
             {
 				if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
                 {

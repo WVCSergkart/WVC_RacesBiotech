@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		// public static GeneDef WVC_Dustogenic_AngelBeauty;
 		public static GeneDef WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
 		public static GeneDef Deathrest;
+		public static GeneCategoryDef Cosmetic;
 		// Sporelink
 		// public static GeneDef WVC_ResurgentCells_AbilitySpawn_ResurgentTree;
 		// Inherit

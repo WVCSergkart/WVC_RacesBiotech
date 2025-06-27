@@ -27,6 +27,26 @@ namespace WVC_XenotypesAndGenes
 		//	return list;
 		//}
 
+		private static List<GeneDef> cachedBasicGeneDefs;
+		public static List<GeneDef> GetHumanGeneDefs()
+		{
+			if (cachedBasicGeneDefs != null)
+            {
+				return cachedBasicGeneDefs;
+			}
+			List<GeneDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.humanGeneDefs.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.humanGeneDefs);
+			}
+			cachedBasicGeneDefs = list;
+			return list;
+		}
+
 		public static List<BackstoryDef> GetBlackListedBackstoryForChanger()
 		{
 			List<BackstoryDef> list = new();
@@ -198,9 +218,13 @@ namespace WVC_XenotypesAndGenes
 			return allDevXenotypeDefs;
 		}
 
-
+		private static List<XenotypeDef> cachedAllXenotypesExceptAndroids;
 		public static List<XenotypeDef> GetAllXenotypesExceptAndroids()
 		{
+			if (cachedAllXenotypesExceptAndroids != null)
+            {
+				return cachedAllXenotypesExceptAndroids;
+			}
 			List<XenotypeDef> list = new();
 			List<XenotypeDef> devXenotypes = GetDevXenotypeDefs();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
@@ -218,6 +242,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					list.Add(item);
 				}
+			}
+			if (Current.ProgramState == ProgramState.Playing)
+			{
+				cachedAllXenotypesExceptAndroids = list;
 			}
 			return list;
 		}

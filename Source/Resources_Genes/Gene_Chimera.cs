@@ -357,7 +357,12 @@ namespace WVC_XenotypesAndGenes
 			result = null;
 			if (Rand.Chance(0.5f) && victim?.genes?.Xenotype == XenotypeDefOf.Baseliner || Rand.Chance(0.12f))
 			{
-				if (!Props.humanBasicGenes.NullOrEmpty() && Props.humanBasicGenes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElement(out result))
+				//if (!Props.humanBasicGenes.NullOrEmpty() && Props.humanBasicGenes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElement(out result))
+				//{
+				//	TryAddGene(result);
+				//	return true;
+				//}
+				if (ListsUtility.GetHumanGeneDefs().Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElement(out result))
 				{
 					TryAddGene(result);
 					return true;

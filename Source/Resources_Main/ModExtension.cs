@@ -146,8 +146,8 @@ namespace WVC_XenotypesAndGenes
 		public List<ThingDef> specialFoodDefs;
 		// GeneticThief
 		public XenotypeDef xenotypeDef;
-		public Color collectedGenesColor;
-		public Color destroyedGenesColor;
+		//public Color collectedGenesColor;
+		//public Color destroyedGenesColor;
 		// Regen
 		public float regeneration = -1f;
 		public float immunization = -1f;

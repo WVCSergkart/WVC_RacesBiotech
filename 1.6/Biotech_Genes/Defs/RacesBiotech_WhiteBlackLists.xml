@@ -145,6 +145,17 @@
 		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Hybrid</li> -->
 		<li MayRequire="wvc.sergkart.test.tools">WVC_Hybrid</li>
 	</devXenotypeDefs>
+	<!-- Required any GeneDefs -->
+	<humanGeneDefs>
+	  <li>WVC_Mecha_NoTail</li>
+	  <li>Ears_Human</li>
+	  <li>Nose_Human</li>
+	  <li>Jaw_Baseline</li>
+	  <li>Hands_Human</li>
+	  <li>Headbone_Human</li>
+	  <li>Voice_Human</li>
+	  <li>WVC_BodySize_Average</li>
+	</humanGeneDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

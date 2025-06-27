@@ -30,6 +30,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> anomalyXenoGenesExceptions = new();
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
 		public List<XenotypeDef> devXenotypeDefs = new();
+		public List<GeneDef> humanGeneDefs = new();
 
 		//[Obsolete]
 		//public List<XaG_CountWithChance> identicalGeneDefs = new();

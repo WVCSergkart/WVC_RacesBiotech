@@ -23,7 +23,34 @@ namespace WVC_XenotypesAndGenes
             selectedGenes = new();
             allGenes = new();
             inheritable = !gene.pawn.genes.IsXenogene(gene);
-            foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0).ToList())
+            SetupAvailableGenes(gene);
+            forcePause = true;
+            absorbInputAroundWindow = true;
+            doCloseX = true;
+            foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefs)
+            {
+                collapsedCategories.Add(allDef, value: false);
+            }
+            OnGenesChanged();
+        }
+
+        private void SetupAvailableGenes(Gene_Shapeshifter gene)
+        {
+            List<GeneDef> withExtension = new();
+            //List<GeneDef> cosmetic = new();
+            //List<GeneDef> humanGenes = ListsUtility.GetHumanGeneDefs();
+           foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)  //.Where((def) => !humanGenes.Contains(def))
+            {
+                if (item?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0)
+                {
+                    withExtension.Add(item);
+                }
+                //else if (!item.renderNodeProperties.NullOrEmpty())
+                //{
+                //    cosmetic.Add(item);
+                //}
+            }
+            foreach (GeneDef item in withExtension)
             {
                 if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
                 {
@@ -42,17 +69,30 @@ namespace WVC_XenotypesAndGenes
                 {
                     geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
                 }
-                geneDefWithChance.cost = geneExtension_Undead.reqGeneMat;
+                geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
                 allGenes.Add(geneDefWithChance);
             }
-            forcePause = true;
-            absorbInputAroundWindow = true;
-            doCloseX = true;
-            foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefs)
-            {
-                collapsedCategories.Add(allDef, value: false);
-            }
-            OnGenesChanged();
+            //foreach (GeneDef item in cosmetic)
+            //{
+            //    if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+            //    {
+            //        continue;
+            //    }
+            //    GeneDefWithChance geneDefWithChance = new();
+            //    geneDefWithChance.geneDef = item;
+            //    geneDefWithChance.disabled = pawnGenes.Contains(item);
+            //    geneDefWithChance.displayCategory = WVC_GenesDefOf.Cosmetic;
+            //    allGenes.Add(geneDefWithChance);
+            //}
+            //foreach (GeneDef item in humanGenes)
+            //{
+            //    GeneDefWithChance geneDefWithChance = new();
+            //    geneDefWithChance.geneDef = item;
+            //    geneDefWithChance.disabled = pawnGenes.Contains(item);
+            //    geneDefWithChance.displayCategory = WVC_GenesDefOf.Cosmetic;
+            //    geneDefWithChance.Cost = 0;
+            //    allGenes.Add(geneDefWithChance);
+            //}
         }
 
         protected float scrollHeight;
@@ -83,7 +123,7 @@ namespace WVC_XenotypesAndGenes
         public List<GeneDefWithChance> SelectedGenes => selectedGenes;
         protected static readonly Vector2 ButSize = new(150f, 38f);
 
-        public int ReqGeneMat => selectedGenes.Sum(x => x.cost);
+        public int ReqGeneMat => selectedGenes.Sum(x => x.Cost);
 
         public int AllGeneMat => gene.GeneticMaterial;
 
@@ -222,7 +262,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     continue;
                 }
-                if (gene.TryConsumeResource(geneDefWithChance.cost))
+                if (gene.TryConsumeResource(geneDefWithChance.Cost))
                 {
                     gene.TryForceGene(geneDefWithChance.geneDef, inheritable);
                 }
@@ -407,7 +447,7 @@ namespace WVC_XenotypesAndGenes
             bool overridden = leftChosenGroups.Any((GeneLeftChosenGroup x) => x.overriddenGenes.Contains(geneWithChance.geneDef)) || geneWithChance.disabled;
             Widgets.DrawOptionBackground(rect, selected);
             curX += 4f;
-            DrawBiostats(geneWithChance.cost, ref curX, curY, 4f);
+            DrawBiostats(geneWithChance.Cost, ref curX, curY, 4f);
             Rect rect2 = new(curX, curY + 4f, GeneSize.x, GeneSize.y);
             if (isMatch)
             {

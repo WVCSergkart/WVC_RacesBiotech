@@ -29,10 +29,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<reqGeneMat>28</reqGeneMat>
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
-			<!-- Unused? -->
-			<xenotypeDef>WVC_Shadoweater</xenotypeDef>
-			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
-			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
+			<!-- Unused -->
+			<!-- <xenotypeDef>WVC_Shadoweater</xenotypeDef> -->
+			<!-- <collectedGenesColor>(162, 216, 162)</collectedGenesColor> -->
+			<!-- <destroyedGenesColor>(178, 97, 96)</destroyedGenesColor> -->
 			<!-- Start or genes eater -->
 			<chimeraGenesTools>
 			  <li>Bloodfeeder</li>
@@ -41,17 +41,17 @@
 			  <li>WVC_Chimera_GeneDigestor</li>
 			  <li>WVC_Chimera_DeathMarkHarvest</li>
 			</chimeraGenesTools>
-			<!-- Bite or harvest -->
-			<humanBasicGenes>
-			  <li>WVC_Mecha_NoTail</li>
-			  <li>Ears_Human</li>
-			  <li>Nose_Human</li>
-			  <li>Jaw_Baseline</li>
-			  <li>Hands_Human</li>
-			  <li>Headbone_Human</li>
-			  <li>Voice_Human</li>
-			  <li>WVC_BodySize_Average</li>
-			</humanBasicGenes>
+			<!-- Bite or harvest ==Unused== -->
+			<!-- <humanBasicGenes> -->
+			  <!-- <li>WVC_Mecha_NoTail</li> -->
+			  <!-- <li>Ears_Human</li> -->
+			  <!-- <li>Nose_Human</li> -->
+			  <!-- <li>Jaw_Baseline</li> -->
+			  <!-- <li>Hands_Human</li> -->
+			  <!-- <li>Headbone_Human</li> -->
+			  <!-- <li>Voice_Human</li> -->
+			  <!-- <li>WVC_BodySize_Average</li> -->
+			<!-- </humanBasicGenes> -->
 			<!-- Genes eater -->
 			<chimeraConditionalGenes>
 			  <!-- Human basic -->
