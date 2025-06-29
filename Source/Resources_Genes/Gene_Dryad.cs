@@ -143,35 +143,36 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
-		{
-			// if (dryadThing == null)
-			// {
-				// return null;
-			// }
-			Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
-			// dryad.def = dryadThing;
-			// dryad.InitializeComps();
-			ResetDryad(dryad);
-			CompGestatedDryad newPawnComp = dryad.TryGetComp<CompGestatedDryad>();
-			if (newPawnComp == null)
-			{
-				return null;
-			}
-			newPawnComp.SetMaster(pawn);
-			dryad.connections?.ConnectTo(pawn);
-			AddDryad(dryad);
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
-				{
-					geneDryadQueen.Notify_DryadSpawned(dryad);
-				}
-			}
-			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-			return dryad;
-		}
+        {
+            // if (dryadThing == null)
+            // {
+            // return null;
+            // }
+            Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
+            // dryad.def = dryadThing;
+            // dryad.InitializeComps();
+            ResetDryad(dryad);
+            CompGestatedDryad newPawnComp = dryad.TryGetComp<CompGestatedDryad>();
+            if (newPawnComp == null)
+            {
+                return null;
+            }
+            newPawnComp.SetMaster(pawn);
+            dryad.connections?.ConnectTo(pawn);
+            AddDryad(dryad);
+            foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+                if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
+                {
+                    geneDryadQueen.Notify_DryadSpawned(dryad);
+                }
+            }
+            HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
+            // Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
+            return dryad;
+        }
 
-		private void ResetDryad(Pawn dryad)
+        private void ResetDryad(Pawn dryad)
 		{
 			if (dryad.Faction != pawn?.Faction)
 			{

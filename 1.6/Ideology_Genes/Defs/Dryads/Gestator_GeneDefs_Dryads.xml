@@ -51,6 +51,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_DryadQueen_MaxNutrition</hediffDefName>
+			<!-- <mutantDef>WVC_Dryad</mutantDef> -->
 		</li>
 	</modExtensions>
   </GeneDef>

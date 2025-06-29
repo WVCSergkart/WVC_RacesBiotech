@@ -345,7 +345,7 @@
 	<displayOrderInCategory>550</displayOrderInCategory>
 	<biostatMet>-6</biostatMet>
 	<forcedTraits>
-	  <li>
+	  <li MayRequire="Ludeon.RimWorld.Anomaly">
 		<def>PerfectMemory</def>
 	  </li>
 	</forcedTraits>

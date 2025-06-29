@@ -720,7 +720,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (item.IsMutant)
                 {
-                    SubHumansCount(ref colonists, ref nonHumans, item);
+					if (item.IsGhoul)
+					{
+						nonHumans++;
+					}
+                    //SubHumansCount(ref colonists, ref nonHumans, item);
                     continue;
                 }
                 if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
