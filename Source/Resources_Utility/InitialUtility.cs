@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
-			AnomalyPatch(xenogenesGenes);
+			MutantsPatch(xenogenesGenes);
 			FlatGenesChances(xenogenesGenes);
 		}
 
@@ -232,53 +232,50 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private static void AnomalyPatch(List<GeneDef> xenogenesGenes)
+        private static void MutantsPatch(List<GeneDef> xenogenesGenes)
 		{
-			if (ModsConfig.AnomalyActive)
+			List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
+			List<GeneDef> exceptions = ListsUtility.GetAnomalyExceptions();
+			foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
 			{
-				List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
-				List<GeneDef> exceptions = ListsUtility.GetAnomalyExceptions();
-				foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
+				if (mutantDef == null)
 				{
-					if (mutantDef == null)
+					continue;
+				}
+				if (exceptions_Mutants.Contains(mutantDef))
+				{
+					continue;
+				}
+				if (mutantDef.disablesGenes.NullOrEmpty())
+				{
+					mutantDef.disablesGenes = new();
+				}
+				foreach (GeneDef geneDef in xenogenesGenes)
+				{
+					GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
+					if (modExtension?.supportMutants == false)
 					{
-						continue;
-					}
-					if (exceptions_Mutants.Contains(mutantDef))
-					{
-						continue;
-					}
-					if (mutantDef.disablesGenes.NullOrEmpty())
-					{
-						mutantDef.disablesGenes = new();
-					}
-					foreach (GeneDef geneDef in xenogenesGenes)
-					{
-						GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
-						if (modExtension?.supportMutants == false)
-						{
-							if (!mutantDef.disablesGenes.Contains(geneDef))
-							{
-								mutantDef.disablesGenes.Add(geneDef);
-							}
-							continue;
-						}
-						if (modExtension?.supportedMutantDefs?.Contains(mutantDef) == true)
-						{
-							continue;
-						}
-						if (exceptions.Contains(geneDef))
-						{
-							continue;
-						}
-						if (geneDef.geneClass == typeof(Gene))
-						{
-							continue;
-						}
 						if (!mutantDef.disablesGenes.Contains(geneDef))
 						{
 							mutantDef.disablesGenes.Add(geneDef);
 						}
+						continue;
+					}
+					if (modExtension?.supportedMutantDefs?.Contains(mutantDef) == true)
+					{
+						continue;
+					}
+					if (exceptions.Contains(geneDef))
+					{
+						continue;
+					}
+					if (geneDef.geneClass == typeof(Gene))
+					{
+						continue;
+					}
+					if (!mutantDef.disablesGenes.Contains(geneDef))
+					{
+						mutantDef.disablesGenes.Add(geneDef);
 					}
 				}
 			}

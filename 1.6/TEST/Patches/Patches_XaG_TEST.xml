@@ -40,6 +40,12 @@
 		<!-- <disappearsAfterTicks>3000000~4200000</disappearsAfterTicks> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_GeneThrower"]/genes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_Subhuman_Mechalike</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/HediffDef[defName="VoidTouched"]/comps</xpath> -->

@@ -102,6 +102,7 @@
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
     <Compile Include="Resources_Genes\Gene_HiveMind.cs" />
+    <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skillshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />

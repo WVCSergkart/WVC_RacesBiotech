@@ -313,6 +313,8 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeChance> morpherXenotypeChances;
 		//Voidlink
 		//public float maxVoidEnergyOffset = 0f;
+		//Subhumans
+		public MutantDef mutantDef;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

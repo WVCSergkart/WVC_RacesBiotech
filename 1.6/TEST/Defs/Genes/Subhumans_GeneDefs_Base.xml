@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <MutantDef Abstract="True" Name="WVC_XenotypesAndGenes_BaseMutantEntity"> -->
+  <!-- </MutantDef> -->
+
+  <!-- =================================== -->
+
+  <!-- <GeneDef> -->
+	<!-- <defName>WVC_Subhuman_Mechalike</defName> -->
+	<!-- <label>mechalike</label> -->
+	<!-- <description>Carriers of this gene have archites that turn them into a subhuman..</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Subhuman</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Inhuman_v1</iconPath> -->
+	<!-- <selectionWeight>0.00022</selectionWeight> -->
+	<!-- <displayCategory>WVC_Miscellaneous</displayCategory> -->
+	<!-- <displayOrderInCategory>135</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>Subhuman</li> -->
+	  <!-- <li>Mutant</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <mutantDef>WVC_Mechanoid</mutantDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <MutantDef> -->
+	<!-- <defName>WVC_Mechanoid</defName> -->
+	<!-- <label>mechanoid</label> -->
+	<!-- <consideredSubhuman>false</consideredSubhuman> -->
+	<!-- <breathesAir>false</breathesAir> -->
+	<!-- <overrideLabel>true</overrideLabel> -->
+	<!-- <allowEatingCorpses>true</allowEatingCorpses> -->
+	<!-- <canBleed>false</canBleed> -->
+	<!-- <bloodDef>Filth_MachineBits</bloodDef> -->
+	<!-- <bloodSmearDef>Filth_MachineBits</bloodSmearDef> -->
+	<!-- <showInScenarioEditor>false</showInScenarioEditor> -->
+	<!-- <woundColor>(76, 76, 76)</woundColor> -->
+  <!-- </MutantDef> -->
+
+</Defs>

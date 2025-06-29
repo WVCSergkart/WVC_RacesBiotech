@@ -130,7 +130,7 @@
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>
-		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Thrall</li> -->
+		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mechanoid</li> -->
 	</xenoGenesMutantsExceptions>
 	<!-- Ignored dryad modes by dryad queen gene. Required any GauranlenTreeModeDefs -->
 	<ignoredGauranlenTreeModeDefs>

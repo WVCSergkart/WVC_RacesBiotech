@@ -708,6 +708,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						nonHumans++;
 					}
+					else
+					{
+						SubHumansCount(ref colonists, ref nonHumans, item);
+					}
 					if (item.RaceProps.IsMechanoid)
 					{
 						colonyMechs++;
@@ -715,14 +719,11 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				if (item.IsMutant)
-				{
-					if (item.IsGhoul)
-					{
-						nonHumans++;
-					}
-					continue;
-				}
-				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
+                {
+                    SubHumansCount(ref colonists, ref nonHumans, item);
+                    continue;
+                }
+                if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
 				{
 					xenos++;
 					//if (item.IsShapeshifterChimeraOrMorpher())
@@ -767,9 +768,21 @@ namespace WVC_XenotypesAndGenes
 			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
 			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
 			StaticCollectionsClass.oneManArmyMode = colonists <= 1;
-			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
-			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
-		}
+
+            static void SubHumansCount(ref int colonists, ref int nonHumans, Pawn item)
+            {
+                if (!item.IsSubhuman)
+                {
+                    nonHumans++;
+                }
+                else
+                {
+                    colonists++;
+                }
+            }
+            //StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
+            //Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
+        }
 
 		public static void ForeverAloneDevelopmentPoints()
 		{
