@@ -11,6 +11,8 @@
   <MutantDef ParentName="WVC_XenotypesAndGenes_BaseMutantEntity" Name="WVC_XenotypesAndGenes_ThrallMutant">
 	<defName>WVC_Thrall</defName>
 	<label>thrall</label>
+	<description>A person who has been turned into a thrall.\n\nAbout thralls: Thralls are rehumans animated by archites. They are ideal workers who never get sick or age. Thralls are created from corpses, the archites maintain their bodies in a stasis state, preventing further rot, but not restoring them to their previous state.</description>
+	<hediff>WVC_Thrall</hediff>
 	<breathesAir>true</breathesAir>
 	<overrideLabel>true</overrideLabel>
 	<allowEatingCorpses>true</allowEatingCorpses>
@@ -26,6 +28,7 @@
 	<preventIllnesses>true</preventIllnesses>
 	<isConsideredCorpse>true</isConsideredCorpse>
 	<useCorpseGraphics>true</useCorpseGraphics>
+	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<disablesGenes>
 	  <li>WVC_ReimplanterThrallMaker</li>
 	</disablesGenes>
@@ -40,7 +43,6 @@
 	<canBleed>false</canBleed>
 	<canAttackWhileCrawling>true</canAttackWhileCrawling>
 	<disableFlying>true</disableFlying>
-	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<needWhitelist>
 	  <li>Mood</li>
 	  <li>Joy</li>

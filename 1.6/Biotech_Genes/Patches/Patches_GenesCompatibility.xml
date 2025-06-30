@@ -124,6 +124,13 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[defName="DeadMansApparel"]/nullifyingHediffs</xpath>
+	  <value>
+		  <li>WVC_Thrall</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/HeadTypeDef[defName="Gaunt"]/requiredGenes</xpath> -->
 	  <!-- <value> -->
