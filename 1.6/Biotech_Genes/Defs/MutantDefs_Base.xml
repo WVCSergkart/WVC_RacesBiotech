@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MutantDef Abstract="True" Name="WVC_XenotypesAndGenes_BaseMutantEntity">
+	<consideredSubhuman>false</consideredSubhuman>
+	<showInScenarioEditor>false</showInScenarioEditor>
+  </MutantDef>
+
+  <!-- =================================== -->
+
+  <MutantDef ParentName="WVC_XenotypesAndGenes_BaseMutantEntity" Name="WVC_XenotypesAndGenes_ThrallMutant">
+	<defName>WVC_Thrall</defName>
+	<label>thrall</label>
+	<breathesAir>true</breathesAir>
+	<overrideLabel>true</overrideLabel>
+	<allowEatingCorpses>true</allowEatingCorpses>
+	<allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+	<!-- <canBleed>false</canBleed> -->
+	<!-- <bloodDef>Filth_MachineBits</bloodDef> -->
+	<!-- <bloodSmearDef>Filth_MachineBits</bloodSmearDef> -->
+	<!-- <showInScenarioEditor>false</showInScenarioEditor> -->
+	<!-- <woundColor>(76, 76, 76)</woundColor> -->
+	<disableAging>true</disableAging>
+	<!-- <disablesIdeo>true</disablesIdeo> -->
+	<isImmuneToInfections>true</isImmuneToInfections>
+	<preventIllnesses>true</preventIllnesses>
+	<isConsideredCorpse>true</isConsideredCorpse>
+	<useCorpseGraphics>true</useCorpseGraphics>
+	<disablesGenes>
+	  <li>WVC_ReimplanterThrallMaker</li>
+	</disablesGenes>
+  </MutantDef>
+
+  <MutantDef ParentName="WVC_XenotypesAndGenes_ThrallMutant">
+	<defName>WVC_Skeleton</defName>
+	<label>skeleton</label>
+	<breathesAir>false</breathesAir>
+	<disableNeeds>true</disableNeeds>
+	<canGainXP>false</canGainXP>
+	<canBleed>false</canBleed>
+	<canAttackWhileCrawling>true</canAttackWhileCrawling>
+	<disableFlying>true</disableFlying>
+	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
+	<needWhitelist>
+	  <li>Mood</li>
+	  <li>Joy</li>
+	  <li>Outdoors</li>
+	  <li>Indoors</li>
+	</needWhitelist>
+  </MutantDef>
+
+</Defs>

@@ -58,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 			return (int)limit;
 		}
 
+		[Obsolete]
 		public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
 		{
 			List<Gene_GeneticThrall> list = new();

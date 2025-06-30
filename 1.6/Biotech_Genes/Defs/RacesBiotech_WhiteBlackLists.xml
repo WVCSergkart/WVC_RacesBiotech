@@ -131,6 +131,8 @@
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>
 		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mechanoid</li> -->
+		<li>WVC_Thrall</li>
+		<li>WVC_Skeleton</li>
 	</xenoGenesMutantsExceptions>
 	<!-- Ignored dryad modes by dryad queen gene. Required any GauranlenTreeModeDefs -->
 	<ignoredGauranlenTreeModeDefs>
@@ -141,7 +143,7 @@
 	<!-- Used to filter out xenotypes that are not xenotypes in the standard sense. For example, Thralls. -->
 	<!-- Required any XenotypeDefs -->
 	<devXenotypeDefs>
-		<li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li> -->
 		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Hybrid</li> -->
 		<li MayRequire="wvc.sergkart.test.tools">WVC_Hybrid</li>
 	</devXenotypeDefs>
@@ -184,7 +186,7 @@
 		<!-- <li>WVC_DisabledAllWork_</li> -->
 		<li>WVC_DisabledAllWork_Useless</li>
 		<li>WVC_DisabledAllWork_Blank</li>
-		<li>WVC_Thrall</li>
+		<!-- <li>WVC_Thrall</li> -->
 		<li>WVC_DeadlyGeneticInstability</li>
 		<!-- = -->
 		<li>WVC_MechaSkin</li>

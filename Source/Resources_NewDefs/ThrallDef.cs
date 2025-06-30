@@ -17,6 +17,28 @@ namespace WVC_XenotypesAndGenes
 
 		public MutantDef mutantDef = null;
 
+		public List<MutantByRotStage> mutantByRotStage;
+
+		public class MutantByRotStage
+        {
+            public MutantDef mutantDef;
+
+            public RotStage rotStage;
+
+        }
+
+		public MutantDef GetMutantFromStage(RotStage rotStage)
+        {
+			foreach (MutantByRotStage item in mutantByRotStage)
+            {
+				if (rotStage == item.rotStage)
+                {
+					return item.mutantDef;
+				}
+            }
+			return null;
+        }
+
 		public bool addGenesFromAbility = true;
 		public bool addGenesFromMaster = true;
 

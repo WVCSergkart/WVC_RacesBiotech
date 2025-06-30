@@ -690,6 +690,7 @@ namespace WVC_XenotypesAndGenes
 			int xenos = 0;
 			int nonHumans = 0;
 			int colonyMechs = 0;
+			//int mutants = 0;
 			bool anyAssignedWork = false;
 			//bool leaderIsShapeshifterOrSimilar = false;
 			//bool presentShapeshifter = false;
@@ -724,30 +725,13 @@ namespace WVC_XenotypesAndGenes
 					{
 						nonHumans++;
 					}
-                    //SubHumansCount(ref colonists, ref nonHumans, item);
-                    continue;
+					//mutants++;
+					//SubHumansCount(ref colonists, ref nonHumans, item);
+					continue;
                 }
                 if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
 				{
 					xenos++;
-					//if (item.IsShapeshifterChimeraOrMorpher())
-					//{
-					//	presentShapeshifter = true;
-					//	Precept_Role precept_Role = item.Ideo?.GetRole(item);
-					//	if (precept_Role != null && precept_Role.ideo == item.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
-					//	{
-					//		leaderIsShapeshifterOrSimilar = true;
-					//	}
-					//}
-					//if (item.IsUndead())
-					//{
-					//	presentUndead = true;
-					//	Precept_Role precept_Role = item.Ideo?.GetRole(item);
-					//	if (precept_Role != null && precept_Role.ideo == item.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
-					//	{
-					//		leaderIsUndead = true;
-					//	}
-					//}
 				}
 				if (!item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
 				{
@@ -767,10 +751,6 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
 			StaticCollectionsClass.cachedColonyMechs = colonyMechs;
-			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsShapeshifterOrSimilar;
-			//StaticCollectionsClass.leaderIsShapeshifter = presentShapeshifter;
-			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
-			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
 			StaticCollectionsClass.oneManArmyMode = colonists <= 1;
 
             static void SubHumansCount(ref int colonists, ref int nonHumans, Pawn item)

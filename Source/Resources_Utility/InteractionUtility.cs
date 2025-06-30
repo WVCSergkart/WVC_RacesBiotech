@@ -177,7 +177,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (pawn.IsMutant)
+			if (pawn.IsMutant && pawn.mutant.Def.incapableOfSocialInteractions)
 			{
 				return false;
 			}

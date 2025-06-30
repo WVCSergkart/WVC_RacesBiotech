@@ -6,8 +6,9 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
-	<description>Carriers of this gene can implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.</description>
-	 <!-- Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive and are therefore often dependent on those who created them. -->
+	<description>Carriers of this gene can resurrect and implant a germline into a dead person through a somewhat gross-looking injector organ. The victim receives the desired set of genes, inherits some of the caster's genes, and loses skills and backstory. Pawns resurrected in this way become mutants and can no longer become normal.</description>
+	<!-- Old -->
+	 <!-- Carriers of this gene can implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive and are therefore often dependent on those who created them. -->
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaster_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType>
@@ -23,21 +24,19 @@
 	  <AbilityDef>WVC_ReimplanterThrallMaker</AbilityDef>
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
-		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;random caster genes&lt;/color&gt;, &lt;color=#8a8ae6&gt;thrall gene&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;random caster genes&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+		<li>Target becomes a &lt;color=#8a8ae6&gt;mutant&lt;/color&gt;, loses ideology and becomes immune to most diseases.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterThrallMaker</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<filledBlockColor>(149, 208, 252)</filledBlockColor>
-			<recacheFrequency>1329</recacheFrequency>
-		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
-			<!-- <reqGeneMat>35</reqGeneMat> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <filledBlockColor>(149, 208, 252)</filledBlockColor> -->
+			<!-- <recacheFrequency>1329</recacheFrequency> -->
 		<!-- </li> -->
-	</modExtensions>
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================================================================== -->
@@ -45,7 +44,7 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
-	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
+	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
 	<gizmoClass>WVC_XenotypesAndGenes.Command_HiddenAbility</gizmoClass>
@@ -53,7 +52,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>
 		<geneDefs>
-		  <li>WVC_Thrall</li>
+		  <!-- <li>WVC_Thrall</li> -->
 		  <!-- <li>WVC_DeadStomach</li> -->
 		  <!-- <li>WVC_Neversleep</li> -->
 		</geneDefs>

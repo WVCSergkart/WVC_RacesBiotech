@@ -144,27 +144,27 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		[Obsolete]
-		public static bool CanAbsorbGenogerm(Pawn pawn)
-		{
-			if (pawn?.genes == null)
-			{
-				return false;
-			}
-			if (pawn.IsPrisonerOfColony && pawn.guest.PrisonerIsSecure)
-			{
-				return true;
-			}
-			if (!pawn.Downed)
-			{
-				return false;
-			}
-			if (!pawn.genes.GenesListForReading.Any())
-			{
-				return false;
-			}
-			return true;
-		}
+		//[Obsolete]
+		//public static bool CanAbsorbGenogerm(Pawn pawn)
+		//{
+		//	if (pawn?.genes == null)
+		//	{
+		//		return false;
+		//	}
+		//	if (pawn.IsPrisonerOfColony && pawn.guest.PrisonerIsSecure)
+		//	{
+		//		return true;
+		//	}
+		//	if (!pawn.Downed)
+		//	{
+		//		return false;
+		//	}
+		//	if (!pawn.genes.GenesListForReading.Any())
+		//	{
+		//		return false;
+		//	}
+		//	return true;
+		//}
 
 		public static bool IsHuman(this Pawn pawn)
 		{
@@ -175,17 +175,34 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool IsAnomaly(this Pawn pawn)
+		public static bool IsHumanMutant(this Pawn pawn)
 		{
-			if (ModsConfig.AnomalyActive)
+			if (!pawn.IsMutant)
 			{
-				if (pawn.IsMutant)
-				{
-					return true;
-				}
+				return false;
+            }
+            if (!pawn.IsHuman())
+            {
+                return false;
+            }
+			if (pawn.IsSubhuman)
+			{
+				return false;
 			}
-			return false;
+            return false;
 		}
+
+		//public static bool IsAnomaly(this Pawn pawn)
+		//{
+		//	if (ModsConfig.AnomalyActive)
+		//	{
+		//		if (pawn.IsMutant)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
 		public static bool IsMutantOfDef(this Pawn pawn, MutantDef mutantDef)
 		{

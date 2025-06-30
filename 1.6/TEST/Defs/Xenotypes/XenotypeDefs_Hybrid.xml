@@ -16,7 +16,7 @@
 	  <li>WVC_HybridImplanter</li>
 	</genes>
 	<exceptedGenes>
-	  <li>WVC_Thrall</li>
+	  <!-- <li>WVC_Thrall</li> -->
 	  <li>WVC_DeadlyGeneticInstability</li>
 	  <li>WVC_NoLearning</li>
 	  <li>WVC_WoundHealing_NoHealing</li>

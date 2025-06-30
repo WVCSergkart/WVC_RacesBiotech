@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			if (innerPawn != null)
 			{
-				MakeThrall(thrallDef, innerPawn);
+				MakeThrall(thrallDef, innerPawn, (Corpse)target.Thing);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
@@ -51,15 +51,23 @@ namespace WVC_XenotypesAndGenes
 			parent.StartCooldown((int)(60000 * WVC_Biotech.settings.thrallMaker_cooldownOverride));
 		}
 
-		private void MakeThrall(ThrallDef thrallDef, Pawn innerPawn)
-        {
-            MutantDef mutantDef = thrallDef?.mutantDef;
-            GeneResourceUtility.TryResurrectWithSickness(innerPawn, false, 0.8f);
+		private void MakeThrall(ThrallDef thrallDef, Pawn innerPawn, Corpse corpse)
+		{
+			MutantDef mutantDef = thrallDef?.mutantDef;
+			if (!thrallDef.mutantByRotStage.NullOrEmpty())
+			{
+				MutantDef newMutantFromRot = thrallDef.GetMutantFromStage(corpse.GetRotStage());
+				if (newMutantFromRot != null)
+				{
+					mutantDef = newMutantFromRot;
+				}
+			}
+			GeneResourceUtility.TryResurrectWithSickness(innerPawn, false, 0.8f);
             SetStory(innerPawn);
-            ReimplantGenes(thrallDef, innerPawn);
-            if (ModsConfig.AnomalyActive && mutantDef != null)
+            ReimplantGenes(thrallDef, innerPawn, mutantDef);
+            if (mutantDef != null)
             {
-                MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
+                MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef, corpse.GetRotStage());
             }
             if (innerPawn.Map != null)
             {
@@ -89,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 			innerPawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
-		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn)
+		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn, MutantDef mutantDef)
 		{
 			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
 			ThrallMaker(innerPawn, thrallDef);
@@ -126,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < oldXenotypeGenes.Count; i++)
                 {
                     GeneDef geneDef = oldXenotypeGenes[i];
-					if (CanImplant(innerPawn, currentPawnGenes, geneDef))
+					if (CanImplant(innerPawn, currentPawnGenes, geneDef, mutantDef))
                     {
                         innerPawn.genes?.AddGene(geneDef, false);
 						currentPawnGenes.Add(geneDef);
@@ -150,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < allMasterGenes.Count; i++)
 				{
 					GeneDef geneDef = allMasterGenes[i];
-					if (CanImplant(innerPawn, currentPawnGenes, geneDef))
+					if (CanImplant(innerPawn, currentPawnGenes, geneDef, mutantDef))
 					{
 						innerPawn.genes?.AddGene(geneDef, false);
 						currentPawnGenes.Add(geneDef);
@@ -168,11 +176,11 @@ namespace WVC_XenotypesAndGenes
 			GeneUtility.UpdateXenogermReplication(innerPawn);
 			ReimplanterUtility.TrySetSkinAndHairGenes(innerPawn);
 			ReimplanterUtility.PostImplantDebug(innerPawn);
-		}
 
-        public static bool CanImplant(Pawn innerPawn, List<GeneDef> currentPawnGenes, GeneDef geneDef)
-        {
-            return geneDef.passOnDirectly && geneDef.prerequisite == null && !XaG_GeneUtility.HasGene(geneDef, innerPawn) && !XaG_GeneUtility.ConflictWith(geneDef, currentPawnGenes) && CanAcceptMetabolismAfterImplanting(currentPawnGenes, geneDef);
+            static bool CanImplant(Pawn innerPawn, List<GeneDef> currentPawnGenes, GeneDef geneDef, MutantDef mutantDef)
+			{
+				return !mutantDef.disablesGenes.Contains(geneDef) && geneDef.passOnDirectly && geneDef.prerequisite == null && !XaG_GeneUtility.HasGene(geneDef, innerPawn) && !XaG_GeneUtility.ConflictWith(geneDef, currentPawnGenes) && CanAcceptMetabolismAfterImplanting(currentPawnGenes, geneDef);
+			}
 		}
 
 		public static bool CanAcceptMetabolismAfterImplanting(List<GeneDef> geneSet, GeneDef gene)
@@ -246,10 +254,11 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-				if (mutantDef != null && mutantDef.allowedDevelopmentalStages != innerPawn.DevelopmentalStage)
+				if (mutantDef != null && !mutantDef.allowedDevelopmentalStages.HasAny(innerPawn.DevelopmentalStage))
 				{
 					if (throwMessages)
 					{
+						//Log.Error("Def stages: " + mutantDef.allowedDevelopmentalStages.ToCommaList());
 						Messages.Message("WVC_XaG_WrongDevelopmentalStage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 					}
 					return false;

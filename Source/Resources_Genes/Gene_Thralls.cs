@@ -59,11 +59,11 @@ namespace WVC_XenotypesAndGenes
 
 		private Gizmo gizmo;
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
-			shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>() != null;
-		}
+  //      public override void PostAdd()
+  //      {
+  //          base.PostAdd();
+		//	shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>() != null;
+		//}
 
         public bool shouldDrawGizmo = true;
 
@@ -110,18 +110,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+		//public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref thrallDef, "thrallDef");
 			Scribe_Values.Look(ref shouldDrawGizmo, "shouldDrawGizmo", defaultValue: true);
-			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
+			//Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
     }
 
+	[Obsolete]
 	public class Gene_GeneticThrall : Gene_GeneticInstability
 	{
 
