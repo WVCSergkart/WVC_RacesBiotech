@@ -11,46 +11,45 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>golembond_ShrinesStatPartOffset</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/StatDef[defName="WVC_GolemBond"]/parts</xpath>
-		  <order>Prepend</order>
-		  <value>
-			  <!-- To-Do: Remove after adding alternative mechanics. -->
-			  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
-				<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
-				<reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef>
-				<buildings>
-				  <li MayRequire="Ludeon.RimWorld.Royalty">
-					<thingDef>NatureShrine_Small</thingDef>
-					<bandwidth>0.2</bandwidth>
-				  </li>
-				  <li MayRequire="Ludeon.RimWorld.Royalty">
-					<thingDef>NatureShrine_Large</thingDef>
-					<bandwidth>0.5</bandwidth>
-				  </li>
-				  <li MayRequire="Ludeon.RimWorld.Royalty">
-					<thingDef>AnimusStone</thingDef>
-					<bandwidth>1</bandwidth>
-				  </li>
-				  <li MayRequire="redmattis.dryads">
-					<thingDef>Dryad_GauranlenShrine_Large</thingDef>
-					<bandwidth>0.5</bandwidth>
-				  </li>
-				  <li MayRequire="redmattis.dryads">
-					<thingDef>Dryad_GauranlenShrine_Small</thingDef>
-					<bandwidth>0.2</bandwidth>
-				  </li>
-				  <li MayRequire="redmattis.dryads">
-					<thingDef>Dryad_VikingShrine</thingDef>
-					<bandwidth>0.1</bandwidth>
-				  </li>
-				</buildings>
-			  </li>
-		  </value>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>golembond_ShrinesStatPartOffset</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/StatDef[defName="WVC_GolemBond"]/parts</xpath> -->
+		  <!-- <order>Prepend</order> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap"> -->
+				<!-- <label>WVC_StatPart_GenesCombo_OffsetFromShrines</label> -->
+				<!-- <reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef> -->
+				<!-- <buildings> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
+					<!-- <thingDef>NatureShrine_Small</thingDef> -->
+					<!-- <bandwidth>0.2</bandwidth> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
+					<!-- <thingDef>NatureShrine_Large</thingDef> -->
+					<!-- <bandwidth>0.5</bandwidth> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
+					<!-- <thingDef>AnimusStone</thingDef> -->
+					<!-- <bandwidth>1</bandwidth> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequire="redmattis.dryads"> -->
+					<!-- <thingDef>Dryad_GauranlenShrine_Large</thingDef> -->
+					<!-- <bandwidth>0.5</bandwidth> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequire="redmattis.dryads"> -->
+					<!-- <thingDef>Dryad_GauranlenShrine_Small</thingDef> -->
+					<!-- <bandwidth>0.2</bandwidth> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequire="redmattis.dryads"> -->
+					<!-- <thingDef>Dryad_VikingShrine</thingDef> -->
+					<!-- <bandwidth>0.1</bandwidth> -->
+				  <!-- </li> -->
+				<!-- </buildings> -->
+			  <!-- </li> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>

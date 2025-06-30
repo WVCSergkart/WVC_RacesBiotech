@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
-		public bool golembond_ShrinesStatPartOffset = false;
+		//public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
 		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
@@ -211,7 +211,7 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			//Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
-			Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
+			//Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
 			Scribe_Values.Look(ref golemlink_spawnIntervalRange, "golemlink_spawnIntervalRange", defaultValue: new(240000, 420000));
 			Scribe_Values.Look(ref golemlink_golemsToSpawnRange, "golemlink_golemsToSpawnRange", defaultValue: new(1, 3));
 			Scribe_Values.Look(ref falselink_spawnIntervalRange, "falselink_spawnIntervalRange", defaultValue: new(480000, 960000));
@@ -788,7 +788,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 				//listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
-				listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_spawnIntervalRange".Translate((int)settings.golemlink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.golemlink_spawnIntervalRange.max.TicksToDays()), ref settings.golemlink_spawnIntervalRange, 60000, 1800000);
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_golemsToSpawnRange".Translate(settings.golemlink_golemsToSpawnRange.ToString()), ref settings.golemlink_golemsToSpawnRange, 1, 10);
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_spawnIntervalRange".Translate((int)settings.falselink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.falselink_spawnIntervalRange.max.TicksToDays()), ref settings.falselink_spawnIntervalRange, 60000, 1800000);
@@ -1109,7 +1109,7 @@ namespace WVC_XenotypesAndGenes
 			//WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
 			//WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;
-			WVC_Biotech.settings.golembond_ShrinesStatPartOffset = settingsDef.golembond_ShrinesStatPartOffset;
+			//WVC_Biotech.settings.golembond_ShrinesStatPartOffset = settingsDef.golembond_ShrinesStatPartOffset;
 			WVC_Biotech.settings.golemlink_spawnIntervalRange = settingsDef.golemlink_spawnIntervalRange;
 			WVC_Biotech.settings.golemlink_golemsToSpawnRange = settingsDef.golemlink_golemsToSpawnRange;
 			WVC_Biotech.settings.falselink_spawnIntervalRange = settingsDef.falselink_spawnIntervalRange;

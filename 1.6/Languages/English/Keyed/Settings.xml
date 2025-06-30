@@ -270,8 +270,8 @@ This is exactly how this gene was originally intended, but this can greatly skew
 	<!-- ====================================================================================== -->
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_onlyXenotypesMode>Xenotypes only mode</WVC_Label_onlyXenotypesMode>
-	<WVC_ToolTip_onlyXenotypesMode>If enabled, genepacks and orbital trader will not spawn. Also, the quests will not contain serums or other things related to the mod.
+	<WVC_Label_onlyXenotypesMode>Disable genetic stuff</WVC_Label_onlyXenotypesMode>
+	<WVC_ToolTip_onlyXenotypesMode>If enabled, most genetic items will be impossible to purchase from traders or find in quests.
 
 Technologies, buildings and crafting will still be available.
 

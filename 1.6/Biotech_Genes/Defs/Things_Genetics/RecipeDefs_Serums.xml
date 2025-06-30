@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef>
+  <RecipeDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_ImplantXenogermSerum</defName>
 	<label>administer serum</label>
 	<description>Administer a serum.</description>
@@ -17,7 +17,7 @@
 	<uiIconThing>Xenogerm</uiIconThing>
   </RecipeDef>
 
-  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
+  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<workerClass>Recipe_AdministerUsableItem</workerClass>
 	<targetsBodyPart>false</targetsBodyPart>
 	<anesthetize>false</anesthetize>
@@ -32,7 +32,7 @@
 
   <!--=============== Base ====================-->
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerGeneRestorationSerum</defName>
 	<label>administer gene restoration serum</label>
 	<description>Administer a gene restoration serum.</description>
@@ -54,7 +54,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerDuplicateRestorationSerum</defName>
 	<label>administer duplicate restoration serum</label>
 	<description>Administer a duplicate restoration serum.</description>
@@ -78,7 +78,7 @@
 
   <!-- ==================================== -->
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerXenotypeNullifierSerumA</defName>
 	<label>administer xenotype nullifier serum (white)</label>
 	<description>Administer a xenotype nullifier serum.</description>
@@ -100,7 +100,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerXenotypeNullifierSerumB</defName>
 	<label>administer xenotype nullifier serum (melanin)</label>
 	<description>Administer a xenotype nullifier serum.</description>
@@ -124,7 +124,7 @@
 
   <!-- ==================================== -->
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerGeneticStabilizerSerum_Archotech</defName>
 	<label>administer archotech genetic stabilizer serum</label>
 	<description>Administer a archotech genetic stabilizer serum.</description>
@@ -146,7 +146,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerGeneticStabilizerSerum_Base</defName>
 	<label>administer genetic stabilizer serum</label>
 	<description>Administer a genetic stabilizer serum.</description>
@@ -170,7 +170,7 @@
 
   <!-- ==================================== -->
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerXenotypeSerum_Base</defName>
 	<label>administer xenotype serum</label>
 	<description>Administer a xenotype serum.</description>
@@ -192,7 +192,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
 	<label>administer archotype serum</label>
 	<description>Administer a archotype serum.</description>
@@ -214,7 +214,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
 	<label>administer hybridtype serum</label>
 	<description>Administer a hybridtype serum.</description>
@@ -236,7 +236,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerSubXenotypeSerum_Undead</defName>
 	<label>administer undeadtype serum</label>
 	<description>Administer a undeadtype serum.</description>
@@ -260,7 +260,7 @@
 
   <!-- ==================================== -->
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_AdministerArchotechGeneGiverA</defName>
 	<label>administer gene giver serum</label>
 	<description>Administer a gene giver serum.</description>

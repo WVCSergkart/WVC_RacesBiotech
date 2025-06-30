@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_XenotypeSerums</defName>
 	<label>xenotype serums</label>
 	<parent>Items</parent>
   </ThingCategoryDef>
 
-  <ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_XenotypeSerums_Base</defName>
 	<label>base serums</label>
 	<parent>WVC_XenotypeSerums</parent>
   </ThingCategoryDef>
-  <ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_XenotypeSerums_Ultra</defName>
 	<label>ultra serums</label>
 	<parent>WVC_XenotypeSerums</parent>
   </ThingCategoryDef>
-  <ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<defName>WVC_XenotypeSerums_Mecha</defName>
 	<label>hybrid serums</label>
 	<parent>WVC_XenotypeSerums</parent>
