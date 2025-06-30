@@ -221,61 +221,66 @@ namespace WVC_XenotypesAndGenes
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
 			if (target.HasThing && target.Thing is Corpse corpse)
+            {
+                ThrallDef thrallDef = ReimplanterGene?.thrallDef;
+                // if (ModsConfig.AnomalyActive && thrallDef.resurrectAsShambler)
+                // {
+                // if (!MutantUtility.CanResurrectAsShambler(corpse))
+                // {
+                // if (throwMessages)
+                // {
+                // Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
+                // }
+                // return false;
+                // }
+                // return true;
+                // }
+                Pawn innerPawn = corpse.InnerPawn;
+                MutantDef mutantDef = thrallDef?.mutantDef;
+                //if (thrallDef == null)
+                //{
+                //	if (throwMessages)
+                //	{
+                //		ReimplanterGene?.ThrallMakerDialog();
+                //		Messages.Message("WVC_XaG_ThrallMakerNonThrallSelected".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+                //	}
+                //	return false;
+                //}
+                if (!innerPawn.IsHuman() || innerPawn.IsMutant && IsMutantOfTarget(innerPawn, mutantDef, thrallDef, corpse) || corpse.IsUnnaturalCorpse())
+                {
+                    if (throwMessages)
+                    {
+                        Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+                    }
+                    return false;
+                }
+                if (mutantDef != null && !mutantDef.allowedDevelopmentalStages.HasAny(innerPawn.DevelopmentalStage))
+                {
+                    if (throwMessages)
+                    {
+                        //Log.Error("Def stages: " + mutantDef.allowedDevelopmentalStages.ToCommaList());
+                        Messages.Message("WVC_XaG_WrongDevelopmentalStage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+                    }
+                    return false;
+                }
+                if (!thrallDef.acceptableRotStages.Contains(corpse.GetRotStage()))
+                {
+                    if (throwMessages)
+                    {
+                        Messages.Message("WVC_XaG_MessageWrongRottingStage".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
+                    }
+                    return false;
+                }
+            }
+            return base.Valid(target, throwMessages);
+
+			static bool IsMutantOfTarget(Pawn innerPawn, MutantDef mutantDef, ThrallDef thrallDef, Corpse corpse)
 			{
-				ThrallDef thrallDef = ReimplanterGene?.thrallDef;
-				// if (ModsConfig.AnomalyActive && thrallDef.resurrectAsShambler)
-				// {
-					// if (!MutantUtility.CanResurrectAsShambler(corpse))
-					// {
-						// if (throwMessages)
-						// {
-							// Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
-						// }
-						// return false;
-					// }
-					// return true;
-				// }
-				Pawn innerPawn = corpse.InnerPawn;
-				MutantDef mutantDef = thrallDef?.mutantDef;
-				//if (thrallDef == null)
-				//{
-				//	if (throwMessages)
-				//	{
-				//		ReimplanterGene?.ThrallMakerDialog();
-				//		Messages.Message("WVC_XaG_ThrallMakerNonThrallSelected".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-				//	}
-				//	return false;
-				//}
-				if (!innerPawn.IsHuman() || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef) || corpse.IsUnnaturalCorpse())
-				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
-				if (mutantDef != null && !mutantDef.allowedDevelopmentalStages.HasAny(innerPawn.DevelopmentalStage))
-				{
-					if (throwMessages)
-					{
-						//Log.Error("Def stages: " + mutantDef.allowedDevelopmentalStages.ToCommaList());
-						Messages.Message("WVC_XaG_WrongDevelopmentalStage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
-				if (!thrallDef.acceptableRotStages.Contains(corpse.GetRotStage()))
-				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_XaG_MessageWrongRottingStage".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
+				return !innerPawn.IsMutantOfDef(mutantDef) && !innerPawn.IsMutantOfDef(thrallDef.GetMutantFromStage(corpse.GetRotStage()));
 			}
-			return base.Valid(target, throwMessages);
 		}
 
-		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
+        public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
 		{
 			yield return MoteMaker.MakeAttachedOverlay((Corpse)target.Thing, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}

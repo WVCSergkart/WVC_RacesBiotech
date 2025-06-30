@@ -40,9 +40,12 @@
 	<breathesAir>false</breathesAir>
 	<disableNeeds>true</disableNeeds>
 	<canGainXP>false</canGainXP>
-	<canBleed>false</canBleed>
+	<!-- <canBleed>false</canBleed> -->
+	<entitledToMedicalCare>false</entitledToMedicalCare>
 	<canAttackWhileCrawling>true</canAttackWhileCrawling>
 	<disableFlying>true</disableFlying>
+	<bloodDef>Filth_CorpseBile</bloodDef>
+	<bloodSmearDef>Filth_CorpseBile</bloodSmearDef>
 	<needWhitelist>
 	  <li>Mood</li>
 	  <li>Joy</li>

@@ -201,21 +201,21 @@ namespace WVC_XenotypesAndGenes
 
 			// Telepathy
 
-			public static void TelepathyGene(ref bool __result, Pawn p, Pawn recipient)
-			{
-				if (__result)
-				{
-					return;
-				}
-				if (recipient.IsPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
-				{
-					if (p.Map != null)
-					{
-						FleckMaker.AttachedOverlay(p, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
-					}
-					__result = true;
-				}
-			}
+			//public static void TelepathyGene(ref bool __result, Pawn p, Pawn recipient)
+			//{
+			//	if (__result)
+			//	{
+			//		return;
+			//	}
+			//	if (recipient.IsPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
+			//	{
+			//		if (p.Map != null)
+			//		{
+			//			FleckMaker.AttachedOverlay(p, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			//		}
+			//		__result = true;
+			//	}
+			//}
 
 			// Body graphic
 
@@ -328,16 +328,13 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (ModsConfig.AnomalyActive)
+				if (pawn.IsMutant && !pawn.mutant.Def.bodyTypeGraphicPaths.NullOrEmpty())
 				{
-					if (pawn.IsMutant && !pawn.mutant.Def.bodyTypeGraphicPaths.NullOrEmpty())
-					{
-						return;
-					}
-					if (pawn.IsCreepJoiner && pawn.story.bodyType != null && !pawn.creepjoiner.form.bodyTypeGraphicPaths.NullOrEmpty())
-					{
-						return;
-					}
+					return;
+				}
+				if (pawn.IsCreepJoiner && pawn.story.bodyType != null && !pawn.creepjoiner.form.bodyTypeGraphicPaths.NullOrEmpty())
+				{
+					return;
 				}
 				string bodyPath = furDef.GetFurBodyGraphicPath(pawn);
 				Color skinColor = __instance.ColorFor(pawn);
@@ -457,7 +454,7 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < __instance.pawn.genes.GenesListForReading.Count; i++)
 				{
 					Gene gene = __instance.pawn.genes.GenesListForReading[i];
-					if (gene?.Active != true || gene?.def?.makeImmuneTo == null)
+					if (gene?.def?.makeImmuneTo == null || !gene.Active)
 					{
 						continue;
 					}
