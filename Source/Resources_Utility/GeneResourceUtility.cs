@@ -440,7 +440,7 @@ namespace WVC_XenotypesAndGenes
 				num = 4;
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
 				+ "\n\n" + dialog.selectedXenoHolder.Description,
-				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
+				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				num = 5;
 				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
 				return true;
@@ -479,10 +479,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
+			pawn.health.AddHediff(MainDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
 			if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			// Morph
 			//pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);
@@ -490,7 +490,7 @@ namespace WVC_XenotypesAndGenes
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				//string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
-				Find.LetterStack.ReceiveLetter(gene.LabelCap, "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("PAWN"), gene.LabelCap), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter(gene.LabelCap, "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("PAWN"), gene.LabelCap), MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
 			}
 			gene.SetWorkSettings();
 		}

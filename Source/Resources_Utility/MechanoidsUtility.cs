@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalGolembond(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
+			return mechanitor.GetStatValue(MainDefOf.WVC_GolemBond);
 		}
 
 		public static float GetConsumedGolembond(Pawn mechanitor)
@@ -179,7 +179,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+				result += golem.GetStatValue(MainDefOf.WVC_GolemBondCost);
 			}
 			return result;
 		}
@@ -397,8 +397,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!MechanoidIsPlayerMechanoid(mech)
 			|| !mech.defName.Contains("Mech_")
-			|| mech.race.race.thinkTreeMain != WVC_GenesDefOf.Mechanoid
-			|| mech.race.race.thinkTreeConstant != WVC_GenesDefOf.MechConstant
+			|| mech.race.race.thinkTreeMain != MainDefOf.Mechanoid
+			|| mech.race.race.thinkTreeConstant != MainDefOf.MechConstant
 			|| mech.race.race.lifeStageAges.Count <= 1)
 			{
 				return false;

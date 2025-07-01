@@ -20,11 +20,11 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	SetXenotypeGenes(pawn, sub, xenogermReplicationChance);
 				//}
-				if (subXenotypeDef is DevXenotypeDef thrall && thrall.isThrall)
-				{
-					SetThrallGenes(pawn, thrall);
-				}
-                else if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid && hybrid.isRandom)
+				//if (subXenotypeDef is DevXenotypeDef thrall && thrall.isThrall)
+				//{
+				//	SetThrallGenes(pawn, thrall);
+				//}
+                if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid && hybrid.isRandom)
                 {
                     SetHybridGenes(pawn, hybrid);
                 }
@@ -206,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					allNewGenes.Add(WVC_GenesDefOf.Skin_SheerWhite);
+					allNewGenes.Add(MainDefOf.Skin_SheerWhite);
 				}
 			}
             if (!xenotypeHasHairColor)
@@ -220,7 +220,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					allNewGenes.Add(WVC_GenesDefOf.Hair_SnowWhite);
+					allNewGenes.Add(MainDefOf.Hair_SnowWhite);
 				}
 			}
         }
@@ -277,33 +277,34 @@ namespace WVC_XenotypesAndGenes
 			}
         }
 
-        public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
-		{
-			if (xenotype.thrallDefs.Where((ThrallDef x) => x.mutantDef == null).TryRandomElementByWeight((ThrallDef x) => x.selectionWeight, out var result))
-			{
-				CompAbilityEffect_ReimplanterThrallMaker.ThrallMaker(pawn, result);
-			}
-			AddGenes(pawn, xenotype.guaranteedGenes, true, new());
-		}
+		//[Obsolete]
+  //      public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
+		//{
+		//	if (xenotype.thrallDefs.Where((ThrallDef x) => x.mutantDef == null).TryRandomElementByWeight((ThrallDef x) => x.selectionWeight, out var result))
+		//	{
+		//		CompAbilityEffect_ReimplanterThrallMaker.ThrallMaker(pawn, result);
+		//	}
+		//	AddGenes(pawn, xenotype.guaranteedGenes, true, new());
+		//}
 
-		[Obsolete]
-		public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
-		{
-			if (!xenotype.removeGenes.NullOrEmpty())
-			{
-				RemoveGenes(pawn, xenotype);
-			}
-			List<GeneDef> endogenes = GetEndogenesFromXenotypes(xenotype);
-			if (!endogenes.NullOrEmpty())
-			{
-				AddGenes(pawn, endogenes, true, xenotype.removeGenes);
-			}
-			RemoveAllUnnecessaryGenes(pawn, endogenes, xenotype.genes);
-			if (Rand.Chance(xenogermReplicationChance))
-			{
-				GeneUtility.UpdateXenogermReplication(pawn);
-			}
-		}
+		//[Obsolete]
+		//public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
+		//{
+		//	if (!xenotype.removeGenes.NullOrEmpty())
+		//	{
+		//		RemoveGenes(pawn, xenotype);
+		//	}
+		//	List<GeneDef> endogenes = GetEndogenesFromXenotypes(xenotype);
+		//	if (!endogenes.NullOrEmpty())
+		//	{
+		//		AddGenes(pawn, endogenes, true, xenotype.removeGenes);
+		//	}
+		//	RemoveAllUnnecessaryGenes(pawn, endogenes, xenotype.genes);
+		//	if (Rand.Chance(xenogermReplicationChance))
+		//	{
+		//		GeneUtility.UpdateXenogermReplication(pawn);
+		//	}
+		//}
 
 		// ========================================================
 

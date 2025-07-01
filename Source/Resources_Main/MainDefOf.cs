@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 	[DefOf]
-	public static class WVC_GenesDefOf
+	public static class MainDefOf
 	{
 		public static GeneDef WVC_FemaleOnly;
 		public static GeneDef WVC_MaleOnly;
@@ -18,7 +18,8 @@ namespace WVC_XenotypesAndGenes
 		// public static GeneDef WVC_Dustogenic_AngelBeauty;
 		public static GeneDef WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
 		public static GeneDef Deathrest;
-		public static GeneCategoryDef Cosmetic;
+		//public static GeneCategoryDef Cosmetic;
+		//public static SpecialThingFilterDef WVC_AllowNonDeadmansApparel;
 		// Sporelink
 		// public static GeneDef WVC_ResurgentCells_AbilitySpawn_ResurgentTree;
 		// Inherit

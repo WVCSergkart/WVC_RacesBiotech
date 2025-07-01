@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+            GeneDef geneticShifter = MainDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
             SubXenotype(geneticShifter);
             genes.Add(geneticShifter);
         }

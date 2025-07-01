@@ -128,7 +128,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForFood(Pawn pawn, bool requestQueueing = true, bool queue = false)
 		{
-			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
+			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
 			{
 				return false;
 			}
@@ -149,11 +149,11 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	continue;
 				//}
-				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
+				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, MainDefOf.Bloodfeed, out Job job))
 				{
 					continue;
 				}
-				job.def = WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
+				job.def = MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
 				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
 				return true;
 			}
@@ -240,7 +240,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("1");
-			if (victim?.health?.immunity?.AnyGeneMakesFullyImmuneTo(WVC_GenesDefOf.WVC_XaG_ImplanterFangsMark) == true)
+			if (victim?.health?.immunity?.AnyGeneMakesFullyImmuneTo(MainDefOf.WVC_XaG_ImplanterFangsMark) == true)
 			{
 				return;
 			}
@@ -260,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 			// Log.Error("4");
 			if (ReimplanterUtility.TryReimplant(pawn, victim, General.reimplantEndogenes, General.reimplantXenogenes))
 			{
-				victim.health.AddHediff(WVC_GenesDefOf.WVC_XaG_ImplanterFangsMark, ExecutionUtility.ExecuteCutPart(victim));
+				victim.health.AddHediff(MainDefOf.WVC_XaG_ImplanterFangsMark, ExecutionUtility.ExecuteCutPart(victim));
 				if (PawnUtility.ShouldSendNotificationAbout(pawn) || PawnUtility.ShouldSendNotificationAbout(victim))
 				{
 					int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;

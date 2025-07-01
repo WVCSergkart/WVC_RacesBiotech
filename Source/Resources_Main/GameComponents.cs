@@ -38,6 +38,10 @@ namespace WVC_XenotypesAndGenes
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
 				}
 			}
+			ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
+			thrallApparelPolicy.label = "WVC_XaG_ThrallOutfitPolicy".Translate();
+			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowDeadmansApparel, allow: true);
+			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowNonDeadmansApparel, allow: false);
 			//UpdateSavedVersion();
 		}
 

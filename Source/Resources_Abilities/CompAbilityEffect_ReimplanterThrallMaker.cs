@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
-					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.description, WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
+					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(innerPawn.Named("TARGET")), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.description, MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
 				}
 			}
 			parent.StartCooldown((int)(60000 * WVC_Biotech.settings.thrallMaker_cooldownOverride));
@@ -64,14 +64,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			GeneResourceUtility.TryResurrectWithSickness(innerPawn, false, 0.8f);
             SetStory(innerPawn);
-            ReimplantGenes(thrallDef, innerPawn, mutantDef);
+            ReimplantGenes(thrallDef, innerPawn, mutantDef, corpse);
             if (mutantDef != null)
             {
                 MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef, corpse.GetRotStage());
-				if (thrallDef.isOverlordMutant)
-                {
-					parent.pawn.genes?.GetFirstGeneOfType<Gene_Overlord>()?.AddUndead(innerPawn);
-				}
+				//if (thrallDef.isOverlordMutant)
+    //            {
+				//	parent.pawn.genes?.GetFirstGeneOfType<Gene_Overlord>()?.AddUndead(innerPawn);
+				//}
             }
             if (innerPawn.Map != null)
             {
@@ -101,10 +101,10 @@ namespace WVC_XenotypesAndGenes
 			innerPawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
-		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn, MutantDef mutantDef)
+		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn, MutantDef mutantDef, Corpse corpse)
 		{
 			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
-			ThrallMaker(innerPawn, thrallDef);
+			ThrallMaker(innerPawn, thrallDef, corpse);
 			if (thrallDef.addGenesFromAbility)
 			{
 				foreach (GeneDef item in Props.geneDefs)
@@ -200,7 +200,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		public static void ThrallMaker(Pawn pawn, ThrallDef thrallDef)
+		private void ThrallMaker(Pawn pawn, ThrallDef thrallDef, Corpse corpse = null)
 		{
 			Pawn_GeneTracker genes = pawn.genes;
 			genes.Xenogenes.RemoveAllGenes();
@@ -213,7 +213,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				ReimplanterUtility.UnknownXenotype(pawn, thrallDef.label, thrallDef.xenotypeIconDef);
 			}
-			List<GeneDef> xenotypeGenes = thrallDef.genes;
+			List<GeneDef> xenotypeGenes = new();
+			xenotypeGenes.AddRange(thrallDef.genes);
+			if (corpse != null)
+			{
+				List<GeneDef> bonusGenes = thrallDef.GetGenesFromStage(corpse.GetRotStage());
+				if (bonusGenes != null)
+				{
+					//Log.Error("Called for: " + pawn.Name);
+					xenotypeGenes.AddRange(bonusGenes);
+				}
+			}
+			//Log.Error("Genes: " + xenotypeGenes.Select((GeneDef x) => x.defName).ToLineList(" - "));
 			for (int i = 0; i < xenotypeGenes.Count; i++)
 			{
 				pawn.genes?.AddGene(xenotypeGenes[i], false);

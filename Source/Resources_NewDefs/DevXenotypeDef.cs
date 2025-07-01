@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
             {
                 genes = new();
             }
-            GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+            GeneDef geneticShifter = MainDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
             if (genes.Contains(geneticShifter))
             {
                 genes.Remove(geneticShifter);

@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(innerPawn);
 				if (ModLister.IdeologyInstalled)
 				{
-					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{

@@ -170,7 +170,7 @@ namespace WVC_XenotypesAndGenes
                 //HediffUtility.MutationMeatSplatter(pawn, false, FleshbeastUtility.MeatExplosionSize.Small);
 				MiscUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Small);
 			}
-            WVC_GenesDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+            MainDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 		}
 
 		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size)
@@ -780,7 +780,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					break;
 				}
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
 			}
 		}
 

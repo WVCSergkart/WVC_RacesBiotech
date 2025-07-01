@@ -26,7 +26,6 @@
 	<!-- <disablesIdeo>true</disablesIdeo> -->
 	<isImmuneToInfections>true</isImmuneToInfections>
 	<preventIllnesses>true</preventIllnesses>
-	<isConsideredCorpse>true</isConsideredCorpse>
 	<useCorpseGraphics>true</useCorpseGraphics>
 	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<disablesGenes>
@@ -42,7 +41,9 @@
 	<canGainXP>false</canGainXP>
 	<!-- <canBleed>false</canBleed> -->
 	<!-- <entitledToMedicalCare>false</entitledToMedicalCare> -->
+	<incapableOfSocialInteractions>true</incapableOfSocialInteractions>
 	<canAttackWhileCrawling>true</canAttackWhileCrawling>
+	<isConsideredCorpse>true</isConsideredCorpse>
 	<disableFlying>true</disableFlying>
 	<bloodDef>Filth_CorpseBile</bloodDef>
 	<bloodSmearDef>Filth_CorpseBile</bloodSmearDef>

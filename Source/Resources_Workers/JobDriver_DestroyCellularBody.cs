@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
 			if (!ModLister.CheckAnomaly("Revenant"))
 			{
-				yield return Toils_General.WaitWith(TargetIndex.A, 120, useProgressBar: true).PlaySustainerOrSound(WVC_GenesDefOf.RevenantSpineSmash);
+				yield return Toils_General.WaitWith(TargetIndex.A, 120, useProgressBar: true).PlaySustainerOrSound(MainDefOf.RevenantSpineSmash);
 			}
 			else
 			{

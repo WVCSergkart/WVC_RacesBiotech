@@ -81,7 +81,6 @@
     <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
-    <Compile Include="Resources_Genes\Gene_Overlord.cs" />
     <Compile Include="Resources_Genes\Gene_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_OverriderDependant.cs" />
     <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
@@ -112,7 +111,6 @@
     <Compile Include="Resources_Gizmo\Dialog_EditShiftGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Traitshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Overlord.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
@@ -292,7 +290,7 @@
     <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\ThoughtUtility.cs" />
     <Compile Include="Resources_Utility\GeneResourceUtility.cs" />
-    <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
+    <Compile Include="Resources_Main\MainDefOf.cs" />
     <Compile Include="Resources_Utility\ListsUtility.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />

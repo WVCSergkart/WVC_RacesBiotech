@@ -355,11 +355,11 @@ namespace WVC_XenotypesAndGenes
             FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
             if (!xenotypeHasSkinColor)
             {
-                recipientGenes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+                recipientGenes?.AddGene(MainDefOf.Skin_SheerWhite, false);
             }
             if (!xenotypeHasHairColor)
             {
-                recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+                recipientGenes?.AddGene(MainDefOf.Hair_SnowWhite, false);
             }
 		}
 
@@ -561,10 +561,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
 				if (isXenoMod)
 				{
-					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
+                    Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
 			}
 		}

@@ -5,7 +5,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[DefOf]
-	public static class WVC_HistoryEventDefOf
+	public static class HistoryEventDefOf
 	{
 		[MayRequireIdeology]
 		public static HistoryEventDef WVC_ReimplanterResurrection;

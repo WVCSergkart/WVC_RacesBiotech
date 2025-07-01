@@ -21,14 +21,21 @@ namespace WVC_XenotypesAndGenes
 
 		public class MutantByRotStage
         {
+
             public MutantDef mutantDef;
 
             public RotStage rotStage;
 
-        }
+			public List<GeneDef> genes;
+
+		}
 
 		public MutantDef GetMutantFromStage(RotStage rotStage)
         {
+			if (mutantByRotStage == null)
+            {
+				return null;
+            }
 			foreach (MutantByRotStage item in mutantByRotStage)
             {
 				if (rotStage == item.rotStage)
@@ -37,7 +44,23 @@ namespace WVC_XenotypesAndGenes
 				}
             }
 			return null;
-        }
+		}
+
+		public List<GeneDef> GetGenesFromStage(RotStage rotStage)
+		{
+			if (mutantByRotStage == null)
+			{
+				return null;
+			}
+			foreach (MutantByRotStage item in mutantByRotStage)
+			{
+				if (rotStage == item.rotStage && !item.genes.NullOrEmpty())
+				{
+					return item.genes;
+				}
+			}
+			return null;
+		}
 
 		public bool addGenesFromAbility = true;
 		public bool addGenesFromMaster = true;

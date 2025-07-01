@@ -271,7 +271,7 @@ namespace WVC_XenotypesAndGenes
 			if (Mouse.IsOver(rect))
 			{
 				Widgets.DrawHighlight(rect);
-				TooltipHandler.TipRegion(rect, WVC_GenesDefOf.WVC_GolemBondCost.label.CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + WVC_GenesDefOf.WVC_GolemBondCost.description);
+				TooltipHandler.TipRegion(rect, MainDefOf.WVC_GolemBondCost.label.CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + MainDefOf.WVC_GolemBondCost.description);
 			}
 			num2 += num;
 			if (worker)

@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					targetPawn.BillStack.Delete(bill);
 				}
-				HealthCardUtility.CreateSurgeryBill(newTarget, WVC_GenesDefOf.WVC_ImplantXenogermSerum, null, new() { this });
+				HealthCardUtility.CreateSurgeryBill(newTarget, MainDefOf.WVC_ImplantXenogermSerum, null, new() { this });
 				targetPawn = newTarget;
 			}, destructive: true));
 		}

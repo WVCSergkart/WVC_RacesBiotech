@@ -76,9 +76,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Target.HomeFaction != null && pawn.Faction == Faction.OfPlayer)
 				{
-					Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, HistoryEventDefOf.AbsorbedXenogerm);
+                    Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, RimWorld.HistoryEventDefOf.AbsorbedXenogerm);
 				}
-				QuestUtility.SendQuestTargetSignals(Target.questTags, "XenogermAbsorbed", Target.Named("SUBJECT"));
+                QuestUtility.SendQuestTargetSignals(Target.questTags, "XenogermAbsorbed", Target.Named("SUBJECT"));
 				if (ReimplanterUtility.TryReimplant(Target, pawn, jobExtension.reimplantEndogenes, jobExtension.reimplantXenogenes))
 				{
 					if (jobExtension.warmupStartSound != null)

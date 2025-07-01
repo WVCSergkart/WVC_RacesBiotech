@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 			SpawnChild(parent, motherOrEgg, out Pawn child, endogenes, xenogenes);
 			if (PawnUtility.ShouldSendNotificationAbout(parent))
 			{
-				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(parent.LabelShort.Colorize(ColoredText.NameColor)), WVC_GenesDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
+				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(parent.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			if (motherOrEgg.Spawned)
 			{
 				FilthMaker.TryMakeFilth(motherOrEgg.Position, motherOrEgg.Map, ThingDefOf.Filth_Slime, 5);
-				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(motherOrEgg));
+				MainDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(motherOrEgg));
 				if (parent.caller != null)
 				{
 					parent.caller.DoCall();
@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 			PostSpawnFilthAndSound(motherOrEgg);
 			if (PawnUtility.ShouldSendNotificationAbout(newBorn))
 			{
-				Find.LetterStack.ReceiveLetter(completeLetterLabel.Translate(), completeLetterDesc.Translate(motherOrEgg.LabelShortCap.Colorize(ColoredText.NameColor)), WVC_GenesDefOf.WVC_XaG_GestationEvent, new LookTargets(newBorn));
+				Find.LetterStack.ReceiveLetter(completeLetterLabel.Translate(), completeLetterDesc.Translate(motherOrEgg.LabelShortCap.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(newBorn));
 			}
 		}
 
@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 			if (spawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(spawnTarget.Position, spawnTarget.Map, ThingDefOf.Filth_Slime, 5);
-				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(spawnTarget));
+				MainDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(spawnTarget));
 			}
 		}
 

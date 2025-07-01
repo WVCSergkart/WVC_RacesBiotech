@@ -289,7 +289,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_Shapeshift, pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_Shapeshift, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			DoEffects();
 		}

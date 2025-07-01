@@ -193,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (geneDef.displayCategory == GeneCategoryDefOf.Miscellaneous)
 				{
-					geneDef.displayCategory = WVC_GenesDefOf.WVC_Miscellaneous;
+					geneDef.displayCategory = MainDefOf.WVC_Miscellaneous;
 				}
 				return;
 			}

@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.ResurrectWithSickness(innerPawn);
             if (ModLister.IdeologyInstalled)
             {
-                Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
+                Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
             }
             Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
             MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);

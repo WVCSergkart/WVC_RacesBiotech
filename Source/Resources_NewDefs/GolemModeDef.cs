@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGolembondCost == null)
 				{
-					cachedGolembondCost = pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost);
+					cachedGolembondCost = pawnKindDef.race.GetStatValueAbstract(MainDefOf.WVC_GolemBondCost);
 				}
 				return cachedGolembondCost.Value;
 			}

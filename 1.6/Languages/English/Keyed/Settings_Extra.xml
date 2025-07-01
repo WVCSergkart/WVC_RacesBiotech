@@ -47,7 +47,7 @@ Use this option only as a last resort and if you know what you are doing.
 
 A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
 
-	<WVC_Label_enable_StartingFoodPolicies>Enable starting food policies</WVC_Label_enable_StartingFoodPolicies>
+	<WVC_Label_enable_StartingFoodPolicies>Enable starting food and outfit policies</WVC_Label_enable_StartingFoodPolicies>
 	<WVC_ToolTip_enable_StartingFoodPolicies>If enabled, food policies will be generated for genes that require a certain diet. Affects only the start of a new game.</WVC_ToolTip_enable_StartingFoodPolicies>
 
 	<WVC_Label_enable_OverOverridableGenesMechanic>Enable over-overriadable mechanics</WVC_Label_enable_OverOverridableGenesMechanic>

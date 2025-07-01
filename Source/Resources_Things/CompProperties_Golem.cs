@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Thing chunk = Gene_Golemlink.GetBestStoneChunk(pawn, false);
 					float limit = MechanoidsUtility.TotalGolembond(pawn.GetOverseer());
-					float consumedGolembond = MechanoidsUtility.GetConsumedGolembond(pawn.GetOverseer()) - pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+					float consumedGolembond = MechanoidsUtility.GetConsumedGolembond(pawn.GetOverseer()) - pawn.GetStatValue(MainDefOf.WVC_GolemBondCost);
 					if (chunk == null || consumedGolembond > limit)
 					{
 						Messages.Message("WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);

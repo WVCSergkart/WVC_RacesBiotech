@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (gene_Deathrest == null)
 				{
-					pawn.genes.AddGene(WVC_GenesDefOf.Deathrest, IsXenogene);
+					pawn.genes.AddGene(MainDefOf.Deathrest, IsXenogene);
 					deathrestAdded = true;
 				}
 				Notify_GeneDeathrest();

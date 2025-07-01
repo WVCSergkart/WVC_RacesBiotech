@@ -484,11 +484,11 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (pawn.story.Childhood != null)
 			{
-				pawn.story.Childhood = WVC_GenesDefOf.WVC_RacesBiotech_Amnesia_Child;
+				pawn.story.Childhood = MainDefOf.WVC_RacesBiotech_Amnesia_Child;
 			}
 			if (pawn.story.Adulthood != null)
 			{
-				pawn.story.Adulthood = WVC_GenesDefOf.WVC_RacesBiotech_Amnesia_Adult;
+				pawn.story.Adulthood = MainDefOf.WVC_RacesBiotech_Amnesia_Adult;
 			}
 		}
 

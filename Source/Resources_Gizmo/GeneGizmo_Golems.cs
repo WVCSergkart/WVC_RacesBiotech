@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
                 IEnumerable<string> entries = from p in allControlledGolems
                                               where !p.IsGestating()
                                               group p by p.kindDef into p
-                                              select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost)) + ")";
+                                              select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(MainDefOf.WVC_GolemBondCost)) + ")";
                 taggedString += "\n\n" + entries.ToLineList(" - ");
             }
             Text.Font = GameFont.Small;

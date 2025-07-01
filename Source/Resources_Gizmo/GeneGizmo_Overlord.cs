@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
             LabelAndDesc(topLeft, maxWidth, out Rect rect2, out TaggedString taggedString, out Rect rect3);
             Text.Anchor = TextAnchor.UpperRight;
             Rect totalLabelRect = new(rect3.x - rect3.height, rect3.y, rect3.width, rect3.height);
-            Widgets.Label(totalLabelRect, gene.def.description);
+            Widgets.Label(totalLabelRect, gene.LabelCap + ": " + allControlledGolems.Count);
             Text.Anchor = TextAnchor.UpperLeft;
             Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
             TooltipHandler.TipRegion(rect4, taggedString);
