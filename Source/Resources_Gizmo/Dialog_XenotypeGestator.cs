@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static void SetMatchedHolders(Pawn pawn, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f)
+		public static void SetMatchedHolders(Pawn pawn, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f, bool useCurves = false)
 		{
 			List<Gene> pawnGenes = pawn?.genes?.GenesListForReading;
 			if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
@@ -104,12 +104,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (XenotypeHolder item in xenotypeDefs)
             {
-                item.isOverriden = !GenesIsMatch(pawnGenes, item.genes, percent, out float matchPercent);
+                item.isOverriden = !GenesIsMatch(pawnGenes, item.genes, percent, out float matchPercent, useCurves);
 				item.matchPercent = matchPercent;
             }
         }
 
-		private static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float reqPercent, out float matchPercent)
+		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float reqPercent, out float matchPercent, bool useCurves = false, float geneticMaterial = 0f)
 		{
 			matchPercent = 0;
 			if (xenotypeGenes.NullOrEmpty() || reqPercent <= 0f)
@@ -149,12 +149,39 @@ namespace WVC_XenotypesAndGenes
                 }
             }
 			matchPercent *= 0.01f;
+			if (useCurves)
+			{
+				XaG_GeneUtility.GetBiostatsFromList(pawnGeneDefs, out int cpx, out int met, out int arc);
+				XaG_GeneUtility.GetBiostatsFromList(xenotypeGenes, out int cpxXeno, out int metXeno, out int arcXeno);
+				SimpleCurve arcCurvePoints = new()
+				{
+					//new CurvePoint(0f, -0.1f),
+					new CurvePoint(arcXeno * 0.5f, 0.1f),
+					new CurvePoint(arcXeno, 0f),
+					new CurvePoint(arcXeno * 2f, 0.2f)
+				};
+				matchPercent += (float)Math.Round(arcCurvePoints.Evaluate(arc), 2);
+				SimpleCurve metCurvePoints = new()
+				{
+					new CurvePoint(metXeno - 5f, 0.0f),
+					new CurvePoint(metXeno, 0.1f),
+					new CurvePoint(metXeno + 5f, 0.02f)
+				};
+				matchPercent += (float)Math.Round(metCurvePoints.Evaluate(met), 2);
+				SimpleCurve cpxCurvePoints = new()
+				{
+					new CurvePoint(cpxXeno - 25f, 0.2f),
+					new CurvePoint(cpxXeno, 0.1f),
+					new CurvePoint(cpxXeno + 25f, 0f)
+				};
+				matchPercent += (float)Math.Round(cpxCurvePoints.Evaluate(cpx), 2);
+			}
 			matchPercent += sameGenes / xenotypeGenes.Count;
+			matchPercent += geneticMaterial;
 			if (matchPercent > 1f)
             {
 				matchPercent = 1f;
 			}
-			//List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
 			if (matchPercent >= reqPercent)
 			{
 				return true;

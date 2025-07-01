@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
-		public float shapeshifer_BaseGenesMatch = 0.6f;
+		public float shapeshifer_BaseGenesMatch = 0.7f;
 		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;

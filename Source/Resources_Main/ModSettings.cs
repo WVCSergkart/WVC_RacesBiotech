@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
-		//public float shapeshifer_BaseGenesMatch = 0.6f;
+		public float shapeshifer_BaseGenesMatch = 0.7f;
 		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
-			//Scribe_Values.Look(ref shapeshifer_BaseGenesMatch, "shapeshifer_BaseGenesMatch", defaultValue: 0.6f);
+			Scribe_Values.Look(ref shapeshifer_BaseGenesMatch, "shapeshifer_BaseGenesMatch", defaultValue: 0.7f);
 			//Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferWornApparel, "archiver_transferWornApparel", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
@@ -880,7 +880,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
 				// listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
-				//listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_BaseGenesMatch".Translate((settings.shapeshifer_BaseGenesMatch).ToStringPercent()), ref settings.shapeshifer_BaseGenesMatch, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_shapeshifer_BaseGenesMatch".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_BaseGenesMatch".Translate(settings.shapeshifer_BaseGenesMatch.ToStringPercent()), ref settings.shapeshifer_BaseGenesMatch, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_shapeshifer_BaseGenesMatch".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_GeneCellularRegeneration".Translate((settings.shapeshifer_GeneCellularRegeneration).ToString()), ref settings.shapeshifer_GeneCellularRegeneration, 1f, 100f, round: 0);
 				// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
@@ -1055,7 +1055,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;
 			//WVC_Biotech.settings.chimeraMinGeneCopyChance = settingsDef.chimeraMinGeneCopyChance;
-			//WVC_Biotech.settings.shapeshifer_BaseGenesMatch = settingsDef.shapeshifer_BaseGenesMatch;
+			WVC_Biotech.settings.shapeshifer_BaseGenesMatch = settingsDef.shapeshifer_BaseGenesMatch;
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = settingsDef.shapeshifer_GeneCellularRegeneration;
 			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
 			WVC_Biotech.settings.enable_chimeraStartingTools = settingsDef.enable_chimeraStartingTools;

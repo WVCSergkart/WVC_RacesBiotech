@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public Gene_Shapeshifter gene;
-		//public float minGenesMatch;
+		public float minGenesMatch;
 
 		protected override string Header => gene.LabelCap;
 
@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			//alwaysUseFullBiostatsTableHeight = true;
 			//searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
 			//allXenotypes = ListsUtility.GetAllXenotypesHolders();
-			//minGenesMatch = gene.ReqMatchPercent;
+			minGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
 			SetupAvailableHolders(allXenotypes);
             selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
             shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
@@ -49,69 +49,63 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void SetupAvailableHolders(List<XenotypeHolder> xenotypes)
-		{
-			foreach (XenotypeHolder item in xenotypes)
-			{
-				foreach (GeneDef geneDef in item.genes)
-				{
-					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
-					{
-						item.isTrueShiftForm = true;
-						break;
-					}
-				}
+        {
+            foreach (XenotypeHolder item in xenotypes)
+            {
+                foreach (GeneDef geneDef in item.genes)
+                {
+                    if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+                    {
+                        item.isTrueShiftForm = true;
+                        item.matchPercent = 1f;
+                        break;
+                    }
+                }
+                if (!item.isTrueShiftForm)
+                {
+                    item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, minGenesMatch, out float matchPercent, true, gene.GeneticMaterial * 0.01f);
+                    item.matchPercent = matchPercent;
+                }
 			}
-			//Dialog_XenotypeGestator.SetMatchedHolders(gene.pawn, xenotypes, minGenesMatch);
+			if (!disabled && xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
+			{
+				minGenesMatch -= 0.1f;
+				if (DebugSettings.ShowDevGizmos)
+				{
+					Log.Warning("Required genes match decreased. New required match: " + minGenesMatch);
+				}
+				SetupAvailableHolders(xenotypes);
+			}
 		}
 
-		//private void GetMatchForAllXenos()
+		// public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
 		//{
-		//	minGenesMatch = gene.MinGenesMatch;
-		//	List<GeneDef> pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-		//	foreach (XenotypeHolder allDef in allXenotypes)
+		//	float num = GeneCreationDialogBase.GeneSize.y / 3f;
+		//	float num2 = 0f;
+		//	float baseWidthOffset = 38f;
+		//	float num3 = Text.LineHeightOf(GameFont.Small);
+		//	Rect iconRect = new(curX, curY + margin + num2, num3, num3);
+		//	DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
+		//	Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
+		//	if (Mouse.IsOver(rect))
 		//	{
-		//		if (allDef.isTrueShiftForm || allDef.Baseliner)
+		//		Widgets.DrawHighlight(rect);
+		//		TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
+		//	}
+		//	num2 += num;
+		//	if (xenotypeHolder.isTrueShiftForm)
+		//	{
+		//		Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
+		//		DrawStat(iconRect3, XTFTex, xenotypeHolder.isTrueShiftForm.ToStringYesNo(), num3 - 3f);
+		//		Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
+		//		if (Mouse.IsOver(rect3))
 		//		{
-		//			allDef.matchPercent = 1f;
-		//			continue;
-		//		}
-		//		int count = XaG_GeneUtility.GetMatchingGenesList(pawnGenes, allDef.genes).Count;
-		//		allDef.matchPercent = Mathf.Clamp(count / pawnGenes.Count, 0f, 1f);
-		//		if (minGenesMatch > allDef.matchPercent)
-		//		{
-		//			allDef.isOverriden = true;
+		//			Widgets.DrawHighlight(rect3);
+		//			TooltipHandler.TipRegion(rect3, "WVC_XaG_TrueForm".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_TrueFormDesc".Translate());
 		//		}
 		//	}
+		//	curX += 34f;
 		//}
-
-		public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
-		{
-			float num = GeneCreationDialogBase.GeneSize.y / 3f;
-			float num2 = 0f;
-			float baseWidthOffset = 38f;
-			float num3 = Text.LineHeightOf(GameFont.Small);
-			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-			DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
-			Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
-			if (Mouse.IsOver(rect))
-			{
-				Widgets.DrawHighlight(rect);
-				TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
-			}
-			num2 += num;
-			if (xenotypeHolder.isTrueShiftForm)
-			{
-				Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
-				DrawStat(iconRect3, XTFTex, xenotypeHolder.isTrueShiftForm.ToStringYesNo(), num3 - 3f);
-				Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
-				if (Mouse.IsOver(rect3))
-				{
-					Widgets.DrawHighlight(rect3);
-					TooltipHandler.TipRegion(rect3, "WVC_XaG_TrueForm".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_TrueFormDesc".Translate());
-				}
-			}
-			curX += 34f;
-		}
 
 
 		protected override void DoBottomButtons(Rect rect)
@@ -121,11 +115,11 @@ namespace WVC_XenotypesAndGenes
             {
                 DisabledText(rect, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate());
             }
-			//else if (selectedXenoHolder.isOverriden)
-			//{
-			//	DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100));
-			//}
-			else
+            else if (selectedXenoHolder.isOverriden)
+            {
+                DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100));
+            }
+            else
             {
                 Rect storeButton = new(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y);
                 if (Widgets.ButtonText(storeButton, "WVC_XaG_StorageImplanter_Apply".Translate()))
@@ -175,11 +169,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-            //if (selectedXenoHolder.isOverriden)
-            //{
-            //    Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
-            //    return false;
-            //}
+            if (selectedXenoHolder.isOverriden)
+            {
+                Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
             if (disabled)
 			{
 				Messages.Message("WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);

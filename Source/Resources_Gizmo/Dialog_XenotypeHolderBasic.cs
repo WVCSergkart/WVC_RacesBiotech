@@ -292,7 +292,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static readonly CachedTexture XGTex = new("WVC/UI/XaG_General/XGTex_v0");
-		public static readonly CachedTexture XTFTex = new("WVC/UI/XaG_General/XTFTex_v0");
+		//public static readonly CachedTexture XTFTex = new("WVC/UI/XaG_General/XTFTex_v0");
 
 		public static readonly CachedTexture EndotypeBackground = new("WVC/UI/XaG_General/UI_BackgroundEndotype_v0");
 		public static readonly CachedTexture XenotypeBackground = new("WVC/UI/XaG_General/UI_BackgroundXenotype_v0");

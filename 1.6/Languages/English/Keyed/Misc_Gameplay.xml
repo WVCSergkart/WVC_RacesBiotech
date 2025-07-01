@@ -155,7 +155,7 @@
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>
 
-	<WVC_XaG_XenoHolder_GenesMatch>Genes match</WVC_XaG_XenoHolder_GenesMatch>
+	<WVC_XaG_XenoHolder_GenesMatch>Genetic match</WVC_XaG_XenoHolder_GenesMatch>
 	<WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc>
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
@@ -625,7 +625,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_StorageImplanter_Warning>If a pawn has a storage implanter gene, then the selected genes/geneset/xenotype can be written into it and then implanted using the appropriate implanter ability.\n\nIf the storage implanter already contains gene information, it will be overwritten.\n\nNote that in some cases the selected genes will be extracted from the source and cannot be returned. For example, the chimera will lose these genes if they were stored in it.</WVC_XaG_StorageImplanter_Warning>
 	<WVC_XaG_StorageImplanter_Message>The genetic information has been successfully saved.</WVC_XaG_StorageImplanter_Message>
 	<WVC_XaG_StorageImplanter_ErrorMessage>Storage implanter gene is missing.</WVC_XaG_StorageImplanter_ErrorMessage>
-	<WVC_XaG_StorageImplanter_NonValidMessage>Storage implanter is empty or missing.</WVC_XaG_StorageImplanter_NonValidMessage>
+	<WVC_XaG_StorageImplanter_NonValidMessage>Storage implanter is empty or missing. Use any gene that can preserve the geneset.</WVC_XaG_StorageImplanter_NonValidMessage>
 
 	<WVC_XaG_StorageImplanter_ExtraTooltip> -  Xenotype: {0}\n -  Total genes: {1}\n -  Inheritable: {2}\n -  Unique: {3}</WVC_XaG_StorageImplanter_ExtraTooltip>
 
@@ -782,7 +782,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
-	<!-- <WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent> -->
+	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>
 	<!-- <WVC_XaG_ClearGenesWarning>Genes of the selected type will be removed.</WVC_XaG_ClearGenesWarning> -->
 
 	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>

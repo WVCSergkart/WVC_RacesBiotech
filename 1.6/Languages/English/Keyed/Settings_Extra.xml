@@ -289,7 +289,7 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<!-- ================================== -->
 
-	<!-- <WVC_Label_shapeshifer_BaseGenesMatch>Shapeshifter genes match: {0}</WVC_Label_shapeshifer_BaseGenesMatch> -->
-	<!-- <WVC_Tooltip_shapeshifer_BaseGenesMatch>Responsible for the basic required percentage of genetic match with the xenotype. If the genetic similarity is below this percentage, shapeshifting will not be possible.\n\nThe full formula also depends on the accumulated genetic material and looks like this: Base% - (GenMat * 0.01)</WVC_Tooltip_shapeshifer_BaseGenesMatch> -->
+	<WVC_Label_shapeshifer_BaseGenesMatch>Shapeshifter genes match: {0}</WVC_Label_shapeshifer_BaseGenesMatch>
+	<WVC_Tooltip_shapeshifer_BaseGenesMatch>Responsible for the base percentage of match with the target xenotype required for shapeshifting. If the match is less than this value, shapeshifting is impossible.\n\nHowever, this value is not constant and is subject to modifiers, including hidden ones. Regardless of this option, the shapeshifter will always have at least 1 xenotype available.</WVC_Tooltip_shapeshifer_BaseGenesMatch>
 
 </LanguageData>
