@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 				XaG_GeneUtility.GetBiostatsFromList(xenotypeGenes, out int cpxXeno, out int metXeno, out int arcXeno);
 				SimpleCurve arcCurvePoints = new()
 				{
-					//new CurvePoint(0f, -0.1f),
+					new CurvePoint(0f, 0.0f),
 					new CurvePoint(arcXeno * 0.5f, 0.1f),
 					new CurvePoint(arcXeno, 0f),
 					new CurvePoint(arcXeno * 2f, 0.2f)

@@ -852,23 +852,23 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>
 
-	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>
-	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>Some xenogene xenotypes are related to endogene xenotypes. If a xenogene xenotype has a double xenotype, then the shapeshifter can implant the genes of that xenotype.</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>
+	<!-- <WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype> -->
+	<!-- <WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>Some xenogene xenotypes are related to endogene xenotypes. If a xenogene xenotype has a double xenotype, then the shapeshifter can implant the genes of that xenotype.</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc> -->
 
 	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>Clear xenogenes</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>
-	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>If enabled, xenogens will be removed when implanting an endogene xenotype. For xenogene xenotypes, xenogenes will be removed regardless of this option.</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>If enabled, xenogenes (xenogerm) will be cleared when implanting an endogene (germline) xenotype. For xenogene xenotypes, xenogenes will be removed regardless of this option.</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
 
-	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>
-	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>Does a pawn fall into a xenogermination coma after a shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>
+	<!-- <WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label> -->
+	<!-- <WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>Does a pawn fall into a xenogermination coma after a shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc> -->
 
 	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>Shapeshift regrow</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>
 	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>Will pawn genes be regrow after shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
-	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn's xenotype will be changed to the selected xenotype, and the pawn will lose the genes of the previous xenotype and receive new ones. The shapeshifter gene will not be removed regardless of the selected xenotype.\n\nAfter implantation of new genes, the pawn receives xenogermination coma and genes regrowing.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
+	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn will receive the selected xenotype and its set of genes. The genes, depending on the heredity of the xenotype, will overwrite either the germline or the xenogerm of the pawn.\n\nAfter implantation, the pawn will receive genes regrowing, the duration of which directly depends on the quantity and quality of new genes. During the genes regrowing period, repeated shapeshifting is impossible.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->

@@ -66,49 +66,66 @@ namespace WVC_XenotypesAndGenes
                     item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, minGenesMatch, out float matchPercent, true, gene.GeneticMaterial * 0.01f);
                     item.matchPercent = matchPercent;
                 }
-			}
-			if (!disabled && xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
-			{
-				minGenesMatch -= 0.1f;
-				if (DebugSettings.ShowDevGizmos)
-				{
-					Log.Warning("Required genes match decreased. New required match: " + minGenesMatch);
-				}
-				SetupAvailableHolders(xenotypes);
-			}
-		}
+            }
+            UpdGenesMatchUpToMinOneXenotype(xenotypes);
+        }
 
-		// public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
-		//{
-		//	float num = GeneCreationDialogBase.GeneSize.y / 3f;
-		//	float num2 = 0f;
-		//	float baseWidthOffset = 38f;
-		//	float num3 = Text.LineHeightOf(GameFont.Small);
-		//	Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-		//	DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
-		//	Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
-		//	if (Mouse.IsOver(rect))
-		//	{
-		//		Widgets.DrawHighlight(rect);
-		//		TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
-		//	}
-		//	num2 += num;
-		//	if (xenotypeHolder.isTrueShiftForm)
-		//	{
-		//		Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
-		//		DrawStat(iconRect3, XTFTex, xenotypeHolder.isTrueShiftForm.ToStringYesNo(), num3 - 3f);
-		//		Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
-		//		if (Mouse.IsOver(rect3))
-		//		{
-		//			Widgets.DrawHighlight(rect3);
-		//			TooltipHandler.TipRegion(rect3, "WVC_XaG_TrueForm".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_TrueFormDesc".Translate());
-		//		}
-		//	}
-		//	curX += 34f;
-		//}
+        private void UpdGenesMatchUpToMinOneXenotype(List<XenotypeHolder> xenotypes)
+        {
+            if (!disabled && xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
+            {
+                minGenesMatch -= 0.05f;
+                if (DebugSettings.ShowDevGizmos)
+                {
+                    Log.Warning("Required genes match decreased. New required match: " + minGenesMatch);
+                }
+                UpdHoldersOverride(xenotypes);
+            }
+        }
+
+        private void UpdHoldersOverride(List<XenotypeHolder> xenotypes)
+        {
+            foreach (XenotypeHolder item in xenotypes)
+            {
+                if (item.isOverriden && item.matchPercent >= minGenesMatch)
+                {
+                    item.isOverriden = false;
+                }
+            }
+            UpdGenesMatchUpToMinOneXenotype(xenotypes);
+        }
+
+        // public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
+        //{
+        //	float num = GeneCreationDialogBase.GeneSize.y / 3f;
+        //	float num2 = 0f;
+        //	float baseWidthOffset = 38f;
+        //	float num3 = Text.LineHeightOf(GameFont.Small);
+        //	Rect iconRect = new(curX, curY + margin + num2, num3, num3);
+        //	DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
+        //	Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
+        //	if (Mouse.IsOver(rect))
+        //	{
+        //		Widgets.DrawHighlight(rect);
+        //		TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
+        //	}
+        //	num2 += num;
+        //	if (xenotypeHolder.isTrueShiftForm)
+        //	{
+        //		Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
+        //		DrawStat(iconRect3, XTFTex, xenotypeHolder.isTrueShiftForm.ToStringYesNo(), num3 - 3f);
+        //		Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
+        //		if (Mouse.IsOver(rect3))
+        //		{
+        //			Widgets.DrawHighlight(rect3);
+        //			TooltipHandler.TipRegion(rect3, "WVC_XaG_TrueForm".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_TrueFormDesc".Translate());
+        //		}
+        //	}
+        //	curX += 34f;
+        //}
 
 
-		protected override void DoBottomButtons(Rect rect)
+        protected override void DoBottomButtons(Rect rect)
 		{
 			base.DoBottomButtons(rect);
 			if (disabled)
