@@ -25,6 +25,10 @@ namespace WVC_XenotypesAndGenes
 
 		//public static Pawn voidLinkNewGamePlusPawn;
 
+		//public static List<XenotypeDef> knownXenotypeDefs = new() { XenotypeDefOf.Baseliner };
+
+		//public static XaG_GameComponent currentGameComponent;
+
 	}
 
 }

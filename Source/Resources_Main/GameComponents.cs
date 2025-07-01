@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void StartedNewGame()
 		{
+			//StaticCollectionsClass.currentGameComponent = this;
 			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
 			{
 				return;
@@ -55,8 +56,60 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			//UpdateSavedVersion();
+			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();
 		}
+
+		//public List<ReferencableXenotypeHolder> knownXenotypeDefs = new() { new(XenotypeDefOf.Baseliner) };
+
+		//public bool HasKnownXenotype(XenotypeDef xenotypeDef)
+		//{
+		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
+		//	{
+		//		if (holder.XenotypeIsSameXenotype(xenotypeDef))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		//public bool HasKnownXenotype(CustomXenotype xenotypeDef)
+		//{
+		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
+		//	{
+		//		if (holder.XenotypeIsSameXenotype(xenotypeDef))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		//public void TryUpdateKnownXenotype(Pawn pawn)
+		//{
+		//	bool addXenotype = true;
+		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
+		//	{
+		//		if (holder.PawnIsSameXenotype(pawn))
+		//		{
+		//			addXenotype = false;
+		//		}
+		//	}
+		//	if (addXenotype)
+		//	{
+		//		knownXenotypeDefs.Add(new(pawn));
+		//	}
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	Scribe_Deep.Look(ref knownXenotypeDefs, "knownXenotypeDefs");
+		//	if (knownXenotypeDefs == null)
+  //          {
+		//		knownXenotypeDefs = new();
+		//	}
+		//}
 
 		public override void GameComponentTick()
 		{
@@ -107,13 +160,8 @@ namespace WVC_XenotypesAndGenes
 		//	savedModVersion = WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion;
 		//}
 
-		//public override void ExposeData()
-		//{
-		//	Scribe_Values.Look(ref savedModVersion, null);
-		//}
-
-		// DEV
-		public void DevFixes()
+        // DEV
+        public void DevFixes()
 		{
 			FixGenesClasses();
 			ResetGenes();

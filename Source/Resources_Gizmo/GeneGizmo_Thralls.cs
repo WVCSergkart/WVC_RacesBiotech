@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
             //}
             Text.Font = GameFont.Small;
             rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            TooltipHandler.TipRegion(rect3, gene.def.description);
+            TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.description);
             //Text.Anchor = TextAnchor.UpperRight;
             //Widgets.Label(rect3, text);
             Text.Anchor = TextAnchor.UpperLeft;

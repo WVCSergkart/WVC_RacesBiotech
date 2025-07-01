@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
-					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(innerPawn.Named("TARGET")), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.description, MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
+					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(innerPawn.Named("TARGET")), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.Description, MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
 				}
 			}
 			parent.StartCooldown((int)(60000 * WVC_Biotech.settings.thrallMaker_cooldownOverride));

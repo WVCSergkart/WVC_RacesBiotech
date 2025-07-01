@@ -80,19 +80,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        //public List<IGeneRemoteControl> RemoteControl
-        //{
-        //    get
-        //    {
-        //        if (cachedRemoteControlGenes == null)
-        //        {
-        //            RecacheGenes();
-        //        }
-        //        return cachedRemoteControlGenes;
-        //    }
-        //}
+		//public List<IGeneRemoteControl> RemoteControl
+		//{
+		//    get
+		//    {
+		//        if (cachedRemoteControlGenes == null)
+		//        {
+		//            RecacheGenes();
+		//        }
+		//        return cachedRemoteControlGenes;
+		//    }
+		//}
 
-        public void RecacheGenes()
+		public void RecacheGenes()
 		{
 			cachedInfoGenes = new();
 			cachedFloatMenuOptionsGenes = new();
@@ -184,6 +184,32 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+        // =====================
+
+        //[Unsaved(false)]
+        //private XaG_GameComponent cachedGameComponent;
+
+        //public XaG_GameComponent GameComponent
+        //{
+        //    get
+        //    {
+        //        if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
+        //        {
+        //            cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
+        //        }
+        //        return cachedGameComponent;
+        //    }
+        //}
+
+  //      public override void PostSpawnSetup(bool respawningAfterLoad)
+		//{
+		//	if (parent is not Pawn pawn || pawn?.genes == null)
+		//	{
+		//		return;
+		//	}
+		//	StaticCollectionsClass.currentGameComponent?.TryUpdateKnownXenotype(pawn);
+		//}
 
 		// =====================
 

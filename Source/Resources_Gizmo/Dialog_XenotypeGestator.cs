@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 			cooldownDays = geneExtension == null ? 5 : geneExtension.cooldownDays;
 			gestationPeriodDays = (int)(gene.pawn.RaceProps.gestationPeriodDays * (geneExtension == null ? 1f : geneExtension.gestationPeriodFactor));
 			matchPercent = WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent;
-			UpdAllMatchedXenotypeHolders(gene.pawn, allXenotypes, matchPercent);
+			SetMatchedHolders(gene.pawn, allXenotypes, matchPercent);
 			disabled = HediffUtility.GetFirstHediffPreventsPregnancy(gene.pawn.health.hediffSet.hediffs) != null;
 			OnGenesChanged();
 		}
@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static void UpdAllMatchedXenotypeHolders(Pawn pawn, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f)
+		public static void SetMatchedHolders(Pawn pawn, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f)
 		{
 			List<Gene> pawnGenes = pawn?.genes?.GenesListForReading;
 			if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
@@ -103,9 +103,63 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			foreach (XenotypeHolder item in xenotypeDefs)
+            {
+                item.isOverriden = !GenesIsMatch(pawnGenes, item.genes, percent, out float matchPercent);
+				item.matchPercent = matchPercent;
+            }
+        }
+
+		private static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float reqPercent, out float matchPercent)
+		{
+			matchPercent = 0;
+			if (xenotypeGenes.NullOrEmpty() || reqPercent <= 0f)
 			{
-				item.isOverriden = !XaG_GeneUtility.GenesIsMatch(pawnGenes, item.genes, percent);
+				matchPercent = 1f;
+				return true;
 			}
+			if (pawnGenes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<GeneDef> pawnGeneDefs = pawnGenes.ConvertToDefs();
+			int sameGenes = 0;
+			foreach (GeneDef pawnGene in pawnGeneDefs)
+			{
+				foreach (GeneDef xenoGene in xenotypeGenes)
+                {
+					if (xenoGene == pawnGene)
+					{
+						sameGenes++;
+					}
+                    else if (xenoGene.ConflictsWith(pawnGene))
+                    {
+                        matchPercent++;
+                    }
+					else if (pawnGene.displayCategory == xenoGene.displayCategory)
+                    {
+						if (!WVC_Biotech.settings.hideXaGGenes)
+						{
+							matchPercent += 0.4f;
+						}
+						else
+						{
+							matchPercent += 0.05f;
+						}
+                    }
+                }
+            }
+			matchPercent *= 0.01f;
+			matchPercent += sameGenes / xenotypeGenes.Count;
+			if (matchPercent > 1f)
+            {
+				matchPercent = 1f;
+			}
+			//List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
+			if (matchPercent >= reqPercent)
+			{
+				return true;
+			}
+			return false;
 		}
 
 		protected override void Accept()

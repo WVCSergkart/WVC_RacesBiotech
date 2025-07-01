@@ -41,6 +41,8 @@
 
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 
+	<WVC_Mutation>{0} mutation</WVC_Mutation>
+
 	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
 	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
 	<WVC_XaG_ThrallMakerNonThrallSelected>First you need to choose the type of thrall.</WVC_XaG_ThrallMakerNonThrallSelected>
@@ -217,15 +219,15 @@
 	
 	<WVC_XaG_DaysGainFromBite>Instability delay</WVC_XaG_DaysGainFromBite>
 	
-	<WVC_XaG_Gene_GeneticThrallLabel>Delay death</WVC_XaG_Gene_GeneticThrallLabel>
-	<WVC_XaG_Gene_GeneticThrallDesc>Archites will automatically absorb the psychic activity of resurgent cells or the pawn will automatically use genetic stabilizer serum when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc>
+	<!-- <WVC_XaG_Gene_GeneticThrallLabel>Delay death</WVC_XaG_Gene_GeneticThrallLabel> -->
+	<!-- <WVC_XaG_Gene_GeneticThrallDesc>Archites will automatically absorb the psychic activity of resurgent cells or the pawn will automatically use genetic stabilizer serum when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc> -->
 
 	<WVC_XaG_LetterLabelThrallImplanted>{TARGET_nameDef} resurrected</WVC_XaG_LetterLabelThrallImplanted>
 	<!-- <WVC_XaG_LetterTextThrallIImplanted>{CASTER_nameDef} has implanted a xenogerm into {TARGET_nameDef}, passing choosed genes onto {TARGET_objective}.\n\n{TARGET_nameDef} became a genetic thrall, thralls have their own strengths and weaknesses, but the main drawback of thralls is that in order to survive they need to regularly delay instabilization by absorbing the resurgent cells of living resurgent pawns.</WVC_XaG_LetterTextThrallIImplanted> -->
 	<WVC_XaG_LetterTextThrallIImplanted>{TARGET_nameDef} was resurrected and transformed. {TARGET_pronoun} received a hybrid germline that combined a number of special genes, old {TARGET_nameDef} genes and some {CASTER_nameDef} genes.</WVC_XaG_LetterTextThrallIImplanted>
 
-	<WVC_XaG_LetterLabelThrallTransformedIntoGhoul>thrall transformed</WVC_XaG_LetterLabelThrallTransformedIntoGhoul>
-	<WVC_XaG_LetterDescThrallTransformedIntoGhoul>Due to instabilization, {0_nameDef}'s archites got out of control. {0_possessive} body was irreversibly changed, and {0_possessive} consciousness lost any clarity. Now {0_nameDef} is an eternally hungry, brainless monster.</WVC_XaG_LetterDescThrallTransformedIntoGhoul>
+	<!-- <WVC_XaG_LetterLabelThrallTransformedIntoGhoul>thrall transformed</WVC_XaG_LetterLabelThrallTransformedIntoGhoul> -->
+	<!-- <WVC_XaG_LetterDescThrallTransformedIntoGhoul>Due to instabilization, {0_nameDef}'s archites got out of control. {0_possessive} body was irreversibly changed, and {0_possessive} consciousness lost any clarity. Now {0_nameDef} is an eternally hungry, brainless monster.</WVC_XaG_LetterDescThrallTransformedIntoGhoul> -->
 
   <!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 	
@@ -295,7 +297,7 @@
 	<WVC_XaG_SubXeno_SubXenotypesList>Sub-Xenotypes</WVC_XaG_SubXeno_SubXenotypesList>
 	<WVC_XaG_SubXeno_SubXenotypesList_Desc>Xenotypes into which this xenotype can evolve.</WVC_XaG_SubXeno_SubXenotypesList_Desc>
 
-	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the type of thrall for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
+	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the germline and mutation for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
 
 	<WVC_XaG_DevXenotypeDef_XenotypeDesc>A unique variation of super xenohuman that resulted from the hybridization of {0} and {1} xenotypes. This one has half the genetic diversity of both xenotypes, combining both strengths and weaknesses.</WVC_XaG_DevXenotypeDef_XenotypeDesc>
 
@@ -514,12 +516,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->
 
 	<WVC_XaG_ThrallsBandwidthGizmoLabel>Thralls</WVC_XaG_ThrallsBandwidthGizmoLabel>
-	<WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will start dying or turning into ghouls.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip>
+	<!-- <WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will start dying or turning into ghouls.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip> -->
 
-	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
+	<!-- <WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage> -->
 	<WVC_XaG_CooldownIn>Cooldown in {0}</WVC_XaG_CooldownIn>
 
-	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
+	<!-- <WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding> -->
 
 	<WVC_XaG_GolemEnergyRecovery_Info>Self-charge: {0} (+{1} / day)</WVC_XaG_GolemEnergyRecovery_Info>
 
@@ -827,13 +829,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneRemover_Desc>Allows to remove any genes from the current geneset. Genes are removed one at a time.</WVC_XaG_GeneRemover_Desc>
 	<WVC_XaG_GeneRemover_Warning>This action will result in the gene being removed from the pawn's geneset, which is irreversible. If the shapeshifter gene is present, this may provide genetic material or, on the contrary, consume it. The amount of genetic material is calculated relative to the complexity and archites of the gene.</WVC_XaG_GeneRemover_Warning>
 
-	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
-	<!-- <WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip> -->
-	<!-- <WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff and genetic match. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn gets &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, it is summed up.\n\nTo compensate for the genetic match, you can use &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; that accumulates during &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; or with the help of sub-genes.\n\nThere are also xenotypes that are considered &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;. &lt;color=#8a8ae6&gt;Shapeshifting&lt;/color&gt; in them is possible without any restrictions, but it does not accumulate &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.\n\n -  Genetic material: {0}\n -  Min genes match: {1}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {2}</WVC_XaG_ShapeshifterGizmoTip> -->
 	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#8076ff&gt;Genetic material&lt;/color&gt;: {0}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {1}</WVC_XaG_ShapeshifterGizmoTip>
-	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff. After shapeshifting, the pawn is guaranteed to receive genes regrowing, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nSome xenotypes are true forms, these xenotypes can be applied at any time without restrictions. -->
-
-	<!-- Shapeshifter allows to change the pawn's xenotype at any time, this is limited only by the genes regrowing hediff and genetic compliance. After shapeshifting, the pawn gets genes regrowing hediff. If the pawn had genes regrowing at the time of shapeshifting, it is summed up.\n\nTo compensate for the genetic discrepancy, you can use genetic material that accumulates during shapeshifting or with the help of sub-genes.\n\nThere are also xenotypes that are considered true forms. Shapeshifting in them is possible without any restrictions, but it does not accumulate genetic material. -->
+	<!-- \n -  &lt;color=#8076ff&gt;Req genes match&lt;/color&gt;: {2} -->
 
 	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was turned off for the gene.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
 

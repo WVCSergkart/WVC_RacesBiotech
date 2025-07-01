@@ -166,11 +166,16 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		//private static List<XenotypeHolder> cachedXenotypeHoldersWithXenotypeDefs;
 		public static List<XenotypeHolder> GetAllXenotypesHolders()
 		{
 			List<XenotypeHolder> list = new();
 			foreach (XenotypeDef item in GetAllXenotypesExceptAndroids())
 			{
+				//if (!StaticCollectionsClass.currentGameComponent.HasKnownXenotype(item))
+				//{
+				//	continue;
+				//}
 				XenotypeHolder newHolder = new();
 				if (item == XenotypeDefOf.Baseliner || item.genes.NullOrEmpty())
 				{
@@ -184,6 +189,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (CustomXenotype item in GetCustomXenotypesList())
 			{
+				//if (!StaticCollectionsClass.currentGameComponent.HasKnownXenotype(item))
+				//{
+				//	continue;
+				//}
 				XenotypeHolder newHolder = new();
 				if (item.genes.NullOrEmpty())
 				{
@@ -248,21 +257,6 @@ namespace WVC_XenotypesAndGenes
 				cachedAllXenotypesExceptAndroids = list;
 			}
 			return list;
-		}
-
-		public static void UpdTrueFormHoldersFromList(List<XenotypeHolder> xenotypes)
-		{
-			foreach (XenotypeHolder item in xenotypes)
-			{
-				foreach (GeneDef geneDef in item.genes)
-				{
-					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
-					{
-						item.isTrueShiftForm = true;
-						break;
-					}
-				}
-			}
 		}
 
 		public static List<GeneDef> GetAnomalyExceptions()

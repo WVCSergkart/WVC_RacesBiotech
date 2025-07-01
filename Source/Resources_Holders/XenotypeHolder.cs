@@ -47,6 +47,25 @@ namespace WVC_XenotypesAndGenes
 			inheritable = xenotypeDef.inheritable;
 		}
 
+		//public bool PawnIsSameXenotype(Pawn pawn)
+		//{
+		//	if (pawn.genes.Xenotype == xenotypeDef && (pawn.genes.CustomXenotype == null || pawn.genes.CustomXenotype.name == name))
+  //          {
+		//		return true;
+  //          }
+		//	return false;
+		//}
+
+		//public bool XenotypeIsSameXenotype(XenotypeDef newXenotype)
+		//{
+		//	return newXenotype == xenotypeDef;
+		//}
+
+		//public bool XenotypeIsSameXenotype(CustomXenotype newXenotype)
+		//{
+		//	return newXenotype.name == name;
+		//}
+
 		[Unsaved(false)]
 		private TaggedString cachedLabelCap = null;
 
@@ -138,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (matchPercent.HasValue)
 					{
-						stringBuilder.AppendLine(("WVC_XaG_XenoHolder_GenesMatch".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + (matchPercent.Value * 100 + "%").ToString());
+						stringBuilder.AppendLine(("WVC_XaG_XenoHolder_GenesMatch".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + matchPercent.Value.ToStringPercent());
 						stringBuilder.AppendLine();
 					}
 					stringBuilder.Append(("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + inheritable.ToStringYesNo());

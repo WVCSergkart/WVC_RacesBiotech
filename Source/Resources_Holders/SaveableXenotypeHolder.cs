@@ -57,6 +57,18 @@ namespace WVC_XenotypesAndGenes
 			inheritable = holder.inheritable;
 		}
 
+		public SaveableXenotypeHolder(XenotypeDef xenotypeDef)
+		{
+			//genes = new();
+			//SaveableXenotypeHolder newHolder = new();
+			this.xenotypeDef = xenotypeDef;
+			this.genes = xenotypeDef.genes;
+			this.inheritable = xenotypeDef.inheritable;
+			this.iconDef = null;
+			this.name = null;
+			//xenotypeHolder = newHolder;
+		}
+
 		public SaveableXenotypeHolder(XenotypeDef xenotypeDef, List<GeneDef> genes, bool inheritable, XenotypeIconDef icon, string name)
 		{
 			//genes = new();
@@ -67,6 +79,33 @@ namespace WVC_XenotypesAndGenes
 			this.iconDef = icon;
 			this.name = name;
 			//xenotypeHolder = newHolder;
+		}
+
+	}
+
+	public class ReferencableXenotypeHolder : XenotypeHolder, IExposable
+	{
+
+		public void ExposeData()
+		{
+			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+			Scribe_Values.Look(ref name, "name");
+		}
+
+		public ReferencableXenotypeHolder()
+		{
+
+		}
+
+		public ReferencableXenotypeHolder(Pawn pawn)
+        {
+			xenotypeDef = pawn.genes.Xenotype;
+			name = pawn.genes.CustomXenotype?.name;
+		}
+
+        public ReferencableXenotypeHolder(XenotypeDef xenotypeDef)
+		{
+			this.xenotypeDef = xenotypeDef;
 		}
 
 	}

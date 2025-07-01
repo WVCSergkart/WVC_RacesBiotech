@@ -287,4 +287,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_traitshifter_MaxTraits>Traitshifter traits limit: {0}</WVC_Label_traitshifter_MaxTraits>
 	<WVC_ToolTip_traitshifter_MaxTraits>Responsible for the maximum number of traits that traitshifter can add. The gene ignores script, gene, and non-generated traits.</WVC_ToolTip_traitshifter_MaxTraits>
 
+	<!-- ================================== -->
+
+	<!-- <WVC_Label_shapeshifer_BaseGenesMatch>Shapeshifter genes match: {0}</WVC_Label_shapeshifer_BaseGenesMatch> -->
+	<!-- <WVC_Tooltip_shapeshifer_BaseGenesMatch>Responsible for the basic required percentage of genetic match with the xenotype. If the genetic similarity is below this percentage, shapeshifting will not be possible.\n\nThe full formula also depends on the accumulated genetic material and looks like this: Base% - (GenMat * 0.01)</WVC_Tooltip_shapeshifer_BaseGenesMatch> -->
+
 </LanguageData>

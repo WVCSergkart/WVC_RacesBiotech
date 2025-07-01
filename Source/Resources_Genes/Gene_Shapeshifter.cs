@@ -206,6 +206,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int GeneticMaterial => (int)geneticMaterial;
 
+		//public float ReqMatchPercent => WVC_Biotech.settings.shapeshifer_BaseGenesMatch - (GeneticMaterial * 0.01f);
+
 		public bool TryOffsetResource(float count)
         {
 			if (!genesRegrowAfterShapeshift && count > 0)

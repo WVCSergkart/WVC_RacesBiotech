@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public Gene_Shapeshifter gene;
-		public float minGenesMatch;
+		//public float minGenesMatch;
 
 		protected override string Header => gene.LabelCap;
 
@@ -33,19 +33,36 @@ namespace WVC_XenotypesAndGenes
         {
             xenotypeName = string.Empty;
             gene = shapeshifter;
-            //forcePause = true;
-            //closeOnAccept = false;
-            //absorbInputAroundWindow = true;
-            //alwaysUseFullBiostatsTableHeight = true;
-            //searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-            //allXenotypes = ListsUtility.GetAllXenotypesHolders();
-            ListsUtility.UpdTrueFormHoldersFromList(allXenotypes);
+			//forcePause = true;
+			//closeOnAccept = false;
+			//absorbInputAroundWindow = true;
+			//alwaysUseFullBiostatsTableHeight = true;
+			//searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
+			//allXenotypes = ListsUtility.GetAllXenotypesHolders();
+			//minGenesMatch = gene.ReqMatchPercent;
+			SetupAvailableHolders(allXenotypes);
             selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
             shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
             disabled = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
             //GetMatchForAllXenos();
             OnGenesChanged();
-        }
+		}
+
+		private void SetupAvailableHolders(List<XenotypeHolder> xenotypes)
+		{
+			foreach (XenotypeHolder item in xenotypes)
+			{
+				foreach (GeneDef geneDef in item.genes)
+				{
+					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+					{
+						item.isTrueShiftForm = true;
+						break;
+					}
+				}
+			}
+			//Dialog_XenotypeGestator.SetMatchedHolders(gene.pawn, xenotypes, minGenesMatch);
+		}
 
 		//private void GetMatchForAllXenos()
 		//{
@@ -67,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-        public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
+		public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
 		{
 			float num = GeneCreationDialogBase.GeneSize.y / 3f;
 			float num2 = 0f;
@@ -158,12 +175,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			//if (selectedXenoHolder.isOverriden)
-			//{
-			//	Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
-			//	return false;
-			//}
-			if (disabled)
+            //if (selectedXenoHolder.isOverriden)
+            //{
+            //    Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
+            //    return false;
+            //}
+            if (disabled)
 			{
 				Messages.Message("WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;

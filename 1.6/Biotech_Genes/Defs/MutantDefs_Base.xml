@@ -11,7 +11,7 @@
   <MutantDef ParentName="WVC_XenotypesAndGenes_BaseMutantEntity" Name="WVC_XenotypesAndGenes_ThrallMutant">
 	<defName>WVC_Thrall</defName>
 	<label>thrall</label>
-	<description>A person who has been turned into a thrall.\n\nAbout thralls: Thralls are rehumans animated by archites. They are ideal workers who never get sick or age. Thralls are created from corpses, the archites maintain their bodies in a stasis state, preventing further rot, but not restoring them to their previous state.</description>
+	<description>A person who has been turned into a thrall.\n\nAbout thralls: Thralls are humans reanimated by archites. They are ideal workers and warriors, who are not subject to disease and aging. Thralls are created from human corpses using archites, which then keep the thralls' bodies in a state of stasis to prevent further rot. Thralls are not mindless monsters, they are still capable of free thought and decision-making. However, the state of their bodies affects their minds, and in the extreme stages of rot they are no longer capable of communication or learning skills.</description>
 	<hediff>WVC_Thrall</hediff>
 	<breathesAir>true</breathesAir>
 	<overrideLabel>true</overrideLabel>
