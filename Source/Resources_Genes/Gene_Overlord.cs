@@ -9,87 +9,125 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Overlord : Gene
-    {
+    public class Gene_Overlord : Gene, IGeneOverridden
+	{
 
-        public int nextTick = 180;
+		//public OverlordMode overlordMode;
+
+		private List<Pawn> undeadArmy = new();
+		public List<Pawn> UndeadsListForReading
+		{
+			get
+			{
+				List<Pawn> listForReading = new();
+				foreach (Pawn dryad in undeadArmy)
+				{
+					if (dryad == null || dryad.Dead || dryad.Destroyed)
+					{
+						continue;
+					}
+					listForReading.Add(dryad);
+				}
+				return listForReading;
+			}
+		}
 
         public override void PostAdd()
         {
             base.PostAdd();
-        }
+		}
 
-        public override void Tick()
-        {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 180))
-            {
-                return;
-            }
-            TryGiveJob();
-        }
+		private Gizmo genesGizmo;
 
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            if (DebugSettings.ShowDevGizmos)
-            {
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: ShamblerJob",
-                    action = delegate
-                    {
-                        TryGiveJob();
-                    }
-                };
-            }
-        }
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			{
+				yield break;
+			}
+			if (genesGizmo == null)
+			{
+				genesGizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return genesGizmo;
+		}
 
-        private void TryGiveJob()
-        {
-            foreach (Pawn shambler in pawn.Map.mapPawns.AllPawnsSpawned)
-            {
-                if (shambler.IsShambler && shambler.Faction == pawn.Faction)
-                {
-                    shambler.TryTakeOrderedJob(TryGiveJob(shambler), JobTag.Misc, true);
-                }
-            }
-        }
-
-        public static Job TryGiveJob(Pawn pawn)
-        {
-            bool validator(Thing t)
-            {
-                if (t.IsForbidden(pawn))
-                {
-                    return false;
-                }
-                if (!HaulAIUtility.PawnCanAutomaticallyHaulFast(pawn, t, forced: false))
-                {
-                    return false;
-                }
-                if (pawn.carryTracker.MaxStackSpaceEver(t.def) <= 0)
-                {
-                    return false;
-                }
-                return StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, pawn.Map, StoreUtility.CurrentStoragePriorityOf(t), pawn.Faction, out IntVec3 foundCell);
-            }
-            Thing thing = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling(), PathEndMode.OnCell, TraverseParms.For(pawn), 9999f, validator);
-            if (thing != null)
-            {
-                return HaulAIUtility.HaulToStorageJob(pawn, thing);
-            }
-            return null;
-        }
-
-        public override void PostRemove()
+		public override void PostRemove()
         {
             base.PostRemove();
-        }
+			Notify_OverlordKilled();
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			base.Notify_PawnDied(dinfo, culprit);
+			Notify_OverlordKilled();
+		}
+
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref nextTick, "nextTick", 180);
+            Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
+			Scribe_Collections.Look(ref undeadArmy, "controlledUndeads", LookMode.Reference);
+			if (undeadArmy != null && undeadArmy.RemoveAll((Pawn x) => x == null || x.Destroyed || x.Dead) > 0)
+			{
+				Log.Warning("Removed null undead(s) from gene: " + def.defName);
+			}
+		}
+
+		public void AddUndead(Pawn undead)
+		{
+			if (!undeadArmy.Contains(undead))
+            {
+				undeadArmy.Add(undead);
+				if (undead.connections == null)
+                {
+					undead.connections = new(undead);
+				}
+				foreach (Thing item in undead.connections.ConnectedThings)
+				{
+					undead.connections.Notify_ConnectedThingLeftBehind(item);
+				}
+				undead.connections.ConnectTo(pawn);
+			}
+		}
+
+		public void Notify_OverlordKilled()
+		{
+			foreach (Pawn item in undeadArmy)
+            {
+                if (item.connections == null)
+                {
+                    continue;
+                }
+                foreach (Thing thing in item.connections.ConnectedThings)
+                {
+                    item.connections.Notify_ConnectedThingLeftBehind(thing);
+                }
+            }
+			undeadArmy = new();
+
+		}
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+			if (overriddenBy != null)
+            {
+				Notify_OverlordKilled();
+			}
         }
+
+        public void Notify_Override()
+        {
+
+        }
+
+        //public float GetConsumed()
+        //{
+        //	base.PostRemove();
+        //}
 
     }
 

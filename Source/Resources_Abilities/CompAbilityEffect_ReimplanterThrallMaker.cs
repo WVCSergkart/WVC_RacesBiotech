@@ -68,6 +68,10 @@ namespace WVC_XenotypesAndGenes
             if (mutantDef != null)
             {
                 MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef, corpse.GetRotStage());
+				if (thrallDef.isOverlordMutant)
+                {
+					parent.pawn.genes?.GetFirstGeneOfType<Gene_Overlord>()?.AddUndead(innerPawn);
+				}
             }
             if (innerPawn.Map != null)
             {

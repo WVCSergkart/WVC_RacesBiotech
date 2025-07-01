@@ -5,7 +5,7 @@
 
   <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
 	<label>thrall</label>
-	<description>An ordinary thrall with its own strengths and weaknesses.</description>
+	<description>An basic thrall with its own strengths and weaknesses.</description>
 	<!-- Unused -->
 	<!-- <generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death or transformation into a ghoul.</generalDesc> -->
 	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
@@ -42,7 +42,7 @@
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base" Name="WVC_XenotypesAndGenes_ThrallDefs_Undead" Abstract="True">
 	<selectionWeight>0.33</selectionWeight>
-	<reqGeneDef>WVC_ResurgentCells</reqGeneDef>
+	<!-- <reqGeneDef>WVC_ResurgentCells</reqGeneDef> -->
 	<genes>
 		<li>WVC_GauntSkin</li>
 		<li>WVC_SkinColor_Granite</li>

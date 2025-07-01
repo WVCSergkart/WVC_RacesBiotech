@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Overlord</defName>
+	<label>overlord</label>
+	<description>Carriers of this gene have TEST.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Overlord</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Overlord</resourceGizmoType>
+	<iconPath>WVC/UI/Genes/Gene_Deadlife_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively creates &lt;color=#8a8ae6&gt;AAA&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Undead</defName>
+	<label>undead</label>
+	<reqGeneDef>WVC_Overlord</reqGeneDef>
+	<isOverlordMutant>true</isOverlordMutant>
+	<mutantDef>WVC_Undead</mutantDef>
+	<selectionWeight>1</selectionWeight>
+	<genes Inherit="False"/>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <MutantDef ParentName="WVC_XenotypesAndGenes_BaseMutantEntity">
+	<defName>WVC_Undead</defName>
+	<label>undead</label>
+	<breathesAir>false</breathesAir>
+	<canGainXP>false</canGainXP>
+	<canBleed>false</canBleed>
+	<consideredSubhuman>true</consideredSubhuman>
+	<canCarryPawns>false</canCarryPawns>
+	<canTend>false</canTend>
+	<namePrefix>animated </namePrefix>
+	<whitelistedFloatMenuProviders />
+	<preventsMentalBreaks>true</preventsMentalBreaks>
+	<disablesIdeo>true</disablesIdeo>
+	<disableOwnership>true</disableOwnership>
+	<disablePolicies>true</disablePolicies>
+	<disableTitles>true</disableTitles>
+	<disableNeeds>true</disableNeeds>
+	<disableEatingAtTable>true</disableEatingAtTable>
+	<incapableOfSocialInteractions>true</incapableOfSocialInteractions>
+	<overrideInspectString>true</overrideInspectString>
+	<terminatePregnancy>true</terminatePregnancy>
+	<removeChronicIllnesses>true</removeChronicIllnesses>
+	<removeAddictions>true</removeAddictions>
+	<clearsEgo>true</clearsEgo>
+	<partsCleanAndDroppable>false</partsCleanAndDroppable>
+	<!-- <entitledToMedicalCare>false</entitledToMedicalCare> -->
+	<canAttackWhileCrawling>true</canAttackWhileCrawling>
+	<disableFlying>true</disableFlying>
+	<bloodDef>Filth_CorpseBile</bloodDef>
+	<bloodSmearDef>Filth_CorpseBile</bloodSmearDef>
+	<overrideLabel>true</overrideLabel>
+	<allowEatingCorpses>true</allowEatingCorpses>
+	<allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+	<disableAging>true</disableAging>
+	<isImmuneToInfections>true</isImmuneToInfections>
+	<preventIllnesses>true</preventIllnesses>
+	<isConsideredCorpse>true</isConsideredCorpse>
+	<useCorpseGraphics>true</useCorpseGraphics>
+	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
+    <!-- <tameable>false</tameable> -->
+    <!-- <clearMutantStatusOnDeath>true</clearMutantStatusOnDeath> -->
+    <!-- <canTravelInCaravan>false</canTravelInCaravan> -->
+    <respectsAllowedArea>false</respectsAllowedArea>
+    <!-- <disableFlying>true</disableFlying> -->
+    <canBeDrafted>true</canBeDrafted>
+	<thinkTree>WVC_Undead</thinkTree>
+    <hideLabel>true</hideLabel>
+	<!-- <thinkTreeConstant>ShamblerConstant</thinkTreeConstant> -->
+	<!-- <needWhitelist> -->
+	  <!-- <li>Mood</li> -->
+	  <!-- <li>Joy</li> -->
+	  <!-- <li>Outdoors</li> -->
+	  <!-- <li>Indoors</li> -->
+	<!-- </needWhitelist> -->
+  </MutantDef>
+
+  <ThinkTreeDef>
+	<defName>WVC_Undead</defName>
+	<thinkRoot Class="ThinkNode_Priority">
+	  <subNodes>
+		<li Class="ThinkNode_ConditionalMustKeepLyingDown">
+		  <subNodes>
+			<li Class="JobGiver_KeepLyingDown" />
+		  </subNodes>
+		</li>
+
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>Downed</treeDef>
+		</li>
+
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>BurningResponse</treeDef>
+		</li>
+
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>MentalStateCritical</treeDef>
+		</li>
+
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>MentalStateNonCritical</treeDef>
+		</li>
+
+		<li Class="JobGiver_FightFiresNearConnectedTree" />
+		<li Class="JobGiver_ReactToCloseMeleeThreat" />
+		<li Class="ThinkNode_QueuedJob" />
+
+		<!-- If no Gauranlen tree, leave the map -->
+		<li Class="ThinkNode_ConditionalNoConnectedThings">
+		  <subNodes>
+			<li Class="ThinkNode_ConditionalCanReachMapEdge">
+			  <subNodes>
+				<li Class="JobGiver_ExitMapRandom">
+				  <defaultLocomotion>Walk</defaultLocomotion>
+				</li>
+			  </subNodes>
+			</li>
+		  </subNodes>
+		</li>
+
+		<!-- If more dryads spawned than the tree can handle, return to the tree and merge with it -->
+
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>LordDuty</treeDef>
+		</li>
+
+		<!-- Primary faction actions -->
+		<li Class="ThinkNode_ConditionalOfPlayerFaction">
+		  <subNodes>
+
+			<li Class="ThinkNode_Tagger">
+			  <tagToGive>TrainedAnimalBehavior</tagToGive>
+			  <subNodes>
+				<!-- Trained behavior: obedience: Follow and defend master -->
+				<!-- <li Class="ThinkNode_ConditionalTrainableCompleted"> -->
+				  <!-- <trainable>Obedience</trainable> -->
+				  <!-- <subNodes> -->
+				  <!-- </subNodes> -->
+				<!-- </li> -->
+				<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalShouldFollowConnectedPawn" >
+				  <subNodes>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_AIDefendConnectedPawn">
+					  <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
+					</li>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_AIFollowConnectedPawn"/>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_RescueConnectedPawn"/>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_WanderNearConnectedPawn"/>
+				  </subNodes>
+				</li>
+			  </subNodes>
+			</li>
+		  </subNodes>
+		</li>
+
+		<!-- Needs -->
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>SatisfyBasicNeeds</treeDef>
+		</li>
+
+		<!-- Secondary faction actions -->
+		<li Class="ThinkNode_ConditionalOfPlayerFaction">
+		  <subNodes>
+			<li Class="ThinkNode_Tagger">
+			  <tagToGive>RestingForMedicalReasons</tagToGive>
+			  <subNodes>
+				<li Class="JobGiver_PatientGoToBed" />
+			  </subNodes>
+			</li>
+			<li Class="JobGiver_SeekAllowedArea" />
+			<li Class="JobGiver_SeekSafeTemperature" />
+
+			<li Class="ThinkNode_Tagger">
+			  <tagToGive>RestingForMedicalReasons</tagToGive>
+			  <subNodes>
+				<li Class="JobGiver_PatientGoToBed" />
+			  </subNodes>
+			</li>
+
+			<li Class="ThinkNode_ChancePerHour_Constant">
+			  <mtbHours>1</mtbHours>
+			  <subNodes>
+				<li Class="ThinkNode_ConditionalRequireCapacities">
+				  <requiredCapacities>
+					<li>Manipulation</li>
+				  </requiredCapacities>
+				  <subNodes>
+					<!-- Trained behavior: Haul-->
+					<li Class="ThinkNode_Tagger">
+					  <tagToGive>TrainedAnimalBehavior</tagToGive>
+					  <subNodes>
+						<li Class="JobGiver_Haul" />
+					  </subNodes>
+					</li>
+				  </subNodes>
+				</li>
+			  </subNodes>
+			</li>
+		  </subNodes>
+		</li>
+
+		<!-- Idle -->
+		<li Class="ThinkNode_Tagger">
+		  <tagToGive>Idle</tagToGive>
+		  <subNodes>
+			<li Class="JobGiver_WanderNearConnectedTree">
+			  <maxDanger>Deadly</maxDanger>
+			</li>
+			<li Class="JobGiver_WanderAnywhere">
+			  <maxDanger>Deadly</maxDanger>
+			  <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange>
+			</li>
+		  </subNodes>
+		</li>
+
+		<li Class="JobGiver_IdleError"/>
+	  </subNodes>
+	</thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>

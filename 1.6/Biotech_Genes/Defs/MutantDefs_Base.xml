@@ -41,7 +41,7 @@
 	<disableNeeds>true</disableNeeds>
 	<canGainXP>false</canGainXP>
 	<!-- <canBleed>false</canBleed> -->
-	<entitledToMedicalCare>false</entitledToMedicalCare>
+	<!-- <entitledToMedicalCare>false</entitledToMedicalCare> -->
 	<canAttackWhileCrawling>true</canAttackWhileCrawling>
 	<disableFlying>true</disableFlying>
 	<bloodDef>Filth_CorpseBile</bloodDef>

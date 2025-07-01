@@ -32,35 +32,37 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!ModsConfig.AnomalyActive)
+			if (pawn.IsCreepJoiner)
 			{
-				return;
+				CreepJoinerFormKindDef formKindDef = pawn?.creepjoiner?.form;
+				if (formKindDef != null)
+				{
+					if (formKindDef.forcedHeadTypes.NullOrEmpty())
+					{
+						return;
+					}
+					if (formKindDef.forcedHeadTypes.Contains(pawn.story.headType))
+					{
+						return;
+					}
+					pawn.story.TryGetRandomHeadFromSet(formKindDef.forcedHeadTypes);
+				}
 			}
-			CreepJoinerFormKindDef formKindDef = pawn?.creepjoiner?.form;
-			if (formKindDef != null)
+			if (pawn.IsMutant)
 			{
-				if (formKindDef.forcedHeadTypes.NullOrEmpty())
+				MutantDef mutantDef = pawn?.mutant?.Def;
+				if (mutantDef != null)
 				{
-					return;
+					if (mutantDef.forcedHeadTypes.NullOrEmpty())
+					{
+						return;
+					}
+					if (mutantDef.forcedHeadTypes.Contains(pawn.story.headType))
+					{
+						return;
+					}
+					pawn.story.TryGetRandomHeadFromSet(mutantDef.forcedHeadTypes);
 				}
-				if (formKindDef.forcedHeadTypes.Contains(pawn.story.headType))
-				{
-					return;
-				}
-				pawn.story.TryGetRandomHeadFromSet(formKindDef.forcedHeadTypes);
-			}
-			MutantDef mutantDef = pawn?.mutant?.Def;
-			if (mutantDef != null)
-			{
-				if (mutantDef.forcedHeadTypes.NullOrEmpty())
-				{
-					return;
-				}
-				if (mutantDef.forcedHeadTypes.Contains(pawn.story.headType))
-				{
-					return;
-				}
-				pawn.story.TryGetRandomHeadFromSet(mutantDef.forcedHeadTypes);
 			}
 		}
 
