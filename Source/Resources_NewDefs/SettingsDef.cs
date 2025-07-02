@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
-		public bool enableInstabilityLastChanceMechanic = true;
+		//public bool enableInstabilityLastChanceMechanic = true;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
@@ -80,6 +80,7 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;
+		public float shapeshifer_CooldownDurationFactor = 1f;
 		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;

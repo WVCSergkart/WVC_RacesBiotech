@@ -206,14 +206,44 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			GeneResourceUtility.TryShapeshift(gene, this);
+			TryShapeshift(gene, this);
 			Close(doCloseSound: false);
 		}
+
+		// Shapeshift
+		private bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)
+		{
+			int num = 0;
+			try
+			{
+				num = 1;
+				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.disabled);
+				num = 2;
+				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.disabled || dialog.clearXenogenes, xenotypeHybridization && !dialog.disabled);
+				num = 3;
+				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.disabled);
+				num = 4;
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
+				+ "\n\n" + dialog.selectedXenoHolder.Description,
+				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
+				num = 5;
+				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
+				return true;
+			}
+			catch (Exception arg)
+			{
+				// Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
+				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {num}: {arg} (Gene: " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName + ")");
+			}
+			return false;
+		}
+
+		private bool xenotypeHybridization = false;
 
 		protected override void PostXenotypeOnGUI(float curX, float curY)
 		{
 			TaggedString taggedString = "WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant".Translate();
-			TaggedString taggedString2 = "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate();
+			TaggedString taggedString2 = "WVC_XaG_DialogShapeshifter_xenotypeHybridization".Translate();
 			float width = Mathf.Max(Text.CalcSize(taggedString).x, Text.CalcSize(taggedString2).x) + 4f + 24f;
 			Rect rect = new(curX, curY, width, Text.LineHeight);
 			Widgets.CheckboxLabeled(rect, taggedString, ref clearXenogenes);
@@ -223,12 +253,12 @@ namespace WVC_XenotypesAndGenes
 				TooltipHandler.TipRegion(rect, "WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc".Translate());
 			}
 			rect.y += Text.LineHeight;
-            //Widgets.CheckboxLabeled(rect, taggedString2, ref doubleXenotypeReimplantation);
-            //if (Mouse.IsOver(rect))
-            //{
-            //	Widgets.DrawHighlight(rect);
-            //	TooltipHandler.TipRegion(rect, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc".Translate());
-            //}
+            Widgets.CheckboxLabeled(rect, taggedString2, ref xenotypeHybridization);
+            if (Mouse.IsOver(rect))
+            {
+                Widgets.DrawHighlight(rect);
+                TooltipHandler.TipRegion(rect, "WVC_XaG_DialogShapeshifterDesc_xenotypeHybridization".Translate());
+            }
             postXenotypeHeight += rect.yMax - curY;
 		}
 

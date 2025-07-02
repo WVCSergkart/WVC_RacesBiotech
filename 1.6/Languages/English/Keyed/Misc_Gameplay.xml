@@ -855,8 +855,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype> -->
 	<!-- <WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>Some xenogene xenotypes are related to endogene xenotypes. If a xenogene xenotype has a double xenotype, then the shapeshifter can implant the genes of that xenotype.</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc> -->
 
-	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>Clear xenogenes</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>Remove xenogenes (xenogerm)</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>
 	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>If enabled, xenogenes (xenogerm) will be cleared when implanting an endogene (germline) xenotype. For xenogene xenotypes, xenogenes will be removed regardless of this option.</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>
+
+	<WVC_XaG_DialogShapeshifter_xenotypeHybridization>Xenotypes hybridization</WVC_XaG_DialogShapeshifter_xenotypeHybridization>
+	<WVC_XaG_DialogShapeshifterDesc_xenotypeHybridization>If enabled, instead of overwriting the current set of genes, the genes of the selected xenotype will be added on top, removing/replacing conflicting ones. This will create a hybrid xenotype that will not be considered as one of the existing ones.\n\nThis action will increase the duration of the genes regrowing rollback by 2 times.</WVC_XaG_DialogShapeshifterDesc_xenotypeHybridization>
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
 

@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
 		// ExtraSettings
-		public bool genesCanTickOnlyOnMap = false;
+		//public bool genesCanTickOnlyOnMap = false;
 		public bool enable_flatGenesSpawnChances = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
-		public bool enableInstabilityLastChanceMechanic = true;
+		//public bool enableInstabilityLastChanceMechanic = true;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
@@ -86,6 +86,7 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;
+		public float shapeshifer_CooldownDurationFactor = 1f;
 		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
@@ -183,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			Scribe_Values.Look(ref learning_CyclicallySelfLearning_MaxSkillLevel, "learning_CyclicallySelfLearning_MaxSkillLevel", defaultValue: 20f);
 			// ExtraSettings
-			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
+			//Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
 			//Scribe_Values.Look(ref enable_ReplaceSimilarGenesAutopatch, "enable_ReplaceSimilarGenesAutopatch", defaultValue: false);
@@ -203,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
 			Scribe_Values.Look(ref thrallMaker_cooldownOverride, "thrallMaker_cooldownOverride", defaultValue: 9f);
-			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
+			//Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Links
 			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: false);
@@ -222,6 +223,7 @@ namespace WVC_XenotypesAndGenes
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			Scribe_Values.Look(ref shapeshifer_BaseGenesMatch, "shapeshifer_BaseGenesMatch", defaultValue: 0.7f);
+			Scribe_Values.Look(ref shapeshifer_CooldownDurationFactor, "shapeshifer_CooldownDurationFactor", defaultValue: 1f);
 			//Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferWornApparel, "archiver_transferWornApparel", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
@@ -543,7 +545,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Begin(rect);
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
+			//listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate(), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
@@ -847,7 +849,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_thrallMaker_cooldownOverride".Translate((settings.thrallMaker_cooldownOverride).ToString()), ref settings.thrallMaker_cooldownOverride, 0f, 30f, round: 0);
-				listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
@@ -880,6 +882,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
 				// listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_CooldownDurationFactor".Translate(settings.shapeshifer_CooldownDurationFactor.ToStringPercent()), ref settings.shapeshifer_CooldownDurationFactor, 0f, 5f, round: 1, tooltip: "WVC_Tooltip_shapeshifer_CooldownDurationFactor".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_BaseGenesMatch".Translate(settings.shapeshifer_BaseGenesMatch.ToStringPercent()), ref settings.shapeshifer_BaseGenesMatch, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_shapeshifer_BaseGenesMatch".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_GeneCellularRegeneration".Translate((settings.shapeshifer_GeneCellularRegeneration).ToString()), ref settings.shapeshifer_GeneCellularRegeneration, 1f, 100f, round: 0);
 				// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
@@ -1056,6 +1059,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;
 			//WVC_Biotech.settings.chimeraMinGeneCopyChance = settingsDef.chimeraMinGeneCopyChance;
 			WVC_Biotech.settings.shapeshifer_BaseGenesMatch = settingsDef.shapeshifer_BaseGenesMatch;
+			WVC_Biotech.settings.shapeshifer_CooldownDurationFactor = settingsDef.shapeshifer_CooldownDurationFactor;
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = settingsDef.shapeshifer_GeneCellularRegeneration;
 			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
 			WVC_Biotech.settings.enable_chimeraStartingTools = settingsDef.enable_chimeraStartingTools;
@@ -1095,7 +1099,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = settingsDef.bloodfeeder_AutoBloodfeed;
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = settingsDef.hemogenic_ImplanterFangsChanceFactor;
 			// =
-			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = settingsDef.enableInstabilityLastChanceMechanic;
+			//WVC_Biotech.settings.enableInstabilityLastChanceMechanic = settingsDef.enableInstabilityLastChanceMechanic;
 			// =
 			WVC_Biotech.settings.archiver_transferEquipedWeapon = settingsDef.archiver_transferEquipedWeapon;
 			WVC_Biotech.settings.archiver_transferWornApparel = settingsDef.archiver_transferWornApparel;
@@ -1125,7 +1129,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.fleshmass_MaxMutationsLevel = settingsDef.fleshmass_MaxMutationsLevel;
 			// =
 			// Extra
-			WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;
+			//WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = settingsDef.enable_flatGenesSpawnChances;
 			//WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = settingsDef.enable_ReplaceSimilarGenesAutopatch;
 			// Xenotypes

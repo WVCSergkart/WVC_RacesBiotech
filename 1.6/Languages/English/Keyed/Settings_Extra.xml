@@ -292,4 +292,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_shapeshifer_BaseGenesMatch>Shapeshifter genes match: {0}</WVC_Label_shapeshifer_BaseGenesMatch>
 	<WVC_Tooltip_shapeshifer_BaseGenesMatch>Responsible for the base percentage of match with the target xenotype required for shapeshifting. If the match is less than this value, shapeshifting is impossible.\n\nHowever, this value is not constant and is subject to modifiers, including hidden ones. Regardless of this option, the shapeshifter will always have at least 1 xenotype available.</WVC_Tooltip_shapeshifer_BaseGenesMatch>
 
+	<!-- ================================== -->
+
+	<WVC_Label_shapeshifer_CooldownDurationFactor>Shapeshifter cooldown factor x{0}</WVC_Label_shapeshifer_CooldownDurationFactor>
+	<WVC_Tooltip_shapeshifer_CooldownDurationFactor>Basic duration multiplier of "genes regrowing" caused by shapeshifter gene. The higher the value, the longer the cd.</WVC_Tooltip_shapeshifer_CooldownDurationFactor>
+
 </LanguageData>

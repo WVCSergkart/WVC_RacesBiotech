@@ -268,17 +268,23 @@ namespace WVC_XenotypesAndGenes
         //	}
         //}
 
-        public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool xenogenes = true)
-		{
-			//if (doubleXenotypes && !xenotypeHolder.xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeHolder.xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeHolder.xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
-			//{
-			//	Reimplant(result.xenotype, false);
-			//}
-			ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, xenogenes, this);
-			//if (xenogermComaAfterShapeshift)
-			//{
-			//	pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			//}
+        public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool removeXenogenes = true, bool hybridizeXenotypes = false)
+        {
+            if (hybridizeXenotypes)
+            {
+				foreach (GeneDef geneDef in xenotypeHolder.genes)
+                {
+					if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef, new() { def }))
+					{
+						pawn.TryAddOrRemoveGene(this, null, geneDef, xenotypeHolder.inheritable);
+					}
+				}
+				ReimplanterUtility.UnknownXenotype(pawn, pawn.genes.XenotypeLabel.TrimmedToLength(3) + xenotypeHolder.Label.ToString().Reverse().TrimmedToLength(4).Reverse());
+            }
+			else
+			{
+				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, removeXenogenes, this);
+			}
 			if (genesRegrowAfterShapeshift)
 			{
 				if (!xenotypeHolder.isTrueShiftForm)
@@ -286,7 +292,7 @@ namespace WVC_XenotypesAndGenes
 					TryOffsetResource((int)((xenotypeHolder.genes.Sum((gene) => gene.biostatCpx) * 0.05f) + (xenotypeHolder.genes.Sum((gene) => gene.biostatArc) * 0.1f)));
 				}
 				//GeneUtility.UpdateXenogermReplication(pawn);
-				AddXenogermReplicating(xenotypeHolder.genes);
+				AddXenogermReplicating(xenotypeHolder.genes, (hybridizeXenotypes ? 2f : 1f) * WVC_Biotech.settings.shapeshifer_CooldownDurationFactor);
                 //AddGenMat(days);
             }
             if (ModLister.IdeologyInstalled)
@@ -296,7 +302,7 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
-        public void AddXenogermReplicating(List<GeneDef> genes)
+        public void AddXenogermReplicating(List<GeneDef> genes, float durationFactor = 1f)
         {
             XaG_GeneUtility.GetBiostatsFromList(genes, out int cpx, out int met, out int _);
             int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
@@ -310,7 +316,7 @@ namespace WVC_XenotypesAndGenes
 			float finalPercent = moddedGenesCD / vanillaGenesCD;
 			//Log.Error("CD Percent: " + finalPercent);
 			// get modded cd percent
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f * finalPercent), (int)(count * 1.1f * finalPercent)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f * finalPercent * durationFactor), (int)(count * 1.1f * finalPercent * durationFactor)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
         }
 
         public virtual void DoEffects()

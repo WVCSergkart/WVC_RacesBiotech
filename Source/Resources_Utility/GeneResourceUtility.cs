@@ -366,33 +366,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		[Obsolete]
-		public static void Notify_PostShapeshift_Traits(Gene_Shapeshifter shapeshiftGene)
-		{
-			foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)
-			{
-				GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
-				if (extension == null)
-				{
-					continue;
-				}
-				if (!extension.thoughtDefs.NullOrEmpty())
-				{
-					foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
-					{
-						shapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
-					}
-				}
-				if (!extension.hediffDefs.NullOrEmpty())
-				{
-					foreach (HediffDef hediff in extension.hediffDefs)
-					{
-						HediffUtility.TryAddHediff(hediff, shapeshiftGene.pawn, null);
-					}
-				}
-			}
-		}
-
 		public static void Notify_PostShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
@@ -403,6 +376,33 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		//[Obsolete]
+		//public static void Notify_PostShapeshift_Traits(Gene_Shapeshifter shapeshiftGene)
+		//{
+		//	foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)
+		//	{
+		//		GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
+		//		if (extension == null)
+		//		{
+		//			continue;
+		//		}
+		//		if (!extension.thoughtDefs.NullOrEmpty())
+		//		{
+		//			foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
+		//			{
+		//				shapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
+		//			}
+		//		}
+		//		if (!extension.hediffDefs.NullOrEmpty())
+		//		{
+		//			foreach (HediffDef hediff in extension.hediffDefs)
+		//			{
+		//				HediffUtility.TryAddHediff(hediff, shapeshiftGene.pawn, null);
+		//			}
+		//		}
+		//	}
+		//}
 
 		//[Obsolete]
 		//public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
@@ -424,34 +424,6 @@ namespace WVC_XenotypesAndGenes
 		//		traitSet.GainTrait(trait);
 		//	}
 		//}
-
-		// Shapeshift
-		public static bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)
-		{
-			int num = 0;
-			try
-			{
-				num = 1;
-				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.disabled);
-				num = 2;
-				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.disabled || dialog.clearXenogenes);
-				num = 3;
-				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.disabled);
-				num = 4;
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
-				+ "\n\n" + dialog.selectedXenoHolder.Description,
-				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
-				num = 5;
-				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
-				return true;
-			}
-			catch (Exception arg)
-			{
-				// Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
-				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {num}: {arg} (Gene: " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName + ")");
-			}
-			return false;
-		}
 
 		// Instability
 

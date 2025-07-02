@@ -29,10 +29,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				var harmony = new Harmony("wvc.sergkart.races.biotech");
 				//Log.Error("0");
-				if (WVC_Biotech.settings.genesCanTickOnlyOnMap)
-				{
-					harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "GeneTrackerTick"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(GeneTickOptimization))));
-				}
+				//if (WVC_Biotech.settings.genesCanTickOnlyOnMap)
+				//{
+				//	harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "GeneTrackerTick"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(GeneTickOptimization))));
+				//}
 				//Log.Error("1");
 				if (WVC_Biotech.settings.hideXaGGenes)
 				{
