@@ -301,39 +301,72 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
 		}
 
+		private bool collapse = true;
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (DebugSettings.ShowDevGizmos)
+            if (!DebugSettings.ShowDevGizmos)
             {
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: ResetXenotype",
-                    action = delegate
-                    {
-                        Pawn pawn = parent as Pawn;
-                        ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
-                    }
-                };
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: DebugGenes",
-					action = delegate
-					{
-						Pawn pawn = parent as Pawn;
-						ReimplanterUtility.PostImplantDebug(pawn);
-					}
-				};
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: AddAllRemoteControllers",
-                    action = delegate
-                    {
-                        XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
-                    }
-                };
+                yield break;
             }
-		}
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: ExpandDevTools",
+                action = delegate
+                {
+                    collapse = !collapse;
+                }
+            };
+            if (collapse)
+			{
+				yield break;
+			}
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: ResetXenotype",
+                action = delegate
+                {
+                    Pawn pawn = parent as Pawn;
+                    ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+                }
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: SetXenotype",
+                action = delegate
+                {
+                    Pawn pawn = parent as Pawn;
+                    List<FloatMenuOption> list = new();
+                    List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
+                    for (int i = 0; i < xenotypeDefs.Count; i++)
+                    {
+                        XenotypeDef xenotypeDef = xenotypeDefs[i];
+                        list.Add(new FloatMenuOption(xenotypeDef.LabelCap, delegate
+                        {
+                            ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+                        }, orderInPriority: 0 - i));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(list));
+                }
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: DebugGenes",
+                action = delegate
+                {
+                    Pawn pawn = parent as Pawn;
+                    ReimplanterUtility.PostImplantDebug(pawn);
+                }
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: AddAllRemoteControllers",
+                action = delegate
+                {
+                    XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
+                }
+            };
+        }
 
-	}
+    }
 
 }
