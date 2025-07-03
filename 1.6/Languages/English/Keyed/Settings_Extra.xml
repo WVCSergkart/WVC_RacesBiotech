@@ -8,7 +8,7 @@
 	<WVC_BiotechSettings_Tab_ExtraSettings>Extra</WVC_BiotechSettings_Tab_ExtraSettings>
 
 	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
-	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation)</WVC_XaGGeneSettings_Undead>
+	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation), Invisibility</WVC_XaGGeneSettings_Undead>
 	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
 	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
 	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator, Archiver</WVC_XaGGeneSettings_Shapeshifer>
@@ -296,5 +296,10 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<WVC_Label_shapeshifer_CooldownDurationFactor>Shapeshifter cooldown factor x{0}</WVC_Label_shapeshifer_CooldownDurationFactor>
 	<WVC_Tooltip_shapeshifer_CooldownDurationFactor>Basic duration multiplier of "genes regrowing" caused by shapeshifter gene. The higher the value, the longer the cd.</WVC_Tooltip_shapeshifer_CooldownDurationFactor>
+
+	<!-- ================================== -->
+
+	<WVC_Label_invisibility_invisDurationFactor>Invisibility bonus ticks: {0}</WVC_Label_invisibility_invisDurationFactor>
+	<WVC_ToolTip_invisibility_invisDurationFactor>Affects the duration of invisibility after activation. Higher the value, longer the invisibility. If 0, default values ​​will be used.</WVC_ToolTip_invisibility_invisDurationFactor>
 
 </LanguageData>

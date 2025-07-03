@@ -227,8 +227,17 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+					Hediff hediff = pawn.health.hediffSet?.GetFirstHediffOfDef(Props.hediffDefName);
+					if (WVC_Biotech.settings.invisibility_invisBonusTicks > 0)
+					{
+						HediffComp_Disappears hediffComp_Disappears = hediff?.TryGetComp<HediffComp_Disappears>();
+						if (hediffComp_Disappears != null)
+						{
+							hediffComp_Disappears.SetDuration((int)WVC_Biotech.settings.invisibility_invisBonusTicks);
+						}
+					}
 					cooldown = Find.TickManager.TicksGame + 450;
-					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Props.hediffDefName));
+					XaG_UiUtility.FlickSound(hediff == null);
 				}
 			};
 		}

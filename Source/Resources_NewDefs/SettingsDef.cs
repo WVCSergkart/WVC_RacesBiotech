@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
 		// ExtraSettings
-		public bool genesCanTickOnlyOnMap = false;
+		//public bool genesCanTickOnlyOnMap = false;
 		public bool enable_flatGenesSpawnChances = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
@@ -64,6 +64,8 @@ namespace WVC_XenotypesAndGenes
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
 		//public bool enableInstabilityLastChanceMechanic = true;
+		// Invisibility
+		public float invisibility_invisBonusTicks = 0;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;

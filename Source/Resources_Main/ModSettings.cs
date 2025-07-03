@@ -70,6 +70,8 @@ namespace WVC_XenotypesAndGenes
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
 		//public bool enableInstabilityLastChanceMechanic = true;
+		// Invisibility
+		public float invisibility_invisBonusTicks = 0;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
@@ -204,6 +206,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
 			Scribe_Values.Look(ref thrallMaker_cooldownOverride, "thrallMaker_cooldownOverride", defaultValue: 9f);
+			Scribe_Values.Look(ref invisibility_invisBonusTicks, "invisibility_invisDurationFactor", defaultValue: 0f);
 			//Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Links
 			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
@@ -845,6 +848,7 @@ namespace WVC_XenotypesAndGenes
 			if (collapse_genesSettings_Undead)
 			{
 				//listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
+				listingStandard.SliderLabeledWithRef("WVC_Label_invisibility_invisDurationFactor".Translate(settings.invisibility_invisBonusTicks.ToString()), ref settings.invisibility_invisBonusTicks, 0f, 60000f, round: 0, tooltip: "WVC_ToolTip_invisibility_invisDurationFactor".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 				//listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
@@ -1078,6 +1082,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableNonAcceptablePreyGenes = settingsDef.disableNonAcceptablePreyGenes;
 			// =
 			//WVC_Biotech.settings.enableHarmonyTelepathyGene = settingsDef.enableHarmonyTelepathyGene;
+			// =
+			WVC_Biotech.settings.invisibility_invisBonusTicks = settingsDef.invisibility_invisBonusTicks;
 			// =
 			WVC_Biotech.settings.enable_OverOverridableGenesMechanic = settingsDef.enable_OverOverridableGenesMechanic;
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
