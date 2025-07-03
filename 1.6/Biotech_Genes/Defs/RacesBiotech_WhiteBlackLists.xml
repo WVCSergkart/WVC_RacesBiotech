@@ -162,13 +162,13 @@
 
   <!-- ======================================================================= -->
 
-  <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android">
-	<defName>WVC_RacesBiotech_AndroidConvertableGenes</defName>
-	<geneCategories>
-		<li>WVC_Cosmetic</li>
-		<li>WVC_CosmeticVoices</li>
-	</geneCategories>
-  </VREAndroids.AndroidConvertableGenesDef>
+  <!-- <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android"> -->
+	<!-- <defName>WVC_RacesBiotech_AndroidConvertableGenes</defName> -->
+	<!-- <geneCategories> -->
+		<!-- <li>WVC_Cosmetic</li> -->
+		<!-- <li>WVC_CosmeticVoices</li> -->
+	<!-- </geneCategories> -->
+  <!-- </VREAndroids.AndroidConvertableGenesDef> -->
 
   <!-- ======================================================================= -->
 
