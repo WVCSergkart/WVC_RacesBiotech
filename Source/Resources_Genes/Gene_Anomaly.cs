@@ -77,10 +77,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MachineSenescent : Gene_OverOverridable
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			// base.Tick();
-			if (!pawn.IsHashIntervalTick(75621))
+			if (!pawn.IsHashIntervalTick(75621, delta))
 			{
 				return;
 			}
@@ -118,10 +118,10 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryAddHediff(Inhumanized, pawn, def, null);
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			// base.Tick();
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;
@@ -205,9 +205,9 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextDeathRefusal = 2;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0f)
 			{
 				return;
@@ -329,9 +329,9 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffDef DarknessExposure => HediffDefOf.DarknessExposure;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            nextTick--;
+            nextTick -= delta;
             if (nextTick > 0)
             {
                 return;
@@ -402,9 +402,9 @@ namespace WVC_XenotypesAndGenes
 			nextDeathRefusal = 296774;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextDeathRefusal, 360000))
+			if (!GeneResourceUtility.CanTick(ref nextDeathRefusal, 360000, delta))
 			{
 				return;
 			}

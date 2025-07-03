@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			// if (!pawn.IsHashIntervalTick(1500))
@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	return;
 			//}
-			if (!GeneResourceUtility.CanTick(ref nextTick, 240000))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 240000, delta))
 			{
 				return;
 			}
@@ -205,7 +205,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ScarifierStability : Gene_GeneticStability, IGeneScarifier
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}

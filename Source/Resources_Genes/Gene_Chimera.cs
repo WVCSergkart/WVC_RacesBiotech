@@ -245,7 +245,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//if (!pawn.IsHashIntervalTick(63333))
 			//{

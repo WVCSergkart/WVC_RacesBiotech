@@ -83,9 +83,9 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static void TryAddMechlinkRandomly(Pawn pawn, float chance = 0.02f)
+		public static void TryAddMechlinkRandomly(Pawn pawn, int delta, float chance = 0.02f)
 		{
-			if (!pawn.IsHashIntervalTick(71712))
+			if (!pawn.IsHashIntervalTick(71712, delta))
 			{
 				return;
 			}
@@ -114,9 +114,9 @@ namespace WVC_XenotypesAndGenes
 
 		// Psylinks
 
-		public static void TryAddPsylinkRandomly(Pawn pawn, float chance = 0.02f)
+		public static void TryAddPsylinkRandomly(Pawn pawn, int delta, float chance = 0.02f)
 		{
-			if (!pawn.IsHashIntervalTick(71712))
+			if (!pawn.IsHashIntervalTick(71712, delta))
 			{
 				return;
 			}
@@ -165,9 +165,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool CanTick(ref int nextTick, int updFreq = 750)
+		public static bool CanTick(ref int nextTick, int updFreq, int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return false;

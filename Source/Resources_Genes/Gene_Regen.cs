@@ -27,14 +27,14 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void Tick()
+        public override void TickInterval(int delta)
 		{
 			// base.Tick();
-			if (!pawn.IsHashIntervalTick(676))
+			if (!pawn.IsHashIntervalTick(676, delta))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 676, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 676, regenEyes: RegenerateEyes);
 		}
 
 	}
@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
-			HealingUtility.Regeneration(pawn, Undead.regeneration * 10, WVC_Biotech.settings.totalHealingIgnoreScarification, tick, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, 1, regeneration: Undead.regeneration * 10, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
 			GeneResourceUtility.OffsetNeedFood(pawn, -0.01f);
 		}
@@ -129,9 +129,9 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(1626))
+            if (!pawn.IsHashIntervalTick(1626, delta))
             {
                 return;
             }
@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (pawn.Map == null || !pawn.Downed && pawn.Awake())
             {
-                HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 1626, RegenerateEyes);
+                HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 1626, regenEyes: RegenerateEyes);
             }
             else
             {
@@ -163,10 +163,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HealingStomach : Gene
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(2317))
+			if (!pawn.IsHashIntervalTick(2317, delta))
 			{
 				return;
 			}
@@ -216,20 +216,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			// base.Tick();
-			if (!pawn.IsHashIntervalTick(597))
+			if (!pawn.IsHashIntervalTick(597, delta))
 			{
 				return;
 			}
-			if (GeneResourceUtility.CanTick(ref nextRecache, 5))
+			if (GeneResourceUtility.CanTick(ref nextRecache, 5, 1))
 			{
 				cachedRegen = ((1 + def.biostatArc) / pawn.health.summaryHealth.SummaryHealthPercent) * pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart || hediff is Hediff_Injury).ToList().Count;
 			}
 			if (cachedRegen.HasValue)
 			{
-				HealingUtility.Regeneration(pawn, cachedRegen.Value, WVC_Biotech.settings.totalHealingIgnoreScarification, 597, RegenerateEyes);
+				HealingUtility.Regeneration(pawn, delta, regeneration: cachedRegen.Value, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 597, regenEyes: RegenerateEyes);
 			}
 		}
 

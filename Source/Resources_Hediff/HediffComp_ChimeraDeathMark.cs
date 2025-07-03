@@ -56,9 +56,9 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void CompPostTick(ref float severityAdjustment)
+        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 12000))
+            if (!GeneResourceUtility.CanTick(ref nextTick, 12000, delta))
             {
                 return;
             }

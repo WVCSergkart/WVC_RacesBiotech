@@ -21,7 +21,19 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string BarLabel => $"{gene.ValueForDisplay}" + "%";
 
-		public Gene_ResurgentTotalHealing totalHealingGene = null;
+        protected override bool DraggingBar
+        {
+            get
+            {
+				return false;
+            }
+            set
+            {
+
+            }
+        }
+
+        public Gene_ResurgentTotalHealing totalHealingGene = null;
 		public Gene_ResurgentAgeless ageReversionGene = null;
 		public Gene_ResurgentClotting woundClottingGene = null;
 

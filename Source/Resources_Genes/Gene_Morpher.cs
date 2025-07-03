@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 		//	Morph();
 		//}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}

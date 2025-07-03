@@ -62,13 +62,13 @@ namespace WVC_XenotypesAndGenes
 
         public Building_XenoCharger currentCharger;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			if (!autoFeed)
 			{
 				return;
 			}
-			if (!pawn.IsHashIntervalTick(2301))
+			if (!pawn.IsHashIntervalTick(2301, delta))
             {
                 return;
 			}
@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Charging(float chargePerTick, int tick = 60)
         {
-            if (!GeneResourceUtility.CanTick(ref chargingTick, tick))
+            if (!GeneResourceUtility.CanTick(ref chargingTick, tick, 1))
             {
                 return;
             }
@@ -255,9 +255,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(77752))
+			if (!pawn.IsHashIntervalTick(77752, delta))
 			{
 				return;
 			}
@@ -364,13 +364,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			if (!autoCharge)
 			{
 				return;
 			}
-			if (!pawn.IsHashIntervalTick(3307))
+			if (!pawn.IsHashIntervalTick(3307, delta))
 			{
 				return;
 			}

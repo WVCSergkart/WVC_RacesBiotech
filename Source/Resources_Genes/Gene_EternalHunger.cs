@@ -36,14 +36,14 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(6000))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(6000, delta))
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(66000))
+			if (pawn.IsHashIntervalTick(66000, delta))
 			{
 				AddOrRemoveHediff();
 			}

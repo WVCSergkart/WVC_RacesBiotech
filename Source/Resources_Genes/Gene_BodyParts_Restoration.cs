@@ -18,10 +18,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			ticksToHealBodyPart--;
+			ticksToHealBodyPart -= delta;
 			if (ticksToHealBodyPart <= 0)
 			{
 				HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
@@ -82,10 +82,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			ticksToHealBodyPart--;
+			ticksToHealBodyPart -= delta;
 			if (ticksToHealBodyPart <= 0)
 			{
 				HealingUtility.TryHealRandomPermanentWound(pawn, this);
@@ -137,10 +137,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			ticksToHealBodyPart--;
+			ticksToHealBodyPart -= delta;
 			if (ticksToHealBodyPart <= 0)
 			{
 				HealingUtility.TryHealRandomPermanentWound(pawn, this);
@@ -191,10 +191,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
             //base.Tick();
-            ticksToHealBodyPart--;
+            ticksToHealBodyPart -= delta;
             if (ticksToHealBodyPart > 0)
             {
                 return;
@@ -270,10 +270,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			ticksToHealDryads--;
+			ticksToHealDryads -= delta;
 			if (ticksToHealDryads > 0)
 			{
 				return;
@@ -334,10 +334,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
             // base.Tick();
-            ticksToHeal--;
+            ticksToHeal -= delta;
             if (ticksToHeal > 0)
             {
                 return;

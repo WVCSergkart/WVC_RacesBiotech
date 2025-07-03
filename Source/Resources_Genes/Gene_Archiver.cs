@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			int ticks = Find.TickManager.TicksGame - holder.lastTimeSeenByPlayer;
 			if (ticks > 0)
 			{
-				HealingUtility.Regeneration(holder.holded, 50, true, ticks, HealingUtility.ShouldRegenerateEyes(holder.holded));
+				HealingUtility.Regeneration(holder.holded, 1, regeneration: 50, ignoreScarification: true, tick: ticks, regenEyes: HealingUtility.ShouldRegenerateEyes(holder.holded));
 			}
 		}
 

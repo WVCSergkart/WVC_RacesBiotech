@@ -69,9 +69,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            if (GeneResourceUtility.CanTick(ref nextTick, 52988))
+            if (GeneResourceUtility.CanTick(ref nextTick, 52988, delta))
             {
                 Reset();
             }

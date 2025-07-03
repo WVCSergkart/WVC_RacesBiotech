@@ -102,10 +102,10 @@ namespace WVC_XenotypesAndGenes
 			cachedOffset = null;
         }
 
-        public override void Tick()
+        public override void TickInterval(int delta)
         {
-            base.Tick();
-            if (!pawn.IsHashIntervalTick(2919))
+            base.TickInterval(delta);
+            if (!pawn.IsHashIntervalTick(2919, delta))
             {
                 return;
             }

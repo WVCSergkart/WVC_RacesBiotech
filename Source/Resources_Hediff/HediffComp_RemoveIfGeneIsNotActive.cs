@@ -185,9 +185,9 @@ namespace WVC_XenotypesAndGenes
 			RemoveIf();
 		}
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
-			if (!Pawn.IsHashIntervalTick(nextTick))
+			if (!Pawn.IsHashIntervalTick(nextTick, delta))
 			{
 				return;
 			}

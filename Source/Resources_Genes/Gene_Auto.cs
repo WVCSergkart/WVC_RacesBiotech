@@ -60,9 +60,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SleepResearch : Gene_AutoResearch
 	{
 
-        public override void Tick()
+        public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(4343))
+            if (!pawn.IsHashIntervalTick(4343, delta))
             {
                 return;
 			}

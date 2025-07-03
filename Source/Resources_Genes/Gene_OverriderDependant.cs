@@ -256,14 +256,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(713))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(713, delta))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 713, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 713, regenEyes: RegenerateEyes);
 		}
 
 	}
@@ -289,10 +289,10 @@ namespace WVC_XenotypesAndGenes
 			cachedOffset = null;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(6514))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(6514, delta))
 			{
 				return;
 			}
@@ -327,10 +327,10 @@ namespace WVC_XenotypesAndGenes
 			AddTraits();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(37194))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(37194, delta))
 			{
 				return;
 			}
@@ -404,30 +404,30 @@ namespace WVC_XenotypesAndGenes
 			AgelessUtility.TryAgeReverse(pawn);
 		}
 
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(59001))
-			{
-				return;
-			}
-			AgeRevers();
-		}
+		public override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if (!pawn.IsHashIntervalTick(59001, delta))
+            {
+                return;
+            }
+            AgeRevers();
+        }
 
 	}
 
 	public class Gene_SelfOverrider_NoLearning : Gene_OverriderDependant
 	{
 
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(11345))
-			{
-				return;
-			}
-			Recreation();
-		}
+		public override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if (!pawn.IsHashIntervalTick(11345, delta))
+            {
+                return;
+            }
+            Recreation();
+        }
 
 		public void Recreation()
 		{
@@ -445,10 +445,10 @@ namespace WVC_XenotypesAndGenes
 
 		public int basicTick = 7119;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(basicTick))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(basicTick, delta))
 			{
 				return;
 			}

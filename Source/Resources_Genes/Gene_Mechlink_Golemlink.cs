@@ -35,14 +35,14 @@ namespace WVC_XenotypesAndGenes
 			timeForNextSummon = WVC_Biotech.settings.golemlink_spawnIntervalRange.RandomInRange;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
+			base.TickInterval(delta);
 			if (!summonMechanoids)
 			{
 				return;
 			}
-			timeForNextSummon--;
+			timeForNextSummon -= delta;
 			if (timeForNextSummon > 0)
 			{
 				return;

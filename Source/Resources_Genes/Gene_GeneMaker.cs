@@ -64,14 +64,14 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			if (!spawnGenepack)
 			{
 				return;
 			}
-			ticksUntilSpawn--;
+			ticksUntilSpawn -= delta;
 			if (ticksUntilSpawn > 0)
 			{
 				return;

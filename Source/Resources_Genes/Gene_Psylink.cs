@@ -17,10 +17,10 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.AddPsylink(pawn);
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn, WVC_Biotech.settings.psylink_HediffFromGeneChance);
+			GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
 		//public void Notify_OverriddenBy(Gene overriddenBy)
@@ -66,20 +66,20 @@ namespace WVC_XenotypesAndGenes
 
 		public float recoveryRate = 0.01f;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			PsyfocusOffset();
+			base.TickInterval(delta);
+			PsyfocusOffset(delta);
 		}
 
-		public void PsyfocusOffset()
+		public void PsyfocusOffset(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(750))
+			if (!pawn.IsHashIntervalTick(750, delta))
 			{
 				return;
 			}
 			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-			if (!pawn.IsHashIntervalTick(7500))
+			if (!pawn.IsHashIntervalTick(7500, delta))
 			{
 				return;
 			}
@@ -121,16 +121,16 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.AddPsylink(pawn);
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			PsyfocusOffset();
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn, WVC_Biotech.settings.psylink_HediffFromGeneChance);
+			base.TickInterval(delta);
+			PsyfocusOffset(delta);
+			GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
-		public void PsyfocusOffset()
+		public void PsyfocusOffset(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 750, delta))
 			{
 				return;
 			}
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 				Hemogen.Value += 0.01f;
 			}
 			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-			if (!GeneResourceUtility.CanTick(ref nextSecondTick, 2))
+			if (!GeneResourceUtility.CanTick(ref nextSecondTick, 2, 1))
 			{
 				return;
 			}

@@ -224,16 +224,20 @@ namespace WVC_XenotypesAndGenes
 
 		public TaggedString ResourcePerDay => "WVC_XaG_PerDay".Translate((TotalResourceGain < 0 ? "-" : "+").ToString() + TotalResourceGain * 100);
 
-		public override void Tick()
+		//public override void Tick()
+		//{
+		//}
+
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (pawn.IsHashIntervalTick(2500))
+			base.TickInterval(delta);
+			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				OffsetResource(ResourceGain * 2500);
+				OffsetResource((ResourceGain * (float)delta / 60000f) * 2500);
 			}
 			if (timeForNextSummon > 0)
 			{
-				timeForNextSummon--;
+				timeForNextSummon -= delta;
 				if (timeForNextSummon == 0)
 				{
 					if (TrySummonMechs())
@@ -241,7 +245,7 @@ namespace WVC_XenotypesAndGenes
 						timeForNextSummon = 45;
 					}
 					else
-                    {
+					{
 						CacheReset(true);
 					}
 				}
@@ -262,7 +266,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-        private int? allMechsCount;
+		private int? allMechsCount;
         public int AllMechsCount
         {
             get
@@ -292,7 +296,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void OffsetResource(float value)
 		{
-			geneResource = Mathf.Clamp(geneResource + value, 0f, MaxResource);
+			geneResource = Mathf.Clamp((geneResource + value), 0f, MaxResource);
 		}
 
 		public List<PawnKindDef> selectedMechs = new();

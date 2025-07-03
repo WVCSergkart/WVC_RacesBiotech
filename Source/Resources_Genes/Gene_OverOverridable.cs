@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
     public class Gene_OverOverridable : Gene, IGeneOverridden, IGeneOverOverridable
     {
 
-        public override void Tick()
+        public override void TickInterval(int delta)
         {
 
         }

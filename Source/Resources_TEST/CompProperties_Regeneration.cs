@@ -25,13 +25,13 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 1500;
 
-		public override void CompTick()
+		public override void CompTickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 1500))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 1500, delta))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(parent as Pawn, Props.regenAmount, false, 1500);
+			HealingUtility.Regeneration(parent as Pawn, delta, regeneration: Props.regenAmount, ignoreScarification: false, tick: 1500);
 		}
 	}
 

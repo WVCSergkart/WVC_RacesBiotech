@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 			AnomalyHeadsFix();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}
@@ -127,9 +127,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshEyesSkin : Gene_Exoskin
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(8245))
+			if (!pawn.IsHashIntervalTick(8245, delta))
 			{
 				return;
 			}

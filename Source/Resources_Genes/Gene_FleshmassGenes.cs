@@ -31,9 +31,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (GeneResourceUtility.CanTick(ref nextTick, 300000))
+			if (GeneResourceUtility.CanTick(ref nextTick, 300000, delta))
 			{
 				TryGiveMutation();
 			}
@@ -166,9 +166,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshmassBrain : Gene_AutoResearch
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (pawn.IsHashIntervalTick(3333))
+			if (pawn.IsHashIntervalTick(3333, delta))
 			{
 				DoResearch(3333);
 			}
@@ -179,9 +179,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshmassArmor : Gene
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (pawn.IsHashIntervalTick(16333))
+			if (pawn.IsHashIntervalTick(16333, delta))
 			{
 				DoApparelDamage(16333);
 			}
@@ -203,9 +203,9 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 6000;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0f)
 			{
 				return;
@@ -312,9 +312,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 7539;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 8678))
+            if (!GeneResourceUtility.CanTick(ref nextTick, 8678, delta))
             {
                 return;
             }
@@ -402,10 +402,10 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 6000;
 
-        public override void Tick()
+        public override void TickInterval(int delta)
         {
-            base.Tick();
-			if (GeneResourceUtility.CanTick(ref nextTick, 66966))
+            base.TickInterval(delta);
+			if (GeneResourceUtility.CanTick(ref nextTick, 66966, delta))
             {
                 TryImmunizeNewHediffs();
             }

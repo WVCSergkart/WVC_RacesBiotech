@@ -111,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 			geneSet.SortGenes();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}

@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			
 		}
@@ -49,10 +49,10 @@ namespace WVC_XenotypesAndGenes
 			ResetTicker();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;

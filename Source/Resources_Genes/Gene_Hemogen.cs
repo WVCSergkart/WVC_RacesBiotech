@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}
@@ -298,10 +298,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			// base.Tick();
-			if (!pawn.IsHashIntervalTick(10628))
+			if (!pawn.IsHashIntervalTick(10628, delta))
 			{
 				return;
 			}
@@ -371,14 +371,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			if (!consumeHemogen)
 			{
 				return;
 			}
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(527))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(527, delta))
 			{
 				return;
 			}

@@ -50,10 +50,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			nextTick--;
+			//base.Tick();
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;

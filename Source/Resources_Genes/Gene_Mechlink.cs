@@ -32,10 +32,10 @@ namespace WVC_XenotypesAndGenes
             //}
         }
 
-        public override void Tick()
+        public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			GeneResourceUtility.TryAddMechlinkRandomly(pawn, WVC_Biotech.settings.mechlink_HediffFromGeneChance);
+			GeneResourceUtility.TryAddMechlinkRandomly(pawn, delta, WVC_Biotech.settings.mechlink_HediffFromGeneChance);
 		}
 
 		public bool CanDoOrbitalSummon()

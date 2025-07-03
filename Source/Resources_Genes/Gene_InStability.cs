@@ -27,14 +27,14 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			// if (!pawn.IsHashIntervalTick(nextTick))
 			// {
 				// return;
 			// }
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;
@@ -78,14 +78,14 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
+			base.TickInterval(delta);
 			// if (!pawn.IsHashIntervalTick(nextTick))
 			// {
 				// return;
 			// }
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;
@@ -150,10 +150,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            base.Tick();
-            nextTick--;
+            //base.Tick();
+            nextTick -= delta;
             if (nextTick > 0)
             {
                 return;
@@ -251,15 +251,15 @@ namespace WVC_XenotypesAndGenes
 			useStabilizerAuto = Props.defaultBoolValue;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			nextTick--;
+			//base.Tick();
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				if (nextTick < 180000)
 				{
-					GetDelayJob();
+					GetDelayJob(delta);
 				}
 				return;
 			}
@@ -271,13 +271,13 @@ namespace WVC_XenotypesAndGenes
 			GeneticStuff();
 		}
 
-		public virtual void GetDelayJob()
+		public virtual void GetDelayJob(int delta)
 		{
 			if (!useStabilizerAuto)
 			{
 				return;
 			}
-			if (!pawn.IsHashIntervalTick(12000))
+			if (!pawn.IsHashIntervalTick(12000, delta))
 			{
 				return;
 			}

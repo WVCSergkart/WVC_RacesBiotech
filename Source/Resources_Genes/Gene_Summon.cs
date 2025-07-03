@@ -98,11 +98,11 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			if (nextTick > 0)
 			{
-				nextTick--;
+				nextTick -= delta;
 				if (nextTick == 0)
 				{
 					Find.LetterStack.ReceiveLetter("AbilityReadyLabel".Translate(def.LabelCap), "AbilityReadyText".Translate(pawn, def.label), LetterDefOf.NeutralEvent, new LookTargets(pawn));

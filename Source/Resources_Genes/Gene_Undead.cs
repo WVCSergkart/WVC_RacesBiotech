@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
-		[Unsaved(false)]
+		//[Unsaved(false)]
 		private List<HediffDef> cachedPreventiveHediffs;
 
         public bool PawnCanResurrect
@@ -266,14 +266,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void Tick()
+        public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(22222))
+			if (!pawn.IsHashIntervalTick(22222, delta))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, delta, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 22222, regenEyes: RegenerateEyes);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

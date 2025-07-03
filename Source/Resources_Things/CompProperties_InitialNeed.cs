@@ -31,11 +31,11 @@ namespace WVC_XenotypesAndGenes
 
 		// private readonly int ticksInHour = 1500;
 
-		public override void CompTick()
+		public override void CompTickInterval(int delta)
 		{
 			base.CompTick();
 			Pawn pawn = parent as Pawn;
-			if (!pawn.IsHashIntervalTick(Props.refreshHours * 1500))
+			if (!pawn.IsHashIntervalTick(Props.refreshHours * 1500, delta))
 			{
 				return;
 			}

@@ -55,10 +55,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(3000))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(3000, delta))
 			{
 				return;
 			}
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_LearningTelepath : Gene_BackstoryChanger
 	{
 
-		private int hashIntervalTick = 6000;
+		private int nextTick = 6000;
 
 		public override void PostAdd()
 		{
@@ -126,10 +126,11 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			base.TickInterval(delta);
+			nextTick -= delta;
+			if (nextTick > 0)
 			{
 				return;
 			}
@@ -149,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 		private void ResetInterval()
 		{
 			IntRange range = new(42000, 90000);
-			hashIntervalTick = range.RandomInRange;
+			nextTick = range.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -170,7 +171,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
+			Scribe_Values.Look(ref nextTick, "hashIntervalTick", 6000);
 		}
 
 	}
@@ -178,10 +179,10 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Blank : Gene
 	{
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(200))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(200, delta))
 			{
 				return;
 			}
@@ -316,10 +317,10 @@ namespace WVC_XenotypesAndGenes
 			// ResetInterval();
 		// }
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(119357))
+			if (!pawn.IsHashIntervalTick(119357, delta))
 			{
 				return;
 			}

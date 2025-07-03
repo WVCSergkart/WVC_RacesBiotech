@@ -47,9 +47,9 @@ namespace WVC_XenotypesAndGenes
 
 		//private int nextTick = 2500;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(6000))
+			if (!pawn.IsHashIntervalTick(6000, delta))
 			{
 				return;
 			}
@@ -57,11 +57,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			DoTick(6000);
+			DoTick(6000, delta);
 			//nextTick = new IntRange(3000, 15000).RandomInRange;
 		}
 
-		public virtual void DoTick(int tick)
+		public virtual void DoTick(int tick, int delta)
 		{
 		}
 
@@ -71,9 +71,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Deathrest_Immunization : Gene_DeathrestDependant
 	{
 
-		public override void DoTick(int tick)
+		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Immunization(pawn, Undead.immunization, tick);
+			HealingUtility.Immunization(pawn, delta, immunization: Undead.immunization, tick: tick);
 		}
 
 	}
@@ -95,9 +95,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void DoTick(int tick)
+		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, tick, RegenerateEyes);
+			HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
 		}
 
 	}
@@ -106,11 +106,11 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Deathrest_HemogenGain : Gene_DeathrestDependant
 	{
 
-		public override void DoTick(int tick)
+		public override void DoTick(int tick, int delta)
 		{
 			if (Hemogen != null)
 			{
-				GeneResourceDrainUtility.OffsetResource(Hemogen, ((0f - def.resourceLossPerDay) / 60000f) * tick);
+				GeneResourceDrainUtility.OffsetResource(Hemogen, ((0f - def.resourceLossPerDay) * (float)delta / 60000f) * tick);
 			}
 		}
 
@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Deathrest_FastRest : Gene_DeathrestDependant
 	{
 
-		public override void DoTick(int tick)
+		public override void DoTick(int tick, int delta)
 		{
 			//if (pawn.health.hediffSet.TryGetHediff<Hediff_Deathrest>(out Hediff_Deathrest hediff_Deathrest))
 			//{
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
             }
-			Deathrest.deathrestTicks += Mathf.RoundToInt(12000f * (tick / 6000));
+			Deathrest.deathrestTicks += Mathf.RoundToInt(12000f * (tick * delta / 6000));
 		}
 
 	}

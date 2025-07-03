@@ -23,9 +23,9 @@ namespace WVC_XenotypesAndGenes
 
         private int nextTick = 6000;
 
-        public override void Tick()
+        public override void TickInterval(int delta)
         {
-            nextTick--;
+            nextTick -= delta;
             if (nextTick > 0)
             {
                 return;

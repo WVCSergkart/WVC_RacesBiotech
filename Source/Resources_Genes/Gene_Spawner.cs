@@ -40,10 +40,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			ticksUntilSpawn--;
+			ticksUntilSpawn -= delta;
 			if (ticksUntilSpawn > 0)
 			{
 				return;
@@ -150,10 +150,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(54623))
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(54623, delta))
 			{
 				return;
 			}

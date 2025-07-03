@@ -51,9 +51,9 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;

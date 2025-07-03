@@ -96,14 +96,14 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 539;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			if (!autoFeed)
 			{
 				return;
 			}
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;

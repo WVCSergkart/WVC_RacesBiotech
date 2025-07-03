@@ -13,10 +13,10 @@ namespace WVC_XenotypesAndGenes
 
 		// public int nextTick = 1500;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(57250))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(57250, delta))
 			{
 				return;
 			}
@@ -72,10 +72,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(57250))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(57250, delta))
 			{
 				return;
 			}
@@ -115,10 +115,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(57250))
+			//base.Tick();
+			if (!pawn.IsHashIntervalTick(57250, delta))
 			{
 				return;
 			}
@@ -186,9 +186,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 7200;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;
@@ -354,9 +354,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 841;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 47618))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 47618, delta))
 			{
 				return;
 			}
@@ -381,9 +381,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 842;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 47619))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 47619, delta))
 			{
 				return;
 			}

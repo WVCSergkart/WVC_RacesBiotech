@@ -58,11 +58,11 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual float ResourceGain => def.resourceLossPerDay / 60000;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			if (pawn.IsHashIntervalTick(2500))
+			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				MasterGene?.OffsetResource(ResourceGain * 2500);
+				MasterGene?.OffsetResource((ResourceGain * (float)delta / 60000f) * 2500);
 			}
 		}
 

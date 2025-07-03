@@ -44,10 +44,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			ticksToAgeReversal--;
+			//base.delta();
+			ticksToAgeReversal -= delta;
 			if (ticksToAgeReversal > 0)
 			{
 				return;
@@ -127,10 +127,10 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			ticksToAgeReversal--;
+			//base.Tick();
+			ticksToAgeReversal -= delta;
 			if (ticksToAgeReversal > 0)
 			{
 				return;

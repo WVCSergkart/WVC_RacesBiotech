@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}

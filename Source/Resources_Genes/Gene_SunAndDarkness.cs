@@ -18,10 +18,10 @@ namespace WVC_XenotypesAndGenes
 
 		private float? cachedNutritionPerTick;
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            base.Tick();
-            if (!pawn.IsHashIntervalTick(541))
+			//base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(541, delta))
             {
                 return;
             }
@@ -77,10 +77,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(1523))
+			if (!pawn.IsHashIntervalTick(1523, delta))
 			{
 				return;
 			}

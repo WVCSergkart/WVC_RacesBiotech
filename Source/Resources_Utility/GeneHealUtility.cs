@@ -12,14 +12,14 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static void Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 10, bool regenEyes = true)
+		public static void Regeneration(Pawn pawn, int delta, float regeneration = -1, bool ignoreScarification = true, int tick = 10, bool regenEyes = true)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
 			regeneration *= 0.000166666665f;
 			if (tick > 0f)
 			{
-				regeneration *= (tick / 10);
+				regeneration *= (tick * delta / 10);
 			}
 			// Log.Error(regeneration.ToString());
 			// Old 0.0001243781
@@ -79,13 +79,13 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
         }
 
-        public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
+        public static void Immunization(Pawn pawn, int delta, float immunization = -1, int tick = 200)
 		{
 			//List<HediffWithComps> tmpHediffInjuries = new();
 			immunization *= 0.00333333341f;
 			if (tick > 0f)
 			{
-				immunization *= (tick / 200);
+				immunization *= (tick * delta / 200);
 			}
 			// Log.Error(regeneration.ToString());
 			// Old 0.0001243781

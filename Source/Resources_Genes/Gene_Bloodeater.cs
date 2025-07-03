@@ -75,14 +75,14 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
         {
-            base.Tick();
+            base.TickInterval(delta);
             if (!canAutoFeed)
             {
                 return;
             }
-            if (!pawn.IsHashIntervalTick(2210))
+            if (!pawn.IsHashIntervalTick(2210, delta))
             {
                 return;
 			}

@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
 
 		}
@@ -137,10 +137,10 @@ namespace WVC_XenotypesAndGenes
 			ResetSummonInterval();
 		}
 
-		public override void Tick()
+		public override void TickInterval(int delta)
 		{
-			base.Tick();
-			timeForNextSummon--;
+			base.TickInterval(delta);
+			timeForNextSummon -= delta;
 			if (timeForNextSummon > 0)
 			{
 				return;

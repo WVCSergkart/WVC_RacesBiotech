@@ -104,9 +104,9 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
 		}
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
-			ticksCounter++;
+			ticksCounter += delta;
 			if (ticksCounter < ticksInday * gestationIntervalDays)
 			{
 				return;
@@ -179,10 +179,10 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ticksCounter, "ticksCounter", 0);
 		}
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
 			//base.CompPostTick(ref severityAdjustment);
-			ticksCounter++;
+			ticksCounter += delta;
 			if (Pawn.Map == null)
 			{
 				return;

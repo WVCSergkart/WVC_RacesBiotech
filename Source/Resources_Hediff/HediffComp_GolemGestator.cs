@@ -46,10 +46,10 @@ namespace WVC_XenotypesAndGenes
 
 		private int checkTick = 0;
 
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
 		{
-			ticksCounter++;
-			checkTick--;
+			ticksCounter += delta;
+			checkTick -= delta;
 			if (checkTick <= 0)
 			{
 				Pawn pawn = Pawn.GetOverseer();
