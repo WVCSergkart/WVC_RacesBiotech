@@ -75,7 +75,7 @@
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
 			<compClass>WVC_XenotypesAndGenes.HediffComp_XenotypeGestator</compClass>
 			<gestationIntervalDays>-1</gestationIntervalDays>
-			<xenogerminationComa>true</xenogerminationComa>
+			<xenogerminationComa>false</xenogerminationComa>
 			<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
 			<completeLetterDesc>WVC_XaG_GeneGestator_ComplitionDesc</completeLetterDesc>
 		</li>
@@ -124,7 +124,7 @@
 			<compClass>WVC_XenotypesAndGenes.HediffComp_XenotypeGestatorLetter</compClass>
 		</li>
 		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>6000~12000</disappearsAfterTicks>
+			<disappearsAfterTicks>9000~18000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"> -->

@@ -40,9 +40,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int ticksCounter = 0;
 
-		public int gestationIntervalDays;
+		public float gestationIntervalDays;
 
-		public XenotypeDef xenotypeDef;
+		//public XenotypeDef xenotypeDef;
 
 		private SaveableXenotypeHolder xenotypeHolder;
 
@@ -54,22 +54,22 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_Gestator Props => (HediffCompProperties_Gestator)props;
 
-		public override bool CompShouldRemove => XenotypeGestator == null;
+		//public override bool CompShouldRemove => XenotypeGestator == null;
 
-		[Unsaved(false)]
-		private Gene_XenotypeGestator cachedGestatorGene;
+		//[Unsaved(false)]
+		//private Gene_SimpleGestator cachedGestatorGene;
 
-		public Gene_XenotypeGestator XenotypeGestator
-		{
-			get
-			{
-				if (cachedGestatorGene == null || !cachedGestatorGene.Active)
-				{
-					cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeGestator>();
-				}
-				return cachedGestatorGene;
-			}
-		}
+		//public Gene_SimpleGestator XenotypeGestator
+		//{
+		//	get
+		//	{
+		//		if (cachedGestatorGene == null || !cachedGestatorGene.Active)
+		//		{
+		//			cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeGestator>();
+		//		}
+		//		return cachedGestatorGene;
+		//	}
+		//}
 
 		public override string CompLabelInBracketsExtra => GetLabel();
 
@@ -79,10 +79,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				gestationIntervalDays = Props.gestationIntervalDays;
 			}
-			if (Props.xenotypeDef != null)
+			else
 			{
-				xenotypeDef = Props.xenotypeDef;
+				gestationIntervalDays = Pawn.RaceProps.gestationPeriodDays;
 			}
+			//if (Props.xenotypeDef != null)
+			//{
+			//	xenotypeDef = Props.xenotypeDef;
+			//}
 		}
 		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
@@ -94,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompExposeData()
 		{
-			base.CompExposeData();
+			//base.CompExposeData();
 			Scribe_Values.Look(ref ticksCounter, "ticksCounter_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref gestationIntervalDays, "gestationIntervalDays_" + Props.uniqueTag, 0);
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
@@ -116,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void EndGestation()
 		{
-			GestationUtility.GestateChild_WithXenotype(Pawn, xenotypeDef, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
+			GestationUtility.GestateChild_WithXenotype(Pawn, null, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
 			ticksCounter = 0;
 			RemoveHediff(true);
 		}
@@ -146,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Complete gestation",
+					defaultLabel = "DEV: CompleteGestation",
 					action = delegate
 					{
 						EndGestation();

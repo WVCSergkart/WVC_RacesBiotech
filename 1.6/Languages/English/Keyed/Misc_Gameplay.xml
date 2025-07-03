@@ -21,7 +21,7 @@
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
 	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
 	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
-	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, gestation will begin, which will impose a moving and manipulation debuff, and also increase hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
+	<WVC_XaG_Gene_SimpleGestatorWarning>Once gestation starts, the pawn will receive a debuff to hunger, manipulation, and movement. Gestation cannot be interrupted by standard means.\n\nDo you want to continue?</WVC_XaG_Gene_SimpleGestatorWarning>
 
 	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will become pregnant. The child will receive all of the mother's germline genes, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
 	<WVC_XaG_Gene_ParthenogenesisDesc>Conceive a child without a partner.</WVC_XaG_Gene_ParthenogenesisDesc>
@@ -757,6 +757,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype and the gestation period of the gene carrier.</WVC_XaG_GeneXenoGestator_Desc>
 	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot be used before cooldown ends.</WVC_XaG_GeneXenoGestator_Disabled> -->
 	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot start the gestation process due to the {0}.</WVC_XaG_GeneXenoGestator_Disabled> -->
+
+	<WVC_XaG_GeneStorageGestator_Desc>Allows to start gestation of a pawn with genes and xenotype stored in a storage implanter. The storage implanter will lose the stored xenotype and genes after the start.</WVC_XaG_GeneStorageGestator_Desc>
 
 	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
 

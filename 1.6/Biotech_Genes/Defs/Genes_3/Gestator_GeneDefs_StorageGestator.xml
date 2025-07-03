@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base">
+	<defName>WVC_StorageGestator</defName>
+	<label>storage gestator</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_StorageGestator</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StorageGestator</iconPath>
+	<minAgeActive>13</minAgeActive>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>WVC_StorageImplanter</prerequisite>
+	<customEffectDescriptions>
+		<li>Allows to gestate a pawn with a &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; saved by a &lt;color=#8a8ae6&gt;storage implanter&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<gestationHediffDef>WVC_XenotypesAndGenes_XenotypeGestator</gestationHediffDef>
+			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefs>
+				<li>WVC_XenotypesAndGenes_XenotypeGestator</li>
+				<li>WVC_XenotypesAndGenes_GestatorCooldown</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

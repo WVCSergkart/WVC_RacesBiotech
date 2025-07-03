@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		public TaggedString RemoteActionDesc => Desc;
 
-		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!Active)
             {
@@ -240,7 +240,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Gene-Gestator
-	public class Gene_XenotypeGestator : Gene_SimpleGestator, IGeneOverridden
+	public class Gene_XenotypeGestator : Gene_SimpleGestator
 	{
 		public override bool UseDialogWarning => false;
 
@@ -252,5 +252,56 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	// Storage-Gestator
+	public class Gene_StorageGestator : Gene_SimpleGestator
+	{
+
+		[Unsaved(false)]
+		private Gene_StorageImplanter cachedGene;
+		public Gene_StorageImplanter Gene
+		{
+			get
+			{
+				if (cachedGene == null || !cachedGene.Active)
+				{
+					cachedGene = pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
+				}
+				return cachedGene;
+			}
+		}
+
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			if (Gene?.XenotypeHolder == null)
+			{
+				SoundDefOf.ClickReject.PlayOneShotOnCamera();
+				return;
+			}
+			base.RemoteControl_Action(genesSettings);
+		}
+
+		public override string Warning => "WVC_XaG_GeneStorageGestator_Desc".Translate() + "\n\n" + "WVC_XaG_Gene_SimpleGestatorWarning".Translate();
+
+		public override string Desc => "WVC_XaG_GeneStorageGestator_Desc".Translate();
+
+		public override void StartPregnancy()
+        {
+			if (Gene?.XenotypeHolder == null)
+            {
+				return;
+            }
+            base.StartPregnancy();
+			HediffComp_XenotypeGestator hediff = pawn.health.hediffSet?.GetHediffComps<HediffComp_XenotypeGestator>()?.FirstOrDefault();
+			if (hediff != null)
+            {
+				hediff.SetupHolder(Gene.XenotypeHolder);
+				//hediff.xenotypeDef = null;
+				hediff.gestationIntervalDays = pawn.RaceProps.gestationPeriodDays;
+				Gene.ResetHolder();
+			}
+		}
+
+    }
 
 }
