@@ -69,7 +69,14 @@ namespace WVC_XenotypesAndGenes
                 {
                     geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
                 }
-                geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
+                if (DebugSettings.ShowDevGizmos)
+                {
+                    geneDefWithChance.Cost = 0;
+                }
+                else
+                {
+                    geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
+                }
                 allGenes.Add(geneDefWithChance);
             }
             //foreach (GeneDef item in cosmetic)

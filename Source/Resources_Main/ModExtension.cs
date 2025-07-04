@@ -243,6 +243,7 @@ namespace WVC_XenotypesAndGenes
 		public bool furIsSkinWithMask = false;
 		public bool furIsSkin = false;
 		public bool furIsSkinTransparent = false;
+		//public bool furIsSkeleton = false;
 		public float alpha = 0.8f;
 		//public bool glowingHair = false;
 		[Obsolete]

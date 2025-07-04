@@ -225,6 +225,14 @@
 	  <PawnBeauty>-1</PawnBeauty>
 	</statOffsets>
 	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_SkeletonSkin</nodeClass> -->
+		<!-- <baseLayer>5</baseLayer> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>trans</symbol></li>

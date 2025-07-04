@@ -233,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				OffsetResource((ResourceGain * (float)delta / 60000f) * 2500);
+				OffsetResource(ResourceGain * 2500 * delta);
 			}
 			if (timeForNextSummon > 0)
 			{

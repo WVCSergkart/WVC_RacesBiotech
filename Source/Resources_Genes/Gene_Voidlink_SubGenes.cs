@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				MasterGene?.OffsetResource((ResourceGain * (float)delta / 60000f) * 2500);
+				MasterGene?.OffsetResource(ResourceGain * 2500 * delta);
 			}
 		}
 
