@@ -186,9 +186,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int chargingTick = 0;
 
-		public void Notify_Charging(float chargePerTick, int tick = 60)
+		public void Notify_Charging(float chargePerTick, int tick, int delta)
         {
-            if (!GeneResourceUtility.CanTick(ref chargingTick, tick, 1))
+            if (!GeneResourceUtility.CanTick(ref chargingTick, tick, delta))
             {
                 return;
             }
@@ -196,16 +196,16 @@ namespace WVC_XenotypesAndGenes
             {
                 pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
             }
-            NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor);
+            NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor, delta);
         }
 
-        public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor)
+        public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor, int delta)
         {
             foreach (Gene gene in pawn.genes.GenesListForReading)
             {
                 if (gene is IGeneChargeable charge && gene.Active)
                 {
-                    charge.Notify_Charging(chargePerTick, tick, chargeSpeedFactor);
+                    charge.Notify_Charging(chargePerTick, tick, chargeSpeedFactor, delta);
                 }
             }
         }
@@ -399,13 +399,13 @@ namespace WVC_XenotypesAndGenes
 			Gene_Rechargeable.TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef);
 		}
 
-		public void Notify_Charging(float chargePerTick, int tick, float factor)
+		public void Notify_Charging(float chargePerTick, int tick, float factor, int delta)
 		{
 			if (Rechargeable == null || Hemogen == null)
 			{
 				return;
 			}
-			Hemogen.Value += chargePerTick * tick * factor;
+			Hemogen.Value += chargePerTick * tick * factor * delta;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

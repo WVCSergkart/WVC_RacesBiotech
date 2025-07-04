@@ -140,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneChargeable
 	{
 
-		void Notify_Charging(float chargePerTick, int tick, float factor);
+		void Notify_Charging(float chargePerTick, int tick, float factor, int delta);
 
 	}
 

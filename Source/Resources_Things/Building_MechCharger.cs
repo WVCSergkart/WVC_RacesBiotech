@@ -196,9 +196,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		protected override void Tick()
+		protected override void TickInterval(int delta)
 		{
-			base.Tick();
+			base.TickInterval(delta);
 			if (currentlyChargingMech != null && (RechargeableStomach == null || currentlyChargingMech.CurJob.targetA.Thing != this))
 			{
 				Log.Warning("Xenos did not clean up his charging job properly");
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			if (currentlyChargingMech != null && Power.PowerOn)
 			{
 				//currentlyChargingMech.needs.food.CurLevel += chargePerTick * RechargeableStomach.Props.chargeSpeedFactor;
-				RechargeableStomach.Notify_Charging(chargePerTick, 5);
+				RechargeableStomach.Notify_Charging(chargePerTick, 5, delta);
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
