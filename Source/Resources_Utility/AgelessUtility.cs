@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 			// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
 			// }
-			if (pawn.IsColonist)
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
 			}

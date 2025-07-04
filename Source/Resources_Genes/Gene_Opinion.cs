@@ -20,10 +20,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
 			SetOpinion(pawn, this, Props);
 			// ResetCounter();
 		}
@@ -79,10 +75,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
 			Gene_Opinion.SetOpinion(pawn, this, Props);
 		}
 
@@ -119,10 +111,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			//base.Tick();
 			if (!pawn.IsHashIntervalTick(57250, delta))
-			{
-				return;
-			}
-			if (!Active)
 			{
 				return;
 			}
@@ -193,8 +181,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// Debugger
-			if (nextTick < 0)
+			// Debugger DO NOT TOUCH
+			if (nextTick < 0 - delta)
 			{
 				ResetInterval(new(7200, 7200));
 				return;

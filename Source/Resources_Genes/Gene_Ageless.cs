@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -53,10 +54,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			if (!Active || (!pawn.IsColonist && pawn.Map == null))
-			{
-				return;
-			}
+			//if (pawn.Faction != Faction.OfPlayer)
+			//{
+			//	return;
+			//}
 			AgeReversal();
 		}
 
@@ -64,11 +65,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
-				if (gene_Resurgent != null)
-				{
-					AgelessUtility.AgeReverse(pawn);
-				}
+				//Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
+				//if (gene_Resurgent != null)
+				//{
+				//}
+				AgelessUtility.AgeReverse(pawn);
 			}
 		}
 
@@ -136,10 +137,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			if (!Active || (!pawn.IsColonist && pawn.Map == null))
-			{
-				return;
-			}
+			//if (!Active || (!pawn.IsColonist && pawn.Map == null))
+			//{
+			//	return;
+			//}
 			AgeReversal();
 			// if (pawn.ageTracker.AgeBiologicalTicks >= 65800000f)
 			// {

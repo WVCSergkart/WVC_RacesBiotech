@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		private float? cachedResearchSpeed;
 
-        public void DoResearch(int tick)
+        public void DoResearch(int tick, int delta)
 		{
 			if (pawn.Faction != Faction.OfPlayer)
 			{
@@ -43,8 +43,8 @@ namespace WVC_XenotypesAndGenes
 			ResearchProjectDef currentProject = researchManager.GetProject();
 			if (currentProject != null)
 			{
-				pawn.skills.Learn(SkillDefOf.Intellectual, 0.04f * tick);
-                float amount = (cachedResearchSpeed.Value * tick) - (StaticCollectionsClass.cachedColonistsCount > 1 ? StaticCollectionsClass.cachedColonistsCount * 12.8f : 0f);
+				pawn.skills.Learn(SkillDefOf.Intellectual, 0.04f * tick * delta);
+                float amount = (cachedResearchSpeed.Value * tick * delta) - (StaticCollectionsClass.cachedColonistsCount > 1 ? StaticCollectionsClass.cachedColonistsCount * 12.8f : 0f);
                 float researchAmount = Mathf.Clamp(amount, currentProject.baseCost * 0.01f, (currentProject.baseCost * 0.2f));
 				researchManager.ResearchPerformed(researchAmount, pawn);
 			}
@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Downed || !pawn.Awake() || pawn.Deathresting)
 			{
-				DoResearch(4343);
+				DoResearch(4343, delta);
 			}
         }
 

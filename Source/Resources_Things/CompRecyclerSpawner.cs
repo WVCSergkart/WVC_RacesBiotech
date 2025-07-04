@@ -39,12 +39,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void CompTick()
+        public override void CompTickInterval(int delta)
         {
-            base.CompTick();
+            base.CompTickInterval(delta);
             if (PowerOn && Atomizer.TicksLeftUntilAllAtomized > 0)
             {
-                ticksUntilSpawn--;
+                ticksUntilSpawn -= delta;
                 if (ticksUntilSpawn <= 0)
                 {
                     ResetInterval();
