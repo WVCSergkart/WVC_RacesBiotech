@@ -16,10 +16,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
 			WoundsClotting(pawn, new(0.5f, 1.0f));
 		}
 
@@ -246,6 +242,34 @@ namespace WVC_XenotypesAndGenes
 				{
 					apparel.HitPoints++;
 				}
+			}
+		}
+
+	}
+
+	public class Gene_BleedStopper : Gene
+	{
+
+		public override void TickInterval(int delta)
+		{
+			//base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(220, delta))
+			{
+				return;
+			}
+			BleedStopper(pawn);
+		}
+
+		public static void BleedStopper(Pawn pawn)
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int num = 0; num < hediffs.Count; num++)
+			{
+				if (!hediffs[num].Bleeding)
+				{
+					continue;
+				}
+				hediffs[num].ageTicks = 60000 * 15;
 			}
 		}
 

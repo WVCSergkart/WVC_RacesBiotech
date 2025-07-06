@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_Hemogen</defName>
+	<label>hemogen wound healing</label>
+	<description>Carriers of this gene have archites that, by consuming hemogen, regenerate wounds and lost body parts of the carrier.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenRegeneration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenRegeneration</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>Hemogen</displayCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>Hemogenic</prerequisite>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Healing: 0-100 hp/day</li>
+		<li>Regen rate depends on the &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; level.</li>
+		<li>Each &lt;color=#8a8ae6&gt;regeneration&lt;/color&gt; tick &lt;color=#8a8ae6&gt;consumes&lt;/color&gt; 1 hemogen.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

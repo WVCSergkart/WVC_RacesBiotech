@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_BoneSkin</defName>
+	<label>boneskin</label>
+	<description>Carriers of this gene..</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinBones</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BoneSkin</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_BoneHead0c</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<biostatArc>2</biostatArc>
+	<statFactors>
+	  <MeatAmount>0.4</MeatAmount>
+	</statFactors>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.07</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.42</ArmorRating_Sharp>
+	</statOffsets>
+	<fur>WVC_BoneSkin</fur>
+	<bodyType>Standard</bodyType>
+	<tattoosVisible>false</tattoosVisible>
+	<renderNodeProperties>
+	  <li>
+		<baseLayer>-1</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Hair</colorType>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/Bodies/Bone_Body/FemaleBodyBack</Male>
+		  <Female>WVC/Bodies/Bone_Body/FemaleBodyBack</Female>
+		</bodyTypeGraphicPaths>
+	  </li>
+	</renderNodeProperties>
+	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Standard only bodies.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bone</symbol></li>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>skele</symbol></li>
+		<li><symbol>bony</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
+	<defName>WVC_Eyes_Boneskin</defName>
+	<label>dead eyes</label>
+	<labelShortAdj>color-eyed</labelShortAdj>
+	<description>Carriers of this gene have a special iris in the eye that can change color in response to certain chemical compounds.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Eyes</geneClass>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<prerequisite>WVC_BoneSkin</prerequisite>
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>
+		<texPath>WVC/Heads/Bone_Head/BoneHeadEyes</texPath>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>
+		<texPath>WVC/Heads/Bone_Head/BoneHeadEyes</texPath>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<rotDrawMode>Fresh</rotDrawMode>
+		<shaderTypeDef>MoteGlow</shaderTypeDef>
+		<drawData>
+		  <defaultData>
+			<layer>55</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+</Defs>

@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static void Regeneration(Pawn pawn, int delta, float regeneration = -1, bool ignoreScarification = true, int tick = 10, bool regenEyes = true)
+		public static bool Regeneration(Pawn pawn, int delta, float regeneration = -1, bool ignoreScarification = true, int tick = 10, bool regenEyes = true)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
@@ -24,6 +24,7 @@ namespace WVC_XenotypesAndGenes
 			// Log.Error(regeneration.ToString());
 			// Old 0.0001243781
 			// New 0.5583333
+			bool woundRegen = false;
 			if (regeneration > 0f)
 			{
 				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (Hediff_Injury h) => h.def != HediffDefOf.Scarification || !ignoreScarification);
@@ -33,6 +34,7 @@ namespace WVC_XenotypesAndGenes
 					regeneration -= num5;
 					tmpHediffInjury.Heal(num5);
 					pawn.health.hediffSet.Notify_Regenerated(num5);
+					woundRegen = true;
 					if (regeneration <= 0f)
 					{
 						break;
@@ -52,9 +54,11 @@ namespace WVC_XenotypesAndGenes
 						//hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
 						//pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
 						HealingUtility.Regenerate(pawn, enumerator3.Current);
+						woundRegen = true;
 					}
 				}
 			}
+			return woundRegen;
 		}
 
 		public static bool ShouldRegenerateEyes(Pawn pawn)

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_OldBones</defName>
+	<label>old bones</label>
+	<skinColorOverride>(232,193,143)</skinColorOverride>
+  </GeneDef>
+
+</Defs>

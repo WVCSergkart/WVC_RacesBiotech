@@ -86,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 			ChangeBodyType();
 		}
 
-		public void ChangeBodyType()
+		public virtual void ChangeBodyType()
 		{
 			if (!Active)
 			{
@@ -229,6 +229,30 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-    }
+	}
+
+	public class Gene_BoneSkin : Gene_GauntSkin
+	{
+
+		public override void ChangeBodyType()
+		{
+			if (!Active)
+			{
+				return;
+			}
+			if (pawn.story.bodyType != BodyTypeDefOf.Female || pawn.story.bodyType != BodyTypeDefOf.Male)
+			{
+				if (pawn?.gender == Gender.Female)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Female;
+				}
+				else if (pawn?.gender == Gender.Male)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Male;
+				}
+			}
+		}
+
+	}
 
 }

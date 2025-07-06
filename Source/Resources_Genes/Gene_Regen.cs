@@ -235,4 +235,41 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_HemogenRegeneration : Gene_HemogenDependant
+	{
+
+		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+
+		private bool? regenerateEyes;
+		public bool RegenerateEyes
+		{
+			get
+			{
+				if (!regenerateEyes.HasValue)
+				{
+					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+				}
+				return regenerateEyes.Value;
+			}
+		}
+
+		public override void TickInterval(int delta)
+		{
+			// base.Tick();
+			if (!pawn.IsHashIntervalTick(719, delta))
+			{
+				return;
+			}
+			if (Hemogen == null)
+            {
+				return;
+            }
+			if (HealingUtility.Regeneration(pawn, delta, regeneration: Hemogen.Value * 100, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 719, regenEyes: RegenerateEyes))
+            {
+				Hemogen.Value -= 0.01f;
+            }
+		}
+
+	}
+
 }

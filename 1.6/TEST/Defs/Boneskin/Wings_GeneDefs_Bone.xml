@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
+	<defName>WVC_Wings_BoneWings</defName>
+	<label>bone wings</label>
+	<description>Carriers of this gene have archites that grow bony wings.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_BoneWings</iconPath>
+	<biostatMet>3</biostatMet>
+	<biostatArc>1</biostatArc>
+	<statOffsets>
+	  <MoveSpeed>0.07</MoveSpeed>
+	  <ArrestSuccessChance>0.2</ArrestSuccessChance>
+	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
+	</statOffsets>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/BodyParts_Wings/BoneWings</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawSize>1.5</drawSize>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0.1, -0.05)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.05)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.08, 0, -0.04)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.08, 0, -0.04)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>winged</symbol></li>
+		<li><symbol>wing</symbol></li>
+		<li><symbol>bird</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -336,6 +336,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
+				//if (modExtension.invisible)
+				//{
+				//	__result = GraphicDatabase.Get<Graphic_Multi>("WVC/UI/InvisibleThing", ShaderDatabase.Cutout);
+				//	return;
+				//}
 				string bodyPath = furDef.GetFurBodyGraphicPath(pawn);
 				Color skinColor = __instance.ColorFor(pawn);
 				//if (modExtension.furIsSkinTransparent)

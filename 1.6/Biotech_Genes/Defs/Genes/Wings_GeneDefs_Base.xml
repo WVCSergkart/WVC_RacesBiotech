@@ -106,11 +106,6 @@
 	  <MoveSpeed>0.15</MoveSpeed>
 	  <ComfyTemperatureMin>-12</ComfyTemperatureMin>
 	</statOffsets>
-	<!-- <graphicData> -->
-		<!-- <graphicPath>WVC/BodyParts/BodyParts_Wings/FeatheredWings</graphicPath> -->
-		<!-- <drawScale>1.5</drawScale> -->
-		<!-- <colorType>Hair</colorType> -->
-	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
@@ -128,18 +123,32 @@
 			<layer>-2</layer>
 		  </defaultData>
 		  <dataNorth>
-			<offset>(0, 0.4, -0.05)</offset>
+			<offset>(0, 0.1, -0.05)</offset>
 			<layer>90</layer>
 		  </dataNorth>
 		  <dataSouth>
-			<offset>(0, -0.4, -0.05)</offset>
+			<offset>(0, 0, -0.05)</offset>
 		  </dataSouth>
 		  <dataEast>
-			<offset>(-0.08, -0.4, -0.04)</offset>
+			<offset>(-0.08, 0, -0.04)</offset>
 		  </dataEast>
 		  <dataWest>
-			<offset>(0.08, -0.4, -0.04)</offset>
+			<offset>(0.08, 0, -0.04)</offset>
 		  </dataWest>
+		  <!-- old -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0, 0.4, -0.05)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataNorth> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0, -0.4, -0.05)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(-0.08, -0.4, -0.04)</offset> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(0.08, -0.4, -0.04)</offset> -->
+		  <!-- </dataWest> -->
 		</drawData>
 	  </li>
 	</renderNodeProperties>
@@ -197,17 +206,17 @@
 			<layer>-2</layer>
 		  </defaultData>
 		  <dataNorth>
-			<offset>(0, 0.4, -0.05)</offset>
+			<offset>(0, 0.1, -0.05)</offset>
 			<layer>90</layer>
 		  </dataNorth>
 		  <dataSouth>
-			<offset>(0, -0.4, -0.05)</offset>
+			<offset>(0, 0, -0.05)</offset>
 		  </dataSouth>
 		  <dataEast>
-			<offset>(-0.08, -0.4, -0.04)</offset>
+			<offset>(-0.08, 0, -0.04)</offset>
 		  </dataEast>
 		  <dataWest>
-			<offset>(0.08, -0.4, -0.04)</offset>
+			<offset>(0.08, 0, -0.04)</offset>
 		  </dataWest>
 		</drawData>
 	  </li>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_BoneTailA</defName>
+	<label>bone tail</label>
+	<description>Carriers of this gene have archites that grow a bony tail.</description>
+	<iconPath>WVC/UI/Genes/Gene_BoneTail</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<statOffsets>
+	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
+	</statOffsets>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/BoneTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.25</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bony</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
