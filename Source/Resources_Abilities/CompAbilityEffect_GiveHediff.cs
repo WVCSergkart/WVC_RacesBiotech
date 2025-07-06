@@ -124,7 +124,8 @@ namespace WVC_XenotypesAndGenes
             }
             Hediff hediff = pawn.health.GetOrAddHediff(Props.hediffDef);
             PostHediffAdd(hediff);
-            if (!Props.simpleMessage.NullOrEmpty())
+			PostHediffAdd(hediff, target);
+			if (!Props.simpleMessage.NullOrEmpty())
             {
                 Messages.Message(Props.simpleMessage.Translate(), new LookTargets(target.Pawn, parent.pawn), MessageTypeDefOf.NeutralEvent, historical: false);
             }
@@ -146,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-			if (Props.psychicSensitive && pawn.IsPsychicSensitive())
+			if (Props.psychicSensitive && !pawn.IsPsychicSensitive())
 			{
 				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
@@ -155,6 +156,11 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void PostHediffAdd(Hediff hediff)
+		{
+
+		}
+
+		public virtual void PostHediffAdd(Hediff hediff, LocalTargetInfo target)
 		{
 
 		}
@@ -185,6 +191,52 @@ namespace WVC_XenotypesAndGenes
 			{
 				hediffComp_ChangeXenotype.genesOwner = parent.pawn;
 			}
+		}
+
+	}
+
+	public class CompAbilityEffect_VoidDrainHediff : CompAbilityEffect_SimpleGiveHediff
+	{
+
+		[Unsaved(false)]
+		private Gene_VoidHunger cachedGene;
+
+		public Gene_VoidHunger Gene
+		{
+			get
+			{
+				if (cachedGene == null || !cachedGene.Active)
+				{
+					cachedGene = parent.pawn?.genes?.GetFirstGeneOfType<Gene_VoidHunger>();
+				}
+				return cachedGene;
+			}
+		}
+
+		public override void PostHediffAdd(Hediff hediff, LocalTargetInfo target)
+		{
+			Gene?.SetVictim(target.Pawn);
+		}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			if (!base.CanApplyOn(target, dest))
+            {
+				return false;
+            }
+			if (!MiscUtility.BasicTargetValidation(parent.pawn, target.Pawn))
+			{
+				return false;
+			}
+			if (target.Pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+			{
+				return false;
+			}
+			if (Gene == null)
+			{
+				return false;
+			}
+			return true;
 		}
 
 	}

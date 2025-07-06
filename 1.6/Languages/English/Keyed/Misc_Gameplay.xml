@@ -611,6 +611,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ChimeraDeathMarkAdded>Mark added to target.</WVC_XaG_ChimeraDeathMarkAdded>
 
+	<WVC_XaG_VoidHungerHediffAdded>Micro skipgate connection created.</WVC_XaG_VoidHungerHediffAdded>
+
 	<!-- =============== HYBRID IMPLANTER =============== -->
 
 	<WVC_XaG_Implanter_MissingGeneMessage>Gene implanter is missing.</WVC_XaG_Implanter_MissingGeneMessage>

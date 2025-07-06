@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_VoidHunger</defName>
+	<label>void hunger</label>
+	<description>Carriers of this gene must psychically draw hemogen from victims on a regular basis, otherwise their hemogen thirst will spiral out of control.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidHunger</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidHunger</geneClass>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
+	<displayOrderInCategory>205</displayOrderInCategory>
+	<abilities>
+	  <li>WVC_VoidHunger</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_VoidHunger</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>6</biostatMet>
+	<customEffectDescriptions>
+		<li>Target can be any pawn suitable for &lt;color=#8a8ae6&gt;bloodfeeding&lt;/color&gt; psi-sensitive pawn.</li>
+		<li>After using the ability, the target gains &lt;color=#8a8ae6&gt;void drain&lt;/color&gt; and loses &lt;color=#8a8ae6&gt;consciousness&lt;/color&gt; until the effect is removed.</li>
+		<li>There can only be one &lt;color=#8a8ae6&gt;void drain&lt;/color&gt; at a time; if cast again, the previous target will lose &lt;color=#8a8ae6&gt;void drain&lt;/color&gt;.</li>
+		<li>If no target was assigned, then the daily &lt;color=#8a8ae6&gt;consumption&lt;/color&gt; of &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; increases by 5 each day.</li>
+		<li>Consumption increases without limit.</li>
+		<li>After creating &lt;color=#8a8ae6&gt;void drain&lt;/color&gt;, the debuff is replaced by a fixed buff of 100 &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; per day.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hunger</symbol></li>
+		<li><symbol>blood</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDef>WVC_VoidHunger_HemogenDrain</hediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_VoidHunger</defName>
+	<label>void hunger</label>
+	<description>Using archites, create stable micro-skip gates in the target's circulatory system to passively pump out hemogen.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidHunger</iconPath>
+	<cooldownTicksRange>8000</cooldownTicksRange>
+	<!-- <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound> -->
+	<!-- <warmupEffecter>Implant_Xenogerm</warmupEffecter> -->
+	<displayOrder>500</displayOrder>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetItems>true</canTargetItems>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_VoidDrainHediff</compClass>
+		<hediffDef>WVC_VoidHunger_HemogenDrain</hediffDef>
+		<psychicSensitive>true</psychicSensitive>
+		<simpleMessage>WVC_XaG_VoidHungerHediffAdded</simpleMessage>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_VoidHunger_HemogenDrain</defName>
+	<label>void drain</label>
+	<description>Psychic coma caused by multiple skip gates and the archites that support them. Until the source is destroyed, the coma will not end.</description>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_VoidDrain</hediffClass>
+	<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+	<forceRemoveOnResurrection>true</forceRemoveOnResurrection>
+	<stages>
+	  <li>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.1</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>

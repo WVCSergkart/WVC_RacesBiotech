@@ -103,6 +103,7 @@
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
     <Compile Include="Resources_Genes\Gene_HiveMind.cs" />
     <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
+    <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skillshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\HediffAddedPart_FleshmassNucleus.cs" />
+    <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
     <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassImmunity.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
