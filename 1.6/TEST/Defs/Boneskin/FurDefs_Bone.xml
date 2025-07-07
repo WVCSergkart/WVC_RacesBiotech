@@ -5,7 +5,7 @@
 	<defName>WVC_BoneSkin</defName>
 	<bodyTypeGraphicPaths>
 	  <Male>WVC/Bodies/Bone_Body/MaleBody</Male>
-	  <Female>WVC/Bodies/Bone_Body/FemaleBodyMain</Female>
+	  <Female>WVC/Bodies/Bone_Body/Naked_Female</Female>
 	  <Hulk>WVC/Bodies/Bone_Body/Naked_Hulk</Hulk>
 	  <!-- <Fat>WVC/Bodies/Bone_Body/Naked_Fat</Fat> -->
 	  <Thin>WVC/Bodies/Bone_Body/Naked_Thin</Thin>
