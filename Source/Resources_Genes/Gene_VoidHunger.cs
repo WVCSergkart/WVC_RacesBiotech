@@ -43,13 +43,13 @@ namespace WVC_XenotypesAndGenes
         {
             if (newVictim != null)
             {
-                RemoveVictim();
+                ResetVictim();
                 victim = newVictim;
                 Hediff_VoidDrain hediff_Phylactery = (Hediff_VoidDrain)newVictim.health.GetOrAddHediff(Giver.hediffDef);
                 if (hediff_Phylactery != null)
                 {
                     hemogenDrain = 0.05f;
-                    hediff_Phylactery.phylacteryOwner = pawn;
+                    hediff_Phylactery.SetOwner(pawn);
                 }
                 else
                 {
@@ -59,9 +59,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public void RemoveVictim()
+        public void ResetVictim(bool removeHediff = true)
         {
-            Victim?.health?.hediffSet?.GetFirstHediff<Hediff_VoidDrain>()?.Notify_VictimChanged();
+            if (removeHediff)
+            {
+                Victim?.health?.hediffSet?.GetFirstHediff<Hediff_VoidDrain>()?.Notify_VictimChanged();
+            }
             victim = null;
         }
 
@@ -86,7 +89,7 @@ namespace WVC_XenotypesAndGenes
         public override void PostRemove()
         {
             base.PostRemove();
-            RemoveVictim();
+            ResetVictim();
         }
 
         private float hemogenDrain = 0.05f;
@@ -99,12 +102,12 @@ namespace WVC_XenotypesAndGenes
         public void Notify_OverriddenBy(Gene overriddenBy)
         {
             hemogenDrain = 0.05f;
-            RemoveVictim();
+            ResetVictim();
         }
 
         public override void Reset()
         {
-            RemoveVictim();
+            ResetVictim();
         }
 
         public void Notify_Override()
@@ -114,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
-            RemoveVictim();
+            ResetVictim();
         }
 
     }

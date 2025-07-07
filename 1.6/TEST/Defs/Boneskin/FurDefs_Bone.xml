@@ -6,13 +6,13 @@
 	<bodyTypeGraphicPaths>
 	  <!-- <Male>WVC/UI/InvisibleThing</Male> -->
 	  <!-- <Female>WVC/UI/InvisibleThing</Female> -->
-	  <Male>WVC/Bodies/Bone_Body/FemaleBodyMain</Male>
+	  <!-- <Male>WVC/Bodies/Bone_Body/FemaleBodyMain</Male> -->
 	  <Female>WVC/Bodies/Bone_Body/FemaleBodyMain</Female>
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
 			<furIsSkin>true</furIsSkin>
-			<invisible>true</invisible>
+			<!-- <invisible>true</invisible> -->
 		</li>
 	</modExtensions>
   </FurDef>

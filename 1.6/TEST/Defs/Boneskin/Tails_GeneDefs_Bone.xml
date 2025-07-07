@@ -11,6 +11,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
 	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<statOffsets>
 	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
 	</statOffsets>

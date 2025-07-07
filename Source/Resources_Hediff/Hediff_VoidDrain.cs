@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGene == null || !cachedGene.Active)
 				{
-					cachedGene = phylacteryOwner?.genes?.GetFirstGeneOfType<Gene_VoidHunger>();
+					cachedGene = master?.genes?.GetFirstGeneOfType<Gene_VoidHunger>();
 				}
 				return cachedGene;
 			}
@@ -51,15 +51,21 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PawnKilled()
 		{
-			Gene?.RemoveVictim();
+			Gene?.ResetVictim();
 		}
 
-		public Pawn phylacteryOwner;
+		public void SetOwner(Pawn master)
+		{
+			Gene?.ResetVictim(false);
+			this.master = master;
+		}
+
+		private Pawn master;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_References.Look(ref phylacteryOwner, "phylacteryOwner");
+			Scribe_References.Look(ref master, "master");
 		}
 
 	}

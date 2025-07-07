@@ -11,6 +11,8 @@
 	<iconPath>WVC/UI/Genes/Gene_BoneWings</iconPath>
 	<biostatMet>3</biostatMet>
 	<biostatArc>1</biostatArc>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<statOffsets>
 	  <MoveSpeed>0.07</MoveSpeed>
 	  <ArrestSuccessChance>0.2</ArrestSuccessChance>
