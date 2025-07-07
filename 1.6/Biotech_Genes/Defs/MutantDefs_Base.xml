@@ -30,6 +30,8 @@
 	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<disablesGenes>
 	  <li>WVC_ReimplanterThrallMaker</li>
+	  <li>Hemogenic</li>
+	  <li>WVC_ResurgentCells</li>
 	</disablesGenes>
   </MutantDef>
 

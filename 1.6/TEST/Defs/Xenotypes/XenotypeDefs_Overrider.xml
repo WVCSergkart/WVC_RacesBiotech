@@ -20,7 +20,7 @@
 		<li>Hair_BaldOnly</li>
 		<li>Beard_NoBeardOnly</li>
 		<!-- <li>Body_Standard</li> -->
-		<li>WVC_HairColor_b4c8ff_HEX</li>
+		<!-- <li>WVC_HairColor_b4c8ff_HEX</li> -->
 		<li>WVC_SkinColor_OldBones</li>
 		<li>WVC_Wings_BoneWings</li>
 		<li>WVC_BoneTailA</li>
@@ -64,23 +64,29 @@
 		<!-- <li>Hair_ShortOnly</li> -->
 		<!-- <li>WVC_OneManArmy</li> -->
 		<li>Deathrest</li>
-		<li>Neversleep</li>
-		<!-- <li>WVC_Neversleep</li> -->
+		<!-- <li>Neversleep</li> -->
+		<li>WVC_Neversleep</li>
 		<li>WVC_Generemover</li>
 		<li>WVC_BleedStopper</li>
-		<li>WVC_VoidHunger</li>
 		<!-- = -->
-		<li>Hemogenic</li>
 		<li>PerfectImmunity</li>
 		<li>Deathless</li>
 		<!-- <li>Bloodfeeder</li> -->
 		<!-- <li>WVC_Bloodeater</li> -->
 		<!-- <li>WVC_BloodyGrowths</li> -->
-		<li>WVC_HemogenGain</li>
-		<li>WVC_WoundHealing_Hemogen</li>
+		<!-- <li>WVC_HemogenGain</li> -->
 		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
 		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<li>DarkVision</li>
+		<!-- Hemogen powers -->
+		<li>Hemogenic</li>
+		<li>LongjumpLegs</li>
+		<li>Coagulate</li>
+		<li>PiercingSpine</li>
+		<li>WVC_HemogenScarless</li>
+		<li>WVC_WoundHealing_Hemogen</li>
+		<li>WVC_VoidHunger</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
