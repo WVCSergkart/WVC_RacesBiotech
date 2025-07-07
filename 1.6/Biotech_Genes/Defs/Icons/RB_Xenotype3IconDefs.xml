@@ -144,4 +144,12 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Ripper -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Ripper0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Ripper</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
 </Defs>

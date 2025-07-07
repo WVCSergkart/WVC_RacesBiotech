@@ -7,7 +7,7 @@
 	<label>ripperkind</label>
 	<description>Ripperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
 	<descriptionShort>Ripperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<iconPath>WVC/UI/Icons3/Icon_Ripper</iconPath>
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
 	<displayPriority>-230</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
@@ -18,6 +18,7 @@
 		<li>WVC_Eyes_Boneskin</li>
 		<li>WVC_BoneSkin</li>
 		<li>Hair_BaldOnly</li>
+		<li>Beard_NoBeardOnly</li>
 		<!-- <li>Body_Standard</li> -->
 		<li>WVC_HairColor_b4c8ff_HEX</li>
 		<li>WVC_SkinColor_OldBones</li>
@@ -28,6 +29,7 @@
 		<li>WVC_Chameleon</li>
 		<li>WVC_HybridImplanter</li>
 		<li>WVC_Incrementer</li>
+		<li>WVC_ReimplanterThrallMaker</li>
 		<!-- <li>WVC_VoidMechlink</li> -->
 		<!-- <li>WVC_WoundHealing_SelfRepair</li> -->
 		<li>WVC_Overrider</li>
@@ -46,12 +48,12 @@
 		<!-- = -->
 		<!-- <li>WVC_HairColor_Slate</li> -->
 		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
-		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<!-- <li>WVC_PsychicAbility_AlmostDeaf</li> -->
 		<!-- <li>ToxResist_Total</li> -->
 		<!-- <li>WVC_OverallAdaptation_Overrider</li> -->
 		<!-- <li>WVC_OneManArmy</li> -->
 		<li>WVC_Pain_Overrider</li>
-		<li>Sterile</li>
+		<!-- <li>Sterile</li> -->
 		<!-- = -->
 		<!-- <li>WVC_MechaPowerSource_Vanometric</li> -->
 		<!-- <li>ArchiteMetabolism</li> -->
@@ -62,8 +64,8 @@
 		<!-- <li>Hair_ShortOnly</li> -->
 		<!-- <li>WVC_OneManArmy</li> -->
 		<li>Deathrest</li>
-		<!-- <li>Neversleep</li> -->
-		<li>WVC_Neversleep</li>
+		<li>Neversleep</li>
+		<!-- <li>WVC_Neversleep</li> -->
 		<li>WVC_Generemover</li>
 		<li>WVC_BleedStopper</li>
 		<li>WVC_VoidHunger</li>

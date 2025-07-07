@@ -23,7 +23,7 @@
 	  <ArmorRating_Sharp>0.42</ArmorRating_Sharp>
 	</statOffsets>
 	<fur>WVC_BoneSkin</fur>
-	<bodyType>Standard</bodyType>
+	<!-- <bodyType>Standard</bodyType> -->
 	<tattoosVisible>false</tattoosVisible>
 	<!-- <renderNodeProperties> -->
 	  <!-- <li> -->
@@ -38,7 +38,7 @@
 	<!-- </renderNodeProperties> -->
 	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
 	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Standard only bodies.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Standard, thin and hulk bodies only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -48,6 +48,12 @@
 		<li><symbol>bony</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
+			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

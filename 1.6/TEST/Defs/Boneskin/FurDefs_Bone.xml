@@ -4,10 +4,11 @@
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_BoneSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <!-- <Male>WVC/UI/InvisibleThing</Male> -->
-	  <!-- <Female>WVC/UI/InvisibleThing</Female> -->
-	  <!-- <Male>WVC/Bodies/Bone_Body/FemaleBodyMain</Male> -->
+	  <Male>WVC/Bodies/Bone_Body/MaleBody</Male>
 	  <Female>WVC/Bodies/Bone_Body/FemaleBodyMain</Female>
+	  <Hulk>WVC/Bodies/Bone_Body/Naked_Hulk</Hulk>
+	  <!-- <Fat>WVC/Bodies/Bone_Body/Naked_Fat</Fat> -->
+	  <Thin>WVC/Bodies/Bone_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
