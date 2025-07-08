@@ -14,6 +14,9 @@
 	<prerequisite>WVC_BoneSkin</prerequisite>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>Eyes can be recolored using eyedye pills.</li>
+	</customEffectDescriptions>
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
 		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>

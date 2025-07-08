@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (pawn.IsMutant)
                 {
-                    pawn.mutant.Revert(true);
+                    pawn.mutant.Revert(false);
                 }
             }
         }

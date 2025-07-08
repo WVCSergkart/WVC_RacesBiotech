@@ -80,8 +80,8 @@
 		<!-- Hemogen powers -->
 		<li>Hemogenic</li>
 		<li>LongjumpLegs</li>
-		<li>Coagulate</li>
-		<li>PiercingSpine</li>
+		<!-- <li>Coagulate</li> -->
+		<!-- <li>PiercingSpine</li> -->
 		<li>WVC_HemogenScarless</li>
 		<li>WVC_WoundHealing_Hemogen</li>
 		<li>WVC_VoidHunger</li>

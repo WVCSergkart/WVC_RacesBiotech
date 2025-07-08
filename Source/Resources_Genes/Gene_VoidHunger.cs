@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
         public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
+        public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+
         public override float ResourceLossPerDay
         {
             get
@@ -41,21 +43,31 @@ namespace WVC_XenotypesAndGenes
 
         public void SetVictim(Pawn newVictim)
         {
-            if (newVictim != null)
+            try
             {
-                ResetVictim();
-                victim = newVictim;
-                Hediff_VoidDrain hediff_Phylactery = (Hediff_VoidDrain)newVictim.health.GetOrAddHediff(Giver.hediffDef);
-                if (hediff_Phylactery != null)
+                if (newVictim != null)
                 {
-                    hemogenDrain = 0.05f;
-                    hediff_Phylactery.SetOwner(pawn);
+                    ResetVictim();
+                    victim = newVictim;
+                    Hediff_VoidDrain hediff_Phylactery = (Hediff_VoidDrain)newVictim.health.GetOrAddHediff(Giver.hediffDef);
+                    if (hediff_Phylactery != null)
+                    {
+                        newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.AboutMeThoughtDef, pawn);
+                        newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.myTargetInGeneralThought);
+                        hemogenDrain = 0.05f;
+                        hediff_Phylactery.SetOwner(pawn);
+                    }
+                    else
+                    {
+                        Log.Error("Failed create drain on target: " + newVictim.Name);
+                        ResetVictim(true);
+                    }
                 }
-                else
-                {
-                    Log.Error("Failed create phylactery on target: " + victim.Name);
-                    victim = null;
-                }
+            }
+            catch
+            {
+                Log.Error("Failed create drain on target: " + newVictim.Name);
+                ResetVictim(true);
             }
         }
 
@@ -78,6 +90,15 @@ namespace WVC_XenotypesAndGenes
             base.TickInterval(delta);
             if (!pawn.IsHashIntervalTick(43299, delta))
             {
+                return;
+            }
+            if (pawn.Faction != Faction.OfPlayer)
+            {
+                if (victim != null)
+                {
+                    ResetVictim();
+                }
+                hemogenDrain = 0.05f;
                 return;
             }
             if (Victim == null)

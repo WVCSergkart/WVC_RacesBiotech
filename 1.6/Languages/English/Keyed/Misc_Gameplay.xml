@@ -149,6 +149,12 @@
 
 	<WVC_XaG_Gene_OverriderDependantDesc>&lt;color=#ffec85&gt;This gene is not mutually exclusive with similar genes.&lt;/color&gt;</WVC_XaG_Gene_OverriderDependantDesc>
 
+	<WVC_XaG_VoidDrainSelectMaster>Select caster</WVC_XaG_VoidDrainSelectMaster>
+	<WVC_XaG_VoidDrainSelectMaster_Desc>Select the owner of the void drain hediff.</WVC_XaG_VoidDrainSelectMaster_Desc>
+	<WVC_XaG_VoidDrainRemove>Release victim</WVC_XaG_VoidDrainRemove>
+	<WVC_XaG_VoidDrainRemove_Desc>Allows to free a pawn from a void drain.</WVC_XaG_VoidDrainRemove_Desc>
+	<WVC_XaG_VoidDrainRemove_Warning>Are you sure you want to release the victim from void drain?</WVC_XaG_VoidDrainRemove_Warning>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>

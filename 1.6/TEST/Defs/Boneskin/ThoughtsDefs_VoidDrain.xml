@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ===================== -->
+
+  <ThoughtDef>
+	<defName>WVC_VoidDrainOnMe</defName>
+	<durationDays>30</durationDays>
+	<stages>
+	  <li>
+		<label>void drain</label>
+		<description>Someone is void feeding on me like some kind of livestock!</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_UsedVoidDrainOnMe</defName>
+	<stackedEffectMultiplier>0.6</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<durationDays>30</durationDays>
+	<stages>
+	  <li>
+		<label>void drain</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

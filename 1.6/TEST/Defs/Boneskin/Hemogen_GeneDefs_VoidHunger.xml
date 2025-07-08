@@ -37,6 +37,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDef>WVC_VoidHunger_HemogenDrain</hediffDef>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_UsedVoidDrainOnMe</AboutMeThoughtDef>
+			<myTargetInGeneralThought>WVC_VoidDrainOnMe</myTargetInGeneralThought>
+		</li>
 	</modExtensions>
   </GeneDef>
 
@@ -95,6 +99,11 @@
 	<forceRemoveOnResurrection>true</forceRemoveOnResurrection>
 	<stages>
 	  <li>
+		<totalBleedFactor>0.6</totalBleedFactor>
+		<naturalHealingFactor>1.5</naturalHealingFactor>
+		<painFactor>0</painFactor>
+		<foodPoisoningChanceFactor>0.2</foodPoisoningChanceFactor>
+		<hungerRateFactor>0.6</hungerRateFactor>
 		<capMods>
 		  <li>
 			<capacity>Consciousness</capacity>

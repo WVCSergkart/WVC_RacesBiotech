@@ -172,6 +172,7 @@ namespace WVC_XenotypesAndGenes
 		public ThoughtDef thoughtDef;
 		public ThoughtDef AboutMeThoughtDef;
 		public ThoughtDef MeAboutThoughtDef;
+		public ThoughtDef myTargetInGeneralThought;
 		public bool targetShouldBePsySensitive = false;
 		public bool targetShouldBeFamily = false;
 		public bool ignoreIfHasGene = false;
