@@ -10,7 +10,7 @@
 	<description>Carriers of this gene have archites that create a holographic projection over their face that can change color at the will of the carrier.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Holoface</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
-	<prerequisite>WVC_NodeSkin</prerequisite>
+	<!-- <prerequisite>WVC_NodeSkin</prerequisite> -->
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<displayOrderInCategory>4</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>

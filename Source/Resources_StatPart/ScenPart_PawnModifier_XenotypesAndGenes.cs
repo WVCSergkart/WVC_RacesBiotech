@@ -3,6 +3,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -27,6 +28,7 @@ namespace WVC_XenotypesAndGenes
         public IntRange additionalChronoAge = new(0, 0);
         public Gender gender = Gender.None;
         public bool startingPawnsIsPregnant = false;
+        //public bool scatterCorpses = false;
         //public bool newGamePlus = false;
         //public QuestScriptDef questScriptDef = null;
         //public List<GeneDef> hybridGenes;
@@ -57,6 +59,26 @@ namespace WVC_XenotypesAndGenes
         //    {
         //        Log.Warning("Failed generate new game plus pawn.");
         //    }
+        //}
+
+        //public List<XenotypeCount> GetXenotypeChances()
+        //{
+        //    List<XenotypeCount> list = new();
+        //    foreach (XenotypeChance xenos in xenotypeChances)
+        //    {
+        //        XenotypeCount count = new();
+        //        count.xenotype = xenos.xenotype;
+        //        count.requiredAtStart = true;
+        //        list.Add(count);
+        //    }
+        //    foreach (XenotypeDef xenos in allowedXenotypes)
+        //    {
+        //        XenotypeCount count = new();
+        //        count.xenotype = xenos;
+        //        count.requiredAtStart = true;
+        //        list.Add(count);
+        //    }
+        //    return list;
         //}
 
         protected override void ModifyNewPawn(Pawn p)
@@ -128,6 +150,7 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+            //ScatterCorpses(map);
             //if (questScriptDef != null)
             //{
             //    Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questScriptDef, 10);
@@ -137,6 +160,67 @@ namespace WVC_XenotypesAndGenes
             //    }
             //}
         }
+
+        //private void ScatterCorpses(Map map)
+        //{
+        //    if (!scatterCorpses)
+        //    {
+        //        return;
+        //    }
+        //    float tryCount = 0;
+        //    foreach (IntVec3 cell in map.AllCells.Where((cell) => cell.InBounds(map) && !cell.GetTerrain(map).IsWater))
+        //    {
+        //        tryCount++;
+        //    }
+        //    tryCount = tryCount / 10000 * 0.6f;
+        //    for (int g = 0; g < tryCount; g++)
+        //    {
+        //        IntVec3 loc = map.AllCells.Where((cell) => cell.InBounds(map) && !cell.GetTerrain(map).IsWater).RandomElement();
+        //        int randomInRange = new IntRange(1, 4).RandomInRange;
+        //        for (int i = 0; i < randomInRange; i++)
+        //        {
+        //            if (CellFinder.TryFindRandomCellNear(loc, map, 4, (IntVec3 c) => c.Standable(map), out var result))
+        //            {
+        //                FilthMaker.TryMakeFilth(result, map, ThingDefOf.Filth_Blood);
+        //            }
+        //        }
+        //        int randomInRange3 = new IntRange(1, 3).RandomInRange;
+        //        for (int k = 0; k < randomInRange3; k++)
+        //        {
+        //            if (CellFinder.TryFindRandomCellNear(loc, map, 4, (IntVec3 c) => c.Standable(map), out var result3))
+        //            {
+        //                Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Drifter, forcedXenotype: XenotypeDefOf.Baseliner));
+        //                //ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
+        //                pawn.health.SetDead();
+        //                pawn.apparel.DestroyAll();
+        //                pawn.equipment.DestroyAllEquipment();
+        //                Find.WorldPawns.PassToWorld(pawn);
+        //                Corpse corpse = pawn.MakeCorpse(null, null);
+        //                corpse.Age = Mathf.RoundToInt(new IntRange(50, 200).RandomInRange * 60000);
+        //                corpse.GetComp<CompRottable>().RotProgress += corpse.Age;
+        //                GenSpawn.Spawn(pawn.Corpse, result3, map);
+        //                //if (ModsConfig.AnomalyActive && Rand.Chance(0.02f))
+        //                //{
+        //                //    MutantUtility.SetPawnAsMutantInstantly(pawn, MutantDefOf.Shambler);
+        //                //}
+        //            }
+        //        }
+        //    }
+        //    bool rainPossible = false;
+        //    foreach (WeatherCommonalityRecord weather in map.Biome.baseWeatherCommonalities)
+        //    {
+        //        if (weather.weather == WeatherDefOf.FoggyRain)
+        //        {
+        //            rainPossible = true;
+        //            Log.Error("rainPossible");
+        //            break;
+        //        }
+        //    }
+        //    if (rainPossible)
+        //    {
+        //        map.weatherManager.TransitionTo(WeatherDefOf.FoggyRain);
+        //    }
+        //}
 
         private void Skills(Pawn p)
         {

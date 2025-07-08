@@ -27,6 +27,8 @@
 	<isImmuneToInfections>true</isImmuneToInfections>
 	<preventIllnesses>true</preventIllnesses>
 	<useCorpseGraphics>true</useCorpseGraphics>
+	<terminatePregnancy>true</terminatePregnancy>
+	<clearsEgo>true</clearsEgo>
 	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<disablesGenes>
 	  <li>WVC_ReimplanterThrallMaker</li>
@@ -40,6 +42,7 @@
 	<label>skeleton</label>
 	<breathesAir>false</breathesAir>
 	<disableNeeds>true</disableNeeds>
+	<removeAddictions>true</removeAddictions>
 	<canGainXP>false</canGainXP>
 	<!-- <canBleed>false</canBleed> -->
 	<!-- <entitledToMedicalCare>false</entitledToMedicalCare> -->

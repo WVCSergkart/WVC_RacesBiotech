@@ -416,4 +416,52 @@
 	<!-- </scenario> -->
   <!-- </ScenarioDef> -->
 
+  <!-- ========================================================= -->
+
+  <!-- <ScenarioDef ParentName="ScenarioBase"> -->
+	<!-- <defName>WVC_XaG_Test_Ripper</defName> -->
+	<!-- <label>TEST RIPPER</label> -->
+	<!-- <description>TEST</description> -->
+	<!-- <scenario> -->
+	  <!-- <summary>TEST</summary> -->
+	  <!-- <playerFaction> -->
+		<!-- <def>PlayerFaction</def> -->
+		<!-- <factionDef>PlayerColony</factionDef> -->
+	  <!-- </playerFaction> -->
+	  <!-- <parts> -->
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>1</pawnCount> -->
+		  <!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <xenotypeChances> -->
+			<!-- <WVC_Ripperkind>1</WVC_Ripperkind> -->
+		  <!-- </xenotypeChances> -->
+		  <!-- <scatterCorpses>true</scatterCorpses> -->
+		  <!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_DisableMapGen"> -->
+			<!-- <def>DisableExostriderRemains</def> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StatFactor"> -->
+			<!-- <def>StatFactor</def> -->
+			<!-- <stat>MentalBreakThreshold</stat> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_Naked"> -->
+			<!-- <def>Naked</def> -->
+			<!-- <chance>0.5</chance> -->
+		<!-- </li> -->
+
+	  <!-- </parts> -->
+	<!-- </scenario> -->
+  <!-- </ScenarioDef> -->
+
 </Defs>
