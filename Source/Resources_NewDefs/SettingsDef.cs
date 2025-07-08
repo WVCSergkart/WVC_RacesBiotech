@@ -107,6 +107,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Mechalike = false;
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
+		public bool disableXenotypes_MutantMakers = false;
 		public bool disableXenotypes_Misc = false;
 		// Misc
 		public bool geneGizmosDefaultCollapse = false;

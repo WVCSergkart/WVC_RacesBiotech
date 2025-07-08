@@ -169,6 +169,19 @@
 					</caseTrue>
 				</li>
 				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>disableXenotypes_MutantMakers</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="MutantMakers"]</xpath>
+								<success>Always</success>
+							</li>
+
+						</operations>
+					</caseTrue>
+				</li>
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 					<settingName>disableXenotypes_Bloodeaters</settingName>
 					<caseTrue Class="PatchOperationSequence">
 						<operations>

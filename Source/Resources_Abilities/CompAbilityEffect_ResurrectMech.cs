@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 
 		public EffecterDef appliedEffecterDef;
 
+		public ThrallDef thrallDef;
+
 		public CompProperties_ResurrectMech()
 		{
 			compClass = typeof(CompAbilityEffect_ResurrectMech);

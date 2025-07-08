@@ -49,6 +49,9 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<WVC_Label_disableXenotypes_Bloodeaters>|- Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
 	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater, Chimerkin, Nociokin, Beholdkind.</WVC_ToolTip_disableXenotypes_Bloodeaters>
 
+	<WVC_Label_disableXenotypes_MutantMakers>|- Disable mutant makers</WVC_Label_disableXenotypes_MutantMakers>
+	<WVC_ToolTip_disableXenotypes_MutantMakers>Ripperkind.</WVC_ToolTip_disableXenotypes_MutantMakers>
+
 	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
 	<WVC_ToolTip_disableXenotypes_Misc>None.</WVC_ToolTip_disableXenotypes_Misc>
 
