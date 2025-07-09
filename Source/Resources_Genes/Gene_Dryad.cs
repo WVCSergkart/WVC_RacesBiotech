@@ -168,8 +168,8 @@ namespace WVC_XenotypesAndGenes
                 }
             }
             HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-            // Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
-            return dryad;
+			// Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
+			return dryad;
         }
 
         private void ResetDryad(Pawn dryad)
