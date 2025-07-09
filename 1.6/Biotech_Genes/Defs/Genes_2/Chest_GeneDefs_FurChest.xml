@@ -40,6 +40,9 @@
 		</visibleFacing>
 	  </li>
 	</renderNodeProperties>
+	<exclusionTags>
+	  <li>WVC_ChestBodyParts</li>
+	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>fur</symbol></li>

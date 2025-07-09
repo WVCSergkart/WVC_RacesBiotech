@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <GeneDef>
+	<defName>WVC_HalfBone</defName>
+	<label>halfbone</label>
+	<description>Carriers of this gene have skin and bone growths on their bodies.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BoneSkin</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HalfBones</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>1</biostatMet>
+	<biostatArc>1</biostatArc>
+	<minAgeActive>13</minAgeActive>
+	<statFactors>
+	  <MeatAmount>0.9</MeatAmount>
+	</statFactors>
+	<statOffsets>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+	</statOffsets>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Standard, thin and hulk bodies only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Body</workerClass>
+		<baseLayer>4</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Custom</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<!-- old bones color -->
+		<color>(232,193,143)</color>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/BodyParts/HalfBones/MaleBody</Male>
+		  <Female>WVC/BodyParts/HalfBones/Naked_Female</Female>
+		  <!-- <Fat>WVC/BodyParts/Chest/FurChest_Fat</Fat> -->
+		  <Thin>WVC/BodyParts/HalfBones/Naked_Thin</Thin>
+		  <Hulk>WVC/BodyParts/HalfBones/Naked_Hulk</Hulk>
+		</bodyTypeGraphicPaths>
+		<!-- <visibleFacing> -->
+		  <!-- <li>East</li> -->
+		  <!-- <li>South</li> -->
+		  <!-- <li>West</li> -->
+		<!-- </visibleFacing> -->
+	  </li>
+	</renderNodeProperties>
+	<exclusionTags>
+	  <!-- <li>WVC_ChestBodyParts</li> -->
+	  <li>WVC_BoneSkin</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bone</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
