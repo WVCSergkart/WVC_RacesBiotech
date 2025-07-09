@@ -2,31 +2,25 @@
 <Defs>
 
   <!-- TestTemplate -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST">
-	<defName>WVC_TestTemplate</defName>
-	<label>TestTemplate</label>
-	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
-	<genes>
-		<li>WVC_HeadBoneCurveHorns</li>
-		<li>Body_Standard</li>
-		<li>WVC_HairColor_Slate</li>
-		<li>WVC_SkinColor_MilkWhite</li>
-		<li>WVC_Eyes_Colorful</li>
-		<li>WVC_SkinnyTailA</li>
-		<!-- <li>WVC_Morpher</li> -->
-		<!-- <li>WVC_MorphCondition_Nocturnal</li> -->
-		<li>WVC_Deadlife</li>
-		<!-- <li>WVC_Overlord</li> -->
-	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(133, 202, 255)</defaultColor>
-			<!-- <morpherXenotypeDefs> -->
-			  <!-- <li>WVC_TestTemplateB</li> -->
-			<!-- </morpherXenotypeDefs> -->
-		</li>
-	</modExtensions>
-  </XenotypeDef>
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
+	<!-- <defName>WVC_TestTemplate</defName> -->
+	<!-- <label>TestTemplate</label> -->
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
+	<!-- <genes> -->
+		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>WVC_HairColor_Slate</li> -->
+		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+		<!-- <li>WVC_Eyes_Colorful</li> -->
+		<!-- <li>WVC_SkinnyTailA</li> -->
+		<!-- <li>WVC_Deadlife</li> -->
+	<!-- </genes> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <defaultColor>(133, 202, 255)</defaultColor> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </XenotypeDef> -->
 
   <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
 	<!-- <defName>WVC_TestTemplateB</defName> -->

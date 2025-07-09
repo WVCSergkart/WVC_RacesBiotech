@@ -46,6 +46,8 @@
 	  <li>WVC_Shadoweater</li>
 	  <li MayRequire="ludeon.rimworld.royalty">WVC_Lilith</li>
 	  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Overrider</li>
+	  <li>WVC_Ripperkind</li>
 	  <!-- Vanilla -->
 	  <li>Dirtmole</li>
 	  <li>Genie</li>

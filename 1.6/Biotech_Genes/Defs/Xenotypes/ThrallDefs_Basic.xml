@@ -24,12 +24,12 @@
 				<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 				<li>ToxicEnvironmentResistance_Total</li>
 				<li>Aggression_DeadCalm</li>
+				<li>Learning_Slow</li>
 			</genes>
 		</li>
 	</mutantByRotStage>
 	<genes>
 		<li>WVC_GeneSavant</li>
-		<li>Learning_Slow</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 

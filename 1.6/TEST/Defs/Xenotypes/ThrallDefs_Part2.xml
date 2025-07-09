@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Bonned</defName>
+	<label>bonned</label>
+	<reqGeneDef>WVC_BoneSkin</reqGeneDef>
+	<genes>
+		<li>WVC_BoneSkin</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li>Hair_BaldOnly</li>
+		<li>WVC_Chameleon</li>
+		<li>WVC_Incrementer</li>
+		<li>DarkVision</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Fleshkin</defName>
+	<label>fleshkin</label>
+	<reqGeneDef>WVC_FleshmassSkin</reqGeneDef>
+	<genes>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_MilkWhite</li>
+		<li>Hair_ShortOnly</li>
+		<li>WVC_Chameleon</li>
+		<li>WVC_Incrementer</li>
+		<li>WVC_LongTentacleTail</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+</Defs>

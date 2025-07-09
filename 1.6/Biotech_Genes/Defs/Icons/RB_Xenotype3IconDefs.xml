@@ -150,6 +150,10 @@
 	<defName>WVC_Ripper0c</defName>
 	<texPath>WVC/UI/Icons3/Icon_Ripper</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Overrider0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Overrider0c</texPath>
+  </XenotypeIconDef>
   <!-- Used -->
 
 </Defs>
