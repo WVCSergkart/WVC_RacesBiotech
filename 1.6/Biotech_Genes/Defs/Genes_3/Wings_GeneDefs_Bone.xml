@@ -19,6 +19,7 @@
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>
 	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions Inherit="False"/>
 	<renderNodeProperties>
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
