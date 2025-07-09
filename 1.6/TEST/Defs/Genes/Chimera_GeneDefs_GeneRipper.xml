@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_GeneRipper</defName>
+	<label>gene ripper</label>
+	<description>Carriers of this gene are capable of ripping a random gene out of a target, causing significant damage in the process.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_GeneRipper</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_GeneRipper</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;extract genes&lt;/color&gt; from a target, causing &lt;color=#8a8ae6&gt;significant damage&lt;/color&gt; or killing them in the process.</li>
+		<li>The target loses the gene and will be very unhappy.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <selectionWeight>0.01</selectionWeight> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_GeneRipper</defName>
+	<label>gene ripper</label>
+	<description>Rip out a random gene that was not received and if possible implant it immediately. However, in the process one of the target's organs will be destroyed or the target may be killed.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>12000</cooldownTicksRange>
+	<hostile>true</hostile>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <violent>true</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GeneRipper</compClass>
+		<thoughtDefToGiveTarget>WVC_GeneRippedFromMe</thoughtDefToGiveTarget>
+		<opinionThoughtDefToGiveTarget>WVC_UsedGeneRipperOnMe</opinionThoughtDefToGiveTarget>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

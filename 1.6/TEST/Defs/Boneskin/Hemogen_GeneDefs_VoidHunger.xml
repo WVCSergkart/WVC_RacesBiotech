@@ -53,20 +53,20 @@
 	<!-- <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound> -->
 	<!-- <warmupEffecter>Implant_Xenogerm</warmupEffecter> -->
 	<displayOrder>500</displayOrder>
-	<hostile>false</hostile>
+	<hostile>true</hostile>
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<showWhenDrafted>false</showWhenDrafted>
 	<showGizmoOnWorldView>false</showGizmoOnWorldView>
 	<stunTargetWhileCasting>true</stunTargetWhileCasting>
-	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <verbClass>Verb_CastAbilityTouch</verbClass>
 	  <drawAimPie>false</drawAimPie>
 	  <range>-1</range>
 	  <warmupEffecter>ControlMech</warmupEffecter>
 	  <warmupTime>2</warmupTime>
-	  <violent>false</violent>
+	  <violent>true</violent>
 	  <targetParams>
 		<canTargetAnimals>false</canTargetAnimals>
 		<canTargetSelf>false</canTargetSelf>

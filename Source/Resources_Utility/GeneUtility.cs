@@ -488,6 +488,18 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool ConflictWith(GeneDef geneDef, List<Gene> geneDefs)
+		{
+			foreach (Gene item in geneDefs)
+			{
+				if (item.def.ConflictsWith(geneDef))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool TryRemoveAllConflicts(Pawn pawn, GeneDef geneDef, List<GeneDef> exceptions = null)
 		{
 			try

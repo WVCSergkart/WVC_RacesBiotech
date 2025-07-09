@@ -384,7 +384,59 @@ namespace WVC_XenotypesAndGenes
             {
                 xenotypeHasHairColor = true;
             }
-        }
+		}
+
+		// =============================== Debug Xenotype ===============================
+
+		public static bool TryFixPawnXenotype_Beta(Pawn pawn)
+		{
+			bool isBaseliner = true;
+			if (XaG_GeneUtility.PawnIsBaseliner(pawn))
+            {
+				return false;
+            }
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (!gene.def.passOnDirectly)
+				{
+					continue;
+				}
+				if (gene.def.biostatCpx > 0 || gene.def.biostatArc > 0 || gene.def.biostatMet > 0)
+				{
+					isBaseliner = false;
+					break;
+				}
+				if (gene.def.skinColorOverride != null || gene.def.hairColorOverride != null || gene.def.skinColorBase != null)
+				{
+					continue;
+				}
+			}
+			if (isBaseliner)
+			{
+				SetXenotypeDirect(null, pawn, XenotypeDefOf.Baseliner);
+			}
+			return isBaseliner;
+		}
+
+		//private static bool HasAnyNonSkinOrHairGene(Pawn pawn)
+		//{
+		//	bool hasAnyNonSkinOrHairGene = false;
+		//	foreach (Gene gene in pawn.genes.GenesListForReading)
+  //          {
+		//		if (gene.def.biostatCpx > 0 || gene.def.biostatArc > 0 || gene.def.biostatMet > 0)
+  //              {
+		//			hasAnyNonSkinOrHairGene = true;
+		//			break;
+  //              }
+		//		if (gene.def.skinColorOverride != null || gene.def.hairColorOverride != null || gene.def.skinColorBase != null)
+  //              {
+		//			continue;
+  //              }
+		//		hasAnyNonSkinOrHairGene = true;
+		//		break;
+		//	}
+		//	return hasAnyNonSkinOrHairGene;
+		//}
 
 		// =============================== Setter ===============================
 
@@ -580,7 +632,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool ImplanterValidation(Pawn parent, LocalTargetInfo target, bool throwMessages)
+		public static bool ImplanterValidation(Pawn parent, LocalTargetInfo target, bool throwMessages, bool checkIdeo = true)
 		{
 			Pawn pawn = target.Pawn;
 			if (pawn == null)
@@ -603,7 +655,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (!PawnIdeoCanAcceptReimplant(parent, pawn))
+			if (checkIdeo && !PawnIdeoCanAcceptReimplant(parent, pawn))
 			{
 				if (throwMessages)
 				{

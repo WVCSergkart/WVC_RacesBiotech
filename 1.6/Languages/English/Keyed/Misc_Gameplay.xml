@@ -61,7 +61,7 @@
 	<!-- <WVC_XaG_ScenPart_ForcedGender>The gender of starting pawns is always: {0}.</WVC_XaG_ScenPart_ForcedGender> -->
 	<!-- <WVC_XaG_ScenPart_ForcedPregnancy>The gender of starting pawns is always {0}</WVC_XaG_ScenPart_ForcedPregnancy> -->
 
-	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
+	<WVC_XaG_GeneralWrongTarget>Inappropriate target.</WVC_XaG_GeneralWrongTarget>
 
 	<WVC_XaG_BirthQuality>Birth quality offset: {0}%</WVC_XaG_BirthQuality>
 
@@ -597,6 +597,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_GenesHarvested>{0}'s genes were harvested, {0}'s xenotype was reset to the baseliner.</WVC_XaG_GeneGeneticThief_GenesHarvested>
 	<WVC_XaG_WarningPawnWillDieFromHarvesting>Warning: {PAWN_nameDef}'s genes are currently regrowing. If {PAWN_pronoun} will be harvested before {PAWN_possessive} genes are fully regrown, it will kill {PAWN_objective}.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromHarvesting>
 	<WVC_XaG_ChimeraDeathMark_GenesObtained>{0}'s genes were obtained.</WVC_XaG_ChimeraDeathMark_GenesObtained>
+
+	<WVC_XaG_GeneRipper_GeneCopied>{0} ripped the {1} gene.</WVC_XaG_GeneRipper_GeneCopied>
+
+	<WVC_XaG_GeneRipper_TargetNoParts>The target has no intact body parts.</WVC_XaG_GeneRipper_TargetNoParts>
+	<WVC_XaG_GeneChimera_TargetNoGenes>The target has no genes that the chimera has not yet absorbed.</WVC_XaG_GeneChimera_TargetNoGenes>
+	<WVC_XaG_GeneChimera_DeActive>Chimera is not active, ability cannot be used.</WVC_XaG_GeneChimera_DeActive>
 
 	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
 

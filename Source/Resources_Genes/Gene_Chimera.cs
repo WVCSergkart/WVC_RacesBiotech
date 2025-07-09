@@ -334,6 +334,11 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public bool TryGetGene(Pawn victim, out GeneDef result)
+		{
+			return TryGetGene(XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading), out result);
+		}
+
 		public void Notify_Bloodfeed(Pawn victim)
 		{
 			GetGeneFromHuman(victim);
