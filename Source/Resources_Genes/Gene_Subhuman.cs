@@ -46,6 +46,10 @@ namespace WVC_XenotypesAndGenes
                 pawn.mutant = null;
                 return;
             }
+            if (pawn.mutant?.Def == mutant)
+            {
+                return;
+            }
             Revert(pawn);
             pawn.mutant = new Pawn_MutantTracker(pawn, mutant, RotStage.Fresh);
             pawn.mutant.Turn(clearLord: true);

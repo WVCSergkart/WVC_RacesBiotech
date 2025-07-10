@@ -228,6 +228,7 @@
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
+    <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompProps_DestroyAndReturnResources.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />

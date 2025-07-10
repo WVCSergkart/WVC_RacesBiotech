@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
             Widgets.DrawWindowBackground(rect);
             RecacheTick();
             text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-            taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.spawnDryads);
+            taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.SpawnDryads);
             ;
             if (usedBandwidth > 0)
             {
@@ -168,7 +168,7 @@ namespace WVC_XenotypesAndGenes
         private void Button1(Rect rectSummonSettings)
         {
             Widgets.DrawTextureFitted(rectSummonSettings, SummonSettingsIcon.Texture, 1f);
-            if (!gene.spawnDryads)
+            if (!gene.SpawnDryads)
             {
                 Widgets.DrawTextureFitted(rectSummonSettings, XaG_UiUtility.NonAggressiveRedCancelIcon.Texture, 1f);
             }
@@ -177,11 +177,11 @@ namespace WVC_XenotypesAndGenes
                 Widgets.DrawHighlight(rectSummonSettings);
                 if (Widgets.ButtonInvisible(rectSummonSettings))
                 {
-                    gene.spawnDryads = !gene.spawnDryads;
-                    XaG_UiUtility.FlickSound(gene.spawnDryads);
+                    gene.SpawnDryads = !gene.SpawnDryads;
+                    XaG_UiUtility.FlickSound(gene.SpawnDryads);
                 }
             }
-            TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate() + "\n\n" + "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.spawnDryads));
+            TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate() + "\n\n" + "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.SpawnDryads));
         }
 
         private void Button2(Rect rectGolemsSettings)

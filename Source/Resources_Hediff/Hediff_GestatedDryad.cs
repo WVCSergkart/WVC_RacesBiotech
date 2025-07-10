@@ -34,15 +34,15 @@ namespace WVC_XenotypesAndGenes
 					{
 						curStage.regeneration = WVC_Biotech.settings.gestatedDryads_AnomalyRegeneration;
 					}
-					Pawn master = pawn.TryGetComp<CompGestatedDryad>()?.Master;
-					if (master != null)
-					{
-						curStage.disablesNeeds = new();
-						if (master.needs.rest == null)
-						{
-							curStage.disablesNeeds.Add(NeedDefOf.Rest);
-						}
-					}
+					//Pawn master = pawn.TryGetComp<CompGestatedDryad>()?.Master;
+					//if (master != null)
+					//{
+					//	curStage.disablesNeeds = new();
+					//	if (master.needs.rest == null)
+					//	{
+					//		curStage.disablesNeeds.Add(NeedDefOf.Rest);
+					//	}
+					//}
 				}
 				return curStage;
 			}

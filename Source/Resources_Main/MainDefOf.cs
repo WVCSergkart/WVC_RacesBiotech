@@ -104,6 +104,9 @@ namespace WVC_XenotypesAndGenes
 		//
 		[MayRequireAnomaly]
 		public static SoundDef RevenantSpineSmash;
+		//
+		[MayRequireIdeology]
+		public static ThingDef Plant_TreeGauranlen;
 	}
 
 	// [DefOf]

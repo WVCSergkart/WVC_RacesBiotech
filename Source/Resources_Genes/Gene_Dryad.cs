@@ -41,9 +41,22 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 60000;
 
-		public bool spawnDryads = false;
+		private bool spawnDryads = false;
 
-		public override void PostAdd()
+        public bool SpawnDryads
+        {
+            get
+            {
+                return spawnDryads;
+            }
+			set
+            {
+				spawnDryads = value;
+				//ResetInterval();
+			}
+        }
+
+        public override void PostAdd()
 		{
 			base.PostAdd();
 			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
@@ -66,8 +79,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void SpawnDryad()
-        {
-			string phase = "start";
+		{
+			if (!spawnDryads)
+			{
+				return;
+			}
+			if (!WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
+            {
+				spawnDryads = false;
+				return;
+            }
+            string phase = "start";
             try
 			{
 				if (dryads == null)
@@ -96,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 				phase = "spawn dryad sequence";
 				for (int i = 0; i < litterSize; i++)
 				{
-					if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
+					if (pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
 					{
 						return;
 					}
@@ -166,9 +188,13 @@ namespace WVC_XenotypesAndGenes
                 {
                     geneDryadQueen.Notify_DryadSpawned(dryad);
                 }
-            }
+			}
+            //if (dryad?.needs?.rest != null)
+            //{
+            //    dryad.needs.rest.CurLevel = dryad.needs.rest.MaxLevel;
+            //}
             HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-			// Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
+			Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
 			return dryad;
         }
 
@@ -236,13 +262,22 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResetInterval()
 		{
-			nextTick = Spawner.spawnIntervalRange.RandomInRange;
+			//nextTick = Spawner.spawnIntervalRange.RandomInRange;
+			CompProperties_TreeConnection compProperties_TreeConnection = MainDefOf.Plant_TreeGauranlen?.GetCompProperties<CompProperties_TreeConnection>();
+            float basicDays = (compProperties_TreeConnection != null ? compProperties_TreeConnection.spawnDays : 8);
+			//float humanGestationDays = pawn.RaceProps.gestationPeriodDays / 2;
+			//float ticks = (basicDays / humanGestationDays);
+			nextTick = (int)(basicDays * 60000);
 		}
 
 		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (!WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
+			{
+				yield break;
+			}
 			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
