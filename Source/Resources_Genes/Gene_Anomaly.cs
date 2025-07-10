@@ -126,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (ModsConfig.AnomalyActive && !pawn.Inhumanized())
+			if (ModsConfig.AnomalyActive && !pawn.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
 			{
 				pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
 			}

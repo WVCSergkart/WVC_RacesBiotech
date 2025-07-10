@@ -1,13 +1,11 @@
 // RimWorld.CompAbilityEffect_GiveHediff
 using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompAbilityEffect_ImplantImplanter : CompAbilityEffect
+    public class CompAbilityEffect_ImplantImplanter : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityGiveHediff Props => (CompProperties_AbilityGiveHediff)props;
@@ -34,36 +32,5 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
-	public class CompAbilityEffect_BodyPartsHarvest_Corpse : CompAbilityEffect
-	{
-
-		public new CompProperties_AbilityGiveHediff Props => (CompProperties_AbilityGiveHediff)props;
-
-		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-            if (target.Thing is Corpse corpse)
-			{
-				List<BodyPartRecord> parts = corpse.InnerPawn.health.hediffSet.GetNotMissingParts().Where((part) => !corpse.InnerPawn.health.hediffSet.GetInjuredParts().Contains(part) && !parent.pawn.health.hediffSet.HasBodyPart(part)).ToList();
-				if (parts.NullOrEmpty())
-                {
-					return;
-                }
-				Find.WindowStack.Add(new Dialog_BodyPartsHarvest(parent.pawn, corpse.InnerPawn, parts));
-            }
-        }
-
-        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            if (target.Thing is Corpse corpse && corpse.InnerPawn.IsHuman())
-            {
-                return true;
-            }
-            Messages.Message("WVC_XaG_GeneralWrongTarget".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
-            return false;
-        }
-
-    }
 
 }

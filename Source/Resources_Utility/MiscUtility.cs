@@ -352,6 +352,16 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<BodyPartDef> ConvertToDefs(this List<BodyPartRecord> abilities)
+		{
+			List<BodyPartDef> list = new();
+			foreach (BodyPartRecord item in abilities)
+			{
+				list.Add(item.def);
+			}
+			return list;
+		}
+
 		// Map
 
 		public static bool IsUnderground(this Map map)

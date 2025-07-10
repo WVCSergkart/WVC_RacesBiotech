@@ -323,7 +323,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void VoidInteraction(Pawn target)
 		{
-			if (ModsConfig.AnomalyActive && !target.Inhumanized())
+			if (ModsConfig.AnomalyActive && !target.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
 			{
 				target.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_VoidVoice".Translate(pawn.Named("PAWN"), target.Named("TARGET")), MentalBreakDefOf.HumanityBreak);
                 if (pawn.Map != null)
