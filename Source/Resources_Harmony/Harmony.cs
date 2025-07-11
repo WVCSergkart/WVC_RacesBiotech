@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
 					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
-					//harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexSpamFix))));
+					harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexSpamFix))));
 				}
 				//Log.Error("4");
 				//if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
@@ -680,7 +680,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool AnomalyCodexSpamFix(ref Gizmo __result, ref Thing thing)
 			{
-				if (thing is Pawn pawn && pawn.mutant.Def.codexEntry == null)
+				if (thing is Pawn pawn && pawn.IsMutant && pawn.mutant?.Def?.codexEntry == null)
 				{
 					__result = null;
 					return false;
