@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Current.ProgramState != ProgramState.Playing || pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
+			if (MiscUtility.GameNotStarted() || pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
 			{
 				nextTick = new IntRange(100000, 300000).RandomInRange;
 			}

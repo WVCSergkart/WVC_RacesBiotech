@@ -66,6 +66,10 @@ namespace WVC_XenotypesAndGenes
 		public override void TickInterval(int delta)
 		{
 			//base.Tick();
+			if (!spawnDryads)
+			{
+				return;
+			}
 			nextTick -= delta;
 			if (nextTick > 0)
 			{
@@ -80,10 +84,6 @@ namespace WVC_XenotypesAndGenes
 
 		private void SpawnDryad()
 		{
-			if (!spawnDryads)
-			{
-				return;
-			}
 			if (!WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
             {
 				spawnDryads = false;

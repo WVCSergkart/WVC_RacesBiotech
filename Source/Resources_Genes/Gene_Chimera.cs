@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
         {
             base.PostAdd();
             UpdateMetabolism();
-            if (Current.ProgramState != ProgramState.Playing)
+            if (MiscUtility.GameNotStarted())
             {
                 StarterPackSetup();
                 NPC_RandomGeneSetSetup();

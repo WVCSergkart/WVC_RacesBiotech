@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gender : Gene
+	public class Gene_Gender : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -14,15 +14,15 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!Active)
-			{
-				return;
-			}
 			ChangeGender();
 		}
 
 		public void ChangeGender()
 		{
+			if (!Active)
+			{
+				return;
+			}
 			if (pawn.gender == Props.gender)
 			{
 				return;
@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Male;
 			}
-            if (Current.ProgramState != ProgramState.Playing && pawn.Name is NameTriple nameTriple)
+            if (MiscUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
             {
                 pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
 			}
@@ -55,18 +55,22 @@ namespace WVC_XenotypesAndGenes
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
-	}
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
 
-	public class Gene_Feminine : Gene_Exoskin, IGeneLifeStageStarted, IGeneOverridden
-	{
+        }
 
-		public override void PostAdd()
+        public void Notify_Override()
 		{
-			base.PostAdd();
-			ChangeBodyType();
+			ChangeGender();
 		}
 
-		public void ChangeBodyType()
+    }
+
+	public class Gene_Feminine : Gene_GauntSkin
+	{
+
+		public override void ChangeBodyType()
 		{
 			if (!Active)
 			{
@@ -83,14 +87,9 @@ namespace WVC_XenotypesAndGenes
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+		public override void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			Remove();
-		}
-
-		public void Notify_Override()
-		{
-			ChangeBodyType();
 		}
 
 		public override void PostRemove()
@@ -117,11 +116,6 @@ namespace WVC_XenotypesAndGenes
 		// base.ExposeData();
 		// ChangeBodyType();
 		// }
-
-		public void Notify_LifeStageStarted()
-		{
-			ChangeBodyType();
-		}
 
 	}
 

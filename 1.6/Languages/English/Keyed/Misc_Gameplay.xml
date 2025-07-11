@@ -903,6 +903,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes> -->
 	<!-- <WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes> -->
 
+	<!-- ========== GENE SKINSHAPER ========== -->
+
+	<WVC_XaG_GeneSkinshaper_Desc>Allows to implant one of the prepared cosmetic presets with a unique skin.</WVC_XaG_GeneSkinshaper_Desc>
+	<WVC_XaG_GeneSkinshaper_FailImplant>Implantation is not possible. The genset is not compatible with the selected preset.</WVC_XaG_GeneSkinshaper_FailImplant>
+
 	<!-- ========== GENE CELLULAR ========== -->
 
 	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
@@ -1042,6 +1047,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControlMechsSummonAbilityDesc>After activating the ability, summons several mechanoids that will automatically attach to the mechanitor.</WVC_XaG_RemoteControlMechsSummonAbilityDesc>
 
 	<!-- <WVC_XaG_RemoteControlColorableEyesDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlColorableEyesDesc> -->
+
+	<WVC_XaG_RemoteControlFloatMenu>List</WVC_XaG_RemoteControlFloatMenu>
+	<WVC_XaG_RemoteControlFloatMenu_Desc>Opens a drop list with several options.</WVC_XaG_RemoteControlFloatMenu_Desc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 

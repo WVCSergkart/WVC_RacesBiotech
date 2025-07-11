@@ -317,6 +317,9 @@ namespace WVC_XenotypesAndGenes
 		//public float maxVoidEnergyOffset = 0f;
 		//Subhumans
 		public MutantDef mutantDef;
+		//Skinshaper
+		public List<GeneSetPresets> geneSetPresets;
+		public GeneSetPresets geneSetByDefault;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

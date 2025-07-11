@@ -6,6 +6,7 @@ namespace WVC_XenotypesAndGenes
     public class GeneSetPresets : IExposable
 	{
 
+		[MustTranslate]
 		public string name;
 
 		public List<GeneDef> geneDefs = new();

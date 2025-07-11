@@ -16,6 +16,11 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool GameNotStarted()
+		{
+			return Current.ProgramState != ProgramState.Playing;
+		}
+
 		//public static void BackCompatability()
 		//{
 		//	foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())

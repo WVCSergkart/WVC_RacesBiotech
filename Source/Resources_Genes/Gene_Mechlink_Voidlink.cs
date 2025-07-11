@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
-			if (Current.ProgramState == ProgramState.Playing)
+			if (!MiscUtility.GameNotStarted())
 			{
 				return;
 			}

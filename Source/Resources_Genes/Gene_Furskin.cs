@@ -77,11 +77,11 @@ namespace WVC_XenotypesAndGenes
 			ChangeBodyType();
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 		}
 
-		public void Notify_Override()
+		public virtual void Notify_Override()
 		{
 			ChangeBodyType();
 		}

@@ -14,7 +14,11 @@ namespace WVC_XenotypesAndGenes
 			[HarmonyPrefix]
 			public static bool DisablePawnRelations(Pawn pawn)
 			{
-				if (!XaG_GeneUtility.HasAnyActiveGene(new() { MainDefOf.WVC_FemaleOnly, MainDefOf.WVC_MaleOnly }, pawn))
+				//if (!XaG_GeneUtility.HasAnyActiveGene(new() { MainDefOf.WVC_FemaleOnly, MainDefOf.WVC_MaleOnly }, pawn))
+				//{
+				//	return true;
+				//}
+				if (pawn.genes?.GetFirstGeneOfType<Gene_Gender>() == null)
 				{
 					return true;
 				}

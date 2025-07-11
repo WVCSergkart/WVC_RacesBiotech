@@ -6,8 +6,8 @@ namespace WVC_XenotypesAndGenes
 	[DefOf]
 	public static class MainDefOf
 	{
-		public static GeneDef WVC_FemaleOnly;
-		public static GeneDef WVC_MaleOnly;
+		//public static GeneDef WVC_FemaleOnly;
+		//public static GeneDef WVC_MaleOnly;
 		// Xenotype
 		public static GeneDef Hair_SnowWhite;
 		public static GeneDef Skin_SheerWhite;

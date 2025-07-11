@@ -242,7 +242,7 @@ namespace WVC_XenotypesAndGenes
                 {
 					continue;
                 }
-				if (Current.ProgramState == ProgramState.Playing && item.Icon == null)
+				if (!MiscUtility.GameNotStarted() && item.Icon == null)
 				{
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
 					continue;
@@ -252,7 +252,7 @@ namespace WVC_XenotypesAndGenes
 					list.Add(item);
 				}
 			}
-			if (Current.ProgramState == ProgramState.Playing)
+			if (!MiscUtility.GameNotStarted())
 			{
 				cachedAllXenotypesExceptAndroids = list;
 			}

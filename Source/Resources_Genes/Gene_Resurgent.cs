@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Reset()
         {
             base.Reset();
-            if (Current.ProgramState != ProgramState.Playing)
+            if (MiscUtility.GameNotStarted())
             {
                 Value = new FloatRange(0.06f, 0.97f).RandomInRange;
             }

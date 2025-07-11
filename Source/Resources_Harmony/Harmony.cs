@@ -53,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
 					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
+					harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexSpamFix))));
 				}
 				//Log.Error("4");
 				//if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
@@ -641,43 +642,55 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 
-   //         public static void XenosculpterPod_OrderToPod_Patch(ref CompBiosculpterPod_Cycle cycle)
-   //         {
-   //             if (cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
+			//         public static void XenosculpterPod_OrderToPod_Patch(ref CompBiosculpterPod_Cycle cycle)
+			//         {
+			//             if (cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
 			//	{
 			//		holderCycle.StartCycle();
 			//	}
-   //         }
+			//         }
 
-            // FoodPolicy
+			// FoodPolicy
 
-            // public static void StartingFoodRestrictions(List<FoodPolicy> ___foodRestrictions, FoodRestrictionDatabase __instance)
-            // {
-            // List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
-            // FoodPolicy bloodEaterFoodPolicy = __instance.MakeNewFoodRestriction();
-            // bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
-            // foreach (ThingDef item in thingDefs.Where((ThingDef x) => x.ingestible != null))
-            // {
-            // if (item.ingestible.foodType == FoodTypeFlags.Fluid)
-            // {
-            // bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
-            // }
-            // else
-            // {
-            // bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
-            // }
-            // }
-            // FoodPolicy energyFoodPolicy = __instance.MakeNewFoodRestriction();
-            // energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
-            // foreach (ThingDef item in thingDefs)
-            // {
-            // energyFoodPolicy.filter.SetAllow(item, allow: false);
-            // }
-            // }
+			// public static void StartingFoodRestrictions(List<FoodPolicy> ___foodRestrictions, FoodRestrictionDatabase __instance)
+			// {
+			// List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
+			// FoodPolicy bloodEaterFoodPolicy = __instance.MakeNewFoodRestriction();
+			// bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
+			// foreach (ThingDef item in thingDefs.Where((ThingDef x) => x.ingestible != null))
+			// {
+			// if (item.ingestible.foodType == FoodTypeFlags.Fluid)
+			// {
+			// bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+			// }
+			// else
+			// {
+			// bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
+			// }
+			// }
+			// FoodPolicy energyFoodPolicy = __instance.MakeNewFoodRestriction();
+			// energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
+			// foreach (ThingDef item in thingDefs)
+			// {
+			// energyFoodPolicy.filter.SetAllow(item, allow: false);
+			// }
+			// }
 
-            // Dev TESTS
+			// Codex spam fix
 
-            public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+			public static bool AnomalyCodexSpamFix(ref Gizmo __result, ref Thing thing)
+			{
+				if (thing is Pawn pawn && pawn.mutant.Def.codexEntry == null)
+				{
+					__result = null;
+					return false;
+				}
+				return true;
+			}
+
+			// Dev TESTS
+
+			public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
 			{
 				if (__instance.pawn.Map == null)
 				{

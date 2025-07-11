@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Current.ProgramState != ProgramState.Playing)
+			if (MiscUtility.GameNotStarted())
 			{
 				Scarify();
 			}
