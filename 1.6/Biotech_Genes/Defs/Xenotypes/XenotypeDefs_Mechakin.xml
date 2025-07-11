@@ -53,6 +53,7 @@
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- New -->
 		<!-- <li>WVC_RechargeableStomach</li> -->
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
 	</genes>
   </XenotypeDef>
 

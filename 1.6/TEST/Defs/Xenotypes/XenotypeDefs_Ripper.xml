@@ -48,6 +48,7 @@
 		<li>WVC_HemogenScarless</li>
 		<li>WVC_WoundHealing_Hemogen</li>
 		<li>WVC_VoidHunger</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
