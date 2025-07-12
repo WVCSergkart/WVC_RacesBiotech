@@ -1,5 +1,6 @@
 // RimWorld.CompProperties_Toxifier
 using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,6 +32,22 @@ namespace WVC_XenotypesAndGenes
 	public class CompDryadHolder_WithGene : CompDryadHolder
 	{
 
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (innerContainer.Count > 0)
+			{
+				dryadRef = (Pawn)innerContainer[0];
+			}
+			else if (dryadRef != null)
+			{
+				//if (dryadRef.IsWorldPawn())
+				//{
+				//	Find.WorldPawns.PassToWorld(dryadRef);
+				//}
+				innerContainer.TryAddOrTransfer(dryadRef, 1);
+			}
+		}
+
 		[Unsaved(false)]
 		private Pawn cachedDryadPawn;
 
@@ -40,11 +57,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedDryadPawn == null)
 				{
-					cachedDryadPawn = GetDirectlyHeldThings().FirstOrDefault() is Pawn pawn ? pawn : null;
+					cachedDryadPawn = GetDirectlyHeldThings().FirstOrDefault() is Pawn pawn ? pawn : dryadRef;
 				}
 				return cachedDryadPawn;
 			}
 		}
+
+		public Pawn dryadRef;
 
 		[Unsaved(false)]
 		private CompGestatedDryad cachedDryadComp;
@@ -96,6 +115,12 @@ namespace WVC_XenotypesAndGenes
 		{
 		}
 
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_References.Look(ref dryadRef, "draydRef");
+		}
+
 	}
 
 	// Cocoon
@@ -113,7 +138,10 @@ namespace WVC_XenotypesAndGenes
 				innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
 				tickExpire = Find.TickManager.TicksGame + 600;
 			}
+			base.PostSpawnSetup(respawningAfterLoad);
 		}
+
+
 
 		public override void TryAcceptPawn(Pawn p)
 		{
@@ -125,27 +153,45 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		protected override void Complete()
-		{
-			tickComplete = Find.TickManager.TicksGame;
-			// CompTreeConnection treeComp = base.TreeComp;
-			if (DryadComp != null && innerContainer.Count > 0)
+        {
+            try
 			{
-				Pawn pawn = (Pawn)innerContainer[0];
-				long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
-				DryadComp.Gene_DryadQueen.RemoveDryad(pawn);
-				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(dryadKind);
-				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
-				if (!pawn.Name.Numerical)
+				tickComplete = Find.TickManager.TicksGame;
+				// CompTreeConnection treeComp = base.TreeComp;
+				if (dryadRef != null)
 				{
-					pawn2.Name = pawn.Name;
+					Pawn pawn = dryadRef;
+					long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
+					DryadComp.Gene_DryadQueen.RemoveDryad(pawn);
+					Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(dryadKind);
+					pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
+					if (!pawn.Name.Numerical)
+					{
+						pawn2.Name = pawn.Name;
+					}
+					CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
+					newPawnComp.currentMode = DryadComp.currentMode;
+					pawn.Destroy();
+					innerContainer.TryAddOrTransfer(pawn2, 1);
+					EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
 				}
+				parent.Destroy();
+			}
+            catch
+            {
+				Log.Warning("Failed get old pawn info. Generate new.");
+				if (dryadRef != null)
+				{
+					DryadComp.Gene_DryadQueen.RemoveDryad(dryadRef);
+					dryadRef.Kill(null);
+					dryadRef.Destroy();
+				}
+				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(dryadKind);
 				CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
 				newPawnComp.currentMode = DryadComp.currentMode;
-				pawn.Destroy();
 				innerContainer.TryAddOrTransfer(pawn2, 1);
 				EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
 			}
-			parent.Destroy();
 		}
 
 		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
@@ -211,6 +257,7 @@ namespace WVC_XenotypesAndGenes
 				innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
 				tickExpire = Find.TickManager.TicksGame + 600;
 			}
+			base.PostSpawnSetup(respawningAfterLoad);
 		}
 
 		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
