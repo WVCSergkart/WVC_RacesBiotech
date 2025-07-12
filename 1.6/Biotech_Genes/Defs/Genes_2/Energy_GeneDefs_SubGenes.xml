@@ -176,6 +176,7 @@
 	<displayCategory>WVC_Energy</displayCategory>
 	<displayOrderInCategory>80</displayOrderInCategory>
 	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<immuneToVacuumBurns>true</immuneToVacuumBurns>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -187,6 +188,7 @@
 	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+	  <VacuumResistance MayRequire="ludeon.rimworld.odyssey">1</VacuumResistance>
 	</statOffsets>
 	<makeImmuneTo>
 	  <li>LungRot</li>
@@ -203,6 +205,7 @@
 		<li><symbol>adapt</symbol></li>
 		<li><symbol>sun</symbol></li>
 		<li><symbol>tox</symbol></li>
+		<li><symbol>vacuum</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
