@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 						new CurvePoint(1000f, 5f)
 					};
 					float mutationsCount = (float)Math.Round(ageCurve.Evaluate(pawn.ageTracker.AgeChronologicalYearsFloat), 0);
-					ScenPart_PawnModifier_XenotypesAndGenes.Mutations(pawn, mutationsCount);
+					HediffUtility.SetMutations(pawn, mutationsCount);
 				}
 				nextTick = new IntRange(100000, 300000).RandomInRange;
 			}
@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void TryGiveMutation()
 		{
-			if (Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
 				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
 				{

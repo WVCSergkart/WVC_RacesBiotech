@@ -231,27 +231,6 @@ namespace WVC_XenotypesAndGenes
             DuplicateUtility.NullifySkills(p, true);
         }
 
-        public static void Mutations(Pawn p, float startingMutations)
-        {
-            if (startingMutations <= 0)
-            {
-                return;
-            }
-            int cycleTry = 0;
-            int nextMutation = 0;
-            while (cycleTry < 10 + startingMutations && nextMutation < startingMutations)
-            {
-                if (Gene_MorphMutations.TryGetBestMutation(p, out HediffDef mutation))
-                {
-                    if (HediffUtility.TryGiveFleshmassMutation(p, mutation))
-                    {
-                        nextMutation++;
-                    }
-                }
-                cycleTry++;
-            }
-        }
-
         private void AgeCorrection(Pawn p)
         {
             if (additionalChronoAge.max > 0)

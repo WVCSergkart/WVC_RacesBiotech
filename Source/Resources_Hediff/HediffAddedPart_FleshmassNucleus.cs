@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public int maxMutationLevel = 5;
 
-		public List<StatDef> ignoredStatDefs = new()
+		public static List<StatDef> IgnoredStatDefs = new()
 		{
 			StatDefOf.PawnBeauty
 		};
@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (curStage == null)
                 {
-                    GetHediffStage(def, ref curStage, def.stages[CurStageIndex], mutationLevel, ignoredStatDefs);
+                    GetHediffStage(def, ref curStage, def.stages[CurStageIndex], mutationLevel, IgnoredStatDefs);
                 }
                 return curStage;
 			}
@@ -151,17 +151,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
     }
+
     //public class HediffImplant_FleshmassNucleus : Hediff_Implant
     //{
 
     //    private int mutationLevel = 0;
 
-    //    public int maxMutationLevel = 5;
+    //    public override float PainOffset => 0f;
 
-    //    public List<StatDef> ignoredStatDefs = new()
-    //    {
-    //        StatDefOf.PawnBeauty
-    //    };
+    //    public override float PainFactor => 1f;
 
     //    private HediffStage curStage;
 
@@ -173,13 +171,13 @@ namespace WVC_XenotypesAndGenes
     //        {
     //            if (curStage == null)
     //            {
-    //                HediffAddedPart_FleshmassNucleus.GetHediffStage(def, ref curStage, def.stages[CurStageIndex], mutationLevel, ignoredStatDefs);
+    //                HediffAddedPart_FleshmassNucleus.GetHediffStage(def, ref curStage, def.stages[CurStageIndex], mutationLevel, HediffAddedPart_FleshmassNucleus.IgnoredStatDefs);
     //            }
     //            return curStage;
     //        }
     //    }
 
-    //    public bool CanLevelUp => mutationLevel < maxMutationLevel;
+    //    public int CurrentLevel => mutationLevel;
 
     //    public void LevelUp()
     //    {
@@ -192,7 +190,6 @@ namespace WVC_XenotypesAndGenes
     //    {
     //        base.ExposeData();
     //        Scribe_Values.Look(ref mutationLevel, "mutationLevel", 0);
-    //        Scribe_Values.Look(ref maxMutationLevel, "maxMutationLevel", 5);
     //    }
 
     //}

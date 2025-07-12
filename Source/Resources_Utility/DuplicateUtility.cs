@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					num++;
 				}
-                Gene_MorphMutations.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
+				HediffUtility.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
                 if (num == 3 && mutation == null)
 				{
 					num++;

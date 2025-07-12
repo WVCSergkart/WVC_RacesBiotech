@@ -65,23 +65,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryGetBestMutation(pawn, out HediffDef mutation))
+			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation))
 			{
 				FleshbeastUtility.TryGiveMutation(pawn, mutation);
 			}
 		}
 
-		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
-		{
-			mutation = null;
-			if (DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => hediffDef.defaultInstallPart != null && hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && hediffDef.IsHediffDefOfType<Hediff_AddedPart>()).TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
-            {
-				mutation = mutationHediff;
-			}
-			return mutation != null;
-		}
-
-	}
+    }
 
     public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{

@@ -10,6 +10,56 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		private static List<HediffDef> cachedMutationDefs;
+		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
+		{
+			if (cachedMutationDefs == null)
+			{
+				cachedMutationDefs = DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => FilterOutMutations(hediffDef)).ToList();
+			}
+			mutation = null;
+			if (cachedMutationDefs.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+			{
+				mutation = mutationHediff;
+			}
+			return mutation != null;
+
+			static bool FilterOutMutations(HediffDef hediffDef)
+			{
+				return hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && (BestSolidMutation(hediffDef));
+
+				static bool BestSolidMutation(HediffDef hediffDef)
+				{
+					return hediffDef.defaultInstallPart != null && hediffDef.IsHediffDefOfType<Hediff_AddedPart>();
+				}
+				//static bool BestImplantMutation(HediffDef hediffDef)
+				//{
+				//	return hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && hediffDef.IsHediffDefOfType<Hediff_Implant>();
+				//}
+			}
+		}
+
+		public static void SetMutations(Pawn p, float startingMutations)
+		{
+			if (startingMutations <= 0)
+			{
+				return;
+			}
+			int cycleTry = 0;
+			int nextMutation = 0;
+			while (cycleTry < 10 + startingMutations && nextMutation < startingMutations)
+			{
+				if (TryGetBestMutation(p, out HediffDef mutation))
+				{
+					if (HediffUtility.TryGiveFleshmassMutation(p, mutation, false))
+					{
+						nextMutation++;
+					}
+				}
+				cycleTry++;
+			}
+		}
+
 		private static HediffDef metHediffDef;
 		public static HediffDef MetHediffDef
 		{
@@ -68,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef)
+		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef, bool bloodLoss = true)
         {
             if (!ModsConfig.AnomalyActive)
             {
@@ -126,7 +176,10 @@ namespace WVC_XenotypesAndGenes
    //         {
 			//	hediffImplant_FleshmassNucleus.maxMutationLevel = maxMutationLevel;
 			//}
-			MutationMeatSplatter(pawn);
+			if (bloodLoss)
+			{
+				MutationMeatSplatter(pawn);
+			}
 			return true;
         }
 
