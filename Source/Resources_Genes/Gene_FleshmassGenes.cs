@@ -21,9 +21,27 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameNotStarted() || pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
+			if (MiscUtility.GameNotStarted())
 			{
+				if (pawn.ageTracker.AgeBiologicalYearsFloat > 16)
+				{
+					SimpleCurve ageCurve = new()
+					{
+						new CurvePoint(18f, 0f),
+						new CurvePoint(27f, 1f),
+						new CurvePoint(86f, 2f),
+						new CurvePoint(126f, 3f),
+						new CurvePoint(654f, 4f),
+						new CurvePoint(1000f, 5f)
+					};
+					float mutationsCount = (float)Math.Round(ageCurve.Evaluate(pawn.ageTracker.AgeChronologicalYearsFloat), 0);
+					ScenPart_PawnModifier_XenotypesAndGenes.Mutations(pawn, mutationsCount);
+				}
 				nextTick = new IntRange(100000, 300000).RandomInRange;
+			}
+			if (pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
+			{
+				nextTick = new IntRange(150000, 300000).RandomInRange;
 			}
 			else
 			{

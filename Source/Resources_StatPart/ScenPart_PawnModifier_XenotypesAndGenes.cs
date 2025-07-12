@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
             //ChimeraEvolve(p);
             //Void(p);
             ChimeraGenes(p);
-            Mutations(p);
+            //Mutations(p);
             AgeCorrection(p);
             Skills(p);
             SetPregnant(p);
@@ -231,7 +231,7 @@ namespace WVC_XenotypesAndGenes
             DuplicateUtility.NullifySkills(p, true);
         }
 
-        private void Mutations(Pawn p)
+        public static void Mutations(Pawn p, float startingMutations)
         {
             if (startingMutations <= 0)
             {
