@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class HediffWithComps_DryadQueen : HediffWithComps
 	{
 
-		public int refreshInterval = 41982;
+		public int nextTick = 121;
 
 		private HediffStage curStage;
 
@@ -54,9 +54,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public override void PostTickInterval(int delta)
+		//{
+		//	if (!pawn.IsHashIntervalTick(refreshInterval, delta))
+		//	{
+		//		return;
+		//	}
+		//	Recache();
+		//}
+
 		public override void PostTickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(refreshInterval, delta))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 41982, delta))
 			{
 				return;
 			}
@@ -70,6 +79,21 @@ namespace WVC_XenotypesAndGenes
 				pawn?.health?.RemoveHediff(this);
 			}
 			curStage = null;
+		}
+
+		public override void PostRemoved()
+		{
+			base.PostRemoved();
+			if (pawn.genes.GenesListForReading.Any((gene) => gene is Gene_DryadQueen && gene.Active))
+			{
+				if (HediffUtility.TryAddHediff(def, pawn, null, null))
+				{
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
+				}
+			}
 		}
 
 	}

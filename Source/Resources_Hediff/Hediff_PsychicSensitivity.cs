@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public int cachedGenes = 0;
-		public int nextTick = 60189;
+		public int nextTick = 114;
 
 		private HediffStage curStage;
 

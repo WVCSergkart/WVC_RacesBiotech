@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class HediffWithComps_VoidMechanitor : HediffWithComps
 	{
 
-		public int refreshInterval = 56282;
+		public int nextTick = 4;
 
 		private HediffStage curStage;
 
@@ -94,9 +94,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public override void PostTickInterval(int delta)
+		//{
+		//	if (!pawn.IsHashIntervalTick(nextTick, delta))
+		//	{
+		//		return;
+		//	}
+		//	Recache();
+		//}
+
 		public override void PostTickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(refreshInterval, delta))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 56282, delta))
 			{
 				return;
 			}

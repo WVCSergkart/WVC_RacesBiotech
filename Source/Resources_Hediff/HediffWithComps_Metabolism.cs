@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public int cachedMetabolism = 0;
-		public int nextTick = 59389;
+		public int nextTick = 122;
 
 		private HediffStage curStage;
 

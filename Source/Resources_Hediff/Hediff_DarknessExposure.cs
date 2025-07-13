@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			nextTick--;
+			nextTick -= delta;
 			if (nextTick > 0)
 			{
 				return;
