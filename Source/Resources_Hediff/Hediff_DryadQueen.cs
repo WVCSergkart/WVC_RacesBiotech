@@ -40,14 +40,18 @@ namespace WVC_XenotypesAndGenes
 				{
 					curStage = new();
 					if (Gauranlen != null && Gauranlen.DryadsListForReading.Count > 0)
+                    {
+						savedDryadsCount = Gauranlen.DryadsListForReading.Count;
+					}
+					if (savedDryadsCount.HasValue)
 					{
 						StatModifier statModifier = new()
 						{
 							stat = StatDefOf.MaxNutrition,
-							value = 0.1f * Gauranlen.DryadsListForReading.Count
+							value = 0.1f * savedDryadsCount.Value
 						};
 						curStage.statOffsets = new List<StatModifier> { statModifier };
-						curStage.hungerRateFactor = 1f + (0.1f * Gauranlen.DryadsListForReading.Count);
+						curStage.hungerRateFactor = 1f + (0.1f * savedDryadsCount.Value);
 					}
 				}
 				return curStage;
@@ -62,6 +66,14 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//	Recache();
 		//}
+
+		private float? savedDryadsCount;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref savedDryadsCount, "savedDryadsCount");
+		}
 
 		public override void PostTickInterval(int delta)
 		{

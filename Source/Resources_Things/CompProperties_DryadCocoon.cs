@@ -40,10 +40,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (dryadRef != null)
 			{
-				//if (dryadRef.IsWorldPawn())
-				//{
-				//	Find.WorldPawns.PassToWorld(dryadRef);
-				//}
+                //if (dryadRef.IsWorldPawn())
+                //{
+                //    Find.WorldPawns.PassToWorld(dryadRef);
+                //}
+				if (!dryadRef.Faction.IsPlayer)
+				{
+					dryadRef.SetFaction(Faction.OfPlayer);
+				}
 				innerContainer.TryAddOrTransfer(dryadRef, 1);
 			}
 		}
@@ -104,6 +108,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			bool num = p.DeSpawnOrDeselect();
 			innerContainer.TryAddOrTransfer(p, 1);
+			dryadRef = p;
 			if (num)
 			{
 				Find.Selector.Select(p, playSound: false, forceDesignatorDeselect: false);

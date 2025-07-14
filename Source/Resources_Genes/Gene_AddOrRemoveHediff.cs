@@ -26,17 +26,22 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Error in Gene_AddOrRemoveHediff in def: " + def.defName + ". Reason: " + arg);
+				Log.Error("Error in Gene_AddOrRemoveHediff in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
 			}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			//if (overriddenBy != null)
+			//{
+			//	Log.Error("Override gene: " + overriddenBy.def.defName);
+			//}
+            HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
 		public void Notify_Override()
         {
+			//Log.Error("Override with null gene");
 			Local_AddOrRemoveHediff();
 		}
 
