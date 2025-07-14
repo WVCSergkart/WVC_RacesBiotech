@@ -66,6 +66,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneRipper.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_Maneater.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
     <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />

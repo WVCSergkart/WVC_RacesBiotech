@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_Maneater</defName>
+	<label>maneater</label>
+	<description>Carriers of this gene have corrupted archites capable of disassembling a person into atoms in seconds, absorbing the genetic code and converting the victim into reserves of nutrients.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_Maneater</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Maneater</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Allows to kill any human pawn, completely &lt;color=#8a8ae6&gt;absorbing all genes&lt;/color&gt; and gaining a long-lasting &lt;color=#8a8ae6&gt;hunger buff&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <selectionWeight>0.01</selectionWeight> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_Maneater</defName>
+	<label>maneater</label>
+	<description>Dismantle the target into atoms, absorbing the genetic code and converting the victim into nutrient reserves.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>35000</cooldownTicksRange>
+	<hostile>true</hostile>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <violent>true</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Maneater</compClass>
+		<!-- <allOtherPawnsAboutMe>WVC_OthersAboutManeEater</allOtherPawnsAboutMe> -->
+		<!-- <allOtherPawns>WVC_ManEaterFriendlyFire</allOtherPawns> -->
+		<hediffDef>WVC_Chimera_Maneater</hediffDef>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_Maneater</defName>
+	<label>maneater nutritions</label>
+	<description>The nutrients absorbed by archites will significantly reduce the consumption of nutrients in the body.</description>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.1</hungerRateFactor>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>120000~220000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+</Defs>

@@ -37,7 +37,7 @@
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
 	<costList>
-	  <Plasteel>30</Plasteel>
+	  <Steel>50</Steel>
 	  <ComponentIndustrial>4</ComponentIndustrial>
 	</costList>
 	<statBases>
@@ -111,7 +111,7 @@
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>
-	  <Uranium>15</Uranium>
+	  <Plasteel>15</Plasteel>
 	</costList>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
@@ -127,7 +127,7 @@
 	</statBases>
 	<costList>
 	  <ArchiteCapsule>1</ArchiteCapsule>
-	  <Uranium>15</Uranium>
+	  <Plasteel>15</Plasteel>
 	</costList>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ArchiteSerum_v1</texPath>
@@ -150,7 +150,7 @@
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
 	<costList>
-	  <Uranium>30</Uranium>
+	  <Plasteel>30</Plasteel>
 	  <ArchiteCapsule>2</ArchiteCapsule>
 	</costList>
 	<graphicData>

@@ -680,7 +680,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool AnomalyCodexNullRefFix(ref Gizmo __result, ref Thing thing)
 			{
-				if (thing is Pawn pawn && pawn.mutant?.Def?.codexEntry == null)
+				if (thing is Pawn pawn && pawn.IsMutant && pawn.mutant.Def?.codexEntry == null)
 				{
 					__result = null;
 					return false;

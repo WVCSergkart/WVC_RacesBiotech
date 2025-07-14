@@ -14,6 +14,12 @@ namespace WVC_XenotypesAndGenes
 
         public ThoughtDef opinionThoughtDefToGiveTarget;
 
+        public ThoughtDef allOtherPawnsAboutMe;
+
+        public ThoughtDef allOtherPawns;
+
+        public HediffDef hediffDef;
+
         // public float resistanceGain;
 
         // public float nutritionGain = 0.2f;
@@ -316,6 +322,6 @@ namespace WVC_XenotypesAndGenes
             return base.Valid(target, throwMessages);
         }
 
-	}
+    }
 
 }
