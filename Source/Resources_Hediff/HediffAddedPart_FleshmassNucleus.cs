@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
                         curStage.partEfficiencyOffset = mutationLevel * 0.04f;
                 }
                 if (curStage.regeneration > 0f)
-                    curStage.regeneration += mutationLevel * 1f;
+                    curStage.regeneration += mutationLevel;
                 else
                     curStage.regeneration = mutationLevel * 2f;
                 if (mutationLevel >= 5)

@@ -127,7 +127,7 @@
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_ShapeshifterSerums</defName>
 	<label>shift serums</label>
-	<description>Complex serums for gene manipulation. For example, some of them allow you to get rid of shapeshift coma.</description>
+	<description>Complex serums for gene manipulation.</description>
 	<baseCost>1700</baseCost>
 	<researchViewX>2.00</researchViewX>
 	<researchViewY>5.50</researchViewY>

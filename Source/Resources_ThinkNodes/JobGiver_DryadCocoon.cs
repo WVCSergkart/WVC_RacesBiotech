@@ -104,11 +104,11 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.Do(delegate
 			{
 				// IntVec3 result = null;
-				if (CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near))
+				if ((!ModsConfig.OdysseyActive || pawn.Map?.Biome != BiomeDefOf.Space) && CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near))
 				{
 					job.targetB = near;
 				}
-				else if (CellFinder.TryFindRandomCell(pawn.Map, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var any))
+				else if (CellFinder.TryFindRandomCell(pawn.Map, (IntVec3 c) => !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var any))
 				{
 					job.targetB = any;
 				}

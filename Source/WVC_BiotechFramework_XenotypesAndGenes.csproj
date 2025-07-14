@@ -73,7 +73,6 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_Duplicator.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityMechfeed.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
-    <Compile Include="Obsolete_0\CompAbilityEffect_ReimplanterFromGeneReimplanter.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_PostImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
@@ -98,7 +97,6 @@
     <Compile Include="Resources_Genes\Gene_Mechlink_Voidlink.cs" />
     <Compile Include="Resources_Genes\Gene_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera_PsychicHarvester.cs" />
-    <Compile Include="Obsolete_0\Gene_ObsoleteReimplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink_Golemlink.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
@@ -179,12 +177,10 @@
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
-    <Compile Include="Obsolete_0\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingGene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
-    <Compile Include="Obsolete_0\Dialog_XenotypesBase.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Chimera.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
@@ -237,7 +233,7 @@
     <Compile Include="Resources_Things\CompUseEffect_XenogermSerum.cs" />
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
-    <Compile Include="Resources_Thought\MentalStateWorker_Duplicator.cs" />
+    <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
@@ -245,16 +241,18 @@
     <Compile Include="Resources_Utility\InitialUtility.cs" />
     <Compile Include="Resources_Utility\InteractionUtility.cs" />
     <Compile Include="Resources_Utility\TraitsUtility.cs" />
-    <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
-    <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
-    <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />
-    <Compile Include="Resources_Workers\JobDriver_ChangeMorpherTriggerGene.cs" />
-    <Compile Include="Resources_Workers\JobDriver_DestroyCellularBody.cs" />
-    <Compile Include="Resources_Workers\JobDriver_DevourEntitie.cs" />
-    <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
-    <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
-    <Compile Include="Resources_Workers\JobDriver_StomachCharge.cs" />
-    <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_AbsorbGenogerm.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_BiteTarget.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_ChangeGolemType.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_ChangeMorpherTriggerGene.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_DestroyCellularBody.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_DevourEntitie.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_FeedTargetWithOwnBlood.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_RetuneSerum.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_StomachCharge.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_AIDefendConnectedPawn.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_AIFollowConnectedPawn.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_NewDefs\SubXenotypeDefs.cs" />
@@ -315,16 +313,23 @@
     <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
     <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
-    <Compile Include="Resources_Workers\JobGiver_DryadWork.cs" />
-    <Compile Include="Resources_Workers\SpecialTrees.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_RescueConnectedPawn.cs" />
+    <Compile Include="Resources_Main\SpecialTrees.cs" />
     <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
     <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Resources_Workers\JobDriver_ResurrectAndChangeXenotype.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_ResurrectAndChangeXenotype.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_WanderNearConnectedPawn.cs" />
+    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalAllowWanderNearMaster.cs" />
+    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalGestatedDryad.cs" />
+    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalShouldFollowConnectedPawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Obsolete_0\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

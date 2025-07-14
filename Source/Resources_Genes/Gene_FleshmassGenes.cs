@@ -46,15 +46,41 @@ namespace WVC_XenotypesAndGenes
 			else
 			{
 				nextTick = 300000;
-			}
-		}
+            }
+        }
 
-		public override void TickInterval(int delta)
+
+		//private int? cachedRegen;
+		//public int RegenRate
+		//{
+		//	get
+		//	{
+		//		if (!cachedRegen.HasValue)
+		//		{
+		//			int regen = 0;
+		//			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+		//			{
+		//				if (hediff is HediffAddedPart_FleshmassNucleus fleshHediff)
+		//				{
+		//					regen += fleshHediff.CurrentLevel;
+		//				}
+		//			}
+		//			cachedRegen = regen;
+		//		}
+		//		return cachedRegen.Value;
+		//	}
+		//}
+
+        public override void TickInterval(int delta)
 		{
 			if (GeneResourceUtility.CanTick(ref nextTick, 300000, delta))
 			{
 				TryGiveMutation();
 			}
+			//if ()
+			//{
+
+			//}
 		}
 
 		private void TryGiveMutation()
@@ -66,6 +92,7 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				//cachedRegen = null;
 			}
 			else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
 			{
@@ -75,6 +102,7 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				//cachedRegen = null;
 			}
 			else
 			{
@@ -151,15 +179,18 @@ namespace WVC_XenotypesAndGenes
 						TryGiveMutation();
 					}
 				};
-				//yield return new Command_Action
-				//{
-				//	defaultLabel = "DEV: FleshmassEvolve",
-				//	action = delegate
-				//	{
-				//		XaG_GeneUtility.ImplantChimeraDef(pawn, def);
-				//	}
-				//};
-			}
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: FleshmassLevelUp",
+                    action = delegate
+					{
+						if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+						{
+							hediffWithComps_FleshmassHeart.LevelUp();
+						}
+					}
+                };
+            }
 		}
 
 		public override void ExposeData()

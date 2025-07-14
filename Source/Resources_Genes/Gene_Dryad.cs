@@ -189,11 +189,15 @@ namespace WVC_XenotypesAndGenes
                     geneDryadQueen.Notify_DryadSpawned(dryad);
                 }
 			}
-            //if (dryad?.needs?.rest != null)
-            //{
-            //    dryad.needs.rest.CurLevel = dryad.needs.rest.MaxLevel;
-            //}
-            HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
+			//if (dryad?.needs?.rest != null)
+			//{
+			//    dryad.needs.rest.CurLevel = dryad.needs.rest.MaxLevel;
+			//}
+			if (dryad.playerSettings != null && pawn.playerSettings != null)
+			{
+				dryad.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
+			}
+			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
 			Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
 			return dryad;
         }
