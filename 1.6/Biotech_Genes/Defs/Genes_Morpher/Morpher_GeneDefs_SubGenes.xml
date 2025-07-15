@@ -7,6 +7,7 @@
 	<biostatMet>0</biostatMet>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<prerequisite>WVC_Morpher</prerequisite>
+	<displayCategory>WVC_Morpher</displayCategory>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" Name="WVC_XenotypesAndGenes_GeneMorpher_Triggers" Abstract="True">

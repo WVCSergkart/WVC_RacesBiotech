@@ -11,6 +11,7 @@
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<displayOrderInCategory>-100</displayOrderInCategory>
+	<displayCategory>WVC_Morpher</displayCategory>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered only by &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li> -->

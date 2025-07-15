@@ -11,7 +11,8 @@
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<displayOrderInCategory>140</displayOrderInCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<displayCategory>WVC_Chimera</displayCategory>
 	<descriptionHyperlinks>
 	  <AbilityDef>Bloodfeed</AbilityDef>
 	  <AbilityDef>WVC_Chimera_Geneharvest</AbilityDef>

@@ -175,9 +175,21 @@
 	<description>Archites modify the shape of the carrier, making them almost perfect.</description>
 	<iconPath>WVC/UI/Genes/PerfectShape_v0</iconPath>
 	<displayCategory>Beauty</displayCategory>
-	<statOffsets>
-	  <PawnBeauty>2</PawnBeauty>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>2</PawnBeauty> -->
+	<!-- </statOffsets> -->
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <PawnBeauty>4</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
 	<suppressedTraits>
 	  <li>
 		<def>Beauty</def>

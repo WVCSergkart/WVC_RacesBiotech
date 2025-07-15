@@ -9,6 +9,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Archivator_v0</iconPath>
 	<biostatArc>5</biostatArc>
 	<displayOrderInCategory>-110</displayOrderInCategory>
+	<displayCategory>WVC_Morpher</displayCategory>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<customEffectDescriptions>
 		<li>Creates a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; that can be used as a &lt;color=#8a8ae6&gt;form&lt;/color&gt;.</li>

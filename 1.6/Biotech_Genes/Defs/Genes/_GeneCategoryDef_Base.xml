@@ -8,6 +8,16 @@
   <!-- </GeneCategoryDef> -->
 
   <GeneCategoryDef>
+	<defName>WVC_Chimera</defName>
+	<label>chimera</label>
+	<displayPriorityInXenotype>514.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_Morpher</defName>
+	<label>morpher</label>
+	<displayPriorityInXenotype>513.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
 	<defName>WVC_Scarifier</defName>
 	<label>scarifier</label>
 	<displayPriorityInXenotype>512.2886992038</displayPriorityInXenotype>
