@@ -3,7 +3,7 @@
 
   <!-- ================================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
 	<defName>WVC_Chimera_GeneRipper</defName>
 	<label>gene ripper</label>
 	<description>Carriers of this gene are capable of ripping a random gene out of a target, causing significant damage in the process.</description>

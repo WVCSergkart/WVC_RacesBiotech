@@ -55,7 +55,7 @@
 			<!-- Genes eater -->
 			<chimeraConditionalGenes>
 			  <!-- Human basic -->
-			  <li>
+			  <li ModderHook="Common">
 				<reqOneManArmy>false</reqOneManArmy>
 				<chance>1.0</chance>
 				<genes>
@@ -70,7 +70,7 @@
 				</genes>
 			  </li>
 			  <!-- Chimera rare -->
-			  <li>
+			  <li ModderHook="Rare">
 				<reqOneManArmy>false</reqOneManArmy>
 				<chance>0.27</chance>
 				<genes>
@@ -81,8 +81,16 @@
 				  <li>WVC_StorageImplanter</li>
 				</genes>
 			  </li>
+			  <!-- Chimera very rare -->
+			  <li ModderHook="VeryRare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.01</chance>
+				<genes>
+				  <li>WVC_Chimera_MarkHarvest</li>
+				</genes>
+			  </li>
 			  <!-- Basic solo -->
-			  <li>
+			  <li ModderHook="CommonSolo">
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.57</chance>
 				<genes>
@@ -91,10 +99,21 @@
 				  <li>WVC_Chimera_GenePurifier</li>
 				  <li>WVC_Chimera_CosmeticGen</li>
 				  <li>WVC_Chimera_RandomGenesGen</li>
+				  <li>WVC_Chimera_MarkHarvest</li>
+				</genes>
+			  </li>
+			  <!-- Beholder crew -->
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassRare">
+				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_Chimera_Devourer</li>
+				  <li>WVC_Chimera_GeneRipper</li>
 				</genes>
 			  </li>
 			  <!-- Beholder solo -->
-			  <li MayRequire="ludeon.rimworld.anomaly">
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassSoloRare">
 				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.33</chance>
@@ -110,7 +129,7 @@
 				</genes>
 			  </li>
 			  <!-- Summoner solo -->
-			  <li MayRequire="ludeon.rimworld.anomaly">
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="VoidSoloVeryRare">
 				<reqGeneDef>WVC_VoidMechlink</reqGeneDef>
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.04</chance>

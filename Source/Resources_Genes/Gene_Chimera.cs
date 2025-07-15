@@ -323,6 +323,19 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		public bool TryAddGenesFromList(List<GeneDef> genes)
+		{
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			foreach (GeneDef gene in genes)
+			{
+				TryAddGene(gene);
+			}
+			return true;
+		}
+
 		public bool TryGetGene(List<GeneDef> genes, out GeneDef result)
 		{
 			result = null;
@@ -380,11 +393,23 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			// base.Notify_IngestedThing(thing, numTaken);
+			if (!Active)
+            {
+				return;
+            }
 			if (thing is Corpse corpse)
 			{
 				if (corpse.InnerPawn.IsHuman())
 				{
 					GetGeneFromHuman(corpse.InnerPawn);
+				}
+				else if (thing.def == MainDefOf.Devourer?.race)
+				{
+					GeneDef geneDef = DefDatabase<GeneDef>.AllDefsListForReading?.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_Devourer>())?.RandomElement();
+					if (TryAddGene(geneDef))
+					{
+						Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					}
 				}
 				else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera?.race)
 				{
@@ -410,7 +435,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void GetRandomGene()
+		public void GetRandomGene()
 		{
 			GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
 			TryAddGene(result);

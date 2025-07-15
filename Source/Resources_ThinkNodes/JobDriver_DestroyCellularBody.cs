@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return Toils_General.Do(delegate
 			{
-				Victim.genes?.GetFirstGeneOfType<Gene_Cellular>()?.ExtractShard();
+				Victim.genes?.GetFirstGeneOfType<Gene_Cellular>()?.ExtractShard(pawn);
 			});
 		}
 

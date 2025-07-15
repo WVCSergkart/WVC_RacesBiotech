@@ -627,7 +627,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			bool isShapeshifter = false;
-			foreach (Gene gene in pawn?.genes.GenesListForReading)
+			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if ((gene is Gene_Morpher || gene is Gene_Shapeshifter || gene is Gene_Chimera) && gene.Active)
 				{

@@ -107,6 +107,9 @@ namespace WVC_XenotypesAndGenes
 		//
 		[MayRequireIdeology]
 		public static ThingDef Plant_TreeGauranlen;
+		//
+		[MayRequireAnomaly]
+		public static PawnKindDef Devourer;
 	}
 
 	// [DefOf]

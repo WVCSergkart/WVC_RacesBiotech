@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_VoidHunger_HemogenDrain</defName>
+	<label>void drain</label>
+	<description>Psychic coma caused by multiple skip gates and the archites that support them. Until the source is destroyed, the coma will not end.</description>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_VoidDrain</hediffClass>
+	<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+	<forceRemoveOnResurrection>true</forceRemoveOnResurrection>
+	<stages>
+	  <li>
+		<totalBleedFactor>0.6</totalBleedFactor>
+		<naturalHealingFactor>1.5</naturalHealingFactor>
+		<painFactor>0</painFactor>
+		<foodPoisoningChanceFactor>0.2</foodPoisoningChanceFactor>
+		<hungerRateFactor>0.6</hungerRateFactor>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.1</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_Devourer</defName>
+	<label>maneater nutritions</label>
+	<description>The nutrients absorbed by archites will significantly reduce the consumption of nutrients in the body.</description>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.1</hungerRateFactor>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>1</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_DeathMarkHarvest</defName>
+	<label>chimera mark</label>
+	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<becomeVisible>true</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_MarkHarvest</defName>
+	<label>chimera mark</label>
+	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark">
+		<sendOnComplete>true</sendOnComplete>
+		<tickFreq>55000</tickFreq>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

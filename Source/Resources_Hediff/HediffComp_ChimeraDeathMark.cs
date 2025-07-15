@@ -12,7 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public class HediffCompProperties_ChimeraDeathMark : HediffCompProperties
 	{
 
-		public HediffCompProperties_ChimeraDeathMark()
+        public bool sendOnComplete = false;
+
+        public int tickFreq = 12000;
+
+        public HediffCompProperties_ChimeraDeathMark()
 		{
 			compClass = typeof(HediffComp_ChimeraDeathMark);
 		}
@@ -58,10 +62,15 @@ namespace WVC_XenotypesAndGenes
 
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 12000, delta))
+            if (!GeneResourceUtility.CanTick(ref nextTick, Props.tickFreq, delta))
             {
                 return;
             }
+            TryCopy();
+        }
+
+        private void TryCopy()
+        {
             if (caster == null)
             {
                 Pawn.health.RemoveHediff(parent);
@@ -72,6 +81,10 @@ namespace WVC_XenotypesAndGenes
             {
                 Pawn.health.RemoveHediff(parent);
             }
+            if (Props.sendOnComplete && victimGenes.Count >= ParentGenesCount)
+            {
+                GetGenes();
+            }
         }
 
         private void CopyGene()
@@ -81,6 +94,7 @@ namespace WVC_XenotypesAndGenes
             {
                 victimGenes.Add(genes.RandomElement().def);
             }
+            // In case victim genes changed
             cachedGenesCount = null;
         }
 
@@ -92,9 +106,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					defaultLabel = "DEV: Mark CopyVictimGene",
 					action = delegate
-					{
-						CopyGene();
-					}
+                    {
+                        TryCopy();
+                    }
 				};
 			}
 		}
@@ -105,29 +119,39 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-			Gene_Chimera chimera = caster.genes.GetFirstGeneOfType<Gene_Chimera>();
-			if (chimera == null)
-            {
-				return;
-			}
-			float chance = caster.GetStatValue(StatDefOf.PsychicSensitivity);
-			foreach (GeneDef geneDef in victimGenes)
-            {
-				if (Rand.Chance(chance))
-                {
-					chimera.TryAddGene(geneDef);
-				}
-			}
-			Messages.Message("WVC_XaG_ChimeraDeathMark_GenesObtained".Translate(Pawn.NameShortColored), new LookTargets(Pawn.Corpse, caster), MessageTypeDefOf.NeutralEvent, historical: false);
-		}
+            GetGenes();
+        }
 
-		public override void CompExposeData()
+        private void GetGenes()
+        {
+            Gene_Chimera chimera = caster.genes.GetFirstGeneOfType<Gene_Chimera>();
+            if (chimera == null)
+            {
+                return;
+            }
+            float chance = caster.GetStatValue(StatDefOf.PsychicSensitivity);
+            foreach (GeneDef geneDef in victimGenes)
+            {
+                if (Rand.Chance(chance))
+                {
+                    chimera.TryAddGene(geneDef);
+                }
+            }
+            Pawn.health?.RemoveHediff(parent);
+            Messages.Message("WVC_XaG_ChimeraDeathMark_GenesObtained".Translate(Pawn.NameShortColored), new LookTargets(Pawn.Corpse, caster), MessageTypeDefOf.NeutralEvent, historical: false);
+        }
+
+        public override void CompExposeData()
 		{
 			base.CompExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", -1);
 			Scribe_References.Look(ref caster, "caster", saveDestroyedThings: true);
 			Scribe_Collections.Look(ref victimGenes, "victimGenes", LookMode.Def);
-		}
+            if (Scribe.mode == LoadSaveMode.LoadingVars && victimGenes != null && victimGenes.RemoveAll((GeneDef x) => x == null) > 0)
+            {
+                Log.Warning("Removed null geneDef(s)");
+            }
+        }
 
 	}
 

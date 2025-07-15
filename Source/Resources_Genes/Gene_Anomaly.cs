@@ -119,21 +119,26 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-		{
-			// base.Tick();
-			nextTick -= delta;
-			if (nextTick > 0)
-			{
-				return;
-			}
-			if (ModsConfig.AnomalyActive && !pawn.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
-			{
-				pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
-			}
-			nextTick = 157889;
-		}
+        {
+            // base.Tick();
+            nextTick -= delta;
+            if (nextTick > 0)
+            {
+                return;
+            }
+            Inhumanize(pawn);
+            nextTick = 157889;
+        }
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+        public static void Inhumanize(Pawn pawn)
+        {
+            if (ModsConfig.AnomalyActive && !pawn.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
+            {
+                pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
+            }
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			if (!inhumanizedBeforeGene)
 			{

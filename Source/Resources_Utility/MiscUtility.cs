@@ -178,9 +178,9 @@ namespace WVC_XenotypesAndGenes
             MainDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 		}
 
-		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size)
+		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size, int bloodDropSize = 3)
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < bloodDropSize; i++)
 			{
 				pawn.health.DropBloodFilth();
 			}

@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain
+	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain, IGeneNotifyGenesChanged
 	{
 
 		public bool woundClottingAllowed = true;
@@ -31,6 +31,13 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ===========================
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedResurgentTotalHealing = null;
+			cachedResurgentClotting = null;
+			cachedResurgentAgeless = null;
+		}
 
 		[Unsaved(false)]
 		private Gene_ResurgentTotalHealing cachedResurgentTotalHealing;
@@ -167,13 +174,12 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
 		}
+    }
 
-	}
+	//[Obsolete]
+	//public class Gene_ResurgentCells : Gene_Resurgent
+	//{
 
-	[Obsolete]
-	public class Gene_ResurgentCells : Gene_Resurgent
-	{
-
-	}
+	//}
 
 }

@@ -3,22 +3,28 @@
 
   <!-- ================================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
-	<defName>WVC_Chimera_Maneater</defName>
-	<label>maneater</label>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_Devourer</defName>
+	<label>devourer</label>
 	<description>Carriers of this gene have corrupted archites capable of disassembling a person into atoms in seconds, absorbing the genetic code and converting the victim into reserves of nutrients.</description>
-	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
 	<abilities>
-	  <li>WVC_Chimera_Maneater</li>
+	  <li>WVC_Chimera_Devourer</li>
 	</abilities>
 	<descriptionHyperlinks>
-	  <AbilityDef>WVC_Chimera_Maneater</AbilityDef>
+	  <AbilityDef>WVC_Chimera_Devourer</AbilityDef>
 	</descriptionHyperlinks>
+	<statOffsets>
+	  <MaxNutrition>2.0</MaxNutrition>
+	</statOffsets>
 	<customEffectDescriptions>
 		<li>Allows to kill any human pawn, completely &lt;color=#8a8ae6&gt;absorbing all genes&lt;/color&gt; and gaining a long-lasting &lt;color=#8a8ae6&gt;hunger buff&lt;/color&gt;.</li>
+		<li>Causes &lt;color=#8a8ae6&gt;fleshmass overgrow&lt;/color&gt; if the &lt;color=#8a8ae6&gt;fleshmass nucleus&lt;/color&gt; gene is present.</li>
+		<li>Absorbs all accumulated &lt;color=#8a8ae6&gt;experience&lt;/color&gt; of the victim.</li>
+		<li>Using the ability can &lt;color=#8a8ae6&gt;inhumanize&lt;/color&gt; the caster.</li>
 	</customEffectDescriptions>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
@@ -30,10 +36,10 @@
   <!-- Ability -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
-	<defName>WVC_Chimera_Maneater</defName>
-	<label>maneater</label>
+	<defName>WVC_Chimera_Devourer</defName>
+	<label>devourer</label>
 	<description>Dismantle the target into atoms, absorbing the genetic code and converting the victim into nutrient reserves.</description>
-	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneRipper</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
 	<showWhenDrafted>true</showWhenDrafted>
 	<cooldownTicksRange>35000</cooldownTicksRange>
 	<hostile>true</hostile>
@@ -43,10 +49,10 @@
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Maneater</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Devourer</compClass>
 		<!-- <allOtherPawnsAboutMe>WVC_OthersAboutManeEater</allOtherPawnsAboutMe> -->
 		<!-- <allOtherPawns>WVC_ManEaterFriendlyFire</allOtherPawns> -->
-		<hediffDef>WVC_Chimera_Maneater</hediffDef>
+		<hediffDef>WVC_Chimera_Devourer</hediffDef>
 	  </li>
 	  <li Class="CompProperties_AbilityFleckOnTarget">
 		<fleckDef>BloodSplash</fleckDef>
@@ -56,24 +62,5 @@
 	  </li>
 	</comps>
   </AbilityDef>
-
-  <!--=====================================================================-->
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
-	<defName>WVC_Chimera_Maneater</defName>
-	<label>maneater nutritions</label>
-	<description>The nutrients absorbed by archites will significantly reduce the consumption of nutrients in the body.</description>
-	<stages>
-	  <li>
-		<hungerRateFactor>0.1</hungerRateFactor>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>120000~220000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
 
 </Defs>

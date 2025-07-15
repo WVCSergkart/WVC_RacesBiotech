@@ -332,7 +332,7 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		public void ExtractShard()
+		public void ExtractShard(Pawn killer)
 		{
 			if (ModLister.CheckAnomaly("Shard"))
 			{
@@ -343,7 +343,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
-			pawn.Kill(null);
+			pawn.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: killer));
 		}
 
     }

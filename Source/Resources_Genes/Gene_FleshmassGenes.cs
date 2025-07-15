@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 		}
 
-		private void TryGiveMutation()
+		public void TryGiveMutation()
 		{
 			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
