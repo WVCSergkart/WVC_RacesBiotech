@@ -189,7 +189,38 @@ namespace WVC_XenotypesAndGenes
             return base.Valid(target, throwMessages);
 		}
 
-	}
+    }
+
+    public class CompAbilityEffect_CopyGenesFromXenogerm : CompAbilityEffect_ChimeraDependant
+    {
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            if (target.HasThing && target.Thing is Xenogerm xenogerm && ChimeraGene != null)
+            {
+                if (ChimeraGene.TryAddGenesFromList(xenogerm.GeneSet.GenesListForReading))
+                {
+                    Messages.Message("WVC_XaG_GenesCopied".Translate(), parent.pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                }
+                xenogerm.Kill();
+            }
+        }
+
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (!target.HasThing || target.Thing is not Xenogerm)
+            {
+                if (throwMessages)
+                {
+                    Messages.Message("WVC_XaG_MustTargetXenogerm".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+                }
+                return false;
+            }
+            return base.Valid(target, throwMessages);
+        }
+
+    }
 
     public class CompAbilityEffect_HarvestGenesFromPawn : CompAbilityEffect_ChimeraDependant
     {

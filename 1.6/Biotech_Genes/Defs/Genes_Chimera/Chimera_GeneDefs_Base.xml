@@ -87,6 +87,7 @@
 				<chance>0.01</chance>
 				<genes>
 				  <li>WVC_Chimera_MarkHarvest</li>
+				  <li>WVC_Chimera_Germharvest</li>
 				</genes>
 			  </li>
 			  <!-- Basic solo -->

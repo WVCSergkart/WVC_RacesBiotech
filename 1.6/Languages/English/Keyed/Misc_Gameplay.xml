@@ -100,6 +100,8 @@
 	<WVC_XaG_MutationProgressing>{0} is progressing!</WVC_XaG_MutationProgressing>
 
 	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>
+	<WVC_XaG_MustTargetXenogerm>Must target xenogerm.</WVC_XaG_MustTargetXenogerm>
+	<WVC_XaG_GenesCopied>The genes were copied successfully.</WVC_XaG_GenesCopied>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 	
