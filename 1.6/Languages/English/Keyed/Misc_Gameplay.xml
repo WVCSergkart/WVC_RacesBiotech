@@ -601,6 +601,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraDeathMark_GenesObtained>{0}'s genes were obtained.</WVC_XaG_ChimeraDeathMark_GenesObtained>
 	<WVC_XaG_GeneManeater_VictimEated>{0} was eaten whole and the genes were harvested.</WVC_XaG_GeneManeater_VictimEated>
 
+	<WVC_XaG_WarningPawnWillDieFromDevourer>Warning: {PAWN_nameDef} will be killed and {PAWN_possessive} body will be destroyed. {PAWN_nameDef}'s genes will be absorbed and {PAWN_possessive} skill experience will be inherited by the caster.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromDevourer>
+
 	<WVC_XaG_GeneRipper_GeneCopied>{0} ripped the {1} gene.</WVC_XaG_GeneRipper_GeneCopied>
 
 	<WVC_XaG_GeneRipper_TargetNoParts>The target has no intact body parts.</WVC_XaG_GeneRipper_TargetNoParts>

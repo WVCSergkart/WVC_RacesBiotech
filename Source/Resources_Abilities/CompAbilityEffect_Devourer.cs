@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 Pawn caster = parent.pawn;
                 phase = "reset xenotype";
-                float genesFactor = victim.genes.GenesListForReading.Count * 0.1f;
+                float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
                 ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
                 phase = "try copy chimera genes";
                 ChimeraGene.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
@@ -61,6 +61,11 @@ namespace WVC_XenotypesAndGenes
                 }
                 phase = "copy skills";
                 CopySkillsExp(caster, victim, genesFactor);
+                phase = "inhumanize";
+                if (Rand.Chance(0.25f + (caster.relations.OpinionOf(victim) * 0.01f)))
+                {
+                    Gene_Inhumanized.Inhumanize(caster);
+                }
                 phase = "meat boom";
                 MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
                 phase = "kill and destroy";
@@ -78,11 +83,6 @@ namespace WVC_XenotypesAndGenes
                 }
                 phase = "try fleshmass overgrow";
                 caster.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.TryGiveMutation();
-                phase = "inhumanize";
-                if (Rand.Chance(0.25f))
-                {
-                    Gene_Inhumanized.Inhumanize(caster);
-                }
                 phase = "message";
                 Messages.Message("WVC_XaG_GeneManeater_VictimEated".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
             }
@@ -131,7 +131,7 @@ namespace WVC_XenotypesAndGenes
 
         public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
         {
-            return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromHarvesting".Translate(target.Pawn.Named("PAWN")), confirmAction, destructive: true);
+            return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromDevourer".Translate(target.Pawn.Named("PAWN")), confirmAction, destructive: true);
         }
 
     }
