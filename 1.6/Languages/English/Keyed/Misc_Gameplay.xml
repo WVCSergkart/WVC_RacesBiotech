@@ -193,6 +193,7 @@
 
 	<WVC_XaG_BloodEaterFoodPolicy>Bloodeater</WVC_XaG_BloodEaterFoodPolicy>
 	<WVC_XaG_EnergyFoodPolicy>Rechargeable</WVC_XaG_EnergyFoodPolicy>
+	<WVC_XaG_RawMeatFoodPolicy>Raw meat</WVC_XaG_RawMeatFoodPolicy>
 
 	<WVC_XaG_ThrallOutfitPolicy>Tainted</WVC_XaG_ThrallOutfitPolicy>
 

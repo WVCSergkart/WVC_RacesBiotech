@@ -21,6 +21,8 @@ namespace WVC_XenotypesAndGenes
 			bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
 			FoodPolicy energyFoodPolicy = Current.Game.foodRestrictionDatabase.MakeNewFoodRestriction();
 			energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
+			FoodPolicy rawMeatFoodPolicy = Current.Game.foodRestrictionDatabase.MakeNewFoodRestriction();
+			rawMeatFoodPolicy.label = "WVC_XaG_RawMeatFoodPolicy".Translate();
 			foreach (ThingDef item in thingDefs)
 			{
 				if (item.IsDrug)
@@ -28,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 					energyFoodPolicy.filter.SetAllow(item, allow: true);
 				}
-				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid || item.IsHemogenPack(out _))
+				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid || item.IsHemogenPack())
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
@@ -37,9 +39,17 @@ namespace WVC_XenotypesAndGenes
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
+                }
+                if (item.IsMeat())
+                {
+					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
+                }
+				else
+				{
+					rawMeatFoodPolicy.filter.SetAllow(item, allow: false);
 				}
-			}
-			ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
+            }
+            ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
 			thrallApparelPolicy.label = "WVC_XaG_ThrallOutfitPolicy".Translate();
 			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowDeadmansApparel, allow: true);
 			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowNonDeadmansApparel, allow: false);

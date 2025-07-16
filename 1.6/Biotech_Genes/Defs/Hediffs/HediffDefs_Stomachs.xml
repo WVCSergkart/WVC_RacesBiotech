@@ -40,7 +40,8 @@
 	<label>eternal hunger</label>
 	<stages>
 	  <li>
-		<hungerRateFactor>0.1</hungerRateFactor>
+		<hungerRateFactorOffset>-999</hungerRateFactorOffset>
+		<hungerRateFactor>0.0</hungerRateFactor>
 		<becomeVisible>false</becomeVisible>
 		<minSeverity>0.0</minSeverity>
 	  </li>

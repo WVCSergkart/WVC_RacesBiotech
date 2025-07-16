@@ -43,21 +43,24 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
 	<defName>WVC_EternalHunger</defName>
 	<label>eternal hunger</label>
-	<description>Carriers of this gene very quickly lose hemogen, but are able to replenish it from any meat sources.</description>
+	<description>Carriers of this gene have archites that synchronize hemogenic thirst with the body's nutrients. Because of this, carriers require a special diet or they will not be able to satisfy their hunger.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_EternalHunger</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_EternalHunger_v0</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<resourceLossPerDay>0.20</resourceLossPerDay>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<dontMindRawFood>true</dontMindRawFood>
+	<prerequisite>Hemogenic</prerequisite>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>6</biostatMet>
 	<customEffectDescriptions>
-		<li>Hunger rate factor x10%</li>
-		<li>&lt;color=#8a8ae6&gt;Raw meat&lt;/color&gt; replenishes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;. Carrier will try to &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; eat meat if there is a lack of hemogen.</li>
-		<li>Hunger will decrease depending on the hemogen's thirst.</li>
-		<li>&lt;color=#ff8585&gt;If the carrier does not find meat, it will try to bite one of the colonists.&lt;/color&gt;</li>
+		<li>Hunger rate factor 0%</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Raw meat&lt;/color&gt; replenishes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;. Carrier will try to &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; eat meat if there is a lack of hemogen.</li> -->
+		<!-- <li>Hunger will decrease depending on the hemogen's thirst.</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;If the carrier does not find meat, it will try to bite one of the colonists.&lt;/color&gt;</li> -->
+		<li>Hunger is synchronized with &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; in percentage terms.</li>
+		<li>&lt;color=#8a8ae6&gt;Raw meat&lt;/color&gt; replenishes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; relative to nutrition.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <RawNutritionFactor>3.0</RawNutritionFactor>
@@ -114,7 +117,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>
-	  <li>WVC_XaG_EternalHunger</li>
+	  <!-- <li>WVC_XaG_EternalHunger</li> -->
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>
 	<modExtensions>

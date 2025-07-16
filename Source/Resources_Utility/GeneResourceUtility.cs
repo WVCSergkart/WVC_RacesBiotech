@@ -317,6 +317,48 @@ namespace WVC_XenotypesAndGenes
 
 		// Resources
 
+		public static bool IsMeat(this ThingDef thingDef)
+		{
+			if (thingDef.category == ThingCategory.Item && thingDef.thingCategories != null)
+			{
+				return IsRawMeatCyclic(thingDef.thingCategories);
+			}
+			return thingDef.IsMeat;
+		}
+
+		private static bool IsRawMeatCyclic(List<ThingCategoryDef> thingCategories)
+		{
+			foreach (ThingCategoryDef category in thingCategories)
+			{
+				if (category == ThingCategoryDefOf.MeatRaw)
+				{
+					return true;
+				}
+				if (IsRawMeatCyclic(category))
+                {
+					return true;
+                }
+            }
+			return false;
+		}
+
+		private static bool IsRawMeatCyclic(ThingCategoryDef thingCategories)
+		{
+			if (thingCategories == null)
+			{
+				return false;
+			}
+			if (thingCategories.parent == ThingCategoryDefOf.MeatRaw)
+			{
+				return true;
+			}
+			if (IsRawMeatCyclic(thingCategories.parent))
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public static bool IsDustogenicFood(this Thing thing)
 		{
 			if (thing?.def?.ingestible == null)
@@ -324,6 +366,11 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return thing.def.GetModExtension<GeneExtension_General>()?.isDustogenic == true;
+		}
+
+		public static bool IsHemogenPack(this ThingDef thingDef)
+		{
+			return thingDef.IsHemogenPack(out _);
 		}
 
 		public static bool IsHemogenPack(this ThingDef thingDef, out float offsetHemogen)
