@@ -40,15 +40,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (dryadRef != null)
 			{
-                //if (dryadRef.IsWorldPawn())
-                //{
-                //    Find.WorldPawns.PassToWorld(dryadRef);
-                //}
 				if (!dryadRef.Faction.IsPlayer)
 				{
 					dryadRef.SetFaction(Faction.OfPlayer);
 				}
-				innerContainer.TryAddOrTransfer(dryadRef, 1);
+				//innerContainer.TryAddOrTransfer(dryadRef, 1);
+				TryAcceptPawn(dryadRef);
 			}
 		}
 
@@ -61,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedDryadPawn == null)
 				{
-					cachedDryadPawn = GetDirectlyHeldThings().FirstOrDefault() is Pawn pawn ? pawn : dryadRef;
+					cachedDryadPawn = dryadRef;
 				}
 				return cachedDryadPawn;
 			}
@@ -84,7 +81,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void CompTick()
+        //public ThingOwner SearchableContents => innerContainer;
+
+        public override void CompTick()
 		{
 			//innerContainer.ThingOwnerTick();
 			if (tickComplete >= 0)
@@ -120,7 +119,24 @@ namespace WVC_XenotypesAndGenes
 		{
 		}
 
-		public override void PostExposeData()
+        public void EjectContents(Map previousMap, DestroyMode mode)
+        {
+			if (mode == DestroyMode.WillReplace)
+            {
+				return;
+            }
+            innerContainer.TryDropAll(parent.Position, previousMap, ThingPlaceMode.Near, delegate (Thing t, int c)
+			{
+				if (t is Pawn pawn && pawn.mindState != null)
+				{
+					pawn.mindState.returnToHealingPod = false;
+				}
+				t.Rotation = Rot4.South;
+				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
+            }, null, playDropSound: false);
+        }
+
+        public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_References.Look(ref dryadRef, "draydRef");
@@ -134,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		private int tickExpire = -1;
 
-		private PawnKindDef dryadKind;
+		//private PawnKindDef dryadKind;
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
@@ -154,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 			p.Rotation = Rot4.South;
 			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
 			tickExpire = -1;
-			dryadKind = DryadComp.DryadKind;
+			//dryadKind = DryadComp.DryadKind;
 		}
 
 		protected override void Complete()
@@ -162,24 +178,20 @@ namespace WVC_XenotypesAndGenes
             try
 			{
 				tickComplete = Find.TickManager.TicksGame;
-				// CompTreeConnection treeComp = base.TreeComp;
-				if (dryadRef != null)
+				Pawn pawn = dryadRef;
+				long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
+				DryadComp.Gene_DryadQueen.RemoveDryad(pawn);
+				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(DryadComp.DryadKind);
+				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
+				if (!pawn.Name.Numerical)
 				{
-					Pawn pawn = dryadRef;
-					long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
-					DryadComp.Gene_DryadQueen.RemoveDryad(pawn);
-					Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(dryadKind);
-					pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
-					if (!pawn.Name.Numerical)
-					{
-						pawn2.Name = pawn.Name;
-					}
-					CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
-					newPawnComp.currentMode = DryadComp.currentMode;
-					pawn.Destroy();
-					innerContainer.TryAddOrTransfer(pawn2, 1);
-					EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
+					pawn2.Name = pawn.Name;
 				}
+				CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
+				newPawnComp.currentMode = DryadComp.currentMode;
+				pawn.Destroy();
+				innerContainer.TryAddOrTransfer(pawn2, 1);
+				EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
 				parent.Destroy();
 			}
             catch
@@ -191,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 					dryadRef.Kill(null);
 					dryadRef.Destroy();
 				}
-				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(dryadKind);
+				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(DryadComp.DryadKind);
 				CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
 				newPawnComp.currentMode = DryadComp.currentMode;
 				innerContainer.TryAddOrTransfer(pawn2, 1);
@@ -201,11 +213,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
 		{
-			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
-			{
-				t.Rotation = Rot4.South;
-				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
-			}, null, playDropSound: false);
+			EjectContents(map, mode);
 		}
 
 		public override void CompTick()
@@ -213,11 +221,7 @@ namespace WVC_XenotypesAndGenes
 			base.CompTick();
 			if (!parent.Destroyed)
 			{
-				if (dryadKind != null && dryadKind != DryadComp?.DryadKind)
-				{
-					parent.Destroy();
-				}
-				else if (innerContainer.Count > 0 && DryadComp == null)
+				if (innerContainer.Count > 0 && DryadComp?.DryadKind == null)
 				{
 					parent.Destroy();
 				}
@@ -232,13 +236,13 @@ namespace WVC_XenotypesAndGenes
 		public override string CompInspectStringExtra()
 		{
 			string text = base.CompInspectStringExtra();
-			if (!innerContainer.NullOrEmpty() && dryadKind != null)
+			if (!innerContainer.NullOrEmpty() && DryadComp?.DryadKind != null)
 			{
 				if (!text.NullOrEmpty())
 				{
 					text += "\n";
 				}
-				text += "ChangingDryadIntoType".Translate(innerContainer[0].Named("DRYAD"), NamedArgumentUtility.Named(dryadKind, "TYPE")).Resolve();
+				text += "ChangingDryadIntoType".Translate(innerContainer[0].Named("DRYAD"), NamedArgumentUtility.Named(DryadComp.DryadKind, "TYPE")).Resolve();
 			}
 			return text;
 		}
@@ -247,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickExpire, "tickExpire", -1);
-			Scribe_Defs.Look(ref dryadKind, "dryadKind");
+			//Scribe_Defs.Look(ref dryadKind, "dryadKind");
 		}
 	}
 
@@ -267,15 +271,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
 		{
-			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
-			{
-				if (t is Pawn pawn && pawn.mindState != null)
-				{
-					pawn.mindState.returnToHealingPod = false;
-				}
-				t.Rotation = Rot4.South;
-				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
-			}, null, playDropSound: false);
+			EjectContents(map, mode);
 		}
 
 		public override void CompTick()
