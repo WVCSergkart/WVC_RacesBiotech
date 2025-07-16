@@ -55,6 +55,7 @@
 	</statFactors>
 	<customEffectDescriptions>
 		<li>Damage to apparels: 40 hp/day</li>
+		<li MayRequire="ludeon.rimworld.odyssey">Damage is reduced in space.</li>
 		<li>&lt;color=#ffec85&gt;Ignores nudist clothing.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>

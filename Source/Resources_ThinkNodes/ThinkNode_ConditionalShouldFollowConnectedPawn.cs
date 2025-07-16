@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (ModsConfig.OdysseyActive && respectedMaster.Map?.Biome == BiomeDefOf.Space)
+			if (ModsConfig.OdysseyActive && respectedMaster.InSpace())
 			{
 				return false;
 			}

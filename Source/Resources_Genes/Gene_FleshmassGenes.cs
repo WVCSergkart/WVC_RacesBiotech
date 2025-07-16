@@ -239,9 +239,10 @@ namespace WVC_XenotypesAndGenes
 		public void DoApparelDamage(int tick)
 		{
 			List<Apparel> apparels = pawn.apparel.WornApparel.Where((apparel) => apparel.def.apparel.countsAsClothingForNudity && apparel.def.useHitPoints).ToList();
+			bool spaceFlag = pawn.InSpace();
 			foreach (Apparel apparel in apparels)
 			{
-				apparel.HitPoints = Mathf.Clamp(apparel.HitPoints - (tick / apparels.Count / 1500), 1, apparel.MaxHitPoints);
+                apparel.HitPoints = Mathf.Clamp(apparel.HitPoints - (tick / apparels.Count / 1500 / (spaceFlag ? 10 : 1)), 1, apparel.MaxHitPoints);
 			}
 		}
 
@@ -251,6 +252,12 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public int nextTick = 6000;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			nextTick = 3000;
+		}
 
 		public override void TickInterval(int delta)
 		{
@@ -262,14 +269,85 @@ namespace WVC_XenotypesAndGenes
 			Construct(60);
 		}
 
+		//private static int? cachedBuildEfficiency;
+		//public static int GetBuildEfficiency
+		//{
+		//	get
+		//	{
+		//		if (!cachedBuildEfficiency.HasValue)
+		//		{
+		//			Recache();
+		//		}
+		//		return cachedBuildEfficiency.Value;
+
+		//	}
+		//}
+
+		//private static Pawn cachedCaster;
+		//public static Pawn CurrentCaster
+		//{
+		//	get
+		//	{
+		//		if (!cachedBuildEfficiency.HasValue)
+		//		{
+		//			Recache();
+		//		}
+		//		return cachedCaster;
+
+		//	}
+		//}
+
+		//private static void Recache()
+		//{
+		//	int buildEfficiency = 0;
+		//	foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
+		//	{
+		//		if (pawn.genes?.GetFirstGeneOfType<Gene_FleshmassBuilder>() != null)
+		//		{
+		//			if (pawn.Map != null)
+		//			{
+		//				cachedCaster = pawn;
+		//			}
+		//			buildEfficiency++;
+		//		}
+		//	}
+		//	cachedBuildEfficiency = buildEfficiency;
+		//}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: StartDeadlifeBuild",
+					action = delegate
+					{
+						nextTick = 0;
+					}
+				};
+			}
+		}
+
 		public void Construct(int tick)
 		{
-			if (XaG_GeneUtility.FactionMap(pawn))
-			{
-				nextTick = 60000;
-				return;
-			}
-			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
+			//if (!pawn.Faction.IsPlayer || CurrentCaster != pawn)
+			//{
+			//	nextTick = 60000;
+			//	return;
+			//}
+			//if (pawn.Map == null)
+			//{
+			//	nextTick = 60000;
+			//	Recache();
+			//	return;
+			//}
+            if (XaG_GeneUtility.FactionMap(pawn))
+            {
+                nextTick = 60000;
+                return;
+            }
+            GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
 			string phase = "";
@@ -284,10 +362,7 @@ namespace WVC_XenotypesAndGenes
 						cycleTry++;
 						phase = "spawn gas and do effects";
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
-						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
-						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
 						phase = "learn skill";
 						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
 						{
@@ -313,19 +388,20 @@ namespace WVC_XenotypesAndGenes
 					{
 						phase = "try repair thing: " + thing.def.defName;
 						cycleTry++;
-						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, radius: 1f);
 						phase = "spawn gas and do effects";
-						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+						//IntVec3 positionHeld = thing.PositionHeld;
+						//if (thing.def.passability == Traversability.Impassable)
+						//{
+						//	CellRect rect = thing.OccupiedRect();
+						//	positionHeld = rect.ClosestCellTo(positionHeld);
+						//}
+                        GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
-						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
-						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
 						phase = "learn skill";
 						if (pawn.skills != null)
 						{
 							pawn.skills.Learn(SkillDefOf.Construction, 0.01f * tick);
 						}
-						//float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick / 80;
-						//building.HitPoints = Mathf.Clamp(building.HitPoints + (int)num, building.HitPoints + 1, building.MaxHitPoints);
 						phase = "regen hp";
 						building.HitPoints++;
 						building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
@@ -341,7 +417,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				nextTick = 180000;
+				nextTick = 60000;
 				Log.Error("Failed do any build job on phase: " + phase + ". Reason: " + arg);
 			}
 			if (pause)
@@ -354,12 +430,24 @@ namespace WVC_XenotypesAndGenes
             }
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick", -1);
+		}
+
 	}
 
 	public class Gene_SelfDevourStomach : Gene
 	{
 
 		private int nextTick = 7539;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			nextTick = 7539;
+		}
 
 		public override void TickInterval(int delta)
         {
@@ -424,9 +512,15 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-        }
+		}
 
-    }
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick", -1);
+		}
+
+	}
 
     public class Gene_FleshmassImmunity : Gene_AddOrRemoveHediff
 	{
@@ -436,6 +530,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void ImmunizeHediff(HediffDef hediffDef)
         {
+			if (immunizedHediffs == null)
+            {
+				immunizedHediffs = new();
+			}
 			if (!immunizedHediffs.Contains(hediffDef))
             {
 				immunizedHediffs.Add(hediffDef);
@@ -451,7 +549,13 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 6000;
 
-        public override void TickInterval(int delta)
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			nextTick = 6000;
+		}
+
+		public override void TickInterval(int delta)
         {
             base.TickInterval(delta);
 			if (GeneResourceUtility.CanTick(ref nextTick, 66966, delta))
@@ -490,6 +594,7 @@ namespace WVC_XenotypesAndGenes
         public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick", -1);
 			Scribe_Collections.Look(ref immunizedHediffs, "immunizedHediffs", LookMode.Def);
 			if (Scribe.mode == LoadSaveMode.LoadingVars && immunizedHediffs != null && immunizedHediffs.RemoveAll((HediffDef x) => x == null) > 0)
 			{

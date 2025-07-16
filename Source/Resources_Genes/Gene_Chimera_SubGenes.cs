@@ -110,6 +110,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick", -1);
+		}
+
 	}
 
 	public class Gene_ChimeraDigestorGen : Gene_ChimeraGenesGen

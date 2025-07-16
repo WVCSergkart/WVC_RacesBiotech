@@ -16,6 +16,11 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool InSpace(this Pawn pawn)
+		{
+			return pawn.Map?.Biome == BiomeDefOf.Space;
+		}
+
 		public static bool GameNotStarted()
 		{
 			return Current.ProgramState != ProgramState.Playing;

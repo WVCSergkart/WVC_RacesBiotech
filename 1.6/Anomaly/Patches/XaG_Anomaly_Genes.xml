@@ -41,6 +41,7 @@
 	  <value>
 		<nullifyingGenes>
 		  <li>WVC_Deadlife</li>
+		  <li>WVC_FleshmassBuilder</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>
