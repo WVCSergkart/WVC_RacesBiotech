@@ -852,9 +852,21 @@ namespace WVC_XenotypesAndGenes
 
 		public void EatGenes()
 		{
-            foreach (GeneDef geneDef in selectedGenes)
-            {
-                gene.TryEatGene(geneDef);
+			float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 5;
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				try
+				{
+					if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
+					{
+						gene.TryGetUniqueGene();
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed obtaine gene. Reason: " + arg);
+				}
+				gene.TryEatGene(geneDef);
 			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
             {

@@ -80,6 +80,7 @@
 				  <li>WVC_Chimera_PsychicHarvester_Lover</li>
 				  <li>WVC_Chimera_PsychicHarvester_Friend</li>
 				  <li>WVC_StorageImplanter</li>
+				  <li>WVC_Chimera_Germharvest</li>
 				</genes>
 			  </li>
 			  <!-- Chimera very rare -->
@@ -88,7 +89,8 @@
 				<chance>0.01</chance>
 				<genes>
 				  <li>WVC_Chimera_MarkHarvest</li>
-				  <li>WVC_Chimera_Germharvest</li>
+				  <li>WVC_Traitshifter</li>
+				  <li>WVC_Skillshifter</li>
 				</genes>
 			  </li>
 			  <!-- Basic solo -->

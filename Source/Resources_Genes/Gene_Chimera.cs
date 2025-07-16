@@ -199,14 +199,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int lastGeneObtainedTick = -1;
+		//private int lastGeneObtainedTick = -1;
 
 		public bool TryAddGene(GeneDef geneDef)
 		{
 			if (!collectedGenes.Contains(geneDef))
 			{
 				collectedGenes.Add(geneDef);
-				lastGeneObtainedTick = Find.TickManager.TicksGame;
+				//lastGeneObtainedTick = Find.TickManager.TicksGame;
 				return true;
 			}
 			return false;
@@ -214,22 +214,6 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryEatGene(GeneDef geneDef)
 		{
-			try
-			{
-				float lastGeneDaysPassed = 0;
-				if (lastGeneObtainedTick > 0)
-				{
-					lastGeneDaysPassed = ((Find.TickManager.TicksGame - lastGeneObtainedTick) / 60000) * 0.01f;
-				}
-				if ((!Rand.Chance(0.07f + lastGeneDaysPassed) || !TryGetToolGene()) && Rand.Chance(0.04f + lastGeneDaysPassed))
-				{
-					TryGetUniqueGene();
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed obtaine gene. Reason: " + arg);
-			}
 			if (!consumedGenes.Contains(geneDef))
 			{
 				consumedGenes.Add(geneDef);
@@ -297,7 +281,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
-			Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
+			//Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)
