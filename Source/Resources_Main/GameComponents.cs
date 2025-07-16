@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
                 }
-                if (item.IsMeat())
+                if (item.IsRawMeat())
                 {
 					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
                 }

@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
     //}
 
-    public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
+    public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(canAutoFeed);
 
@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            Gene_BloodHunter.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
+			GeneResourceUtility.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
         }
 
         private void InCaravan()
@@ -201,11 +201,25 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			foreach (Gizmo item in base.GetGizmos())
+            //foreach (Gizmo item in base.GetGizmos())
+            //{
+            //	yield return item;
+            //}
+			if (DebugSettings.ShowDevGizmos)
 			{
-				yield return item;
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryBloodEat",
+					action = delegate
+					{
+						if (!GeneResourceUtility.TryHuntForFood(pawn))
+						{
+							Log.Error("Target is null");
+						}
+					}
+				};
 			}
-			if (enabled)
+            if (enabled)
 			{
 				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this))
 				{

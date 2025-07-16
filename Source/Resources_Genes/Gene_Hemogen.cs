@@ -96,133 +96,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class Gene_Bloodfeeder : Gene_HemogenOffset
-	// {
-
-		// public virtual void Notify_Bloodfeed(Pawn victim)
-		// {
-		// }
-
-	// }
-
-	public class Gene_BloodHunter : Gene_HemogenOffset
-	{
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryHuntForFood",
-					action = delegate
-					{
-						if (!TryHuntForFood(pawn))
-						{
-							Log.Error("Target is null");
-						}
-					}
-				};
-			}
-		}
-
-		public static bool TryHuntForFood(Pawn pawn, bool requestQueueing = true, bool queue = false)
-		{
-			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
-			{
-				return false;
-			}
-			// =
-			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
-			// =
-			foreach (Pawn colonist in targets)
-			{
-                if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
-                {
-                    continue;
-                }
-                if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
-				{
-					continue;
-				}
-				//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-				//{
-				//	continue;
-				//}
-				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, MainDefOf.Bloodfeed, out Job job))
-				{
-					continue;
-				}
-				job.def = MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
-				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
-				return true;
-			}
-			return false;
-		}
-		
-		//[Obsolete]
-		//public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
-		//{
-		//	foreach (Job item in pawn.jobs.AllJobs().ToList())
-		//	{
-		//		if (item.def == job.def && item.ability == job.ability)
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
-
-		//[Obsolete]
-		//public static bool PawnReserved(List<Pawn> biters, Pawn victim, Pawn biter)
-		//{
-		//	foreach (Pawn item in biters)
-		//	{
-		//		if (item == biter)
-		//		{
-		//			continue;
-		//		}
-		//		foreach (Job job in item.jobs.AllJobs().ToList())
-		//		{
-		//			if (job?.targetA.Pawn != null && job.targetA.Pawn == victim)
-		//			{
-		//				return true;
-		//			}
-		//		}
-		//	}
-		//	return false;
-		//}
-
-		//public static List<Pawn> GetAllBloodHuntersFromList(List<Pawn> pawns)
-		//{
-		//	List<Pawn> hunters = new();
-		//	foreach (Pawn item in pawns.ToList())
-		//	{
-		//		if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
-		//		{
-		//			continue;
-		//		}
-		//		hunters.Add(item);
-		//	}
-		//	return hunters;
-		//}
-
-		// public static List<Pawn> GetAllBloodfeedPrisonersFromList(List<Pawn> pawns, bool removeFromList = true)
-		// {
-			// List<Pawn> hunters = new();
-			// foreach (Pawn item in pawns.ToList())
-			// {
-				// if (item?.guest?.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed))
-				// {
-					// continue;
-				// }
-				// hunters.Add(item);
-			// }
-			// return hunters;
-		// }
-
-	}
-
 	public class Gene_ImplanterFang : Gene_HemogenOffset, IGeneBloodfeeder
 	{
 
@@ -323,7 +196,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_BloodHunter.TryHuntForFood(pawn);
+			GeneResourceUtility.TryHuntForFood(pawn);
 		}
 
 		private void InCaravan()

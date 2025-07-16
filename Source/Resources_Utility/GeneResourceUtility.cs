@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.AI.Group;
 using Verse.Sound;
 
@@ -317,7 +318,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Resources
 
-		public static bool IsMeat(this ThingDef thingDef)
+		public static bool IsRawMeat(this ThingDef thingDef)
 		{
 			if (thingDef.category == ThingCategory.Item && thingDef.thingCategories != null)
 			{
@@ -574,6 +575,41 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ResourceUtility
+
+		public static bool TryHuntForFood(Pawn pawn, bool requestQueueing = true, bool queue = false)
+		{
+			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
+			{
+				return false;
+			}
+			// =
+			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
+			// =
+			foreach (Pawn colonist in targets)
+			{
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				{
+					continue;
+				}
+				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				{
+					continue;
+				}
+				//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+				//{
+				//	continue;
+				//}
+				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, MainDefOf.Bloodfeed, out Job job))
+				{
+					continue;
+				}
+				job.def = MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
+				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
+				return true;
+			}
+			return false;
+		}
+
 		public static void TickResourceDrain(IGeneResourceDrain drain, int tick, int delta)
 		{
 			if (drain?.Resource != null && drain.CanOffset)

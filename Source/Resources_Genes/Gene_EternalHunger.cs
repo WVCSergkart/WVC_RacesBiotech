@@ -7,7 +7,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
     // Hemogen
-    public class Gene_EternalHunger : Gene_BloodHunter, IGeneOverridden
+    public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (thing.def.IsMeat())
+			if (thing.def.IsRawMeat())
 			{
 				Hemogen.Value += thing.def.GetStatValueAbstract(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * numTaken;
 				//IngestibleProperties ingestible = thing.def.ingestible;
@@ -126,99 +126,109 @@ namespace WVC_XenotypesAndGenes
 			SyncNeedFoodWithHemogen();
 		}
 
-		// Misc
+        public void Notify_Bloodfeed(Pawn victim)
+        {
+            if (Hemogen == null)
+            {
+                return;
+            }
+            Hemogen.Value += Hemogen.Max * victim.BodySize;
+            SyncNeedFoodWithHemogen();
+        }
 
-		//public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (!foodNeedDisabled)
-		//		{
-		//			return base.Active;
-		//		}
-		//		return false;
-		//	}
-		//}
+        // Misc
 
-		//public bool foodNeedDisabled = false;
+        //public override bool Active
+        //{
+        //	get
+        //	{
+        //		if (!foodNeedDisabled)
+        //		{
+        //			return base.Active;
+        //		}
+        //		return false;
+        //	}
+        //}
 
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
-		//	{
-		//		foodNeedDisabled = pawn.needs?.food == null;
-		//	}
-		//}
+        //public bool foodNeedDisabled = false;
 
-		//public bool TryGetFood()
-		//{
-		//	if (!pawn.TryGetNeedFood_WithRef(out Need_Food need_Food, ref foodNeedDisabled))
-		//	{
-		//		return false;
-		//	}
-		//	List<Thing> meatFood = new();
-		//	foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
-		//	{
-		//		if (item.def.ingestible != null && item.def.IsMeat)
-		//		{
-		//			meatFood.Add(item);
-		//		}
-		//	}
-		//	for (int j = 0; j < meatFood.Count; j++)
-		//	{
-		//		Thing specialFood = MiscUtility.GetSpecialFood(pawn, meatFood[j].def);
-		//		if (specialFood == null)
-		//		{
-		//			continue;
-		//		}
-		//		int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
-		//		GeneResourceUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
-		//		Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
-		//		job.count = stack + 3;
-		//		pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
-		//		return true;
-		//	}
-		//	return false;
-		//}
+        //public override void ExposeData()
+        //{
+        //	base.ExposeData();
+        //	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        //	{
+        //		foodNeedDisabled = pawn.needs?.food == null;
+        //	}
+        //}
 
-		//public float GetHunger(int stack, Thing thing, Need_Food need_Food)
-		//{
-		//	float nutrition = stack * thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000);
-		//	float currentNeedFood = need_Food.CurLevel;
-		//	float maxNeedFood = need_Food.MaxLevel;
-		//	float targetFoodLevel = maxNeedFood - nutrition;
-		//	float offset = -1 * (currentNeedFood - targetFoodLevel);
-		//	if (offset > 0f)
-		//	{
-		//		offset = 0f;
-		//	}
-		//	return offset;
-		//}
+        //public bool TryGetFood()
+        //{
+        //	if (!pawn.TryGetNeedFood_WithRef(out Need_Food need_Food, ref foodNeedDisabled))
+        //	{
+        //		return false;
+        //	}
+        //	List<Thing> meatFood = new();
+        //	foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
+        //	{
+        //		if (item.def.ingestible != null && item.def.IsMeat)
+        //		{
+        //			meatFood.Add(item);
+        //		}
+        //	}
+        //	for (int j = 0; j < meatFood.Count; j++)
+        //	{
+        //		Thing specialFood = MiscUtility.GetSpecialFood(pawn, meatFood[j].def);
+        //		if (specialFood == null)
+        //		{
+        //			continue;
+        //		}
+        //		int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
+        //		GeneResourceUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
+        //		Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
+        //		job.count = stack + 3;
+        //		pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
+        //		return true;
+        //	}
+        //	return false;
+        //}
 
-		//public int GetFoodCount(Thing thing)
-		//{
-		//	int foodCount = 0;
-		//	float hemogen = GetHemogenCountFromFood(thing);
-		//	float currentHemogenLvl = Resource.Value;
-		//	float targetHemogenLvl = Resource.targetValue;
-		//	while (currentHemogenLvl < targetHemogenLvl)
-		//	{
-		//		foodCount++;
-		//		currentHemogenLvl += hemogen;
-		//		if (foodCount >= 75)
-		//		{
-		//			break;
-		//		}
-		//	}
-		//	return foodCount;
-		//}
+        //public float GetHunger(int stack, Thing thing, Need_Food need_Food)
+        //{
+        //	float nutrition = stack * thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000);
+        //	float currentNeedFood = need_Food.CurLevel;
+        //	float maxNeedFood = need_Food.MaxLevel;
+        //	float targetFoodLevel = maxNeedFood - nutrition;
+        //	float offset = -1 * (currentNeedFood - targetFoodLevel);
+        //	if (offset > 0f)
+        //	{
+        //		offset = 0f;
+        //	}
+        //	return offset;
+        //}
 
-		//public float GetHemogenCountFromFood(Thing thing)
-		//{
-		//	return 0.175f *  thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000);
-		//}
+        //public int GetFoodCount(Thing thing)
+        //{
+        //	int foodCount = 0;
+        //	float hemogen = GetHemogenCountFromFood(thing);
+        //	float currentHemogenLvl = Resource.Value;
+        //	float targetHemogenLvl = Resource.targetValue;
+        //	while (currentHemogenLvl < targetHemogenLvl)
+        //	{
+        //		foodCount++;
+        //		currentHemogenLvl += hemogen;
+        //		if (foodCount >= 75)
+        //		{
+        //			break;
+        //		}
+        //	}
+        //	return foodCount;
+        //}
 
-	}
+        //public float GetHemogenCountFromFood(Thing thing)
+        //{
+        //	return 0.175f *  thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000);
+        //}
+
+    }
 
 }
