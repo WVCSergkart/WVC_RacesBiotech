@@ -203,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryAddGene(GeneDef geneDef)
 		{
-			if (!collectedGenes.Contains(geneDef))
+			if (!AllGenes.Contains(geneDef))
 			{
 				collectedGenes.Add(geneDef);
 				//lastGeneObtainedTick = Find.TickManager.TicksGame;
@@ -279,9 +279,47 @@ namespace WVC_XenotypesAndGenes
 				{
 					geneSetPresets = new();
 				}
+				if (collectedGenes == null)
+				{
+					collectedGenes = new();
+				}
+				if (consumedGenes == null)
+				{
+					consumedGenes = new();
+				}
+				if (destroyedGenes == null)
+				{
+					destroyedGenes = new();
+				}
+				Debug_RemoveDupes();
 			}
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 			//Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
+		}
+
+		public void Debug_RemoveDupes()
+        {
+			bool anyGeneRemoved = false;
+			foreach (GeneDef geneDef in collectedGenes)
+            {
+				if (consumedGenes.Contains(geneDef))
+                {
+					consumedGenes.Remove(geneDef);
+					anyGeneRemoved = true;
+				}
+			}
+			foreach (GeneDef geneDef in consumedGenes)
+			{
+				if (destroyedGenes.Contains(geneDef))
+				{
+					destroyedGenes.Remove(geneDef);
+					anyGeneRemoved = true;
+				}
+			}
+			if (anyGeneRemoved)
+			{
+				Log.Warning("Removed duped geneDef(s)");
+			}
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

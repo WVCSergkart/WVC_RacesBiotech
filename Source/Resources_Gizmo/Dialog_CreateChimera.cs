@@ -118,6 +118,7 @@ namespace WVC_XenotypesAndGenes
 			//allGenes = gene.CollectedGenes;
 			//eatedGenes = gene.EatedGenes;
 			//selectedGenes = pawnXenoGenes;
+			gene.Debug_RemoveDupes();
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
@@ -853,21 +854,28 @@ namespace WVC_XenotypesAndGenes
 		public void EatGenes()
 		{
 			float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 5;
-			foreach (GeneDef geneDef in selectedGenes)
-			{
-				try
-				{
-					if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
-					{
-						gene.TryGetUniqueGene();
-					}
-				}
-				catch (Exception arg)
-				{
-					Log.Error("Failed obtaine gene. Reason: " + arg);
-				}
-				gene.TryEatGene(geneDef);
+			if (bonusChanceForGameDays > 0.3f)
+            {
+				bonusChanceForGameDays = 0.3f;
 			}
+			foreach (GeneDef geneDef in selectedGenes)
+            {
+                if (!gene.TryEatGene(geneDef))
+                {
+                    continue;
+                }
+                try
+                {
+                    if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
+                    {
+                        gene.TryGetUniqueGene();
+                    }
+                }
+                catch (Exception arg)
+                {
+                    Log.Error("Failed obtaine gene. Reason: " + arg);
+                }
+            }
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
             {
                 gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));

@@ -72,7 +72,7 @@
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark">
 		<sendOnComplete>true</sendOnComplete>
-		<tickFreq>55000</tickFreq>
+		<tickFreq>22000</tickFreq>
 	  </li>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
 	</comps>

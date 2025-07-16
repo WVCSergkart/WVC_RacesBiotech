@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
         public bool sendOnComplete = false;
 
-        public int tickFreq = 12000;
+        public int tickFreq = 8000;
 
         public HediffCompProperties_ChimeraDeathMark()
 		{

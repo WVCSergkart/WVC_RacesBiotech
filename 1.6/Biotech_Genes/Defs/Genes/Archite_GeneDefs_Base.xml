@@ -38,7 +38,7 @@
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>In invisibility, the carrier &lt;color=#8a8ae6&gt;cannot attack enemies&lt;/color&gt;, and also gets &lt;color=#8a8ae6&gt;tired and hungry&lt;/color&gt; very quickly.</li>
+		<li>In invisibility, the carrier gets &lt;color=#8a8ae6&gt;tired and hungry&lt;/color&gt; very quickly.</li>
 		<li>&lt;color=#8a8ae6&gt;Allows to toggle invisibility.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
