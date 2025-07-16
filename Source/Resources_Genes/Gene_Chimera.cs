@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public int lastGeneObtainedTick = -1;
+		private int lastGeneObtainedTick = -1;
 
 		public bool TryAddGene(GeneDef geneDef)
 		{
@@ -214,6 +214,22 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryEatGene(GeneDef geneDef)
 		{
+			try
+			{
+				float lastGeneDaysPassed = 0;
+				if (lastGeneObtainedTick > 0)
+				{
+					lastGeneDaysPassed = ((Find.TickManager.TicksGame - lastGeneObtainedTick) / 60000) * 0.01f;
+				}
+				if ((!Rand.Chance(0.07f + lastGeneDaysPassed) || !TryGetToolGene()) && Rand.Chance(0.04f + lastGeneDaysPassed))
+				{
+					TryGetUniqueGene();
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed obtaine gene. Reason: " + arg);
+			}
 			if (!consumedGenes.Contains(geneDef))
 			{
 				consumedGenes.Add(geneDef);

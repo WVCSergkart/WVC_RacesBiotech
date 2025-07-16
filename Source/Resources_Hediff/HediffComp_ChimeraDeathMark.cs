@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     return "";
                 }
-                return caster.NameShortColored + " " + (victimGenes.Count + "/" + ParentGenesCount);
+                return caster.NameShortColored + " " + (CopiedGenesCount + "/" + ParentGenesCount);
             }
         }
 
@@ -59,6 +59,43 @@ namespace WVC_XenotypesAndGenes
                 return cachedGenesCount.Value;
             }
         }
+
+        private int? cachedCopiedGenesCount;
+        private int CopiedGenesCount
+        {
+            get
+            {
+                if (!cachedCopiedGenesCount.HasValue)
+                {
+                    int count = 0;
+                    foreach (GeneDef geneDef in victimGenes)
+                    {
+                        foreach (Gene gene in Pawn.genes.GenesListForReading)
+                        {
+                            if (geneDef == gene.def)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    cachedCopiedGenesCount = count;
+                }
+                return cachedCopiedGenesCount.Value;
+            }
+        }
+
+        //private float? cachedCasterPsySens;
+        //private float CasterPsySense
+        //{
+        //    get
+        //    {
+        //        if (!cachedCasterPsySens.HasValue)
+        //        {
+        //            cachedCasterPsySens = caster?.GetStatValue(StatDefOf.PsychicSensitivity);
+        //        }
+        //        return cachedCasterPsySens.Value;
+        //    }
+        //}
 
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
@@ -81,7 +118,7 @@ namespace WVC_XenotypesAndGenes
             {
                 Pawn.health.RemoveHediff(parent);
             }
-            if (Props.sendOnComplete && victimGenes.Count >= ParentGenesCount)
+            if (Props.sendOnComplete && CopiedGenesCount >= ParentGenesCount)
             {
                 GetGenes();
             }
@@ -96,6 +133,8 @@ namespace WVC_XenotypesAndGenes
             }
             // In case victim genes changed
             cachedGenesCount = null;
+            cachedCopiedGenesCount = null;
+            //cachedCasterPsySens = null;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmos()

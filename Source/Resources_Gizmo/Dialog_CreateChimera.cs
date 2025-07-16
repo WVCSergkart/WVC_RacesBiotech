@@ -854,22 +854,6 @@ namespace WVC_XenotypesAndGenes
 		{
             foreach (GeneDef geneDef in selectedGenes)
             {
-                try
-				{
-					float lastGeneDaysPassed = 0;
-					if (gene.lastGeneObtainedTick > 0)
-					{
-						lastGeneDaysPassed = ((Find.TickManager.TicksGame - gene.lastGeneObtainedTick) / 60000) * 0.01f;
-					}
-					if ((!Rand.Chance(0.07f + lastGeneDaysPassed) || !gene.TryGetToolGene()) && Rand.Chance(0.02f + lastGeneDaysPassed))
-                    {
-                        gene.TryGetUniqueGene();
-                    }
-                }
-                catch (Exception arg)
-                {
-					Log.Error("Failed obtaine gene. Reason: " + arg);
-                }
                 gene.TryEatGene(geneDef);
 			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
