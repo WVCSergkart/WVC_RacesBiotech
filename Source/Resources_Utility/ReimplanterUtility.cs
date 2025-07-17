@@ -632,7 +632,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool ImplanterValidation(Pawn parent, LocalTargetInfo target, bool throwMessages, bool checkIdeo = true)
+		public static bool ImplanterValidation(AbilityDef def, Pawn parent, LocalTargetInfo target, bool throwMessages, bool checkIdeo = true)
 		{
 			Pawn pawn = target.Pawn;
 			if (pawn == null)
@@ -651,7 +651,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (throwMessages)
 				{
-					Messages.Message("MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
+					Messages.Message("MessageCantUseOnResistingPerson".Translate(def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			else if (pawn.Faction != parent.Faction)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_IsNeutralFactionOfPawn".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
 				return false;
 			}

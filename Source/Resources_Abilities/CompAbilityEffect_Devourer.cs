@@ -43,6 +43,16 @@ namespace WVC_XenotypesAndGenes
                     return;
                 }
                 Pawn caster = parent.pawn;
+                phase = "change goodwill";
+                if (victim.Faction != null && !victim.Faction.IsPlayer && !victim.HostileTo(caster.Faction))
+                {
+                    int goodwillChange = (victim.RaceProps.Humanlike ? (-29) : (-21)) * (victim.guilt.IsGuilty ? 1 : 2);
+                    if (victim.kindDef.factionHostileOnDeath || victim.kindDef.factionHostileOnKill && !victim.guilt.IsGuilty)
+                    {
+                        goodwillChange = caster.Faction.GoodwillToMakeHostile(victim.Faction);
+                    }
+                    victim.Faction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
+                }
                 phase = "reset xenotype";
                 float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
                 ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
@@ -131,6 +141,10 @@ namespace WVC_XenotypesAndGenes
 
         public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
         {
+            if (target.Pawn.HostileTo(parent.pawn))
+            {
+                return null;
+            }
             return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromDevourer".Translate(target.Pawn.Named("PAWN")), confirmAction, destructive: true);
         }
 

@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (!ReimplanterUtility.ImplanterValidation(parent.pawn, target, false, false))
+            if (!ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, false, false))
             {
                 if (throwMessages)
                 {

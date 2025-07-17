@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			return ReimplanterUtility.ImplanterValidation(parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
+			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
 		}
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)

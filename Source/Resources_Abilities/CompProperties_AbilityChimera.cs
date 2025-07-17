@@ -106,19 +106,19 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
-			Pawn pawn = target.Pawn;
-			if (pawn == null)
-			{
-				return false;
-			}
-			if (!pawn.IsHuman())
-			{
-				if (throwMessages)
-				{
-					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return false;
-            }
+			//Pawn pawn = target.Pawn;
+			//if (pawn == null)
+			//{
+			//	return false;
+			//}
+			//if (!pawn.IsHuman())
+			//{
+			//	if (throwMessages)
+			//	{
+			//		Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+			//	}
+			//	return false;
+            //}
             //if (pawn.genes.GenesListForReading.Where((gene) => !ChimeraGene.AllGenes.Contains(gene.def)).ToList().Count <= 0)
             //{
             //    if (throwMessages)
@@ -127,7 +127,7 @@ namespace WVC_XenotypesAndGenes
             //    }
             //    return false;
             //}
-            return base.Valid(target, throwMessages);
+            return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false) && base.Valid(target, throwMessages);
 		}
 
 		public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
@@ -255,19 +255,19 @@ namespace WVC_XenotypesAndGenes
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
-            Pawn pawn = target.Pawn;
-            if (pawn == null)
-            {
-                return false;
-            }
-            if (!pawn.IsHuman())
-            {
-                if (throwMessages)
-                {
-                    Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
-                }
-                return false;
-            }
+            //Pawn pawn = target.Pawn;
+            //if (pawn == null)
+            //{
+            //    return false;
+            //}
+            //if (!pawn.IsHuman())
+            //{
+            //    if (throwMessages)
+            //    {
+            //        Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+            //    }
+            //    return false;
+            //}
             //if (pawn.genes.GenesListForReading.Where((gene) => !ChimeraGene.AllGenes.Contains(gene.def)).ToList().Count <= 0)
             //{
             //    if (throwMessages)
@@ -276,7 +276,7 @@ namespace WVC_XenotypesAndGenes
             //    }
             //    return false;
             //}
-            return base.Valid(target, throwMessages);
+            return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false) && base.Valid(target, throwMessages);
         }
 
         public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
