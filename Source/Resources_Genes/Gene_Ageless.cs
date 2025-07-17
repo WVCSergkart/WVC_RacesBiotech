@@ -1,11 +1,10 @@
-using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Ageless : Gene
+    public class Gene_Ageless : Gene
 	{
 
 		public override void PostAdd()
@@ -32,15 +31,6 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			//if (!Active)
-			//{
-			//	return;
-			//}
-			//Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
-			//if (gene_Resurgent != null)
-			//{
-			//	AgelessUtility.Rejuvenation(pawn);
-			//}
 			AgelessUtility.InitialRejuvenation(pawn);
 			ResetInterval();
 		}
@@ -54,10 +44,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			//if (pawn.Faction != Faction.OfPlayer)
-			//{
-			//	return;
-			//}
 			AgeReversal();
 		}
 
@@ -65,10 +51,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				//Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
-				//if (gene_Resurgent != null)
-				//{
-				//}
 				AgelessUtility.AgeReverse(pawn);
 			}
 		}
@@ -82,11 +64,9 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Revers age",
 					action = delegate
 					{
-						if (Active)
-						{
-							AgeReversal();
-						}
-						ResetInterval();
+						//AgeReversal();
+						//ResetInterval();
+						ticksToAgeReversal = 0;
 					}
 				};
 			}
@@ -116,14 +96,6 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			//if (!Active)
-			//{
-			//	return;
-			//}
-			//if (Resurgent != null)
-			//{
-			//	AgelessUtility.Rejuvenation(pawn);
-			//}
 			AgelessUtility.InitialRejuvenation(pawn);
 			ResetInterval();
 		}
@@ -137,21 +109,13 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			//if (!Active || (!pawn.IsColonist && pawn.Map == null))
-			//{
-			//	return;
-			//}
 			AgeReversal();
-			// if (pawn.ageTracker.AgeBiologicalTicks >= 65800000f)
-			// {
-			// }
 		}
 
 		public void AgeReversal()
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 				if (Resurgent != null)
 				{
 					if (Resurgent.ageReversionAllowed)

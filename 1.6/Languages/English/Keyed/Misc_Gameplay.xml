@@ -41,6 +41,10 @@
 
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 
+	<WVC_DesiredAge>Desired age</WVC_DesiredAge>
+	<Gene_RejuvenatorDesc>Allows to set preferred age for rejuvenation.</Gene_RejuvenatorDesc>
+	<Gene_RejuvenatorMessage>New target age has been set.</Gene_RejuvenatorMessage>
+
 	<WVC_Mutation>{0} mutation</WVC_Mutation>
 
 	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
@@ -335,7 +339,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_LetterTextSecondChance_GeneUndeadResurgent>{TARGET_nameDef} gets another life.</WVC_LetterTextSecondChance_GeneUndeadResurgent>
 
-	<WVC_ResurgentGeneAgeReversalCompletedMessage>{PAWN_labelShort} completed {PAWN_possessive} age reversal cycle.</WVC_ResurgentGeneAgeReversalCompletedMessage>
+	<WVC_ResurgentGeneAgeReversalCompletedMessage>{PAWN_labelShort} completed {PAWN_possessive} genetic age reversal cycle.</WVC_ResurgentGeneAgeReversalCompletedMessage>
 
 	<!-- ============================ RISED FROM THE DEAD ============================ -->
 

@@ -1,5 +1,6 @@
 using RimWorld;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -35,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Rejuvenation(Pawn pawn)
 		{
-			if ((3600000 * 18) <= pawn.ageTracker.AgeBiologicalTicks)
+			if (CanAgeReverse(pawn, 18))
 			{
 				pawn.ageTracker.AgeBiologicalTicks = (3600000L * 18L) + 100000L;
 			}
@@ -56,30 +57,29 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool CanAgeReverse(Pawn pawn)
+		public static bool CanAgeReverse(Pawn pawn, int reqYears = 18)
 		{
-			long oneYear = 3600000L;
-			if ((oneYear * 18L) + oneYear * 1.5f >= pawn.ageTracker.AgeBiologicalTicks)
-			{
-				return false;
-			}
-			return true;
+            if (pawn.ageTracker.AgeBiologicalYears <= reqYears)
+            {
+                return false;
+            }
+            //long oneYear = 3600000L;
+            //if ((oneYear * reqYears) + oneYear * 1.5f >= pawn.ageTracker.AgeBiologicalTicks)
+            //{
+            //    return false;
+            //}
+            return true;
 		}
 
 		public static void AgeReverse(Pawn pawn)
 		{
 			long oneYear = 3600000L;
-			int num = (int)(oneYear * pawn.ageTracker.AdultAgingMultiplier);
-			long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
-			pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
-			// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
-			// int num2 = (int)(pawn.ageTracker.AgeReversalDemandedDeadlineTicks / 60000);
+			//int num = (int)(oneYear * pawn.ageTracker.AdultAgingMultiplier);
+			//long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
+			//pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
+			pawn.ageTracker.AgeBiologicalTicks = (long)Mathf.Clamp(pawn.ageTracker.AgeBiologicalTicks - oneYear, oneYear * 18 + 2100000L, oneYear * 100);
+			pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
 			string text = "WVC_ResurgentGeneAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
-			// Ideo ideo = pawn.Ideo;
-			// if (ideo != null && ideo.HasPrecept(PreceptDefOf.AgeReversal_Demanded))
-			// {
-			// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
-			// }
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
