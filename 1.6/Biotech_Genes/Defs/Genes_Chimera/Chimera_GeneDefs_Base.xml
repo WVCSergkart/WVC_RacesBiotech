@@ -26,9 +26,12 @@
 		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
 		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;Allows to devour some entities.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ChimeraLimit>28.0</WVC_ChimeraLimit>
+	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>28</reqGeneMat>
+			<reqGeneMat>32</reqGeneMat>
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<!-- Unused -->
 			<!-- <xenotypeDef>WVC_Shadoweater</xenotypeDef> -->
@@ -81,6 +84,8 @@
 				  <li>WVC_Chimera_PsychicHarvester_Friend</li>
 				  <li>WVC_StorageImplanter</li>
 				  <li>WVC_Chimera_Germharvest</li>
+				  <li>WVC_Chimera_IncreasedLimit</li>
+				  <li>WVC_Chimera_DecreasedLimit</li>
 				</genes>
 			  </li>
 			  <!-- Chimera very rare -->
@@ -89,8 +94,10 @@
 				<chance>0.01</chance>
 				<genes>
 				  <li>WVC_Chimera_MarkHarvest</li>
-				  <li>WVC_Traitshifter</li>
-				  <li>WVC_Skillshifter</li>
+				  <!-- <li>WVC_Traitshifter</li> -->
+				  <!-- <li>WVC_Skillshifter</li> -->
+				  <li>WVC_Chimera_GreatlyIncreasedLimit</li>
+				  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
 				</genes>
 			  </li>
 			  <!-- Basic solo -->
@@ -148,6 +155,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
+			<statDef>WVC_ChimeraLimit</statDef>
 		</li>
 	</modExtensions>
   </GeneDef>

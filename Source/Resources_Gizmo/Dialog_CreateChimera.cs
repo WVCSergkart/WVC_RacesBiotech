@@ -43,11 +43,9 @@ namespace WVC_XenotypesAndGenes
 
 		protected override List<GeneDef> SelectedGenes => selectedGenes;
 
-		protected override string Header => "WVC_XaG_CreateChimera".Translate().CapitalizeFirst();
+		protected override string Header => "WVC_XaG_CreateChimera".Translate().CapitalizeFirst() + " (" + selectedGenes.Count + "/" + XenogenesLimit.ToString() + ")";
 
-		// protected override string AcceptButtonLabel => "WVC_XaG_ChimeraApply".Translate().CapitalizeFirst();
-
-		protected override string AcceptButtonLabel
+        protected override string AcceptButtonLabel
 		{
 			get
 			{
@@ -446,33 +444,32 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// protected override void PostXenotypeOnGUI(float curX, float curY)
-		// {
-			// TaggedString taggedString = "WVC_XaG_GeneGeneticThief_EatGene".Translate();
-			// float width = Mathf.Max(Text.CalcSize(taggedString).x) + 4f + 24f;
-			// Rect rect = new(curX, curY, width, Text.LineHeight);
-			// Widgets.CheckboxLabeled(rect, taggedString, ref eatAllSelectedGenes);
-			// if (Mouse.IsOver(rect))
-			// {
-				// Widgets.DrawHighlight(rect);
-				// TooltipHandler.TipRegion(rect, "WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate());
-			// }
-			// rect.y += Text.LineHeight;
-			// postXenotypeHeight += rect.yMax - curY;
-		// }
+		private int? cachedXenogenesLimit;
+		public int XenogenesLimit
+		{
+			get
+			{
+				if (!cachedXenogenesLimit.HasValue)
+                {
+                    int genesLimit = 0;
+					StatDef statDef = gene.Giver.statDef;
+					foreach (GeneDef item in pawnEndoGenes)
+					{
+						genesLimit += gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors);
+					}
+					foreach (GeneDef item in SelectedGenes)
+                    {
+						genesLimit += gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors);
+					}
+                    cachedXenogenesLimit = genesLimit;
+				}
+				return cachedXenogenesLimit.Value;
+			}
+		}
 
 		protected override void OnGenesChanged()
 		{
 			selectedGenes.SortGeneDefs();
-			// if (!eatAllSelectedGenes)
-			// {
-			// }
-			// else
-			// {
-				// gcx = 0;
-				// met = 0;
-				// arc = 0;
-			// }
 			base.OnGenesChanged();
 			foreach (GeneDef item in pawnEndoGenes)
 			{
@@ -484,6 +481,7 @@ namespace WVC_XenotypesAndGenes
 				met += item.biostatMet;
 				arc += item.biostatArc;
 			}
+			cachedXenogenesLimit = null;
 		}
 
 		public override void DoWindowContents(Rect rect)
@@ -742,7 +740,12 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			List<GeneDef> selectedGenes = SelectedGenes;
-			foreach (GeneDef selectedGene in SelectedGenes)
+			if (XenogenesLimit < selectedGenes.Count)
+			{
+				Messages.Message("WVC_XaG_Gene_Chimera_LimitMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			foreach (GeneDef selectedGene in selectedGenes)
 			{
 				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
 				{

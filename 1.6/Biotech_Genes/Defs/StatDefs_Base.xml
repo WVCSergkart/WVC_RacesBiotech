@@ -68,4 +68,17 @@
 	<toStringStyle>FloatOne</toStringStyle>
   </StatDef>
 
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
+	<defName>WVC_ChimeraLimit</defName>
+	<label>chimera xenogenes</label>
+	<description>Maximum xenogenes that can be implanted simultaneously using Chimera. Exceeding the limit will not allow adding genes to the geneset. If the value is zero, the Chimera cannot be used.\n\nOnly genes are taken into account, and only without conditions.</description>
+	<defaultBaseValue>0</defaultBaseValue>
+	<!-- <hideAtValue>0</hideAtValue> -->
+	<minValue>0</minValue>
+	<!-- <alwaysHide>false</alwaysHide> -->
+	<!-- <category>Genetics</category> -->
+	<displayPriorityInCategory>120</displayPriorityInCategory>
+	<!-- <toStringStyle>FloatOne</toStringStyle> -->
+  </StatDef>
+
 </Defs>

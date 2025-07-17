@@ -515,27 +515,88 @@ namespace WVC_XenotypesAndGenes
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
-		// public virtual void ClearChimeraXenogerm()
-		// {
-		// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-		// bool clearXenogerm = true;
-		// if (firstHediffOfDef != null)
-		// {
-		// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
-		// foreach (Ability ability in xenogenesAbilities)
-		// {
-		// if (ability.OnCooldown)
-		// {
-		// clearXenogerm = false;
-		// break;
-		// }
-		// }
-		// if (clearXenogerm)
-		// {
-		// pawn.health.RemoveHediff(firstHediffOfDef);
-		// }
-		// }
-		// }
+        // public virtual void ClearChimeraXenogerm()
+        // {
+        // Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+        // bool clearXenogerm = true;
+        // if (firstHediffOfDef != null)
+        // {
+        // List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+        // foreach (Ability ability in xenogenesAbilities)
+        // {
+        // if (ability.OnCooldown)
+        // {
+        // clearXenogerm = false;
+        // break;
+        // }
+        // }
+        // if (clearXenogerm)
+        // {
+        // pawn.health.RemoveHediff(firstHediffOfDef);
+        // }
+        // }
+        // }
+
+        // =================
+
+        public int XenogenesLimit
+        {
+            get
+            {
+                return (int)pawn.GetStatValue(Giver.statDef);
+            }
+		}
+
+		public int GetStatFromStatModifiers(StatDef statDef, List<StatModifier> statOffsets, List<StatModifier> statFactors)
+		{
+			float value = 0;
+			if (statOffsets != null)
+			{
+				foreach (StatModifier statModifier in statOffsets)
+				{
+					if (statModifier.stat == statDef)
+					{
+						value += statModifier.value;
+					}
+				}
+			}
+			if (statFactors != null)
+			{
+				foreach (StatModifier statModifier in statFactors)
+				{
+					if (statModifier.stat == statDef)
+					{
+						value *= statModifier.value;
+					}
+				}
+			}
+			return (int)value;
+		}
+
+		public bool CanBeUsed
+		{
+			get
+			{
+				return XenogenesLimit > 0;
+			}
+		}
+
+		public bool CanImplantGenes
+		{
+			get
+			{
+				return XenogenesLimit > pawn.genes.Xenogenes.Count;
+			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			StatDef stat = Giver.statDef;
+			string supportedGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.statFactors != null && x.statFactors.StatListContains(stat) || x.statOffsets != null && x.statOffsets.StatListContains(stat)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - ");
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description + "\n\n" + supportedGenes, stat.displayPriorityInCategory);
+		}
+
+		// =================
 
 		public virtual void UpdateMetabolism()
 		{

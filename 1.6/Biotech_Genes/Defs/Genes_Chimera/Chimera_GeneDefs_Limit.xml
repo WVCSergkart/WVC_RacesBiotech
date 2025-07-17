@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare" Name="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit" Abstract="True">
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>WVC_Chimera</prerequisite>
+	<iconColor>(255, 255, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_ChimeraXenogenesLimit</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- =========================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_IncreasedLimit</defName>
+	<label>xeno-increase</label>
+	<description>Carriers of this gene have increased genetic efficiency of the chimera.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_Increased</iconPath>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<biostatMet>-4</biostatMet>
+	<statOffsets>
+	  <WVC_ChimeraLimit>7.0</WVC_ChimeraLimit>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_GreatlyIncreasedLimit</defName>
+	<label>great xeno-increased</label>
+	<description>Carriers of this gene have greatly increased genetic efficiency of the chimera.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_GreatlyIncreased</iconPath>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<statOffsets>
+	  <WVC_ChimeraLimit>14.0</WVC_ChimeraLimit>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_DecreasedLimit</defName>
+	<label>xeno-decrease</label>
+	<description>Carriers of this gene have decreased genetic efficiency of the chimera.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_Decreased</iconPath>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatMet>3</biostatMet>
+	<statOffsets>
+	  <WVC_ChimeraLimit>-7.0</WVC_ChimeraLimit>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_GreatlyDecreasedLimit</defName>
+	<label>great xeno-decrease</label>
+	<description>Carriers of this gene have greatly decreased genetic efficiency of the chimera.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_GreatlyDecreased</iconPath>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatMet>6</biostatMet>
+	<statOffsets>
+	  <WVC_ChimeraLimit>-14.0</WVC_ChimeraLimit>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_NullifiedLimit</defName>
+	<label>xeno-nullify</label>
+	<description>Carriers of this gene have zero genetic efficiency.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_Nullified</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatMet>9</biostatMet>
+	<customEffectDescriptions>
+	  <li>&lt;color=#ff8585&gt;Blocks chimera implantation.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <WVC_ChimeraLimit>0</WVC_ChimeraLimit>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

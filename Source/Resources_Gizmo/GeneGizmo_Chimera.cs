@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
             Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
             rect2 = rect.ContractedBy(6f);
             Widgets.DrawWindowBackground(rect);
-            TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count);
+            TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count, gene.XenogenesLimit);
             TooltipHandler.TipRegion(rect, taggedString);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
@@ -68,7 +68,14 @@ namespace WVC_XenotypesAndGenes
                 Widgets.DrawHighlight(rect4);
                 if (Widgets.ButtonInvisible(rect4))
                 {
-                    Find.WindowStack.Add(new Dialog_CreateChimera(gene));
+                    if (gene.CanBeUsed)
+                    {
+                        Find.WindowStack.Add(new Dialog_CreateChimera(gene));
+                    }
+                    else
+                    {
+                        Messages.Message("WVC_XaG_Gene_Chimera_LimitToLow".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                    }
                 }
             }
             TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneGeneticThief_Desc".Translate());

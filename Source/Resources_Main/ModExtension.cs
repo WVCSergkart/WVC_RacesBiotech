@@ -320,6 +320,8 @@ namespace WVC_XenotypesAndGenes
 		//Skinshaper
 		public List<GeneSetPresets> geneSetPresets;
 		public GeneSetPresets geneSetByDefault;
+		//
+		public StatDef statDef;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension
