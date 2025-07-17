@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
 		}
 
 	}

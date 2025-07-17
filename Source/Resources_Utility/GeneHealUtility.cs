@@ -12,14 +12,14 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static bool Regeneration(Pawn pawn, int delta, float regeneration = -1, bool ignoreScarification = true, int tick = 15, bool regenEyes = true)
+		public static bool Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 15, bool regenEyes = true)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
 			regeneration *= 0.00025f;
 			if (tick > 0f)
 			{
-				regeneration *= (tick / 15) * delta;
+				regeneration *= (tick / 15);
 			}
 			// Log.Error(regeneration.ToString());
 			// Old 0.0001243781

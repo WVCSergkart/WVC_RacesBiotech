@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error(tick.ToString() + " | 120");
 				// tick = 0;
 				//Log.Error("TickHemogenDrain");
-                GeneResourceUtility.TickHemogenDrain(this, 360, delta, CanOffset);
+                GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
 			}
 		}
 

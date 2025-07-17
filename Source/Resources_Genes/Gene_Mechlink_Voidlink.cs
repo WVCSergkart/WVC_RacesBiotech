@@ -233,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				OffsetResource(ResourceGain * 2500 * delta);
+				OffsetResource(ResourceGain * 2500);
 			}
 			if (timeForNextSummon > 0)
 			{
@@ -296,6 +296,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void OffsetResource(float value)
 		{
+			//Log.Error("Resource gain: " + value);
 			geneResource = Mathf.Clamp((geneResource + value), 0f, MaxResource);
 		}
 

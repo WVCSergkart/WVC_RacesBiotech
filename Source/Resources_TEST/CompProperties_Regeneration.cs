@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(parent as Pawn, delta, regeneration: Props.regenAmount, ignoreScarification: false, tick: 1500);
+			HealingUtility.Regeneration(parent as Pawn, regeneration: Props.regenAmount, ignoreScarification: false, tick: 1500);
 		}
 	}
 

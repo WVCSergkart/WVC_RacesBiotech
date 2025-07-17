@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 676, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 676, regenEyes: RegenerateEyes);
 		}
 
 	}
@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
-			HealingUtility.Regeneration(pawn, 1, regeneration: Undead.regeneration * 10, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration * 10, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: tick, regenEyes: RegenerateEyes);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
 			GeneResourceUtility.OffsetNeedFood(pawn, -0.01f);
 		}
@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (pawn.Map == null || !pawn.Downed && pawn.Awake())
             {
-                HealingUtility.Regeneration(pawn, delta, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 1626, regenEyes: RegenerateEyes);
+                HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 1626, regenEyes: RegenerateEyes);
             }
             else
             {
@@ -229,7 +229,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (cachedRegen.HasValue)
 			{
-				HealingUtility.Regeneration(pawn, delta, regeneration: cachedRegen.Value, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 597, regenEyes: RegenerateEyes);
+				HealingUtility.Regeneration(pawn, regeneration: cachedRegen.Value, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 597, regenEyes: RegenerateEyes);
 			}
 		}
 
@@ -264,7 +264,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
             }
-			if (HealingUtility.Regeneration(pawn, delta, regeneration: Hemogen.Value * 100, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 719, regenEyes: RegenerateEyes))
+			if (HealingUtility.Regeneration(pawn, regeneration: Hemogen.Value * 100, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 719, regenEyes: RegenerateEyes))
             {
 				Hemogen.Value -= 0.01f;
             }

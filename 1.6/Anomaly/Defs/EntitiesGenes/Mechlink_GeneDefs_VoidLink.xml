@@ -32,7 +32,7 @@
 		<MechFormingSpeed>0.1</MechFormingSpeed>
 	</statFactors>
 	<statOffsets>
-		<WVC_VoidMechsLimit>7</WVC_VoidMechsLimit>
+		<WVC_VoidMechsLimit>12</WVC_VoidMechsLimit>
 		<WVC_VoidDamageChance>0.22</WVC_VoidDamageChance>
 	</statOffsets>
 	<modExtensions>
@@ -77,7 +77,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<statOffsets>
-		<WVC_VoidMechsLimit>5</WVC_VoidMechsLimit>
+		<WVC_VoidMechsLimit>10</WVC_VoidMechsLimit>
 		<WVC_VoidDamageChance>0.25</WVC_VoidDamageChance>
 	</statOffsets>
 	<exclusionTags>
@@ -96,7 +96,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<statOffsets>
-		<WVC_VoidMechsLimit>-3</WVC_VoidMechsLimit>
+		<WVC_VoidMechsLimit>-6</WVC_VoidMechsLimit>
 		<WVC_VoidDamageChance>-0.2</WVC_VoidDamageChance>
 	</statOffsets>
 	<exclusionTags>
@@ -160,7 +160,7 @@
 	<biostatMet>0</biostatMet>
 	<statOffsets>
 		<WVC_MaxVoidEnergy>-0.80</WVC_MaxVoidEnergy>
-		<WVC_VoidMechsLimit>11</WVC_VoidMechsLimit>
+		<WVC_VoidMechsLimit>16</WVC_VoidMechsLimit>
 	</statOffsets>
   </GeneDef>
 

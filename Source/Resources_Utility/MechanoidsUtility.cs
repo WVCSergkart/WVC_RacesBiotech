@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 			newOverseer.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
 		}
 
+		// In Dev
 		public static float ToFloatFactor(this MechWeightClassDef weightClass)
 		{
 			//return weightClass switch
@@ -41,11 +42,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (weightClass == MechWeightClassDefOf.Medium || weightClass == MechWeightClassDefOf.Heavy)
 			{
-				return 3;
+				return 1.5f;
 			}
 			else
 			{
-				return 5;
+				return 2;
 			}
 		}
 

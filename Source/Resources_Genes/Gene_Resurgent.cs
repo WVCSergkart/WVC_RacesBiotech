@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 			//base.Tick();
 			if (pawn.IsHashIntervalTick(2400, delta))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 2400, delta);
+				GeneResourceUtility.TickResourceDrain(this, 2400);
 			}
 		}
 
