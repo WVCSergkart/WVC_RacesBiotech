@@ -93,7 +93,7 @@
 			<MoveSpeed>2.4</MoveSpeed>
 		</statBases>
 		<race>
-			<mechFixedSkillLevel>10</mechFixedSkillLevel>
+			<mechFixedSkillLevel>6</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <!-- <li>Firefighter</li> -->
 			  <!-- <li>BasicWorker</li> -->
@@ -310,7 +310,7 @@
 		<WVC_GolemBondCost>2</WVC_GolemBondCost>
 	  </statBases>
 	  <race>
-		<mechFixedSkillLevel>4</mechFixedSkillLevel>
+		<mechFixedSkillLevel>3</mechFixedSkillLevel>
 		<mechEnabledWorkTypes>
 		  <li>Hunting</li>
 		</mechEnabledWorkTypes>

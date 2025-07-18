@@ -98,7 +98,7 @@
 			<Mass>166</Mass>
 		</statBases>
 		<race>
-			<mechFixedSkillLevel>10</mechFixedSkillLevel>
+			<mechFixedSkillLevel>8</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Doctor</li>
 			</mechEnabledWorkTypes>

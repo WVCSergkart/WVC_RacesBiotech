@@ -655,7 +655,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			else if (pawn.Faction != parent.Faction)
+			else if (!pawn.IsPrisoner && pawn.Faction != parent.Faction)
 			{
 				if (throwMessages)
 				{

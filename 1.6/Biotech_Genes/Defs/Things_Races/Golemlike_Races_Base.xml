@@ -45,7 +45,7 @@
 		<race>
 			<body>Mech_Light</body>
 			<maxMechEnergy>30</maxMechEnergy>
-			<mechFixedSkillLevel>8</mechFixedSkillLevel>
+			<mechFixedSkillLevel>6</mechFixedSkillLevel>
 			<!-- <deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse"> -->
 				<!-- <deSpawn>false</deSpawn> -->
 			<!-- </deathAction> -->
