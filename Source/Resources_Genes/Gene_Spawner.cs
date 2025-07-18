@@ -137,6 +137,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					return null;
 				}
+				if (!Props.showInspectInfoIfOwned)
+				{
+					return null;
+				}
 				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 		}

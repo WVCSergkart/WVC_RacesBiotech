@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- <PrefabDef> -->
+	  <!-- <defName>WVC_CultistGravship</defName> -->
+	  <!-- <size>(25,19)</size> -->
+	  <!-- <things> -->
+		<!-- <BioferriteGenerator> -->
+		  <!-- <positions> -->
+			<!-- <li>(11, 0, 6)</li> -->
+			<!-- <li>(11, 0, 11)</li> -->
+		  <!-- </positions> -->
+		<!-- </BioferriteGenerator> -->
+		<!-- <Door> -->
+		  <!-- <rects> -->
+			<!-- <li>(9,5,9,5)</li> -->
+			<!-- <li>(9,13,9,13)</li> -->
+		  <!-- </rects> -->
+		  <!-- <stuff>Steel</stuff> -->
+		<!-- </Door> -->
+		<!-- <Door> -->
+		  <!-- <rects> -->
+			<!-- <li>(14,8,14,8)</li> -->
+			<!-- <li>(22,8,22,8)</li> -->
+			<!-- <li>(14,10,14,10)</li> -->
+			<!-- <li>(22,10,22,10)</li> -->
+		  <!-- </rects> -->
+		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
+		  <!-- <stuff>Steel</stuff> -->
+		<!-- </Door> -->
+		<!-- <GrowthVat> -->
+		  <!-- <positions> -->
+			<!-- <li>(4, 0, 3)</li> -->
+			<!-- <li>(6, 0, 3)</li> -->
+		  <!-- </positions> -->
+		  <!-- <relativeRotation>Opposite</relativeRotation> -->
+		<!-- </GrowthVat> -->
+		<!-- <GrowthVat> -->
+		  <!-- <positions> -->
+			<!-- <li>(4, 0, 15)</li> -->
+			<!-- <li>(6, 0, 15)</li> -->
+		  <!-- </positions> -->
+		<!-- </GrowthVat> -->
+		<!-- <GravshipHull> -->
+		  <!-- <rects> -->
+			<!-- <li>(3,1,7,1)</li> -->
+			<!-- <li>(8,2,8,2)</li> -->
+			<!-- <li>(9,3,11,3)</li> -->
+			<!-- <li>(12,4,12,5)</li> -->
+			<!-- <li>(6,5,8,5)</li> -->
+			<!-- <li>(10,5,11,5)</li> -->
+			<!-- <li>(13,5,13,7)</li> -->
+			<!-- <li>(3,6,3,6)</li> -->
+			<!-- <li>(6,6,6,7)</li> -->
+			<!-- <li>(14,6,21,6)</li> -->
+			<!-- <li>(4,7,5,7)</li> -->
+			<!-- <li>(14,7,14,7)</li> -->
+			<!-- <li>(22,7,22,7)</li> -->
+			<!-- <li>(5,8,5,11)</li> -->
+			<!-- <li>(14,9,14,9)</li> -->
+			<!-- <li>(22,9,22,9)</li> -->
+			<!-- <li>(4,11,4,11)</li> -->
+			<!-- <li>(6,11,6,13)</li> -->
+			<!-- <li>(13,11,14,12)</li> -->
+			<!-- <li>(22,11,22,11)</li> -->
+			<!-- <li>(3,12,3,12)</li> -->
+			<!-- <li>(15,12,21,12)</li> -->
+			<!-- <li>(7,13,8,13)</li> -->
+			<!-- <li>(10,13,13,13)</li> -->
+			<!-- <li>(12,14,12,14)</li> -->
+			<!-- <li>(9,15,11,15)</li> -->
+			<!-- <li>(8,16,8,16)</li> -->
+			<!-- <li>(3,17,7,17)</li> -->
+		  <!-- </rects> -->
+		  <!-- <stuff>Steel</stuff> -->
+		<!-- </GravshipHull> -->
+		<!-- <HiddenConduit> -->
+		  <!-- <rects> -->
+			<!-- <li>(5,2,5,6)</li> -->
+			<!-- <li>(4,6,4,6)</li> -->
+			<!-- <li>(6,6,9,6)</li> -->
+			<!-- <li>(12,8,12,10)</li> -->
+			<!-- <li>(13,9,20,9)</li> -->
+			<!-- <li>(4,12,9,12)</li> -->
+			<!-- <li>(5,13,5,16)</li> -->
+		  <!-- </rects> -->
+		<!-- </HiddenConduit> -->
+		<!-- <Bed> -->
+		  <!-- <position>(6, 0, 9)</position> -->
+		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
+		  <!-- <stuff>Steel</stuff> -->
+		  <!-- <quality>Normal</quality> -->
+		<!-- </Bed> -->
+		<!-- <GravEngine> -->
+		  <!-- <position>(19, 0, 9)</position> -->
+		<!-- </GravEngine> -->
+		<!-- <GeneBank> -->
+		  <!-- <position>(7, 0, 8)</position> -->
+		  <!-- <relativeRotation>Opposite</relativeRotation> -->
+		<!-- </GeneBank> -->
+		<!-- <WVC_GeneRecharger> -->
+		  <!-- <rects> -->
+			<!-- <li>(11,4,11,4)</li> -->
+			<!-- <li>(11,14,11,14)</li> -->
+		  <!-- </rects> -->
+		  <!-- <relativeRotation>Counterclockwise</relativeRotation> -->
+		<!-- </WVC_GeneRecharger> -->
+		<!-- <OrbitalTradeBeacon> -->
+		  <!-- <position>(12, 0, 9)</position> -->
+		<!-- </OrbitalTradeBeacon> -->
+		<!-- <PilotConsole> -->
+		  <!-- <position>(16, 0, 9)</position> -->
+		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
+		<!-- </PilotConsole> -->
+		<!-- <EndTable> -->
+		  <!-- <position>(6, 0, 10)</position> -->
+		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
+		  <!-- <stuff>BlocksSlate</stuff> -->
+		  <!-- <quality>Normal</quality> -->
+		<!-- </EndTable> -->
+		<!-- <LargeThruster> -->
+		  <!-- <positions> -->
+			<!-- <li>(2, 0, 3)</li> -->
+			<!-- <li>(2, 0, 5)</li> -->
+			<!-- <li>(2, 0, 14)</li> -->
+			<!-- <li>(2, 0, 16)</li> -->
+		  <!-- </positions> -->
+		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
+		<!-- </LargeThruster> -->
+		<!-- <ChemfuelTank> -->
+		  <!-- <positions> -->
+			<!-- <li>(4, 0, 5)</li> -->
+			<!-- <li>(4, 0, 12)</li> -->
+		  <!-- </positions> -->
+		<!-- </ChemfuelTank> -->
+		<!-- <Shelf> -->
+		  <!-- <position>(7, 0, 6)</position> -->
+		  <!-- <stuff>Steel</stuff> -->
+		<!-- </Shelf> -->
+		<!-- <Shelf> -->
+		  <!-- <position>(8, 0, 12)</position> -->
+		  <!-- <relativeRotation>Opposite</relativeRotation> -->
+		  <!-- <stuff>Steel</stuff> -->
+		<!-- </Shelf> -->
+	  <!-- </things> -->
+	<!-- </PrefabDef> -->
+
+</Defs>

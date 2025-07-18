@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = false;
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
-		public float golemnoids_ShutdownRechargePerTick = 1f;
+		public float golemnoids_ShutdownRechargePerTick = 0.5f;
 		//public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);

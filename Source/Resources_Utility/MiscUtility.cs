@@ -21,6 +21,11 @@ namespace WVC_XenotypesAndGenes
 			return pawn.Map?.Biome == BiomeDefOf.Space;
 		}
 
+		public static bool GameStarted()
+		{
+			return !GameNotStarted();
+		}
+
 		public static bool GameNotStarted()
 		{
 			return Current.ProgramState != ProgramState.Playing;
@@ -323,12 +328,17 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)
 		{
-			if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
+			//if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
+			//{
+			//	return false;
+			//}
+			float chance = FoodUtility.TryGetFoodPoisoningChanceOverrideFromTraits(pawn, thing, out float poisonChanceOverride) ? poisonChanceOverride : (pawn.GetStatValue(StatDefOf.FoodPoisonChanceFixedHuman) * FoodUtility.GetFoodPoisonChanceFactor(pawn));
+			if (Rand.Chance(chance))
 			{
-				return false;
-			}
-			FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
-			return true;
+				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+				return true;
+            }
+			return false;
 		}
 
 		public static bool FurskinHasMask(FurDef furDef)
@@ -718,55 +728,56 @@ namespace WVC_XenotypesAndGenes
 			//bool presentUndead = false;
 			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction;
 			foreach (Pawn item in pawns)
-			{
-				if (item.IsQuestLodger())
-				{
-					continue;
-				}
-				if (!item.RaceProps.Humanlike)
-				{
-					if (!item.IsMutant)
-					{
-						nonHumans++;
-					}
-					else
-					{
-						SubHumansCount(ref colonists, ref nonHumans, item);
-					}
-					if (item.RaceProps.IsMechanoid)
-					{
-						colonyMechs++;
-					}
-					continue;
-				}
-				if (item.IsMutant)
+            {
+                if (item.IsQuestLodger())
                 {
-					if (item.IsGhoul)
+                    continue;
+                }
+                if (!item.RaceProps.Humanlike)
+                {
+                    if (!item.IsMutant)
+                    {
+                        nonHumans++;
+                    }
+                    else
+                    {
+                        SubHumansCount(ref colonists, ref nonHumans, item);
+                    }
+                    if (item.RaceProps.IsMechanoid)
+                    {
+                        colonyMechs++;
+                    }
+                    continue;
+                }
+                if (item.IsMutant)
+                {
+                    if (item.IsGhoul)
+                    {
+                        nonHumans++;
+                    }
+                    if (item.mutant.Def.thinkTree == null && item.mutant.Def.thinkTreeConstant == null)
 					{
-						nonHumans++;
+						Colonists(ref colonists, ref xenos, item);
 					}
-					//mutants++;
-					//SubHumansCount(ref colonists, ref nonHumans, item);
+                    //mutants++;
+                    //SubHumansCount(ref colonists, ref nonHumans, item);
+                    continue;
+                }
+                Colonists(ref colonists, ref xenos, item);
+				if (anyAssignedWork)
+                {
 					continue;
                 }
-                if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
-				{
-					xenos++;
-				}
-				if (!item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
-				{
-					colonists++;
-				}
-				for (int i = 0; i < 24; i++)
-				{
-					if (item.timetable.GetAssignment(i) == TimeAssignmentDefOf.Work)
-					{
-						anyAssignedWork = true;
-						break;
-					}
-				}
-			}
-			StaticCollectionsClass.cachedColonistsCount = colonists;
+                for (int i = 0; i < 24; i++)
+                {
+                    if (item.timetable.GetAssignment(i) == TimeAssignmentDefOf.Work)
+                    {
+                        anyAssignedWork = true;
+                        break;
+                    }
+                }
+            }
+            StaticCollectionsClass.cachedColonistsCount = colonists;
 			StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
@@ -783,12 +794,23 @@ namespace WVC_XenotypesAndGenes
                 {
                     colonists++;
                 }
-            }
-            //StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
-            //Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
-        }
+			}
+			static void Colonists(ref int colonists, ref int xenos, Pawn item)
+			{
+				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
+				{
+					xenos++;
+				}
+				if (!item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
+				{
+					colonists++;
+				}
+			}
+			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
+			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
+		}
 
-		public static void ForeverAloneDevelopmentPoints()
+        public static void ForeverAloneDevelopmentPoints()
 		{
 			if (StaticCollectionsClass.cachedColonistsCount > 1 || !ModLister.IdeologyInstalled)
 			{

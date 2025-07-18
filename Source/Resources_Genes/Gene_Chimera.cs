@@ -322,6 +322,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Debug_ClearAllGenes()
+		{
+			collectedGenes = new();
+			consumedGenes = new();
+			destroyedGenes = new();
+		}
+
 		// public static float GetGeneWeight(GeneDef geneDef)
 		// {
 		// float weight = 1f / (geneDef.biostatCpx + geneDef.biostatMet + geneDef.biostatArc + 1f);

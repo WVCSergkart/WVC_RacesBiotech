@@ -134,11 +134,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (recoveryRate < 0f)
+			if (recoveryRate < 0f && pawn.psychicEntropy?.CurrentPsyfocus > 0)
 			{
 				Hemogen.Value += 0.01f;
 			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
+			pawn.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
 			if (!GeneResourceUtility.CanTick(ref nextSecondTick, 2, 1))
 			{
 				return;

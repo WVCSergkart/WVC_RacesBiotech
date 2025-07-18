@@ -37,12 +37,12 @@
 		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; level, at low values ​​it begins to &lt;color=#8a8ae6&gt;consume psyfocus&lt;/color&gt; replenishing hemogen.</li>
 		<li>Bloodfeeding replenishes &lt;color=#8a8ae6&gt;psyfocus&lt;/color&gt;.</li>
 	</customEffectDescriptions>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>psy</symbol></li>
@@ -67,9 +67,9 @@
 			  <!-- </points> -->
 			  <points>
 				<!-- Vanilla -->
-				<li>(0,-0.1)</li>
-				<li>(0.2,0.0)</li>
-				<li>(0.5,0.01)</li>
+				<li>(0,-0.5)</li>
+				<li>(0.2,-0.1)</li>
+				<li>(0.5,0.0)</li>
 				<li>(1,0.02)</li>
 				<li>(5,0.1)</li>
 			  </points>

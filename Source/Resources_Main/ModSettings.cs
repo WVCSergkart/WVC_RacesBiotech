@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = false;
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
-		public float golemnoids_ShutdownRechargePerTick = 1f;
+		public float golemnoids_ShutdownRechargePerTick = 0.5f;
 		//public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
@@ -216,7 +216,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref psylink_HediffFromGeneChance, "psylink_HediffFromGeneChance", defaultValue: 0.02f);
 			//Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			//Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
-			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
+			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 0.5f);
 			//Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
 			Scribe_Values.Look(ref golemlink_spawnIntervalRange, "golemlink_spawnIntervalRange", defaultValue: new(240000, 420000));
 			Scribe_Values.Look(ref golemlink_golemsToSpawnRange, "golemlink_golemsToSpawnRange", defaultValue: new(1, 3));

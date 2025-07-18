@@ -33,6 +33,7 @@ namespace WVC_XenotypesAndGenes
         //public QuestScriptDef questScriptDef = null;
         //public List<GeneDef> hybridGenes;
         //public XenotypeDef hybridXenotype;
+        public PrefabDef prefabDef;
 
         //public override void ExposeData()
         //{
@@ -95,6 +96,7 @@ namespace WVC_XenotypesAndGenes
             AgeCorrection(p);
             Skills(p);
             SetPregnant(p);
+            MiscUtility.Notify_DebugPawn(p);
         }
 
         private void SetGender(Pawn pawn)
@@ -150,6 +152,10 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+            //if (prefabDef != null)
+            //{
+            //    PrefabUtility.SpawnPrefab(prefabDef, map, map.Center, Rot4.North, Faction.OfPlayer, null, null, null, false);
+            //}
             //ScatterCorpses(map);
             //if (questScriptDef != null)
             //{
@@ -254,6 +260,7 @@ namespace WVC_XenotypesAndGenes
             //        return;
             //    }
             //}
+            p.genes.GetFirstGeneOfType<Gene_Chimera>()?.Debug_ClearAllGenes();
             XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
         }
 

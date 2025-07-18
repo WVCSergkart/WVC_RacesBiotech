@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_BioferriteGrowths</defName>
+	<label>bioferrite growths</label>
+	<description>Carriers of this gene have bioferrite growths all over their bodies, which peel off over time, and then new ones grow.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
+	<iconPath>WVC/UI/Genes/WVC_BioferriteGrowths</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<selectionWeight>0.0002</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>325</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Spawns 16 biofferite every 8 days.</li>
+	</customEffectDescriptions>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<statFactors>
+	  <Flammability>1.2</Flammability>
+	</statFactors>
+	<statOffsets>
+	  <ArmorRating_Sharp>0.11</ArmorRating_Sharp>
+	  <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>Bioferrite</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<showInspectInfoIfOwned>false</showInspectInfoIfOwned>
+			<spawnIntervalRange><min>480000</min><max>480000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

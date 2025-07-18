@@ -342,7 +342,16 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 841;
 
-		public override void TickInterval(int delta)
+        public override void PostAdd()
+        {
+            base.PostAdd();
+			if (MiscUtility.GameStarted())
+			{
+				MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
+			}
+        }
+
+        public override void TickInterval(int delta)
 		{
 			if (!GeneResourceUtility.CanTick(ref nextTick, 47618, delta))
 			{
@@ -368,6 +377,15 @@ namespace WVC_XenotypesAndGenes
 		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
 
 		private int nextTick = 842;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (MiscUtility.GameStarted())
+			{
+				MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
+			}
+		}
 
 		public override void TickInterval(int delta)
 		{

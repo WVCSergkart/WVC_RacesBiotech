@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.IsHashIntervalTick(3333, delta))
 			{
-				DoResearch(3333, delta);
+				DoResearch(3333);
 			}
 		}
 

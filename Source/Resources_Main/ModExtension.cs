@@ -67,6 +67,7 @@ namespace WVC_XenotypesAndGenes
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
 		public HediffDef initialHediffDef;
+		public bool useMatchPercentFromSettings = false;
 		// WIP
 		public bool customizable = false;
 		public float stackPercent = 0.1f;
@@ -81,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeComplexityFactor = 0.1f;
 		public int cooldownDays = 15;
 		public List<GeneDef> canGestateAnyIfHas;
-		public bool useMatchPercentFromSettings = false;
+		public bool showInspectInfoIfOwned = true;
 		//incidents
 		public IncidentDef incidentDef;
 		// public ThingDef specialTree;
