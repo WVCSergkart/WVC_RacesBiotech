@@ -12,18 +12,19 @@
 	  </playerFaction>
 	  <parts Inherit="False">
 
-		<!-- <li Class="ScenPart_PlanetLayer"> -->
-		  <!-- <def>PlanetLayerFixed</def> -->
-		  <!-- <tag>Orbit</tag> -->
-		  <!-- <layer>Orbit</layer> -->
-		  <!-- <settingsDef>Orbit</settingsDef> -->
-		  <!-- <hide>true</hide> -->
-		  <!-- <connections> -->
-			<!-- <Surface> -->
-			  <!-- <zoomMode>ZoomIn</zoomMode> -->
-			<!-- </Surface> -->
-		  <!-- </connections> -->
-		<!-- </li> -->
+		<!-- Layers -->
+		<li Class="ScenPart_PlanetLayer">
+		  <def>PlanetLayerFixed</def>
+		  <tag>Orbit</tag>
+		  <layer>Orbit</layer>
+		  <settingsDef>Orbit</settingsDef>
+		  <hide>true</hide>
+		  <connections>
+			<Surface>
+			  <zoomMode>ZoomIn</zoomMode>
+			</Surface>
+		  </connections>
+		</li>
 
 		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
 		  <def>ConfigPage_ConfigureStartingPawns</def>
@@ -73,11 +74,11 @@
 			<!-- = -->
 			<li>Body_Standard</li>
 			<li>HemogenDrain</li>
-			<li>WVC_HemogenPsylink</li>
+			<!-- <li>WVC_HemogenPsylink</li> -->
 			<li>WVC_SkinColor_Metal</li>
-			<li>WVC_MechaAI_SoftwareManipulation</li>
+			<li>WVC_MechaAI_SoftwareMoving</li>
 			<!-- = -->
-			<!-- <li>WVC_MechaAI_SoftwareMoving</li> -->
+			<li>WVC_MechaAI_SoftwareManipulation</li>
 			<li>WVC_BioferriteGrowths</li>
 			<li>WVC_MecaBodyParts_Spine</li>
 			<li>WVC_MecaBodyParts_Ear</li>
@@ -85,7 +86,63 @@
 		  </chimeraGeneDefs>
 		  <addMechlink>false</addMechlink>
 		  <nullifyBackstory>true</nullifyBackstory>
-		  <nullifySkills>true</nullifySkills>
+		  <!-- <nullifySkills>False</nullifySkills> -->
+		  <forcedTraits>
+			<li>
+			  <traitDef>PerfectMemory</traitDef>
+			  <traitDegree>0</traitDegree>
+			</li>
+		  </forcedTraits>
+		  <skills>
+			<li>
+			  <skill>Construction</skill>
+			  <range>8</range>
+			</li>
+			<li>
+			  <skill>Plants</skill>
+			  <range>4</range>
+			</li>
+			<li>
+			  <skill>Intellectual</skill>
+			  <range>18</range>
+			</li>
+			<li>
+			  <skill>Mining</skill>
+			  <range>6</range>
+			</li>
+			<li>
+			  <skill>Shooting</skill>
+			  <range>6</range>
+			</li>
+			<li>
+			  <skill>Melee</skill>
+			  <range>6</range>
+			</li>
+			<li>
+			  <skill>Social</skill>
+			  <range>0</range>
+			</li>
+			<li>
+			  <skill>Animals</skill>
+			  <range>2</range>
+			</li>
+			<li>
+			  <skill>Cooking</skill>
+			  <range>4</range>
+			</li>
+			<li>
+			  <skill>Medicine</skill>
+			  <range>10</range>
+			</li>
+			<li>
+			  <skill>Artistic</skill>
+			  <range>6</range>
+			</li>
+			<li>
+			  <skill>Crafting</skill>
+			  <range>12</range>
+			</li>
+		  </skills>
 		  <!-- <gender>Female</gender> -->
 		  <!-- <startingPawnsIsPregnant>false</startingPawnsIsPregnant> -->
 		  <!-- <newGamePlus>true</newGamePlus> -->
@@ -93,6 +150,19 @@
 		  <additionalChronoAge>888~1777</additionalChronoAge>
 		  <context>PlayerStarter</context>
 		  <!-- <prefabDef>WVC_CultistGravship</prefabDef> -->
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>When you opened your eyes..</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_ForcedMap">
+		  <def>ForcedMap</def>
+		  <mapGenerator>OrbitalRelay</mapGenerator>
+		  <layerDef>Orbit</layerDef>
 		</li>
 
 		<!-- <li Class="ScenPart_ForcedMap"> -->
@@ -108,6 +178,15 @@
 		<li Class="ScenPart_PlayerPawnsArriveMethod">
 		  <def>PlayerPawnsArriveMethod</def>
 		  <method>Gravship</method>
+		</li>
+
+		<li Class="ScenPart_PursuingMechanoids">
+		  <def>PursuingMechanoids</def>
+		</li>
+
+		<li Class="ScenPart_DisableQuest">
+		  <def>DisableQuest</def>
+		  <questDef>MechanoidSignal</questDef>
 		</li>
 
 		<!-- Player pawns modifiers -->
@@ -126,13 +205,6 @@
 		  <chance>1.0</chance>
 		  <need>Food</need>
 		  <levelRange>0~0.05</levelRange>
-		</li>
-
-		<!-- Game start dialog -->
-		<li Class="ScenPart_GameStartDialog">
-		  <def>GameStartDialog</def>
-		  <text>When you opened your eyes..</text>
-		  <closeSound>GameStartSting</closeSound>
 		</li>
 
 		<!-- Starting research -->
@@ -164,9 +236,9 @@
 		  <def>NoPossessions</def>
 		</li>
 
-		<li Class="ScenPart_DisableMapGen">
-			<def>DisableExostriderRemains</def>
-		</li>
+		<!-- <li Class="ScenPart_DisableMapGen"> -->
+			<!-- <def>DisableExostriderRemains</def> -->
+		<!-- </li> -->
 		<!-- <li Class="ScenPart_DisableMapGen"> -->
 			<!-- <def>AnimaTrees</def> -->
 		<!-- </li> -->
@@ -175,6 +247,37 @@
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
 			<!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player starting things -->
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Chemfuel</thingDef>
+		  <count>40</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>WoodLog</thingDef>
+		  <count>70</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>ComponentIndustrial</thingDef>
+		  <count>20</count>
+		</li>
+
+		<!-- Scatter some things near player start -->
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsNearPlayerStart</def>
+		  <thingDef>Steel</thingDef>
+		  <count>200</count>
+		  <allowRoofed>false</allowRoofed>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsNearPlayerStart</def>
+		  <thingDef>GravlitePanel</thingDef>
+		  <count>400</count>
+		  <allowRoofed>false</allowRoofed>
 		</li>
 
 	  </parts>

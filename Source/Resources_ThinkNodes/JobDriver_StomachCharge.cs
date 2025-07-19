@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedOrNull(TargetIndex.A);
-			this.FailOn(() => Hemogen == null);
+			this.FailOn(() => !Charger.CanPawnChargeCurrently(pawn) && Hemogen == null);
 			yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
 			Toil toil = ToilMaker.MakeToil("MakeNewToils");
 			toil.defaultCompleteMode = ToilCompleteMode.Never;

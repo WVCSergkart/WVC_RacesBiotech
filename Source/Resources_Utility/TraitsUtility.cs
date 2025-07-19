@@ -8,6 +8,26 @@ namespace WVC_XenotypesAndGenes
     public static class TraitsUtility
 	{
 
+		public static void RemoveAllTraits(Pawn pawn)
+		{
+			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+			{
+				if (trait.sourceGene == null)
+				{
+					trait.RemoveTrait(pawn);
+				}
+			}
+		}
+
+		public static void AddTraitsFromList(Pawn pawn, List<TraitDefHolder> traits)
+		{
+			foreach (TraitDefHolder traitDefHolder in traits)
+			{
+				Trait trait = new(traitDefHolder.traitDef, traitDefHolder.traitDegree.Value);
+				pawn.story.traits.GainTrait(trait, true);
+			}
+		}
+
 		public static void RemoveGeneTraits(Pawn pawn, Gene gene)
 		{
 			foreach (Trait trait in pawn.story.traits.allTraits.ToList())

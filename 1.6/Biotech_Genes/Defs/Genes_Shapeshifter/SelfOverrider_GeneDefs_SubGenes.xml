@@ -200,11 +200,14 @@
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_TempAdapt</iconPath>
 	<displayOrderInCategory>530</displayOrderInCategory>
 	<biostatMet>-5</biostatMet>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<immuneToVacuumBurns>true</immuneToVacuumBurns>
 	<statOffsets>
 	  <ToxicResistance>1</ToxicResistance>
 	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+	  <VacuumResistance MayRequire="ludeon.rimworld.odyssey">1</VacuumResistance>
 	</statOffsets>
 	<makeImmuneTo>
 	  <li>LungRot</li>

@@ -12,7 +12,7 @@
 	<displayCategory>WVC_Miscellaneous</displayCategory>
 	<displayOrderInCategory>325</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Spawns 16 biofferite every 8 days.</li>
+		<li>Spawns 32 (xMet) biofferite every 8 days.</li>
 	</customEffectDescriptions>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -27,7 +27,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>Bioferrite</thingDefToSpawn>
-			<stackCount>1</stackCount>
+			<stackCount>32</stackCount>
 			<showInspectInfoIfOwned>false</showInspectInfoIfOwned>
 			<spawnIntervalRange><min>480000</min><max>480000</max></spawnIntervalRange>
 		</li>

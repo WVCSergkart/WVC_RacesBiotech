@@ -192,7 +192,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     Log.Warning("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
                 }
-                studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 0.3f, true);
+                studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 0.6f, true, true);
                 if (student.Map != null)
                 {
                     FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);

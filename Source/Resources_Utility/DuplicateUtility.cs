@@ -437,6 +437,37 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SetSkills(Pawn pawn, List<SkillRange> skills)
+		{
+			foreach (SkillRange skillRange in skills)
+			{
+				foreach (SkillRecord skill in pawn.skills.skills.ToList())
+				{
+					if (skillRange.Skill != skill.def)
+                    {
+						continue;
+                    }
+					pawn.skills.skills.Remove(skill);
+					SkillRecord item = new(pawn, skill.def)
+					{
+						levelInt = skillRange.Range.RandomInRange,
+						passion = Passion.None,
+						xpSinceLastLevel = 10,
+						xpSinceMidnight = 0
+					};
+					if (skillRange.Range.min > 8)
+					{
+						item.passion = Passion.Minor;
+					}
+					if (skillRange.Range.min > 16)
+					{
+						item.passion = Passion.Major;
+					}
+					pawn.skills.skills.Add(item);
+				}
+			}
+		}
+
 		public static void NullifySkills(Pawn pawn, bool removePassion = false)
 		{
 			foreach (SkillRecord skill in pawn.skills.skills.ToList())

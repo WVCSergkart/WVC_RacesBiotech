@@ -34,6 +34,9 @@ namespace WVC_XenotypesAndGenes
         //public List<GeneDef> hybridGenes;
         //public XenotypeDef hybridXenotype;
         public PrefabDef prefabDef;
+        public List<SkillRange> skills;
+        public List<TraitDefHolder> forcedTraits;
+
 
         //public override void ExposeData()
         //{
@@ -82,8 +85,10 @@ namespace WVC_XenotypesAndGenes
         //    return list;
         //}
 
+
         protected override void ModifyNewPawn(Pawn p)
         {
+            SetTraits(p);
             SetXenotype(p);
             SetGenes(p);
             SetGender(p);
@@ -97,6 +102,16 @@ namespace WVC_XenotypesAndGenes
             Skills(p);
             SetPregnant(p);
             MiscUtility.Notify_DebugPawn(p);
+        }
+
+        private void SetTraits(Pawn pawn)
+        {
+            if (forcedTraits == null)
+            {
+                return;
+            }
+            TraitsUtility.RemoveAllTraits(pawn);
+            TraitsUtility.AddTraitsFromList(pawn, forcedTraits);
         }
 
         private void SetGender(Pawn pawn)
@@ -230,11 +245,14 @@ namespace WVC_XenotypesAndGenes
 
         private void Skills(Pawn p)
         {
-            if (!nullifySkills)
+            if (nullifySkills)
             {
-                return;
+                DuplicateUtility.NullifySkills(p, true);
             }
-            DuplicateUtility.NullifySkills(p, true);
+            else if (skills != null)
+            {
+                DuplicateUtility.SetSkills(p, skills);
+            }
         }
 
         private void AgeCorrection(Pawn p)
