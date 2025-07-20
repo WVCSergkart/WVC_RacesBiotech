@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
         public PrefabDef prefabDef;
         public List<SkillRange> skills;
         public List<TraitDefHolder> forcedTraits;
+        public List<GeneralHolder> chimeraGenesPerXenotype;
 
 
         //public override void ExposeData()
@@ -265,39 +266,60 @@ namespace WVC_XenotypesAndGenes
 
         private void ChimeraGenes(Pawn p)
         {
-            if (chimeraGeneDefs.NullOrEmpty())
+            if (chimeraGenesPerBiomeDef != null && Find.GameInitData != null)
             {
-                return;
+                GetGenesSetPerBiome(Find.World.grid[Find.GameInitData.startingTile].PrimaryBiome, out GeneralHolder genesHolder);
+                if (genesHolder != null && genesHolder.genes != null)
+                {
+                    XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes, true);
+                    return;
+                }
             }
-            //if (chimeraGenesPerBiomeDef != null && Find.GameInitData != null)
-            //{
-            //    GetGenesSetPerBiome(Find.World.grid[Find.GameInitData.startingTile].biome, out GeneralHolder genesHolder);
-            //    if (genesHolder != null && genesHolder.genes != null)
-            //    {
-            //        XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes);
-            //        return;
-            //    }
-            //}
-            p.genes.GetFirstGeneOfType<Gene_Chimera>()?.Debug_ClearAllGenes();
-            XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
+            else if (chimeraGenesPerXenotype != null)
+            {
+                GetGenesSetPerXenotype(p.genes.Xenotype, out GeneralHolder genesHolder);
+                if (genesHolder != null && genesHolder.genes != null)
+                {
+                    XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes, true);
+                    return;
+                }
+            }
+            else if (!chimeraGeneDefs.NullOrEmpty())
+            {
+                XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs, true);
+            }
         }
 
-        //private bool GetGenesSetPerBiome(BiomeDef biomeDef, out GeneralHolder genesHolder)
-        //{
-        //    genesHolder = null;
-        //    foreach (GeneralHolder holder in chimeraGenesPerBiomeDef)
-        //    {
-        //        foreach (BiomeDef item in holder.biomeDefs)
-        //        {
-        //            if (item == biomeDef)
-        //            {
-        //                genesHolder = holder;
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    return false;
-        //}
+        private bool GetGenesSetPerXenotype(XenotypeDef xenotypeDef, out GeneralHolder genesHolder)
+        {
+            genesHolder = null;
+            foreach (GeneralHolder holder in chimeraGenesPerXenotype)
+            {
+                if (holder.xenotypeDef == xenotypeDef)
+                {
+                    genesHolder = holder;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool GetGenesSetPerBiome(BiomeDef biomeDef, out GeneralHolder genesHolder)
+        {
+            genesHolder = null;
+            foreach (GeneralHolder holder in chimeraGenesPerBiomeDef)
+            {
+                foreach (BiomeDef item in holder.biomeDefs)
+                {
+                    if (item == biomeDef)
+                    {
+                        genesHolder = holder;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         //private void ChimeraEvolve(Pawn p)
         //{

@@ -162,6 +162,9 @@
 	<WVC_XaG_VoidDrainRemove_Desc>Allows to free a pawn from a void drain.</WVC_XaG_VoidDrainRemove_Desc>
 	<WVC_XaG_VoidDrainRemove_Warning>Are you sure you want to release the victim from void drain?</WVC_XaG_VoidDrainRemove_Warning>
 
+	<WVC_XaG_MetalkinDropLabel>Survivor!</WVC_XaG_MetalkinDropLabel>
+	<WVC_XaG_MetalkinDropDesc>It looks like there was a survivor among the chunks.</WVC_XaG_MetalkinDropDesc>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>

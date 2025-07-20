@@ -308,22 +308,28 @@ namespace WVC_XenotypesAndGenes
             pawn.jobs.TryTakeOrderedJob(job, tag, requestQueueing);
 		}
 
-        public static void TryFinalizeAllIngestJobs(Pawn pawn, bool finalize = true)
-        {
+		public static void TryFinalizeAllIngestJobs(Pawn pawn, bool finalize = true)
+		{
 			pawn?.jobs?.jobQueue?.RemoveAll(pawn, (Job j) => j.def == JobDefOf.Ingest || (finalize && j.GetCachedDriverDirect is IJobCustomEater eater && eater.ShouldFinalize));
-        }
+		}
 
-        public static bool TrySummonDropPod(Map map, List<Thing> list)
+		public static bool TrySummonDropPod(Map map, List<Thing> list)
 		{
 			if (map == null || map.IsUnderground())
 			{
 				return false;
 			}
-			ActiveTransporterInfo activeDropPodInfo = new();
-			activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
 			IntVec3 cell = DropCellFinder.TradeDropSpot(map);
-            DropPodUtility.MakeDropPodAt(cell, map, activeDropPodInfo);
+			SummonDropPod(map, list, cell);
 			return true;
+		}
+
+		public static void SummonDropPod(Map map, List<Thing> list, IntVec3 cell, bool leaveSlug = false)
+		{
+			ActiveTransporterInfo activeDropPodInfo = new();
+			activeDropPodInfo.leaveSlag = leaveSlug;
+			activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
+			DropPodUtility.MakeDropPodAt(cell, map, activeDropPodInfo);
 		}
 
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)

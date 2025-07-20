@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public bool reqOneManArmy = false;
 		public List<GeneDef> genes;
 		public List<BiomeDef> biomeDefs;
+		public XenotypeDef xenotypeDef;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;

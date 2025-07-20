@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_MetalkinDrop</defName>
+	<label>metalkin drop</label>
+	<targetTags>
+	  <li>Map_PlayerHome</li>
+	</targetTags>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MetalkinDrop</workerClass>
+	<category>ShipChunkDrop</category>
+	<baseChance>0.2</baseChance>
+	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+  </IncidentDef>
+
+</Defs>

@@ -11,6 +11,65 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ScenarioDef[defName="TheGravship"]/scenario/parts</xpath>
+	  <value>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <chimeraGenesPerXenotype>
+			  <li>
+				  <xenotypeDef>WVC_Nociokin</xenotypeDef>
+				  <genes>
+					<!-- <li>WVC_FleshmassRegeneration</li> -->
+					<!-- <li>WVC_VoidResourceGain</li> -->
+					<!-- = -->
+					<li>WVC_SleepResearch</li>
+					<li>WVC_EternalHunger</li>
+					<li>WVC_Chimera_NullifiedLimit</li>
+					<li>WVC_MinTemp_ArchiteDecrease</li>
+					<li>WVC_MaxTemp_ArchiteIncrease</li>
+					<!-- = -->
+					<!-- <li>WVC_Inhumanized</li> -->
+					<li>WVC_FleshmassSkin</li>
+					<li>WVC_FleshmassNucleus</li>
+					<li>WVC_FleshmassBuilder</li>
+					<li>WVC_FleshmassArmor</li>
+					<!-- <li>WVC_FleshmassBrain</li> -->
+					<!-- = -->
+					<li>WVC_BloodyGrowths</li>
+					<li>WVC_Toughspike</li>
+					<li>WVC_Incrementer</li>
+					<li>WVC_MaxVoidEnergy_AccurateSummon</li>
+					<li>WVC_SwarmConnection_Golems</li>
+					<!-- = -->
+					<li>WVC_TentacleHands</li>
+					<li>WVC_LongTentacleTail</li>
+					<li>WVC_GolemSensetivity_Enchanced</li>
+					<li>WVC_CyclicallySelfLearning</li>
+					<li>WVC_MechaAI_PsychicDull</li>
+					<!-- = -->
+					<li>Body_Standard</li>
+					<li>HemogenDrain</li>
+					<!-- <li>WVC_HemogenPsylink</li> -->
+					<li>WVC_SkinColor_Metal</li>
+					<li>WVC_MechaAI_SoftwareMoving</li>
+					<!-- = -->
+					<li>WVC_MechaAI_SoftwareManipulation</li>
+					<li>WVC_BioferriteGrowths</li>
+					<li>WVC_MecaBodyParts_Spine</li>
+					<li>WVC_MecaBodyParts_Ear</li>
+					<li>WVC_MecaBodyParts_Eye</li>
+				  </genes>
+			  </li>
+		  </chimeraGenesPerXenotype>
+		  <context>PlayerStarter</context>
+		</li>
+
+	  </value>
+	</Operation>
+
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
 	  <safetyDepth>2</safetyDepth>

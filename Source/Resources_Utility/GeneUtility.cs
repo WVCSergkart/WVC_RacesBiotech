@@ -335,12 +335,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void AddGenesToChimera(Pawn p, List<GeneDef> chimeraGeneDefs)
+		public static void AddGenesToChimera(Pawn p, List<GeneDef> chimeraGeneDefs, bool clearGenes = false)
 		{
 			Gene_Chimera chimera = p.genes?.GetFirstGeneOfType<Gene_Chimera>();
 			if (chimera == null)
 			{
 				return;
+			}
+			if (clearGenes)
+			{
+				chimera.Debug_ClearAllGenes();
 			}
 			foreach (GeneDef geneDef in chimeraGeneDefs)
 			{

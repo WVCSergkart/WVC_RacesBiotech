@@ -44,7 +44,7 @@
 	<description>Carriers of this gene have decreased genetic efficiency of the chimera.</description>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_Decreased</iconPath>
 	<displayOrderInCategory>20</displayOrderInCategory>
-	<biostatMet>3</biostatMet>
+	<biostatMet>6</biostatMet>
 	<statOffsets>
 	  <WVC_ChimeraLimit>-7.0</WVC_ChimeraLimit>
 	</statOffsets>
@@ -56,7 +56,7 @@
 	<description>Carriers of this gene have greatly decreased genetic efficiency of the chimera.</description>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_GreatlyDecreased</iconPath>
 	<displayOrderInCategory>15</displayOrderInCategory>
-	<biostatMet>6</biostatMet>
+	<biostatMet>12</biostatMet>
 	<statOffsets>
 	  <WVC_ChimeraLimit>-14.0</WVC_ChimeraLimit>
 	</statOffsets>
@@ -68,7 +68,7 @@
 	<description>Carriers of this gene have zero genetic efficiency.</description>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_Nullified</iconPath>
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<biostatMet>9</biostatMet>
+	<biostatMet>16</biostatMet>
 	<customEffectDescriptions>
 	  <li>&lt;color=#ff8585&gt;Blocks chimera implantation.&lt;/color&gt;</li>
 	</customEffectDescriptions>
