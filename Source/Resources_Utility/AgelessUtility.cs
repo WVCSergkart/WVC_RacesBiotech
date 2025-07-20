@@ -78,7 +78,10 @@ namespace WVC_XenotypesAndGenes
 			//long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
 			//pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
 			pawn.ageTracker.AgeBiologicalTicks = (long)Mathf.Clamp(pawn.ageTracker.AgeBiologicalTicks - oneYear, oneYear * 18 + 2100000L, oneYear * 100);
-			pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
+			if (ModsConfig.IdeologyActive)
+			{
+				pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
+			}
 			string text = "WVC_ResurgentGeneAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{

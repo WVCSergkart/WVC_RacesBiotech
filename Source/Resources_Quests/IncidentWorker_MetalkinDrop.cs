@@ -10,7 +10,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class IncidentWorker_MetalkinDrop : IncidentWorker
+    public class IncidentWorker_MetalkinDrop : IncidentWorker
 	{
 		private static readonly Pair<int, float>[] CountChance = new Pair<int, float>[4]
 		{
@@ -37,6 +37,10 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
+			if (StaticCollectionsClass.cachedColonistsCount > 6)
+			{
+				return false;
+			}
 			if (!base.CanFireNowSub(parms))
 			{
 				return false;

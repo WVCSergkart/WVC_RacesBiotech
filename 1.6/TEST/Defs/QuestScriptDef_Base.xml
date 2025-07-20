@@ -30,4 +30,24 @@
 	<!-- <root Class="WVC_XenotypesAndGenes.QuestNode_Root_UnnaturalDarkness" /> -->
   <!-- </QuestScriptDef> -->
 
+  <QuestScriptDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_WandererJoins</defName>
+	<autoAccept>true</autoAccept>
+	<defaultHidden>true</defaultHidden>
+	<isRootSpecial>true</isRootSpecial>
+	<successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityFulfilled_WandererJoins</successHistoryEvent>
+	<failedOrExpiredHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityRefused_WandererJoins</failedOrExpiredHistoryEvent>
+	<questNameRules>
+	  <rulesStrings>
+		<li>questName->Wanderer joins</li>
+	  </rulesStrings>
+	</questNameRules>
+	<questDescriptionRules>
+	  <rulesStrings>
+		<li>questDescription-></li>
+	  </rulesStrings>
+	</questDescriptionRules>
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechakinJoin_WalkIn" />
+  </QuestScriptDef>
+
 </Defs>

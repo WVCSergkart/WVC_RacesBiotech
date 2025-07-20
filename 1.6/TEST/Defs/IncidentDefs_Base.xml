@@ -13,4 +13,25 @@
 	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
   </IncidentDef>
 
+  <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_WandererJoins</defName>
+	<label>mechakin join</label>
+	<category>Misc</category>
+	<targetTags>
+	  <li>Map_PlayerHome</li>
+	</targetTags>
+	<allowedBiomes>
+	  <li>SeaIce</li>
+	  <li>IceSheet</li>
+	  <li>Tundra</li>
+	  <!-- <li>Desert</li> -->
+	  <!-- <li>ExtremeDesert</li> -->
+	</allowedBiomes>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_GiveQuest</workerClass>
+	<questScriptDef>WVC_WandererJoins</questScriptDef>
+	<baseChance>0.05</baseChance>
+	<pawnKind>Villager</pawnKind>
+	<populationEffect>IncreaseEasy</populationEffect>
+  </IncidentDef>
+
 </Defs>

@@ -146,8 +146,10 @@
     <Compile Include="Resources_NewDefs\ThrallDef.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_NewDefs\XenotypeForcerGeneTemplateDef.cs" />
+    <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />
+    <Compile Include="Resources_Quests\QuestNode_Root_MechakinJoin_WalkIn.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
     <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
