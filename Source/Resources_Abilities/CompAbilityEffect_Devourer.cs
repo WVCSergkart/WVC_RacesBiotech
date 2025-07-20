@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
                 phase = "copy skills";
                 CopySkillsExp(caster, victim, genesFactor);
                 phase = "inhumanize";
-                if (Rand.Chance(0.25f + (caster.relations.OpinionOf(victim) * 0.01f)))
+                if (Rand.Chance(caster.relations.OpinionOf(victim) * 0.01f))
                 {
                     Gene_Inhumanized.Inhumanize(caster);
                 }

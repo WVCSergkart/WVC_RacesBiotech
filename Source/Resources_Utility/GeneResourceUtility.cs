@@ -2,6 +2,7 @@ using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -318,6 +319,15 @@ namespace WVC_XenotypesAndGenes
 
 		// Resources
 
+		public static bool IsRawMeat(this Thing thing)
+		{
+			if (thing is Corpse corpse && corpse.InnerPawn != null)
+			{
+				return corpse.InnerPawn.RaceProps.IsFlesh;
+			}
+			return thing.def.IsRawMeat();
+		}
+
 		public static bool IsRawMeat(this ThingDef thingDef)
 		{
 			if (thingDef.category == ThingCategory.Item && thingDef.thingCategories != null)
@@ -378,7 +388,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			offsetHemogen = 0f;
 			IngestionOutcomeDoer doer = null;
-			if (thingDef?.ingestible?.outcomeDoers?.TryRandomElement((IngestionOutcomeDoer outcome) => outcome is IngestionOutcomeDoer_OffsetHemogen, out doer) == true)
+			if (thingDef?.ingestible?.outcomeDoers?.Where((outcome) => outcome is IngestionOutcomeDoer_OffsetHemogen)?.TryRandomElement(out doer) == true)
 			{
 				offsetHemogen = (doer as IngestionOutcomeDoer_OffsetHemogen).offset;
 				return true;

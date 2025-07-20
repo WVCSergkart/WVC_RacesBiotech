@@ -11,6 +11,7 @@
 	<category>ShipChunkDrop</category>
 	<baseChance>0.2</baseChance>
 	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+	<minRefireDays>78</minRefireDays>
   </IncidentDef>
 
   <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
@@ -27,11 +28,12 @@
 	  <!-- <li>Desert</li> -->
 	  <!-- <li>ExtremeDesert</li> -->
 	</allowedBiomes>
-	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_GiveQuest</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MechakinQuest</workerClass>
 	<questScriptDef>WVC_WandererJoins</questScriptDef>
 	<baseChance>0.05</baseChance>
 	<pawnKind>Villager</pawnKind>
 	<populationEffect>IncreaseEasy</populationEffect>
+	<minRefireDays>78</minRefireDays>
   </IncidentDef>
 
 </Defs>

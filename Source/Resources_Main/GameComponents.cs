@@ -25,28 +25,27 @@ namespace WVC_XenotypesAndGenes
 			rawMeatFoodPolicy.label = "WVC_XaG_RawMeatFoodPolicy".Translate();
 			foreach (ThingDef item in thingDefs)
 			{
+				bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
+				energyFoodPolicy.filter.SetAllow(item, allow: false);
+				rawMeatFoodPolicy.filter.SetAllow(item, allow: false);
+				if (item.IsRawMeat() || item.IsCorpse)
+				{
+					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
+				}
+				if (item.IsHemogenPack())
+				{
+					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
+				}
 				if (item.IsDrug)
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 					energyFoodPolicy.filter.SetAllow(item, allow: true);
+					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
 				}
-				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid || item.IsHemogenPack())
+				if (item.ingestible?.foodType == FoodTypeFlags.Fluid)
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
-					energyFoodPolicy.filter.SetAllow(item, allow: false);
-				}
-				else
-				{
-					bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
-					energyFoodPolicy.filter.SetAllow(item, allow: false);
-                }
-                if (item.IsRawMeat())
-                {
-					rawMeatFoodPolicy.filter.SetAllow(item, allow: true);
-                }
-				else
-				{
-					rawMeatFoodPolicy.filter.SetAllow(item, allow: false);
 				}
             }
             ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
@@ -132,7 +131,7 @@ namespace WVC_XenotypesAndGenes
 			ResetCounter(new(40000, 70000));
 		}
 
-		private int nextRecache = 444;
+		private int nextRecache = 33;
 		private int nextSecondRecache = 0;
 
 		public void XaG_General()
@@ -154,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			nextRecache += delay;
 			if (delay > 26666)
-            {
+			{
 				nextSecondRecache++;
 			}
 		}

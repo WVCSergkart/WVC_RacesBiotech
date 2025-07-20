@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float ChanceFactorNow(IIncidentTarget target)
 		{
-			return 1f / PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Count;
+			return 1f - (StaticCollectionsClass.cachedColonistsCount * 0.1f);
 		}
 
 		private int RandomCountToDrop
@@ -38,6 +38,10 @@ namespace WVC_XenotypesAndGenes
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
 			if (StaticCollectionsClass.cachedColonistsCount > 6)
+			{
+				return false;
+			}
+			if (StaticCollectionsClass.cachedColonyMechs <= StaticCollectionsClass.cachedColonistsCount * 2)
 			{
 				return false;
 			}
