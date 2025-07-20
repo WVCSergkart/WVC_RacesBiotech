@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 		public float gestatedDryads_FilthRateFactor = 0.1f;
 		public float gestatedDryads_AnomalyRegeneration = 0f;
 		// Xenotypes
-		//public bool enable_spawnXenotypesInFactions = false;
+		public bool enable_spawnXenotypesInFactions = false;
 		public bool disableXenotypes_MainSwitch = false;
 		public bool disableXenotypes_Undeads = false;
 		public bool disableXenotypes_Psycasters = false;
@@ -232,7 +232,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref archiver_transferWornApparel, "archiver_transferWornApparel", defaultValue: false);
 			Scribe_Values.Look(ref archiver_transferEquipedWeapon, "archiver_transferEquipedWeapon", defaultValue: false);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
-			//Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
+			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
 			Scribe_Values.Look(ref traitshifter_MaxTraits, "traitshifter_MaxTraits", defaultValue: 3f);
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
@@ -961,7 +961,7 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
-			//listingStandard.CheckboxLabeled("WVC_Label_enable_spawnXenotypesInFactions".Translate(), ref settings.enable_spawnXenotypesInFactions, "WVC_ToolTip_enable_spawnXenotypesInFactions".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_spawnXenotypesInFactions".Translate(), ref settings.enable_spawnXenotypesInFactions, "WVC_ToolTip_enable_spawnXenotypesInFactions".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
@@ -1142,7 +1142,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = settingsDef.enable_flatGenesSpawnChances;
 			//WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = settingsDef.enable_ReplaceSimilarGenesAutopatch;
 			// Xenotypes
-			//WVC_Biotech.settings.enable_spawnXenotypesInFactions = settingsDef.enable_spawnXenotypesInFactions;
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = settingsDef.enable_spawnXenotypesInFactions;
 			WVC_Biotech.settings.disableXenotypes_MainSwitch = settingsDef.disableXenotypes_MainSwitch;
 			WVC_Biotech.settings.disableXenotypes_Undeads = settingsDef.disableXenotypes_Undeads;
 			WVC_Biotech.settings.disableXenotypes_Psycasters = settingsDef.disableXenotypes_Psycasters;

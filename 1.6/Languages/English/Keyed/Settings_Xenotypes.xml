@@ -20,10 +20,10 @@
 
 	<!-- ================================== -->
 
-	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions</WVC_Label_enable_spawnXenotypesInFactions>
-	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable the spawning of xenotypes from the mod in factions, taking into account their balance and design.
+	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions (Outdated)</WVC_Label_enable_spawnXenotypesInFactions>
+	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable xenotype spawning in factions. Without regard for balance and/or their design, but spreading them across all vanilla factions with some old ideas behind these xenotypes.
 
-By default, xenotypes should not be found in factions and only occasionally appear as factionless wanderers. Enabling this option may simplify the game too much in some situations. If you are looking for a challenge, ignore this option.
+Global xenotype balance does not imply their spawning in factions. And this option can ruin the game experience and/or make it too easy, keep that in mind.
 
 A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
 

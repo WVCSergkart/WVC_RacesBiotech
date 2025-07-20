@@ -100,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 		public float gestatedDryads_FilthRateFactor = 0.1f;
 		public float gestatedDryads_AnomalyRegeneration = 0f;
 		// Xenotypes
-		//public bool enable_spawnXenotypesInFactions = false;
+		public bool enable_spawnXenotypesInFactions = false;
 		public bool disableXenotypes_MainSwitch = false;
 		public bool disableXenotypes_Undeads = false;
 		public bool disableXenotypes_Psycasters = false;
