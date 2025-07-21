@@ -21,11 +21,22 @@ namespace WVC_XenotypesAndGenes
 
 		public bool ShouldFinalize => Finalize;
 
-		public Pawn Victim => (Pawn)job.GetTarget(TargetIndex.A).Thing;
+        public Pawn Victim
+        {
+            get
+            {
+				Thing target = job.GetTarget(TargetIndex.A).Thing;
+				if (target is Corpse corpse)
+                {
+					return corpse.InnerPawn;
+                }
+                return (Pawn)target;
+            }
+        }
 
-		public override bool TryMakePreToilReservations(bool errorOnFailed)
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
-			return pawn.Reserve(Victim, job, 1, -1, null, errorOnFailed);
+			return pawn.Reserve(job.GetTarget(TargetIndex.A).Thing, job, 1, -1, null, errorOnFailed);
 		}
 
 		protected override IEnumerable<Toil> MakeNewToils()
@@ -45,20 +56,20 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class JobDriver_CastCellsfeedMelee : JobDriver_CastBloodfeedMelee
-	{
+	//public class JobDriver_CastCellsfeedMelee : JobDriver_CastBloodfeedMelee
+	//{
 
-		public override bool Finalize => false;
+	//	public override bool Finalize => false;
 
-		protected override IEnumerable<Toil> MakeNewToils()
-		{
-			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			this.FailOn(() => !job.ability.CanCast && !job.ability.Casting);
-			Ability ability = ((Verb_CastAbility)job.verbToUse).ability;
-			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOn(() => !ability.CanApplyOn(job.targetA));
-			yield return Toils_Combat.CastVerb(TargetIndex.A, TargetIndex.B, canHitNonTargetPawns: false);
-		}
+	//	protected override IEnumerable<Toil> MakeNewToils()
+	//	{
+	//		this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+	//		this.FailOn(() => !job.ability.CanCast && !job.ability.Casting);
+	//		Ability ability = ((Verb_CastAbility)job.verbToUse).ability;
+	//		yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOn(() => !ability.CanApplyOn(job.targetA));
+	//		yield return Toils_Combat.CastVerb(TargetIndex.A, TargetIndex.B, canHitNonTargetPawns: false);
+	//	}
 
-	}
+	//}
 
 }

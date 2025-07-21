@@ -130,6 +130,12 @@
 			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li>
 			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li>
 			</specialFoodDefs>
+			<!-- <abilityDefs> -->
+			  <!-- <li>Bloodfeed</li> -->
+			  <!-- <li>WVC_Animalfeeder</li> -->
+			  <!-- <li>WVC_Corpsefeeder</li> -->
+			  <!-- <li>WVC_Hemofeeder</li> -->
+			<!-- </abilityDefs> -->
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -5,28 +5,74 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    //[Obsolete]
-    //public class Gene_HungerlessStomach : Gene
-    //{
-
-
-
-    //}
 
     public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
 	{
-		public string RemoteActionName => XaG_UiUtility.OnOrOff(canAutoFeed);
+
+		public string RemoteActionName
+		{
+			get
+			{
+				if (currentBloodfeedMethod == null)
+				{
+					return XaG_UiUtility.OnOrOff(false);
+				}
+				return currentBloodfeedMethod.LabelCap;
+			}
+		}
 
 		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
 
-		//public AbilityDef currentBloodfeedMethod;
+		public BloodeaterModeDef currentBloodfeedMethod;
 
-		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+
+        private static List<BloodeaterModeDef> cachedModeDefs;
+        public static List<BloodeaterModeDef> ModeDefs
+        {
+            get
+            {
+                if (cachedModeDefs == null)
+                {
+					cachedModeDefs = DefDatabase<BloodeaterModeDef>.AllDefsListForReading;
+                }
+                return cachedModeDefs;
+            }
+        }
+
+        public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			canAutoFeed = !canAutoFeed;
+			//canAutoFeed = !canAutoFeed;
+			List<FloatMenuOption> list = new();
+			List<BloodeaterModeDef> abilities = ModeDefs;
+			for (int i = 0; i < abilities.Count; i++)
+			{
+				BloodeaterModeDef mode = abilities[i];
+				list.Add(new FloatMenuOption(mode.LabelCap, delegate
+				{
+					if (pawn.abilities?.GetAbility(mode.abilityDef, false) != null)
+					{
+						currentBloodfeedMethod = mode;
+						canAutoFeed = true;
+						//genesSettings.Close();
+					}
+					else
+					{
+						Messages.Message("WVC_GeneBloodeaterChangeModeFail".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+						//SoundDefOf.ClickReject.PlayOneShotOnCamera();
+					}
+				}, orderInPriority: 0 - mode.displayOrder));
+			}
+			list.Add(new FloatMenuOption("Off".Translate(), delegate
+			{
+				currentBloodfeedMethod = null;
+				canAutoFeed = false;
+				//genesSettings.Close();
+			}, orderInPriority: -999));
+			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
 		public bool RemoteControl_Hide => !Active;
@@ -63,18 +109,30 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		// public override void PostAdd()
-		// {
-		// base.PostAdd();
-		// pawn.foodRestriction;
-		// }
+        public override void PostAdd()
+        {
+            base.PostAdd();
+			//pawn.foodRestriction;
+			if (ModeDefs != null)
+			{
+				foreach (BloodeaterModeDef mode in ModeDefs)
+                {
+					if (mode.CanUse(pawn))
+					{
+						currentBloodfeedMethod = mode;
+						break;
+					}
+                }
+			}
+		}
 
-		public bool canAutoFeed = true;
+        public bool canAutoFeed = true;
 
-		public override void ExposeData()
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
+			Scribe_Defs.Look(ref currentBloodfeedMethod, "currentBloodfeedMethod");
 		}
 
 		public override void TickInterval(int delta)
@@ -105,6 +163,11 @@ namespace WVC_XenotypesAndGenes
 
         private void TryEat(bool queue = false)
         {
+			//if (currentBloodfeedMethod != null && !currentBloodfeedMethod.Worker.CanUseAbility(pawn, currentBloodfeedMethod.abilityDef))
+			//{
+			//	currentBloodfeedMethod = null;
+			//	return;
+			//}
             if (pawn.Map == null)
             {
                 // In caravan use
@@ -115,7 +178,18 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-			GeneResourceUtility.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
+			if (currentBloodfeedMethod != null)
+            {
+                if (!currentBloodfeedMethod.CanUse(pawn))
+                {
+                    return;
+                }
+                currentBloodfeedMethod.Worker.GetFood(pawn, currentBloodfeedMethod.abilityDef, MiscUtility.PawnDoIngestJob(pawn), queue);
+            }
+            else
+			{
+				GeneResourceUtility.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
+			}
         }
 
         private void InCaravan()
@@ -133,11 +207,15 @@ namespace WVC_XenotypesAndGenes
 			pawns.Shuffle();
 			for (int j = 0; j < pawns.Count; j++)
 			{
-				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+				if (!currentBloodfeedMethod.Worker.GetFood_Caravan(pawn, pawns[j], caravan))
 				{
 					continue;
 				}
-				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				//if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+				//{
+				//	continue;
+				//}
+				//SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 				break;
 			}
 		}
@@ -214,9 +292,13 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryBloodEat",
 					action = delegate
 					{
-						if (!GeneResourceUtility.TryHuntForFood(pawn))
-						{
-							Log.Error("Target is null");
+						if (currentBloodfeedMethod != null)
+                        {
+							currentBloodfeedMethod.Worker.GetFood(pawn, currentBloodfeedMethod.abilityDef);
+						}
+						else
+                        {
+							GeneResourceUtility.TryHuntForFood(pawn);
 						}
 					}
 				};

@@ -60,30 +60,30 @@ namespace WVC_XenotypesAndGenes
 			return (int)limit;
 		}
 
-		[Obsolete]
-		public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
-		{
-			List<Gene_GeneticThrall> list = new();
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
-			// colonists.Shuffle();
-			if (!colonists.NullOrEmpty())
-			{
-				foreach (Pawn colonist in colonists)
-				{
-					if (colonist.Dead)
-					{
-						continue;
-					}
-					Gene_GeneticThrall thralls = colonist?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>();
-					if (thralls == null)
-					{
-						continue;
-					}
-					list.Add(thralls);
-				}
-			}
-			return list;
-		}
+		//[Obsolete]
+		//public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
+		//{
+		//	List<Gene_GeneticThrall> list = new();
+		//	List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+		//	// colonists.Shuffle();
+		//	if (!colonists.NullOrEmpty())
+		//	{
+		//		foreach (Pawn colonist in colonists)
+		//		{
+		//			if (colonist.Dead)
+		//			{
+		//				continue;
+		//			}
+		//			Gene_GeneticThrall thralls = colonist?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>();
+		//			if (thralls == null)
+		//			{
+		//				continue;
+		//			}
+		//			list.Add(thralls);
+		//		}
+		//	}
+		//	return list;
+		//}
 
 		public static void TryAddMechlinkRandomly(Pawn pawn, int delta, float chance = 0.02f)
 		{
@@ -588,36 +588,36 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForFood(Pawn pawn, bool requestQueueing = true, bool queue = false)
 		{
-			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
-			{
-				return false;
-			}
-			// =
-			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
-			// =
-			foreach (Pawn colonist in targets)
-			{
-				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
-				{
-					continue;
-				}
-				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
-				{
-					continue;
-				}
-				//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-				//{
-				//	continue;
-				//}
-				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, MainDefOf.Bloodfeed, out Job job))
-				{
-					continue;
-				}
-				job.def = MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
-				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
-				return true;
-			}
-			return false;
+			//if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
+			//{
+			//	return false;
+			//}
+			//// =
+			//List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
+			//// =
+			//foreach (Pawn colonist in targets)
+			//{
+			//	if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+			//	{
+			//		continue;
+			//	}
+			//	if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+			//	{
+			//		continue;
+			//	}
+			//	//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+			//	//{
+			//	//	continue;
+			//	//}
+			//	if (!MiscUtility.TryGetAbilityJob(pawn, colonist, MainDefOf.Bloodfeed, out Job job))
+			//	{
+			//		continue;
+			//	}
+			//	job.def = MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
+			//	pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
+			//	return true;
+			//}
+			return BloodeaterMode_Hemogen.TryHuntForFood(pawn, MainDefOf.Bloodfeed, requestQueueing, queue, false);
 		}
 
 		public static void TickResourceDrain(IGeneResourceDrain drain, int tick)

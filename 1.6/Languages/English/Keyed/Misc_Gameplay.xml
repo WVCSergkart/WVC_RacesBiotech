@@ -476,6 +476,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_FeedDownedBloodeaterForced>Downed bloodfeed</WVC_FeedDownedBloodeaterForced>
 	<WVC_FeedDownedBloodeaterForcedDesc>If the bloodeater is unable to eat on its own, you can feed it manually.</WVC_FeedDownedBloodeaterForcedDesc>
 
+	<WVC_GeneBloodeaterChangeModeFail>The required gene/ability is missing.</WVC_GeneBloodeaterChangeModeFail>
+
 	<WVC_FeedWithBlood>Feed with own blood</WVC_FeedWithBlood>
 	<WVC_NotEnoughBlood>Not enough blood</WVC_NotEnoughBlood>
 

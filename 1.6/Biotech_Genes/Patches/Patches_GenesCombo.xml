@@ -407,6 +407,18 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/AbilityDef[defName="Bloodfeed"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <modExtensions> -->
+			<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+				<!-- <isBloodfeed>true</isBloodfeed> -->
+			<!-- </li> -->
+		<!-- </modExtensions> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- ================== -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->

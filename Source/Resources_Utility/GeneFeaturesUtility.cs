@@ -15,43 +15,31 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= GENE THRALL =============================
 
-		public static bool CanCellsFeedNowWith(Pawn biter, Pawn victim)
-		{
-			if (MiscUtility.BasicTargetValidation(biter, victim))
-			{
-				Gene_Resurgent cells = victim.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-				if (cells == null)
-				{
-					return false;
-				}
-				if (cells.ValuePercent < 0.20f)
-				{
-					return false;
-				}
-				return true;
-			}
-			return false;
-		}
+		//public static bool CanCellsFeedNowWith(Pawn biter, Pawn victim)
+		//{
+		//	if (MiscUtility.BasicTargetValidation(biter, victim))
+		//	{
+		//		Gene_Resurgent cells = victim.genes?.GetFirstGeneOfType<Gene_Resurgent>();
+		//		if (cells == null)
+		//		{
+		//			return false;
+		//		}
+		//		if (cells.ValuePercent < 0.20f)
+		//		{
+		//			return false;
+		//		}
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
-		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor)
-		{
-			float cells = daysGain * cellsConsumeFactor;
-			int ticks = (int)(daysGain * (victim.BodySize * 60000));
-			GeneResourceUtility.OffsetInstabilityTick(biter, ticks);
-			GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
-			//if (biter.needs?.food != null)
-			//{
-			//	biter.needs.food.CurLevel += nutritionGain * cells;
-			//}
-			//if (!victim.WouldDieFromAdditionalBloodLoss(targetBloodLoss) && targetBloodLoss > 0f)
-			//{
-			//	victim.health.AddHediff(HediffDefOf.BloodfeederMark, ExecutionUtility.ExecuteCutPart(victim));
-			//	Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
-			//	hediff.Severity = targetBloodLoss;
-			//	victim.health.AddHediff(hediff);
-			//}
-			//TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
-		}
+		//public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor)
+		//{
+		//	float cells = daysGain * cellsConsumeFactor;
+		//	int ticks = (int)(daysGain * (victim.BodySize * 60000));
+		//	GeneResourceUtility.OffsetInstabilityTick(biter, ticks);
+		//	GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
+		//}
 
 		public static bool TrySpawnBloodFilth(Pawn victim, IntRange bloodFilthToSpawnRange)
 		{
@@ -62,15 +50,6 @@ namespace WVC_XenotypesAndGenes
 			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
 			for (int i = 0; i < randomInRange; i++)
 			{
-				// IntVec3 c = victim.Position;
-				// if (randomInRange > 1 && Rand.Chance(0.8888f))
-				// {
-					// c = victim.Position.RandomAdjacentCell8Way();
-				// }
-				// if (c.InBounds(victim.MapHeld))
-				// {
-					// FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
-				// }
 				victim?.health?.DropBloodFilth();
 			}
 			return true;
@@ -298,7 +277,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool CanBloodFeedNowWith(Pawn biter, Pawn victim)
+		public static bool CanBloodFeedNowWith(Pawn biter, Pawn victim, bool reqHemogen = false)
 		{
 			if (MiscUtility.BasicTargetValidation(biter, victim))
 			{
@@ -310,7 +289,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				if (victim.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+				if ((victim.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null) != reqHemogen)
 				{
 					return false;
 				}

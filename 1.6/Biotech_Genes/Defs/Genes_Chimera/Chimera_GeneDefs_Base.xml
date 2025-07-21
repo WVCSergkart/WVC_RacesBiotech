@@ -44,6 +44,9 @@
 			  <li>WVC_Chimera_Packharvest</li>
 			  <li>WVC_Chimera_GeneDigestor</li>
 			  <li>WVC_Chimera_DeathMarkHarvest</li>
+			  <!-- <li>WVC_Animalfeeder</li> -->
+			  <!-- <li>WVC_Corpsefeeder</li> -->
+			  <!-- <li>WVC_Hemofeeder</li> -->
 			</chimeraGenesTools>
 			<!-- Bite or harvest ==Unused== -->
 			<!-- <humanBasicGenes> -->

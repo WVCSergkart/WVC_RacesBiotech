@@ -233,6 +233,8 @@ namespace WVC_XenotypesAndGenes
 		//public bool isEvolvedChimerkin = false;
 		// Quests
 		//public string questDescription = null;
+		//Abilities
+		//public bool isBloodfeed = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension
@@ -324,6 +326,8 @@ namespace WVC_XenotypesAndGenes
 		public GeneSetPresets geneSetByDefault;
 		//
 		public StatDef statDef;
+		//
+		//public List<AbilityDef> abilityDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

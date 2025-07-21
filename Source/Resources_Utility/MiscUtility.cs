@@ -421,6 +421,35 @@ namespace WVC_XenotypesAndGenes
 
 		// Job Misc
 
+		public static bool TryGetAbilityJob(Pawn biter, Corpse victim, AbilityDef abilityDef, out Job job)
+		{
+			job = null;
+			if (victim.InnerPawn == biter)
+			{
+				return false;
+			}
+			if (biter.CurJobDef == abilityDef.jobDef)
+			{
+				return false;
+			}
+			Ability ability = biter.abilities?.GetAbility(abilityDef);
+			if (ability == null || !ability.CanCast)
+			{
+				return false;
+			}
+			LocalTargetInfo target = victim;
+			if (!target.IsValid)
+			{
+				return false;
+			}
+			if (!ability.CanApplyOn(target))
+			{
+				return false;
+			}
+			job = ability.GetJob(target, target);
+			return true;
+		}
+
 		public static bool TryGetAbilityJob(Pawn biter, Pawn victim, AbilityDef abilityDef, out Job job)
 		{
 			job = null;
@@ -959,7 +988,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (shouldBleed)
 			{
-				if (ModsConfig.AnomalyActive && victim.IsMutant && !victim.mutant.Def.canBleed)
+				if (victim.IsMutant && !victim.mutant.Def.canBleed)
 				{
 					return false;
 				}
