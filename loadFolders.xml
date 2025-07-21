@@ -24,6 +24,7 @@
 		<li IfModActive="ludeon.rimworld.anomaly">1.6/Anomaly</li>
 		<li IfModActive="wvc.sergkart.test.tools">1.6/TEST</li>
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.6/TEST</li>
+		<li IfModNotActive="vanillaracesexpanded.sanguophage">1.6/Sango</li>
 	</v1.6>
 </loadFolders>
 
