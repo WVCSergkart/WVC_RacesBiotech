@@ -11,14 +11,14 @@ namespace WVC_XenotypesAndGenes
 			return 1f - (StaticCollectionsClass.cachedColonistsCount * 0.15f);
 		}
 
-		protected override bool CanFireNowSub(IncidentParms parms)
-		{
-			if (StaticCollectionsClass.cachedColonistsCount > 5)
-			{
-				return false;
-			}
-			return base.CanFireNowSub(parms);
-		}
+		//protected override bool CanFireNowSub(IncidentParms parms)
+		//{
+		//	if (StaticCollectionsClass.cachedColonistsCount > 7)
+		//	{
+		//		return false;
+		//	}
+		//	return base.CanFireNowSub(parms);
+		//}
 
 	}
 

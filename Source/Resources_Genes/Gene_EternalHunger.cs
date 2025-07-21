@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (thing.IsRawMeat())
 			{
-				Hemogen.Value += thing.def.GetStatValueAbstract(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * numTaken;
+				Hemogen.Value += thing.def.GetStatValueAbstract(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor) * numTaken;
 				//IngestibleProperties ingestible = thing.def.ingestible;
 				//if (ingestible != null)
 				//{

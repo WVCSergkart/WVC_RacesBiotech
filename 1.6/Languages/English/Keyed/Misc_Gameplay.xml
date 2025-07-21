@@ -165,6 +165,9 @@
 	<WVC_XaG_MetalkinDropLabel>Survivor!</WVC_XaG_MetalkinDropLabel>
 	<WVC_XaG_MetalkinDropDesc>It looks like there was a survivor among the chunks.</WVC_XaG_MetalkinDropDesc>
 
+	<WVC_XaG_HemofeederErrorMessage>The target must be hemogenic and have sufficient supply!</WVC_XaG_HemofeederErrorMessage>
+	<WVC_XaG_CropsefeederNoBloodMessage>The target doesn't have enough blood.</WVC_XaG_CropsefeederNoBloodMessage>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
