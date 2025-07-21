@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 				Need_MechEnergy energy = pawn?.needs?.energy;
 				if (energy?.IsSelfShutdown == true)
 				{
-					return "WVC_XaG_GolemEnergyRecovery_Info".Translate((energy.CurLevelPercentage).ToStringPercent(), MechanoidsUtility.GolemsEnergyPerDayInPercent(energy.MaxLevel));
+					return "WVC_XaG_GolemEnergyRecovery_Info".Translate(MechanoidsUtility.GolemsEnergyPerDayInPercent(energy.MaxLevel));
 				}
 			}
 			return null;

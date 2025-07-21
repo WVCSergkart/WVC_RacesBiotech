@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (animal.IsMutant && !animal.mutant.Def.canBleed)
+			if (animal.IsMutant && !animal.mutant.Def.canBleed || animal.RaceProps.Dryad)
 			{
 				if (throwMessages)
 				{
