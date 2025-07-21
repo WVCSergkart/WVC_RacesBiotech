@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 				BloodeaterModeDef mode = abilities[i];
 				list.Add(new FloatMenuOption(mode.LabelCap, delegate
 				{
-					if (pawn.abilities?.GetAbility(mode.abilityDef, false) != null)
+					if (mode.CanUse(pawn))
 					{
 						currentBloodfeedMethod = mode;
 						canAutoFeed = true;
@@ -105,9 +105,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		//===========
+        //===========
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+        public override string LabelCap
+        {
+            get
+            {
+				if (currentBloodfeedMethod != null)
+                {
+					return base.LabelCap + " (" + currentBloodfeedMethod.LabelCap + ")";
+				}
+                return base.LabelCap;
+            }
+        }
+
+        public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
         public override void PostAdd()
         {
@@ -207,15 +219,25 @@ namespace WVC_XenotypesAndGenes
 			pawns.Shuffle();
 			for (int j = 0; j < pawns.Count; j++)
 			{
-				if (!currentBloodfeedMethod.Worker.GetFood_Caravan(pawn, pawns[j], caravan))
+				if (currentBloodfeedMethod != null)
 				{
-					continue;
+					if (!currentBloodfeedMethod.CanUse(pawn))
+					{
+						break;
+					}
+					if (!currentBloodfeedMethod.Worker.GetFood_Caravan(pawn, pawns[j], caravan))
+					{
+						continue;
+					}
 				}
-				//if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
-				//{
-				//	continue;
-				//}
-				//SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				else
+				{
+                    if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+                    {
+                        continue;
+                    }
+                    SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new(0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+                }
 				break;
 			}
 		}

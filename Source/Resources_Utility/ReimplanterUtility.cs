@@ -290,22 +290,37 @@ namespace WVC_XenotypesAndGenes
             {
 				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDefs();
                 List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-                foreach (Gene item in genesListForReading)
-                {
-                    if (item.overriddenByGene != null && !genesListForReading.Contains(item))
-                    {
-                        item.OverrideBy(null);
-                    }
-                    //if (item.Active)
-                    //{
-                    //	TraitsUtility.AddGeneTraits(pawn, item);
-                    //	//XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
-                    //}
-                    XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
-                    NotifyGenesChanged(item);
-                }
-                //XaG_GameComponent.AddMissingGeneAbilities(pawn);
-                TraitsUtility.FixGeneTraits(pawn, genesListForReading);
+				List<Gene> endogenes = pawn.genes.Endogenes;
+				List<Gene> xenogenes = pawn.genes.Xenogenes;
+				foreach (Gene xenogene in xenogenes)
+				{
+					if (xenogene.Overridden)
+					{
+						continue;
+					}
+					foreach (Gene endogene in endogenes)
+					{
+						if (endogene.Overridden)
+						{
+							continue;
+						}
+						if (xenogene.def.ConflictsWith(endogene.def))
+						{
+							endogene.OverrideBy(xenogene);
+						}
+					}
+				}
+				foreach (Gene item in genesListForReading)
+				{
+					if (item.overriddenByGene != null && !genesListForReading.Contains(item.overriddenByGene))
+					{
+						item.OverrideBy(null);
+					}
+					XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
+					NotifyGenesChanged(item);
+				}
+				//XaG_GameComponent.AddMissingGeneAbilities(pawn);
+				TraitsUtility.FixGeneTraits(pawn, genesListForReading);
 				//NotifyGenesChanged(pawn);
 				XaG_GeneUtility.ResetGenesInspectString(pawn);
 				if (DebugSettings.ShowDevGizmos)

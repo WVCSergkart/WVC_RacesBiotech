@@ -29,6 +29,9 @@
 	<statOffsets>
 	  <WVC_ChimeraLimit>28.0</WVC_ChimeraLimit>
 	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_Chimera</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<reqGeneMat>32</reqGeneMat>

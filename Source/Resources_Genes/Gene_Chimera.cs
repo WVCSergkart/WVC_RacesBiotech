@@ -522,31 +522,39 @@ namespace WVC_XenotypesAndGenes
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
-        // public virtual void ClearChimeraXenogerm()
-        // {
-        // Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-        // bool clearXenogerm = true;
-        // if (firstHediffOfDef != null)
-        // {
-        // List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
-        // foreach (Ability ability in xenogenesAbilities)
-        // {
-        // if (ability.OnCooldown)
-        // {
-        // clearXenogerm = false;
-        // break;
-        // }
-        // }
-        // if (clearXenogerm)
-        // {
-        // pawn.health.RemoveHediff(firstHediffOfDef);
-        // }
-        // }
-        // }
+		// public virtual void ClearChimeraXenogerm()
+		// {
+		// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+		// bool clearXenogerm = true;
+		// if (firstHediffOfDef != null)
+		// {
+		// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+		// foreach (Ability ability in xenogenesAbilities)
+		// {
+		// if (ability.OnCooldown)
+		// {
+		// clearXenogerm = false;
+		// break;
+		// }
+		// }
+		// if (clearXenogerm)
+		// {
+		// pawn.health.RemoveHediff(firstHediffOfDef);
+		// }
+		// }
+		// }
 
-        // =================
+		public virtual void ImplantGene(GeneDef geneDef)
+		{
+			if (!this.def.ConflictsWith(geneDef))
+            {
+				pawn.genes.AddGene(geneDef, true);
+            }
+		}
 
-        public int XenogenesLimit
+		// =================
+
+		public int XenogenesLimit
         {
             get
             {

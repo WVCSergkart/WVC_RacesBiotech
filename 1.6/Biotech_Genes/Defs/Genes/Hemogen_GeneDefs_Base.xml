@@ -90,6 +90,10 @@
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-4</biostatMet>
+	<exclusionTags>
+	  <li>HemogenDrain</li>
+	  <li>WVC_HemogenGain</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

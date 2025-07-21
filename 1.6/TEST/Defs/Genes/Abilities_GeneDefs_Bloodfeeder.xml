@@ -29,10 +29,13 @@
 	<!-- </modExtensions> -->
   </AbilityDef>
 
+  <!-- =================================================== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_Hemofeeder</defName>
 	<label>hemofeeder</label>
 	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from hemogenic blood. They can bite an unresisting person, suck the blood, and gain hemogen directly.</description>
+	<!-- <geneClass>Gene_Bloodfeeder</geneClass> -->
 	<iconPath>WVC/UI/Genes/Gene_Hemofeeder</iconPath>
 	<abilities>
 	  <li>WVC_Hemofeeder</li>
@@ -91,6 +94,7 @@
 	<defName>WVC_Corpsefeeder</defName>
 	<label>corpsefeeder</label>
 	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from fresh corpses. They can bite a dead person, suck the blood, and gain hemogen directly.</description>
+	<!-- <geneClass>Gene_Bloodfeeder</geneClass> -->
 	<iconPath>WVC/UI/Genes/Gene_Corpsefeeder</iconPath>
 	<abilities>
 	  <li>WVC_Corpsefeeder</li>
@@ -151,6 +155,7 @@
 	<defName>WVC_Animalfeeder</defName>
 	<label>animalfeeder</label>
 	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from animal blood. They can bite an unresisting animal, suck the blood, and gain hemogen directly.</description>
+	<!-- <geneClass>Gene_Bloodfeeder</geneClass> -->
 	<iconPath>WVC/UI/Genes/Gene_Animalfeeder</iconPath>
 	<abilities>
 	  <li>WVC_Animalfeeder</li>

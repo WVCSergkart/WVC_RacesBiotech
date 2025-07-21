@@ -843,7 +843,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
 				{
-					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
+					gene.ImplantGene(geneDef);
 					implantedGenes.Add(geneDef);
 				}
 			}
@@ -915,6 +915,7 @@ namespace WVC_XenotypesAndGenes
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
 		}
 
 		public void ClearXenogenes()
