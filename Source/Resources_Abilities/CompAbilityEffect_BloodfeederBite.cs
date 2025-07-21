@@ -1,5 +1,4 @@
 ﻿using RimWorld;
-using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -86,6 +85,92 @@ namespace WVC_XenotypesAndGenes
 				//}
 			}
 			return base.Valid(target, throwMessages);
+		}
+
+	}
+
+	public class CompAbilityEffect_AnimalfeederBite : CompAbilityEffect_BloodfeederBite
+	{
+		public new CompProperties_AbilityBloodfeederBite Props => (CompProperties_AbilityBloodfeederBite)props;
+
+		//public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		//{
+		//	base.Apply(target, dest);
+		//	Pawn animal = target.Pawn;
+		//	if (animal == null)
+		//	{
+		//		return;
+		//	}
+		//	SanguophageUtility.DoBite(parent.pawn, animal, Props.hemogenGain, Props.nutritionGain, Props.targetBloodLoss, 0, Props.bloodFilthToSpawnRange, null, null);
+		//}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			return Valid(target);
+		}
+
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            Pawn animal = target.Pawn;
+			if (animal == null)
+            {
+				return false;
+			}
+			if (!animal.IsAnimal)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_AnimalfeederBite_NonAnimal".Translate(), animal, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (!animal.RaceProps.IsFlesh)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_AnimalfeederBite_NonFlesh".Translate(), animal, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (animal.Faction != parent.pawn.Faction)
+			{
+				if (animal.Faction.HostileTo(parent.pawn.Faction))
+				{
+					if (!animal.Downed)
+					{
+						if (throwMessages)
+						{
+							Messages.Message("MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY")), animal, MessageTypeDefOf.RejectInput, historical: false);
+						}
+						return false;
+					}
+				}
+				else if (animal.IsQuestLodger())
+				{
+					if (throwMessages)
+					{
+						Messages.Message("MessageCannotUseOnOtherFactions".Translate(parent.def.Named("ABILITY")), animal, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+			}
+			if (animal.InMentalState)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY")), animal, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (animal.IsMutant && !animal.mutant.Def.canBleed)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotUseOnNonBleeder".Translate(parent.def.Named("ABILITY")), animal, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
 		}
 
 	}

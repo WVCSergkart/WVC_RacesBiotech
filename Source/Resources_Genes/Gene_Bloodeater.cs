@@ -22,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 
 		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
 
+		//public AbilityDef currentBloodfeedMethod;
+
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			canAutoFeed = !canAutoFeed;

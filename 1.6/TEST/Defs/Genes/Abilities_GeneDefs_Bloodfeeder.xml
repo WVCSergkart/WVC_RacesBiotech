@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_Hemofeeder</defName>
 	<label>hemofeeder</label>
-	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from fresh warm blood. They can bite an unresisting person, suck the blood, and gain hemogen directly.</description>
+	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from hemogenic blood. They can bite an unresisting person, suck the blood, and gain hemogen directly.</description>
 	<iconPath>WVC/UI/Genes/Gene_Hemofeeder</iconPath>
 	<abilities>
 	  <li>WVC_Hemofeeder</li>
@@ -35,7 +35,7 @@
   <AbilityDef ParentName="AbilityTouchBase">
 	<defName>WVC_Hemofeeder</defName>
 	<label>hemofeed</label>
-	<description>Bite the target and extract hemogen directly from their blood. The target will lose blood and will be horrified by the interaction, but will be otherwise unharmed. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target non-hemogenic humans. Hemogen gain is affected by the target's body size.</description>
+	<description>Bite the target and extract hemogen directly from their blood. The target will lose blood amd hemogen, and will be horrified by the interaction, but will be otherwise unharmed. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target hemogenic humans. Hemogen gain is affected by the target's body size.</description>
 	<iconPath>WVC/UI/Genes/Gene_Hemofeeder</iconPath>
 	<category>Sanguophage</category>
 	<displayOrder>100</displayOrder>
@@ -78,7 +78,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_Corpsefeeder</defName>
 	<label>corpsefeeder</label>
-	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from fresh warm blood. They can bite an unresisting person, suck the blood, and gain hemogen directly.</description>
+	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from fresh corpses. They can bite a dead person, suck the blood, and gain hemogen directly.</description>
 	<iconPath>WVC/UI/Genes/Gene_Corpsefeeder</iconPath>
 	<abilities>
 	  <li>WVC_Corpsefeeder</li>
@@ -109,7 +109,7 @@
   <AbilityDef ParentName="AbilityTouchBase">
 	<defName>WVC_Corpsefeeder</defName>
 	<label>corpsefeeder</label>
-	<description>Bite the target and extract hemogen directly from their blood. The target will lose blood and will be horrified by the interaction, but will be otherwise unharmed. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target non-hemogenic humans. Hemogen gain is affected by the target's body size.</description>
+	<description>Bite the target and extract hemogen directly from their blood. The target will lose blood, but will be otherwise unharmed.\n\nCan only target organic corpses. Hemogen gain is affected by the target's body size.</description>
 	<iconPath>WVC/UI/Genes/Gene_Corpsefeeder</iconPath>
 	<category>Sanguophage</category>
 	<displayOrder>100</displayOrder>
@@ -139,6 +139,80 @@
 		<thoughtDefToGiveTarget>FedOn</thoughtDefToGiveTarget>
 		<opinionThoughtDefToGiveTarget>FedOn_Social</opinionThoughtDefToGiveTarget>
 		<resistanceGain>0</resistanceGain>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ==================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_Animalfeeder</defName>
+	<label>animalfeeder</label>
+	<description>Carriers of this gene have small retractable fangs and an organ on the roof of the mouth which can extract hemogen from animal blood. They can bite an unresisting animal, suck the blood, and gain hemogen directly.</description>
+	<iconPath>WVC/UI/Genes/Gene_Animalfeeder</iconPath>
+	<abilities>
+	  <li>WVC_Animalfeeder</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Animalfeeder</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatMet>-1</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>animalfeeder</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>hemo</symbol></li>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>vamp</symbol></li>
+		<li><symbol>fang</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>fang</symbol></li>
+		<li><symbol>eater</symbol></li>
+		<li><symbol>ubus</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Animalfeeder</defName>
+	<label>animalfeeder</label>
+	<description>Bite the target and extract hemogen directly from their blood. The target will lose blood, but will be otherwise unharmed. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target organic animals. Hemogen gain is affected by the target's body size.</description>
+	<iconPath>WVC/UI/Genes/Gene_Animalfeeder</iconPath>
+	<category>Sanguophage</category>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetBloodfeeders>true</canTargetBloodfeeders>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="CompProperties_AbilityBloodfeederBite">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_AnimalfeederBite</compClass>
+		<hemogenGain>0.2</hemogenGain>
+		<bloodFilthToSpawnRange>1</bloodFilthToSpawnRange>
+		<thoughtDefToGiveTarget>FedOn</thoughtDefToGiveTarget>
+		<opinionThoughtDefToGiveTarget>FedOn_Social</opinionThoughtDefToGiveTarget>
+		<resistanceGain>4</resistanceGain>
 	  </li>
 	  <li Class="CompProperties_AbilityFleckOnTarget">
 		<fleckDef>BloodSplash</fleckDef>

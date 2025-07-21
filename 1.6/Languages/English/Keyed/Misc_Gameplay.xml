@@ -167,6 +167,8 @@
 
 	<WVC_XaG_HemofeederErrorMessage>The target must be hemogenic and have sufficient supply!</WVC_XaG_HemofeederErrorMessage>
 	<WVC_XaG_CropsefeederNoBloodMessage>The target doesn't have enough blood.</WVC_XaG_CropsefeederNoBloodMessage>
+	<WVC_AnimalfeederBite_NonAnimal>The target can only be non-intelligent animals.</WVC_AnimalfeederBite_NonAnimal>
+	<WVC_AnimalfeederBite_NonFlesh>Only organic animals can be targeted.</WVC_AnimalfeederBite_NonFlesh>
 
 	<!-- ============================ BiosculpterPod ============================ -->
 
