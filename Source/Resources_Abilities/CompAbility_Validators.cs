@@ -127,6 +127,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompAbilityEffect_HideIfBloodeater : CompAbilityEffect
+	{
+
+		public bool shouldHide = false;
+
+        public override bool ShouldHideGizmo
+        {
+            get
+            {
+                return shouldHide;
+            }
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+			Scribe_Values.Look(ref shouldHide, "shouldHide", false);
+		}
+
+    }
+
 	// =======================================
 
 	public class CompProperties_AbilityGeneIsActive : CompProperties_AbilityEffect

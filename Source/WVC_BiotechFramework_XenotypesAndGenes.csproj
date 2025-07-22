@@ -80,6 +80,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
+    <Compile Include="Resources_Genes\Gene_Animalfeeder.cs" />
     <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_Devourer.cs" />

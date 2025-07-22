@@ -20,4 +20,10 @@
 	<!-- <skinColorOverride>(132,117,74)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_Bones</defName> -->
+	<!-- <label>bones skin</label> -->
+	<!-- <skinColorOverride>(192,192,192)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
 </Defs>

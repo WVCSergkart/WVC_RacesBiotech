@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters" Abstract="True">
-	<label>elf</label>
-	<inheritable>true</inheritable>
-	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
-	<displayPriority>-190</displayPriority>
-	<genes>
-		<li>WVC_Eyes_Colorful</li>
-		<!-- = -->
-		<li>Hemogenic</li>
-		<li>Bloodfeeder</li>
-		<li>WVC_Bloodeater</li>
-		<li>WVC_NaturalAgeless</li>
-		<li>Hair_LongOnly</li>
-		<!-- <li>Ears_Pointed</li> -->
-		<li>WVC_DryadSkin</li>
-		<li>Hair_SnowWhite</li>
-		<li>DarkVision</li>
-		<li>WVC_BodySize_Small</li>
-		<!-- = -->
-		<li>LongjumpLegs</li>
-		<li>Deathrest</li>
-		<!-- = -->
-		<li>Neversleep</li>
-		<!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
-		<!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
-		<li>WVC_PerfectImmunity_DiseaseFree</li>
-		<li>ToxResist_Total</li>
-		<li>FireWeakness</li>
-		<li>FireTerror</li>
-		<!-- = -->
-		<li>WVC_BloodfeederBeauty</li>
-		<li>WVC_HemogenicMetabolism</li>
-	</genes>
-  </XenotypeDef>
-
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Bloodeater</defName>
 	<label>bloodeater</label>

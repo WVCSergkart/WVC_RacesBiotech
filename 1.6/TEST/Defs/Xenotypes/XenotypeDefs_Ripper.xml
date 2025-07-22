@@ -17,7 +17,10 @@
 		<li>WVC_BoneSkin</li>
 		<li>Hair_BaldOnly</li>
 		<li>Beard_NoBeardOnly</li>
-		<li>WVC_SkinColor_OldBones</li>
+		<li>Hair_SnowWhite</li>
+		<!-- <li>WVC_SkinColor_OldBones</li> -->
+		<!-- <li>WVC_SkinColor_Bones</li> -->
+		<li>WVC_SkinColor_MilkWhite</li>
 		<li>WVC_Wings_BoneWings</li>
 		<li>WVC_BoneTailA</li>
 		<li>WVC_HeadBoneCurveHorns</li>
@@ -26,6 +29,8 @@
 		<li>WVC_Chimera</li>
 		<li>WVC_Chimera_DeathMarkHarvest</li>
 		<li>WVC_Chimera_GeneRipper</li>
+		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
+		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>
 		<!-- <li>WVC_HybridImplanter</li> -->
 		<!-- <li>WVC_Incrementer</li> -->
 		<li>WVC_ReimplanterThrallMaker</li>
@@ -36,7 +41,7 @@
 		<!-- <li>WVC_Health_Overrider</li> -->
 		<li>WVC_DeadStomach</li>
 		<!-- <li>WVC_Pain_Overrider</li> -->
-		<li>Deathrest</li>
+		<!-- <li>Deathrest</li> -->
 		<li>WVC_Neversleep</li>
 		<!-- <li>WVC_Generemover</li> -->
 		<li>PerfectImmunity</li>

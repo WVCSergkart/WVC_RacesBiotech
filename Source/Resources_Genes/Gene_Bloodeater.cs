@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
+    public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl, IGeneOverridden
 	{
 
 		public string RemoteActionName
@@ -72,8 +72,44 @@ namespace WVC_XenotypesAndGenes
 				canAutoFeed = false;
 				//genesSettings.Close();
 			}, orderInPriority: -999));
+			list.Add(new FloatMenuOption("WVC_XaG_RemoteControlBloodeater_AbilitiesVisibility".Translate(), delegate
+			{
+				SetHideAbilities();
+			}, orderInPriority: -9999));
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
+
+		public void SetHideAbilities(bool? hide = null)
+		{
+			bool anyHided = false;
+			foreach (Ability ability in pawn.abilities.abilities)
+            {
+                CompAbilityEffect_HideIfBloodeater hideIfBloodeater = ability.CompOfType<CompAbilityEffect_HideIfBloodeater>();
+                if (hideIfBloodeater == null)
+                {
+                    continue;
+                }
+                if (hide.HasValue)
+                {
+                    hideIfBloodeater.shouldHide = hide.Value;
+                }
+                else
+                {
+                    if (hideIfBloodeater.shouldHide)
+                    {
+                        anyHided = true;
+                    }
+                    if (anyHided)
+                    {
+                        hideIfBloodeater.shouldHide = !anyHided;
+                    }
+                    else
+                    {
+                        hideIfBloodeater.shouldHide = !hideIfBloodeater.shouldHide;
+                    }
+                }
+            }
+        }
 
 		public bool RemoteControl_Hide => !Active;
 
@@ -93,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			SetHideAbilities(false);
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
@@ -367,6 +404,16 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-	}
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+			SetHideAbilities(false);
+		}
+
+        public void Notify_Override()
+        {
+
+        }
+
+    }
 
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected">
+			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HideIfBloodeater</compClass>
+		  </li>
+		</comps>
+	  </value>
+	</Operation>
+
+</Patch>
