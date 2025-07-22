@@ -141,11 +141,11 @@ namespace WVC_XenotypesAndGenes
 			UpdateMetabolism();
 		}
 
-		public void Notify_Charging(float chargePerTick, int tick, float factor, int delta)
+		public void Notify_Charging(float chargePerTick, int tick, float factor)
 		{
 			if (IsShapeshifter)
 			{
-				Shapeshifter.TryOffsetResource(Mathf.Clamp(chargePerTick * delta, 0.01f, 1f));
+				Shapeshifter.TryOffsetResource(Mathf.Clamp(chargePerTick, 0.01f, 1f));
 			}
 		}
 

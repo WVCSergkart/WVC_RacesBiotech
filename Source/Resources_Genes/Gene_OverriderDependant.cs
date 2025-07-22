@@ -452,7 +452,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Charge(delta);
+			Charge();
 		}
 
 		private float? cachedNutritionPerTick;
@@ -469,10 +469,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Charge(int delta)
+		public void Charge()
 		{
 			SolarEating();
-			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Nutrition, basicTick, 0.5f, delta);
+			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Nutrition, basicTick, 0.5f);
 		}
 
 		private void SolarEating()

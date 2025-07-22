@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			if (currentlyChargingMech != null && Power.PowerOn)
 			{
 				//currentlyChargingMech.needs.food.CurLevel += chargePerTick * RechargeableStomach.Props.chargeSpeedFactor;
-				RechargeableStomach.Notify_Charging(chargePerTick, 5, 1);
+				RechargeableStomach.Notify_Charging(chargePerTick, 5);
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
