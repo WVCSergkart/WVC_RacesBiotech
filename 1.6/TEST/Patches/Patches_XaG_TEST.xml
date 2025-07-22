@@ -63,6 +63,25 @@
 					<li>WVC_MecaBodyParts_Eye</li>
 				  </genes>
 			  </li>
+			  <!-- <li> -->
+				  <!-- <xenotypeDef>WVC_Shadoweater</xenotypeDef> -->
+				  <!-- <genes> -->
+					<!-- <li>WVC_Chimera_GreatlyDecreasedLimit</li> -->
+					<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
+					<!-- <li>WVC_FleshmassSkin</li> -->
+					<!-- <li>WVC_FleshmassNucleus</li> -->
+					<!-- <li>WVC_LongTentacleTail</li> -->
+					<!-- <li>WVC_MechaAI_PsychicDull</li> -->
+					<!-- <li>WVC_HairColor_Slate</li> -->
+					<!-- <li>WVC_SkinColor_Metal</li> -->
+					<!-- <li>WVC_MecaBodyParts_Spine</li> -->
+					<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
+					<!-- <li>WVC_ArchiteMechlink</li> -->
+					<!-- <li>WVC_MecaBodyParts_Ear</li> -->
+					<!-- <li>WVC_MecaBodyParts_Eye</li> -->
+					<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
+				  <!-- </genes> -->
+			  <!-- </li> -->
 		  </chimeraGenesPerXenotype>
 		  <context>PlayerStarter</context>
 		</li>
