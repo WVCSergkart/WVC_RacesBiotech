@@ -36,6 +36,10 @@ namespace WVC_XenotypesAndGenes
 			// =
 			foreach (Pawn animal in targets)
 			{
+				if (animal.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+                {
+					continue;
+                }
 				if (animal.IsForbidden(pawn) || !pawn.CanReserveAndReach(animal, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;

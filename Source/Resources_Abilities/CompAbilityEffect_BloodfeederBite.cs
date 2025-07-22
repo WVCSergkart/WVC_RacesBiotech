@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = corpse.InnerPawn;
-				if (innerPawn.IsAndroid() || (innerPawn.IsMutant && !innerPawn.mutant.Def.canBleed) || target.Thing.IsUnnaturalCorpse())
+				if (innerPawn.IsAndroid() || target.Thing.IsUnnaturalCorpse())
 				{
 					if (throwMessages)
 					{
@@ -75,15 +75,15 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-				//if (innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && hediff != null && hediff.def.maxSeverity > hediff.Severity + Props.targetBloodLoss)
-				//{
-				//	if (throwMessages)
-				//	{
-				//		Messages.Message("WVC_XaG_CropsefeederNoBloodMessage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-				//	}
-				//	return false;
-				//}
-			}
+				if (!innerPawn.CanBleed() || innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && (hediff.Severity >= hediff.def.maxSeverity || hediff.Severity >= hediff.def.lethalSeverity))
+				{
+					if (throwMessages)
+					{
+						Messages.Message("WVC_XaG_CropsefeederNoBloodMessage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+            }
 			return base.Valid(target, throwMessages);
 		}
 
@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (animal.IsMutant && !animal.mutant.Def.canBleed || animal.RaceProps.Dryad)
+			if (!animal.CanBleed())
 			{
 				if (throwMessages)
 				{

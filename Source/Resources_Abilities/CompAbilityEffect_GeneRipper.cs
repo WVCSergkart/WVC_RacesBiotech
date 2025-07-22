@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
                     ReimplanterUtility.TryFixPawnXenotype_Beta(victim);
                     ReimplanterUtility.TrySetSkinAndHairGenes(victim);
                     SoundDefOf.Execute_Cut.PlayOneShot(victim);
-                    if (victim.health.CanBleed)
+                    if (victim.CanBleed())
                     {
                         Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
                         hediff.Severity = 0.2f * partRecord.coverage;

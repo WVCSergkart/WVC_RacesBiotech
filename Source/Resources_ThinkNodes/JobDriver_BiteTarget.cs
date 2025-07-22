@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			this.FailOn(() => !job.ability.CanCast && !job.ability.Casting || Victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss));
+			this.FailOn(() => !job.ability.CanCast && !job.ability.Casting || !Victim.Dead && Victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss));
 			Ability ability = ((Verb_CastAbility)job.verbToUse).ability;
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOn(() => !ability.CanApplyOn(job.targetA));
 			yield return Toils_Combat.CastVerb(TargetIndex.A, TargetIndex.B, canHitNonTargetPawns: false);

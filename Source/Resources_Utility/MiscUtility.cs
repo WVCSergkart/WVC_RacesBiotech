@@ -16,6 +16,15 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool CanBleed(this Pawn pawn)
+		{
+			if (!pawn.health.CanBleed)
+            {
+				return false;
+            }
+			return !pawn.RaceProps.Dryad;
+		}
+
 		public static bool InSpace(this Pawn pawn)
 		{
 			return pawn.Map?.Biome == BiomeDefOf.Space;
@@ -988,7 +997,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (shouldBleed)
 			{
-				if (victim.IsMutant && !victim.mutant.Def.canBleed)
+				if (!victim.CanBleed())
 				{
 					return false;
 				}
