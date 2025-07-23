@@ -255,7 +255,7 @@
 	<label>regeneration sleep</label>
 	<description>Carriers of this gene have archites that optimize metabolic processes, allowing clusters of neurons to sleep while the rest of the brain stays awake. They can also put the carrier into a regeneration coma or wake up from it at any time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_RegenerationSleep</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_RegenerationSleep</resourceGizmoType>
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_RegenerationSleep</resourceGizmoType> -->
 	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
 	<showGizmoOnMultiSelect>false</showGizmoOnMultiSelect>
 	<showGizmoOnWorldView>false</showGizmoOnWorldView>
@@ -275,11 +275,11 @@
 	  <li>Rest</li>
 	  <li>Comfort</li>
 	</disablesNeeds>
-	<suppressedTraits>
-	  <li>
-		<def>QuickSleeper</def>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>QuickSleeper</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<makeImmuneTo>
 	  <li>SleepingSickness</li>
 	</makeImmuneTo>

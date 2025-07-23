@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Flickable : Gene, IGeneOverridden
+    public class Gene_Flickable : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -252,30 +252,6 @@ namespace WVC_XenotypesAndGenes
 
 	[Obsolete]
 	public class Gene_Gizmo : Gene
-	{
-
-		private Gizmo gizmo;
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
-			{
-				yield break;
-			}
-			if (!def.showGizmoWhenDrafted && pawn.Drafted)
-			{
-				yield break;
-			}
-			if (gizmo == null)
-			{
-				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
-			}
-			yield return gizmo;
-		}
-
-	}
-
-    public class Gene_RegenerationSleep : Gene_OverOverridable
 	{
 
 		private Gizmo gizmo;

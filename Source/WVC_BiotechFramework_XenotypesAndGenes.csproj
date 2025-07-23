@@ -90,6 +90,7 @@
     <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
     <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />
+    <Compile Include="Resources_Genes\Gene_RegenerationSleep.cs" />
     <Compile Include="Resources_Genes\Gene_Rejuvenator.cs" />
     <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Archiver.cs" />
@@ -197,7 +198,6 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Morpher.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_RegenerationSleep.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />
