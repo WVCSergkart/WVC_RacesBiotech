@@ -127,7 +127,7 @@
 	<displayOrderInCategory>60</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt; pawn on the map, if target have &lt;color=#8a8ae6&gt;same gene&lt;/color&gt;.</li>
-		<li>Sometimes instead of social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt;, carrier can receive 5% exp from a random target &lt;color=#8a8ae6&gt;skill&lt;/color&gt;.</li>
+		<li>Sometimes instead of social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt;, carrier can receive 25% exp from a random target &lt;color=#8a8ae6&gt;skill&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <PsychicSensitivity>0.5</PsychicSensitivity>

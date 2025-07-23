@@ -246,7 +246,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TryInteract()
 		{
-			if (currentRange < 30000 || !TryLearning(pawn, 0.05f))
+			if (currentRange < 30000 || !TryLearning(pawn, 0.25f))
 			{
 				GeneInteractionsUtility.TryInteractRandomly(pawn, true, true, false, out _, this);
 			}
