@@ -441,14 +441,14 @@ namespace WVC_XenotypesAndGenes
 			if (!Active)
             {
 				return;
-            }
+			}
 			if (thing is Corpse corpse)
 			{
-				if (corpse.InnerPawn.IsHuman())
+				if (Rand.Chance(0.08f) && corpse.InnerPawn.IsHuman())
 				{
 					GetGeneFromHuman(corpse.InnerPawn);
 				}
-				else if (thing.def == MainDefOf.Devourer?.race)
+				else if (Rand.Chance(0.18f) && thing.def == MainDefOf.Devourer?.race)
 				{
 					GeneDef geneDef = DefDatabase<GeneDef>.AllDefsListForReading?.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_Devourer>())?.RandomElement();
 					if (TryAddGene(geneDef))
@@ -462,7 +462,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return;
 			}
-			if (thing.def.IsMeat)
+			if (thing.def.IsRawMeat())
 			{
 				if (Rand.Chance(0.01f))
 				{
@@ -473,7 +473,7 @@ namespace WVC_XenotypesAndGenes
 			CompIngredients compIngredients = thing.TryGetComp<CompIngredients>();
 			if (compIngredients?.ingredients.NullOrEmpty() == false)
 			{
-				if (Rand.Chance(0.004f) && compIngredients.ingredients.Any((ThingDef thing) => thing.IsMeat))
+				if (Rand.Chance(0.004f) && compIngredients.ingredients.Any((ThingDef thing) => thing.IsRawMeat()))
 				{
 					GetRandomGene();
 				}

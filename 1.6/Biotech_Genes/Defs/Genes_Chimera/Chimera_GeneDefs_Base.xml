@@ -99,7 +99,6 @@
 				<reqOneManArmy>false</reqOneManArmy>
 				<chance>0.01</chance>
 				<genes>
-				  <li>WVC_Chimera_MarkHarvest</li>
 				  <!-- <li>WVC_Traitshifter</li> -->
 				  <!-- <li>WVC_Skillshifter</li> -->
 				  <li>WVC_Chimera_GreatlyIncreasedLimit</li>
@@ -111,6 +110,7 @@
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.57</chance>
 				<genes>
+				  <li>WVC_Chimera_MarkHarvest</li>
 				  <li>WVC_Chimera_Xenoharvest</li>
 				  <li>WVC_Chimera_Corpseharvest</li>
 				  <li>WVC_Chimera_GenePurifier</li>
