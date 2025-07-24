@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
             int cycleTry = 0;
             while (collectedGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
             {
-                if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+                if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x) && (x.prerequisite == null || XaG_GeneUtility.HasGene(x.prerequisite, pawn))).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
                 {
                     TryAddGene(result);
                 }
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 
         public bool TryGetToolGene()
 		{
-			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef) && (geneDef.prerequisite == null || XaG_GeneUtility.HasActiveGene(geneDef.prerequisite, pawn))).TryRandomElement(out GeneDef result))
 			{
 				TryAddGene(result);
 				if (pawn.SpawnedOrAnyParentSpawned)
@@ -140,7 +140,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return false;
             }
-            if (genesWithChance.TryRandomElementByWeight((geneWithChance) => geneWithChance.chance, out GeneDefWithChance result))
+            if (genesWithChance.Where((geneChance) => geneChance.geneDef.prerequisite == null || XaG_GeneUtility.HasActiveGene(geneChance.geneDef.prerequisite, pawn)).TryRandomElementByWeight((geneWithChance) => geneWithChance.chance, out GeneDefWithChance result))
             {
                 TryAddGene(result.geneDef);
                 if (pawn.SpawnedOrAnyParentSpawned)

@@ -98,7 +98,7 @@
 	  </li>
 	</capMods>
 	<customEffectDescriptions>
-	  <li>Carriers can initiate social interaction only with each other.</li>
+	  <li>Carriers can initiate only random social interactions, and only with carriers of the gene.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>

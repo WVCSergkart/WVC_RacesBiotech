@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Rejuvenator : Gene, IGeneRemoteControl
+    public class Gene_Rejuvenator : Gene_Ageless, IGeneRemoteControl
 	{
 		public string RemoteActionName => "WVC_DesiredAge".Translate();
 
@@ -81,12 +81,6 @@ namespace WVC_XenotypesAndGenes
 
 		public int desiredAge = 18;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			AgelessUtility.InitialRejuvenation(pawn);
-		}
-
 		public override void TickInterval(int delta)
 		{
 			if (!pawn.IsHashIntervalTick(59675, delta))
@@ -104,12 +98,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
+		public override void ExposeData()
+		{
+			base.ExposeData();
 			Scribe_Values.Look(ref desiredAge, "desiredAge", 18);
 		}
 
-    }
+	}
 
 }

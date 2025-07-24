@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base">
+	<defName>WVC_Rejuvenator</defName>
+	<label>rejuvenator</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene have archites that stop aging and rejuvenate.</description>
+	<iconPath>WVC/UI/Genes/Gene_Rejuvenator</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Rejuvenator</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>340</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Passively rejuvenates to a specified age.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

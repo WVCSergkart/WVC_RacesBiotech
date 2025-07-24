@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_Converter</defName>
+	<label>genetic converter</label>
+	<description>Carriers of this gene have archites that slowly convert those around them into a likeness of the carriers.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticConverter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Converter</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>175</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>The target can be any &lt;color=#8a8ae6&gt;human&lt;/color&gt; pawn under the player's control.</li>
+		<li>The target is chosen &lt;color=#8a8ae6&gt;automatically&lt;/color&gt;.</li>
+		<li>Every day, one of the pawns, with a different &lt;color=#8a8ae6&gt;germline&lt;/color&gt; set, &lt;color=#8a8ae6&gt;loses&lt;/color&gt; one of its old genes and gains one random caster gene.</li>
+		<li>After the &lt;color=#8a8ae6&gt;convert&lt;/color&gt;, the xenotype and all genes of the target are &lt;color=#8a8ae6&gt;reset&lt;/color&gt;, losing the accumulated information.</li>
+		<li>&lt;color=#ff8585&gt;Ignores targets that have this gene or conflict with it.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Chimera_Converter</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

@@ -617,6 +617,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneChimera_EntityImplant>Chimera evolution applied.</WVC_XaG_GeneChimera_EntityImplant>
 
+	<WVC_XaG_Chimera_GeneImplanted>{0} gene is implanted.</WVC_XaG_Chimera_GeneImplanted>
 	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
 	<WVC_XaG_GeneGeneticThief_GeneObtained>{0} obtained the {1} gene.</WVC_XaG_GeneGeneticThief_GeneObtained>
 	<WVC_XaG_GeneGeneticThief_GenesHarvested>{0}'s genes were harvested, {0}'s xenotype was reset to the baseliner.</WVC_XaG_GeneGeneticThief_GenesHarvested>

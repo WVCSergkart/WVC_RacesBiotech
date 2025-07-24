@@ -62,9 +62,9 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
-	<label>silence</label>
-	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
-	<biostatMet>3</biostatMet>
+	<label>silent</label>
+	<description>Carriers of this gene cannot talk, but have increased metabolic efficiency.</description>
+	<biostatMet>8</biostatMet>
 	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
@@ -81,7 +81,7 @@
   <!-- = -->
   <GeneDef>
 	<defName>WVC_AgeDebuff_Social</defName>
-	<label>silence</label>
+	<label>silent</label>
 	<description>Carriers of this gene are completely and irreversibly mute.</description>
 	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
