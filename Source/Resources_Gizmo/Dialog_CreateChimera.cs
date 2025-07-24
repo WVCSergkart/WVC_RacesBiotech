@@ -455,6 +455,10 @@ namespace WVC_XenotypesAndGenes
 					StatDef statDef = gene.Giver.statDef;
 					foreach (GeneDef item in pawnEndoGenes)
 					{
+						if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
+                        {
+							continue;
+                        }
 						genesLimit += gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors);
 					}
 					foreach (GeneDef item in SelectedGenes)

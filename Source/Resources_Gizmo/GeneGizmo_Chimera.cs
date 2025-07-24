@@ -18,15 +18,44 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => true;
 
+
+
 		public GeneGizmo_Chimera(Gene_Chimera geneChimera)
 			: base()
 		{
 			gene = geneChimera;
 			pawn = gene?.pawn;
 			Order = -94f;
-		}
+            //genesLimit = gene.XenogenesLimit;
+            //colGenes = gene.CollectedGenes.Count;
+            //eatGenes = gene.EatedGenes.Count;
+            //desGenes = gene.DestroyedGenes.Count;
+            cachedTooltip = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count, gene.XenogenesLimit);
+            nextRecache = 60;
+        }
 
-		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+        private int nextRecache = 2;
+        //private int genesLimit = 28;
+        //private int eatGenes = 28;
+        //private int colGenes = 28;
+        //private int desGenes = 28;
+        private TaggedString cachedTooltip;
+
+        private void RecacheTick()
+        {
+            nextRecache--;
+            if (nextRecache < 0)
+            {
+                //genesLimit = gene.XenogenesLimit;
+                //colGenes = gene.CollectedGenes.Count;
+                //eatGenes = gene.EatedGenes.Count;
+                //desGenes = gene.DestroyedGenes.Count;
+                cachedTooltip = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count, gene.XenogenesLimit);
+                nextRecache = 60;
+            }
+        }
+
+        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             if (gene.gizmoCollapse)
             {
@@ -50,8 +79,9 @@ namespace WVC_XenotypesAndGenes
             Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
             rect2 = rect.ContractedBy(6f);
             Widgets.DrawWindowBackground(rect);
-            TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count, gene.XenogenesLimit);
-            TooltipHandler.TipRegion(rect, taggedString);
+            RecacheTick();
+            //TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(colGenes, eatGenes, desGenes, genesLimit);
+            TooltipHandler.TipRegion(rect, cachedTooltip);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             rect3 = new(rect2.x, rect2.y, rect2.width, 20f);

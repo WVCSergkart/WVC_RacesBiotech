@@ -596,13 +596,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool CanImplantGenes
-		{
-			get
-			{
-				return XenogenesLimit > pawn.genes.Xenogenes.Count;
-			}
-		}
+		//public bool CanImplantGenes
+		//{
+		//	get
+		//	{
+		//		return XenogenesLimit > pawn.genes.Xenogenes.Count;
+		//	}
+		//}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
