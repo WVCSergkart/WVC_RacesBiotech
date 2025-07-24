@@ -76,6 +76,11 @@ A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
 
 A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
 
+	<WVC_Label_offsetMarketPriceFromGenes>(Exp) Offset pawn market price from genes</WVC_Label_offsetMarketPriceFromGenes>
+	<WVC_ToolTip_offsetMarketPriceFromGenes>If enabled, the pawns' market price will change depending on the genes they have. The more archite genes and the higher the metabolism, the more the pawn affects the colony's wealth.
+
+A restart is required.</WVC_ToolTip_offsetMarketPriceFromGenes>
+
 	<!-- <WVC_Label_enable_ReplaceSimilarGenesAutopatch>(Experimental) Replace similar genes</WVC_Label_enable_ReplaceSimilarGenesAutopatch> -->
 	<!-- <WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>If enabled, xenotypes will have some genes replaced with similar genes from the mod. This will not remove genes, but only replace them in xenotypes. -->
 

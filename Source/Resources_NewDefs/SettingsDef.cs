@@ -20,15 +20,12 @@ namespace WVC_XenotypesAndGenes
 		// Generator
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
-		//public bool generateResourceSpawnerGenes = false;
-		//public bool generateSkinHairColorGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
-		//public bool enableHarmonyTelepathyGene = false;
 		public bool enable_OverOverridableGenesMechanic = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -39,9 +36,6 @@ namespace WVC_XenotypesAndGenes
 		// Info
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
-		// ExtraSettings
-		//public bool genesCanTickOnlyOnMap = false;
-		public bool enable_flatGenesSpawnChances = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -63,7 +57,6 @@ namespace WVC_XenotypesAndGenes
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
-		//public bool enableInstabilityLastChanceMechanic = true;
 		// Invisibility
 		public float invisibility_invisBonusTicks = 0;
 		// Links
@@ -72,7 +65,6 @@ namespace WVC_XenotypesAndGenes
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
 		public float golemnoids_ShutdownRechargePerTick = 0.5f;
-		//public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
 		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
@@ -83,7 +75,6 @@ namespace WVC_XenotypesAndGenes
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;
 		public float shapeshifer_CooldownDurationFactor = 1f;
-		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
 		public float traitshifter_MaxTraits = 3f;
@@ -113,6 +104,9 @@ namespace WVC_XenotypesAndGenes
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
 		public bool hideGeneHediffs = false;
+		// ExtraSettings
+		public bool enable_flatGenesSpawnChances = false;
+		public bool offsetMarketPriceFromGenes = false;
 
 	}
 

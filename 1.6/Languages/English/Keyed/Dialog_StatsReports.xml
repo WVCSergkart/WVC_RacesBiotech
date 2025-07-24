@@ -69,6 +69,7 @@
 	<WVC_XaG_StatPart_OffsetFromPollutedCages>Offset from polluted cages</WVC_XaG_StatPart_OffsetFromPollutedCages>
 	<WVC_XaG_StatPart_OffsetFromPsychicSensitivity>Offset from psychic sensitivity</WVC_XaG_StatPart_OffsetFromPsychicSensitivity>
 	<!-- <WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat> -->
+	<WVC_XaG_StatPart_OffsetFromGenes>Offset from genetic quality</WVC_XaG_StatPart_OffsetFromGenes>
 
 	<!-- XENO TREE DIALOG -->
 

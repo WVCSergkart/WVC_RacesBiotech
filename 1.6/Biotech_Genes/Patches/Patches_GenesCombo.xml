@@ -51,6 +51,16 @@
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>offsetMarketPriceFromGenes</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromGenes"/>
+		  </value>
+		</caseTrue>
+	</Operation>
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
 	  <value>

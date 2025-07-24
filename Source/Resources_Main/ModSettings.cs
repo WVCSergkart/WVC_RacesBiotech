@@ -26,15 +26,12 @@ namespace WVC_XenotypesAndGenes
 		// Generator
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
-		//public bool generateResourceSpawnerGenes = false;
-		//public bool generateSkinHairColorGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
-		//public bool enableHarmonyTelepathyGene = false;
 		public bool enable_OverOverridableGenesMechanic = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -45,9 +42,6 @@ namespace WVC_XenotypesAndGenes
 		// Info
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
-		// ExtraSettings
-		//public bool genesCanTickOnlyOnMap = false;
-		public bool enable_flatGenesSpawnChances = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -69,7 +63,6 @@ namespace WVC_XenotypesAndGenes
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
-		//public bool enableInstabilityLastChanceMechanic = true;
 		// Invisibility
 		public float invisibility_invisBonusTicks = 0;
 		// Links
@@ -78,7 +71,6 @@ namespace WVC_XenotypesAndGenes
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
 		public float golemnoids_ShutdownRechargePerTick = 0.5f;
-		//public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
 		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
@@ -89,7 +81,6 @@ namespace WVC_XenotypesAndGenes
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;
 		public float shapeshifer_CooldownDurationFactor = 1f;
-		//public bool enable_MorpherExperimentalMode = false;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
 		public float traitshifter_MaxTraits = 3f;
@@ -119,6 +110,9 @@ namespace WVC_XenotypesAndGenes
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
 		public bool hideGeneHediffs = false;
+		// ExtraSettings
+		public bool enable_flatGenesSpawnChances = false;
+		public bool offsetMarketPriceFromGenes = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -189,6 +183,7 @@ namespace WVC_XenotypesAndGenes
 			// ExtraSettings
 			//Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
+			Scribe_Values.Look(ref offsetMarketPriceFromGenes, "offsetMarketPriceFromGenes", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
 			//Scribe_Values.Look(ref enable_ReplaceSimilarGenesAutopatch, "enable_ReplaceSimilarGenesAutopatch", defaultValue: false);
 			// Gestator
@@ -552,6 +547,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate(), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_offsetMarketPriceFromGenes".Translate(), ref settings.offsetMarketPriceFromGenes, "WVC_ToolTip_offsetMarketPriceFromGenes".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
 			listingStandard.Gap();
@@ -1140,6 +1136,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			//WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = settingsDef.enable_flatGenesSpawnChances;
+			WVC_Biotech.settings.offsetMarketPriceFromGenes = settingsDef.offsetMarketPriceFromGenes;
 			//WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = settingsDef.enable_ReplaceSimilarGenesAutopatch;
 			// Xenotypes
 			WVC_Biotech.settings.enable_spawnXenotypesInFactions = settingsDef.enable_spawnXenotypesInFactions;

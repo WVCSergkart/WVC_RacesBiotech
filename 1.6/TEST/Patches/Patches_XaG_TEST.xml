@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- Xenogerm desc upd -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromGenes"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="Deathrest"]</xpath> -->
 	  <!-- <safetyDepth>1</safetyDepth> -->
