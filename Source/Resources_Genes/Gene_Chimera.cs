@@ -442,6 +442,11 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
 			}
+			//float chance = MiscUtility.GetFoodPoisonChance(pawn, thing);
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.FoodPoisoning))
+            {
+				return;
+            }
 			if (thing is Corpse corpse)
 			{
 				if (Rand.Chance(0.08f) && corpse.InnerPawn.IsHuman())

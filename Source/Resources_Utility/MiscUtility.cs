@@ -342,21 +342,26 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)
-		{
-			//if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
-			//{
-			//	return false;
-			//}
-			float chance = FoodUtility.TryGetFoodPoisoningChanceOverrideFromTraits(pawn, thing, out float poisonChanceOverride) ? poisonChanceOverride : (pawn.GetStatValue(StatDefOf.FoodPoisonChanceFixedHuman) * FoodUtility.GetFoodPoisonChanceFactor(pawn));
-			if (Rand.Chance(chance))
-			{
-				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
-				return true;
+        {
+            //if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
+            //{
+            //	return false;
+            //}
+            float chance = GetFoodPoisonChance(pawn, thing);
+            if (Rand.Chance(chance))
+            {
+                FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+                return true;
             }
-			return false;
-		}
+            return false;
+        }
 
-		public static bool FurskinHasMask(FurDef furDef)
+        public static float GetFoodPoisonChance(Pawn pawn, Thing thing)
+        {
+            return FoodUtility.TryGetFoodPoisoningChanceOverrideFromTraits(pawn, thing, out float poisonChanceOverride) ? poisonChanceOverride : (pawn.GetStatValue(StatDefOf.FoodPoisonChanceFixedHuman) * FoodUtility.GetFoodPoisonChanceFactor(pawn));
+        }
+
+        public static bool FurskinHasMask(FurDef furDef)
 		{
 			foreach (BodyTypeGraphicData item in furDef.bodyTypeGraphicPaths)
 			{
