@@ -6,7 +6,7 @@
 	<defName>WVC_Learning_Stasis</defName>
 	<label>stasis study</label>
 	<description>Carriers of this gene cannot learn skills, but they also do not lose their knowledge of them.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_StasisLearning</geneClass> -->
 	<geneClass>Gene</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_StasisLearning</iconPath>
 	<displayOrderInCategory>33</displayOrderInCategory>

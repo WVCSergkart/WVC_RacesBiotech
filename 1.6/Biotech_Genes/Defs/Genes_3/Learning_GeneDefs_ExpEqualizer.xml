@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_ExpEqualizer</defName>
+	<label>experience equalizer</label>
+	<description>Carriers of this gene have archites that average out the experience gained through passive mini-simulations and special brain stimulation.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ExpEqualizer</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ExpEqualizer</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Every few hours, transfers 10% of experience from the &lt;color=#8a8ae6&gt;highest&lt;/color&gt; skill to the &lt;color=#8a8ae6&gt;lowest&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+</Defs>

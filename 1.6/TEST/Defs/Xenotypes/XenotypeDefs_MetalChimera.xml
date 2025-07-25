@@ -20,7 +20,8 @@
 		<!-- <li>WVC_Genemaker</li> -->
 		<!-- <li ReplaceTag="Learning">WVC_CyclicallySelfLearning</li> -->
 		<!-- To-Do: Patch replacer. Cycle for non-anomaly. Stasis for anomaly. -->
-		<li>WVC_Learning_Stasis</li> 
+		<li>WVC_Learning_Stasis</li>
+		<li>WVC_ExpEqualizer</li>
 		<li>WVC_MechaAI_PsychicDull</li>
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>
