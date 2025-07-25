@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
+            HarvestAndConvert();
         }
 
         public void HarvestAndConvert()
@@ -113,7 +114,7 @@ namespace WVC_XenotypesAndGenes
                 if (newGene != null)
                 {
                     target.genes.AddGene(newGene.def, false);
-                    Messages.Message("WVC_XaG_Chimera_GeneImplanted".Translate(newGene.def.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+                    Messages.Message("WVC_XaG_Chimera_GeneImplanted".Translate(newGene.def.label), target, MessageTypeDefOf.NeutralEvent, historical: false);
                 }
                 return newGene != null;
             }

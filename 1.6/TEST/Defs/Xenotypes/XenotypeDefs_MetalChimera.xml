@@ -46,7 +46,7 @@
 		<!-- <li>WVC_ReimplanterArchite_RiseEndogenes</li> -->
 		<li>WVC_MecaBodyParts_Lung</li>
 		<li>WVC_MecaUpgrades_EnergySavingMode</li>
-		<!-- <li>Body_Standard</li> -->
+		<li>Body_Standard</li>
 		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_Metal</li>
 		<li>WVC_PredatorPrey_NotTasty</li>

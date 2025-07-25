@@ -12,7 +12,7 @@
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Every few hours, transfers 10% of experience from the &lt;color=#8a8ae6&gt;highest&lt;/color&gt; skill to the &lt;color=#8a8ae6&gt;lowest&lt;/color&gt;.</li>
+		<li>Every few hours, transfers 10% (/day) of experience from the &lt;color=#8a8ae6&gt;highest&lt;/color&gt; skill to the &lt;color=#8a8ae6&gt;lowest&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>

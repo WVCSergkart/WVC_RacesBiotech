@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			EqualizeSkillsExp(pawn);
+			EqualizeSkillsExp(pawn, 6000);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -31,14 +31,15 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: EqualizeSkillsExp",
 					action = delegate
 					{
-						EqualizeSkillsExp(pawn);
+						EqualizeSkillsExp(pawn, 6000);
 					}
 				};
 			}
 		}
 
-		public void EqualizeSkillsExp(Pawn pawn, float expPercent = 0.1f)
+		public void EqualizeSkillsExp(Pawn pawn, int tick, float expPercentPerDay = 0.1f)
         {
+			float expPercent = (expPercentPerDay / 60000) * tick;
             SkillRecord lowestSkill = null;
 			SkillRecord higherSkill = null;
             foreach (SkillRecord skill in pawn.skills.skills)
@@ -64,10 +65,14 @@ namespace WVC_XenotypesAndGenes
 					lowestSkill = skill;
 				}
 			}
-			if (higherSkill == null || lowestSkill == null || lowestSkill == higherSkill)
+			if (higherSkill == null || lowestSkill == null || lowestSkill == higherSkill || lowestSkill.levelInt == higherSkill.levelInt)
             {
 				return;
-            }
+			}
+			if (lowestSkill.XpTotalEarned + higherSkill.XpTotalEarned * expPercent > higherSkill.XpTotalEarned - higherSkill.XpTotalEarned * expPercent)
+			{
+				return;
+			}
 			lowestSkill.Learn(higherSkill.XpTotalEarned * expPercent, true, true);
 			higherSkill.Learn(-higherSkill.XpTotalEarned * expPercent, true, true);
 		}
