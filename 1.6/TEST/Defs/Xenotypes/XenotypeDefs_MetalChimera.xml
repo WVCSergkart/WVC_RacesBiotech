@@ -18,7 +18,9 @@
 		<li>WVC_MechaPowerSource_Tox</li>
 		<!-- <li>WVC_MechaPowerSource_Stable</li> -->
 		<!-- <li>WVC_Genemaker</li> -->
-		<li>WVC_CyclicallySelfLearning</li>
+		<!-- <li ReplaceTag="Learning">WVC_CyclicallySelfLearning</li> -->
+		<!-- To-Do: Patch replacer. Cycle for non-anomaly. Stasis for anomaly. -->
+		<li>WVC_Learning_Stasis</li> 
 		<li>WVC_MechaAI_PsychicDull</li>
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>
@@ -27,8 +29,9 @@
 		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Kidney</li>
 		<li>WVC_MecaBodyParts_Liver</li>
-		<li>WVC_Mecha_AntennaTail</li>
-		<li>WVC_Mecha_RedFormerSpikesDouble</li>
+		<!-- <li>WVC_Mecha_AntennaTail</li> -->
+		<li>WVC_DragonTailA</li>
+		<!-- <li>WVC_Mecha_RedFormerSpikesDouble</li> -->
 		<!-- <li>WVC_VoiceMechaScorcher</li> -->
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_MechaAI_SoftwareManipulation</li>

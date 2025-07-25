@@ -27,7 +27,7 @@
 		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;Allows to devour some entities.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_ChimeraLimit>28.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>21.0</WVC_ChimeraLimit>
 	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Chimera</li>

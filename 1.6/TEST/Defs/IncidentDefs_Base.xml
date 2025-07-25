@@ -11,6 +11,7 @@
 	<category>ShipChunkDrop</category>
 	<baseChance>0.2</baseChance>
 	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+	<populationEffect>IncreaseEasy</populationEffect>
 	<minRefireDays>78</minRefireDays>
   </IncidentDef>
 
@@ -34,6 +35,19 @@
 	<pawnKind>Villager</pawnKind>
 	<populationEffect>IncreaseEasy</populationEffect>
 	<minRefireDays>78</minRefireDays>
+  </IncidentDef>
+
+  <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
+	<defName>WVC_RustkindConvert</defName>
+	<label>rustkind convert (TEST)</label>
+	<targetTags>
+	  <li>Map_PlayerHome</li>
+	</targetTags>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_RustkinConvert</workerClass>
+	<category>Misc</category>
+	<baseChance>2</baseChance> 	<!-- test chance -->
+	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+	<minRefireDays>171</minRefireDays>
   </IncidentDef>
 
 </Defs>

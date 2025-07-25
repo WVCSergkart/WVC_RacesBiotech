@@ -23,6 +23,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void TickInterval(int delta)
+		{
+
+		}
+
 		public static void BackstoryChanger(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null)
 		{
 			if ((pawn?.story) == null)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base">
+	<defName>WVC_Learning_Stasis</defName>
+	<label>stasis study</label>
+	<description>Carriers of this gene cannot learn skills, but they also do not lose their knowledge of them.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass> -->
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StasisLearning</iconPath>
+	<displayOrderInCategory>33</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<forcedTraits>
+	  <li>
+		<def>PerfectMemory</def>
+	  </li>
+	</forcedTraits>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

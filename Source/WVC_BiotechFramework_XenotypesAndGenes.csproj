@@ -157,6 +157,7 @@
     <Compile Include="Resources_NewDefs\XenotypeForcerGeneTemplateDef.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
+    <Compile Include="Resources_Quests\IncidentWorker_RustkinConvert.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_MechakinJoin_WalkIn.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
