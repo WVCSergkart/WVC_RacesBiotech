@@ -521,9 +521,13 @@ namespace WVC_XenotypesAndGenes
 			int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
             int nonArchiteCount = implantedGenes.Count - architeCount;
             int days = Mathf.Clamp(nonArchiteCount + (architeCount * 3) - met + (int)(cpx * 0.2f), 0, 999);
-            int count = days * 120000;
+            int ticks = days * (WVC_Biotech.settings.enable_chimeraXenogermCD ? 30000 : 120000);
+			if (ticks < 30000 && implantedGenes.Count > 0)
+            {
+				ticks = 30000;
+			}
             //int count = (implantedGenes.Count + 1) * 180000;
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)), firstHediffOfDef);
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(ticks * 0.8f), (int)(ticks * 1.1f)), firstHediffOfDef);
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
@@ -593,11 +597,19 @@ namespace WVC_XenotypesAndGenes
 			return (int)value;
 		}
 
-		public bool CanBeUsed
+		public AcceptanceReport CanBeUsed
 		{
 			get
 			{
-				return XenogenesLimit > 0;
+				if (!WVC_Biotech.settings.enable_chimeraXenogermCD || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+				{
+					if (XenogenesLimit > 0)
+					{
+						return true;
+					}
+					return "WVC_XaG_Gene_Chimera_LimitToLow".Translate();
+				}
+				return "WVC_XaG_Gene_Chimera_InCooldown".Translate();
 			}
 		}
 

@@ -82,6 +82,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
+		public bool enable_chimeraXenogermCD = false;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		// Fleshmass

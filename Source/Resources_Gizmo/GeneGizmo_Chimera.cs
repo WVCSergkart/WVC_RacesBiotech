@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
                     }
                     else
                     {
-                        Messages.Message("WVC_XaG_Gene_Chimera_LimitToLow".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                        Messages.Message(gene.CanBeUsed.Reason, null, MessageTypeDefOf.RejectInput, historical: false);
                     }
                 }
             }

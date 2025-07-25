@@ -224,6 +224,9 @@ Disable this option if you have any mods that change the mechanics of the hunger
 	<WVC_Label_enable_chimeraStartingTools>Сhimera guaranteed tools</WVC_Label_enable_chimeraStartingTools>
 	<WVC_ToolTip_enable_chimeraStartingTools>If enabled, when starting a new game, the chimera gets 1 guaranteed tool-gene as a bonus to the rest of the genes. Also, after "eating" genes, there is a 1% chance to get a tool-gene for each gene eaten.</WVC_ToolTip_enable_chimeraStartingTools>
 
+	<WVC_Label_enable_chimeraXenogermCD>Сhimera cooldown</WVC_Label_enable_chimeraXenogermCD>
+	<WVC_ToolTip_enable_chimeraXenogermCD>If enabled, the use of Chimera will be impossible until the genes regrowing effect ends.</WVC_ToolTip_enable_chimeraXenogermCD>
+
 	<WVC_Label_chimeraMinGeneCopyChance>Min gene copy chance +{0}%</WVC_Label_chimeraMinGeneCopyChance>
 
 	<WVC_Label_shapeshifer_GeneCellularRegeneration>Cellular regeneration rate +{0} hp/day</WVC_Label_shapeshifer_GeneCellularRegeneration>

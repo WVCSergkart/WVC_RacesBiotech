@@ -587,6 +587,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- Some genes provide special effects relative to the number of genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, but the chimera itself does not have any special bonuses from this. -->
 
 	<WVC_XaG_Gene_Chimera_LimitToLow>Chimera cannot be used due to too low a limit.</WVC_XaG_Gene_Chimera_LimitToLow>
+	<WVC_XaG_Gene_Chimera_InCooldown>Chimera cannot be used until genes regrowing is complete.</WVC_XaG_Gene_Chimera_InCooldown>
 	<WVC_XaG_Gene_Chimera_LimitMessage>Maximum limit exceeded. Please remove some of the selected genes.</WVC_XaG_Gene_Chimera_LimitMessage>
 
 	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Eated genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>

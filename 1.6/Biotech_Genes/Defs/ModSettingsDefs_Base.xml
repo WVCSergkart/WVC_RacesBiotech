@@ -28,6 +28,8 @@
 	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
 	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
 	<hideGeneHediffs>true</hideGeneHediffs>
+	<enable_chimeraXenogermCD>True</enable_chimeraXenogermCD>
+	<!-- <offsetMarketPriceFromGenes>True</offsetMarketPriceFromGenes> -->
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>

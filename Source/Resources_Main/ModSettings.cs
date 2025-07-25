@@ -88,6 +88,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
+		public bool enable_chimeraXenogermCD = false;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		// Fleshmass
@@ -234,6 +235,7 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref chimeraMinGeneCopyChance, "chimeraMinGeneCopyChance", defaultValue: 0.35f);
 			Scribe_Values.Look(ref chimeraStartingGenes, "chimeraStartingGenes", defaultValue: 5f);
 			Scribe_Values.Look(ref enable_chimeraStartingTools, "enable_chimeraStartingTools", defaultValue: true);
+			Scribe_Values.Look(ref enable_chimeraXenogermCD, "enable_chimeraXenogermCD", defaultValue: false);
 			// Duplicator
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
 			// Fleshmass
@@ -892,6 +894,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.SliderLabeledWithRef("WVC_Label_chimeraMinGeneCopyChance".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.chimeraMinGeneCopyChance, 0.01f, 1f, round: 2);
 				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogermCD".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogermCD, "WVC_ToolTip_enable_chimeraXenogermCD".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
 				//if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
 				//{
@@ -1066,6 +1069,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = settingsDef.shapeshifer_GeneCellularRegeneration;
 			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
 			WVC_Biotech.settings.enable_chimeraStartingTools = settingsDef.enable_chimeraStartingTools;
+			WVC_Biotech.settings.enable_chimeraXenogermCD = settingsDef.enable_chimeraXenogermCD;
 			// =
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
 			// =
