@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override List<GeneDef> SelectedGenes => selectedGenes;
 
-		protected override string Header => "WVC_XaG_CreateChimera".Translate().CapitalizeFirst() + " (" + selectedGenes.Count + "/" + XenogenesLimit.ToString() + ")";
+		protected override string Header => "WVC_XaG_CreateChimera".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ")";
 
         protected override string AcceptButtonLabel
 		{
@@ -444,6 +444,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int? cachedLimitConsumed;
+		public int ConsumedLimit
+		{
+			get
+			{
+				if (!cachedLimitConsumed.HasValue)
+				{
+					GetLimitAndCost();
+				}
+				return cachedLimitConsumed.Value;
+			}
+		}
+
 		private int? cachedXenogenesLimit;
 		public int XenogenesLimit
 		{
@@ -451,27 +464,44 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedXenogenesLimit.HasValue)
                 {
-                    int genesLimit = 0;
-					StatDef statDef = gene.Giver.statDef;
-					foreach (GeneDef item in pawnEndoGenes)
-					{
-						if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
-                        {
-							continue;
-                        }
-						genesLimit += gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors);
-					}
-					foreach (GeneDef item in SelectedGenes)
-                    {
-						genesLimit += gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors);
-					}
-                    cachedXenogenesLimit = genesLimit;
-				}
-				return cachedXenogenesLimit.Value;
+                    GetLimitAndCost();
+                }
+                return cachedXenogenesLimit.Value;
 			}
 		}
 
-		protected override void OnGenesChanged()
+        private void GetLimitAndCost()
+        {
+			int limitCost = 0;
+            float genesLimit = 0;
+			float genesLimitFactor = 1f;
+			StatDef statDef = gene.Giver.statDef;
+            foreach (GeneDef item in pawnEndoGenes)
+            {
+                if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
+                {
+                    continue;
+                }
+				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
+				genesLimit += offset;
+				genesLimitFactor *= factor;
+			}
+			foreach (GeneDef item in SelectedGenes)
+			{
+				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
+				//if (offset <= 0)
+				//{
+				//	limitCost++;
+				//}
+                genesLimit += offset;
+				genesLimitFactor *= factor;
+			}
+			genesLimit *= genesLimitFactor;
+			cachedLimitConsumed = limitCost;
+			cachedXenogenesLimit = (int)genesLimit;
+        }
+
+        protected override void OnGenesChanged()
 		{
 			selectedGenes.SortGeneDefs();
 			base.OnGenesChanged();
@@ -486,6 +516,7 @@ namespace WVC_XenotypesAndGenes
 				arc += item.biostatArc;
 			}
 			cachedXenogenesLimit = null;
+			cachedLimitConsumed = null;
 		}
 
 		public override void DoWindowContents(Rect rect)
@@ -743,13 +774,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<GeneDef> selectedGenes = SelectedGenes;
-			if (XenogenesLimit < selectedGenes.Count)
+			if (XenogenesLimit < ConsumedLimit)
 			{
 				Messages.Message("WVC_XaG_Gene_Chimera_LimitMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-			foreach (GeneDef selectedGene in selectedGenes)
+			foreach (GeneDef selectedGene in SelectedGenes)
 			{
 				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
 				{

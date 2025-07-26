@@ -18,6 +18,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
+            if (pawn.Map == null)
+            {
+                return;
+            }
             HarvestAndConvert();
         }
 

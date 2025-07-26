@@ -571,16 +571,17 @@ namespace WVC_XenotypesAndGenes
             }
 		}
 
-		public int GetStatFromStatModifiers(StatDef statDef, List<StatModifier> statOffsets, List<StatModifier> statFactors)
+		public void GetStatFromStatModifiers(StatDef statDef, List<StatModifier> statOffsets, List<StatModifier> statFactors, out float offset, out float factor)
 		{
-			float value = 0;
+			offset = 0;
+			factor = 1;
 			if (statOffsets != null)
 			{
 				foreach (StatModifier statModifier in statOffsets)
 				{
 					if (statModifier.stat == statDef)
 					{
-						value += statModifier.value;
+						offset += statModifier.value;
 					}
 				}
 			}
@@ -590,11 +591,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (statModifier.stat == statDef)
 					{
-						value *= statModifier.value;
+						factor *= statModifier.value;
 					}
 				}
 			}
-			return (int)value;
 		}
 
 		public AcceptanceReport CanBeUsed

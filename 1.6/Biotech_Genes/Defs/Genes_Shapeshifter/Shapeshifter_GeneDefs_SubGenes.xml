@@ -185,8 +185,8 @@
 	<biostatArc>4</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<!-- <li>Carrier can only be killed by &lt;color=#8a8ae6&gt;destruction&lt;/color&gt; of the body, &lt;color=#8a8ae6&gt;surgery&lt;/color&gt;, or &lt;color=#8a8ae6&gt;removal&lt;/color&gt; of the gene.</li> -->
-		<li>Carrier can only be killed by &lt;color=#8a8ae6&gt;extracting&lt;/color&gt; the archotech &lt;color=#8a8ae6&gt;shard&lt;/color&gt; from their body.</li>
+		<li>Carrier cannot be killed by &lt;color=#8a8ae6&gt;direct damage&lt;/color&gt;.</li>
+		<!-- <li>Carrier can only be killed by &lt;color=#8a8ae6&gt;extracting&lt;/color&gt; the archotech &lt;color=#8a8ae6&gt;shard&lt;/color&gt; from their body.</li> -->
 		<li>Healing: 1 hp/day</li>
 	</customEffectDescriptions>
 	<!-- <statFactors> -->
