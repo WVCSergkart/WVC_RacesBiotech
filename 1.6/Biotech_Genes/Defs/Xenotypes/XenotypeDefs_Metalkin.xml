@@ -15,7 +15,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Anomaly):&lt;/color&gt; Upon death, it &lt;color=#8a8ae6&gt;spawns a metalhorror&lt;/color&gt; (only once) and emerge any metalhorror that has taken up residence in their body.</description>
 	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.</descriptionShort>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin2_v0</iconPath>
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
 	<displayPriority>-1100</displayPriority>
 	<genes>

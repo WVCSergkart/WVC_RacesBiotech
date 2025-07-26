@@ -10,15 +10,19 @@ namespace WVC_XenotypesAndGenes
     public class Gene_GeneticConverter : Gene_ChimeraDependant
     {
 
-        private int nextTick = 59109;
+        //private int nextTick = 59109;
 
         public override void TickInterval(int delta)
         {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 59109, delta))
+            if (!pawn.IsHashIntervalTick(59109, delta))
             {
                 return;
             }
-            if (pawn.Map == null)
+            //if (!GeneResourceUtility.CanTick(ref nextTick, 59109, delta))
+            //{
+            //    return;
+            //}
+            if (XaG_GeneUtility.FactionMap(pawn))
             {
                 return;
             }
@@ -64,6 +68,7 @@ namespace WVC_XenotypesAndGenes
             {
                 SaveableXenotypeHolder newHolder = new(pawn.genes.Xenotype, pawn.genes.Endogenes.ConvertToDefs(), true, pawn.genes.iconDef, pawn.genes.xenotypeName);
                 ReimplanterUtility.SetXenotype(item, newHolder);
+                Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGeneticConverterSucces".Translate(item.Named("TARGET"), pawn.Named("CASTER")), LetterDefOf.NeutralEvent, new LookTargets(item, pawn));
                 MiscUtility.DoShapeshiftEffects_OnPawn(item);
             }
         }
@@ -139,11 +144,11 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref nextTick, "nextTick", 59109);
-        }
+        //public override void ExposeData()
+        //{
+        //    base.ExposeData();
+        //    Scribe_Values.Look(ref nextTick, "nextTick", 59109);
+        //}
 
     }
 

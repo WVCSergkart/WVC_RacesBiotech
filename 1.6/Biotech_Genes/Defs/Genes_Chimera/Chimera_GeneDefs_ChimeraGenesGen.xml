@@ -40,8 +40,8 @@
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>145.001</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Purifies genes &lt;color=#ff8585&gt;destroyed&lt;/color&gt; by the chimera, allowing the chimera to gain them again.</li>
-		<li>With a small chance, during purification for every 20 genes it can produce one &lt;color=#8a8ae6&gt;non-archite&lt;/color&gt; gene.</li>
+		<li>Purifies genes &lt;color=#ff8585&gt;destroyed&lt;/color&gt; by the chimera every 2-3 days, allowing the chimera to gain them again.</li>
+		<li>With a small chance, during purification for every 20 genes it can (5%) produce one &lt;color=#8a8ae6&gt;non-archite&lt;/color&gt; gene.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">

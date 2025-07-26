@@ -7,7 +7,7 @@
 	<label>rustkind</label>
 	<description>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
 	<descriptionShort>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Xeno_MetalChimera_v0</iconPath>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
 	<displayPriority>-230</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
