@@ -596,6 +596,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneChimeraGizmoLabel>Chimera</WVC_XaG_GeneChimeraGizmoLabel>
 
+	<WVC_XaG_GeneChimera_PostImplantRemove>It was not possible to implant some of the genes because they were overridden by existing ones.</WVC_XaG_GeneChimera_PostImplantRemove>
+
 	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
 	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
 	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->

@@ -881,6 +881,31 @@ namespace WVC_XenotypesAndGenes
 					implantedGenes.Add(geneDef);
 				}
 			}
+			bool postImplantRemoveMessage = false;
+			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+			{
+				if (gene.Overridden && gene.overriddenByGene != null)
+				{
+					gene.pawn.genes.RemoveGene(gene);
+					if (implantedGenes.Contains(gene.def))
+                    {
+						implantedGenes.Remove(gene.def);
+					}
+					postImplantRemoveMessage = true;
+				}
+				if (pawnEndoGenes.Contains(gene.def))
+				{
+					gene.pawn.genes.RemoveGene(gene);
+					if (implantedGenes.Contains(gene.def))
+					{
+						implantedGenes.Remove(gene.def);
+					}
+				}
+			}
+			if (postImplantRemoveMessage)
+			{
+				Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			}
 			ReimplanterUtility.PostImplantDebug(gene.pawn);
 			gene.UpdateChimeraXenogerm(implantedGenes);
 			gene.DoEffects();
