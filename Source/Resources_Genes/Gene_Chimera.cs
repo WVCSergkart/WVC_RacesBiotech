@@ -558,16 +558,29 @@ namespace WVC_XenotypesAndGenes
 			if (!this.def.ConflictsWith(geneDef))
             {
 				pawn.genes.AddGene(geneDef, true);
-            }
+			}
+		}
+
+		public void UpdSubHediffs()
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+			{
+				if (hediff is HediffWithComps_ChimeraDependant chimeraHediff)
+				{
+					chimeraHediff.Recache();
+				}
+			}
 		}
 
 		// =================
+
+		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 
 		public int XenogenesLimit
         {
             get
             {
-                return (int)pawn.GetStatValue(Giver.statDef);
+                return (int)pawn.GetStatValue(ChimeraLimitStatDef);
             }
 		}
 
@@ -623,7 +636,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			StatDef stat = Giver.statDef;
+			StatDef stat = ChimeraLimitStatDef;
 			string supportedGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.statFactors != null && x.statFactors.StatListContains(stat) || x.statOffsets != null && x.statOffsets.StatListContains(stat)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - ");
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description + "\n\n" + supportedGenes, stat.displayPriorityInCategory);
 		}

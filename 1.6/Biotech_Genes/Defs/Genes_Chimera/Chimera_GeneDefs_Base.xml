@@ -102,7 +102,7 @@
 				  <!-- <li>WVC_Chimera_MarkHarvest</li> -->
 				  <!-- <li>WVC_Traitshifter</li> -->
 				  <!-- <li>WVC_Skillshifter</li> -->
-				  <li>WVC_Chimera_GreatlyIncreasedLimit</li>
+				  <li>WVC_Chimera_HugeIncreasedLimit</li>
 				  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
 				</genes>
 			  </li>
@@ -111,6 +111,7 @@
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.57</chance>
 				<genes>
+				  <li>WVC_Chimera_GreatlyIncreasedLimit</li>
 				  <li>WVC_Chimera_Xenoharvest</li>
 				  <li>WVC_Chimera_Corpseharvest</li>
 				  <li>WVC_Chimera_GenePurifier</li>

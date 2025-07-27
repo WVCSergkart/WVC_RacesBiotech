@@ -52,7 +52,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<addedGenes>
 			  <li>WVC_Chimera</li>
-			  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
+			  <li>WVC_Chimera_BandwidthLimit</li>
 			  <!-- <li>WVC_Chimera_Geneharvest</li> -->
 			  <!-- <li>WVC_Chimera_Packharvest</li> -->
 			  <!-- <li>WVC_Chimera_GeneDigestor</li> -->

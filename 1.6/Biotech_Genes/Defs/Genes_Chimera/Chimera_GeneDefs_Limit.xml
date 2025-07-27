@@ -22,7 +22,19 @@
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<biostatMet>-4</biostatMet>
 	<statOffsets>
-	  <WVC_ChimeraLimit>7.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>4.0</WVC_ChimeraLimit>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_HugeIncreasedLimit</defName>
+	<label>huge xeno-increased</label>
+	<description>Carriers of this gene have huge increased genetic efficiency of the chimera.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_HugeIncreased</iconPath>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatMet>-8</biostatMet>
+	<statOffsets>
+	  <WVC_ChimeraLimit>8.0</WVC_ChimeraLimit>
 	</statOffsets>
   </GeneDef>
 
@@ -31,10 +43,10 @@
 	<label>great xeno-increased</label>
 	<description>Carriers of this gene have greatly increased genetic efficiency of the chimera.</description>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_GreatlyIncreased</iconPath>
-	<displayOrderInCategory>25</displayOrderInCategory>
-	<biostatMet>-8</biostatMet>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatMet>-12</biostatMet>
 	<statOffsets>
-	  <WVC_ChimeraLimit>14.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>12.0</WVC_ChimeraLimit>
 	</statOffsets>
   </GeneDef>
 

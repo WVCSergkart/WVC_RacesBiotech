@@ -117,6 +117,7 @@ namespace WVC_XenotypesAndGenes
 			//eatedGenes = gene.EatedGenes;
 			//selectedGenes = pawnXenoGenes;
 			gene.Debug_RemoveDupes();
+			gene.UpdSubHediffs();
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
@@ -475,8 +476,14 @@ namespace WVC_XenotypesAndGenes
 			int limitCost = 0;
             float genesLimit = 0;
 			float genesLimitFactor = 1f;
-			StatDef statDef = gene.Giver.statDef;
-            foreach (GeneDef item in pawnEndoGenes)
+			StatDef statDef = gene.ChimeraLimitStatDef;
+			//foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
+			//{
+			//	gene.GetStatFromStatModifiers(statDef, item.CurStage.statOffsets, item.CurStage.statFactors, out float offset, out float factor);
+			//	genesLimit += offset;
+			//	genesLimitFactor *= factor;
+			//}
+			foreach (GeneDef item in pawnEndoGenes)
             {
                 if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
                 {
@@ -489,11 +496,8 @@ namespace WVC_XenotypesAndGenes
 			foreach (GeneDef item in SelectedGenes)
 			{
 				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
-				//if (offset <= 0)
-				//{
-				//	limitCost++;
-				//}
-                genesLimit += offset;
+				limitCost++;
+				genesLimit += offset;
 				genesLimitFactor *= factor;
 			}
 			genesLimit *= genesLimitFactor;
@@ -886,7 +890,8 @@ namespace WVC_XenotypesAndGenes
             gene.UpdateChimeraXenogerm(implantedGenes);
             gene.DoEffects();
             gene.UpdateMetabolism();
-            Close(doCloseSound: false);
+			gene.UpdSubHediffs();
+			Close(doCloseSound: false);
         }
 
         private void RemoveOverridenGenes(List<GeneDef> implantedGenes)

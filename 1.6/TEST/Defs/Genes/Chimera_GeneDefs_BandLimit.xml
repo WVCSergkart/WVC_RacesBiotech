@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_Chimera_BandwidthLimit</defName>
+	<label>bandwidth xeno-increased</label>
+	<description>Carriers of this gene have increased genetic efficiency relative to their bandwidth.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraLimit_FromBandwidth</iconPath>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<biostatMet>0</biostatMet>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+	  <!-- <li>&lt;color=#8a8ae6&gt;Blocks chimera implantation.&lt;/color&gt;</li> -->
+	  <li>Xenogenes limit increases depending on the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt;.</li>
+	  <li>Bandwidth spent on &lt;color=#8a8ae6&gt;mechanoids&lt;/color&gt; is not taken into account.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ChimeraLimit>-14.0</WVC_ChimeraLimit>
+	</statOffsets>
+	<exclusionTags Inherit="False"/>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Chimera_BandwidthLimit</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Chimera_BandwidthLimit</defName>
+	<label>bandwidth</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromBandwidth</hediffClass>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

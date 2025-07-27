@@ -126,6 +126,7 @@
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\HediffAddedPart_FleshmassNucleus.cs" />
+    <Compile Include="Resources_Hediff\Hediff_ChimeraLimitFromBandwidth.cs" />
     <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
     <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassImmunity.cs" />
