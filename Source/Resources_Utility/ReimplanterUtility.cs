@@ -129,6 +129,17 @@ namespace WVC_XenotypesAndGenes
 					break;
 				}
             }
+			//if (xenotypeDef == null)
+			//{
+			//	foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef.inheritable))
+			//	{
+			//		if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
+			//		{
+			//			xenotypeDef = xenos;
+			//			break;
+			//		}
+			//	}
+			//}
 			if (xenotypeDef != null)
 			{
 				ReimplanterUtility.SetXenotypeDirect(null, recipient, xenotypeDef);

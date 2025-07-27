@@ -855,65 +855,70 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		public void StartChange()
-		{
-			ClearGenes(selectedGenes);
-			//if (gene.Props.xenotypeDef != null)
-			//{
-			//	if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
-			//	{
-			//		ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
-			//	}
-			//}
-			//else
-			//{
-			//	ReimplanterUtility.UnknownXenotype(gene.pawn);
-			//}
-			//if (gene.pawn.genes.Xenotype?.GetModExtension<GeneExtension_General>()?.isChimerkin != true)
-			//{
-			//}
-			List<GeneDef> implantedGenes = new();
-			ReimplanterUtility.UnknownChimerkin(gene.pawn);
-			foreach (GeneDef geneDef in selectedGenes)
-			{
-				if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
-				{
-					gene.ImplantGene(geneDef);
-					implantedGenes.Add(geneDef);
-				}
-			}
-			bool postImplantRemoveMessage = false;
-			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
-			{
-				if (gene.Overridden && gene.overriddenByGene != null)
-				{
-					gene.pawn.genes.RemoveGene(gene);
-					if (implantedGenes.Contains(gene.def))
-                    {
-						implantedGenes.Remove(gene.def);
-					}
-					postImplantRemoveMessage = true;
-				}
-				if (pawnEndoGenes.Contains(gene.def))
-				{
-					gene.pawn.genes.RemoveGene(gene);
-					if (implantedGenes.Contains(gene.def))
-					{
-						implantedGenes.Remove(gene.def);
-					}
-				}
-			}
-			if (postImplantRemoveMessage)
-			{
-				Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-			}
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			gene.UpdateChimeraXenogerm(implantedGenes);
-			gene.DoEffects();
-			gene.UpdateMetabolism();
-			Close(doCloseSound: false);
-		}
+        {
+            ClearGenes(selectedGenes);
+            //if (gene.Props.xenotypeDef != null)
+            //{
+            //	if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
+            //	{
+            //		ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
+            //	}
+            //}
+            //else
+            //{
+            //	ReimplanterUtility.UnknownXenotype(gene.pawn);
+            //}
+            //if (gene.pawn.genes.Xenotype?.GetModExtension<GeneExtension_General>()?.isChimerkin != true)
+            //{
+            //}
+            List<GeneDef> implantedGenes = new();
+            ReimplanterUtility.UnknownChimerkin(gene.pawn);
+            foreach (GeneDef geneDef in selectedGenes)
+            {
+                if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
+                {
+                    gene.ImplantGene(geneDef);
+                    implantedGenes.Add(geneDef);
+                }
+            }
+            RemoveOverridenGenes(implantedGenes);
+            ReimplanterUtility.PostImplantDebug(gene.pawn);
+            gene.UpdateChimeraXenogerm(implantedGenes);
+            gene.DoEffects();
+            gene.UpdateMetabolism();
+            Close(doCloseSound: false);
+        }
 
-		public void EatGenes()
+        private void RemoveOverridenGenes(List<GeneDef> implantedGenes)
+        {
+            bool postImplantRemoveMessage = false;
+            foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+            {
+                if (gene.Overridden && gene.overriddenByGene != null)
+                {
+                    gene.pawn.genes.RemoveGene(gene);
+                    if (implantedGenes.Contains(gene.def))
+                    {
+                        implantedGenes.Remove(gene.def);
+                    }
+                    postImplantRemoveMessage = true;
+                }
+                if (pawnEndoGenes.Contains(gene.def))
+                {
+                    gene.pawn.genes.RemoveGene(gene);
+                    if (implantedGenes.Contains(gene.def))
+                    {
+                        implantedGenes.Remove(gene.def);
+                    }
+                }
+            }
+            if (postImplantRemoveMessage)
+            {
+                Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+            }
+        }
+
+        public void EatGenes()
 		{
 			float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 5;
 			if (bonusChanceForGameDays > 0.3f)

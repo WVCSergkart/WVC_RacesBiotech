@@ -84,8 +84,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					trait.RemoveTrait(pawn);
 				}
-				if (trait.suppressedByGene != null && !pawnGenes.Contains(trait.sourceGene))
+				if (trait.suppressedByGene != null && !pawnGenes.Contains(trait.suppressedByGene))
 				{
+					//Log.Error(trait.def.defName);
 					trait.suppressedByGene = null;
 				}
 			}
