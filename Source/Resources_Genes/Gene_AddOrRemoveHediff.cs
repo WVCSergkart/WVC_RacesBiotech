@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			//if (overriddenBy != null)
 			//{
@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
             HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
-		public void Notify_Override()
+		public virtual void Notify_Override()
         {
 			//Log.Error("Override with null gene");
 			Local_AddOrRemoveHediff();

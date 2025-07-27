@@ -29,6 +29,47 @@ namespace WVC_XenotypesAndGenes
 
 		//public static XaG_GameComponent currentGameComponent;
 
+		public static List<Pawn> hideMechanitorButton = new();
+
+		public static void ResetCollection()
+		{
+			cachedColonistsCount = 0;
+			cachedXenotypesCount = 0;
+			cachedNonHumansCount = 0;
+			cachedColonyMechs = 0;
+			haveAssignedWork = false;
+			oneManArmyMode = false;
+			hideMechanitorButton = new();
+		}
+
+		public static void AddHideMechanitors(Pawn pawn)
+		{
+			if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+			{
+				StaticCollectionsClass.hideMechanitorButton.Add(pawn);
+			}
+		}
+
+		public static void AddOrRemoveHideMechanitors(Pawn pawn)
+		{
+			if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+			{
+				StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
+			}
+			else
+			{
+				StaticCollectionsClass.hideMechanitorButton.Add(pawn);
+			}
+		}
+
+		public static void RemoveHideMechanitors(Pawn pawn)
+		{
+			if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+			{
+				StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
+			}
+		}
+
 	}
 
 }

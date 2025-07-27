@@ -44,6 +44,10 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGene))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGeneDef))));
 				}
+				if (WVC_Biotech.settings.enable_HideMechanitorButtonsPatch)
+				{
+					harmony.Patch(AccessTools.Method(typeof(Pawn_MechanitorTracker), "GetGizmos"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
+				}
 				//Log.Error("3");
 				if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck)
 				{
@@ -98,6 +102,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(SanguophageUtility), "DoBite"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BloodeaterTrigger))));
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "TryAcceptPawn", new Type[] { typeof(Pawn), typeof(CompBiosculpterPod_Cycle) }), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_TryAcceptPawn_Patch")));
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
+					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
 				}
 				//Log.Error("10");
 			}
@@ -675,6 +680,23 @@ namespace WVC_XenotypesAndGenes
 			// energyFoodPolicy.filter.SetAllow(item, allow: false);
 			// }
 			// }
+
+			// PawnDuplicatorFix
+
+			public static bool MechanitorHideWithGene(ref IEnumerable<Gizmo> __result, ref Pawn ___pawn)
+			{
+				if (StaticCollectionsClass.hideMechanitorButton.Contains(___pawn))
+				{
+					__result = MechanitorHideWithGene();
+					return false;
+				}
+				return true;
+
+				static IEnumerable<Gizmo> MechanitorHideWithGene()
+				{
+					yield break;
+				}
+			}
 
 			// Codex spam fix
 

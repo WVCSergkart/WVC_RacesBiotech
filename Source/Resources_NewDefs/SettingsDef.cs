@@ -108,6 +108,7 @@ namespace WVC_XenotypesAndGenes
 		// ExtraSettings
 		public bool enable_flatGenesSpawnChances = false;
 		public bool offsetMarketPriceFromGenes = false;
+		public bool enable_HideMechanitorButtonsPatch = false;
 
 	}
 

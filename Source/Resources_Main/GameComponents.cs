@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 		public override void StartedNewGame()
 		{
 			//StaticCollectionsClass.currentGameComponent = this;
+			StaticCollectionsClass.ResetCollection();
 			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
 			{
 				return;
@@ -67,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 			//UpdateSavedVersion();
 			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();
+			//StaticCollectionsClass.ResetCollection();
 		}
 
 		//public List<ReferencableXenotypeHolder> knownXenotypeDefs = new() { new(XenotypeDefOf.Baseliner) };

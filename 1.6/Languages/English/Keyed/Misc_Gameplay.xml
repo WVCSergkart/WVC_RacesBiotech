@@ -1087,6 +1087,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControlFloatMenu>List</WVC_XaG_RemoteControlFloatMenu>
 	<WVC_XaG_RemoteControlFloatMenu_Desc>Opens a drop list with several options.</WVC_XaG_RemoteControlFloatMenu_Desc>
 
+	<WVC_HideBandwidth>Mechanitor</WVC_HideBandwidth>
+	<WVC_XaG_RemoteControlHideBandwitdhDesc>Allows to hide all mechanitor buttons.</WVC_XaG_RemoteControlHideBandwitdhDesc>
+
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
 	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->

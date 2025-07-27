@@ -477,13 +477,13 @@ namespace WVC_XenotypesAndGenes
             float genesLimit = 0;
 			float genesLimitFactor = 1f;
 			StatDef statDef = gene.ChimeraLimitStatDef;
-			//foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
-			//{
-			//	gene.GetStatFromStatModifiers(statDef, item.CurStage.statOffsets, item.CurStage.statFactors, out float offset, out float factor);
-			//	genesLimit += offset;
-			//	genesLimitFactor *= factor;
-			//}
-			foreach (GeneDef item in pawnEndoGenes)
+            //foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
+            //{
+            //    gene.GetStatFromStatModifiers(statDef, item.CurStage?.statOffsets, item.CurStage?.statFactors, out float offset, out float factor);
+            //    genesLimit += offset;
+            //    genesLimitFactor *= factor;
+            //}
+            foreach (GeneDef item in pawnEndoGenes)
             {
                 if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
                 {
@@ -500,7 +500,24 @@ namespace WVC_XenotypesAndGenes
 				genesLimit += offset;
 				genesLimitFactor *= factor;
 			}
-			genesLimit *= genesLimitFactor;
+			foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
+            {
+                if (!SelectedGenes.Contains(pawnGene.def) && pawnGene.pawn.genes.Xenogenes.Contains(pawnGene))
+                {
+                    continue;
+                }
+                if (pawnGene is not Gene_ChimeraHediff chimeraHediffGene)
+                {
+                    continue;
+                }
+                if (chimeraHediffGene.ChimeraHediff != null)
+				{
+                    gene.GetStatFromStatModifiers(statDef, chimeraHediffGene.ChimeraHediff?.CurStage?.statOffsets, chimeraHediffGene.ChimeraHediff?.CurStage?.statFactors, out float offset, out float factor);
+                    genesLimit += offset;
+                    genesLimitFactor *= factor;
+                }
+			}
+            genesLimit *= genesLimitFactor;
 			cachedLimitConsumed = limitCost;
 			cachedXenogenesLimit = (int)genesLimit;
         }

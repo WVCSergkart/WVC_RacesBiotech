@@ -62,64 +62,6 @@ A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 	<!-- <WVC_Label_forceSatisfyingNeeds_CustomEaterGenes>Custom eater genes force pawns</WVC_Label_forceSatisfyingNeeds_CustomEaterGenes> -->
 	<!-- <WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes>If enabled, a pawn with genes such as rechargeable, bloodeater and dustogenic will abandon their current tasks to satisfy hunger. This is currently an experimental option.</WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes> -->
 
-	<!-- ================================== -->
-
-	<WVC_Label_genesCanTickOnlyOnMap>(Dev) Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
-	<WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map.
-
-Use this option only if you are sure of what you are doing.
-
-A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
-
-	<WVC_Label_flatGenesSpawnChances>Flat genes selection weight</WVC_Label_flatGenesSpawnChances>
-	<WVC_ToolTip_flatGenesSpawnChances>If enabled, the chances of genes spawning will be equalized like vanilla genes.
-
-A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
-
-	<WVC_Label_offsetMarketPriceFromGenes>(Exp) Offset pawn market price from genes</WVC_Label_offsetMarketPriceFromGenes>
-	<WVC_ToolTip_offsetMarketPriceFromGenes>If enabled, the pawns' market price will change depending on the genes they have. The more archite genes and the higher the metabolism, the more the pawn affects the colony's wealth.
-
-A restart is required.</WVC_ToolTip_offsetMarketPriceFromGenes>
-
-	<!-- <WVC_Label_enable_ReplaceSimilarGenesAutopatch>(Experimental) Replace similar genes</WVC_Label_enable_ReplaceSimilarGenesAutopatch> -->
-	<!-- <WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>If enabled, xenotypes will have some genes replaced with similar genes from the mod. This will not remove genes, but only replace them in xenotypes. -->
-
-<!-- The genes to replace are specified manually in xml. -->
-
-<!-- A restart is required.</WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch> -->
-
-	<!-- <WVC_Label_enableBodySizeGenes>Enable body size genes</WVC_Label_enableBodySizeGenes> -->
-	<!-- <WVC_ToolTip_enableBodySizeGenes>If enabled, body size genes will visually change the size of pawns. -->
-
-<!-- A restart is required.</WVC_ToolTip_enableBodySizeGenes> -->
-
-	<!-- <WVC_Label_autoPatchVanillaArchiteImmunityGenes>Auto patch vanilla archite immunity genes</WVC_Label_autoPatchVanillaArchiteImmunityGenes> -->
-	<!-- <WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes>If enabled, then when the game starts, it adds all diseases present in the game to the non-senescent and perfect immunity genes. Including from mods. -->
-
-<!-- Experimental option. -->
-
-<!-- A restart is required.</WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes> -->
-
-	<!-- ================================== -->
-
-	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>
-	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixGenesOnLoad>
-
-	<WVC_Label_fixGeneAbilitiesOnLoad>Fix broken gene abilities on load</WVC_Label_fixGeneAbilitiesOnLoad>
-	<WVC_ToolTip_fixGeneAbilitiesOnLoad>If enabled, it should fix all potentially broken abilities. Please note that this will reset all gene abilities.</WVC_ToolTip_fixGeneAbilitiesOnLoad>
-
-	<WVC_Label_fixGeneTypesOnLoad>Fix broken gene types on load</WVC_Label_fixGeneTypesOnLoad>
-	<WVC_ToolTip_fixGeneTypesOnLoad>If enabled, it should fix all potentially broken gene types (classes). Safe version of "Fix broken genes". Since it only affects genes with wrong classes. If any genes have an incorrect class, messages will appear in the log.</WVC_ToolTip_fixGeneTypesOnLoad>
-
-	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save. The effect must affect all pawns owned by the player.
-
-It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
-
-	<!-- <WVC_Label_fixThrallTypesOnLoad>Fix thrall desc link</WVC_Label_fixThrallTypesOnLoad> -->
-	<!-- <WVC_ToolTip_fixThrallTypesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixThrallTypesOnLoad> -->
-
-	<!-- ================================== -->
-
 	<WVC_Label_enable_birthQualityOffsetFromGenes>Enable birth quality offset from genes</WVC_Label_enable_birthQualityOffsetFromGenes>
 	<WVC_ToolTip_enable_birthQualityOffsetFromGenes>If enabled, some genes will affect birth quality. Due to the way the rituals window works, there may be a slight impact on performance in the corresponding window.
 
