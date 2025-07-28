@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_GeneNetwork</defName>
+	<label>gene network</label>
+	<description>Carriers of this gene have archites that create a genetic network, allowing the exchange of genetic information with participants.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraNetwork</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneNetwork</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Shares or copies&lt;/color&gt; one of the &lt;color=#8a8ae6&gt;collected genes&lt;/color&gt; with each pawn that has that gene.</li>
+		<li>&lt;color=#ff8585&gt;Blocks chimera eat.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+</Defs>

@@ -53,6 +53,7 @@
 			<addedGenes>
 			  <li>WVC_Chimera</li>
 			  <li>WVC_Chimera_BandwidthLimit</li>
+			  <li>WVC_Chimera_GeneNetwork</li>
 			  <!-- <li>WVC_Chimera_Geneharvest</li> -->
 			  <!-- <li>WVC_Chimera_Packharvest</li> -->
 			  <!-- <li>WVC_Chimera_GeneDigestor</li> -->

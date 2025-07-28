@@ -328,6 +328,8 @@ namespace WVC_XenotypesAndGenes
 		public StatDef statDef;
 		//
 		//public List<AbilityDef> abilityDefs;
+		//public List<AbilityDef> abilityDefs;
+		//public bool chimeraCanEatGenes = true;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

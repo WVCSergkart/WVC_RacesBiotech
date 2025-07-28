@@ -763,7 +763,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				selectedGenes = new();
 			}
-			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_ChimeraApply_Eat".Translate()))
+			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_ChimeraApply_Eat".Translate()) && CanEatGenes())
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate(gene.pawn.LabelCap), EatGenes));
 			}
@@ -938,6 +938,28 @@ namespace WVC_XenotypesAndGenes
             {
                 Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
             }
+        }
+
+		private bool CanEatGenes()
+        {
+			if (!CanEat())
+			{
+				Messages.Message("WVC_XaG_GeneChimera_EatIsBlocked".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			return true;
+
+			bool CanEat()
+            {
+				foreach (Gene item in gene.pawn.genes.GenesListForReading)
+				{
+					if (item is Gene_ChimeraDependant depend && depend.BlockChimeraEat)
+					{
+						return false;
+					}
+				}
+				return true;
+			}
         }
 
         public void EatGenes()
