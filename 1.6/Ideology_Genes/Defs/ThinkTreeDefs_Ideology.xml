@@ -27,6 +27,38 @@
 		  <treeDef>MentalStateNonCritical</treeDef>
 		</li>
 
+		<!-- If in space -->
+		<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalInSpace">
+		  <subNodes>
+
+			<li Class="JobGiver_ReactToCloseMeleeThreat" />
+			<li Class="ThinkNode_QueuedJob" />
+
+			<li Class="ThinkNode_Subtree">
+			  <treeDef>LordDuty</treeDef>
+			</li>
+
+			<!-- Needs -->
+			<li Class="ThinkNode_Subtree">
+			  <treeDef>SatisfyBasicNeeds</treeDef>
+			</li>
+
+			<!-- Idle -->
+			<li Class="ThinkNode_Tagger">
+			  <tagToGive>Idle</tagToGive>
+			  <subNodes>
+				<li Class="WVC_XenotypesAndGenes.JobGiver_WanderGravship">
+				  <maxDanger>Deadly</maxDanger>
+				  <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange>
+				</li>
+			  </subNodes>
+			</li>
+
+			<li Class="JobGiver_IdleError"/>
+
+		  </subNodes>
+		</li>
+
 		<li Class="JobGiver_FightFiresNearConnectedTree" />
 		<li Class="JobGiver_ReactToCloseMeleeThreat" />
 		<li Class="ThinkNode_QueuedJob" />
@@ -80,7 +112,7 @@
 				  <!-- <subNodes> -->
 				  <!-- </subNodes> -->
 				<!-- </li> -->
-				<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalShouldFollowConnectedPawn" >
+				<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalShouldFollowConnectedPawn">
 				  <subNodes>
 					<li Class="WVC_XenotypesAndGenes.JobGiver_AIDefendConnectedPawn">
 					  <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>

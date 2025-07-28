@@ -254,6 +254,8 @@
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
+    <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
+    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
