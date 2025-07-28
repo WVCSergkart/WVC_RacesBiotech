@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraBandwidth : Gene_ChimeraHediff, IGeneRemoteControl
 	{
 
-		public string RemoteActionName => "WVC_HideBandwidth".Translate();
+		public string RemoteActionName => "WVC_HideShow".Translate();
 
 		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlHideBandwitdhDesc".Translate();
 
