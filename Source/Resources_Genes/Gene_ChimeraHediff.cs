@@ -1,29 +1,68 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ChimeraHediff : Gene_AddOrRemoveHediff
+    public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden
 	{
 
-		public virtual Hediff ChimeraHediff => pawn.health?.hediffSet?.GetFirstHediffOfDef(Props.hediffDefName); 
+        public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
-
-		[Unsaved(false)]
-		private Gene_Chimera cachedChimeraGene;
-
-		public Gene_Chimera Chimera
+		public virtual Hediff ChimeraHediff
 		{
 			get
 			{
-				if (cachedChimeraGene == null || !cachedChimeraGene.Active)
+				if (Props?.hediffDefName == null)
 				{
-					cachedChimeraGene = pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
+					return null;
 				}
-				return cachedChimeraGene;
+				return pawn.health?.hediffSet?.GetFirstHediffOfDef(Props.hediffDefName);
 			}
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Local_AddOrRemoveHediff();
+		}
+
+		private void Local_AddOrRemoveHediff()
+		{
+			try
+			{
+				HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this, Props?.bodyparts);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Error in Gene_ChimeraHediff in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+			}
+		}
+
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+		}
+
+		public virtual void Notify_Override()
+		{
+			Local_AddOrRemoveHediff();
+		}
+
+		public override void TickInterval(int delta)
+		{
+			if (!pawn.IsHashIntervalTick(67200, delta))
+			{
+				return;
+			}
+			Local_AddOrRemoveHediff();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
 	}

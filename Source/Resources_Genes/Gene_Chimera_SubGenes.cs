@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			
 		}
 
-	}
+    }
 
 	public class Gene_ChimeraGenesGen : Gene_ChimeraDependant
 	{

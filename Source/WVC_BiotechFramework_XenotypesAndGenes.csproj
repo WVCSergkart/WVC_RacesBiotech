@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompAbilityEffect_BloodfeederBite.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_ChimeraImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneRipper.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />

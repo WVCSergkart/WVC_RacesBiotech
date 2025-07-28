@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_Implanter</defName>
+	<label>chimera implanter</label>
+	<description>Carriers of this gene can implant the chimera and its subgenes into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly.</description>
+	<iconPath>WVC/UI/Genes3/Gene_ChimeraImplanter</iconPath>
+	<displayOrderInCategory>225</displayOrderInCategory>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_StorageImplanter</geneClass> -->
+	<abilities>
+	  <li>WVC_Chimera_Implanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Implanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Implants all of the caster's chimera genes into the target pawn.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_Implanter</defName>
+	<label>chimera implanter</label>
+	<description>Implant the chimera and its subgenes into another person through a somewhat gross-looking injector organ.</description>
+	<iconPath>WVC/UI/Genes3/Gene_ChimeraImplanter</iconPath>
+	<cooldownTicksRange>120000</cooldownTicksRange>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ChimeraImplanter</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>
