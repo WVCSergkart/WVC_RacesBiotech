@@ -15,7 +15,7 @@
 	  <li>Bandwidth spent on &lt;color=#8a8ae6&gt;mechanoids&lt;/color&gt; is not taken into account.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_ChimeraLimit>-14.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>-21.0</WVC_ChimeraLimit>
 	</statOffsets>
 	<exclusionTags Inherit="False"/>
 	<modExtensions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- metalkin chimera -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Ferrkind</defName>
+	<!-- biotalkin, metalmera, ferrkind, rustkind -->
+	<label>ferrkind</label>
+	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream..
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.</description>
+	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
+	<displayPriority>-1105</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_BandwidthLimit</li>
+		<li>WVC_Chimera_GeneNetwork</li>
+		<li>WVC_Chimera_SelfCopy</li>
+		<li>WVC_MechaPowerSource_Unstable</li>
+		<li>WVC_MechaAI_PsychicDull</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_WoundHealing_Unnatural</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>
+		<li>WVC_Rejuvenator</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li>FireResistant</li>
+		<li>WVC_MechaAI_SoftwareMoving</li>
+		<li>WVC_CyberSkin</li>
+		<li>WVC_DragonTailA</li>
+		<li>WVC_VoiceMechaScorcher</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Metal</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_MecaBodyParts_Stomach</li>
+		<li>WVC_CyclicallySelfLearning</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isChimerkin>true</isChimerkin>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

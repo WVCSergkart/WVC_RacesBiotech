@@ -50,16 +50,13 @@
 	<minRefireDays>332</minRefireDays>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<addedGenes>
-			  <li>WVC_Chimera</li>
-			  <li>WVC_Chimera_BandwidthLimit</li>
-			  <li>WVC_Chimera_GeneNetwork</li>
-			  <!-- <li>WVC_Chimera_Geneharvest</li> -->
-			  <!-- <li>WVC_Chimera_Packharvest</li> -->
-			  <!-- <li>WVC_Chimera_GeneDigestor</li> -->
-			  <!-- <li>WVC_Chimera_DeathMarkHarvest</li> -->
-			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li> -->
-			</addedGenes>
+			<xenotypeDef>WVC_Ferrkind</xenotypeDef>
+			<!-- <addedGenes> -->
+			  <!-- <li>WVC_Chimera</li> -->
+			  <!-- <li>WVC_Chimera_BandwidthLimit</li> -->
+			  <!-- <li>WVC_Chimera_GeneNetwork</li> -->
+			  <!-- <li>WVC_Chimera_SelfCopy</li> -->
+			<!-- </addedGenes> -->
 		</li>
 	</modExtensions>
   </IncidentDef>

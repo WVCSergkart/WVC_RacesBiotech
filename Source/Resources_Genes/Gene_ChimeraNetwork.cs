@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void TickInterval(int delta)
         {
-            base.TickInterval(delta);
+            //base.TickInterval(delta);
             if (!pawn.IsHashIntervalTick(69167, delta))
             {
                 return;
@@ -50,6 +50,21 @@ namespace WVC_XenotypesAndGenes
                 {
                     Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(item.NameShortColored, result2.label), item, MessageTypeDefOf.NeutralEvent, historical: false);
                 }
+            }
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: ShareGenes",
+                    action = delegate
+                    {
+                        ShareGenes();
+                    }
+                };
             }
         }
 

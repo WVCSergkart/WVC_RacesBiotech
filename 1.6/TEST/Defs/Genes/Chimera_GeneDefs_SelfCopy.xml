@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_SelfCopy</defName>
+	<label>chimera self-copying</label>
+	<description>Carriers of this gene have archites that allow the chimera to copy the carrier's geneset.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraSelfCopy</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_SelfCopy</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>210</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Every 3 days the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; copies one random gene from the carrier.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+</Defs>

@@ -942,19 +942,21 @@ namespace WVC_XenotypesAndGenes
 
 		private bool CanEatGenes()
         {
-			if (!CanEat())
+			if (!CanEat(out GeneDef culprit))
 			{
-				Messages.Message("WVC_XaG_GeneChimera_EatIsBlocked".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				Messages.Message("WVC_XaG_GeneChimera_EatIsBlocked".Translate(culprit.LabelCap), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
 			return true;
 
-			bool CanEat()
+			bool CanEat(out GeneDef geneDef)
             {
+				geneDef = null;
 				foreach (Gene item in gene.pawn.genes.GenesListForReading)
 				{
 					if (item is Gene_ChimeraDependant depend && depend.BlockChimeraEat)
 					{
+						geneDef = item.def;
 						return false;
 					}
 				}

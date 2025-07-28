@@ -18,6 +18,7 @@
 	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
 	<displayPriority>-1100</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
 	<genes>
 		<!-- <li>WVC_MechaSkin</li> -->
 		<li>WVC_CyberSkin</li>

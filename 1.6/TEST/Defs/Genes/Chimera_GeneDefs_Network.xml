@@ -12,7 +12,8 @@
 	<biostatMet>0</biostatMet>
 	<displayOrderInCategory>200</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Shares or copies&lt;/color&gt; one of the &lt;color=#8a8ae6&gt;collected genes&lt;/color&gt; with each pawn that has that gene.</li>
+		<li>Target can be any pawn with this gene.</li>
+		<li>Every day one random &lt;color=#8a8ae6&gt;collected gene&lt;/color&gt; is &lt;color=#8a8ae6&gt;shared or copied&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Blocks chimera eat.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>

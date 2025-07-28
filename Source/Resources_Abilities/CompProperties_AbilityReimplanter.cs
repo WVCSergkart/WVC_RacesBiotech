@@ -47,10 +47,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
                 {
+					Notify_Reimplanted(pawn, parent.pawn);
 					ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
                 }
             }
 		}
+
+		public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
+        {
+
+        }
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
@@ -73,4 +79,24 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	public class CompAbilityEffect_ReimplanterRecruitAndConvert : CompAbilityEffect_Reimplanter
+	{
+
+		public override void Notify_Reimplanted(Pawn target, Pawn caster)
+		{
+			if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
+			{
+				RecruitUtility.Recruit(target, Faction.OfPlayer, caster);
+				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
+				target.ideo?.SetIdeo(caster.ideo.Ideo);
+			}
+			if (target.ideo?.Ideo != null && caster.ideo?.Ideo != null && target.ideo.Ideo != caster.ideo.Ideo)
+			{
+				target.ideo.SetIdeo(caster.ideo.Ideo);
+			}
+		}
+
+	}
+
 }

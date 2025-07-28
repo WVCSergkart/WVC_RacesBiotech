@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -311,7 +312,8 @@ namespace WVC_XenotypesAndGenes
             yield return new Command_Action
             {
                 defaultLabel = "DEV: ExpandDevTools",
-                action = delegate
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/DevMode_Setttings"),
+				action = delegate
                 {
                     collapse = !collapse;
                 }
@@ -323,7 +325,8 @@ namespace WVC_XenotypesAndGenes
             yield return new Command_Action
             {
                 defaultLabel = "DEV: ResetXenotype",
-                action = delegate
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0"),
+				action = delegate
                 {
                     Pawn pawn = parent as Pawn;
                     ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
@@ -332,7 +335,8 @@ namespace WVC_XenotypesAndGenes
             yield return new Command_Action
             {
                 defaultLabel = "DEV: SetXenotype",
-                action = delegate
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0"),
+				action = delegate
                 {
                     Pawn pawn = parent as Pawn;
                     List<FloatMenuOption> list = new();
@@ -351,7 +355,8 @@ namespace WVC_XenotypesAndGenes
             yield return new Command_Action
             {
                 defaultLabel = "DEV: DebugGenes",
-                action = delegate
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/WorkSkillTex_v0"),
+				action = delegate
                 {
                     Pawn pawn = parent as Pawn;
                     ReimplanterUtility.PostImplantDebug(pawn);
@@ -360,12 +365,33 @@ namespace WVC_XenotypesAndGenes
             yield return new Command_Action
             {
                 defaultLabel = "DEV: AddAllRemoteControllers",
-                action = delegate
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_Golemlink_GizmoSummonSettings"),
+				action = delegate
                 {
                     XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
                 }
             };
-        }
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: GetGenesMatchList",
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate"),
+				action = delegate
+				{
+					Pawn pawn = parent as Pawn;
+					StringBuilder stringBuild = new();
+					foreach (XenotypeDef xenos in DefDatabase<XenotypeDef>.AllDefsListForReading)
+					{
+						if (xenos.genes.NullOrEmpty())
+                        {
+							continue;
+                        }
+						float matchedGenes = XaG_GeneUtility.GetMatchingGenesList(pawn.genes.GenesListForReading, xenos.genes).Count;
+						stringBuild.AppendLine(xenos.LabelCap + " genes match: " + (matchedGenes / xenos.genes.Count * 100) + "%");
+					}
+					Log.Error(stringBuild.ToString());
+				}
+			};
+		}
 
     }
 

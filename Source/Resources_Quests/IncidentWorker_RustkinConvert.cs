@@ -25,27 +25,32 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
+			GeneExtension_Undead extension = def.GetModExtension<GeneExtension_Undead>();
+            List<Pawn> allMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists = PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists;
+			if (allMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists.Any((target) => target.genes.Xenotype == extension.xenotypeDef))
+			{
+				return false;
+			}
 			XenotypeDef xenotypeDef = DefDatabase<XenotypeDef>.GetNamed("WVC_GeneThrower");
-			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists.Where((colonist) => colonist.genes.Xenotype == xenotypeDef).ToList();
+			List<Pawn> pawns = allMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists.Where((colonist) => colonist.Map != null && colonist.genes.Xenotype == xenotypeDef).ToList();
 			if (pawns.NullOrEmpty())
             {
 				return false;
             }
             Pawn pawn = pawns.RandomElement();
-			//ReimplanterUtility.SetXenotype(pawn, DefDatabase<XenotypeDef>.GetNamed("WVC_Rustkind"));
-			GeneExtension_Undead extension = def.GetModExtension<GeneExtension_Undead>();
-			if (extension?.addedGenes != null)
-            {
-				foreach (GeneDef geneDef in extension.addedGenes)
-                {
-					pawn.genes.AddGene(geneDef, false);
-                }
-				ReimplanterUtility.PostImplantDebug(pawn);
-            }
-			else
-            {
-				return false;
-			}
+			ReimplanterUtility.SetXenotype(pawn, extension.xenotypeDef);
+			//if (extension?.addedGenes != null)
+			//{
+			//	foreach (GeneDef geneDef in extension.addedGenes)
+			//	{
+			//		pawn.genes.AddGene(geneDef, false);
+			//	}
+			//	ReimplanterUtility.PostImplantDebug(pawn);
+			//}
+			//else
+			//{
+			//	return false;
+			//}
 			Find.LetterStack.ReceiveLetter("WVC_XaG_MetalkinConvertIncident".Translate(), "WVC_XaG_MetalkinConvertIncidentDesc".Translate(), LetterDefOf.PositiveEvent, new LookTargets(pawn));
 			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
 			return true;

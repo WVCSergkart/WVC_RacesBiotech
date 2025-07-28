@@ -592,7 +592,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_Chimera_InCooldown>Chimera cannot be used until genes regrowing is complete.</WVC_XaG_Gene_Chimera_InCooldown>
 	<WVC_XaG_Gene_Chimera_LimitMessage>Maximum limit exceeded. Please remove some of the selected genes.</WVC_XaG_Gene_Chimera_LimitMessage>
 
-	<WVC_XaG_GeneChimera_EatIsBlocked>At the moment, the chimera is unable to eat the gene. This is blocked by one of the subgenes.</WVC_XaG_GeneChimera_EatIsBlocked>
+	<WVC_XaG_GeneChimera_EatIsBlocked>Chimera is unable to eat. Blocked by: {0} gene.</WVC_XaG_GeneChimera_EatIsBlocked>
 
 	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Eated genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>
 
