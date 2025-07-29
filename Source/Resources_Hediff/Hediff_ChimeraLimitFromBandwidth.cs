@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		private HediffStage curStage;
 
-		public override bool ShouldRemove => pawn.mechanitor == null;
+		public override bool ShouldRemove => false;
 
 		public override bool Visible => false;
 
