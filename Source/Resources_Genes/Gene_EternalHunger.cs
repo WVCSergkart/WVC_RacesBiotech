@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -7,12 +8,26 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
     // Hemogen
-    public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder
+    public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder, IGeneNotifyGenesChanged
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
         // Gene
+
+        private float? cachedResourceLossPerDay;
+        public override float ResourceLossPerDay
+        {
+            get
+            {
+                if (!cachedResourceLossPerDay.HasValue)
+                {
+                    XaG_GeneUtility.GetBiostatsFromList(pawn.genes.GenesListForReading, out _, out int met, out _);
+                    cachedResourceLossPerDay = base.ResourceLossPerDay * (1f - (met * 0.1f));
+                }
+                return cachedResourceLossPerDay.Value;
+            }
+        }
 
         public override void PostAdd()
 		{
@@ -31,9 +46,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void AddOrRemoveHediff()
-		{
-			HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this);
-		}
+        {
+            try
+            {
+                cachedResourceLossPerDay = null;
+                HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Error in Gene_EternalHunger in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+            }
+        }
 
 
 		public override void TickInterval(int delta)
@@ -134,6 +157,11 @@ namespace WVC_XenotypesAndGenes
             }
             Hemogen.Value += Hemogen.Max * victim.BodySize;
             SyncNeedFoodWithHemogen();
+        }
+
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+            cachedResourceLossPerDay = null;
         }
 
         // Misc

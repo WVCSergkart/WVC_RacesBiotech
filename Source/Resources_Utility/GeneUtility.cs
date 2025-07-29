@@ -1127,22 +1127,43 @@ namespace WVC_XenotypesAndGenes
 			return xenotypes;
 		}
 
-        public static void GetBiostatsFromList(List<GeneDef> genes, out int cpx, out int met, out int arc)
-        {
+		public static void GetBiostatsFromList(List<Gene> genes, out int cpx, out int met, out int arc)
+		{
 			cpx = 0;
 			met = 0;
 			arc = 0;
 			if (genes.NullOrEmpty())
-            {
-                return;
-            }
-            foreach (GeneDef item in genes)
-            {
+			{
+				return;
+			}
+			foreach (Gene item in genes)
+			{
+				if (item.Overridden)
+				{
+					continue;
+				}
+				cpx += item.def.biostatCpx;
+				met += item.def.biostatMet;
+				arc += item.def.biostatArc;
+			}
+		}
+
+		public static void GetBiostatsFromList(List<GeneDef> genes, out int cpx, out int met, out int arc)
+		{
+			cpx = 0;
+			met = 0;
+			arc = 0;
+			if (genes.NullOrEmpty())
+			{
+				return;
+			}
+			foreach (GeneDef item in genes)
+			{
 				cpx += item.biostatCpx;
 				met += item.biostatMet;
 				arc += item.biostatArc;
 			}
-        }
+		}
 
         public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
 		{
