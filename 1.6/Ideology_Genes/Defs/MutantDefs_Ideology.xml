@@ -7,7 +7,7 @@
 	<overrideLabel>true</overrideLabel>
 	<thinkTree>WVC_GestatedDryad</thinkTree>
 	<thinkTreeConstant>WVC_GestatedDryadConstant</thinkTreeConstant>
-	<disableOwnership>true</disableOwnership>
+	<!-- <disableOwnership>true</disableOwnership> -->
 	<clearMutantStatusOnDeath>true</clearMutantStatusOnDeath>
   </MutantDef>
 
