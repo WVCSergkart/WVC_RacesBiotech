@@ -98,6 +98,7 @@ namespace WVC_XenotypesAndGenes
                 Widgets.DrawHighlight(rect4);
                 if (Widgets.ButtonInvisible(rect4))
                 {
+                    gene.UpdSubHediffs();
                     if (gene.CanBeUsed)
                     {
                         Find.WindowStack.Add(new Dialog_CreateChimera(gene));

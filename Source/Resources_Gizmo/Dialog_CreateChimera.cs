@@ -117,7 +117,6 @@ namespace WVC_XenotypesAndGenes
 			//eatedGenes = gene.EatedGenes;
 			//selectedGenes = pawnXenoGenes;
 			gene.Debug_RemoveDupes();
-			gene.UpdSubHediffs();
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
