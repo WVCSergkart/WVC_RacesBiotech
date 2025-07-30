@@ -114,6 +114,7 @@
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
 			<!-- Edible Non-Food -->
+			<!-- <li MayRequire="ludeon.rimworld.odyssey">Plant_TreeArchean</li> -->
 			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li> -->
 		  </willNeverEat>
 		</race>

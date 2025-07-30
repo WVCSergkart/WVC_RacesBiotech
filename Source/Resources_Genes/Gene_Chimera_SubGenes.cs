@@ -192,7 +192,7 @@ namespace WVC_XenotypesAndGenes
 			float geneChance = Spawner.chance;
 			for (int i = 0; i < countSpawn; i++)
 			{
-				if (Chimera.EatedGenes.NullOrEmpty())
+				if (Chimera.DestroyedGenes.NullOrEmpty())
 				{
 					break;
 				}

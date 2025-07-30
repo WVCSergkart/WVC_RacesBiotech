@@ -247,7 +247,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
 					continue;
 				}
-				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
+				if (!XaG_GeneUtility.IsAndroid(item))
 				{
 					list.Add(item);
 				}
@@ -362,7 +362,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
 					{
-						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
+						if (!XaG_GeneUtility.IsAndroid(xenotype))
 						{
 							xenotypes.Add(xenotype);
 						}

@@ -71,6 +71,7 @@
 	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
 	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
+	  <li MayRequire="ludeon.rimworld.odyssey">Plant_TreeArchean</li>
 	</plantsToNotOverwrite_SpawnSubplant>
 	<!-- XaG genes that will work with mutants. Required any GeneDefs -->
 	<anomalyXenoGenesExceptions>
@@ -158,6 +159,11 @@
 	  <li>Voice_Human</li>
 	  <li>WVC_BodySize_Average</li>
 	</humanGeneDefs>
+	<!-- Required any Android genes (string). Genes with these defNames will be considered flags for the filter. Pawns and xenotypes with these genes will not be considered humans. -->
+	<androidGenes>
+	  <li>VREA_SyntheticBody</li>
+	  <li>PMP_PersonaMechanoid</li>
+	</androidGenes>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

@@ -529,16 +529,49 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		private static List<GeneDef> cachedAndroidGenes;
+		public static List<GeneDef> AndroidGenes
+		{
+			get
+			{
+				if (cachedAndroidGenes == null)
+				{
+					List<GeneDef> list = new();
+					List<GeneDef> dataBase = DefDatabase<GeneDef>.AllDefsListForReading;
+					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					{
+						if (item.androidGenes.NullOrEmpty())
+						{
+							continue;
+						}
+						foreach (GeneDef androidGene in dataBase)
+						{
+							if (item.androidGenes.Contains(androidGene.defName))
+							{
+								list.Add(androidGene);
+							}
+						}
+					}
+					cachedAndroidGenes = list;
+				}
+				return cachedAndroidGenes;
+			}
+		}
+
 		public static bool IsAndroid(this Pawn pawn)
 		{
-			if (pawn?.genes == null)
+			if (pawn?.genes == null || AndroidGenes.Empty())
 			{
 				return false;
 			}
 			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].def.defName.Contains("VREA_SyntheticBody"))
+				//if (genesListForReading[i].def.defName.Contains("VREA_SyntheticBody"))
+				//{
+				//	return true;
+				//}
+				if (AndroidGenes.Contains(genesListForReading[i].def))
 				{
 					return true;
 				}
@@ -546,8 +579,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool XenotypeIsAndroid(XenotypeDef xenotypeDef)
+		public static bool IsAndroid(this XenotypeDef xenotypeDef)
 		{
+			if (AndroidGenes.Empty())
+			{
+				return false;
+			}
 			List<GeneDef> genesListForReading = xenotypeDef?.genes;
 			if (genesListForReading.NullOrEmpty())
 			{
@@ -555,7 +592,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				//if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				//{
+				//	return true;
+				//}
+				if (AndroidGenes.Contains(genesListForReading[i]))
 				{
 					return true;
 				}
@@ -563,8 +604,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool XenotypeIsAndroid(CustomXenotype xenotypeDef)
+		public static bool IsAndroid(this CustomXenotype xenotypeDef)
 		{
+			if (AndroidGenes.Empty())
+			{
+				return false;
+			}
 			List<GeneDef> genesListForReading = xenotypeDef?.genes;
 			if (genesListForReading.NullOrEmpty())
 			{
@@ -572,7 +617,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				//if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				//{
+				//	return true;
+				//}
+				if (AndroidGenes.Contains(genesListForReading[i]))
 				{
 					return true;
 				}

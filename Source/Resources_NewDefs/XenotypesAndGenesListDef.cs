@@ -31,6 +31,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
 		public List<XenotypeDef> devXenotypeDefs = new();
 		public List<GeneDef> humanGeneDefs = new();
+		public List<string> androidGenes = new();
 
 		//[Obsolete]
 		//public List<XaG_CountWithChance> identicalGeneDefs = new();
