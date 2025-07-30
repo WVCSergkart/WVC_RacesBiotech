@@ -11,9 +11,9 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; The nutritional efficiency of food consumed by the xenotype is reduced by 80%; to compensate for this effect, the pawn must eat a special food (&lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt;) or be &lt;color=#8a8ae6&gt;downed&lt;/color&gt; at the time of food consumption. Hunger bar can also be replenished with help of sunlight.</description>
 	<descriptionShort>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
-	<descriptionHyperlinks>
-	  <ThingDef>WVC_NutrientsInjector</ThingDef>
-	</descriptionHyperlinks>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_NutrientsInjector</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<genes>
 		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
 		<!-- <li>WVC_NaturalFastAging</li> -->

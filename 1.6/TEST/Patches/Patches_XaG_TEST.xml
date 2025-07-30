@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- <Operation Class="PatchOperationRemove"> -->
+	  <!-- <xpath>/Defs/RecipeDef[@WVC_XaG_Tag_ForMassiveRemove="ThingDefs" or @WVC_XaG_Tag_ForMassiveRemove="SerumRecipesDefs"]</xpath> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationRemove"> -->
+	  <!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_ForMassiveRemove="ThingDefs"]</xpath> -->
+	<!-- </Operation> -->
+
 	<!-- Xenogerm desc upd -->
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath> -->
@@ -107,7 +114,7 @@
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
 			<!-- Edible Non-Food -->
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li> -->
 		  </willNeverEat>
 		</race>
 	  </value>

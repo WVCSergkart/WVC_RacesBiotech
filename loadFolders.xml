@@ -9,7 +9,6 @@
 	<v1.5>
 		<li>/</li>
 		<li>1.5</li>
-		<!-- <li IfModActive="imranfish.xmlextensions">1.5/Biotech_Core</li> -->
 		<li IfModActive="ludeon.rimworld.biotech">1.5/Biotech_Genes</li>
 		<li IfModActive="ludeon.rimworld.ideology">1.5/Ideology_Genes</li>
 		<li IfModActive="ludeon.rimworld.anomaly">1.5/Anomaly</li>
@@ -18,13 +17,14 @@
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
-		<!-- <li IfModActive="imranfish.xmlextensions">1.5/Biotech_Core</li> -->
 		<li IfModActive="ludeon.rimworld.biotech">1.6/Biotech_Genes</li>
 		<li IfModActive="ludeon.rimworld.ideology">1.6/Ideology_Genes</li>
 		<li IfModActive="ludeon.rimworld.anomaly">1.6/Anomaly</li>
 		<li IfModActive="wvc.sergkart.test.tools">1.6/TEST</li>
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.6/TEST</li>
 		<li IfModNotActive="vanillaracesexpanded.sanguophage">1.6/Sango</li>
+		<!-- req rework -->
+		<li IfModNotActive="wvc.wvcmod.wvcspecific">1.6/NonGenes</li>
 	</v1.6>
 </loadFolders>
 

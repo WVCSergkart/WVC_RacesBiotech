@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============Shift============ -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" Abstract="True" Name="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<tradeTags>
+	</tradeTags>
+	<recipeMaker>
+	  <researchPrerequisite Inherit="False"/>
+	  <researchPrerequisites Inherit="False">
+		<li>WVC_XenotypesAndGenes_NutrientsInjector</li>
+		<li>Archogenetics</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <Uranium>40</Uranium>
+	</costList>
+  </ThingDef>
+
+</Defs>

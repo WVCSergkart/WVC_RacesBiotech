@@ -7,6 +7,9 @@
 	<statBases>
 	  <MarketValue>4350</MarketValue>
 	</statBases>
+	<recipeMaker>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_XenotypeSerumCrafting</researchPrerequisite>
+	</recipeMaker>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>

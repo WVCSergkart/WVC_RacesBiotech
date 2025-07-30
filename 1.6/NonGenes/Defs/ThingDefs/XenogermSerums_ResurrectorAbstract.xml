@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============Resurrector============ -->
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_Craftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<graphicData>
+	</graphicData>
+	<recipeMaker>
+	  <displayPriority>-15</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>10</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<costList>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <Uranium>15</Uranium>
+	</costList>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
+	<comps>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_NonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<statBases>
+	  <MarketValue>2450</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ArchiteSerum_v1</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</tradeTags>
+	<comps>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_HybridNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<statBases>
+	  <MarketValue>2750</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerumB_v1</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	</comps>
+  </ThingDef>
+
+</Defs>

@@ -21,9 +21,9 @@
 	<description>Carriers of this gene have a special resource in their blood called dust. Thanks to dust, under certain conditions, their body can receive significantly more nutrients from food.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Dustogenic</geneClass>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<descriptionHyperlinks>
-	  <ThingDef>WVC_NutrientsInjector</ThingDef>
-	</descriptionHyperlinks>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_NutrientsInjector</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -43,15 +43,15 @@
 	<exclusionTags>
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<specialFoodDefs>
-			  <li>WVC_NutrientsInjector</li>
-			  <li>WVC_MealDustPack</li>
-			  <li>WVC_MealDustogenicPaste</li>
-			</specialFoodDefs>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <specialFoodDefs> -->
+			  <!-- <li>WVC_NutrientsInjector</li> -->
+			  <!-- <li>WVC_MealDustPack</li> -->
+			  <!-- <li>WVC_MealDustogenicPaste</li> -->
+			<!-- </specialFoodDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================= -->
@@ -64,15 +64,15 @@
 	<minAgeActive>3</minAgeActive>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<specialFoodDefs>
-			  <li>WVC_NutrientsInjector</li>
-			  <li>WVC_MealDustPack</li>
-			  <li>WVC_MealDustogenicPaste</li>
-			</specialFoodDefs>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <specialFoodDefs> -->
+			  <!-- <li>WVC_NutrientsInjector</li> -->
+			  <!-- <li>WVC_MealDustPack</li> -->
+			  <!-- <li>WVC_MealDustogenicPaste</li> -->
+			<!-- </specialFoodDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
@@ -192,15 +192,15 @@
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
 	<resourceLossPerDay>0.18</resourceLossPerDay>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<specialFoodDefs>
-			  <li>WVC_NutrientsInjector</li>
-			  <li>WVC_MealDustPack</li>
-			  <li>WVC_MealDustogenicPaste</li>
-			</specialFoodDefs>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <specialFoodDefs> -->
+			  <!-- <li>WVC_NutrientsInjector</li> -->
+			  <!-- <li>WVC_MealDustPack</li> -->
+			  <!-- <li>WVC_MealDustogenicPaste</li> -->
+			<!-- </specialFoodDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">

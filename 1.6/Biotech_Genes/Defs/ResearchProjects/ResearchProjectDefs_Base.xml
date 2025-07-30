@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef Abstract="True" Name="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<techLevel>Industrial</techLevel>
+	<baseCost>1200</baseCost>
+	<requiresMechanitor>false</requiresMechanitor>
+	<tab>WVC_TechTab</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<defName>WVC_XenotypesAndGenes_SerumLab</defName>
+	<label>serum lab</label>
+	<description>The basic technology needed to produce xenotype serums.</description>
+	<researchViewX>0.00</researchViewX>
+	<researchViewY>4.50</researchViewY>
+	<prerequisites>
+	  <li>Xenogermination</li>
+	</prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<defName>WVC_XenotypesAndGenes_DustogenicFood</defName>
+	<label>simplest xenogenetics</label>
+	<description>The simplest methods of influencing xenogenes using basic chemistry and available means.</description>
+	<baseCost>500</baseCost>
+	<researchViewX>0.00</researchViewX>
+	<researchViewY>5.50</researchViewY>
+	<!-- <prerequisites> -->
+	  <!-- <li>PackagedSurvivalMeal</li> -->
+	<!-- </prerequisites> -->
+  </ResearchProjectDef>
+
+<!-- WVC_XenotypesAndGenes_SerumLab -->
+<!-- WVC_XenotypesAndGenes_GeneRestoration -->
+<!-- WVC_XenotypesAndGenes_DisassembleSerum -->
+<!-- WVC_XenotypesAndGenes_RetuneSerum -->
+<!-- WVC_XenotypesAndGenes_XenotypeSerumCrafting -->
+<!-- WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting -->
+
+  <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+	<baseCost>2700</baseCost>
+	<prerequisites Inherit="False"/>
+	<hiddenPrerequisites Inherit="False">
+	  <li>GeneProcessor</li>
+	</hiddenPrerequisites>
+	<requiredResearchFacilities>
+	  <li>MultiAnalyzer</li>
+	</requiredResearchFacilities>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<techLevel>Ultra</techLevel>
+	<baseCost>2200</baseCost>
+	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<prerequisites>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
+	</prerequisites>
+  </ResearchProjectDef>
+
+</Defs>

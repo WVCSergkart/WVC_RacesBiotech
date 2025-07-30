@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
-	<defName>WVC_ImplantXenogermSerum</defName>
-	<label>administer serum</label>
-	<description>Administer a serum.</description>
-	<jobString>Administering serum.</jobString>
-	<workerClass>WVC_XenotypesAndGenes.Recipe_ImplantXenogermSerum</workerClass>
-	<workAmount>600</workAmount>
-	<hideBodyPartNames>true</hideBodyPartNames>
-	<targetsBodyPart>false</targetsBodyPart>
-	<anesthetize>false</anesthetize>
-	<allowedForQuestLodgers>false</allowedForQuestLodgers>
-	<surgeryOutcomeEffect IsNull="True"/>
-	<isViolation>true</isViolation>
-	<uiIconThing>Xenogerm</uiIconThing>
-  </RecipeDef>
-
   <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
 	<workerClass>Recipe_AdministerUsableItem</workerClass>
 	<targetsBodyPart>false</targetsBodyPart>
