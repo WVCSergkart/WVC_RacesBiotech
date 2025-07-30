@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (xenotypeDef == null && xenotypeHolder == null)
 					{
-						ReimplanterUtility.ReimplantGenesHybrid(parent, newBorn, endogene, xenogene, false);
+						ReimplanterUtility.GeneralReimplant(parent, newBorn, endogene, xenogene, false);
 					}
 					TaleRecorder.RecordTale(TaleDefOf.GaveBirth, parent, newBorn);
 				}

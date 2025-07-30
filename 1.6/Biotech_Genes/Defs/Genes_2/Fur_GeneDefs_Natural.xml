@@ -18,6 +18,7 @@
 	<minAgeActive>0</minAgeActive>
 	<skinIsHairColor>false</skinIsHairColor>
 	<tattoosVisible>true</tattoosVisible>
+	<!-- <minAgeActive>13</minAgeActive> -->
 	<!-- <renderNodeProperties> -->
 	  <!-- <li> -->
 		<!-- <debugLabel>Fur</debugLabel> -->

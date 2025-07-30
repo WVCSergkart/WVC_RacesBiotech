@@ -660,6 +660,30 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		//public static XenotypeDef GetXenotype(this Pawn pawn, bool xenogene)
+		//{
+		//	XenotypeDef xenotypeDef = null;
+		//	List<Gene> genes;
+		//	if (xenogene)
+		//	{
+		//		genes = pawn.genes.Xenogenes;
+		//	}
+		//	else
+		//	{
+		//		genes = pawn.genes.Endogenes;
+		//	}
+		//	List<XenotypeDef> xenoDataBase = ListsUtility.GetAllXenotypesExceptAndroids();
+		//	foreach (XenotypeDef item in xenoDataBase)
+		//	{
+		//		if (GenesIsMatch(genes, item.genes, 1f))
+		//		{
+		//			xenotypeDef = item;
+		//			break;
+		//		}
+		//	}
+		//	return xenotypeDef;
+		//}
+
 		// ============================= Checker =============================
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)

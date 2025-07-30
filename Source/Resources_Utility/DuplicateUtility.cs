@@ -277,7 +277,7 @@ namespace WVC_XenotypesAndGenes
 
         public static void CopyGenes(Pawn pawn, Pawn newPawn)
         {
-            ReimplanterUtility.ReimplantGenesHybrid(pawn, newPawn, xenogerm: false);
+            ReimplanterUtility.GeneralReimplant(pawn, newPawn, xenogerm: false);
             CopyGenesOverrides(newPawn, newPawn.genes.Endogenes, pawn.genes.Endogenes);
 			CopyGenesOverrides(newPawn, newPawn.genes.Xenogenes, pawn.genes.Xenogenes);
         }

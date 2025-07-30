@@ -156,4 +156,16 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Metalkin -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin0c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Metalkin_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin1c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
 </Defs>

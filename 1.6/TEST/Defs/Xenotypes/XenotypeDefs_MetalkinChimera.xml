@@ -10,8 +10,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.</description>
 	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
-	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
+	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
 	<displayPriority>-1105</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>

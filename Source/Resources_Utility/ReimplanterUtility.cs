@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
-			ReimplanterUtility.ReimplantGenesHybrid(caster, recipient, endogenes, xenogenes);
+			ReimplanterUtility.GeneralReimplant(caster, recipient, endogenes, xenogenes);
 			if (extractXenogerm)
 			{
 				ExtractXenogerm(caster);
@@ -237,14 +237,25 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void ReimplantGenesHybrid(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool xenogerm = true)
+		public static void GeneralReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool xenogerm = true)
 		{
 			Pawn_GeneTracker recipientGenes = recipient.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
-			{
-				SetXenotypeDirect(caster, recipient);
-			}
-			if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
+            if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+            {
+                SetXenotypeDirect(caster, recipient);
+            }
+			//else if (recipientGenes.Xenogenes.NullOrEmpty())
+			//{
+			//	if (caster.genes.Xenotype.inheritable || caster.genes.UniqueXenotype)
+			//	{
+			//		SetXenotypeDirect(caster, recipient);
+			//	}
+			//	else
+			//	{
+			//		SetXenotypeDirect(null, null, caster.GetXenotype(false));
+			//	}
+			//}
+            if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
 			{
 				// foreach (Gene item in recipientGenes.Xenogenes.ToList())
 				// {

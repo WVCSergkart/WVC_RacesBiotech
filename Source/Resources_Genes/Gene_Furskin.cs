@@ -240,7 +240,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.story.bodyType == BodyTypeDefOf.Fat)
+			if (pawn.story?.bodyType == BodyTypeDefOf.Fat)
 			{
 				if (pawn?.gender == Gender.Female)
 				{
