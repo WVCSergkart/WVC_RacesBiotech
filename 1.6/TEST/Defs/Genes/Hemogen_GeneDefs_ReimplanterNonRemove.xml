@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Reimplanters">
+	<defName>WVC_ImplanterFangs_NonRemove</defName>
+	<label>infected fangs</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ImplanterFang_NonRemove</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Bloodfeeder_v0</iconPath>
+	<displayOrderInCategory>95</displayOrderInCategory>
+	<resourceLossPerDay>-0.06</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Combines &lt;color=#8a8ae6&gt;target genes&lt;/color&gt; and &lt;color=#8a8ae6&gt;caster genes&lt;/color&gt;.</li>
+		<li>If &lt;color=#8a8ae6&gt;endogene&lt;/color&gt;, then all old target genes become xenogenes, and the target gets only caster endogenes. Reverse for &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<reimplantEndogenes>true</reimplantEndogenes>
+			<reimplantXenogenes>true</reimplantXenogenes>
+			<reimplantChance>0.03</reimplantChance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

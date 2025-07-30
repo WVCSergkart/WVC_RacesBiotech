@@ -11,7 +11,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Eyes</geneClass>
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<prerequisite>WVC_BoneSkin</prerequisite>
+	<!-- <prerequisite>WVC_BoneSkin</prerequisite> -->
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
