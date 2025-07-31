@@ -31,6 +31,16 @@
 		<!-- <drawContents>true</drawContents> -->
 		<inheritFromDef>DryadCocoon</inheritFromDef>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_SkippableBuilding">
+		<compClass>WVC_XenotypesAndGenes.CompSkippableDryadPod</compClass>
+		<targetingParameters>
+		  <canTargetSelf>false</canTargetSelf>
+		  <canTargetAnimals>false</canTargetAnimals>
+		  <canTargetItems>false</canTargetItems>
+		  <canTargetPawns>false</canTargetPawns>
+		  <canTargetLocations>true</canTargetLocations>
+		</targetingParameters>
+	  </li>
 	</comps>
   </ThingDef>
 
@@ -63,6 +73,15 @@
 		<!-- <daysToComplete>3</daysToComplete> -->
 		<!-- <drawContents>true</drawContents> -->
 		<inheritFromDef>DryadHealingPod</inheritFromDef>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_SkippableBuilding">
+		<compClass>WVC_XenotypesAndGenes.CompSkippableDryadPod</compClass>
+		<targetingParameters>
+		  <canTargetSelf>false</canTargetSelf>
+		  <canTargetAnimals>false</canTargetAnimals>
+		  <canTargetItems>false</canTargetItems>
+		  <canTargetLocations>true</canTargetLocations>
+		</targetingParameters>
 	  </li>
 	</comps>
   </ThingDef>

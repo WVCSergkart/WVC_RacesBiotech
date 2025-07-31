@@ -5,6 +5,11 @@
 
 	<!-- ================================== -->
 
+	<WVC_XaG_SkipThing>Skip</WVC_XaG_SkipThing>
+	<WVC_XaG_SkipThingDesc>Use the skip gate to move the object to a more convenient location.</WVC_XaG_SkipThingDesc>
+	<WVC_XaG_SkipThing_ChooseSkipLocation>Choose skip location</WVC_XaG_SkipThing_ChooseSkipLocation>
+	<WVC_XaG_SkipThing_Disabled>Skipping too often. A repeat skip will be possible later.</WVC_XaG_SkipThing_Disabled>
+
 	<WVC_XaG_NoDescError>No information available.</WVC_XaG_NoDescError>
 
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->

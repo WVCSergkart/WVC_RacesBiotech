@@ -43,6 +43,40 @@
 			  <treeDef>SatisfyBasicNeeds</treeDef>
 			</li>
 
+			<!-- Secondary faction actions -->
+			<li Class="ThinkNode_ConditionalOfPlayerFaction" ModdersHook="WorkThinkNode">
+			  <subNodes>
+
+				<!-- Dryad mode changed, return to cocoon and change type. -->
+				<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterCocoon">
+				  <cocoonJobDef>WVC_XaG_CreateAndEnterCocoon</cocoonJobDef>
+				  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+				</li>
+				<!-- Ordered to return to a healing pod to tend wounds. -->
+				<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterHealingPod">
+				  <cocoonJobDef>WVC_XaG_CreateAndEnterHealingPod</cocoonJobDef>
+				  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+				</li>
+
+				<li Class="ThinkNode_Tagger">
+				  <tagToGive>RestingForMedicalReasons</tagToGive>
+				  <subNodes>
+					<li Class="JobGiver_PatientGoToBed" />
+				  </subNodes>
+				</li>
+				<li Class="JobGiver_SeekAllowedArea" />
+				<li Class="JobGiver_SeekSafeTemperature" />
+
+				<li Class="ThinkNode_Tagger">
+				  <tagToGive>RestingForMedicalReasons</tagToGive>
+				  <subNodes>
+					<li Class="JobGiver_PatientGoToBed" />
+				  </subNodes>
+				</li>
+
+			  </subNodes>
+			</li>
+
 			<!-- Idle -->
 			<li Class="ThinkNode_Tagger">
 			  <tagToGive>Idle</tagToGive>

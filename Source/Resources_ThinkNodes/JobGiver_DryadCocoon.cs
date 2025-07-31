@@ -26,14 +26,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			Pawn master = compTreeConnection.Master;
-			if (master == null)
+			//Pawn master = compTreeConnection.Master;
+			//if (master == null)
+			//{
+			//	return null;
+			//}
+			//if (compTreeConnection != null && ExtraValidator(pawn, compTreeConnection) && !master.IsForbidden(pawn) && pawn.CanReach(master, PathEndMode.Touch, Danger.Deadly) && CellFinder.TryFindRandomCellNear(master.Position, pawn.Map, squareRadius, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var _))
+			//{
+			//	return JobMaker.MakeJob(JobDef, master);
+			//}
+			if (compTreeConnection != null && ExtraValidator(pawn, compTreeConnection) && CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, squareRadius, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var _))
 			{
-				return null;
-			}
-			if (compTreeConnection != null && ExtraValidator(pawn, compTreeConnection) && !master.IsForbidden(pawn) && pawn.CanReach(master, PathEndMode.Touch, Danger.Deadly) && CellFinder.TryFindRandomCellNear(master.Position, pawn.Map, squareRadius, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var _))
-			{
-				return JobMaker.MakeJob(JobDef, master);
+				return JobMaker.MakeJob(JobDef, pawn);
 			}
 			return null;
 		}
@@ -104,11 +108,11 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.Do(delegate
 			{
 				// IntVec3 result = null;
-				if ((!ModsConfig.OdysseyActive || !pawn.InSpace()) && CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near) && near.IsValid)
+				if (!pawn.InSpace() && CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near) && near.IsValid)
 				{
 					job.targetB = near;
 				}
-				else if (CellFinder.TryFindRandomCell(pawn.Map, (IntVec3 c) => !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var any))
+				else if (CellFinder.TryFindRandomCell(pawn.Map, (IntVec3 c) => c.GetVacuum(pawn.Map) < 0.5f && !c.IsForbidden(pawn) && GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var any))
 				{
 					job.targetB = any;
 				}

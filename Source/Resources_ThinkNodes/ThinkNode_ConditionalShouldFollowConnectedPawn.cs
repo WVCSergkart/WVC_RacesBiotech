@@ -25,10 +25,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (ModsConfig.OdysseyActive && respectedMaster.InSpace())
-			{
-				return false;
-			}
+			//if (respectedMaster.InSpace())
+			//{
+			//	return false;
+			//}
 			if (respectedMaster.Spawned)
 			{
 				if ((respectedMaster.Drafted || (respectedMaster.Downed && !respectedMaster.InBed())) && pawn.CanReach(respectedMaster, PathEndMode.OnCell, Danger.Deadly))
