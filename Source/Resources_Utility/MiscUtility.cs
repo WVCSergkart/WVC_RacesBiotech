@@ -19,10 +19,37 @@ namespace WVC_XenotypesAndGenes
 		public static bool CanBleed(this Pawn pawn)
 		{
 			if (!pawn.health.CanBleed)
-            {
+			{
 				return false;
-            }
-			return !pawn.RaceProps.Dryad;
+			}
+			if (!HasBleeding(pawn))
+			{
+				return false;
+			}
+			return true;
+
+			static bool HasBleeding(Pawn pawn)
+			{
+				if (pawn.def.race?.hediffGiverSets == null)
+				{
+					return false;
+				}
+				foreach (HediffGiverSetDef giverSet in pawn.def.race.hediffGiverSets)
+				{
+					if (giverSet.hediffGivers.NullOrEmpty())
+					{
+						continue;
+					}
+					foreach (HediffGiver giver in giverSet.hediffGivers)
+					{
+						if (giver is HediffGiver_Bleeding)
+						{
+							return true;
+						}
+					}
+				}
+				return false;
+			}
 		}
 
 		public static bool InSpace(this Pawn pawn)

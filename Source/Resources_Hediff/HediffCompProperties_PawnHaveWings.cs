@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_PawnHaveWings Props => (HediffCompProperties_PawnHaveWings)props;
 
-		public override bool CompShouldRemove => Wings == null;
+		public override bool CompShouldRemove => false;
 
 		[Unsaved(false)]
 		private Gene_Wings cachedWingsGene;
@@ -35,22 +35,35 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public override bool CompDisallowVisible()
-		// {
-			// return Wings == null;
-		// }
+        // public override bool CompDisallowVisible()
+        // {
+        // return Wings == null;
+        // }
 
-		// public override void CompPostTick(ref float severityAdjustment)
-		// {
-			// if (Pawn.IsHashIntervalTick(120))
-			// {
-				// if (Wings == null)
-				// {
-					// Pawn.health.RemoveHediff(parent);
-				// }
-			// }
-		// }
+        //public override void CompPostTick(ref float severityAdjustment)
+        //{
+        //    if (Pawn.IsHashIntervalTick(120))
+        //    {
+        //        if (Wings == null)
+        //        {
+        //            Pawn.health.RemoveHediff(parent);
+        //        }
+        //    }
+        //}
 
-	}
+        public override void CompPostTickInterval(ref float severityAdjustment, int delta)
+        {
+            //base.CompPostTickInterval(ref severityAdjustment, delta);
+            if (!Pawn.IsHashIntervalTick(9999, delta))
+            {
+                return;
+            }
+            if (Wings == null)
+            {
+                Pawn.health.RemoveHediff(parent);
+            }
+        }
+
+    }
 
 }
