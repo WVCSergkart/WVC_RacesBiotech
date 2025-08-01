@@ -9,7 +9,7 @@
 	<iconPath>WVC/UI/Genes/Gene_RandomXenotype_v0</iconPath>
 	<selectionWeight>0.000056</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<!-- <displayCategory>WVC_Shapeshifter</displayCategory> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->

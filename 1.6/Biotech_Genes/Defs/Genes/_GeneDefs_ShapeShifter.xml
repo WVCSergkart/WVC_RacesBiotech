@@ -21,7 +21,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/DevHook_ReplaceGeneSet_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<!-- <displayCategory>WVC_Shapeshifter</displayCategory> -->
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>7</biostatCpx>
