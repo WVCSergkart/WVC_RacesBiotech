@@ -295,7 +295,7 @@
 	<fur>WVC_GauntSkin</fur>
 	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
 	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Does not support fat and hulk bodies.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Standard and thin bodies only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

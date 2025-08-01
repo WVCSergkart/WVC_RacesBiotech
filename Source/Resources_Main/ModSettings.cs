@@ -1,3 +1,4 @@
+using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
@@ -280,6 +281,8 @@ namespace WVC_XenotypesAndGenes
 		public WVC_Biotech(ModContentPack content) : base(content)
 		{
 			settings = GetSettings<WVC_BiotechSettings>();
+			//new Harmony("wvc.sergkart.races.biotech").PatchAll();
+			HarmonyPatches.HarmonyUtility.HarmonyPatches();
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)

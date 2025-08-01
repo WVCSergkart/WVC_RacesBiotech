@@ -217,7 +217,6 @@
     <Compile Include="Resources_Genes\Gene_Flickable.cs" />
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
-    <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
@@ -320,7 +319,6 @@
     <Compile Include="Resources_Utility\GeneResourceUtility.cs" />
     <Compile Include="Resources_Main\MainDefOf.cs" />
     <Compile Include="Resources_Utility\ListsUtility.cs" />
-    <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_GolemGestator.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />

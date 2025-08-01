@@ -126,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void FloatMenu()
 		{
-			if (!GeneResourceUtility.CanDo_GeneralGeneticStuff(pawn))
+			if (!GeneResourceUtility.CanDo_General(pawn))
 			{
 				return;
 			}

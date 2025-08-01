@@ -10,14 +10,14 @@ using WVC_XenotypesAndGenes.HarmonyPatches;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class WVC_XenotypesAndGenes_Main : Mod
-	{
-		public WVC_XenotypesAndGenes_Main(ModContentPack content)
-			: base(content)
-		{
-			new Harmony("wvc.sergkart.races.biotech").PatchAll();
-		}
-	}
+	//public class WVC_XenotypesAndGenes_Main : Mod
+	//{
+	//	public WVC_XenotypesAndGenes_Main(ModContentPack content)
+	//		: base(content)
+	//	{
+	//		new Harmony("wvc.sergkart.races.biotech").PatchAll();
+	//	}
+	//}
 
 	namespace HarmonyPatches
 	{
@@ -25,9 +25,17 @@ namespace WVC_XenotypesAndGenes
 		public static class HarmonyUtility
 		{
 
-			public static void PostInitialPatches()
+			public static void HarmonyPatches()
 			{
 				var harmony = new Harmony("wvc.sergkart.races.biotech");
+				if (WVC_Biotech.settings.generateXenotypeForceGenes || WVC_Biotech.settings.generateSkillGenes || WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
+				{
+					harmony.Patch(AccessTools.Method(typeof(GeneDefGenerator), "ImpliedGeneDefs"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDefGenerator_ImpliedGeneDefs))));
+				}
+				if (WVC_Biotech.settings.hideXaGGenes)
+				{
+					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
+				}
 				//Log.Error("0");
 				//if (WVC_Biotech.settings.genesCanTickOnlyOnMap)
 				//{
@@ -58,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
 					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
 					harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexNullRefFix))));
+					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawnRelations"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerator_GeneratePawnRelations))));
 				}
 				//Log.Error("4");
 				//if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
@@ -108,6 +117,28 @@ namespace WVC_XenotypesAndGenes
 			}
 
 			// Patches
+			public static IEnumerable<GeneDef> Patch_GeneDefGenerator_ImpliedGeneDefs(IEnumerable<GeneDef> values)
+			{
+				List<GeneDef> geneDefList = values.ToList();
+				GeneratorUtility.Aptitudes(geneDefList);
+				GeneratorUtility.HybridForcerGenes(geneDefList);
+				//GeneratorUtility.Spawners(geneDefList);
+				//GeneratorUtility.AutoColorGenes(geneDefList);
+				GeneratorUtility.GauranlenTreeModeDef();
+				return geneDefList;
+			}
+			public static bool Patch_PawnGenerator_GeneratePawnRelations(Pawn pawn)
+			{
+				//if (!XaG_GeneUtility.HasAnyActiveGene(new() { MainDefOf.WVC_FemaleOnly, MainDefOf.WVC_MaleOnly }, pawn))
+				//{
+				//	return true;
+				//}
+				if (pawn.genes?.GetFirstGeneOfType<Gene_Gender>() == null)
+				{
+					return true;
+				}
+				return false;
+			}
 
 			// Hide genes in editor
 
