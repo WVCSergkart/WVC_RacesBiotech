@@ -26,4 +26,10 @@
 	<!-- <skinColorOverride>(192,192,192)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_Rusted</defName>
+	<label>rusted skin</label>
+	<skinColorOverride>(64,58,53)</skinColorOverride>
+  </GeneDef>
+
 </Defs>

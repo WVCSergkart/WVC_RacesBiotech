@@ -29,7 +29,7 @@
 		<li>&lt;color=#ff8585&gt;Any nociosphere presence prevent skipping.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
-		<MechFormingSpeed>0.1</MechFormingSpeed>
+		<MechFormingSpeed>0.33</MechFormingSpeed>
 	</statFactors>
 	<statOffsets>
 		<WVC_VoidMechsLimit>12</WVC_VoidMechsLimit>

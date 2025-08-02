@@ -3,8 +3,8 @@
 
   <GeneDef>
 	<defName>WVC_BioferriteGrowths</defName>
-	<label>bioferrite growths</label>
-	<description>Carriers of this gene have bioferrite growths all over their bodies, which peel off over time, and then new ones grow.</description>
+	<label>bioferrite tentacles</label>
+	<description>Carriers of this gene have bioferrite tentacles all over their bodies, which peel off over time, and then new ones grow.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<iconPath>WVC/UI/Genes/WVC_BioferriteGrowths</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -17,13 +17,52 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
-	<statFactors>
-	  <Flammability>1.2</Flammability>
-	</statFactors>
 	<statOffsets>
+	  <MeleeDamageFactor>0.02</MeleeDamageFactor>
 	  <ArmorRating_Sharp>0.11</ArmorRating_Sharp>
 	  <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
 	</statOffsets>
+	<statFactors>
+	  <Flammability>1.2</Flammability>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.02</offset>
+	  </li>
+	</capMods>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<baseLayer>35</baseLayer>
+		<colorType>Custom</colorType>
+		<color>(255,255,255)</color>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/BodyParts/Chest/TentaclesChestMale</Male>
+		  <Female>WVC/BodyParts/Chest/TentaclesChest</Female>
+		  <Fat>WVC/BodyParts/Chest/TentaclesChestFat</Fat>
+		  <Thin>WVC/BodyParts/Chest/TentaclesChestThin</Thin>
+		  <Hulk>WVC/BodyParts/Chest/TentaclesChestMale</Hulk>
+		</bodyTypeGraphicPaths>
+		<drawData>
+		  <bodyTypeScales>
+			<Hulk>1.2</Hulk>
+		  </bodyTypeScales>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<exclusionTags>
+	  <li>WVC_ChestBodyParts_Tentacles</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tentacle</symbol></li>
+		<li><symbol>bio</symbol></li>
+		<li><symbol>ferrite</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>Bioferrite</thingDefToSpawn>
