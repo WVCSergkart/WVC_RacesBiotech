@@ -8,166 +8,40 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_HiveMind : Gene, IGeneOverridden
+    public class Gene_HiveMind : Gene
     {
-
-        public override string LabelCap => base.LabelCap + " connected with " + bondedPawns.Count + " pawn(s).";
-
-        private List<Pawn> bondedPawns = new();
+        public virtual List<Pawn> HiveMindPawn => PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.genes?.GetFirstGeneOfType<Gene_HiveMind>() != null).ToList();
 
         public override void PostAdd()
         {
             base.PostAdd();
-            ResetTicker();
+            if (MiscUtility.GameStarted())
+            {
+                SyncHive();
+            }
         }
 
-        private int nextTick = 6000;
+        public override void Notify_NewColony()
+        {
+            base.Notify_NewColony();
+            if (MiscUtility.GameStarted())
+            {
+                SyncHive();
+            }
+        }
 
         public override void TickInterval(int delta)
         {
-            nextTick -= delta;
-            if (nextTick > 0)
+            if (!pawn.IsHashIntervalTick(61992, delta))
             {
                 return;
             }
             SyncHive();
-            ResetTicker();
         }
 
-        private void ResetTicker()
+        public virtual void SyncHive()
         {
-            nextTick = new IntRange(30000, 60000).RandomInRange;
-        }
 
-        public void TickDelay()
-        {
-            nextTick += 60000;
-        }
-
-        public void SyncWith(Pawn target)
-        {
-            Gene_HiveMind hiveMind = target.genes.GetFirstGeneOfType<Gene_HiveMind>();
-            if (hiveMind == null)
-            {
-                return;
-            }
-            List<Pawn> newList = new();
-            newList.Add(target);
-            newList.Add(pawn);
-            foreach (Pawn item in hiveMind.bondedPawns)
-            {
-                if (!newList.Contains(item))
-                {
-                    newList.Add(item);
-                }
-            }
-            foreach (Pawn item in bondedPawns)
-            {
-                if (!newList.Contains(item))
-                {
-                    newList.Add(item);
-                }
-            }
-            hiveMind.bondedPawns = newList;
-            bondedPawns = newList;
-            SyncHive();
-            ResetTicker();
-        }
-
-        public void SyncHive()
-        {
-            string phase = "start";
-            try
-            {
-                Dictionary<SkillDef, float> sumSkillsExp = new();
-                foreach (Pawn otherPawn in bondedPawns)
-                {
-                    Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
-                    if (hiveMind == null)
-                    {
-                        continue;
-                    }
-                    phase = "delay others ticker";
-                    hiveMind.TickDelay();
-                    phase = "get skills";
-                    GetSkills(sumSkillsExp, otherPawn);
-                }
-                foreach (Pawn otherPawn in bondedPawns)
-                {
-                    phase = "set skills";
-                    SetSkills(sumSkillsExp, otherPawn);
-                }
-            }
-            catch (Exception arg)
-            {
-                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
-            }
-        }
-
-        private static void SetSkills(Dictionary<SkillDef, float> sumSkillsExp, Pawn otherPawn)
-        {
-            foreach (SkillRecord skillRecord in otherPawn.skills.skills.ToList())
-            {
-                if (skillRecord.TotallyDisabled)
-                {
-                    continue;
-                }
-                if (sumSkillsExp.TryGetValue(skillRecord.def, out float value))
-                {
-                    otherPawn.skills.skills.Remove(skillRecord);
-                    SkillRecord item = new(otherPawn, skillRecord.def)
-                    {
-                        levelInt = 0,
-                        passion = skillRecord.passion,
-                        xpSinceLastLevel = value,
-                        xpSinceMidnight = 0
-                    };
-                    otherPawn.skills.skills.Add(item);
-                    item.Learn(1, true, true);
-                }
-            }
-        }
-
-        private static void GetSkills(Dictionary<SkillDef, float> sumSkillsExp, Pawn otherPawn)
-        {
-            foreach (SkillRecord skillRecord in otherPawn.skills.skills)
-            {
-                if (skillRecord.TotallyDisabled)
-                {
-                    continue;
-                }
-                if (sumSkillsExp.TryGetValue(skillRecord.def, out float value))
-                {
-                    if (value < skillRecord.XpTotalEarned)
-                    {
-                        sumSkillsExp.Remove(skillRecord.def);
-                        sumSkillsExp[skillRecord.def] = skillRecord.XpTotalEarned;
-                    }
-                }
-                else
-                {
-                    sumSkillsExp[skillRecord.def] = skillRecord.XpTotalEarned;
-                }
-            }
-        }
-
-        public void DeSyncMe()
-        {
-            foreach (Pawn otherPawn in bondedPawns)
-            {
-                Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
-                if (hiveMind == null)
-                {
-                    continue;
-                }
-                hiveMind.bondedPawns.Remove(pawn);
-            }
-            bondedPawns = new();
-        }
-
-        public void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            DeSyncMe();
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -176,45 +50,455 @@ namespace WVC_XenotypesAndGenes
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEV: CreateHiveMind",
+                    defaultLabel = "DEV: SyncHive",
                     action = delegate
                     {
-                        foreach (Pawn otherPawn in pawn.Map.mapPawns.FreeAdultColonistsSpawned)
-                        {
-                            SyncWith(otherPawn);
-                        }
-                    }
-                };
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: UpdSync",
-                    action = delegate
-                    {
-                        nextTick = 0;
+                        SyncHive();
                     }
                 };
             }
         }
 
-        public void Notify_Override()
-        {
-
-        }
-
         public override void PostRemove()
         {
             base.PostRemove();
-            DeSyncMe();
+            if (MiscUtility.GameStarted())
+            {
+                SyncHive();
+            }
         }
 
-        public override void ExposeData()
+    }
+
+    public class Gene_HiveMind_Skills : Gene_HiveMind
+    {
+
+
+        private class SkillRecordHolderList
         {
-            base.ExposeData();
-            Scribe_Collections.Look(ref bondedPawns, "bondedPawns", LookMode.Reference);
-            Scribe_Values.Look(ref nextTick, "nextTick", 0);
-            if (Scribe.mode == LoadSaveMode.LoadingVars && bondedPawns != null && bondedPawns.RemoveAll((Pawn x) => x == null) > 0)
+
+            public List<SkillRecordHolder> skillRecords = new();
+
+            public bool TryGetLevel(SkillDef skillDef, out int level)
             {
-                Log.Warning("Removed null Pawn(s)");
+                level = 0;
+                foreach (SkillRecordHolder holder in skillRecords)
+                {
+                    if (skillDef == holder.skillDef)
+                    {
+                        level = holder.currentLevel;
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public void AddSkill(SkillRecord skillRecord)
+            {
+                foreach (SkillRecordHolder holder in skillRecords.ToList())
+                {
+                    if (skillRecord.def == holder.skillDef)
+                    {
+                        skillRecords.Remove(holder);
+                    }
+                }
+                SkillRecordHolder newHolder = new();
+                newHolder.skillDef = skillRecord.def;
+                //newHolder.currentExp = skillRecord.xpSinceLastLevel;
+                newHolder.currentLevel = skillRecord.Level;
+                skillRecords.Add(newHolder);
+            }
+
+        }
+
+        private struct SkillRecordHolder
+        {
+
+            public SkillDef skillDef;
+
+            //public float currentExp;
+
+            public int currentLevel;
+
+            //public Passion passion;
+
+        }
+
+        public override void SyncHive()
+        {
+            List<Pawn> bondedPawns = HiveMindPawn;
+            string phase = "start";
+            try
+            {
+                SkillRecordHolderList sumSkillsExp = new();
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    //Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
+                    //if (hiveMind == null)
+                    //{
+                    //    continue;
+                    //}
+                    phase = "get skills";
+                    GetSkills(ref sumSkillsExp, otherPawn);
+                }
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    phase = "set skills";
+                    SetSkills(ref sumSkillsExp, otherPawn);
+                }
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+            }
+        }
+
+        private void SetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
+        {
+            foreach (SkillRecord skillRecord in otherPawn.skills.skills.ToList())
+            {
+                if (skillRecord.TotallyDisabled)
+                {
+                    continue;
+                }
+                if (sumSkillsExp.TryGetLevel(skillRecord.def, out int value))
+                {
+                    if (skillRecord.Level < value)
+                    {
+                        skillRecord.Level = value;
+                        //skillRecord.Learn(0.01f, true, true);
+                    }
+                }
+            }
+        }
+
+        private void GetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
+        {
+            foreach (SkillRecord skillRecord in otherPawn.skills.skills)
+            {
+                if (skillRecord.TotallyDisabled)
+                {
+                    continue;
+                }
+                if (sumSkillsExp.TryGetLevel(skillRecord.def, out int value))
+                {
+                    if (value < skillRecord.Level)
+                    {
+                        sumSkillsExp.AddSkill(skillRecord);
+                    }
+                }
+                else
+                {
+                    sumSkillsExp.AddSkill(skillRecord);
+                }
+            }
+        }
+
+    }
+
+    public class Gene_HiveMind_Thoughts : Gene_HiveMind
+    {
+
+        private class ThoughtHolder
+        {
+
+            public Thought_Memory memory;
+
+            //public float offset;
+
+            public int expireTime;
+
+            public float moodPowerFactor = 1f;
+
+            public int moodOffset;
+
+            public Pawn otherPawn;
+
+            public int age;
+
+        }
+
+        private class ThoughtsHolder
+        {
+
+            public List<ThoughtHolder> memoryDefs = new();
+
+            public bool GetThisMemory(Thought_Memory thought_Memory, out ThoughtHolder thoughtHolder)
+            {
+                thoughtHolder = null;
+                foreach (ThoughtHolder holder in memoryDefs)
+                {
+                    if (holder.memory.def == thought_Memory.def)
+                    {
+                        thoughtHolder = holder;
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public void AddMemory(Thought_Memory thought_Memory)
+            {
+                ThoughtHolder newHolder = new();
+                newHolder.memory = thought_Memory;
+                newHolder.expireTime = thought_Memory.DurationTicks;
+                newHolder.moodOffset = thought_Memory.moodOffset;
+                newHolder.moodPowerFactor = thought_Memory.moodPowerFactor;
+                newHolder.otherPawn = thought_Memory.otherPawn;
+                newHolder.age = thought_Memory.age;
+                memoryDefs.Add(newHolder);
+            }
+
+        }
+
+        public override void SyncHive()
+        {
+            List<Pawn> bondedPawns = HiveMindPawn;
+            string phase = "start";
+            try
+            {
+                ThoughtsHolder sumSkillsExp = new();
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    //Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
+                    //if (hiveMind == null)
+                    //{
+                    //    continue;
+                    //}
+                    phase = "remove wrong memos";
+                    RemoveWrongMemos(otherPawn, bondedPawns);
+                    phase = "get memories";
+                    GetMemos(otherPawn, sumSkillsExp);
+                }
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    phase = "set memories";
+                    SetMemos(otherPawn, sumSkillsExp);
+                }
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+            }
+        }
+
+        private void RemoveWrongMemos(Pawn target, List<Pawn> hive)
+        {
+            MemoryThoughtHandler thoughtHandler = target.needs?.mood?.thoughts?.memories;
+            if (thoughtHandler == null)
+            {
+                return;
+            }
+            foreach (Thought_Memory memory in thoughtHandler.Memories.ToList())
+            {
+                if (!hive.Contains(memory.otherPawn))
+                {
+                    continue;
+                }
+                thoughtHandler.RemoveMemory(memory);
+            }
+        }
+
+        private void GetMemos(Pawn target, ThoughtsHolder holders)
+        {
+            MemoryThoughtHandler thoughtHandler = target.needs?.mood?.thoughts?.memories;
+            if (thoughtHandler == null)
+            {
+                return;
+            }
+            foreach (Thought_Memory memory in thoughtHandler.Memories)
+            {
+                if (memory.permanent)
+                {
+                    continue;
+                }
+                if (holders.GetThisMemory(memory, out ThoughtHolder thoughtHolder) && memory.otherPawn == thoughtHolder.otherPawn)
+                {
+                    if (memory.DurationTicks > thoughtHolder.expireTime)
+                    {
+                        thoughtHolder.expireTime = memory.DurationTicks;
+                    }
+                    if (memory.age > thoughtHolder.age)
+                    {
+                        thoughtHolder.age = memory.age;
+                    }
+                    if (memory.moodPowerFactor > thoughtHolder.moodPowerFactor)
+                    {
+                        thoughtHolder.moodPowerFactor = memory.moodPowerFactor;
+                    }
+                    if (memory.moodOffset > thoughtHolder.moodOffset)
+                    {
+                        thoughtHolder.moodOffset = memory.moodOffset;
+                    }
+                }
+                else
+                {
+                    holders.AddMemory(memory);
+                }
+            }
+        }
+
+        private void SetMemos(Pawn target, ThoughtsHolder holders)
+        {
+            MemoryThoughtHandler thoughtHandler = target.needs?.mood?.thoughts?.memories;
+            if (thoughtHandler == null)
+            {
+                return;
+            }
+            foreach (ThoughtHolder holder in holders.memoryDefs)
+            {
+                bool shouldAdd = false;
+                foreach (Thought_Memory memory in thoughtHandler.Memories)
+                {
+                    if (memory.permanent)
+                    {
+                        continue;
+                    }
+                    if (holder.memory.def == memory.def && memory.otherPawn == holder.otherPawn)
+                    {
+                        memory.durationTicksOverride = holder.expireTime;
+                        memory.moodOffset = holder.moodOffset;
+                        memory.moodPowerFactor = holder.moodPowerFactor;
+                        memory.age = holder.age;
+                    }
+                    else
+                    {
+                        shouldAdd = true;
+                    }
+                }
+                if (shouldAdd)
+                {
+                    holder.memory.durationTicksOverride = holder.expireTime;
+                    holder.memory.moodOffset = holder.moodOffset;
+                    holder.memory.moodPowerFactor = holder.moodPowerFactor;
+                    holder.memory.age = holder.age;
+                    thoughtHandler.TryGainMemory(holder.memory, holder.otherPawn);
+                }
+            }
+        }
+
+    }
+
+    public class Gene_HiveMind_Needs : Gene_HiveMind
+    {
+
+        public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+
+        private class NeedHolder
+        {
+
+            public NeedDef needDef;
+
+            public float needValue;
+
+        }
+
+        private class NeedsHolder
+        {
+
+            public List<NeedHolder> holders = new();
+
+            public bool TryGetNeed(NeedDef needDef, out NeedHolder needHolder)
+            {
+                needHolder = null;
+                foreach (NeedHolder holder in holders)
+                {
+                    if (holder.needDef == needDef)
+                    {
+                        needHolder = holder;
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public void AddNeed(Need need)
+            {
+                NeedHolder needHolder = new();
+                needHolder.needDef = need.def;
+                needHolder.needValue = need.CurLevel;
+                holders.Add(needHolder);
+            }
+
+        }
+
+        public override void SyncHive()
+        {
+            List<Pawn> bondedPawns = HiveMindPawn;
+            string phase = "start";
+            try
+            {
+                NeedsHolder sumSkillsExp = new();
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    //Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
+                    //if (hiveMind == null)
+                    //{
+                    //    continue;
+                    //}
+                    phase = "get needs";
+                    GetNeeds(otherPawn, sumSkillsExp);
+                }
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    phase = "set needs";
+                    SetNeeds(otherPawn, sumSkillsExp);
+                }
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+            }
+        }
+
+        private void GetNeeds(Pawn target, NeedsHolder needsHolder)
+        {
+            if (target.needs == null)
+            {
+                return;
+            }
+            foreach (Need need in target.needs.AllNeeds)
+            {
+                if (!Giver.needDefs.Contains(need.def))
+                {
+                    continue;
+                }
+                if (needsHolder.TryGetNeed(need.def, out NeedHolder needHolder))
+                {
+                    if (needHolder.needValue < need.CurLevel)
+                    {
+                        needHolder.needValue = need.CurLevel;
+                    }
+                }
+                else
+                {
+                    needsHolder.AddNeed(need);
+                }
+            }
+        }
+
+        private void SetNeeds(Pawn target, NeedsHolder needsHolder)
+        {
+            //Log.Error("0");
+            if (target.needs == null)
+            {
+                //Log.Error("Fail");
+                return;
+            }
+            //Log.Error("1");
+            foreach (Need need in target.needs.AllNeeds)
+            {
+                //Log.Error("2");
+                if (!Giver.needDefs.Contains(need.def))
+                {
+                    //Log.Error("WTF?");
+                    continue;
+                }
+                //Log.Error("3");
+                if (needsHolder.TryGetNeed(need.def, out NeedHolder needHolder))
+                {
+                    need.CurLevel = needHolder.needValue;
+                }
             }
         }
 

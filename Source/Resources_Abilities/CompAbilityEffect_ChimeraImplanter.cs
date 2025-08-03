@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			int genesCount = 0;
 			foreach (Gene gene in caster.genes.Endogenes)
             {
-				if (gene == ChimeraGene || gene.def.prerequisite == ChimeraGene.def)
+				if ((gene == ChimeraGene || gene.def.prerequisite == ChimeraGene.def) && !XaG_GeneUtility.HasGene(gene.def, target))
                 {
 					target.genes.AddGene(gene.def, false);
 					genesCount++;
@@ -44,6 +44,7 @@ namespace WVC_XenotypesAndGenes
             ReimplanterUtility.XenogermReplicating_WithCustomDuration(caster, durationIntervalRange);
             ReimplanterUtility.XenogermReplicating_WithCustomDuration(target, durationIntervalRange);
 			//ReimplanterUtility.ExtractXenogerm(caster);
+			ReimplanterUtility.PostImplantDebug(target);
 			return true;
 		}
 

@@ -9,10 +9,34 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ChimeraNetwork : Gene_ChimeraDependant
-	{
+    public class Gene_ChimeraNetwork : Gene_ChimeraDependant, IGeneCustomChimeraEater
+    {
 
-		public override bool BlockChimeraEat => true;
+        public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+
+        public string ChimeraEater_Name => "WVC_Share";
+        public TaggedString ChimeraEater_Desc => "WVC_XaG_GeneChimeraNetwork_Desc";
+
+        public void ChimeraEater(ref List<GeneDef> selectedGenes)
+        {
+            foreach (GeneDef geneDef in selectedGenes)
+            {
+                Chimera.RemoveCollectedGene(geneDef);
+                try
+                {
+                    if (Rand.Chance(0.12f))
+                    {
+                        Gene_Chimera.TryGetUniqueGene(Chimera, pawn, Props.chimeraConditionalGenes);
+                    }
+                }
+                catch (Exception arg)
+                {
+                    Log.Error("Failed obtaine gene. Reason: " + arg);
+                }
+            }
+        }
+
+        //public override bool BlockChimeraEat => true;
 
         public override void TickInterval(int delta)
         {
@@ -67,7 +91,6 @@ namespace WVC_XenotypesAndGenes
                 };
             }
         }
-
     }
 
 }

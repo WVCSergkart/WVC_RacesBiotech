@@ -144,6 +144,17 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneCustomChimeraEater
+	{
+
+		void ChimeraEater(ref List<GeneDef> selectedGenes);
+
+		string ChimeraEater_Name { get; }
+
+		TaggedString ChimeraEater_Desc { get; }
+
+	}
+
 	public interface IGeneWithEffects
 	{
 

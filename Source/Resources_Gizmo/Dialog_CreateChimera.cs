@@ -95,45 +95,109 @@ namespace WVC_XenotypesAndGenes
 		//public Gene_StorageImplanter storageImplanter = null;
 
 		public Dialog_CreateChimera(Gene_Chimera chimera)
+        {
+            // generationRequestIndex = index;
+            // this.callback = callback;
+            xenotypeName = string.Empty;
+            gene = chimera;
+            //storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
+            forcePause = true;
+            closeOnAccept = false;
+            absorbInputAroundWindow = true;
+            alwaysUseFullBiostatsTableHeight = true;
+            searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
+            foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading)
+            {
+                collapsedCategories.Add(allDef, value: false);
+            }
+            //pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+            //pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
+            //pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+            //allGenes = gene.CollectedGenes;
+            //eatedGenes = gene.EatedGenes;
+            //selectedGenes = pawnXenoGenes;
+            gene.Debug_RemoveDupes();
+            GetCustomEater();
+            UpdateGenesInforamtion();
+            OnGenesChanged();
+        }
+
+        private void GetCustomEater()
+        {
+            foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
+            {
+                if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
+                {
+                    geneCustomChimeraEater = customEater;
+                    chimeraApplyEater = customEater.ChimeraEater_Name;
+                    chimeraApplyEaterWarning = customEater.ChimeraEater_Desc.ToString();
+                    break;
+                }
+            }
+        }
+
+        private string chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
+		private TaggedString chimeraApplyEaterWarning = "WVC_XaG_GeneGeneticThief_EatSelectedGenes";
+		private IGeneCustomChimeraEater geneCustomChimeraEater;
+
+		private void GenesEater()
 		{
-			// generationRequestIndex = index;
-			// this.callback = callback;
-			xenotypeName = string.Empty;
-			gene = chimera;
-			//storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
-			forcePause = true;
-			closeOnAccept = false;
-			absorbInputAroundWindow = true;
-			alwaysUseFullBiostatsTableHeight = true;
-			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading)
-			{
-				collapsedCategories.Add(allDef, value: false);
+            if (geneCustomChimeraEater != null)
+            {
+                geneCustomChimeraEater.ChimeraEater(ref selectedGenes);
+            }
+			else
+            {
+                BasicEater();
 			}
-			//pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-			//pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-			//pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			//allGenes = gene.CollectedGenes;
-			//eatedGenes = gene.EatedGenes;
-			//selectedGenes = pawnXenoGenes;
-			gene.Debug_RemoveDupes();
+			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
+			{
+				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+			}
 			UpdateGenesInforamtion();
-			OnGenesChanged();
+			// Close(doCloseSound: false);
 		}
 
-		// public override void PostOpen()
-		// {
-			// if (!ModLister.CheckBiotech("xenotype creation"))
-			// {
-				// Close(doCloseSound: false);
-			// }
-			// else
-			// {
-				// base.PostOpen();
-			// }
-		// }
+        private void BasicEater()
+        {
+            float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 7;
+            if (bonusChanceForGameDays > 0.3f)
+            {
+                bonusChanceForGameDays = 0.3f;
+            }
+            foreach (GeneDef geneDef in selectedGenes)
+            {
+                if (!gene.TryEatGene(geneDef))
+                {
+                    continue;
+                }
+                try
+                {
+                    if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
+                    {
+                        gene.TryGetUniqueGene();
+                    }
+                }
+                catch (Exception arg)
+                {
+                    Log.Error("Failed obtaine gene. Reason: " + arg);
+                }
+            }
+        }
 
-		protected override void DrawGenes(Rect rect)
+        // public override void PostOpen()
+        // {
+        // if (!ModLister.CheckBiotech("xenotype creation"))
+        // {
+        // Close(doCloseSound: false);
+        // }
+        // else
+        // {
+        // base.PostOpen();
+        // }
+        // }
+
+        protected override void DrawGenes(Rect rect)
 		{
 			hoveredAnyGene = false;
 			GUI.BeginGroup(rect);
@@ -749,7 +813,7 @@ namespace WVC_XenotypesAndGenes
 				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, null, xenotypeName?.Trim());
 				foreach (GeneDef geneDef in selectedGenes)
 				{
-					gene.RemoveGene(geneDef);
+					gene.RemoveCollectedGene(geneDef);
 				}
 				Close();
 			}
@@ -762,9 +826,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				selectedGenes = new();
 			}
-			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_ChimeraApply_Eat".Translate()) && CanEatGenes())
+			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), chimeraApplyEater.Translate()))
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate(gene.pawn.LabelCap), EatGenes));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.pawn.LabelCap), GenesEater));
 			}
 			if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
 			{
@@ -901,7 +965,7 @@ namespace WVC_XenotypesAndGenes
                     implantedGenes.Add(geneDef);
                 }
             }
-            RemoveOverridenGenes(implantedGenes);
+            RemoveOverridenGenes(ref implantedGenes);
             ReimplanterUtility.PostImplantDebug(gene.pawn);
             gene.UpdateChimeraXenogerm(implantedGenes);
             gene.DoEffects();
@@ -910,7 +974,7 @@ namespace WVC_XenotypesAndGenes
 			Close(doCloseSound: false);
         }
 
-        private void RemoveOverridenGenes(List<GeneDef> implantedGenes)
+        private void RemoveOverridenGenes(ref List<GeneDef> implantedGenes)
         {
             bool postImplantRemoveMessage = false;
             foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
@@ -937,63 +1001,6 @@ namespace WVC_XenotypesAndGenes
             {
                 Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
             }
-        }
-
-		private bool CanEatGenes()
-        {
-			if (!CanEat(out GeneDef culprit))
-			{
-				Messages.Message("WVC_XaG_GeneChimera_EatIsBlocked".Translate(culprit.LabelCap), null, MessageTypeDefOf.RejectInput, historical: false);
-				return false;
-			}
-			return true;
-
-			bool CanEat(out GeneDef geneDef)
-            {
-				geneDef = null;
-				foreach (Gene item in gene.pawn.genes.GenesListForReading)
-				{
-					if (item is Gene_ChimeraDependant depend && depend.BlockChimeraEat)
-					{
-						geneDef = item.def;
-						return false;
-					}
-				}
-				return true;
-			}
-        }
-
-        public void EatGenes()
-		{
-			float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 5;
-			if (bonusChanceForGameDays > 0.3f)
-            {
-				bonusChanceForGameDays = 0.3f;
-			}
-			foreach (GeneDef geneDef in selectedGenes)
-            {
-                if (!gene.TryEatGene(geneDef))
-                {
-                    continue;
-                }
-                try
-                {
-                    if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
-                    {
-                        gene.TryGetUniqueGene();
-                    }
-                }
-                catch (Exception arg)
-                {
-                    Log.Error("Failed obtaine gene. Reason: " + arg);
-                }
-            }
-            if (!gene.Props.soundDefOnImplant.NullOrUndefined())
-            {
-                gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
-            }
-            UpdateGenesInforamtion();
-            // Close(doCloseSound: false);
         }
 
         private void UpdateGenesInforamtion()

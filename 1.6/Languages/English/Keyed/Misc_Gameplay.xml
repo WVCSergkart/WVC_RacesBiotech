@@ -619,6 +619,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
 	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
 
+	<WVC_Share>Share</WVC_Share>
+	<WVC_XaG_GeneChimeraNetwork_Desc>Share genes with an unknown source with a small chance of obtaining tool genes. The genes will be lost, but they can be obtained again.</WVC_XaG_GeneChimeraNetwork_Desc>
+
 	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Some of the selected genes are mutually exclusive.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
 	<!-- <WVC_XaG_GeneChimera_TooBigPenaltyMessage>The genetic material has suffered too much loss and requires time to recover.</WVC_XaG_GeneChimera_TooBigPenaltyMessage> -->
 

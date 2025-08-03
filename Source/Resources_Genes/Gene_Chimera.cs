@@ -52,6 +52,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostAdd()
         {
+			if (pawn.genes.Xenogenes.Contains(this))
+            {
+				pawn.genes.RemoveGene(this);
+				pawn.genes.AddGene(def, false);
+				return;
+            }
             base.PostAdd();
             UpdateMetabolism();
             if (MiscUtility.GameNotStarted())
@@ -113,12 +119,17 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryGetUniqueGene()
         {
-            if (!WVC_Biotech.settings.enable_chimeraStartingTools || (Props?.chimeraConditionalGenes) == null)
-            {
-                return false;
-            }
+            return TryGetUniqueGene(this, pawn, Props?.chimeraConditionalGenes);
+        }
+
+        public static bool TryGetUniqueGene(Gene_Chimera gene, Pawn pawn, List<GeneralHolder> chimeraConditionalGenes)
+		{
+			if (chimeraConditionalGenes == null)
+			{
+				return false;
+			}
 			List<GeneDefWithChance> genesWithChance = new();
-            foreach (GeneralHolder counter in Props.chimeraConditionalGenes)
+            foreach (GeneralHolder counter in chimeraConditionalGenes)
             {
                 if (!counter.CanAddGene(pawn))
                 {
@@ -126,7 +137,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 foreach (GeneDef geneDef in counter.genes)
                 {
-                    if (AllGenes.Contains(geneDef))
+                    if (gene.AllGenes.Contains(geneDef))
                     {
                         continue;
                     }
@@ -138,11 +149,11 @@ namespace WVC_XenotypesAndGenes
             }
             if (genesWithChance.NullOrEmpty())
             {
-				return false;
+                return false;
             }
             if (genesWithChance.Where((geneChance) => geneChance.geneDef.prerequisite == null || XaG_GeneUtility.HasActiveGene(geneChance.geneDef.prerequisite, pawn)).TryRandomElementByWeight((geneWithChance) => geneWithChance.chance, out GeneDefWithChance result))
             {
-                TryAddGene(result.geneDef);
+				gene.TryAddGene(result.geneDef);
                 if (pawn.SpawnedOrAnyParentSpawned)
                 {
                     Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -152,7 +163,7 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+        public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			HediffUtility.TryRemoveHediff(Giver.metHediffDef, pawn);
 		}
@@ -217,12 +228,12 @@ namespace WVC_XenotypesAndGenes
 			if (!consumedGenes.Contains(geneDef))
 			{
 				consumedGenes.Add(geneDef);
-				RemoveGene(geneDef);
+				RemoveCollectedGene(geneDef);
 				return true;
 			}
 			return false;
 		}
-		public void RemoveGene(GeneDef geneDef)
+		public void RemoveCollectedGene(GeneDef geneDef)
 		{
 			if (collectedGenes.Contains(geneDef))
 			{
@@ -666,6 +677,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			DoEffects();
 		}
+
+		// =================
 
 	}
 

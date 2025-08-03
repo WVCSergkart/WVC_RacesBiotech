@@ -329,7 +329,7 @@ namespace WVC_XenotypesAndGenes
 		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)
 		{
 			XaG_GeneUtility.AddGenesToChimera(pawn, new() { geneDef });
-            if (pawn.Spawned && pawn.Faction == Faction.OfPlayer)
+            if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}

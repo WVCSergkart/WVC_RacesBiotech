@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		public virtual bool BlockChimeraEat => false;
+		//public virtual bool BlockChimeraEat => false;
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 

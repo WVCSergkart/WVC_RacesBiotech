@@ -71,7 +71,12 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
-		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange, Hediff xenogermReplicating = null)
+		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange)
+		{
+			XenogermReplicating_WithCustomDuration(pawn, durationIntervalRange, pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+		}
+
+		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange, Hediff xenogermReplicating)
 		{
 			//Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
 			if (xenogermReplicating != null)

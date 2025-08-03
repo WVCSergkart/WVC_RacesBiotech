@@ -1,26 +1,91 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef> -->
-	<!-- <defName>WVC_HiveMind</defName> -->
-	<!-- <label>hive mind</label> -->
-	<!-- <description>Carriers of this gene has TEST.</description> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HiveMind</geneClass> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath> -->
-	<!-- <selectionWeight>0</selectionWeight> -->
-	<!-- <displayCategory>WVC_Miscellaneous</displayCategory> -->
-	<!-- <displayOrderInCategory>125</displayOrderInCategory> -->
-	<!-- <biostatCpx>8</biostatCpx> -->
-	<!-- <biostatArc>4</biostatArc> -->
-	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <symbolPack> -->
-	  <!-- <prefixSymbols> -->
-		<!-- <li><symbol>mind</symbol></li> -->
-	  <!-- </prefixSymbols> -->
-	<!-- </symbolPack> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_HiveMind</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneHiveMind_Base" Abstract="True">
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath> <!-- placeholder -->
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<selectionWeight>0.000044</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
+	<customEffectDescriptions>
+		<li>Affects all owners of any gene of the hive mind series.</li>
+		<li>The more pawns with this gene, the more efficient the hive.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sync</symbol></li>
+		<li><symbol>mind</symbol></li>
+		<li><symbol>hive</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Skills</defName>
+	<label>shared skills</label>
+	<description>Carriers of this gene have a synchronized skill level.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, it synchronizes the skills.</li>
+		<li>Only the level is synchronized, experience is not affected.</li>
+		<li>Synchronizes to the higher value.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Thoughts</defName>
+	<label>shared thoughts</label>
+	<description>Carriers of this gene have a synchronized thoughts.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Thoughts</geneClass>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, it synchronizes the memories.</li>
+		<li>Only temporary memories are synchronized, permanent ones are not affected.</li>
+		<li>Synchronizes to the higher value.</li>
+		<li>Allows to change the ideology of the entire mind to any desired one, at any time.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Needs</defName>
+	<label>shared needs</label>
+	<description>Carriers of this gene have synchronized needs.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, it synchronizes needs.</li>
+		<li>Only recreation, comfort, outdoors, indoors, beauty are synchronized.</li>
+		<li>Synchronizes to the higher value.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<needDefs>
+			  <li>Joy</li>
+			  <li>Beauty</li>
+			  <li>Comfort</li>
+			  <li>Outdoors</li>
+			  <li>Indoors</li>
+			</needDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
 </Defs>
