@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneCategoryDef>
+	<defName>WVC_HiveMind</defName>
+	<label>hive mind</label>
+	<displayPriorityInXenotype>515.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
   <GeneDef Name="WVC_XenotypesAndGenes_GeneHiveMind_Base" Abstract="True">
 	<description>Carriers of this gene have a psychic connection with other carriers.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind</geneClass>
 	<iconColor>(255, 255, 255)</iconColor>
-	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath> <!-- placeholder -->
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>4</biostatArc>
 	<biostatMet>-4</biostatMet>
 	<minAgeActive>13</minAgeActive>
-	<selectionWeight>0.000044</selectionWeight>
-	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_HiveMind</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<marketValueFactor>3</marketValueFactor>
 	<customEffectDescriptions>
-		<li>Affects all owners of any gene of the hive mind series.</li>
-		<li>The more pawns with this gene, the more efficient the hive.</li>
+		<li>Affects all owners of any gene of the hive mind series. Psy-deaf pawns are ignored.</li>
+		<li>Efficiency of sync- depends on the size of the hive.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -28,13 +33,14 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- ============================ -->
+  <!-- ================================================ -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
 	<defName>WVC_HiveMind_Skills</defName>
 	<label>shared skills</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which share some experience in skills.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Skills</iconPath>
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>
@@ -46,11 +52,14 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ============================ -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
 	<defName>WVC_HiveMind_Thoughts</defName>
 	<label>shared thoughts</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which they share some of their thoughts.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Thoughts</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Thoughts</iconPath>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
@@ -63,12 +72,15 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ============================ -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
 	<defName>WVC_HiveMind_Needs</defName>
 	<label>shared needs</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which they share some of their needs.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
-	<displayOrderInCategory>30</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
@@ -89,5 +101,42 @@
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Opinion</defName>
+	<label>shared opinion</label>
+	<description>Carriers of this gene have a psychic connection with other carriers. Thanks to this, they have a much better opinion of each other.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Opinion</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Opinion</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, the hive gets an opinion offset lasting about a day.</li>
+		<li>Affects the hive's opinion with the carrier and the carrier's opinion with the hive, without affecting the opinion between other pawns of the hive.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_HiveMind_Opinion</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_HiveMind_Opinion</defName>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>same hive mind</label>
+		<baseOpinionOffset>9999</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
 
 </Defs>

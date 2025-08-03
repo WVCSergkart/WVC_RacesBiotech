@@ -8,31 +8,50 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_HiveMind : Gene
+    public class Gene_HiveMind : Gene, IGeneNotifyGenesChanged, IGeneOverridden
     {
-        public virtual List<Pawn> HiveMindPawn => PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.genes?.GetFirstGeneOfType<Gene_HiveMind>() != null).ToList();
+
+        private static List<Pawn> cachedPawns;
+        public static List<Pawn> HiveMindPawn
+        {
+            get
+            {
+                if (cachedPawns == null)
+                {
+                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes?.GetFirstGeneOfType<Gene_HiveMind>() != null).ToList();
+                }
+                return cachedPawns;
+            }
+        }
+
+        private static int? cachedRefreshRate;
+        public static int TickRefresh
+        {
+            get
+            {
+                if (!cachedRefreshRate.HasValue)
+                {
+                    cachedRefreshRate = (int)(61992 * ((HiveMindPawn.Count > 1 ? HiveMindPawn.Count : 1000) * 0.4f));
+                }
+                return cachedRefreshRate.Value;
+            }
+        }
 
         public override void PostAdd()
         {
             base.PostAdd();
-            if (MiscUtility.GameStarted())
-            {
-                SyncHive();
-            }
+            UpdHive(true);
         }
 
         public override void Notify_NewColony()
         {
             base.Notify_NewColony();
-            if (MiscUtility.GameStarted())
-            {
-                SyncHive();
-            }
+            UpdHive(false);
         }
 
         public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(61992, delta))
+            if (!pawn.IsHashIntervalTick(TickRefresh, delta))
             {
                 return;
             }
@@ -41,7 +60,10 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void SyncHive()
         {
-
+            if (pawn.SpawnedOrAnyParentSpawned)
+            {
+                FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+            }
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -62,10 +84,32 @@ namespace WVC_XenotypesAndGenes
         public override void PostRemove()
         {
             base.PostRemove();
-            if (MiscUtility.GameStarted())
+            UpdHive(true);
+        }
+
+        private void UpdHive(bool syncHive)
+        {
+            cachedPawns = null;
+            cachedRefreshRate = null;
+            if (syncHive && MiscUtility.GameStarted())
             {
                 SyncHive();
             }
+        }
+
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+            UpdHive(false);
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            UpdHive(false);
+        }
+
+        public void Notify_Override()
+        {
+            UpdHive(false);
         }
 
     }
@@ -73,21 +117,30 @@ namespace WVC_XenotypesAndGenes
     public class Gene_HiveMind_Opinion : Gene_HiveMind
     {
 
+        public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+
         public override void SyncHive()
         {
+            base.SyncHive();
             List<Pawn> bondedPawns = HiveMindPawn;
-            string phase = "start";
+            //string phase = "start";
             try
             {
                 foreach (Pawn otherPawn in bondedPawns)
                 {
-                    phase = otherPawn.NameShortColored.ToString();
-                    //SetMemos(otherPawn, sumSkillsExp);
+                    if (otherPawn == pawn)
+                    {
+                        continue;
+                    }
+                    //phase = otherPawn.NameShortColored.ToString();
+                    otherPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, pawn);
+                    //phase = pawn.NameShortColored.ToString();
+                    pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, otherPawn);
                 }
             }
             catch (Exception arg)
             {
-                Log.Error("Failed sync hive. On pawn: " + phase + ". Reason: " + arg);
+                Log.Error("Failed sync hive opinions. Reason: " + arg);
             }
         }
 
@@ -149,6 +202,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void SyncHive()
         {
+            base.SyncHive();
             List<Pawn> bondedPawns = HiveMindPawn;
             string phase = "start";
             try
@@ -172,7 +226,7 @@ namespace WVC_XenotypesAndGenes
             }
             catch (Exception arg)
             {
-                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+                Log.Error("Failed sync hive skills. On phase: " + phase + ". Reason: " + arg);
             }
         }
 
@@ -276,6 +330,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void SyncHive()
         {
+            base.SyncHive();
             List<Pawn> bondedPawns = HiveMindPawn;
             string phase = "start";
             try
@@ -301,7 +356,7 @@ namespace WVC_XenotypesAndGenes
             }
             catch (Exception arg)
             {
-                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+                Log.Error("Failed sync hive memories. On phase: " + phase + ". Reason: " + arg);
             }
         }
 
@@ -447,6 +502,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void SyncHive()
         {
+            base.SyncHive();
             List<Pawn> bondedPawns = HiveMindPawn;
             string phase = "start";
             try
@@ -470,7 +526,7 @@ namespace WVC_XenotypesAndGenes
             }
             catch (Exception arg)
             {
-                Log.Error("Failed sync hive. On phase: " + phase + ". Reason: " + arg);
+                Log.Error("Failed sync hive needs. On phase: " + phase + ". Reason: " + arg);
             }
         }
 

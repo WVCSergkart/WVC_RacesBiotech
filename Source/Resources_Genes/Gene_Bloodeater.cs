@@ -161,19 +161,24 @@ namespace WVC_XenotypesAndGenes
         public override void PostAdd()
         {
             base.PostAdd();
-			//pawn.foodRestriction;
-			if (ModeDefs != null)
-			{
-				foreach (BloodeaterModeDef mode in ModeDefs)
+            //pawn.foodRestriction;
+            TrySetInitialMod();
+        }
+
+        private void TrySetInitialMod()
+        {
+            if (ModeDefs != null)
+            {
+                foreach (BloodeaterModeDef mode in ModeDefs)
                 {
-					if (mode.CanUse(pawn))
-					{
-						currentBloodfeedMethod = mode;
-						break;
-					}
+                    if (mode.CanUse(pawn))
+                    {
+                        currentBloodfeedMethod = mode;
+                        break;
+                    }
                 }
-			}
-		}
+            }
+        }
 
         public bool canAutoFeed = true;
 
@@ -217,6 +222,10 @@ namespace WVC_XenotypesAndGenes
 			//	currentBloodfeedMethod = null;
 			//	return;
 			//}
+			if (canAutoFeed && currentBloodfeedMethod == null)
+            {
+				TrySetInitialMod();
+			}
             if (pawn.Map == null)
             {
                 // In caravan use

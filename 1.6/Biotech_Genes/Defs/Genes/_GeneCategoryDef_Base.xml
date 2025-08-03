@@ -7,6 +7,7 @@
 	<!-- <displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
 
+  <!-- Hive Mind 515.2886992038 -->
   <GeneCategoryDef>
 	<defName>WVC_Chimera</defName>
 	<label>chimera</label>

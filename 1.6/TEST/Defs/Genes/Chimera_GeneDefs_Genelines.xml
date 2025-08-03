@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare"> -->
+	<!-- <defName>WVC_Chimera_GenelineFleshmass</defName> -->
+	<!-- <label>fleshmass geneline</label> -->
+	<!-- <description>Carriers of this gene have a rigid geneline that limits their chimera evolution.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Chimera_Geneline</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Geneline_Fleshmass</iconPath> -->
+	<!-- <biostatCpx>-6</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>4</biostatMet> -->
+	<!-- <displayOrderInCategory>270</displayOrderInCategory> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; requires a cooldown.</li> -->
+		<!-- <li>Only &lt;color=#8a8ae6&gt;geneline&lt;/color&gt; genes can be implanted.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes are &lt;color=#8a8ae6&gt;always available.</li> -->
+		<!-- <li>Each &lt;color=#8a8ae6&gt;geneline gene is either positive or negative. A &lt;color=#8a8ae6&gt;1 to 1 balance&lt;/color&gt; is required to implant either.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Eating&lt;/color&gt; or &lt;color=#8a8ae6&gt;storing&lt;/color&gt; genes is impossible.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
+  <!-- ================================= -->
+
+</Defs>
