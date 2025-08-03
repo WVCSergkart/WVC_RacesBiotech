@@ -70,6 +70,29 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_HiveMind_Opinion : Gene_HiveMind
+    {
+
+        public override void SyncHive()
+        {
+            List<Pawn> bondedPawns = HiveMindPawn;
+            string phase = "start";
+            try
+            {
+                foreach (Pawn otherPawn in bondedPawns)
+                {
+                    phase = otherPawn.NameShortColored.ToString();
+                    //SetMemos(otherPawn, sumSkillsExp);
+                }
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Failed sync hive. On pawn: " + phase + ". Reason: " + arg);
+            }
+        }
+
+    }
+
     public class Gene_HiveMind_Skills : Gene_HiveMind
     {
 
