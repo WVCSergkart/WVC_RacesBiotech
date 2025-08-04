@@ -26,6 +26,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedDescription == null)
                 {
+                    //Log.Error("0");
                     StringBuilder stringBuilder = new();
                     stringBuilder.AppendLineTagged("WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor));
                     stringBuilder.AppendLine();
@@ -84,7 +85,10 @@ namespace WVC_XenotypesAndGenes
             Widgets.DrawWindowBackground(rect);
             RecacheTick();
             //TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(colGenes, eatGenes, desGenes, genesLimit);
-            TooltipHandler.TipRegion(rect, Tooltip);
+            if (Mouse.IsOver(rect))
+            {
+                TooltipHandler.TipRegion(rect, Tooltip);
+            }
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             rect3 = new(rect2.x, rect2.y, rect2.width, 20f);

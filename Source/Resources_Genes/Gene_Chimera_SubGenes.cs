@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool EnableCooldown => false;
 		public virtual bool DisableSubActions => false;
+		public virtual IntRange? ReqMetRange => null;
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 

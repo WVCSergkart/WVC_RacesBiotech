@@ -591,10 +591,22 @@ namespace WVC_XenotypesAndGenes
 
 		//}
 
-		public bool ReqCooldown => WVC_Biotech.settings.enable_chimeraXenogermCD || pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.EnableCooldown);
-		public bool EaterDisabled => pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.DisableSubActions);
+		public bool ReqCooldown => WVC_Biotech.settings.enable_chimeraXenogermCD || pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.EnableCooldown && subgene.Active);
+		public bool EaterDisabled => pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.DisableSubActions && subgene.Active);
+        public IntRange ReqMetRange
+        {
+            get
+            {
+				Gene_ChimeraDependant subgene = pawn.genes.GenesListForReading.FirstOrDefault((gene) => gene is Gene_ChimeraDependant subgene && subgene.ReqMetRange.HasValue && gene.Active) as Gene_ChimeraDependant;
+				if (subgene != null)
+                {
+					return subgene.ReqMetRange.Value;
+				}
+                return new(-99, 99);
+            }
+        }
 
-		public StatDef ChimeraLimitStatDef => Giver?.statDef;
+        public StatDef ChimeraLimitStatDef => Giver?.statDef;
 
 		public int XenogenesLimit
         {

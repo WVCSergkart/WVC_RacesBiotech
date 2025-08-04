@@ -136,7 +136,6 @@ namespace WVC_XenotypesAndGenes
             RecacheTick();
             text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
             taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.SpawnDryads);
-            ;
             if (usedBandwidth > 0)
             {
                 taggedString += (string)("\n\n" + ("WVC_XaG_BroodmindUsage".Translate() + ": ")) + usedBandwidth;
