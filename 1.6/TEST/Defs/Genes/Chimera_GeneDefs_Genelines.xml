@@ -5,8 +5,8 @@
 	<!-- <defName>WVC_Chimera_GenelineFleshmass</defName> -->
 	<!-- <label>fleshmass geneline</label> -->
 	<!-- <description>Carriers of this gene have a rigid geneline that limits their chimera evolution.</description> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Chimera_Geneline</geneClass> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_Geneline_Fleshmass</iconPath> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ChimeraGeneline</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes3/Gene_Geneline_Fleshmass</iconPath> -->
 	<!-- <biostatCpx>-6</biostatCpx> -->
 	<!-- <biostatArc>1</biostatArc> -->
 	<!-- <biostatMet>4</biostatMet> -->

@@ -61,15 +61,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> allGenes;
+		private List<GeneDef> allGenes;
 
-		public List<GeneDef> eatedGenes;
+		//private List<GeneDef> eatedGenes;
 
-		public List<GeneDef> pawnGenes;
+		//public List<GeneDef> pawnGenes;
 
-		public List<GeneDef> pawnEndoGenes;
+		private List<GeneDef> pawnEndoGenes;
 
-		public List<GeneDef> pawnXenoGenes;
+		private List<GeneDef> pawnXenoGenes;
 
 		private List<GeneDef> cachedGeneDefsInOrder;
 
@@ -93,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		//public Gene_StorageImplanter storageImplanter = null;
+		public bool subActionsDisabled = false;
 
 		public Dialog_CreateChimera(Gene_Chimera chimera)
         {
@@ -110,14 +111,12 @@ namespace WVC_XenotypesAndGenes
             {
                 collapsedCategories.Add(allDef, value: false);
             }
-            //pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-            //pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-            //pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-            //allGenes = gene.CollectedGenes;
-            //eatedGenes = gene.EatedGenes;
-            //selectedGenes = pawnXenoGenes;
-            gene.Debug_RemoveDupes();
-            GetCustomEater();
+			//pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+			//pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
+			//pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+			//allGenes = gene.CollectedGenes;
+			//eatedGenes = gene.EatedGenes;
+			//selectedGenes = pawnXenoGenes;
             UpdateGenesInforamtion();
             OnGenesChanged();
         }
@@ -154,8 +153,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
 			}
+			gene.Debug_RemoveDupes();
 			UpdateGenesInforamtion();
-			// Close(doCloseSound: false);
+			OnGenesChanged();
 		}
 
         private void BasicEater()
@@ -826,6 +826,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				selectedGenes = new();
 			}
+			if (subActionsDisabled)
+            {
+				return;
+            }
 			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), chimeraApplyEater.Translate()))
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.pawn.LabelCap), GenesEater));
@@ -1004,17 +1008,48 @@ namespace WVC_XenotypesAndGenes
         }
 
         private void UpdateGenesInforamtion()
-        {
-            //selectedGenes = new();
-            cachedGeneDefsInOrder = new();
-            pawnGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading);
-            pawnXenoGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.Xenogenes);
-            pawnEndoGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.Endogenes);
-            allGenes = gene.CollectedGenes;
-            eatedGenes = gene.EatedGenes;
-			selectedGenes = pawnXenoGenes;
+		{
+			subActionsDisabled = gene.EaterDisabled;
+			GetCustomEater();
+			//selectedGenes = new();
+			cachedGeneDefsInOrder = new();
+			List<GeneDef> genelinedGenes = null;
+			ConvertToDefsAndGetGeneline(gene.pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
+			this.pawnEndoGenes = pawnEndoGenes;
+			ConvertToDefsAndGetGeneline(gene.pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
+			this.pawnXenoGenes = pawnXenoGenes;
+			if (genelinedGenes == null)
+			{
+				allGenes = gene.CollectedGenes;
+			}
+			else
+			{
+				allGenes = genelinedGenes;
+			}
+            //eatedGenes = gene.EatedGenes;
+            selectedGenes = this.pawnXenoGenes;
 			UpdateSearchResults();
         }
+
+		private void ConvertToDefsAndGetGeneline(List<Gene> pawnGenes, out List<GeneDef> geneDefs, ref List<GeneDef> genelinedGenes)
+        {
+			geneDefs = new();
+			foreach (Gene item in pawnGenes)
+			{
+				geneDefs.Add(item.def);
+				if (item is Gene_ChimeraGeneline geneline)
+				{
+					if (genelinedGenes == null)
+					{
+						genelinedGenes = geneline.GenelineGenes;
+					}
+					else
+					{
+						genelinedGenes.AddRange(geneline.GenelineGenes);
+					}
+				}
+			}
+		}
 
         private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
 		{

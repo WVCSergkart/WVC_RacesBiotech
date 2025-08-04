@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -509,62 +510,62 @@ namespace WVC_XenotypesAndGenes
         //}
 
         public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
-		{
-			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-			if (firstHediffOfDef != null)
-			{
-				List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
-				foreach (Ability ability in xenogenesAbilities)
-				{
-					if (!ability.HasCooldown)
-					{
-						continue;
-					}
-					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
-				}
-				//pawn.health.RemoveHediff(firstHediffOfDef);
-			}
-			if (implantedGenes.Empty())
-			{
-				return;
-			}
-			XaG_GeneUtility.GetBiostatsFromList(implantedGenes, out int cpx, out int met, out int _);
-			int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+        {
+            Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+            if (firstHediffOfDef != null)
+            {
+                List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+                foreach (Ability ability in xenogenesAbilities)
+                {
+                    if (!ability.HasCooldown)
+                    {
+                        continue;
+                    }
+                    ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
+                }
+                //pawn.health.RemoveHediff(firstHediffOfDef);
+            }
+            if (implantedGenes.Empty())
+            {
+                return;
+            }
+            XaG_GeneUtility.GetBiostatsFromList(implantedGenes, out int cpx, out int met, out int _);
+            int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
             int nonArchiteCount = implantedGenes.Count - architeCount;
             int days = Mathf.Clamp(nonArchiteCount + (architeCount * 3) - met + (int)(cpx * 0.2f), 0, 999);
-            int ticks = days * (WVC_Biotech.settings.enable_chimeraXenogermCD ? 30000 : 120000);
-			if (ticks < 30000 && implantedGenes.Count > 0)
+            int ticks = days * (ReqCooldown? 30000 : 120000);
+            if (ticks < 30000 && implantedGenes.Count > 0)
             {
-				ticks = 30000;
-			}
+                ticks = 30000;
+            }
             //int count = (implantedGenes.Count + 1) * 180000;
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(ticks * 0.8f), (int)(ticks * 1.1f)), firstHediffOfDef);
-			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
-		}
+            ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(ticks * 0.8f), (int)(ticks * 1.1f)), firstHediffOfDef);
+            // pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
+        }
 
-		// public virtual void ClearChimeraXenogerm()
-		// {
-		// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
-		// bool clearXenogerm = true;
-		// if (firstHediffOfDef != null)
-		// {
-		// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
-		// foreach (Ability ability in xenogenesAbilities)
-		// {
-		// if (ability.OnCooldown)
-		// {
-		// clearXenogerm = false;
-		// break;
-		// }
-		// }
-		// if (clearXenogerm)
-		// {
-		// pawn.health.RemoveHediff(firstHediffOfDef);
-		// }
-		// }
-		// }
+        // public virtual void ClearChimeraXenogerm()
+        // {
+        // Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+        // bool clearXenogerm = true;
+        // if (firstHediffOfDef != null)
+        // {
+        // List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+        // foreach (Ability ability in xenogenesAbilities)
+        // {
+        // if (ability.OnCooldown)
+        // {
+        // clearXenogerm = false;
+        // break;
+        // }
+        // }
+        // if (clearXenogerm)
+        // {
+        // pawn.health.RemoveHediff(firstHediffOfDef);
+        // }
+        // }
+        // }
 
-		public virtual void ImplantGene(GeneDef geneDef)
+        public virtual void ImplantGene(GeneDef geneDef)
 		{
 			if (!this.def.ConflictsWith(geneDef))
             {
@@ -584,6 +585,14 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// =================
+
+		//public void Notify_GenesChanged(Gene changedGene)
+		//{
+
+		//}
+
+		public bool ReqCooldown => WVC_Biotech.settings.enable_chimeraXenogermCD || pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.EnableCooldown);
+		public bool EaterDisabled => pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.DisableSubActions);
 
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 
@@ -625,7 +634,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (!WVC_Biotech.settings.enable_chimeraXenogermCD || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+				if (!ReqCooldown || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 				{
 					if (XenogenesLimit > 0)
 					{
@@ -678,9 +687,9 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
-		// =================
+        // =================
 
-	}
+    }
 
 	//[Obsolete]
 	//public class Gene_BloodChimera : Gene_Chimera

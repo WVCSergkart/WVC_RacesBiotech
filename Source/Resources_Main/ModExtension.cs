@@ -331,6 +331,7 @@ namespace WVC_XenotypesAndGenes
 		//public List<AbilityDef> abilityDefs;
 		//public bool chimeraCanEatGenes = true;
 		public List<NeedDef> needDefs;
+		public List<GeneDef> geneDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

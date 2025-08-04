@@ -173,19 +173,19 @@ namespace WVC_XenotypesAndGenes
 
 		// ===========================
 
-		[Obsolete]
-		public static bool ReplaceGeneBackground(GeneDef geneDef)
-		{
-			if (geneDef.IsXenoGenesDef())
-			{
-				return true;
-			}
-			// if (geneDef.GetModExtension<GeneExtension_Graphic>() != null)
-			// {
-				// return true;
-			// }
-			return false;
-		}
+		//[Obsolete]
+		//public static bool ReplaceGeneBackground(GeneDef geneDef)
+		//{
+		//	if (geneDef.IsXenoGenesDef())
+		//	{
+		//		return true;
+		//	}
+		//	// if (geneDef.GetModExtension<GeneExtension_Graphic>() != null)
+		//	// {
+		//		// return true;
+		//	// }
+		//	return false;
+		//}
 
 		public static string AdditionalInfo_GeneDef(GeneDef def)
 		{
@@ -302,6 +302,10 @@ namespace WVC_XenotypesAndGenes
 		public static CachedTexture BackgroundTexture(GeneDef gene, GeneType geneType)
 		{
 			CachedTexture cachedTexture = GeneBackground_Endogene;
+			//if (gene is GenelineDef xenogene)
+			//{
+			//	return xenogene.BackgroundIcon;
+			//}
 			if (gene.biostatArc == 0)
 			{
 				switch (geneType)

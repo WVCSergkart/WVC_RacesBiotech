@@ -162,13 +162,8 @@ namespace WVC_XenotypesAndGenes
 					if (Mouse.IsOver(geneRect))
                     {
                         string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
-                        // text += GeneUiUtility.AdditionalInfo_Gene(gene);
                         text += XaG_UiUtility.AdditionalInfo_GeneDef(gene.def);
                         text = OverridenByGene(gene, text);
-                        // else if (!gene.Active)
-                        // {
-                        // text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
-                        // }
                         if (Prefs.DevMode)
                         {
                             text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
