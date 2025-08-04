@@ -13,10 +13,10 @@
 	<biostatMet>4</biostatMet>
 	<displayOrderInCategory>270</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; requires a cooldown.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; requires a cooldown.</li> -->
 		<li>Only &lt;color=#8a8ae6&gt;geneline&lt;/color&gt; genes can be implanted.</li>
 		<li>&lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes are &lt;color=#8a8ae6&gt;always&lt;/color&gt; available.</li>
-		<li>For implantation, the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; must be 0.</li>
+		<!-- <li>For implantation, the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; must be 0.</li> -->
 		<li>&lt;color=#8a8ae6&gt;Eating&lt;/color&gt; or &lt;color=#8a8ae6&gt;storing&lt;/color&gt; genes is impossible.</li>
 	</customEffectDescriptions>
 	<modExtensions>

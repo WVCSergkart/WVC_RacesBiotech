@@ -40,7 +40,23 @@ namespace WVC_XenotypesAndGenes
 			
 		}
 
-    }
+	}
+
+	public class Gene_ChimeraCooldown : Gene_ChimeraDependant
+	{
+
+		public override bool EnableCooldown => true;
+
+	}
+
+	public class Gene_ChimeraMetabolismLimit : Gene_ChimeraDependant
+	{
+
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
+		public override IntRange? ReqMetRange => Giver.intervalRange;
+
+	}
 
 	public class Gene_ChimeraGenesGen : Gene_ChimeraDependant
 	{

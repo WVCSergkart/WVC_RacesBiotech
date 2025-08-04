@@ -30,10 +30,42 @@ namespace WVC_XenotypesAndGenes
                     StringBuilder stringBuilder = new();
                     stringBuilder.AppendLineTagged("WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor));
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendTagged("WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count, gene.XenogenesLimit));
-                    cachedDescription = stringBuilder.ToString();
+                    stringBuilder.AppendLineTagged("WVC_XaG_Gene_Chimera_GizmoTip".Translate());
+                    stringBuilder.AppendLine();
+                    if (gene.Genelined)
+                    {
+                        stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_Geneline".Translate(GetCount().ToString()));
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_Basic".Translate(gene.CollectedGenes.Count));
+                    }
+                    if (!gene.EaterDisabled)
+                    {
+                        stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_EatAndDes".Translate(gene.EatedGenes.Count, gene.DestroyedGenes.Count));
+                    }
+                    stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.XenogenesLimit));
+                    IntRange reqMetRange = gene.ReqMetRange;
+                    if (reqMetRange.TrueMin > -99 || reqMetRange.TrueMax < 99)
+                    {
+                        stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_MetLimit".Translate(reqMetRange.TrueMin, reqMetRange.TrueMax));
+                    }
+                    cachedDescription = stringBuilder.ToString().TrimEndNewlines();
                 }
                 return cachedDescription;
+
+                object GetCount()
+                {
+                    int count = 0;
+                    foreach (Gene item in gene.pawn.genes.GenesListForReading)
+                    {
+                        if (item is Gene_ChimeraGeneline geneline && item.Active)
+                        {
+                            count += geneline.GenelineGenes.Count;
+                        }
+                    }
+                    return count;
+                }
             }
         }
 
@@ -55,7 +87,7 @@ namespace WVC_XenotypesAndGenes
             if (nextRecache < 0)
             {
                 cachedDescription = null;
-                nextRecache = 90;
+                nextRecache = 240;
             }
         }
 
@@ -105,6 +137,7 @@ namespace WVC_XenotypesAndGenes
                 Widgets.DrawHighlight(rect4);
                 if (Widgets.ButtonInvisible(rect4))
                 {
+                    gene.UpdCached();
                     gene.UpdSubHediffs();
                     if (gene.CanBeUsed)
                     {

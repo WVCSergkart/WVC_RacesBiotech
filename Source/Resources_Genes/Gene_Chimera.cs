@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects, IGeneMetabolism
+    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -584,29 +584,117 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+        // =================
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedReqMetRange = null;
+			cachedIsReqCooldown = null;
+			cachedEaterDisabled = null;
+			cachedIsGenelined = null;
+			cachedIsCustomEater = null;
+		}
+
+		private bool? cachedIsReqCooldown;
+		public bool ReqCooldown
+		{
+			get
+			{
+				if (!cachedIsReqCooldown.HasValue)
+				{
+					UpdCached();
+				}
+				return cachedIsReqCooldown.Value;
+			}
+		}
+		private bool? cachedEaterDisabled;
+		public bool EaterDisabled
+		{
+			get
+			{
+				if (!cachedEaterDisabled.HasValue)
+				{
+					UpdCached();
+				}
+				return cachedEaterDisabled.Value;
+			}
+		}
+		private bool? cachedIsGenelined;
+		public bool Genelined
+		{
+			get
+			{
+				if (!cachedIsGenelined.HasValue)
+				{
+					UpdCached();
+				}
+				return cachedIsGenelined.Value;
+			}
+		}
+		private IntRange? cachedReqMetRange;
+		public IntRange ReqMetRange
+		{
+			get
+			{
+				if (!cachedReqMetRange.HasValue)
+				{
+					UpdCached();
+				}
+				return cachedReqMetRange.Value;
+			}
+		}
+		private bool? cachedIsCustomEater;
+		public bool IsCustomEater
+		{
+			get
+			{
+				if (!cachedIsCustomEater.HasValue)
+				{
+					UpdCached();
+				}
+				return cachedIsCustomEater.Value;
+			}
+		}
+
+		public void UpdCached()
+		{
+			cachedReqMetRange = new(-99, 99);
+			cachedIsReqCooldown = WVC_Biotech.settings.enable_chimeraXenogermCD;
+			cachedEaterDisabled = false;
+			cachedIsGenelined = false;
+			cachedIsCustomEater = false;
+			foreach (Gene item in pawn.genes.GenesListForReading)
+			{
+				if (item is not Gene_ChimeraDependant subgene || !subgene.Active)
+				{
+					continue;
+				}
+				if (subgene.DisableSubActions)
+				{
+					cachedEaterDisabled = true;
+				}
+				if (subgene.EnableCooldown)
+				{
+					cachedIsReqCooldown = true;
+				}
+				if (subgene is Gene_ChimeraGeneline)
+				{
+					cachedIsGenelined = true;
+				}
+				if (subgene is IGeneCustomChimeraEater)
+				{
+					cachedIsCustomEater = true;
+				}
+				if (subgene.ReqMetRange.HasValue)
+				{
+					cachedReqMetRange = subgene.ReqMetRange.Value;
+				}
+			}
+		}
+
 		// =================
 
-		//public void Notify_GenesChanged(Gene changedGene)
-		//{
-
-		//}
-
-		public bool ReqCooldown => WVC_Biotech.settings.enable_chimeraXenogermCD || pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.EnableCooldown && subgene.Active);
-		public bool EaterDisabled => pawn.genes.GenesListForReading.Any((gene) => gene is Gene_ChimeraDependant subgene && subgene.DisableSubActions && subgene.Active);
-        public IntRange ReqMetRange
-        {
-            get
-            {
-				Gene_ChimeraDependant subgene = pawn.genes.GenesListForReading.FirstOrDefault((gene) => gene is Gene_ChimeraDependant subgene && subgene.ReqMetRange.HasValue && gene.Active) as Gene_ChimeraDependant;
-				if (subgene != null)
-                {
-					return subgene.ReqMetRange.Value;
-				}
-                return new(-99, 99);
-            }
-        }
-
-        public StatDef ChimeraLimitStatDef => Giver?.statDef;
+		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 
 		public int XenogenesLimit
         {

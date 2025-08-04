@@ -22,9 +22,9 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override bool EnableCooldown => true;
+        //public override bool EnableCooldown => true;
         public override bool DisableSubActions => true;
-        public override IntRange? ReqMetRange => new(0, 0);
+        //public override IntRange? ReqMetRange => new(0, 0);
 
     }
 

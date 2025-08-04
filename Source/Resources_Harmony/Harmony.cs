@@ -407,9 +407,9 @@ namespace WVC_XenotypesAndGenes
 						{
 							gene_LifeStageStarted.Notify_LifeStageStarted();
 						}
-						catch
+						catch (Exception arg)
 						{
-							Log.Error("Failed trigger Notify_LifeStageStarted for gene " + gene.def.defName);
+							Log.Error("Failed trigger Notify_LifeStageStarted for gene: " + gene.def.defName + ", pawn: " + pawn.NameFullColored + ". Reason: " + arg);
 						}
 					}
 				}
