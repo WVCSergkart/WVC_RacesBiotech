@@ -92,6 +92,7 @@
 				  <li>WVC_Chimera_Germharvest</li>
 				  <li>WVC_Chimera_IncreasedLimit</li>
 				  <li>WVC_Chimera_DecreasedLimit</li>
+				  <li>WVC_Chimera_Cooldown</li>
 				</genes>
 			  </li>
 			  <!-- Chimera very rare -->
@@ -104,6 +105,7 @@
 				  <!-- <li>WVC_Skillshifter</li> -->
 				  <li>WVC_Chimera_HugeIncreasedLimit</li>
 				  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
+				  <li>WVC_Chimera_BandwidthLimit</li>
 				</genes>
 			  </li>
 			  <!-- Basic solo -->
@@ -118,6 +120,7 @@
 				  <li>WVC_Chimera_CosmeticGen</li>
 				  <li>WVC_Chimera_RandomGenesGen</li>
 				  <li>WVC_Chimera_MarkHarvest</li>
+				  <li>WVC_Chimera_SelfCopy</li>
 				</genes>
 			  </li>
 			  <!-- Beholder crew -->

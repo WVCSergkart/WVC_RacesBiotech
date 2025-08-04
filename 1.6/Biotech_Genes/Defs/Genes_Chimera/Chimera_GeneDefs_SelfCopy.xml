@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
 	<defName>WVC_Chimera_SelfCopy</defName>
 	<label>chimera self-copying</label>
 	<description>Carriers of this gene have archites that allow the chimera to copy the carrier's geneset.</description>
