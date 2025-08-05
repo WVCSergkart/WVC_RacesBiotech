@@ -600,6 +600,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Chimera_GizmoTip_MetLimit> -  &lt;color=#8a8ae6&gt;Metabolic limit&lt;/color&gt;: from {0} to {1}</WVC_XaG_Chimera_GizmoTip_MetLimit>
 
 	<WVC_XaG_ChimeraDialog_ConflictWith>Conflicts with genes:</WVC_XaG_ChimeraDialog_ConflictWith>
+	<WVC_XaG_ChimeraDialog_PawnHasEndogene>Already has this gene as an endogene.</WVC_XaG_ChimeraDialog_PawnHasEndogene>
 
 	<WVC_XaG_GeneChimera_TargetIsChimera>Target is already a chimera.</WVC_XaG_GeneChimera_TargetIsChimera>
 

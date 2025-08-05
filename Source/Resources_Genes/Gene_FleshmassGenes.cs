@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				nextTick = new IntRange(100000, 300000).RandomInRange;
 			}
-			if (pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
+			else if (pawn.Faction != Faction.OfPlayer && !pawn.SpawnedOrAnyParentSpawned)
 			{
 				nextTick = new IntRange(150000, 300000).RandomInRange;
 			}
@@ -248,7 +248,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassBuilder : Gene
+	public class Gene_FleshmassBuilder : Gene, IGeneOverridden, IGeneNotifyGenesChanged
 	{
 
 		public int nextTick = 6000;
@@ -257,6 +257,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			nextTick = 3000;
+			Notify_GenesChanged(null);
 		}
 
 		public override void TickInterval(int delta)
@@ -329,6 +330,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static List<Gene_FleshmassBuilder> cachedBuilderGenes;
+		public static List<Gene_FleshmassBuilder> Builders
+		{
+			get
+			{
+				if (cachedBuilderGenes == null)
+				{
+					List<Gene_FleshmassBuilder> list = new();
+					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
+                    {
+						Gene_FleshmassBuilder builder = pawn.genes?.GetFirstGeneOfType<Gene_FleshmassBuilder>();
+						if (builder != null)
+                        {
+							list.Add(builder);
+                        }
+                    }
+                    cachedBuilderGenes = list;
+				}
+				return cachedBuilderGenes;
+			}
+		}
+
 		public void Construct(int tick)
 		{
 			//if (!pawn.Faction.IsPlayer || CurrentCaster != pawn)
@@ -347,18 +370,35 @@ namespace WVC_XenotypesAndGenes
                 nextTick = 60000;
                 return;
             }
+			bool foundSelf = false;
+			foreach (Gene_FleshmassBuilder builder in Builders)
+            {
+                if (builder != this)
+                {
+                    builder.nextTick = 7000;
+                }
+				else
+                {
+					foundSelf = true;
+                }
+            }
+			if (!foundSelf)
+            {
+				Notify_GenesChanged(null);
+			}
             GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
 			string phase = "";
 			try
 			{
+				float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
 				foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
 				{
 					phase = "search buildings";
 					if (thing is Frame frame && frame.IsCompleted())
 					{
-						phase = "try build frame: " + thing.def.defName;
+						//phase = "try build frame: " + thing.def.defName;
 						cycleTry++;
 						phase = "spawn gas and do effects";
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
@@ -366,10 +406,12 @@ namespace WVC_XenotypesAndGenes
 						phase = "learn skill";
 						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
 						{
-							pawn.skills.Learn(SkillDefOf.Construction, 0.05f * tick);
+							foreach (Gene_FleshmassBuilder builder in Builders)
+							{
+								builder.SkillLearn(tick, 0.05f);
+							}
 						}
 						phase = "get work speed";
-						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
 						if (frame.Stuff != null)
 						{
 							num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
@@ -386,7 +428,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					else if (thing.def.useHitPoints && thing is Building building && building.HitPoints < building.MaxHitPoints)
 					{
-						phase = "try repair thing: " + thing.def.defName;
+						//phase = "try repair thing: " + thing.def.defName;
 						cycleTry++;
 						phase = "spawn gas and do effects";
 						//IntVec3 positionHeld = thing.PositionHeld;
@@ -400,16 +442,19 @@ namespace WVC_XenotypesAndGenes
 						phase = "learn skill";
 						if (pawn.skills != null)
 						{
-							pawn.skills.Learn(SkillDefOf.Construction, 0.01f * tick);
+							foreach (Gene_FleshmassBuilder builder in Builders)
+							{
+								builder.SkillLearn(tick, 0.01f);
+							}
 						}
-						phase = "regen hp";
-						building.HitPoints++;
+                        phase = "regen hp";
+						building.HitPoints += (int)(2 * num);
 						building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
 						phase = "Notify_BuildingRepaired";
 						pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
 						pause = false;
 					}
-					if (cycleTry >= 3)
+					if (cycleTry >= (3 * Builders.Count))
 					{
 						break;
 					}
@@ -430,13 +475,39 @@ namespace WVC_XenotypesAndGenes
             }
 		}
 
+        public void SkillLearn(int tick, float rate)
+        {
+            pawn.skills.Learn(SkillDefOf.Construction, rate * tick);
+        }
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+			Notify_GenesChanged(null);
+		}
+
+        public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedBuilderGenes = null;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Notify_GenesChanged(null);
+		}
+
+		public void Notify_Override()
+		{
+			Notify_GenesChanged(null);
+		}
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", -1);
 		}
 
-	}
+    }
 
 	public class Gene_SelfDevourStomach : Gene
 	{

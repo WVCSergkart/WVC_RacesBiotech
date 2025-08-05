@@ -446,7 +446,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			bool selected = !selectedSection && selectedGenes.Contains(geneDef);
-			bool overridden = overridenGenes.Contains(geneDef);
+			bool overridden = overridenGenes.Contains(geneDef) || pawnEndoGenes.Contains(geneDef);
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
@@ -478,8 +478,12 @@ namespace WVC_XenotypesAndGenes
                 {
                     text = "WVC_XaG_ChimeraDialog_ConflictWith".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor) + "\n" + (overridenGenes.Where((gene) => gene != geneDef && gene.ConflictsWith(geneDef)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList("  - ")).Colorize(ColorLibrary.RedReadable);
                 }
-            }
-            if (selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
+			}
+			if (pawnEndoGenes.Contains(geneDef))
+			{
+				text = "WVC_XaG_ChimeraDialog_PawnHasEndogene".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor);
+			}
+			if (selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
 			{
 				if (!text.NullOrEmpty())
 				{

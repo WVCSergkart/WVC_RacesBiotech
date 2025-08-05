@@ -9,12 +9,12 @@
 	<!-- </Operation> -->
 
 	<!-- Xenogerm desc upd -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromGenes"/> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/SketchResolverDef[defName="Gravship"]/resolver</xpath>
+	  <value>
+		<resolver Class="WVC_XenotypesAndGenes.SketchResolver_Gravship" />
+	  </value>
+	</Operation>
 
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="Deathrest"]</xpath> -->
