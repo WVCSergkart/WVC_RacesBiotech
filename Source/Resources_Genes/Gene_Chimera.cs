@@ -680,7 +680,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdCached()
 		{
-			cachedReqMetRange = new(-99, 99);
+			cachedReqMetRange = WVC_Biotech.settings.chimera_defaultReqMetabolismRange;
 			cachedIsReqCooldown = WVC_Biotech.settings.enable_chimeraXenogermCD;
 			cachedEaterDisabled = false;
 			cachedIsGenelined = false;

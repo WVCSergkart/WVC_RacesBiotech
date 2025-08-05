@@ -8,6 +8,9 @@ namespace WVC_XenotypesAndGenes
 
 		public int presetOrder = 0;
 
+		public bool firstModLaunch = true;
+		// public bool advancedDevMode = false;
+
 		// Main
 		// Graphic
 		public bool hideXaGGenes = false;
@@ -83,6 +86,7 @@ namespace WVC_XenotypesAndGenes
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
 		public bool enable_chimeraXenogermCD = false;
+		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		// Fleshmass

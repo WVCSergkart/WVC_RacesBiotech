@@ -31,6 +31,7 @@
 	<enable_chimeraXenogermCD>True</enable_chimeraXenogermCD>
 	<!-- <offsetMarketPriceFromGenes>True</offsetMarketPriceFromGenes> -->
 	<enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch>
+	<chimera_defaultReqMetabolismRange>-5~5</chimera_defaultReqMetabolismRange>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
