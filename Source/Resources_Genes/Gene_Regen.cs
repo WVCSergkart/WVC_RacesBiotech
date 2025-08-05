@@ -12,9 +12,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MachineWoundHealing : Gene_OverOverridable
 	{
 
-		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+		private GeneExtension_Undead cachedGeneExtension;
+		public GeneExtension_Undead Undead
+        {
+            get
+            {
+				if (cachedGeneExtension == null)
+                {
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
+				}
+                return cachedGeneExtension;
+            }
+        }
 
-		private bool? regenerateEyes;
+        private bool? regenerateEyes;
 		public bool RegenerateEyes
         {
 			get
@@ -49,7 +60,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SelfRepair : Gene_MachineWoundHealing, IGeneFloatMenuOptions
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{

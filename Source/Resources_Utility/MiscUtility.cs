@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 		public static bool InSpace(this Pawn pawn)
 		{
 			//pawn.Map?.Biome == BiomeDefOf.Space ||
-			return pawn.Map?.Biome?.inVacuum == true;
+			return pawn.MapHeld?.Biome?.inVacuum == true;
 		}
 
 		public static bool GameStarted()

@@ -13,9 +13,31 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged
 	{
 
-		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+		private GeneExtension_Undead cachedGeneExtension_Undead;
+		public GeneExtension_Undead Props
+		{
+			get
+			{
+				if (cachedGeneExtension_Undead == null)
+				{
+					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+				}
+				return cachedGeneExtension_Undead;
+			}
+		}
 
-		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Giver cachedGeneExtension_Giver;
+		public GeneExtension_Giver Giver
+		{
+			get
+			{
+				if (cachedGeneExtension_Giver == null)
+				{
+					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension_Giver;
+			}
+		}
 
 		private List<GeneDef> collectedGenes = new();
 

@@ -11,7 +11,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ShapeshifterDependant : Gene, IGeneShapeshift
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Giver
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		[Unsaved(false)]
 		private Gene_Shapeshifter cachedShapeshifterGene;

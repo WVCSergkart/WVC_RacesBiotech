@@ -10,7 +10,20 @@ namespace WVC_XenotypesAndGenes
 
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -121,9 +134,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GenerateHediffWithRandomSeverity : Gene, IGeneOverridden
 	{
 
-		public HediffDef HediffDef => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		private HediffDef cachedHediffDef;
+        public HediffDef HediffDef
+        {
+            get
+            {
+				if (cachedHediffDef == null)
+                {
+					cachedHediffDef = def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+				}
+                return cachedHediffDef;
+            }
+        }
 
-		public override void PostAdd()
+        public override void PostAdd()
 		{
 			base.PostAdd();
 			AddOrRemoveHediff(HediffDef, pawn, this);
@@ -179,7 +203,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverridden
 	{
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		//public HediffDef HediffDef => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+
+		private HediffDef cachedHediffDef;
+		public HediffDef HediffDef
+		{
+			get
+			{
+				if (cachedHediffDef == null)
+				{
+					cachedHediffDef = def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+				}
+				return cachedHediffDef;
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -222,10 +259,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (gene_Resurgent.Value >= def.resourceLossPerDay)
 					{
-						if (!pawn.health.hediffSet.HasHediff(HediffDefName))
+						if (!pawn.health.hediffSet.HasHediff(HediffDef))
 						{
 							// pawn.health.AddHediff(HediffDefName);
-							Hediff hediff = HediffMaker.MakeHediff(HediffDefName, pawn);
+							Hediff hediff = HediffMaker.MakeHediff(HediffDef, pawn);
 							HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
 							if (hediff_GeneCheck != null)
 							{
@@ -247,9 +284,9 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediff()
 		{
-			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (pawn.health.hediffSet.HasHediff(HediffDef))
 			{
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefName);
+				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef);
 				if (firstHediffOfDef != null)
 				{
 					pawn.health.RemoveHediff(firstHediffOfDef);

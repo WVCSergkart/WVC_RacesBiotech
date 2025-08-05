@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare" Name="WVC_XenotypesAndGenes_GeneChimera_SubGenesMetLimit" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraMetabolismLimit</geneClass>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>WVC_Chimera</prerequisite>
+	<iconColor>(255, 255, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_ChimeraMetabolismLimit</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- =========================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesMetLimit">
+	<defName>WVC_Chimera_LowMetLimit</defName>
+	<label>low met-limit</label>
+	<description>Carriers of this gene cannot implant a geneset with a positive metabolism.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_5x0c</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<biostatMet>2</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>-5~0</intervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesMetLimit">
+	<defName>WVC_Chimera_ZeroMetLimit</defName>
+	<label>zero met-limit</label>
+	<description>Carriers of this gene cannot implant a geneset with non-zero metabolism.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_0x0c</iconPath>
+	<displayOrderInCategory>65</displayOrderInCategory>
+	<biostatMet>4</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>0~0</intervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesMetLimit">
+	<defName>WVC_Chimera_HighMetLimit</defName>
+	<label>high met-limit</label>
+	<description>Carriers of this gene cannot implant a geneset with a negative metabolism.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_0x5c</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatMet>3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>0~5</intervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

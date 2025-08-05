@@ -18,7 +18,18 @@ namespace WVC_XenotypesAndGenes
 		public virtual bool DisableSubActions => false;
 		public virtual IntRange? ReqMetRange => null;
 
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		private GeneExtension_Spawner cachedGeneExtension;
+		public GeneExtension_Spawner Spawner
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		[Unsaved(false)]
 		private Gene_Chimera cachedChimeraGene;

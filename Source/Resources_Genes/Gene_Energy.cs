@@ -56,7 +56,18 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 

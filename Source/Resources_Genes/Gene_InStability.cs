@@ -13,7 +13,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AngelicStability : Gene_FoodEfficiency
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public int nextTick = 60000;
 
@@ -68,7 +81,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ResurgentStability : Gene_ResurgentOffset
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public int nextTick = 60000;
 
@@ -140,7 +166,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GeneticStability : Gene
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public int nextTick = 60000;
 
@@ -238,7 +277,20 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public int nextTick = 60000;
 

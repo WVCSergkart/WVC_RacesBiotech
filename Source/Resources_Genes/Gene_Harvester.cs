@@ -11,7 +11,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodHarvester : Gene
 	{
 
-		public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
+
+		private GeneExtension_Spawner cachedGeneExtension;
+		public GeneExtension_Spawner Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedGeneExtension;
+			}
+		}
 
 		public int ticksUntilSpawn;
 
