@@ -212,7 +212,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassBrain : Gene_AutoResearch
+	[Obsolete]
+	public class Gene_FleshmassBuilder : Gene_DeadlifeBuilder
+    {
+
+    }
+
+    public class Gene_FleshmassBrain : Gene_AutoResearch
 	{
 
 		public override void TickInterval(int delta)
@@ -248,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassBuilder : Gene, IGeneOverridden, IGeneNotifyGenesChanged
+	public class Gene_DeadlifeBuilder : Gene, IGeneOverridden, IGeneNotifyGenesChanged
 	{
 
 		public int nextTick = 6000;
@@ -330,17 +336,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static List<Gene_FleshmassBuilder> cachedBuilderGenes;
-		public static List<Gene_FleshmassBuilder> Builders
+		private static List<Gene_DeadlifeBuilder> cachedBuilderGenes;
+		public static List<Gene_DeadlifeBuilder> Builders
 		{
 			get
 			{
 				if (cachedBuilderGenes == null)
 				{
-					List<Gene_FleshmassBuilder> list = new();
+					List<Gene_DeadlifeBuilder> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
                     {
-						Gene_FleshmassBuilder builder = pawn.genes?.GetFirstGeneOfType<Gene_FleshmassBuilder>();
+						Gene_DeadlifeBuilder builder = pawn.genes?.GetFirstGeneOfType<Gene_DeadlifeBuilder>();
 						if (builder != null)
                         {
 							list.Add(builder);
@@ -371,7 +377,7 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
 			bool foundSelf = false;
-			foreach (Gene_FleshmassBuilder builder in Builders)
+			foreach (Gene_DeadlifeBuilder builder in Builders)
             {
                 if (builder != this)
                 {
@@ -406,7 +412,7 @@ namespace WVC_XenotypesAndGenes
 						phase = "learn skill";
 						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
 						{
-							foreach (Gene_FleshmassBuilder builder in Builders)
+							foreach (Gene_DeadlifeBuilder builder in Builders)
 							{
 								builder.SkillLearn(tick, 0.05f);
 							}
@@ -442,7 +448,7 @@ namespace WVC_XenotypesAndGenes
 						phase = "learn skill";
 						if (pawn.skills != null)
 						{
-							foreach (Gene_FleshmassBuilder builder in Builders)
+							foreach (Gene_DeadlifeBuilder builder in Builders)
 							{
 								builder.SkillLearn(tick, 0.01f);
 							}

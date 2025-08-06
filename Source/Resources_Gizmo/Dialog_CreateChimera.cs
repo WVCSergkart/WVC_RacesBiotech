@@ -69,6 +69,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public List<GeneDef> pawnGenes;
 
+		private List<GeneDef> nonPassedGenes;
 		private List<GeneDef> pawnEndoGenes;
 
 		private List<GeneDef> pawnXenoGenes;
@@ -446,7 +447,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			bool selected = !selectedSection && selectedGenes.Contains(geneDef);
-			bool overridden = overridenGenes.Contains(geneDef) || pawnEndoGenes.Contains(geneDef);
+			bool overridden = overridenGenes.Contains(geneDef) || pawnEndoGenes.Contains(geneDef) || nonPassedGenes.Contains(geneDef);
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
@@ -482,6 +483,10 @@ namespace WVC_XenotypesAndGenes
 			if (pawnEndoGenes.Contains(geneDef))
 			{
 				text = "WVC_XaG_ChimeraDialog_PawnHasEndogene".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor);
+			}
+			else if (nonPassedGenes.Contains(geneDef))
+			{
+				text = "WVC_XaG_ChimeraDialog_NonPassGene".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor);
 			}
 			if (selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
 			{
@@ -950,6 +955,14 @@ namespace WVC_XenotypesAndGenes
 			else
 			{
 				allGenes = genelinedGenes;
+			}
+			nonPassedGenes = new();
+			foreach (GeneDef item in allGenes)
+            {
+				if (!item.passOnDirectly)
+                {
+					nonPassedGenes.Add(item);
+				}
 			}
             selectedGenes = this.pawnXenoGenes;
 			UpdateSearchResults();

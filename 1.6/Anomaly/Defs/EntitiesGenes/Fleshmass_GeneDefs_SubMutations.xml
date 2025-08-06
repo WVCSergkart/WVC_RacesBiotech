@@ -69,7 +69,7 @@
 	<defName>WVC_FleshmassBuilder</defName>
 	<label>deadlife builder</label>
 	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh with nests of archites capable of performing some construction work and repairing buildings.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBuilder</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeadlifeBuilder</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassBuilder_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>20</displayOrderInCategory>
