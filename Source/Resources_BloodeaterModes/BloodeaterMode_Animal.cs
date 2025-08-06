@@ -17,12 +17,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
 		{
-			if (!victim.IsAnimal)
+			if (!CanBloodFeedNowWith(pawn, victim))
 			{
 				return false;
 			}
 			SanguophageUtility.DoBite(pawn, victim, 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new(0, 0), null, null);
 			return true;
+		}
+
+		public override bool CanBloodFeedNowWith(Pawn pawn, Pawn victim)
+		{
+			return victim.IsAnimal && victim.CanBleed() && victim.Faction == pawn.Faction && !victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss);
 		}
 
 		public static bool TryHuntForFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false)

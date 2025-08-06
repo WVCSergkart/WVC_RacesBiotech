@@ -10,6 +10,8 @@ namespace WVC_XenotypesAndGenes
     public class BloodeaterMode_Corpse : BloodeaterMode
 	{
 
+		public override bool CanDownedBloodfeed => false;
+
 		public override bool GetFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false)
 		{
 			return TryHuntForFood(pawn, abilityDef, requestQueueing, queue);

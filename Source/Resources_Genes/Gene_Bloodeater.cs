@@ -17,17 +17,17 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (currentBloodfeedMethod == null)
+				if (currentBloodfeedMode == null)
 				{
 					return XaG_UiUtility.OnOrOff(false);
 				}
-				return currentBloodfeedMethod.LabelCap;
+				return currentBloodfeedMode.LabelCap;
 			}
 		}
 
 		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
 
-		public BloodeaterModeDef currentBloodfeedMethod;
+		public BloodeaterModeDef currentBloodfeedMode;
 
 
         private static List<BloodeaterModeDef> cachedModeDefs;
@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (mode.CanUse(pawn))
 					{
-						currentBloodfeedMethod = mode;
+						currentBloodfeedMode = mode;
 						canAutoFeed = true;
 						//genesSettings.Close();
 					}
@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			list.Add(new FloatMenuOption("Off".Translate(), delegate
 			{
-				currentBloodfeedMethod = null;
+				currentBloodfeedMode = null;
 				canAutoFeed = false;
 				//genesSettings.Close();
 			}, orderInPriority: -999));
@@ -148,9 +148,9 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
-				if (currentBloodfeedMethod != null)
+				if (currentBloodfeedMode != null)
                 {
-					return base.LabelCap + " (" + currentBloodfeedMethod.LabelCap + ")";
+					return base.LabelCap + " (" + currentBloodfeedMode.LabelCap + ")";
 				}
                 return base.LabelCap;
             }
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     if (mode.CanUse(pawn))
                     {
-                        currentBloodfeedMethod = mode;
+                        currentBloodfeedMode = mode;
                         break;
                     }
                 }
@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
-			Scribe_Defs.Look(ref currentBloodfeedMethod, "currentBloodfeedMethod");
+			Scribe_Defs.Look(ref currentBloodfeedMode, "currentBloodfeedMethod");
 		}
 
 		public override void TickInterval(int delta)
@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 			//	currentBloodfeedMethod = null;
 			//	return;
 			//}
-			if (canAutoFeed && currentBloodfeedMethod == null)
+			if (canAutoFeed && currentBloodfeedMode == null)
             {
 				TrySetInitialMod();
 			}
@@ -236,13 +236,13 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-			if (currentBloodfeedMethod != null)
+			if (currentBloodfeedMode != null)
             {
-                if (!currentBloodfeedMethod.CanUse(pawn))
+                if (!currentBloodfeedMode.CanUse(pawn))
                 {
                     return;
                 }
-                currentBloodfeedMethod.Worker.GetFood(pawn, currentBloodfeedMethod.abilityDef, MiscUtility.PawnDoIngestJob(pawn), queue);
+                currentBloodfeedMode.Worker.GetFood(pawn, currentBloodfeedMode.abilityDef, MiscUtility.PawnDoIngestJob(pawn), queue);
             }
             else
 			{
@@ -265,13 +265,13 @@ namespace WVC_XenotypesAndGenes
 			pawns.Shuffle();
 			for (int j = 0; j < pawns.Count; j++)
 			{
-				if (currentBloodfeedMethod != null)
+				if (currentBloodfeedMode != null)
 				{
-					if (!currentBloodfeedMethod.CanUse(pawn))
+					if (!currentBloodfeedMode.CanUse(pawn))
 					{
 						break;
 					}
-					if (!currentBloodfeedMethod.Worker.GetFood_Caravan(pawn, pawns[j], caravan))
+					if (!currentBloodfeedMode.Worker.GetFood_Caravan(pawn, pawns[j], caravan))
 					{
 						continue;
 					}
@@ -331,19 +331,24 @@ namespace WVC_XenotypesAndGenes
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
+			if (currentBloodfeedMode?.Worker?.CanDownedBloodfeed != true)
+			{
+				yield break;
+			}
 			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
 				yield break;
 			}
-			if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, selPawn))
+			if (!currentBloodfeedMode.Worker.CanBloodFeedNowWith(pawn, selPawn))
 			{
 				yield return new FloatMenuOption("WVC_NotEnoughBlood".Translate(), null);
 				yield break;
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_FeedWithBlood".Translate() + " " + pawn.LabelShort, delegate
 			{
-				Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
-				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+				//Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
+				//selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+				currentBloodfeedMode.Worker.DownedBloodfeed(pawn, selPawn, Props.bloodeaterFeedingJobDef);
 			}), selPawn, pawn);
 		}
 
@@ -360,9 +365,9 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryBloodEat",
 					action = delegate
 					{
-						if (currentBloodfeedMethod != null)
+						if (currentBloodfeedMode != null)
                         {
-							currentBloodfeedMethod.Worker.GetFood(pawn, currentBloodfeedMethod.abilityDef);
+							currentBloodfeedMode.Worker.GetFood(pawn, currentBloodfeedMode.abilityDef);
 						}
 						else
                         {
@@ -377,6 +382,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return gizmo;
 				}
+			}
+			if (currentBloodfeedMode?.Worker?.CanDownedBloodfeed != true)
+			{
+				yield break;
 			}
 			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
@@ -394,13 +403,13 @@ namespace WVC_XenotypesAndGenes
 					for (int i = 0; i < list2.Count; i++)
 					{
 						Pawn absorber = list2[i];
-						if (absorber.genes != null 
-							&& GeneFeaturesUtility.CanBloodFeedNowWith(pawn, absorber))
+						if (currentBloodfeedMode.Worker.CanBloodFeedNowWith(pawn, absorber))
 						{
 							list.Add(new FloatMenuOption(absorber.LabelShort, delegate
 							{
-								Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
-								absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+								//Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
+								//absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+								currentBloodfeedMode.Worker.DownedBloodfeed(pawn, absorber, Props.bloodeaterFeedingJobDef);
 							}, absorber, Color.white));
 						}
 					}

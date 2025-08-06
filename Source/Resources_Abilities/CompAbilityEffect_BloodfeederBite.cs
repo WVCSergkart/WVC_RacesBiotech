@@ -58,14 +58,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (target.HasThing && target.Thing is Corpse corpse)
 			{
-				if (corpse.GetRotStage() == RotStage.Dessicated)
-				{
-					if (throwMessages)
-					{
-						Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
 				Pawn innerPawn = corpse.InnerPawn;
 				if (innerPawn.IsAndroid() || target.Thing.IsUnnaturalCorpse())
 				{
@@ -75,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-				if (!innerPawn.CanBleed() || innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && (hediff.Severity >= hediff.def.maxSeverity || hediff.Severity >= hediff.def.lethalSeverity))
+				if (corpse.GetRotStage() == RotStage.Dessicated || !innerPawn.CanBleed() || innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && (hediff.Severity >= hediff.def.maxSeverity || hediff.Severity >= hediff.def.lethalSeverity))
 				{
 					if (throwMessages)
 					{

@@ -14,9 +14,14 @@ namespace WVC_XenotypesAndGenes
 			return TryHuntForFood(pawn, abilityDef, requestQueueing, queue, true);
 		}
 
-		public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
+        public override bool CanBloodFeedNowWith(Pawn pawn, Pawn victim)
+        {
+            return GeneFeaturesUtility.CanBloodFeedNowWith(pawn, victim, true);
+        }
+
+        public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
 		{
-			if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, victim, true))
+			if (!CanBloodFeedNowWith(pawn, victim))
 			{
 				return false;
 			}
