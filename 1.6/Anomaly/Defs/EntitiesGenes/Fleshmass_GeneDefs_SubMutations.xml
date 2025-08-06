@@ -134,6 +134,36 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FlycatcherSkin</defName>
+	<label>flycatcher skin</label>
+	<!-- <description>Carriers of this gene have skin that can eat small insects that land on it. It can also process clothing into nutrients.</description> -->
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh covering the skin and capable of digesting anything that touches it, mainly small insects.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FlycatcherSkin</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_CarnivorousSkin</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<makeImmuneTo>
+	  <li>WoundInfection</li>
+	  <li>MuscleParasites</li>
+	</makeImmuneTo>
+	<customEffectDescriptions>
+		<li>In warm biomes with high &lt;color=#8a8ae6&gt;plant density&lt;/color&gt;, it &lt;color=#8a8ae6&gt;replenishes ~10% /day&lt;/color&gt;, at non-extreme &lt;color=#8a8ae6&gt;temperatures&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Allows to switch the eating of worn apparels.&lt;/color&gt;</li>
+		<li>Each apparel loses 20 HP /day, restoring 2% /day.</li>
+		<li MayRequire="ludeon.rimworld.odyssey">Does not work in space.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>66</reqGeneMat> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
   <!-- ======================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">

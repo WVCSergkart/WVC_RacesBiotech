@@ -11,7 +11,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
+    public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();

@@ -1114,6 +1114,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_HideBandwidth>Mechanitor</WVC_HideBandwidth> -->
 	<WVC_XaG_RemoteControlHideBandwitdhDesc>Allows to hide all mechanitor buttons.</WVC_XaG_RemoteControlHideBandwitdhDesc>
 
+	<WVC_XaG_CarnivorousSkinDesc>When enabled, slowly destroys worn apparel and replenishes the hunger bar.</WVC_XaG_CarnivorousSkinDesc>
+
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
 	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->
