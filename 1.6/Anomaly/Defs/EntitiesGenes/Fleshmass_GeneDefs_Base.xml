@@ -37,7 +37,7 @@
 	<biostatArc>5</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<!-- <li>Healing: 100 hp/day</li> -->
+		<li>Healing: for each mutation (mutation level * 2) hp/day</li>
 		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fleshmass heart&lt;/color&gt;.</li>
 		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
 		<li>Mutations obtained in this way differ from the standard ones.</li>
@@ -53,7 +53,7 @@
 			<!-- <regeneration>100</regeneration> -->
 			<!-- <maxMutationLevel>5</maxMutationLevel> -->
 			<!-- unused -->
-			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Beholdkind</xenotypeDef>
+			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
 		</li>
 	</modExtensions>
   </GeneDef>

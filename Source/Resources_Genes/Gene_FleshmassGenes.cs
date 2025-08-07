@@ -50,26 +50,47 @@ namespace WVC_XenotypesAndGenes
         }
 
 
-		//private int? cachedRegen;
-		//public int RegenRate
-		//{
-		//	get
-		//	{
-		//		if (!cachedRegen.HasValue)
-		//		{
-		//			int regen = 0;
-		//			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-		//			{
-		//				if (hediff is HediffAddedPart_FleshmassNucleus fleshHediff)
-		//				{
-		//					regen += fleshHediff.CurrentLevel;
-		//				}
-		//			}
-		//			cachedRegen = regen;
-		//		}
-		//		return cachedRegen.Value;
-		//	}
-		//}
+        //private int? cachedRegen;
+        //public int RegenRate
+        //{
+        //	get
+        //	{
+        //		if (!cachedRegen.HasValue)
+        //		{
+        //			int regen = 0;
+        //			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+        //			{
+        //				if (hediff is HediffAddedPart_FleshmassNucleus fleshHediff)
+        //				{
+        //					regen += fleshHediff.CurrentLevel;
+        //				}
+        //			}
+        //			cachedRegen = regen;
+        //		}
+        //		return cachedRegen.Value;
+        //	}
+        //}
+
+		private float? cachedRegen;
+        public float Regeneration
+        {
+            get
+            {
+				if (!cachedRegen.HasValue)
+                {
+                    float regen = 0f;
+					foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+                    {
+						if (hediff is HediffAddedPart_FleshmassNucleus fleshmassHediff)
+                        {
+							regen += (fleshmassHediff.CurrentLevel * 2f);
+						}
+                    }
+					cachedRegen = regen;
+				}
+                return cachedRegen.Value;
+            }
+        }
 
         public override void TickInterval(int delta)
 		{
@@ -77,32 +98,32 @@ namespace WVC_XenotypesAndGenes
 			{
 				TryGiveMutation();
 			}
-			//if ()
-			//{
-
-			//}
-		}
+            if (pawn.IsHashIntervalTick(2571, delta))
+            {
+				HealingUtility.Regeneration(pawn, Regeneration, 2571);
+            }
+        }
 
 		public void TryGiveMutation()
 		{
 			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
+				cachedRegen = null;
 				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
 					return;
 				}
 				Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				//cachedRegen = null;
 			}
 			else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
 			{
 				hediffWithComps_FleshmassHeart.LevelUp();
+				cachedRegen = null;
 				if (!PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
 					return;
 				}
 				Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				//cachedRegen = null;
 			}
 			else
 			{

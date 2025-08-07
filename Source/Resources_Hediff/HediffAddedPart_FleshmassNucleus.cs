@@ -122,10 +122,10 @@ namespace WVC_XenotypesAndGenes
                     else
                         curStage.partEfficiencyOffset = mutationLevel * 0.04f;
                 }
-                if (curStage.regeneration > 0f)
-                    curStage.regeneration += mutationLevel;
-                else
-                    curStage.regeneration = mutationLevel * 2f;
+                //if (curStage.regeneration > 0f)
+                //    curStage.regeneration += mutationLevel;
+                //else
+                //    curStage.regeneration = mutationLevel * 2f;
                 if (mutationLevel >= 5)
                     curStage.partIgnoreMissingHP = true;
             }

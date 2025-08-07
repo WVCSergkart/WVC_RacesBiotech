@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDefWithChance> genesWithChance = new();
             foreach (GeneralHolder counter in chimeraConditionalGenes)
             {
-                if (!counter.CanAddGene(pawn))
+                if (!counter.CanAddGene(pawn, gene))
                 {
                     continue;
                 }

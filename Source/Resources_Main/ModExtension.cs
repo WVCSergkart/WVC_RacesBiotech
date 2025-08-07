@@ -37,6 +37,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> genes;
 		public List<BiomeDef> biomeDefs;
 		public XenotypeDef xenotypeDef;
+		public IntRange? metRange;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;
@@ -49,9 +50,25 @@ namespace WVC_XenotypesAndGenes
 		public bool copyStatOffsets = true;
 		public bool copySymbolPack = true;
 
-		public bool CanAddGene(Pawn pawn)
+		public bool CanAddGene(Pawn pawn, Gene_Chimera chimera)
 		{
-			return genes != null && (!reqOneManArmy || StaticCollectionsClass.oneManArmyMode) && (reqGeneDef == null || XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn));
+            if (genes == null)
+            {
+				return false;
+            }
+            if (reqOneManArmy && !StaticCollectionsClass.oneManArmyMode)
+			{
+				return false;
+			}
+            if (reqGeneDef != null && !XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn))
+			{
+				return false;
+			}
+            if (metRange.HasValue && (metRange.Value.TrueMin != chimera.ReqMetRange.TrueMin || metRange.Value.TrueMax != chimera.ReqMetRange.TrueMax))
+			{
+				return false;
+			}
+            return true;
 		}
 
 	}

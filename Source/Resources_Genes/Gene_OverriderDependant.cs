@@ -263,7 +263,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 713, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 713, regenEyes: RegenerateEyes);
 		}
 
 	}

@@ -272,7 +272,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, ignoreScarification: WVC_Biotech.settings.totalHealingIgnoreScarification, tick: 22222, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, tick: 22222, regenEyes: RegenerateEyes);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

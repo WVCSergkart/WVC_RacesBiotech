@@ -77,8 +77,6 @@
 				  <li>Headbone_Human</li>
 				  <li>Voice_Human</li>
 				  <li>WVC_BodySize_Average</li>
-				  <li>WVC_EmotionReset</li>
-				  <li>WVC_BaselinerFertility</li>
 				</genes>
 			  </li>
 			  <!-- Chimera rare -->
@@ -108,6 +106,26 @@
 				  <li>WVC_Chimera_HugeIncreasedLimit</li>
 				  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
 				  <li>WVC_Chimera_BandwidthLimit</li>
+				</genes>
+			  </li>
+			  <!-- Chimera -5 to 5 metabol -->
+			  <li ModderHook="BalancedMetabol_Rare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<!-- Chimera met range limit should be this -->
+				<metRange>-5~5</metRange>
+				<chance>0.44</chance>
+				<genes>
+				  <li>WVC_EmotionReset</li>
+				  <li>WVC_BaselinerFertility</li>
+				</genes>
+			  </li>
+			  <li ModderHook="BalancedMetabol_VeryRare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<metRange>-5~5</metRange>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_PsychicAbility_Baseliner</li>
+				  <li>WVC_UVSensitivity_Baseliner</li>
 				</genes>
 			  </li>
 			  <!-- Basic solo -->

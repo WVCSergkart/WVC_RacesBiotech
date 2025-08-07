@@ -44,7 +44,7 @@
 			<voidMaxResource_StatDef>WVC_MaxVoidEnergy</voidMaxResource_StatDef>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Nociokin</xenotypeDef>
+			<xenotypeDef>WVC_Nociokin</xenotypeDef>
 		</li>
 	</modExtensions>
   </GeneDef>

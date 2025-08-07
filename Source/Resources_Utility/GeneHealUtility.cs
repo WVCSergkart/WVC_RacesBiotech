@@ -12,22 +12,19 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static bool Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 15, bool regenEyes = true)
+		public static bool Regeneration(Pawn pawn, float regeneration, int tick, bool regenEyes = true)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
-			regeneration *= 0.00025f;
+			regeneration /= 60000;
 			if (tick > 0f)
 			{
-				regeneration *= (tick / 15);
+				regeneration *= tick;
 			}
-			// Log.Error(regeneration.ToString());
-			// Old 0.0001243781
-			// New 0.5583333
 			bool woundRegen = false;
 			if (regeneration > 0f)
 			{
-				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (Hediff_Injury h) => h.def != HediffDefOf.Scarification || !ignoreScarification);
+				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (Hediff_Injury h) => h.def != HediffDefOf.Scarification || !WVC_Biotech.settings.totalHealingIgnoreScarification);
 				foreach (Hediff_Injury tmpHediffInjury in tmpHediffInjuries)
 				{
 					float num5 = Mathf.Min(regeneration, tmpHediffInjury.Severity);
@@ -46,13 +43,6 @@ namespace WVC_XenotypesAndGenes
 					using List<Hediff_MissingPart>.Enumerator enumerator3 = tmpHediffMissing.GetEnumerator();
 					if (enumerator3.MoveNext())
 					{
-						//Hediff_MissingPart current4 = enumerator3.Current;
-						//BodyPartRecord part = current4.Part;
-						//pawn.health.RemoveHediff(current4);
-						//Hediff hediff2 = pawn.health.AddHediff(HediffDefOf.Misc, part);
-						//float partHealth = pawn.health.hediffSet.GetPartHealth(part);
-						//hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
-						//pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
 						HealingUtility.Regenerate(pawn, enumerator3.Current);
 						woundRegen = true;
 					}
