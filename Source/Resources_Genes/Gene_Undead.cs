@@ -187,11 +187,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
 		{
-			if (!WVC_Biotech.settings.reincarnation_EnableMechanic)
-			{
-				return false;
-			}
-			if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
+            if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
+            {
+                return false;
+            }
+            if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
 			{
 				return true;
 			}

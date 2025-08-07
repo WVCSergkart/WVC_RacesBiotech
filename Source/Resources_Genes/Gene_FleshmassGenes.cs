@@ -16,7 +16,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
-        private int nextTick = 60000;
+		private int nextTick = 60000;
+
+		public override string LabelCap => base.LabelCap + " (" + "WVC_HealingPerDay".Translate(Regeneration) + ")";
 
 		public override void PostAdd()
 		{

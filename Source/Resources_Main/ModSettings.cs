@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
-		public bool reincarnation_EnableMechanic = true;
+		//public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
@@ -95,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
+		public bool fleshmass_HideBodypartHediffs = false;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;
@@ -196,7 +197,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
 			// Reincarnation
-			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
+			//Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.12f);
 			// Hemogenic
@@ -245,6 +246,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
 			// Fleshmass
 			Scribe_Values.Look(ref fleshmass_MaxMutationsLevel, "fleshmass_MaxMutationsLevel", defaultValue: 5f);
+			Scribe_Values.Look(ref fleshmass_HideBodypartHediffs, "fleshmass_HideBodypartHediffs", defaultValue: false);
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			Scribe_Values.Look(ref gestatedDryads_FilthRateFactor, "gestatedDryads_FilthRateFactor", defaultValue: 0.1f);
@@ -862,7 +864,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_thrallMaker_cooldownOverride".Translate((settings.thrallMaker_cooldownOverride).ToString()), ref settings.thrallMaker_cooldownOverride, 0f, 30f, round: 0);
 				//listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
 			}
@@ -922,7 +924,8 @@ namespace WVC_XenotypesAndGenes
             if (collapse_genesSettings_Anomaly)
             {
                 listingStandard.SliderLabeledWithRef("WVC_Label_fleshmass_MaxMutationsLevel".Translate(settings.fleshmass_MaxMutationsLevel), ref settings.fleshmass_MaxMutationsLevel, 0f, 100f, "WVC_ToolTip_fleshmass_MaxMutationsLevel".Translate(), 0);
-            }
+				listingStandard.CheckboxLabeled("WVC_Label_fleshmass_HideBodypartHediffs".Translate().Colorize(ColorLibrary.LightBlue), ref settings.fleshmass_HideBodypartHediffs, "WVC_ToolTip_fleshmass_HideBodypartHediffs".Translate());
+			}
             listingStandard.GapLine();
             // =
             //listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
@@ -1108,7 +1111,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = settingsDef.xenotypeGestator_GestationTimeFactor;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = settingsDef.xenotypeGestator_GestationMatchPercent;
 			// =
-			WVC_Biotech.settings.reincarnation_EnableMechanic = settingsDef.reincarnation_EnableMechanic;
+			//WVC_Biotech.settings.reincarnation_EnableMechanic = settingsDef.reincarnation_EnableMechanic;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = settingsDef.reincarnation_MinChronoAge;
 			WVC_Biotech.settings.reincarnation_Chance = settingsDef.reincarnation_Chance;
 			// =
@@ -1146,6 +1149,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			//WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			WVC_Biotech.settings.fleshmass_MaxMutationsLevel = settingsDef.fleshmass_MaxMutationsLevel;
+			WVC_Biotech.settings.fleshmass_HideBodypartHediffs = settingsDef.fleshmass_HideBodypartHediffs;
 			// =
 			// Extra
 			//WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;

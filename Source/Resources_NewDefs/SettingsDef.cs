@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
-		public bool reincarnation_EnableMechanic = true;
+		//public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
@@ -91,6 +91,7 @@ namespace WVC_XenotypesAndGenes
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
+		public bool fleshmass_HideBodypartHediffs = false;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;

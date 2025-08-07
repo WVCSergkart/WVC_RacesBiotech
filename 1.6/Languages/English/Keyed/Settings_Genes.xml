@@ -222,6 +222,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>
 	<WVC_ToolTip_fleshmass_MaxMutationsLevel>The maximum possible level that mutations created by the fleshmass nucleus gene can gain. The special bonus is present only for level 5, lower or higher mutation will receive a standard bonus only to efficiency and regeneration.</WVC_ToolTip_fleshmass_MaxMutationsLevel>
 
+	<WVC_Label_fleshmass_HideBodypartHediffs>Hide fleshmass mutations</WVC_Label_fleshmass_HideBodypartHediffs>
+	<WVC_ToolTip_fleshmass_HideBodypartHediffs>If enabled, all fleshmass mutations caused by the fleshmass nucleus gene will be hidden. This will not affect their effects.\n\nIf you are not familiar with the mod, it is recommended to leave the option disabled.</WVC_ToolTip_fleshmass_HideBodypartHediffs>
+
 	<!-- ================================== -->
 
 	<WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>Cycl. self-learn. max level {0}</WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>

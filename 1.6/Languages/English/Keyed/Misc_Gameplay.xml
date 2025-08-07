@@ -76,6 +76,8 @@
 
 	<WVC_XaG_NoSuitableTargets>There are no suitable targets.</WVC_XaG_NoSuitableTargets>
 
+	<WVC_HealingPerDay>Healing: {0} hp/day</WVC_HealingPerDay>
+	<WVC_Level>level {0}</WVC_Level>
 
 	<WVC_XaG_OverriddenByItself>Overridden by itself</WVC_XaG_OverriddenByItself>
 	<!-- <WVC_XaG_SelfOverriderGene>&lt;color=#ff8585&gt;This gene can only be overriden by itself.&lt;/color&gt;</WVC_XaG_SelfOverriderGene> -->
