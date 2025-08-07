@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GenePsychicAbilityBase">
-	<defName>WVC_PsychicAbility_Baseliner</defName>
-	<label>psychically human</label>
-	<labelShortAdj>psy-base</labelShortAdj>
-	<description>Carriers of this gene are baseline psychically-sensitive.</description>
+  <GeneDef ParentName="UVSensitivityBase">
+	<defName>WVC_UVSensitivity_Baseliner</defName>
+	<label>human UV sensitivity</label>
+	<labelShortAdj>UV-base</labelShortAdj>
+	<description>Carriers of this gene have baseliner UV sensitivity.</description>
 	<iconPath>WVC/UI/Genes3/Gene_BaselinerUVSensitivity</iconPath>
-	<displayOrderInCategory>15</displayOrderInCategory>
+	<displayOrderInCategory>45</displayOrderInCategory>
 	<selectionWeight>0.0012</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>

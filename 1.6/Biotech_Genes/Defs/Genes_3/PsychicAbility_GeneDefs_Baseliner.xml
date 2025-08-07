@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="FertilityBase">
-	<defName>WVC_BaselinerFertility</defName>
-	<label>human fertility</label>
-	<description>Carriers of this gene have a normal chance of becoming pregnant or impregnating others.</description>
-	<iconPath>WVC/UI/Genes3/Gene_BaselinerFertility</iconPath>
-	<displayOrderInCategory>105</displayOrderInCategory>
+  <GeneDef ParentName="GenePsychicAbilityBase">
+	<defName>WVC_PsychicAbility_Baseliner</defName>
+	<label>psychically human</label>
+	<labelShortAdj>psy-base</labelShortAdj>
+	<description>Carriers of this gene are baseline psychically-sensitive.</description>
+	<iconPath>WVC/UI/Genes3/Gene_BaselinerPsychicAbility</iconPath>
+	<displayOrderInCategory>15</displayOrderInCategory>
 	<selectionWeight>0.0012</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
