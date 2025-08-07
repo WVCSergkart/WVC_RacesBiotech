@@ -120,6 +120,10 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					FloatMenu();
+				},
+				onHover = delegate
+				{
+					cachedBool = !CanMorph();
 				}
 			};
 		}

@@ -92,17 +92,17 @@
 
   <GeneDef>
 	<defName>WVC_EmotionReset</defName>
-	<label>stable mood</label>
-	<description>Carriers of this gene have the usual mood.</description>
+	<label>human mood</label>
+	<description>Carriers of this gene have the baseliner mood.</description>
 	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>1245</displayOrderInCategory>
 	<selectionWeight>0.0025</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions Inherit="False">
-		<li>Removes the effects of genes that affect mood.</li>
-	</customEffectDescriptions>
+	<customEffectDescriptions Inherit="False"/>
+		<!-- <li>Removes the effects of genes that affect mood.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<exclusionTags>
 	  <li>Mood</li>
 	</exclusionTags>

@@ -77,6 +77,8 @@
 				  <li>Headbone_Human</li>
 				  <li>Voice_Human</li>
 				  <li>WVC_BodySize_Average</li>
+				  <li>WVC_EmotionReset</li>
+				  <li>WVC_BaselinerFertility</li>
 				</genes>
 			  </li>
 			  <!-- Chimera rare -->
@@ -133,6 +135,14 @@
 				  <li>WVC_Chimera_GeneRipper</li>
 				</genes>
 			  </li>
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassArmorCommon">
+				<reqGeneDef>WVC_FleshmassArmor</reqGeneDef>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.51</chance>
+				<genes>
+				  <li>WVC_FlycatcherSkin</li>
+				</genes>
+			  </li>
 			  <!-- Beholder solo -->
 			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassSoloRare">
 				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
@@ -144,6 +154,7 @@
 				  <li>WVC_FleshmassArmor</li>
 				  <li>WVC_FleshmassBuilder</li>
 				  <li>WVC_FleshmassRegeneration</li>
+				  <li>WVC_FleshmassImmunity</li>
 				  <li>WVC_SelfdevourStomach</li>
 				  <li>WVC_Deadlife</li>
 				  <li>WVC_Duplicator</li>

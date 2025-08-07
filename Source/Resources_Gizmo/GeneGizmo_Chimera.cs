@@ -86,6 +86,7 @@ namespace WVC_XenotypesAndGenes
             nextRecache--;
             if (nextRecache < 0)
             {
+                //Log.Error("0");
                 cachedDescription = null;
                 nextRecache = 240;
             }

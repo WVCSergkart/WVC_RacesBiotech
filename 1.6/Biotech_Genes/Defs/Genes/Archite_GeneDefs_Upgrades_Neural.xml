@@ -62,12 +62,12 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
-	<label>silent</label>
+	<label>archite mute</label>
 	<description>Carriers of this gene cannot talk, but have increased metabolic efficiency.</description>
-	<biostatMet>8</biostatMet>
 	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>500</displayOrderInCategory>
+	<biostatMet>8</biostatMet>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -76,20 +76,19 @@
 	</capMods>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	  <li>VRE_ArrogantAndSpeechInability</li>
+	  <li>VRE_ExtremelyAggressiveAndSpeechInability</li>
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef>
 	<defName>WVC_AgeDebuff_Social</defName>
-	<label>silent</label>
+	<label>speech inability</label>
 	<description>Carriers of this gene are completely and irreversibly mute.</description>
 	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
+	<displayOrderInCategory>505</displayOrderInCategory>
+	<displayCategory>Healing</displayCategory>
 	<selectionWeight>0.0002</selectionWeight>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
-	</exclusionTags>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -98,6 +97,11 @@
 	</capMods>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	  <li>VRE_ArrogantAndSpeechInability</li>
+	  <li>VRE_ExtremelyAggressiveAndSpeechInability</li>
+	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
