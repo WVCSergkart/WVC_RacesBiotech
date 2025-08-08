@@ -24,41 +24,42 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static int GetThrallsLimit(Pawn caller, float cellsPerDay)
-		{
-			float limit = 0f;
-			List<Pawn> colonists = caller?.Map?.mapPawns?.SpawnedPawnsInFaction(caller.Faction);
-			// colonists.Shuffle();
-			foreach (Pawn colonist in colonists)
-			{
-				Gene_Resurgent gene = colonist?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-				if (gene == null)
-				{
-					continue;
-				}
-				foreach (IGeneResourceDrain drainGene in gene.GetDrainGenes)
-				{
-					if (drainGene.CanOffset)
-					{
-						// Log.Error("drainGene.ResourceLossPerDay: " + drainGene.ResourceLossPerDay.ToString());
-						// limit += (int)(drainGene.ResourceLossPerDay * -100);
-						limit += drainGene.ResourceLossPerDay * -1;
-					}
-				}
-			}
-			// Log.Error("Limit v0: " + limit.ToString());
-			if (limit <= 0f)
-			{
-				return 0;
-			}
-			limit = (int)(Math.Round(((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100) - 1, 0, MidpointRounding.ToEven));
-			// Log.Error("Limit v1: " + limit.ToString());
-			if (limit >= 1000f)
-			{
-				return 999;
-			}
-			return (int)limit;
-		}
+		//[Obsolete]
+		//public static int GetThrallsLimit(Pawn caller, float cellsPerDay)
+		//{
+		//	float limit = 0f;
+		//	List<Pawn> colonists = caller?.Map?.mapPawns?.SpawnedPawnsInFaction(caller.Faction);
+		//	// colonists.Shuffle();
+		//	foreach (Pawn colonist in colonists)
+		//	{
+		//		Gene_Resurgent gene = colonist?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
+		//		if (gene == null)
+		//		{
+		//			continue;
+		//		}
+		//		foreach (IGeneResourceDrain drainGene in gene.GetDrainGenes)
+		//		{
+		//			if (drainGene.CanOffset)
+		//			{
+		//				// Log.Error("drainGene.ResourceLossPerDay: " + drainGene.ResourceLossPerDay.ToString());
+		//				// limit += (int)(drainGene.ResourceLossPerDay * -100);
+		//				limit += drainGene.ResourceLossPerDay * -1;
+		//			}
+		//		}
+		//	}
+		//	// Log.Error("Limit v0: " + limit.ToString());
+		//	if (limit <= 0f)
+		//	{
+		//		return 0;
+		//	}
+		//	limit = (int)(Math.Round(((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100) - 1, 0, MidpointRounding.ToEven));
+		//	// Log.Error("Limit v1: " + limit.ToString());
+		//	if (limit >= 1000f)
+		//	{
+		//		return 999;
+		//	}
+		//	return (int)limit;
+		//}
 
 		//[Obsolete]
 		//public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
@@ -97,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (TryAddMechlink(pawn))
 			{
-				if (pawn.Faction == Faction.OfPlayer)
+				if (PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
 					Find.LetterStack.ReceiveLetter("WVC_XaG_GeneNaturalMechlinkLetterLabel".Translate(), "WVC_XaG_GeneNaturalMechlinkLetterDesc".Translate(pawn.Named("PAWN")), LetterDefOf.PositiveEvent, pawn);
 				}
@@ -129,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-				if (pawn.Faction == Faction.OfPlayer)
+				if (PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
 					Find.LetterStack.ReceiveLetter("WVC_XaG_GeneNaturalPsylinkLetterLabel".Translate(), "WVC_XaG_GeneNaturalPsylinkLetterDesc".Translate(pawn.Named("PAWN")), LetterDefOf.PositiveEvent, pawn);
 				}
