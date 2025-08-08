@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			Thing implant = target.Thing;
-			if (HediffUtility.TryInstallPart(parent.pawn, implant.def))
+			if (HediffUtility.TryInstallPart(parent.pawn, implant.def, implant))
             {
 				MiscUtility.ReduceStack(implant);
                 Messages.Message("WVC_XaG_GeneImplantImplanter_Succes".Translate(), parent.pawn, MessageTypeDefOf.NeutralEvent, historical: false);

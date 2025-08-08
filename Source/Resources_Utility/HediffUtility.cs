@@ -387,7 +387,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool TryInstallPart(Pawn pawn, ThingDef partDef)
+		public static bool TryInstallPart(Pawn pawn, ThingDef partDef, Thing implant)
 		{
 			//IEnumerable<RecipeDef> source = DefDatabase<RecipeDef>.AllDefs.Where((RecipeDef x) => x.IsIngredient(partDef) && pawn.def.AllRecipes.Contains(x));
 			if (IsImplantable(partDef, pawn, out IEnumerable<RecipeDef> source))
@@ -395,18 +395,18 @@ namespace WVC_XenotypesAndGenes
 				RecipeDef recipeDef = source.RandomElement();
 				if (!recipeDef.targetsBodyPart)
 				{
-					recipeDef.Worker.ApplyOnPawn(pawn, null, null, new(), null);
+					recipeDef.Worker.ApplyOnPawn(pawn, null, null, new() { implant }, null);
 				}
 				else if (recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any())
 				{
 					List<BodyPartRecord> parts = recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).ToList();
 					if (parts.Count > 1)
 					{
-						Find.WindowStack.Add(new Dialog_ImplantImplanter(pawn, recipeDef, parts));
+						Find.WindowStack.Add(new Dialog_ImplantImplanter(pawn, recipeDef, parts, implant));
 					}
 					else
                     {
-                        ApplyImplantOnPawn(pawn, recipeDef, parts);
+                        ApplyImplantOnPawn(pawn, recipeDef, parts, implant);
                     }
                 }
 				return true;
@@ -414,9 +414,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        public static void ApplyImplantOnPawn(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> parts)
+        public static void ApplyImplantOnPawn(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> parts, Thing implant)
         {
-            recipeDef.Worker.ApplyOnPawn(pawn, parts.RandomElement(), null, new(), null);
+            recipeDef.Worker.ApplyOnPawn(pawn, parts.RandomElement(), null, new() { implant }, null);
         }
 
         //public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)

@@ -14,12 +14,14 @@ namespace WVC_XenotypesAndGenes
 		public List<BodyPartRecord> possibleParts;
 		public Pawn pawn;
 		public RecipeDef recipeDef;
+		public Thing implant;
 
-		public Dialog_ImplantImplanter(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> possibleRecipes)
+		public Dialog_ImplantImplanter(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> possibleRecipes, Thing implant)
 		{
 			this.possibleParts = possibleRecipes;
 			this.pawn = pawn;
 			this.recipeDef = recipeDef;
+			this.implant = implant;
 			forcePause = true;
 			doCloseButton = false;
 			draggable = true;
@@ -55,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 					if (Widgets.ButtonText(rect3, controller.LabelShortCap))
 					{
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
-						HediffUtility.ApplyImplantOnPawn(pawn, recipeDef, new() { controller });
+						HediffUtility.ApplyImplantOnPawn(pawn, recipeDef, new() { controller }, implant);
 						Close();
 					}
 					Rect rect4 = new(0f, 0f, 200f, rect.height);
