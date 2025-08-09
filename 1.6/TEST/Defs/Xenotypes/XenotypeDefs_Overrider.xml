@@ -80,4 +80,46 @@
 	<!-- </modExtensions> -->
   </XenotypeDef>
 
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers"> -->
+	<!-- <defName>WVC_Nocioder</defName> -->
+	<!-- <label>nocioder</label> -->
+	<!-- <description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</description> -->
+	<!-- <descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort> -->
+	<!-- <iconPath>WVC/UI/Icons3/Icon_Overrider0c</iconPath> -->
+	<!-- <displayPriority>-230</displayPriority> -->
+	<!-- <canGenerateAsCombatant>false</canGenerateAsCombatant> -->
+	<!-- <factionlessGenerationWeight>0</factionlessGenerationWeight> -->
+	<!-- <genes> -->
+		<!-- <li>Hemogenic</li> -->
+		<!-- <li>WVC_Tough</li> -->
+		<!-- <li>WVC_Chimera</li> -->
+		<!-- <li>FireWeakness</li> -->
+		<!-- <li>FireTerror</li> -->
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
+		<!-- <li>Deathrest</li> -->
+		<!-- <li>Neversleep</li> -->
+		<!-- <li>LongjumpLegs</li> -->
+		<!-- <li>Sterile</li> -->
+		<!-- <li>WVC_HairColor_Slate</li> -->
+		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>WVC_FleshmassSkin</li> -->
+		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<!-- <li>WVC_DemonTailA</li> -->
+		<!-- <li>WVC_Ears_PointedB</li> -->
+		<!-- <li>WVC_VoidMechlink</li> -->
+		<!-- <li>WVC_FleshmassNucleus</li> -->
+		<!-- <li>WVC_WoundHealing_SelfRepair</li> -->
+		<!-- <li>WVC_Incrementer</li> -->
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
+		<!-- <li>WVC_HemogenicCharge</li> -->
+		<!-- <li>WVC_PsychicAbility_AlmostDeaf</li> -->
+		<!-- <li>WVC_Mechfeeder</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
+	<!-- </genes> -->
+  <!-- </XenotypeDef> -->
+
 </Defs>

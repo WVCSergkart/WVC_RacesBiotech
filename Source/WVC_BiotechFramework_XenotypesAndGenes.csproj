@@ -87,6 +87,7 @@
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraGeneline.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraHediff.cs" />
+    <Compile Include="Resources_Genes\Gene_DayNightSleepnes.cs" />
     <Compile Include="Resources_Genes\Gene_Devourer.cs" />
     <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraNetwork.cs" />
