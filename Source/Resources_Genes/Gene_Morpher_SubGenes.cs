@@ -89,12 +89,19 @@ namespace WVC_XenotypesAndGenes
 		public void MorphAutoCast()
 		{
 			if (!AutoCastable)
-            {
+			{
 				return;
-            }
+			}
 			if (CanMorph())
-            {
-				MorpherTrigger(null);
+			{
+				if (Morpher.SavedGeneSets.NullOrEmpty())
+				{
+					MorpherTrigger(null);
+				}
+				else
+				{
+					MorpherTrigger(Morpher.SavedGeneSets.RandomElement());
+				}
 			}
 		}
 
