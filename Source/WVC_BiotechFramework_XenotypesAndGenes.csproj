@@ -119,6 +119,7 @@
     <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
+    <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skinshaper.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skillshifter.cs" />

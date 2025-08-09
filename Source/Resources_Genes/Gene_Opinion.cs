@@ -9,11 +9,22 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Opinion : Gene
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+        {
+            get
+            {
+				if (cachedExtension == null)
+                {
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+                return cachedExtension;
+            }
+        }
 
-		// public int nextTick = 1500;
+        // public int nextTick = 1500;
 
-		public override void TickInterval(int delta)
+        public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			if (!pawn.IsHashIntervalTick(57250, delta))
@@ -66,7 +77,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AngelBeauty : Gene_FoodEfficiency
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		public override void TickInterval(int delta)
 		{
@@ -105,7 +127,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DemonBeauty : Gene
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		public override void TickInterval(int delta)
 		{
@@ -153,7 +186,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodfeederBeauty : Gene, IGeneBloodfeeder
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
@@ -227,7 +271,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SweetVoice : Gene_Speaker
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -338,7 +393,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Recluse : Gene
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		private int nextTick = 841;
 
@@ -374,7 +440,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HumanCentric : Gene
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+		private GeneExtension_Opinion cachedExtension;
+		public GeneExtension_Opinion Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedExtension;
+			}
+		}
 
 		private int nextTick = 842;
 

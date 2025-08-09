@@ -189,6 +189,7 @@ namespace WVC_XenotypesAndGenes
 	public class GeneExtension_Opinion : DefModExtension
 	{
 		public ThoughtDef thoughtDef;
+		public ThoughtDef packMemberLost;
 		public ThoughtDef AboutMeThoughtDef;
 		public ThoughtDef MeAboutThoughtDef;
 		public ThoughtDef myTargetInGeneralThought;

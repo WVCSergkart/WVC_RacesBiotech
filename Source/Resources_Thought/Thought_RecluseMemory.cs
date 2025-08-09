@@ -29,4 +29,14 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Thought_PackMentality : Thought_Memory
+    {
+
+        public override float MoodOffset()
+        {
+            return base.MoodOffset() * Gene_PackMentality.ThePack.Count;
+        }
+
+    }
+
 }

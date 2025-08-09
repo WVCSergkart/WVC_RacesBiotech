@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_PackMentality</defName>
+	<label>pack mentality</label>
+	<description>Carriers of this gene are capable of forming tightly knit communities, and become happier the stronger their community is.</description>
+	<iconPath>WVC/UI/Genes3/Gene_PackMentality</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PackMentality</geneClass>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>1000</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Each pawn with this gene get a +50 to &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; about carriers of this gene.</li>
+		<li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, the size of which is the number of pawns in the pack.</li>
+		<li>&lt;color=#8a8ae6&gt;Updated&lt;/color&gt; once a &lt;color=#8a8ae6&gt;day&lt;/color&gt; or when a new pawn is added to the pack.</li>
+	</customEffectDescriptions>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_PackMentality_Opinion</AboutMeThoughtDef>
+			<thoughtDef>WVC_PackMentality_Mood</thoughtDef>
+			<packMemberLost>WVC_PackMentality_DiedMember</packMemberLost>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+	<defName>WVC_IngestedNutrientsInjector</defName>
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>2</durationDays>
+	<stackLimit>5</stackLimit>
+	<validWhileDespawned>true</validWhileDespawned>
+	<nullifyingGenes>
+	  <li>WVC_Dustogenic</li>
+	</nullifyingGenes>
+	<stages>
+	  <li>
+		<label>ingested dustogenic food</label>
+		<description>I ingested a dustogenic food. It may be nutritious, but it tastes indescribably terrible.</description>
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>
