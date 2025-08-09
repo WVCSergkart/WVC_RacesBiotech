@@ -84,6 +84,20 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		public virtual bool AutoCastable => true;
+
+		public void MorphAutoCast()
+		{
+			if (!AutoCastable)
+            {
+				return;
+            }
+			if (CanMorph())
+            {
+				MorpherTrigger(null);
+			}
+		}
+
 		public virtual bool CanMorph()
 		{
 			return false;
@@ -318,6 +332,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathrestMorph : Gene_MorpherTrigger
 	{
 
+		public override bool AutoCastable => false;
+
 		public override bool CanMorph()
 		{
 			Need_Deathrest deathrest = pawn.needs?.TryGetNeed<Need_Deathrest>();
@@ -343,6 +359,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathlessMorph : Gene_MorpherTrigger
 	{
 
+		public override bool AutoCastable => false;
+
 		public override bool CanMorph()
 		{
 			return SanguophageUtility.ShouldBeDeathrestingOrInComaInsteadOfDead(pawn);
@@ -359,66 +377,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_UndeadMorph : Gene_MorpherTrigger
 	{
 
-		//private bool shouldMorph = true;
-
-		//public override bool CanMorph()
-		//{
-		//	return shouldMorph && Active && Morpher != null;
-		//}
-
-		//public bool TryMorphWithChance(PawnGeneSetHolder geneSet, float chance = 0.2f)
-		//{
-		//	if (Rand.Chance(chance) && CanMorph())
-		//	{
-		//		MorpherTrigger(geneSet);
-		//		return true;
-		//	}
-		//	return false;
-		//}
-
-		//public override void MorpherTrigger(PawnGeneSetHolder geneSet)
-		//{
-		//	try
-		//	{
-		//		Morpher?.TryMorph(geneSet, true, OneTimeUse);
-		//	}
-		//	catch (Exception arg)
-		//	{
-		//		Log.Error("Failed create form and morph. Reason: " + arg);
-		//	}
-		//}
-
-		//public override IEnumerable<Gizmo> GetGizmos()
-		//{
-		//	if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-		//	{
-		//		yield break;
-		//	}
-		//	yield return new Command_Action
-		//	{
-		//		defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(shouldMorph),
-		//		defaultDesc = "WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc".Translate(),
-		//		icon = ContentFinder<Texture2D>.Get(def.iconPath),
-		//		action = delegate
-		//		{
-		//			shouldMorph = !shouldMorph;
-		//			if (shouldMorph)
-		//			{
-		//				SoundDefOf.Tick_High.PlayOneShotOnCamera();
-		//			}
-		//			else
-		//			{
-		//				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-		//			}
-		//		}
-		//	};
-		//}
-
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Values.Look(ref shouldMorph, "shouldMorph", false);
-		//}
+		public override bool AutoCastable => false;
 
 		public override bool CanMorph()
 		{
@@ -441,6 +400,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_HemogenMorph : Gene_MorpherTrigger
 	{
+
+		public override bool AutoCastable => false;
 
 		[Unsaved(false)]
 		private Gene_Hemogen cachedHemogenGene;
@@ -480,6 +441,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PsyfocusMorph : Gene_MorpherTrigger
 	{
 
+		public override bool AutoCastable => false;
+
 		public override bool CanMorph()
 		{
 			float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
@@ -500,6 +463,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_AbilityMorph : Gene_MorpherTrigger
 	{
+
+		public override bool AutoCastable => false;
 
 		public override bool CanMorph()
 		{
@@ -535,6 +500,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_DeathRefusalMorph : Gene_MorpherTrigger
 	{
+
+		public override bool AutoCastable => false;
 
 		public override bool CanMorph()
 		{

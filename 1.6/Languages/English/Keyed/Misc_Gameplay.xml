@@ -1000,6 +1000,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_GeneMorpherArchitesLevel_Desc>Order the pawn to find the archite capsule and absorb its contents to increase the maximum form limit.</WVC_XaG_GeneMorpherArchitesLevel_Desc> -->
 	<WVC_XaG_GeneMorpherMenu_Desc>Opens a menu where you can view the morpher's saved genesets. Genesets cannot be edited or deleted in this menu.</WVC_XaG_GeneMorpherMenu_Desc>
+	<WVC_XaG_GeneMorpherAutoCast_Desc>Allows to toggle the morpher's autocast. Autocast follows the rules of the current trigger and does not work with some triggers.</WVC_XaG_GeneMorpherAutoCast_Desc>
+	<WVC_XaG_GeneMorpherAutoCast_Status>Autocast is</WVC_XaG_GeneMorpherAutoCast_Status>
 
 	<WVC_XaG_GeneMorpherChangeTriggerGene_Desc>Change the trigger gene to any of your choice. You will need archite capsules to change it. The trigger changes only for the current form.</WVC_XaG_GeneMorpherChangeTriggerGene_Desc>
 	<WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>There is no suitable stack of archite capsules within reach.</WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage>

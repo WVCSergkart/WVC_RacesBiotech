@@ -81,9 +81,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        //public ThingOwner SearchableContents => innerContainer;
+		//public ThingOwner SearchableContents => innerContainer;
 
-        public override void CompTick()
+		public override void CompTick()
+		{
+
+		}
+
+		public override void CompTickInterval(int delta)
 		{
 			//innerContainer.ThingOwnerTick();
 			if (tickComplete >= 0)
@@ -150,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		private int tickExpire = -1;
 
-		//private PawnKindDef dryadKind;
+		private PawnKindDef dryadKind;
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
@@ -162,15 +167,13 @@ namespace WVC_XenotypesAndGenes
 			base.PostSpawnSetup(respawningAfterLoad);
 		}
 
-
-
 		public override void TryAcceptPawn(Pawn p)
 		{
 			base.TryAcceptPawn(p);
 			p.Rotation = Rot4.South;
 			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
 			tickExpire = -1;
-			//dryadKind = DryadComp.DryadKind;
+			dryadKind = DryadComp.DryadKind;
 		}
 
 		protected override void Complete()
@@ -216,9 +219,9 @@ namespace WVC_XenotypesAndGenes
 			EjectContents(map, mode);
 		}
 
-		public override void CompTick()
+		public override void CompTickInterval(int delta)
 		{
-			base.CompTick();
+			base.CompTickInterval(delta);
 			if (!parent.Destroyed)
 			{
 				if (innerContainer.Count > 0 && DryadComp?.DryadKind == null)
@@ -228,6 +231,10 @@ namespace WVC_XenotypesAndGenes
 				else if (tickExpire >= 0 && Find.TickManager.TicksGame >= tickExpire)
 				{
 					tickExpire = -1;
+					parent.Destroy();
+				}
+				else if (dryadKind != DryadComp.DryadKind)
+				{
 					parent.Destroy();
 				}
 			}
@@ -251,7 +258,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickExpire, "tickExpire", -1);
-			//Scribe_Defs.Look(ref dryadKind, "dryadKind");
+			Scribe_Defs.Look(ref dryadKind, "dryadKind");
 		}
 	}
 
@@ -274,9 +281,9 @@ namespace WVC_XenotypesAndGenes
 			EjectContents(map, mode);
 		}
 
-		public override void CompTick()
+		public override void CompTickInterval(int delta)
 		{
-			base.CompTick();
+			base.CompTickInterval(delta);
 			if (!parent.Destroyed)
 			{
 				if (innerContainer.Count > 0 && DryadComp == null)

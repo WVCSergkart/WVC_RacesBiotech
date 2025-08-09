@@ -13,6 +13,20 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
+		[Unsaved(false)]
+		private Gene_MorpherTrigger cachedTriggerGene;
+		public Gene_MorpherTrigger Trigger
+		{
+			get
+			{
+				if (cachedTriggerGene == null || !cachedTriggerGene.Active)
+				{
+					cachedTriggerGene = pawn?.genes?.GetFirstGeneOfType<Gene_MorpherTrigger>();
+				}
+				return cachedTriggerGene;
+			}
+		}
+
 		//private int nextTick = 1500;
 
 		private bool? cachedOneTimeMorpher;
@@ -164,6 +178,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedPossibleXenotypesString = null;
 			cachedOneTimeMorpher = null;
+			cachedTriggerGene = null;
 			gizmo = null;
 		}
 
@@ -188,9 +203,20 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Giver cachedExtension;
+		public GeneExtension_Giver Giver
+        {
+            get
+            {
+				if (cachedExtension == null)
+                {
+					cachedExtension = def?.GetModExtension<GeneExtension_Giver>();
+				}
+                return cachedExtension;
+            }
+        }
 
-		public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
+        public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
 
 		public virtual bool TryMorph(PawnGeneSetHolder nextGeneSet, bool shouldMorph = false, bool removeMorpher = false)
 		{

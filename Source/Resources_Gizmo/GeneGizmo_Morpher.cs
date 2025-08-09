@@ -17,10 +17,11 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly CachedTexture JobIcon = new("WVC/UI/XaG_General/MorpherFindArchites_Gizmo_v0");
 		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Morpher_Gizmo_v0");
+        private static readonly CachedTexture AutoCastIcon = new("WVC/UI/XaG_General/Morpher_AutoCast");
 
-		// private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
+        // private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
 
-		public override bool Visible => true;
+        public override bool Visible => true;
 
 		public GeneGizmo_Morpher(Gene_Morpher geneShapeshifter)
 			: base()
@@ -29,15 +30,16 @@ namespace WVC_XenotypesAndGenes
 			pawn = gene?.pawn;
             //gene.gizmoCollapse = gene.IsOneTime;
 			Order = -95f;
-			// if (!ModLister.CheckIdeology("Styling station"))
-			// {
-				// styleIcon = new("WVC/UI/XaG_General/UI_DisabledWhite");
-			// }
-			// if (gene.ShiftMode == null)
-			// {
-				// gene.Reset();
-			// }
-		}
+            // if (!ModLister.CheckIdeology("Styling station"))
+            // {
+            // styleIcon = new("WVC/UI/XaG_General/UI_DisabledWhite");
+            // }
+            // if (gene.ShiftMode == null)
+            // {
+            // gene.Reset();
+            // }
+            autoCast = gene.pawn.health.hediffSet.HasHediff(gene.Giver.hediffDef);
+        }
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
@@ -86,6 +88,40 @@ namespace WVC_XenotypesAndGenes
             // Button
             Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
             HolderDialog(rect5);
+            // Button
+            Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+            AutoCast(rect6);
+        }
+
+        private bool autoCast;
+
+        private void AutoCast(Rect rect5)
+        {
+            Widgets.DrawTextureFitted(rect5, AutoCastIcon.Texture, 1f);
+            if (!autoCast)
+            {
+                Widgets.DrawTextureFitted(rect5, XaG_UiUtility.NonAggressiveRedCancelIcon.Texture, 1f);
+            }
+            if (Mouse.IsOver(rect5))
+            {
+                Widgets.DrawHighlight(rect5);
+                if (Widgets.ButtonInvisible(rect5))
+                {
+                    if (HediffUtility.TryAddHediff(gene.Giver.hediffDef, gene.pawn, gene.def))
+                    {
+                        autoCast = true;
+                    }
+                    else
+                    {
+                        HediffUtility.TryRemoveHediff(gene.Giver.hediffDef, gene.pawn);
+                        autoCast = false;
+                    }
+                }
+            }
+            if (Mouse.IsOver(rect5))
+            {
+                TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneMorpherAutoCast_Desc".Translate() + "\n\n" + "WVC_XaG_GeneMorpherAutoCast_Status".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.pawn.health.hediffSet.HasHediff(gene.Giver.hediffDef)));
+            }
         }
 
         private void HolderDialog(Rect rect5)
@@ -163,8 +199,9 @@ namespace WVC_XenotypesAndGenes
             {
                 return 32f;
             }
-			return 96f;
-		}
+			//return 96f;
+            return 140f;
+        }
 
 		//private List<GeneDef> geneTriggers = null;
 

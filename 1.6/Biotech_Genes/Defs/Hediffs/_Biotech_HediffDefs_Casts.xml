@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Morpher_AutoCast</defName>
+	<label>morher</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_Morpher</hediffClass>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">

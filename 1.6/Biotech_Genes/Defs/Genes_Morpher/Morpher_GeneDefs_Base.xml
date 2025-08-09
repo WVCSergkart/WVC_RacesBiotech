@@ -29,6 +29,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
+			<hediffDef>WVC_Morpher_AutoCast</hediffDef>
 			<morpherTriggerChangeJob>WVC_ChangeMorpherTriggerGene</morpherTriggerChangeJob>
 			<morpherTriggerGenes>
 			  <li>WVC_MorphCondition_Diurnal</li>
