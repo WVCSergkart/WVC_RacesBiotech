@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_ArchiverCopy</defName>
+	<label>chimera form-copying</label>
+	<description>Carriers of this gene can passively copy the genes of forms preserved by the archiver.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraArchiverCopy</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_ChimeraArchiver_Geneharvest</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>220</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Every 3 days the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; copies one random gene from random form.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

@@ -500,6 +500,10 @@ namespace WVC_XenotypesAndGenes
 
         public override bool CanMorph()
 		{
+			if (GameComponent.AmbientHorrorMode)
+            {
+				return true;
+            }
 			return GameComponent?.LevelDef == MonolithLevelDefOf.Embraced;
 		}
 

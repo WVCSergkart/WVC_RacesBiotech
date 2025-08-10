@@ -285,4 +285,49 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_ChimeraArchiverCopy : Gene_ChimeraDependant
+	{
+
+
+		[Unsaved(false)]
+		private Gene_Archiver cachedArchiverGene;
+		public Gene_Archiver Archiver
+		{
+			get
+			{
+				if (cachedArchiverGene == null || !cachedArchiverGene.Active)
+				{
+					cachedArchiverGene = pawn?.genes?.GetFirstGeneOfType<Gene_Archiver>();
+				}
+				return cachedArchiverGene;
+			}
+		}
+
+		public override void TickInterval(int delta)
+		{
+			if (!pawn.IsHashIntervalTick(143448, delta))
+			{
+				return;
+			}
+			if (!pawn.Faction.IsPlayer)
+			{
+				return;
+			}
+			SelfCopy();
+		}
+
+		public void SelfCopy()
+		{
+			if (Archiver == null)
+            {
+				return;
+            }
+			if (Chimera.TryGetGene(Archiver.SavedGeneSets.RandomElement() is PawnContainerHolder holder ? holder.holded : pawn, out GeneDef result))
+			{
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
+
+	}
+
 }

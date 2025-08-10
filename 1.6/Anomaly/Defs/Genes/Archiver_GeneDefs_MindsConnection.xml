@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_Archiver_MindsConnection</defName>
+	<label>minds connection</label>
+	<description>Carriers of this gene have a strong connection with the minds preserved by the archiver and can communicate with them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ArchiverMindsConnection</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_MindsConnection</iconPath>
+	<displayOrderInCategory>-10</displayOrderInCategory>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>WVC_Archiver</prerequisite>
+	<customEffectDescriptions>
+		<li>Triggers random social interactions with &lt;color=#8a8ae6&gt;archiver forms&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

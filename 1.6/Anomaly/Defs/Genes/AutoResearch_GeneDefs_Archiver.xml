@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_Archiver_AutoResearch</defName>
+	<label>archiver research</label>
+	<description>Carriers of this gene can use the minds stored by the archiver for passive research.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ArchiverResearch</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_ArchiverResearch</iconPath>
+	<displayOrderInCategory>-20</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<prerequisite>WVC_Archiver</prerequisite>
+	<customEffectDescriptions>
+		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
+		<li>Efficiency depends on the number of &lt;color=#8a8ae6&gt;forms&lt;/color&gt; of the &lt;color=#8a8ae6&gt;archiver&lt;/color&gt; gene.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <ResearchSpeed>0.2</ResearchSpeed>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>auto</symbol></li>
+		<li><symbol>research</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_AutoResearch</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

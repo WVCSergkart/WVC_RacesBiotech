@@ -72,6 +72,38 @@ namespace WVC_XenotypesAndGenes
 			}
         }
 
-    }
+	}
+
+	public class Gene_ArchiverResearch : Gene_AutoResearch
+	{
+
+		[Unsaved(false)]
+		private Gene_Archiver cachedMainGene;
+		public Gene_Archiver MainGene
+		{
+			get
+			{
+				if (cachedMainGene == null || !cachedMainGene.Active)
+				{
+					cachedMainGene = pawn?.genes?.GetFirstGeneOfType<Gene_Archiver>();
+				}
+				return cachedMainGene;
+			}
+		}
+
+		public override void TickInterval(int delta)
+		{
+			if (!pawn.IsHashIntervalTick(14343, delta))
+			{
+				return;
+			}
+			if (MainGene == null)
+            {
+				return;
+            }
+			DoResearch(14343, 0.12f * MainGene.FormsCount);
+		}
+
+	}
 
 }

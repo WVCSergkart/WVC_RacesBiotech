@@ -32,4 +32,10 @@
 	<skinColorOverride>(64,58,53)</skinColorOverride>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
+	<defName>WVC_SkinColor_Anomaly</defName>
+	<label>anomaly green hair</label>
+	<hairColorOverride>(176,191,128)</hairColorOverride>
+  </GeneDef>
+
 </Defs>

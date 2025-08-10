@@ -13,10 +13,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
-			// if (Pawn_InteractionsTracker.InteractedTooRecentlyToInteract())
-			// {
-			// return false;
-			// }
+			return TryInteractRandomly(pawn, pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction).Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned).ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
+		}
+
+		public static bool TryInteractRandomly(Pawn pawn, List<Pawn> workingList, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
+		{
 			otherPawn = null;
 			if (pawn?.Map == null || pawn.Downed)
 			{
@@ -26,9 +27,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction).Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned).ToList();
 			workingList.Shuffle();
-			//List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
 			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
 			for (int i = 0; i < workingList.Count; i++)
 			{
