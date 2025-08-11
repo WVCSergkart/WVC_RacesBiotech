@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_SoulReaper</defName>
+	<label>The Soulreaper</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>One reaperkind with no supplies and with 4 archiver forms. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one adult reaperkind and 4 archiver forms.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Reaperkind</xenotype>
+			  <pawnKind>Sanguophage_Player</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Reaperkind</xenotype>
+			  <count>1</count>
+			  <description>non-child reaperkind</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+			</li>
+			<li>
+			  <xenotype>Baseliner</xenotype>
+			  <count>4</count>
+			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <archiveAllPawns>true</archiveAllPawns>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<!-- <li Class="ScenPart_Naked"> -->
+			<!-- <def>Naked</def> -->
+			<!-- <chance>0.5</chance> -->
+		<!-- </li> -->
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

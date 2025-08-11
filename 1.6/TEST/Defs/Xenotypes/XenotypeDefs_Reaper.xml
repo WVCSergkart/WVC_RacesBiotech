@@ -2,10 +2,10 @@
 <Defs>
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
-	<defName>WVC_Ripperkind</defName>
-	<label>ripperkind</label>
-	<description>Ripperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
-	<descriptionShort>Ripperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<defName>WVC_Reaperkind</defName>
+	<label>reaperkind</label>
+	<description>Reaperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Reaperkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Ripper</iconPath>
 	<displayPriority>-230</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>

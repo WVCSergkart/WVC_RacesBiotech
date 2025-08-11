@@ -30,14 +30,18 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public override void TickInterval(int delta)
-		{
-			if (!pawn.IsHashIntervalTick(59994, delta))
-			{
-				return;
-			}
-			Gene_HiveMind_Skills.SyncSkills(Archiver?.ArchivedPawns);
-		}
+        {
+            if (!pawn.IsHashIntervalTick(59994, delta))
+            {
+                return;
+            }
+            SyncSkills();
+        }
+        public void SyncSkills()
+        {
+            Gene_HiveMind_Skills.SyncSkills(Archiver?.ArchivedPawns);
+        }
 
-	}
+    }
 
 }

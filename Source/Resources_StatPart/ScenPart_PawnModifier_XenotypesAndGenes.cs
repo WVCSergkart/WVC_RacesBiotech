@@ -37,6 +37,7 @@ namespace WVC_XenotypesAndGenes
         public List<SkillRange> skills;
         public List<TraitDefHolder> forcedTraits;
         public List<GeneralHolder> chimeraGenesPerXenotype;
+        public bool archiveAllPawns = false;
 
 
         //public override void ExposeData()
@@ -168,6 +169,7 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+            ArchivePawns();
             //if (prefabDef != null)
             //{
             //    PrefabUtility.SpawnPrefab(prefabDef, map, map.Center, Rot4.North, Faction.OfPlayer, null, null, null, false);
@@ -181,6 +183,42 @@ namespace WVC_XenotypesAndGenes
             //        QuestUtility.SendLetterQuestAvailable(quest);
             //    }
             //}
+        }
+
+        private void ArchivePawns()
+        {
+            if (!archiveAllPawns)
+            {
+                return;
+            }
+            Gene_Archiver archiver = null;
+            foreach (Pawn item in Find.GameInitData.startingAndOptionalPawns)
+            {
+                Gene_Archiver gene = item.genes?.GetFirstGeneOfType<Gene_Archiver>();
+                if (gene != null)
+                {
+                    archiver = gene;
+                    break;
+                }
+            }
+            if (archiver == null)
+            {
+                return;
+            }
+            GeneDef triggerDef = archiver.pawn.genes?.GetFirstGeneOfType<Gene_MorpherTrigger>()?.def;
+            foreach (Pawn item in Find.GameInitData.startingAndOptionalPawns)
+            {
+                if (item == archiver.pawn)
+                {
+                    continue;
+                }
+                archiver.TryArchiveSelectedPawn(item, archiver.pawn, archiver);
+                if (XaG_GeneUtility.TryRemoveAllConflicts(item, triggerDef))
+                {
+                    item.genes.AddGene(triggerDef, !item.genes.Xenotype.inheritable);
+                }
+            }
+            archiver.pawn.genes?.GetFirstGeneOfType<Gene_Archiver_SkillsSync>()?.SyncSkills();
         }
 
         //private void ScatterCorpses(Map map)

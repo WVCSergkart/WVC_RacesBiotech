@@ -106,14 +106,21 @@ namespace WVC_XenotypesAndGenes
                     return false;
                 }
                 if (archive == null)
-                {
-                    Log.Error("Failed get Gene_Archiver.");
-                    nextPawn?.Destroy();
-                    return false;
-                }
+				{
+					Log.Warning("Failed get Gene_Archiver. Trying added.");
+					nextPawn.genes?.AddGene(def, !nextPawn.genes.Xenotype.inheritable);
+					archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
+					if (archive == null)
+					{
+						Log.Error("Failed get Gene_Archiver.");
+						nextPawn?.Destroy();
+						return false;
+					}
+				}
                 phase = "abjust rotation and upd tools";
                 archive.UpdToolGenes();
-                nextPawn.Rotation = pawn.Rotation;
+				bool isSelected = Find.Selector.IsSelected(pawn) && Find.Selector.SelectedObjectsListForReading.Count == 1;
+				nextPawn.Rotation = pawn.Rotation;
                 nextPawn.stances.stunner.StunFor(60, null, addBattleLog: false);
                 phase = "trying upd equipment";
                 ApparelUpd(pawn, nextPawn);
@@ -122,11 +129,11 @@ namespace WVC_XenotypesAndGenes
                 phase = "trying transfer holders";
                 TransferHolders(this, archive, nextPawn);
                 phase = "trying create new holder";
-                if (!TryArchiveSelectedPawn(pawn, nextPawn, archive))
+				if (!TryArchiveSelectedPawn(pawn, nextPawn, archive))
 				{
 					return false;
 				}
-                if (Find.Selector.SelectedPawns != null && Find.Selector.SelectedPawns.Count == 1 && Find.Selector.SelectedPawns.Contains(pawn))
+                if (isSelected)
                 {
                     Find.Selector.ClearSelection();
                     Find.Selector.Select(nextPawn);
@@ -149,6 +156,10 @@ namespace WVC_XenotypesAndGenes
         public bool TryArchiveSelectedPawn(Pawn toHold, Pawn nextOwner, Gene_Archiver archive)
         {
             PawnContainerHolder newHolder = new();
+			if (toHold.genes?.GetFirstGeneOfType<Gene_Archiver>() == null)
+            {
+				toHold.genes.AddGene(archive.def, !toHold.genes.Xenotype.inheritable);
+			}
             archive.SaveFormID(newHolder);
             //newHolder.formId = SavedGeneSets.Count + 1;
             if (!newHolder.TrySetContainer(nextOwner, toHold))
@@ -460,6 +471,10 @@ namespace WVC_XenotypesAndGenes
 			if (GeneInteractionsUtility.TryInteractRandomly(pawn, Archiver.ArchivedPawns, true, true, false, out _) && pawn.needs?.joy != null)
 			{
 				pawn.needs.joy.CurLevelPercentage += 0.02f;
+				if (Rand.Chance(0.05f) && pawn.skills.skills.Where((SkillRecord skill) => !skill.TotallyDisabled && skill.Level < 20).TryRandomElement(out SkillRecord resultSkill))
+                {
+					resultSkill.Learn(resultSkill.XpRequiredForLevelUp * 0.2f);
+				}
 			}
 			ResetInterval(new(6600, 22000));
 		}

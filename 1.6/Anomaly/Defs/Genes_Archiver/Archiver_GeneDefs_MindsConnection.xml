@@ -15,6 +15,7 @@
 	<prerequisite>WVC_Archiver</prerequisite>
 	<customEffectDescriptions>
 		<li>Triggers random social interactions with &lt;color=#8a8ae6&gt;archiver forms&lt;/color&gt;.</li>
+		<li>Each such interaction increases &lt;color=#8a8ae6&gt;recreation&lt;/color&gt; and has a small chance of giving a little &lt;color=#8a8ae6&gt;experience&lt;/color&gt; for a random &lt;color=#8a8ae6&gt;skill&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

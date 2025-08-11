@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
             }
-			DoResearch(14343, 0.12f * MainGene.FormsCount);
+			DoResearch(14343, 0.6f * MainGene.FormsCount);
 		}
 
 	}
