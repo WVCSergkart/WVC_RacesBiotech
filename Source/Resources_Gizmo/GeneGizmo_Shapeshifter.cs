@@ -74,13 +74,15 @@ namespace WVC_XenotypesAndGenes
             Rect rect2 = rect.ContractedBy(6f);
             Widgets.DrawWindowBackground(rect);
             // Tip
-            TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial, gene.genesRegrowAfterShapeshift.ToStringYesNo());
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             // Label
             Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
             Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst());
-            TooltipHandler.TipRegion(rect3, taggedString);
+            if (Mouse.IsOver(rect3))
+            {
+                TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial, gene.genesRegrowAfterShapeshift.ToStringYesNo()));
+            }
             // Collapse button
             XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
             return rect2;

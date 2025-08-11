@@ -250,23 +250,50 @@ namespace WVC_XenotypesAndGenes
 			}
         }
 
-        // Reimplanter
+		// Reimplanter
 
-        //public virtual void AddGene(GeneDef geneDef, bool inheritable)
-        //{
-        //	if (!geneDef.ConflictsWith(this.def))
-        //	{
-        //		pawn.genes.AddGene(geneDef, !inheritable);
-        //	}
-        //}
+		private List<GeneDef> cachedPreservedGenes;
+		public List<GeneDef> PreservedGeneDefs
+		{
+			get
+			{
+				if (cachedPreservedGenes == null)
+				{
+					List<GeneDef> newList = new();
+					foreach (Gene item in pawn.genes.GenesListForReading)
+					{
+						if (item is Gene_ShapeshifterDependant dependant && dependant.PreservedGeneDefs != null && dependant.Active)
+						{
+							foreach (GeneDef geneDef in dependant.PreservedGeneDefs)
+							{
+								if (!newList.Contains(geneDef))
+								{
+									newList.Add(geneDef);
+								}
+							}
+						}
+					}
+					cachedPreservedGenes = newList;
+				}
+				return cachedPreservedGenes;
+			}
+		}
 
-        //public virtual void RemoveGene(Gene gene)
-        //{
-        //	if (gene != this)
-        //	{
-        //		pawn?.genes?.RemoveGene(gene);
-        //	}
-        //}
+		public virtual void AddGene(GeneDef geneDef, bool inheritable)
+        {
+            if (!geneDef.ConflictsWith(this.def))
+            {
+                pawn.genes.AddGene(geneDef, !inheritable);
+            }
+        }
+
+        public virtual void RemoveGene(Gene gene)
+        {
+            if (gene != this && !PreservedGeneDefs.Contains(gene.def))
+            {
+                pawn.genes.RemoveGene(gene);
+            }
+        }
 
         public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool removeXenogenes = true, bool hybridizeXenotypes = false)
         {
@@ -283,7 +310,7 @@ namespace WVC_XenotypesAndGenes
             }
 			else
 			{
-				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, removeXenogenes, this);
+				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
 			}
 			if (genesRegrowAfterShapeshift)
 			{
@@ -316,7 +343,7 @@ namespace WVC_XenotypesAndGenes
 			float finalPercent = moddedGenesCD / vanillaGenesCD;
 			//Log.Error("CD Percent: " + finalPercent);
 			// get modded cd percent
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f * finalPercent * durationFactor), (int)(count * 1.1f * finalPercent * durationFactor)), pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f * finalPercent * durationFactor), (int)(count * 1.1f * finalPercent * durationFactor)));
         }
 
         public virtual void DoEffects()
@@ -347,6 +374,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
+			cachedPreservedGenes = null;
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
@@ -361,6 +389,7 @@ namespace WVC_XenotypesAndGenes
 				//GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
 			UpdateMetabolism();
+			cachedPreservedGenes = null;
 			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 

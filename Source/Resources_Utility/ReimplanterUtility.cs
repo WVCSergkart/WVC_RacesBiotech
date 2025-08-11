@@ -520,10 +520,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, bool xenogenes = true, Gene ignoredGene = null, bool debug = false)
+		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, Gene_Shapeshifter shapeshiferGene, bool xenogenes = true, bool debug = false)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.Where((gene) => gene != ignoredGene).ToList().NullOrEmpty() || xenogenes)
+			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || xenogenes)
 			{
 				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
 				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
@@ -541,7 +541,7 @@ namespace WVC_XenotypesAndGenes
 						continue;
 					}
 					//RemoveGene(gene);
-					pawn.TryAddOrRemoveGene(ignoredGene, gene);
+					shapeshiferGene.RemoveGene(gene);
 				}
 			}
 			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
@@ -553,7 +553,7 @@ namespace WVC_XenotypesAndGenes
 						continue;
 					}
 					//RemoveGene(gene);
-					pawn.TryAddOrRemoveGene(ignoredGene, gene);
+					shapeshiferGene.RemoveGene(gene);
 				}
 			}
 			foreach (GeneDef geneDef in xenotypeHolder.genes)
@@ -562,8 +562,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				//AddGene(geneDef, xenotypeHolder.inheritable);
-				pawn.TryAddOrRemoveGene(ignoredGene, null, geneDef, xenotypeHolder.inheritable);
+				shapeshiferGene.AddGene(geneDef, xenotypeHolder.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 			if (debug)

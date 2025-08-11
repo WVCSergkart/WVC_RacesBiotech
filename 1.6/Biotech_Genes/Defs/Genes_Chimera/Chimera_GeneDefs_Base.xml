@@ -111,8 +111,7 @@
 			  <!-- Chimera -5 to 5 metabol -->
 			  <li ModderHook="BalancedMetabol_Rare">
 				<reqOneManArmy>false</reqOneManArmy>
-				<!-- Chimera met range limit should be this -->
-				<metRange>-5~5</metRange>
+				<metRange>-5~5</metRange> <!-- Req current chimera met range limit. Not pawn met, met limit! -->
 				<chance>0.44</chance>
 				<genes>
 				  <li>WVC_EmotionReset</li>
@@ -141,6 +140,18 @@
 				  <li>WVC_Chimera_RandomGenesGen</li>
 				  <li>WVC_Chimera_MarkHarvest</li>
 				  <li>WVC_Chimera_SelfCopy</li>
+				</genes>
+			  </li>
+			  <!-- Archiver -->
+			  <li MayRequire="wvc.sergkart.test.tools" ModderHook="ArchiverRare">
+				<reqGeneDef>WVC_Archiver</reqGeneDef>
+				<chance>0.22</chance>
+				<genes>
+				  <li>WVC_Archiver_AutoResearch</li>
+				  <li>WVC_Archiver_Integrator</li>
+				  <li>WVC_Archiver_Skills</li>
+				  <li>WVC_Archiver_MindsConnection</li>
+				  <li>WVC_Chimera_ArchiverCopy</li>
 				</genes>
 			  </li>
 			  <!-- Beholder crew -->

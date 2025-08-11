@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Shapeshifter_SaveChimera</defName>
+	<label>preserved chimera</label>
+	<description>Carriers of this gene always retain the chimera gene when shapeshifted.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_PreservedGenes</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_PreservedChimera</iconPath>
+	<displayOrderInCategory>250</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; will not remove the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; gene when used.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<geneDefs>
+				<li>WVC_Chimera</li>
+			</geneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.anomaly" ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Shapeshifter_SaveArchiver</defName>
+	<label>preserved archiver</label>
+	<description>Carriers of this gene always retain the archiver gene when shapeshifted.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_PreservedGenes</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_PreservedArchiver</iconPath>
+	<displayOrderInCategory>255</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; will not remove the &lt;color=#8a8ae6&gt;archiver&lt;/color&gt; gene when used.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>77</reqGeneMat> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<geneDefs>
+				<li>WVC_Archiver</li>
+			</geneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		public virtual List<GeneDef> PreservedGeneDefs => null;
+
 		private GeneExtension_Giver cachedGeneExtension;
 		public GeneExtension_Giver Giver
 		{
@@ -64,7 +66,37 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
+	public class Gene_Shapeshifter_PreservedGenes : Gene_ShapeshifterDependant
+	{
+
+		private List<GeneDef> cachedPreservedGenes;
+        public override List<GeneDef> PreservedGeneDefs
+        {
+            get
+            {
+				if (cachedPreservedGenes == null)
+                {
+					List<GeneDef> newList = new();
+                    newList.Add(def);
+					if (Giver.geneDefs != null)
+                    {
+						foreach (GeneDef item in Giver.geneDefs)
+                        {
+							if (!newList.Contains(item))
+                            {
+								newList.Add(item);
+							}
+                        }
+                    }
+                    cachedPreservedGenes = newList;
+				}
+                return cachedPreservedGenes;
+            }
+        }
+
+    }
+
+    public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
 	{
 
 		private bool? savedBool;
