@@ -1073,6 +1073,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
 	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
 
+	<WVC_IsDuplcate>Is duplicate</WVC_IsDuplcate>
+	<WVC_IsDuplcateDesc>Whether this pawn is a duplicate of another pawn.</WVC_IsDuplcateDesc>
+
 	<!-- =============== REMOTE CONTROL INTERFACE =============== -->
 
 	<WVC_XaG_RemoteControlBasicDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlBasicDesc>

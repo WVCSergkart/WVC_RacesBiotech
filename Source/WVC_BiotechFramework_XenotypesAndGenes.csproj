@@ -91,6 +91,8 @@
     <Compile Include="Resources_Genes\Gene_ChimeraHediff.cs" />
     <Compile Include="Resources_Genes\Gene_DayNightSleepnes.cs" />
     <Compile Include="Resources_Genes\Gene_Devourer.cs" />
+    <Compile Include="Resources_Genes\Gene_Duplicator.cs" />
+    <Compile Include="Resources_Genes\Gene_DuplicatorDependant.cs" />
     <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraNetwork.cs" />
     <Compile Include="Resources_Genes\Gene_GeneticConverter.cs" />

@@ -1,7 +1,6 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -9,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_HorrorPlating : Gene
+    public class Gene_HorrorPlating : Gene
 	{
 
 		public bool horrorSpawned = false;
@@ -164,41 +163,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref inhumanizedBeforeGene, "inhumanizedBeforeGene", false);
-		}
-
-	}
-
-	public class Gene_Duplicator : Gene
-	{
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-                {
-					defaultLabel = "DEV: TryDuplicate",
-					action = delegate
-                    {
-                        TryDuplicate();
-                    }
-                };
-			}
-		}
-
-		public bool? CanDuplicate()
-		{
-			return pawn.abilities?.GetAbility(def.abilities.First())?.OnCooldown;
-		}
-
-		public void TryDuplicate()
-        {
-            pawn.abilities?.GetAbility(def.abilities.First())?.Activate(pawn, pawn);
-		}
-
-		public void ResetAbility()
-		{
-			pawn.abilities?.GetAbility(def.abilities.First())?.ResetCooldown();
 		}
 
 	}

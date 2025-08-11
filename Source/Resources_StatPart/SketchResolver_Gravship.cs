@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public PrefabDef prefabDef;
+		public IntVec3 engineVector = new(-1, 0, 0);
 
 		protected override bool CanResolveInt(SketchResolveParams parms)
 		{
@@ -23,11 +24,12 @@ namespace WVC_XenotypesAndGenes
 		protected override void ResolveInt(SketchResolveParams parms)
 		{
 			Sketch sketch = new();
-			sketch.AddThing(ThingDefOf.GravEngine, new IntVec3(-1, 0, 0), Rot4.North, null, 1, null, null, wipeIfCollides: true, 0.5f);
+			sketch.AddThing(ThingDefOf.GravEngine, engineVector, Rot4.North, null, 1, null, null, wipeIfCollides: true, 0.5f);
 			if (prefabDef != null)
 			{
 				sketch.AddPrefab(prefabDef, new IntVec3(0, 0, 0), Rot4.North);
 			}
+			//ThingDefOf.GravEngine.GetCompProperties<CompProperties_SubstructureFootprint>().radius = 18.9f;
 			parms.sketch.Merge(sketch);
 		}
 

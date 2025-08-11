@@ -26,7 +26,10 @@
 	</descriptionHyperlinks>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>31</reqGeneMat>
+			<reqGeneMat>51</reqGeneMat>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<statDef MayRequire="ludeon.rimworld.anomaly">WVC_DuplicatorOutcomeFactor</statDef>
 		</li>
 	</modExtensions>
   </GeneDef>

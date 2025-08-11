@@ -11,6 +11,20 @@ namespace WVC_XenotypesAndGenes
 	public class CompAbilityEffect_Duplicator : CompAbilityEffect
 	{
 
+		[Unsaved(false)]
+		private Gene_Duplicator cachedDuplicatorGene;
+		public Gene_Duplicator Duplicator
+		{
+			get
+			{
+				if (cachedDuplicatorGene == null || !cachedDuplicatorGene.Active)
+				{
+					cachedDuplicatorGene = parent.pawn?.genes?.GetFirstGeneOfType<Gene_Duplicator>();
+				}
+				return cachedDuplicatorGene;
+			}
+		}
+
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
@@ -22,8 +36,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			float failChanceFactor = Duplicator.StatDef != null ? parent.pawn.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
-			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
+			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
             {
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
@@ -59,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!pawn.IsHuman())
+			if (!pawn.IsHuman() || Duplicator == null)
 			{
 				if (throwMessages)
 				{

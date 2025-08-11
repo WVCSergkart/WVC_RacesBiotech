@@ -893,14 +893,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			foreach (Ideo item in Faction.OfPlayer.ideos.AllIdeos)
-			{
-				if (!item.PreceptsListForReading.Any((precept) => precept is Precept_Ritual))
-				{
-					break;
-				}
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
-			}
+			//foreach (Ideo item in Faction.OfPlayer.ideos.AllIdeos)
+			//{
+			//	if (item.PreceptsListForReading.Any((precept) => precept is Precept_Ritual))
+			//	{
+			//		break;
+			//	}
+			//}
+			Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
 		}
 
 		//[Obsolete]

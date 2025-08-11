@@ -35,9 +35,6 @@
 		</Substructure>
 	  </terrain>
 	  <things>
-		<!-- <GravEngine> -->
-		  <!-- <position>(14, 0, 11)</position> -->
-		<!-- </GravEngine> -->
 		<GravshipHull>
 		  <rects>
 			<li>(1,0,7,0)</li>
@@ -351,111 +348,5 @@
 	  </things>
 	</PrefabDef>
 
-
-	<!-- <PrefabDef> -->
-	  <!-- <defName>WVC_BigShip</defName> -->
-	  <!-- <size>(40,26)</size> -->
-	  <!-- <things> -->
-		<!-- <Door> -->
-		  <!-- <rects> -->
-			<!-- <li>(6,3,6,3)</li> -->
-			<!-- <li>(31,9,31,9)</li> -->
-			<!-- <li>(37,10,37,10)</li> -->
-			<!-- <li>(9,12,9,12)</li> -->
-			<!-- <li>(37,14,37,14)</li> -->
-			<!-- <li>(31,15,31,15)</li> -->
-			<!-- <li>(6,21,6,21)</li> -->
-		  <!-- </rects> -->
-		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
-		  <!-- <stuff>Steel</stuff> -->
-		<!-- </Door> -->
-		<!-- <Door> -->
-		  <!-- <rects> -->
-			<!-- <li>(21,4,21,4)</li> -->
-			<!-- <li>(28,4,28,4)</li> -->
-			<!-- <li>(15,6,15,6)</li> -->
-			<!-- <li>(23,10,23,10)</li> -->
-			<!-- <li>(29,10,29,10)</li> -->
-			<!-- <li>(23,14,23,14)</li> -->
-			<!-- <li>(29,14,29,14)</li> -->
-			<!-- <li>(15,18,15,18)</li> -->
-			<!-- <li>(21,20,21,20)</li> -->
-			<!-- <li>(28,20,28,20)</li> -->
-		  <!-- </rects> -->
-		  <!-- <stuff>Steel</stuff> -->
-		<!-- </Door> -->
-		<!-- <Wall> -->
-		  <!-- <rects> -->
-			<!-- <li>(31,7,31,8)</li> -->
-			<!-- <li>(18,10,18,14)</li> -->
-			<!-- <li>(22,10,22,10)</li> -->
-			<!-- <li>(24,10,25,10)</li> -->
-			<!-- <li>(28,10,28,10)</li> -->
-			<!-- <li>(30,10,31,10)</li> -->
-			<!-- <li>(31,11,31,14)</li> -->
-			<!-- <li>(22,14,22,14)</li> -->
-			<!-- <li>(24,14,25,14)</li> -->
-			<!-- <li>(28,14,28,14)</li> -->
-			<!-- <li>(30,14,30,14)</li> -->
-			<!-- <li>(31,16,31,17)</li> -->
-		  <!-- </rects> -->
-		  <!-- <stuff>Steel</stuff> -->
-		<!-- </Wall> -->
-		<!-- <Bed> -->
-		  <!-- <positions> -->
-			<!-- <li>(9, 0, 5)</li> -->
-			<!-- <li>(11, 0, 5)</li> -->
-			<!-- <li>(13, 0, 5)</li> -->
-		  <!-- </positions> -->
-		  <!-- <relativeRotation>Opposite</relativeRotation> -->
-		  <!-- <stuff>Steel</stuff> -->
-		  <!-- <quality>Normal</quality> -->
-		<!-- </Bed> -->
-		<!-- <Bed> -->
-		  <!-- <positions> -->
-			<!-- <li>(9, 0, 19)</li> -->
-			<!-- <li>(11, 0, 19)</li> -->
-			<!-- <li>(13, 0, 19)</li> -->
-		  <!-- </positions> -->
-		  <!-- <stuff>Steel</stuff> -->
-		  <!-- <quality>Normal</quality> -->
-		<!-- </Bed> -->
-		<!-- <ChemfuelPoweredGenerator> -->
-		  <!-- <position>(24, 0, 12)</position> -->
-		<!-- </ChemfuelPoweredGenerator> -->
-		<!-- <WallLamp> -->
-		  <!-- <rects> -->
-			<!-- <li>(11,5,11,5)</li> -->
-			<!-- <li>(22,9,22,9)</li> -->
-			<!-- <li>(28,9,28,9)</li> -->
-			<!-- <li>(22,13,22,13)</li> -->
-			<!-- <li>(28,13,28,13)</li> -->
-		  <!-- </rects> -->
-		<!-- </WallLamp> -->
-		<!-- <WallLamp> -->
-		  <!-- <rects> -->
-			<!-- <li>(22,11,22,11)</li> -->
-			<!-- <li>(28,11,28,11)</li> -->
-			<!-- <li>(22,15,22,15)</li> -->
-			<!-- <li>(28,15,28,15)</li> -->
-			<!-- <li>(11,19,11,19)</li> -->
-		  <!-- </rects> -->
-		  <!-- <relativeRotation>Opposite</relativeRotation> -->
-		<!-- </WallLamp> -->
-		<!-- <WallLamp> -->
-		  <!-- <position>(17, 0, 12)</position> -->
-		  <!-- <relativeRotation>Clockwise</relativeRotation> -->
-		<!-- </WallLamp> -->
-		<!-- <EndTable> -->
-		  <!-- <rects> -->
-			<!-- <li>(10,5,10,5)</li> -->
-			<!-- <li>(12,5,12,5)</li> -->
-		  <!-- </rects> -->
-		  <!-- <relativeRotation>Opposite</relativeRotation> -->
-		  <!-- <stuff>Steel</stuff> -->
-		  <!-- <quality>Normal</quality> -->
-		<!-- </EndTable> -->
-	  <!-- </things> -->
-	<!-- </PrefabDef> -->
 
 </Defs>

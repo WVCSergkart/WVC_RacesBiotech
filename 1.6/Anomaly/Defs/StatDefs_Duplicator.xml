@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
+	<defName>WVC_DuplicatorOutcomeFactor</defName>
+	<label>duplicator outcome factor</label>
+	<description>The chance factor that using a duplicator will have a random outcome. Does not affect the positivity or negativity of outcoms as such.</description>
+	<defaultBaseValue>1</defaultBaseValue>
+	<minValue>0</minValue>
+	<displayPriorityInCategory>150</displayPriorityInCategory>
+	<toStringStyle>PercentOne</toStringStyle>
+  </StatDef>
+
+</Defs>
