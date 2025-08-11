@@ -83,6 +83,7 @@
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Animalfeeder.cs" />
+    <Compile Include="Resources_Genes\Gene_ArchiverDependant.cs" />
     <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
     <Compile Include="Resources_Genes\Gene_CarnivorousSkin.cs" />
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />

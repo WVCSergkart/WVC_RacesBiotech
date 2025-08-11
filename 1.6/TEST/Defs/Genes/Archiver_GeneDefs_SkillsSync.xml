@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiver_SubGenes">
+	<defName>WVC_Archiver_Skills</defName>
+	<label>skills archive</label>
+	<description>Carriers of this gene can synchronize their skills with archived pawns.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Archiver_SkillsSync</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_SkillsSync</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day it synchronizes the archived pawns skills.</li>
+		<li>Only the level is synchronized, experience is not affected.</li>
+		<li>Synchronizes to the higher value.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

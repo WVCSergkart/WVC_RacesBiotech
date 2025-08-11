@@ -21,4 +21,10 @@
 
   <!-- ============================================================================== -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" Name="WVC_XenotypesAndGenes_GeneArchiver_SubGenes" Abstract="True">
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<prerequisite>WVC_Archiver</prerequisite>
+  </GeneDef>
+
 </Defs>

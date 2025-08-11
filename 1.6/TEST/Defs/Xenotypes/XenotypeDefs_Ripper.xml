@@ -29,6 +29,8 @@
 		<li>WVC_MorphCondition_Monolith</li>
 		<li>WVC_Archiver_AutoResearch</li>
 		<li>WVC_Archiver_MindsConnection</li>
+		<li>WVC_Archiver_Integrator</li>
+		<li>WVC_Archiver_Skills</li>
 		<li>WVC_Chimera</li>
 		<li>WVC_Chimera_DeathMarkHarvest</li>
 		<li>WVC_Chimera_GeneRipper</li>

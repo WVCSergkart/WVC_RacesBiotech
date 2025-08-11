@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
                 phase = "drop apparel";
                 victim.apparel?.DropAll(victim.Position, true, false);
                 phase = "try archive";
-                if (Archiver.TryArchiveSelectedPawn(victim, Archiver))
+                if (Archiver.TryArchiveSelectedPawn(victim, parent.pawn, Archiver))
                 {
                     phase = "meat boom";
                     MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
@@ -89,11 +89,11 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (parent.pawn.IsQuestLodger())
+            if (parent.pawn.IsQuestLodger() || pawn.IsQuestLodger() || !pawn.IsColonist || pawn.IsPrisoner)
             {
                 if (throwMessages)
                 {
-                    Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(parent.pawn), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+                    Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
                 }
                 return false;
             }

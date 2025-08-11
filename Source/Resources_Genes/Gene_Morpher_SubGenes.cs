@@ -84,28 +84,29 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public virtual bool AutoCastable => true;
+		public virtual bool NonRandom_AutoCast => true;
 
 		public void MorphAutoCast()
-		{
-			if (!AutoCastable)
-			{
-				return;
-			}
-			if (CanMorph())
-			{
-				if (Morpher.SavedGeneSets.NullOrEmpty())
-				{
-					MorpherTrigger(null);
-				}
-				else
-				{
-					MorpherTrigger(Morpher.SavedGeneSets.RandomElement());
-				}
-			}
-		}
+        {
+            if (!NonRandom_AutoCast && !Rand.Chance(0.013f))
+            {
+                return;
+            }
+            if (!CanMorph())
+            {
+                return;
+            }
+            if (Morpher.SavedGeneSets.NullOrEmpty())
+            {
+                MorpherTrigger(null);
+            }
+            else
+            {
+                MorpherTrigger(Morpher.SavedGeneSets.RandomElement());
+            }
+        }
 
-		public virtual bool CanMorph()
+        public virtual bool CanMorph()
 		{
 			return false;
 		}
@@ -339,7 +340,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathrestMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{
@@ -366,7 +367,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathlessMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{
@@ -384,7 +385,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_UndeadMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{
@@ -408,7 +409,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HemogenMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		[Unsaved(false)]
 		private Gene_Hemogen cachedHemogenGene;
@@ -448,7 +449,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PsyfocusMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{
@@ -471,7 +472,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AbilityMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{
@@ -512,7 +513,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathRefusalMorph : Gene_MorpherTrigger
 	{
 
-		public override bool AutoCastable => false;
+		public override bool NonRandom_AutoCast => false;
 
 		public override bool CanMorph()
 		{

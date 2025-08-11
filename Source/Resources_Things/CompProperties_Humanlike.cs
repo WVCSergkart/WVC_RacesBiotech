@@ -19,7 +19,10 @@ namespace WVC_XenotypesAndGenes
 
 		public IntRange resurrectionDelay = new(6000, 9000);
 
+		[NoTranslate]
 		public string uniqueTag = "XaG_Undead";
+		[NoTranslate]
+		public string dupUniqueTag = "XaG_DupFix";
 
 		public CompProperties_Humanlike()
 		{
@@ -296,13 +299,7 @@ namespace WVC_XenotypesAndGenes
 			shouldResurrect = false;
 		}
 
-		public override void PostExposeData()
-		{
-			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
-			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
-		}
-
-		private bool collapse = true;
+		private static bool collapse = true;
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (!DebugSettings.ShowDevGizmos)
@@ -391,8 +388,64 @@ namespace WVC_XenotypesAndGenes
 					Log.Error(stringBuild.ToString());
 				}
 			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: SetAsDuplicateOf",
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/Genes/Gene_Duplicator_v0"),
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists;
+					for (int i = 0; i < pawns.Count; i++)
+					{
+						Pawn pawn = pawns[i];
+						list.Add(new FloatMenuOption(pawn.NameFullColored, delegate
+						{
+							SetDuplicate(pawn);
+						}, orderInPriority: 0 - i));
+					}
+					Find.WindowStack.Add(new FloatMenu(list));
+				}
+			};
 		}
 
-    }
+		// ======================================
+
+		public override void Notify_DuplicatedFrom(Pawn source)
+		{
+			SetDuplicate(source);
+		}
+
+		public bool IsDuplicate
+        {
+            get
+            {
+                return pawnIsDuplicate || originalRef != null && originalRef != parent;
+            }
+        }
+
+		public Pawn SourcePawn => originalRef ?? parent as Pawn;
+
+		private bool pawnIsDuplicate = false;
+		private Pawn originalRef;
+
+		public void SetDuplicate(Pawn source)
+        {
+			if (source != null && source != parent)
+            {
+				originalRef = source;
+			}
+			pawnIsDuplicate = originalRef != null;
+		}
+
+		public override void PostExposeData()
+		{
+			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
+			Scribe_Values.Look(ref pawnIsDuplicate, "pawnIsDuplicate_" + Props.dupUniqueTag, false);
+			Scribe_References.Look(ref originalRef, "originalRef_" + Props.dupUniqueTag, true);
+		}
+
+	}
 
 }

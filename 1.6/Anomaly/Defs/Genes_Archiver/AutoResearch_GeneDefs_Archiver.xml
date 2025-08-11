@@ -3,7 +3,7 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiver_SubGenes">
 	<defName>WVC_Archiver_AutoResearch</defName>
 	<label>archiver research</label>
 	<description>Carriers of this gene can use the minds stored by the archiver for passive research.</description>

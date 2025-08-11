@@ -3,51 +3,52 @@
 
   <!-- ================================= -->
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare"> -->
-	<!-- <defName>WVC_Archiver_Integrator</defName> -->
-	<!-- <label>devourer</label> -->
-	<!-- <description>Carriers of this gene have corrupted archites capable of disassembling a person into atoms in seconds, absorbing the genetic code and converting the victim into reserves of nutrients.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_Devourer</iconPath> -->
-	<!-- <biostatCpx>5</biostatCpx> -->
-	<!-- <biostatArc>3</biostatArc> -->
-	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <abilities> -->
-	  <!-- <li>WVC_Archiver_Integrator</li> -->
-	<!-- </abilities> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <AbilityDef>WVC_Archiver_Integrator</AbilityDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Allows to kill any human pawn, completely &lt;color=#8a8ae6&gt;absorbing all genes&lt;/color&gt; and gaining a long-lasting &lt;color=#8a8ae6&gt;hunger buff&lt;/color&gt;.</li> -->
-	<!-- </customEffectDescriptions> -->
-  <!-- </GeneDef> -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiver_SubGenes">
+	<defName>WVC_Archiver_Integrator</defName>
+	<label>integrator</label>
+	<description>Carriers of this gene can "devour" other pawns, placing them in the archiver.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_Integrator</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<abilities>
+	  <li>WVC_Archiver_Integrator</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Archiver_Integrator</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Allows to put pawns into the &lt;color=#8a8ae6&gt;archiver&lt;/color&gt;, ignoring the &lt;color=#8a8ae6&gt;form&lt;/color&gt; limit.</li>
+		<li>Can only target a &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; with a positive &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; of caster +40 or downed.</li>
+	</customEffectDescriptions>
+  </GeneDef>
 
   <!-- Ability -->
 
-  <!-- <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base"> -->
-	<!-- <defName>WVC_Archiver_Integrator</defName> -->
-	<!-- <label>devourer</label> -->
-	<!-- <description>Dismantle the target into atoms, absorbing the genetic code and converting the victim into nutrient reserves.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_Devourer</iconPath> -->
-	<!-- <showWhenDrafted>true</showWhenDrafted> -->
-	<!-- <cooldownTicksRange>35000</cooldownTicksRange> -->
-	<!-- <hostile>true</hostile> -->
-	<!-- <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence> -->
-	<!-- <verbProperties> -->
-	  <!-- <violent>true</violent> -->
-	<!-- </verbProperties> -->
-	<!-- <comps> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera"> -->
-		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ArchiverIntegrator</compClass> -->
-		<!-- <hediffDef>WVC_Chimera_Devourer</hediffDef> -->
-	  <!-- </li> -->
-	  <!-- <li Class="CompProperties_AbilityFleckOnTarget"> -->
-		<!-- <fleckDef>BloodSplash</fleckDef> -->
-	  <!-- </li> -->
-	  <!-- <li Class="CompProperties_AbilityRequiresCapacity"> -->
-		<!-- <capacity>Manipulation</capacity> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </AbilityDef> -->
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Archiver_Integrator</defName>
+	<label>integrator</label>
+	<description>Dismantle the target into atoms, reassembling it as part of the archiver gene forms.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_Integrator</iconPath>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>35000</cooldownTicksRange>
+	<hostile>true</hostile>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <violent>true</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ArchiverIntegrator</compClass>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
 
 </Defs>

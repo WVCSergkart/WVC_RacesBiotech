@@ -579,5 +579,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool Debug_IsDuplicate_CompCheckOnly(this Pawn diplicate)
+		{
+			return diplicate.TryGetComp<CompHumanlike>()?.IsDuplicate == true;
+		}
+
 	}
 }

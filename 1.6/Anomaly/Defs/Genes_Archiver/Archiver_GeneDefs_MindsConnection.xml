@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiver_SubGenes">
 	<defName>WVC_Archiver_MindsConnection</defName>
 	<label>minds connection</label>
 	<description>Carriers of this gene have a strong connection with the minds preserved by the archiver and can communicate with them.</description>

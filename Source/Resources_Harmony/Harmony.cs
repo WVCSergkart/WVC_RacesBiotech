@@ -36,16 +36,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
 				}
-				//Log.Error("0");
-				//if (WVC_Biotech.settings.genesCanTickOnlyOnMap)
-				//{
-				//	harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "GeneTrackerTick"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(GeneTickOptimization))));
-				//}
-				//Log.Error("1");
-				if (WVC_Biotech.settings.hideXaGGenes)
-				{
-					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
-				}
 				//Log.Error("2");
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
 				{
@@ -112,6 +102,10 @@ namespace WVC_XenotypesAndGenes
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "TryAcceptPawn", new Type[] { typeof(Pawn), typeof(CompBiosculpterPod_Cycle) }), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_TryAcceptPawn_Patch")));
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
 					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
+					if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck && WVC_Biotech.settings.enable_xagHumanComponent)
+                    {
+						harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(Pawn), "IsDuplicate"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Anomaly_IsDuplicate))));
+					}
 				}
 				//Log.Error("10");
 			}
@@ -736,9 +730,24 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 
-			// Dev TESTS
+            // Duplicates fix
 
-			public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+            //public static void AnomalyDuplicates_SetDuplicate(ref Pawn pawn, ref Pawn __result)
+            //{
+            //	DuplicateUtility.SetDuplicate(__result, pawn);
+            //}
+
+            public static void Anomaly_IsDuplicate(ref Pawn __instance, ref bool __result)
+            {
+				if (!__result)
+				{
+					__result = __instance.Debug_IsDuplicate_CompCheckOnly();
+				}
+            }
+
+            // Dev TESTS
+
+            public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
 			{
 				if (__instance.pawn.Map == null)
 				{

@@ -10,21 +10,37 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Archiver : Gene_Morpher
+    public class Gene_Archiver : Gene_Morpher
 	{
 
-		//public int DuplicatesCount => holders.Count;
+        //public int DuplicatesCount => holders.Count;
 
-		//private List<PawnContainerHolder> holders = new();
+        //private List<PawnContainerHolder> holders = new();
 
-		//private int currentLimit = 1;
+        //private int currentLimit = 1;
 
-		//public void AddLimit(int count = 1)
-		//{
-		//	currentLimit += count;
-		//}
+        //public void AddLimit(int count = 1)
+        //{
+        //	currentLimit += count;
+        //}
 
-		public override bool CanMorphNow
+        public List<Pawn> ArchivedPawns
+        {
+            get
+			{
+				List<Pawn> archivedPawns = new();
+				foreach (PawnGeneSetHolder holder in SavedGeneSets)
+				{
+					if (holder is PawnContainerHolder container && !archivedPawns.Contains(container.holded))
+					{
+						archivedPawns.Add(container.holded);
+					}
+				}
+				return archivedPawns;
+            }
+        }
+
+        public override bool CanMorphNow
 		{
 			get
 			{
@@ -106,11 +122,11 @@ namespace WVC_XenotypesAndGenes
                 phase = "trying transfer holders";
                 TransferHolders(this, archive, nextPawn);
                 phase = "trying create new holder";
-                if (!TryArchiveSelectedPawn(nextPawn, archive))
+                if (!TryArchiveSelectedPawn(pawn, nextPawn, archive))
 				{
 					return false;
 				}
-                if (Find.Selector.SelectedPawns != null && Find.Selector.SelectedPawns.Count == 1 && Find.Selector.SelectedPawns.Contains(pawn) == true)
+                if (Find.Selector.SelectedPawns != null && Find.Selector.SelectedPawns.Count == 1 && Find.Selector.SelectedPawns.Contains(pawn))
                 {
                     Find.Selector.ClearSelection();
                     Find.Selector.Select(nextPawn);
@@ -130,15 +146,15 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        public bool TryArchiveSelectedPawn(Pawn nextPawn, Gene_Archiver archive)
+        public bool TryArchiveSelectedPawn(Pawn toHold, Pawn nextOwner, Gene_Archiver archive)
         {
             PawnContainerHolder newHolder = new();
             archive.SaveFormID(newHolder);
             //newHolder.formId = SavedGeneSets.Count + 1;
-            if (!newHolder.TrySetContainer(nextPawn, pawn))
+            if (!newHolder.TrySetContainer(nextOwner, toHold))
             {
                 Log.Error("Failed set pawn container.");
-                nextPawn?.Destroy();
+                nextOwner?.Destroy();
                 return false;
             }
             archive.AddSetHolder(newHolder);
@@ -417,6 +433,35 @@ namespace WVC_XenotypesAndGenes
 				}
 				storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneTracker.Xenotype.inheritable, geneTracker.iconDef, null);
 			}
+		}
+
+	}
+
+	public class Gene_ArchiverMindsConnection : Gene_Telepathy
+	{
+
+
+		[Unsaved(false)]
+		private Gene_Archiver cachedArchiverGene;
+		public Gene_Archiver Archiver
+		{
+			get
+			{
+				if (cachedArchiverGene == null || !cachedArchiverGene.Active)
+				{
+					cachedArchiverGene = pawn?.genes?.GetFirstGeneOfType<Gene_Archiver>();
+				}
+				return cachedArchiverGene;
+			}
+		}
+
+		public override void TryInteract()
+		{
+			if (GeneInteractionsUtility.TryInteractRandomly(pawn, Archiver.ArchivedPawns, true, true, false, out _) && pawn.needs?.joy != null)
+			{
+				pawn.needs.joy.CurLevelPercentage += 0.02f;
+			}
+			ResetInterval(new(6600, 22000));
 		}
 
 	}

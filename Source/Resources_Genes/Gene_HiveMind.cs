@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
     {
 
         private static List<Pawn> cachedPawns;
-        public static List<Pawn> HiveMindPawn
+        public static List<Pawn> HiveMindPawns
         {
             get
             {
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedRefreshRate.HasValue)
                 {
-                    cachedRefreshRate = (int)(61992 * ((HiveMindPawn.Count > 1 ? HiveMindPawn.Count : 1000) * 0.4f));
+                    cachedRefreshRate = (int)(61992 * ((HiveMindPawns.Count > 1 ? HiveMindPawns.Count : 1000) * 0.4f));
                 }
                 return cachedRefreshRate.Value;
             }
@@ -122,7 +122,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawn;
+            List<Pawn> bondedPawns = HiveMindPawns;
             //string phase = "start";
             try
             {
@@ -203,18 +203,21 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawn;
+            SyncSkills(HiveMindPawns);
+        }
+
+        public static void SyncSkills(List<Pawn> bondedPawns)
+        {
+            if (bondedPawns == null)
+            {
+                return;
+            }
             string phase = "start";
             try
             {
                 SkillRecordHolderList sumSkillsExp = new();
                 foreach (Pawn otherPawn in bondedPawns)
                 {
-                    //Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
-                    //if (hiveMind == null)
-                    //{
-                    //    continue;
-                    //}
                     phase = "get skills";
                     GetSkills(ref sumSkillsExp, otherPawn);
                 }
@@ -230,7 +233,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private void SetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
+        private static void SetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
         {
             foreach (SkillRecord skillRecord in otherPawn.skills.skills.ToList())
             {
@@ -249,7 +252,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private void GetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
+        private static void GetSkills(ref SkillRecordHolderList sumSkillsExp, Pawn otherPawn)
         {
             foreach (SkillRecord skillRecord in otherPawn.skills.skills)
             {
@@ -331,7 +334,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawn;
+            List<Pawn> bondedPawns = HiveMindPawns;
             string phase = "start";
             try
             {
@@ -503,7 +506,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawn;
+            List<Pawn> bondedPawns = HiveMindPawns;
             string phase = "start";
             try
             {
