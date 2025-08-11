@@ -53,79 +53,76 @@ namespace WVC_XenotypesAndGenes
 			string phase = "";
 			Pawn nextPawn = null;
 			try
-			{
-				if (!shouldMorph || (nextGeneSet != null && nextGeneSet is not PawnContainerHolder))
-				{
-					return false;
-				}
-				Gene_Archiver archive = null;
-				if (nextGeneSet is PawnContainerHolder target)
+            {
+                if (!shouldMorph || (nextGeneSet != null && nextGeneSet is not PawnContainerHolder))
+                {
+                    return false;
+                }
+                Gene_Archiver archive = null;
+                if (nextGeneSet is PawnContainerHolder target)
                 {
                     phase = "try drop pawn";
-					BeforeDrop(target);
-					TryDropNextPawn(ref nextPawn, ref archive, target);
+                    BeforeDrop(target);
+                    TryDropNextPawn(ref nextPawn, ref archive, target);
                 }
                 else if (nextGeneSet == null && CanAddNewForm)
+                {
+                    phase = "trying create new pawn";
+                    DuplicateUtility.TryDuplicatePawn(pawn, pawn, pawn.Position, pawn.Map, out nextPawn, out _, out _, doEffects: false);
+                    phase = "trying get gene and update xenotype";
+                    //if (XaG_GeneUtility.TryRemoveAllConflicts(nextPawn, def))
+                    //{
+                    //	nextPawn.TryAddGene(def, pawn.genes.IsXenogene(this));
+                    //}
+                    archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
+                    archive.ClearGenes();
+                    archive.Reimplant(archive.GetBestNewFormForMorpher());
+                    UpdSkinAndHair(nextPawn);
+                }
+                else if (!SavedGeneSets.NullOrEmpty())
+                {
+                    phase = "try drop pawn";
+                    TryDropNextPawn(ref nextPawn, ref archive, SavedGeneSets.RandomElement() as PawnContainerHolder);
+                }
+                if (nextPawn == null)
+                {
+                    Log.Error("Failed morph into next pawn, cause nextPawn is null.");
+                    return false;
+                }
+                if (archive == null)
+                {
+                    Log.Error("Failed get Gene_Archiver.");
+                    nextPawn?.Destroy();
+                    return false;
+                }
+                phase = "abjust rotation and upd tools";
+                archive.UpdToolGenes();
+                nextPawn.Rotation = pawn.Rotation;
+                nextPawn.stances.stunner.StunFor(60, null, addBattleLog: false);
+                phase = "trying upd equipment";
+                ApparelUpd(pawn, nextPawn);
+                WeaponUpd(pawn, nextPawn);
+                InventoryUpd(pawn, nextPawn);
+                phase = "trying transfer holders";
+                TransferHolders(this, archive, nextPawn);
+                phase = "trying create new holder";
+                if (!TryArchiveSelectedPawn(nextPawn, archive))
 				{
-					phase = "trying create new pawn";
-					DuplicateUtility.TryDuplicatePawn(pawn, pawn, pawn.Position, pawn.Map, out nextPawn, out _, out _, doEffects: false);
-					phase = "trying get gene and update xenotype";
-					//if (XaG_GeneUtility.TryRemoveAllConflicts(nextPawn, def))
-					//{
-					//	nextPawn.TryAddGene(def, pawn.genes.IsXenogene(this));
-					//}
-					archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
-					archive.ClearGenes();
-					archive.Reimplant(archive.GetBestNewFormForMorpher());
-					UpdSkinAndHair(nextPawn);
-				}
-				else if (!SavedGeneSets.NullOrEmpty())
-				{
-					phase = "try drop pawn";
-					TryDropNextPawn(ref nextPawn, ref archive, SavedGeneSets.RandomElement() as PawnContainerHolder);
-				}
-				if (nextPawn == null)
-				{
-					Log.Error("Failed morph into next pawn, cause nextPawn is null.");
 					return false;
 				}
-				if (archive == null)
-				{
-					Log.Error("Failed get Gene_Archiver.");
-					nextPawn?.Destroy();
-					return false;
-				}
-				phase = "abjust rotation and upd tools";
-				archive.UpdToolGenes();
-				nextPawn.Rotation = pawn.Rotation;
-				nextPawn.stances.stunner.StunFor(60, null, addBattleLog: false);
-				phase = "trying upd equipment";
-				ApparelUpd(pawn, nextPawn);
-				WeaponUpd(pawn, nextPawn);
-				InventoryUpd(pawn, nextPawn);
-				phase = "trying transfer holders";
-				TransferHolders(this, archive, nextPawn);
-				phase = "trying create new holder";
-				PawnContainerHolder newHolder = new();
-				archive.SaveFormID(newHolder);
-				//newHolder.formId = SavedGeneSets.Count + 1;
-				if (!newHolder.TrySetContainer(nextPawn, pawn))
-				{
-					Log.Error("Failed set pawn container.");
-					nextPawn?.Destroy();
-					return false;
-				}
-				archive.AddSetHolder(newHolder);
-				Find.Selector.ClearSelection();
-				Find.Selector.Select(nextPawn);
-				phase = "upd new pawn";
-				PostMorph(nextPawn, pawn);
-				phase = "do effects";
-				DoEffects(nextPawn);
-				//Log.Error("Spawned");
-				return true;
-			}
-			catch (Exception arg)
+                if (Find.Selector.SelectedPawns != null && Find.Selector.SelectedPawns.Count == 1 && Find.Selector.SelectedPawns.Contains(pawn) == true)
+                {
+                    Find.Selector.ClearSelection();
+                    Find.Selector.Select(nextPawn);
+                }
+                phase = "upd new pawn";
+                PostMorph(nextPawn, pawn);
+                phase = "do effects";
+                DoEffects(nextPawn);
+                //Log.Error("Spawned");
+                return true;
+            }
+            catch (Exception arg)
 			{
 				Log.Error("Failed replace pawn on phase: " + phase + ". Reason: " + arg);
 				nextPawn?.Destroy();
@@ -133,9 +130,29 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private void ApparelUpd(Pawn oldPawn, Pawn newPawn)
+        public bool TryArchiveSelectedPawn(Pawn nextPawn, Gene_Archiver archive)
+        {
+            PawnContainerHolder newHolder = new();
+            archive.SaveFormID(newHolder);
+            //newHolder.formId = SavedGeneSets.Count + 1;
+            if (!newHolder.TrySetContainer(nextPawn, pawn))
+            {
+                Log.Error("Failed set pawn container.");
+                nextPawn?.Destroy();
+                return false;
+            }
+            archive.AddSetHolder(newHolder);
+            return true;
+        }
+
+
+        private void ApparelUpd(Pawn oldPawn, Pawn newPawn)
 		{
 			if (!WVC_Biotech.settings.archiver_transferWornApparel)
+            {
+				return;
+            }
+			if (oldPawn.apparel.AnyApparelLocked || newPawn.apparel.AnyApparelLocked)
             {
 				return;
             }

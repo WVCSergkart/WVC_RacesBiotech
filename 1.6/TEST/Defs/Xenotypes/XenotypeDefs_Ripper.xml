@@ -22,37 +22,37 @@
 		<!-- <li>WVC_SkinColor_Bones</li> -->
 		<li>WVC_SkinColor_MilkWhite</li>
 		<li>WVC_Wings_BoneWings</li>
-		<li>WVC_BoneTailA</li>
+		<!-- <li>WVC_BoneTailA</li> -->
 		<li>WVC_HeadBoneCurveHorns</li>
 		<!-- Genes -->
-		<!-- <li>WVC_Chameleon</li> -->
+		<li>WVC_Archiver</li>
+		<li>WVC_MorphCondition_Monolith</li>
+		<li>WVC_Archiver_AutoResearch</li>
+		<li>WVC_Archiver_MindsConnection</li>
 		<li>WVC_Chimera</li>
 		<li>WVC_Chimera_DeathMarkHarvest</li>
 		<li>WVC_Chimera_GeneRipper</li>
 		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
-		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>
-		<!-- <li>WVC_HybridImplanter</li> -->
-		<!-- <li>WVC_Incrementer</li> -->
-		<li>WVC_ReimplanterThrallMaker</li>
+		<!-- <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li> -->
+		<!-- <li>WVC_ReimplanterThrallMaker</li> -->
 		<li>WVC_BleedStopper</li>
-		<li>Ageless</li>
-		<!-- <li>WVC_Overrider</li> -->
-		<!-- <li>WVC_Ageless_Overrider</li> -->
-		<!-- <li>WVC_Health_Overrider</li> -->
+		<!-- <li>Ageless</li> -->
 		<li>WVC_DeadStomach</li>
-		<!-- <li>WVC_Pain_Overrider</li> -->
-		<!-- <li>Deathrest</li> -->
-		<li>WVC_Neversleep</li>
-		<!-- <li>WVC_Generemover</li> -->
+		<li>LowSleep</li>
 		<li>PerfectImmunity</li>
-		<li>Deathless</li>
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<!-- <li>Deathless</li> -->
+		<li>WVC_DeathRefusal</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
 		<li>DarkVision</li>
-		<li>Hemogenic</li>
-		<li>LongjumpLegs</li>
-		<li>WVC_HemogenScarless</li>
-		<li>WVC_WoundHealing_Hemogen</li>
-		<li>WVC_VoidHunger</li>
+		<li>WVC_Rejuvenator</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<!-- <li>Hemogenic</li> -->
+		<!-- <li>LongjumpLegs</li> -->
+		<!-- <li>WVC_HemogenScarless</li> -->
+		<!-- <li>WVC_WoundHealing_Hemogen</li> -->
+		<!-- <li>WVC_VoidHunger</li> -->
 		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
 	</genes>
 	<modExtensions>
@@ -60,7 +60,7 @@
 			<isChimerkin>true</isChimerkin>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(161, 161, 255)</defaultColor>
+			<defaultColor>(176,191,128)</defaultColor>
 			<!-- <morpherTriggerGene>WVC_MorphCondition_DeathRefusal</morpherTriggerGene> -->
 		</li>
 	</modExtensions>
