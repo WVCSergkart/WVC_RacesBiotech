@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism
+	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged
 	{
 		//public string RemoteActionName => "WVC_HideShow".Translate();
 
@@ -54,7 +54,36 @@ namespace WVC_XenotypesAndGenes
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		//public bool xenogermComaAfterShapeshift = true;
-		public bool genesRegrowAfterShapeshift = true;
+		//public bool genesRegrowAfterShapeshift = true;
+
+		private bool? cachedGenesRegrow;
+        public bool GenesRegrow
+        {
+            get
+            {
+				if (!cachedGenesRegrow.HasValue)
+                {
+					UpdGenesRegrow();
+				}
+                return cachedGenesRegrow.Value;
+            }
+		}
+
+		private void UpdGenesRegrow()
+		{
+			cachedGenesRegrow = null;
+			foreach (Gene item in pawn.genes.GenesListForReading)
+			{
+				if (item is Gene_ShapeshifterDependant dependant && dependant.DisableGenesRegrowing)
+				{
+					cachedGenesRegrow = false;
+				}
+			}
+			if (!cachedGenesRegrow.HasValue)
+			{
+				cachedGenesRegrow = true;
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -91,6 +120,7 @@ namespace WVC_XenotypesAndGenes
         public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
+			Notify_GenesChanged(null);
 			//SetupRemoteContollers(true);
 		}
 
@@ -102,6 +132,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Override()
 		{
 			UpdateMetabolism();
+			Notify_GenesChanged(null);
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
@@ -161,7 +192,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//cachedGenesMatch_UI = null;
 			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, ShiftStatDef.LabelCap, MinGenesMatch_UI, ShiftStatDef.description, 160);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), genesRegrowAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), GenesRegrow.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
 
 		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
@@ -170,7 +201,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			//Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
-			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
+			//Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
 			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
 			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
@@ -179,7 +210,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
 		{
 			//xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
-			genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
+			//genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
 			geneticMaterial = oldShapeshifter.geneticMaterial;
 			gizmoCollapse = oldShapeshifter.gizmoCollapse;
 		}
@@ -210,14 +241,15 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryOffsetResource(float count)
         {
-			if (!genesRegrowAfterShapeshift && count > 0)
+			if (!GenesRegrow && count > 0f)
             {
 				return false;
-            }
-            geneticMaterial += count;
-            if (geneticMaterial < 0)
+			}
+			//Log.Error(count.ToString());
+			geneticMaterial += count;
+            if (geneticMaterial < 0f)
             {
-                geneticMaterial = 0;
+                geneticMaterial = 0f;
 			}
 			return true;
 		}
@@ -312,7 +344,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
 			}
-			if (genesRegrowAfterShapeshift)
+			if (GenesRegrow)
 			{
 				if (!xenotypeHolder.isTrueShiftForm)
 				{
@@ -373,15 +405,16 @@ namespace WVC_XenotypesAndGenes
         // Shapeshift
 
         public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
-		{
-			cachedPreservedGenes = null;
-			if (!genesRegrowing)
-			{
-				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
-			}
-		}
+        {
+            cachedPreservedGenes = null;
+            UpdGenesRegrow();
+            if (!genesRegrowing)
+            {
+                GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
+            }
+        }
 
-		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+        public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			if (!genesRegrowing)
 			{
@@ -390,7 +423,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			UpdateMetabolism();
 			cachedPreservedGenes = null;
+			UpdGenesRegrow();
 			//ReimplanterUtility.PostImplantDebug(pawn);
+		}
+
+        public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedGenesRegrow = null;
+			cachedPreservedGenes = null;
 		}
 
     }

@@ -85,6 +85,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
 		<disableShapeshiftGenesRegrowAfterUse>true</disableShapeshiftGenesRegrowAfterUse>
+		<geneDef>WVC_PostShapeshift_Recovery</geneDef>
 	  </li>
 	</comps>
   </ThingDef>

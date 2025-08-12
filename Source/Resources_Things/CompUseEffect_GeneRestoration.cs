@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+			//Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
 			// if (!ReimplanterUtility.IsHuman(pawn) || shapeshifter == null)
 			// {
 				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
@@ -108,7 +108,8 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (Props.disableShapeshiftGenesRegrowAfterUse)
 			{
-				shapeshifter.genesRegrowAfterShapeshift = false;
+				//shapeshifter.genesRegrowAfterShapeshift = false;
+				pawn.genes.AddGene(Props.geneDef, true);
 			}
 		}
 

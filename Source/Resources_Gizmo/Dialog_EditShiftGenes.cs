@@ -274,6 +274,7 @@ namespace WVC_XenotypesAndGenes
                     gene.TryForceGene(geneDefWithChance.geneDef, inheritable);
                 }
             }
+            ReimplanterUtility.PostImplantDebug(gene.pawn);
             gene.UpdateMetabolism();
             gene.DoEffects();
             Close();
