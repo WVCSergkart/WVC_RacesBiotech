@@ -41,6 +41,7 @@ namespace WVC_XenotypesAndGenes
 		// Duplicator
 		public GeneDef geneDef;
 		public int reqDupesCount;
+		public bool forDuplicates = false;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;

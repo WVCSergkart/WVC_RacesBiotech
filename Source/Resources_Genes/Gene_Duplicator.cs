@@ -67,21 +67,31 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneralHolder> PossibleGenesOutcome => Giver.geneDefWithChances;
+		public List<GeneralHolder> PossibleGenesOutcome => Giver?.geneDefWithChances;
 		public bool IsXenogene => pawn.genes.Xenogenes.Contains(this);
 
-		public bool TryAddNewSubGene()
-        {
-			IEnumerable<GeneralHolder> enumerable = PossibleGenesOutcome.Where((geneWith) => geneWith.reqDupesCount <= PawnDuplicates.Count && !XaG_GeneUtility.ConflictWith(geneWith.geneDef, pawn.genes.GenesListForReading));
+		public bool TryAddNewSubGene(bool forDuplicates)
+		{
+			IEnumerable<GeneralHolder> enumerable = PossibleGenesOutcome?.Where((geneWith) => (!geneWith.forDuplicates || forDuplicates) && geneWith.reqDupesCount <= PawnDuplicates.Count && !XaG_GeneUtility.ConflictWith(geneWith.geneDef, pawn.genes.GenesListForReading));
             if (!enumerable.EnumerableNullOrEmpty() && enumerable.TryRandomElementByWeight((geneWith) => geneWith.chance, out GeneralHolder result))
             {
 				pawn.genes.AddGene(result.geneDef, IsXenogene);
 				Messages.Message("WVC_XaG_GeneDuplicator_AddNewSubGene".Translate(pawn.NameShortColored, result.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				return true;
 			}
 			return false;
+		}
+
+        public override void PostAdd()
+        {
+            base.PostAdd();
+			if (MiscUtility.GameStarted() && SourcePawn != pawn)
+            {
+				SourcePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_GenesChanged(null);
+			}
         }
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -96,10 +106,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_DuplicateCreated(Pawn newDupe)
+        {
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+				if (gene is Gene_DuplicatorDependant dependant && dependant.Active)
+                {
+					dependant.Notify_DuplicateCreated(newDupe);
+                }
+            }
+        }
+
 		public StatDef StatDef => Giver.statDef;
 
 		public void Notify_GenesChanged(Gene changedGene)
 		{
+			//Log.Error(pawn.NameFullColored.ToString());
 			cachedDuplicates = null;
 			cachedDuplicatesWithSource = null;
 		}

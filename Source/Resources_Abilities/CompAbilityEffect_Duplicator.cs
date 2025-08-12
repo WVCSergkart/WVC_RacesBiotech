@@ -31,15 +31,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			Pawn pawn = target.Pawn;
-			int squareRadius = Mathf.FloorToInt(4.9f);
-			if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, squareRadius, IsValidSpawnCell, out var spawnCell, 100))
+			if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), IsValidSpawnCell, out var spawnCell, 100))
 			{
 				return;
 			}
+			Pawn caster = parent.pawn;
 			Duplicator.Notify_GenesChanged(null);
-			float failChanceFactor = Duplicator.StatDef != null ? parent.pawn.GetStatValue(Duplicator.StatDef) : 1f;
+            float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
-			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
+			if (DuplicateUtility.TryDuplicatePawn(caster, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
             {
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
@@ -48,10 +48,17 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(duplicatePawn))
 				{
-					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(parent.pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
+                    Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
 				}
+				if (ModsConfig.AnomalyActive && Rand.Chance(0.12f * failChanceFactor))
+                {
+                    Duplicator.TryAddNewSubGene(caster.IsDuplicate);
+                }
+				//Duplicator.Notify_GenesChanged(null);
+				Duplicator.Notify_DuplicateCreated(duplicatePawn);
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
             }
+
             bool IsValidSpawnCell(IntVec3 pos)
 			{
 				if (pos.Standable(pawn.Map) && pos.Walkable(pawn.Map))

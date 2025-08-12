@@ -46,6 +46,11 @@
 					<chance>0.08</chance>
 					<reqDupesCount>6</reqDupesCount>
 				</li>
+				<li MayRequire="wvc.sergkart.test.tools">
+					<geneDef>WVC_Duplicator_Bandwidth</geneDef>
+					<chance>0.35</chance>
+					<reqDupesCount>2</reqDupesCount>
+				</li>
 			</geneDefWithChances>
 		</li>
 	</modExtensions>

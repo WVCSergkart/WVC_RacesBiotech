@@ -92,6 +92,11 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        public virtual void Notify_DuplicateCreated(Pawn newDupe)
+        {
+
+        }
+
     }
 
 	public class Gene_Duplicator_Skills : Gene_DuplicatorDependant
@@ -117,163 +122,181 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Duplicator_HediffGiver : Gene_DuplicatorDependant, IGeneOverridden
-	{
+    public class Gene_Duplicator_HediffGiver : Gene_DuplicatorDependant, IGeneOverridden
+    {
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			AddOrRemoveHediff();
-			NotifyDuplicates_AddHediff();
-		}
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            AddOrRemoveHediff();
+            //NotifyDuplicates_AddHediff();
+        }
 
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		{
-			NotifyDuplicates_RemoveHediff();
-		}
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        {
+            NotifyDuplicates_RemoveHediff();
+        }
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			HediffUtility.TryRemoveHediff(Giver?.hediffDef, pawn);
-			NotifyDuplicates_RemoveHediff();
-		}
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            HediffUtility.TryRemoveHediff(Giver?.hediffDef, pawn);
+            NotifyDuplicates_RemoveHediff();
+        }
 
-		public override void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			base.Notify_OverriddenBy(overriddenBy);
-			AddOrRemoveHediff();
-			NotifyDuplicates_RemoveHediff();
-		}
+        public override void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            base.Notify_OverriddenBy(overriddenBy);
+            AddOrRemoveHediff();
+            NotifyDuplicates_RemoveHediff();
+        }
 
-		public override void Notify_Override()
-		{
-			base.Notify_Override();
-			AddOrRemoveHediff();
-			NotifyDuplicates_AddHediff();
-		}
+        public override void Notify_Override()
+        {
+            base.Notify_Override();
+            AddOrRemoveHediff();
+            //NotifyDuplicates_AddHediff();
+        }
 
-		public void AddOrRemoveHediff()
-		{
-			if (IsDuplicate)
+        public void AddOrRemoveHediff()
+        {
+            if (IsDuplicate)
             {
-				return;
+                return;
             }
-			try
-			{
-				HediffUtility.TryAddOrRemoveHediff(Giver?.hediffDef, pawn, this);
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Error in Gene_Duplicator_HediffGiver in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
-			}
-		}
-
-		public virtual void NotifyDuplicates_AddHediff()
-		{
-			if (Giver?.dupeHediffDef == null)
-			{
-				return;
-			}
-			if (IsDuplicate)
-			{
-				return;
-			}
-			if (Duplicator == null)
-			{
-				return;
-			}
-			if (Duplicator.PawnDuplicates.NullOrEmpty())
-			{
-				return;
-			}
-			foreach (Pawn item in Duplicator.PawnDuplicates)
-			{
-				HediffUtility.TryAddHediff(Giver.dupeHediffDef, item, def);
-			}
-		}
-
-		public virtual void NotifyDuplicates_RemoveHediff()
-		{
-			if (Giver?.dupeHediffDef == null)
-			{
-				return;
-			}
-			if (IsDuplicate)
+            try
             {
-				return;
+                HediffUtility.TryAddOrRemoveHediff(Giver?.hediffDef, pawn, this);
             }
-			if (Duplicator == null)
-			{
-				return;
-			}
-			if (Duplicator.PawnDuplicates.NullOrEmpty())
-			{
-				return;
-			}
-			foreach (Pawn item in Duplicator.PawnDuplicates)
-			{
-				HediffUtility.TryRemoveHediff(Giver.dupeHediffDef, item);
-			}
-		}
+            catch (Exception arg)
+            {
+                Log.Error("Error in Gene_Duplicator_HediffGiver in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+            }
+        }
 
-	}
+        //public virtual void NotifyDuplicates_AddHediff()
+        //{
+        //    if (Giver?.dupeHediffDef == null)
+        //    {
+        //        return;
+        //    }
+        //    if (IsDuplicate)
+        //    {
+        //        return;
+        //    }
+        //    if (Duplicator == null)
+        //    {
+        //        return;
+        //    }
+        //    if (Duplicator.PawnDuplicates.NullOrEmpty())
+        //    {
+        //        return;
+        //    }
+        //    foreach (Pawn item in Duplicator.PawnDuplicates)
+        //    {
+        //        HediffUtility.TryAddHediff(Giver.dupeHediffDef, item, def);
+        //    }
+        //}
+
+        public virtual void NotifyDuplicates_RemoveHediff()
+        {
+            if (Giver?.dupeHediffDef == null)
+            {
+                return;
+            }
+            if (IsDuplicate)
+            {
+                return;
+            }
+            if (Duplicator == null)
+            {
+                return;
+            }
+            if (Duplicator.PawnDuplicates.NullOrEmpty())
+            {
+                return;
+            }
+            foreach (Pawn item in Duplicator.PawnDuplicates)
+            {
+                HediffUtility.TryRemoveHediff(Giver.dupeHediffDef, item);
+            }
+        }
+
+    }
 
     public class Gene_Duplicator_Bandwidth : Gene_Duplicator_HediffGiver
-	{
+    {
 
-		private Dictionary<Pawn, float> bandwidthPerPawn;
-
-		private Hediff_DuplicatorBandwidth cachedHediff_DuplicatorBandwidth;
-        public Hediff_DuplicatorBandwidth Hediff_DuplicatorBandwidth
+        public float TotalBandwidth
         {
             get
             {
-				if (cachedHediff_DuplicatorBandwidth == null)
+                if (Duplicator == null)
                 {
-					cachedHediff_DuplicatorBandwidth = pawn.health?.hediffSet?.GetFirstHediff<Hediff_DuplicatorBandwidth>();
-				}
-                return cachedHediff_DuplicatorBandwidth;
+                    return 0f;
+                }
+                float bandwidth = 0f;
+                foreach (Pawn item in Duplicator.PawnDuplicates)
+                {
+                    HediffUtility.TryRemoveHediff(Giver.dupeHediffDef, item);
+                    bandwidth += item.GetStatValue(StatDefOf.MechBandwidth);
+                    HediffUtility.TryAddHediff(Giver.dupeHediffDef, item, def);
+                }
+                return bandwidth;
             }
         }
+        //private Dictionary<Pawn, float> bandwidthPerPawn;
 
-		public float GetTotalBandwidth()
-        {
-			if (pawn.Dead)
-            {
-				return 0;
-            }
-			if (bandwidthPerPawn == null)
-            {
-				NotifyDuplicates_AddHediff();
-			}
-			float bandwidth = 0;
-			foreach (var item in bandwidthPerPawn)
-            {
-				bandwidth += item.Value;
-			}
-			return bandwidth;
-        }
+        //private Hediff_DuplicatorBandwidth cachedHediff_DuplicatorBandwidth;
+        //public Hediff_DuplicatorBandwidth Hediff_DuplicatorBandwidth
+        //{
+        //    get
+        //    {
+        //        if (cachedHediff_DuplicatorBandwidth == null)
+        //        {
+        //            cachedHediff_DuplicatorBandwidth = pawn.health?.hediffSet?.GetFirstHediff<Hediff_DuplicatorBandwidth>();
+        //        }
+        //        return cachedHediff_DuplicatorBandwidth;
+        //    }
+        //}
 
-		public void BandwidthPerDuplicate(Pawn dupe)
-        {
-			if (bandwidthPerPawn == null)
-            {
-				bandwidthPerPawn = new();
-			}
-			if (bandwidthPerPawn.ContainsKey(dupe))
-			{
-				bandwidthPerPawn.Remove(dupe);
-			}
-			bandwidthPerPawn[dupe] = dupe.GetStatValue(StatDefOf.MechBandwidth);
-			//Hediff_DuplicatorBandwidth?.Recache();
-		}
+        //public float GetTotalBandwidth()
+        //{
+        //    if (pawn.Dead)
+        //    {
+        //        return 0;
+        //    }
+        //    if (bandwidthPerPawn == null)
+        //    {
+        //        NotifyDuplicates_AddHediff();
+        //    }
+        //    float bandwidth = 0;
+        //    foreach (var item in bandwidthPerPawn)
+        //    {
+        //        bandwidth += item.Value;
+        //    }
+        //    return bandwidth;
+        //}
 
-		public void Recache()
-		{
-			Hediff_DuplicatorBandwidth?.Recache();
-		}
+        //public void BandwidthPerDuplicate(Pawn dupe)
+        //{
+        //    if (bandwidthPerPawn == null)
+        //    {
+        //        bandwidthPerPawn = new();
+        //    }
+        //    if (bandwidthPerPawn.ContainsKey(dupe))
+        //    {
+        //        bandwidthPerPawn.Remove(dupe);
+        //    }
+        //    bandwidthPerPawn[dupe] = dupe.GetStatValue(StatDefOf.MechBandwidth);
+        //    //Hediff_DuplicatorBandwidth?.Recache();
+        //}
 
-	}
+        //public void Recache()
+        //{
+        //    Hediff_DuplicatorBandwidth?.Recache();
+        //}
+
+    }
 
 }

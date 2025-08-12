@@ -9,10 +9,11 @@ namespace WVC_XenotypesAndGenes
 
         public override bool ShouldRemove => false;
         public override bool Visible => false;
+        public virtual int TictRate => 76663;
 
         public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(76663, delta))
+            if (!pawn.IsHashIntervalTick(TictRate, delta))
             {
                 return;
             }
@@ -51,6 +52,8 @@ namespace WVC_XenotypesAndGenes
                 return cachedDuplicatorGene;
             }
         }
+        public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
+        public override int TictRate => 60613;
 
         private HediffStage curStage;
         public override HediffStage CurStage
@@ -64,7 +67,7 @@ namespace WVC_XenotypesAndGenes
                     {
                         StatModifier statMod = new();
                         statMod.stat = StatDefOf.MechBandwidth;
-                        statMod.value = DuplicatorBandwidth.GetTotalBandwidth();
+                        statMod.value = DuplicatorBandwidth.TotalBandwidth;
                         curStage.statOffsets = new();
                         curStage.statOffsets.Add(statMod);
                     }

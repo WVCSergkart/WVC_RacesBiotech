@@ -107,6 +107,19 @@ namespace WVC_XenotypesAndGenes
 						phase = "make hostile";
 						customLetter = MakeHostile(caster, originalPawn, duplicatePawn, out letterDef);
 						break;
+					//case 7:
+					//	phase = "random caster subgene";
+					//	caster.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.TryAddNewSubGene();
+					//	letterDef = LetterDefOf.PositiveEvent;
+					//	break;
+					//case 8:
+					//	phase = "random dupe subgene";
+					//	duplicatePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.TryAddNewSubGene_Duplicate();
+					//	break;
+					//case 9:
+					//	phase = "random xenotype";
+					//	ReimplanterUtility.SetXenotype(duplicatePawn, ListsUtility.GetAllXenotypesExceptAndroids().Where((xenos) => xenos.genes.Count <= 21 && !xenos.genes.Any((gene) => gene.biostatArc > 0)).RandomElement());
+					//	break;
 					default:
 						Log.Error("Unhandled outcome in pawn duplication " + num);
 						break;
