@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+	<defName>WVC_Duplicator_LowOutChance</defName>
+	<label>stable duplication</label>
+	<description>Carriers of this gene have a 2 times lower chance of undesirable outcomes when using the duplicator gene.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_LowOutChance</iconPath>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<statFactors>
+	  <WVC_DuplicatorOutcomeFactor>0.5</WVC_DuplicatorOutcomeFactor>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_Duplicator_OutcomeChance</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+	<defName>WVC_Duplicator_ZeroOutChance</defName>
+	<label>fail-proof duplication</label>
+	<description>Carriers of this gene do not have any undesirable outcomes when using the duplicator gene.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_ZeroOutChance</iconPath>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<statFactors>
+	  <WVC_DuplicatorOutcomeFactor>0</WVC_DuplicatorOutcomeFactor>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_Duplicator_OutcomeChance</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

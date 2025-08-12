@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+	<defName>WVC_Duplicator_SkillsSync</defName>
+	<label>duplicates library</label>
+	<description>Carriers of this gene have a special psychic connection with their duplicates, allowing them to use knowledge in skills and share them with them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_Skills</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_LowOutChance</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Affects&lt;/color&gt; only reachable &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt; of the pawn.</li>
+		<li>Synchronizes the &lt;color=#8a8ae6&gt;skill level&lt;/color&gt; of duplicates and the original.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

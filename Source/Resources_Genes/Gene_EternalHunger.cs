@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Override()
 		{
 			AddOrRemoveHediff();
-		}
+        }
 
 		public void AddOrRemoveHediff()
         {

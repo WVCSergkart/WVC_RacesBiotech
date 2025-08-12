@@ -46,11 +46,40 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedDuplicates == null)
 				{
-					cachedDuplicates = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive.Where((target) => DuplicateUtility.GetSourceCyclic(target) == SourcePawn).ToList();
+					cachedDuplicates = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive.Where((target) => target != SourcePawn && DuplicateUtility.GetSourceCyclic(target) == SourcePawn).ToList();
 				}
 				return cachedDuplicates;
 			}
 		}
+
+		private List<Pawn> cachedDuplicatesWithSource;
+		public List<Pawn> PawnDuplicates_WithSource
+		{
+			get
+			{
+				if (cachedDuplicatesWithSource == null)
+				{
+					List<Pawn> list = PawnDuplicates.ToList();
+					list.Add(SourcePawn);
+					cachedDuplicatesWithSource = list;
+				}
+				return cachedDuplicatesWithSource;
+			}
+		}
+
+		public List<GeneralHolder> PossibleGenesOutcome => Giver.geneDefWithChances;
+		public bool IsXenogene => pawn.genes.Xenogenes.Contains(this);
+
+		public bool TryAddNewSubGene()
+        {
+			IEnumerable<GeneralHolder> enumerable = PossibleGenesOutcome.Where((geneWith) => geneWith.reqDupesCount <= PawnDuplicates.Count && !XaG_GeneUtility.ConflictWith(geneWith.geneDef, pawn.genes.GenesListForReading));
+            if (!enumerable.EnumerableNullOrEmpty() && enumerable.TryRandomElementByWeight((geneWith) => geneWith.chance, out GeneralHolder result))
+            {
+				pawn.genes.AddGene(result.geneDef, IsXenogene);
+				Messages.Message("WVC_XaG_GeneDuplicator_AddNewSubGene".Translate(pawn.NameShortColored, result.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+			return false;
+        }
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -72,14 +101,10 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_GenesChanged(Gene changedGene)
 		{
 			cachedDuplicates = null;
+			cachedDuplicatesWithSource = null;
 		}
 
-		//public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		//{
-		//	cachedSourcePawn = null;
-		//}
-
-		public bool? CanDuplicate()
+        public bool? CanDuplicate()
 		{
 			return pawn.abilities?.GetAbility(def.abilities.First())?.OnCooldown;
 		}
@@ -100,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 			if (stat != null)
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToStringByStyle(stat.toStringStyle), stat.description, stat.displayPriorityInCategory);
+				//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat);
 			}
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsDuplcate".Translate(), (SourcePawn != pawn || pawn.IsDuplicate).ToStringYesNo(), "WVC_IsDuplcateDesc".Translate(), 500);
 		}

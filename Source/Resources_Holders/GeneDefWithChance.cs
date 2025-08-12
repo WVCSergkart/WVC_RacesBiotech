@@ -9,10 +9,11 @@ namespace WVC_XenotypesAndGenes
 
 		public float chance;
 
-		public bool disabled;
+        public int reqDupesCount;
+
+        public bool disabled;
 
 		private int? cost;
-
         public int Cost
         {
             get

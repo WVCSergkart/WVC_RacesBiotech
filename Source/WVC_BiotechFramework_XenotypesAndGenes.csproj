@@ -135,10 +135,12 @@
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
+    <Compile Include="Resources_Hediff\Hediff_Duplicate.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\HediffAddedPart_FleshmassNucleus.cs" />
     <Compile Include="Resources_Hediff\Hediff_ChimeraLimitFromBandwidth.cs" />
+    <Compile Include="Resources_Hediff\Hediff_Duplicator.cs" />
     <Compile Include="Resources_Hediff\Hediff_Morpher.cs" />
     <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
     <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />
@@ -250,6 +252,7 @@
     <Compile Include="Resources_StatPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromGenes.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
+    <Compile Include="Resources_StatPart\StatPart_SourceFactor.cs" />
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />

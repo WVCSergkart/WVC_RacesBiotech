@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_Duplicator</defName>
+	<label>duplicator</label>
+	<displayPriorityInXenotype>516.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_DuplicatorDependant</geneClass>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.0001</selectionWeight>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<prerequisite>WVC_Duplicator</prerequisite>
+	<displayCategory>WVC_Duplicator</displayCategory>
+	<customEffectDescriptions>
+		<li>Doesn't work with &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Name="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare" Abstract="True">
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+  </GeneDef>
+
+</Defs>

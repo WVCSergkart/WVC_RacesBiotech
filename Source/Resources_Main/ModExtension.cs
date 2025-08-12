@@ -38,6 +38,9 @@ namespace WVC_XenotypesAndGenes
 		public List<BiomeDef> biomeDefs;
 		public XenotypeDef xenotypeDef;
 		public IntRange? metRange;
+		// Duplicator
+		public GeneDef geneDef;
+		public int reqDupesCount;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;
@@ -282,6 +285,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public HediffDef hediffDefName;
 		public HediffDef hediffDef;
+		public HediffDef dupeHediffDef;
 		public List<HediffDef> hediffDefs;
 		public List<BodyPartDef> bodyparts;
 		public BackstoryDef childBackstoryDef;
@@ -350,6 +354,7 @@ namespace WVC_XenotypesAndGenes
 		//public bool chimeraCanEatGenes = true;
 		public List<NeedDef> needDefs;
 		public List<GeneDef> geneDefs;
+		public List<GeneralHolder> geneDefWithChances;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

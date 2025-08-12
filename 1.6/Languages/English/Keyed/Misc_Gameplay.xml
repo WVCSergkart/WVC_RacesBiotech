@@ -855,7 +855,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
-	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
+	<WVC_XaG_GeneShapeshifter_Desc>Allows to change the pawn's xenotype to any desired one, provided there is sufficient genetic compatibility or genetic materials.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
 	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>
@@ -908,7 +908,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#8076ff&gt;Genetic material&lt;/color&gt;: {0}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {1}</WVC_XaG_ShapeshifterGizmoTip>
 	<!-- \n -  &lt;color=#8076ff&gt;Req genes match&lt;/color&gt;: {2} -->
 
-	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was turned off for the gene.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
+	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was disabled.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
 
 	<!-- ========== GENE SHAPESHIFTER STYLE ========== -->
 
@@ -1074,7 +1074,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
 
 	<WVC_IsDuplcate>Is duplicate</WVC_IsDuplcate>
-	<WVC_IsDuplcateDesc>Whether this pawn is a duplicate of another pawn.</WVC_IsDuplcateDesc>
+	<WVC_IsDuplcateDesc>Whether this pawn is a duplicate of another pawn. Duplicates are bonded to their originals and because of this have some nasty limitations. They can't use some genes, and some effects that affect the original can also affect them.</WVC_IsDuplcateDesc>
 
 	<!-- =============== REMOTE CONTROL INTERFACE =============== -->
 

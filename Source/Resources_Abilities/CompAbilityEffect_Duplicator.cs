@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			Duplicator.Notify_GenesChanged(null);
 			float failChanceFactor = Duplicator.StatDef != null ? parent.pawn.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
 			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))

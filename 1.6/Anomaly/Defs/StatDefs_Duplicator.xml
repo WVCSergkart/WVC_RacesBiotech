@@ -9,6 +9,12 @@
 	<minValue>0</minValue>
 	<displayPriorityInCategory>150</displayPriorityInCategory>
 	<toStringStyle>PercentOne</toStringStyle>
+	<parts>
+	  <li Class="WVC_XenotypesAndGenes.StatPart_SourceFactor">
+		<stat>WVC_DuplicatorOutcomeFactor</stat>
+		<label>Factor from source</label>
+	  </li>
+	</parts>
   </StatDef>
 
 </Defs>

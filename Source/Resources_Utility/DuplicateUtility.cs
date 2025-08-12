@@ -579,20 +579,38 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool Debug_IsDuplicate_CompCheckOnly(Pawn diplicate)
+		public static bool Debug_IsDuplicate(Pawn diplicate)
 		{
 			return diplicate?.TryGetComp<CompHumanlike>()?.IsDuplicate == true;
 		}
 
-		public static Pawn GetSourceCyclic(Pawn duplicate)
+		public static Pawn GetSourceCyclic(this Pawn duplicate)
 		{
             Pawn sourcePawn = duplicate?.TryGetComp<CompHumanlike>()?.SourcePawn;
+			//if (sourcePawn.Dead)
+			//{
+			//	return duplicate;
+			//}
 			if (sourcePawn == null || sourcePawn == duplicate)
 			{
 				return duplicate;
 			}
 			return GetSourceCyclic(sourcePawn);
 		}
+
+		//public static Pawn GetSourceCyclic_ToMe(this Pawn duplicate, Pawn requester)
+		//{
+		//	Pawn sourcePawn = duplicate?.TryGetComp<CompHumanlike>()?.SourcePawn;
+		//	if (sourcePawn.Dead)
+		//	{
+		//		return duplicate;
+		//	}
+		//	if (sourcePawn == null || sourcePawn == duplicate || requester == duplicate)
+		//	{
+		//		return duplicate;
+		//	}
+		//	return GetSourceCyclic_ToMe(sourcePawn, requester);
+		//}
 
 		//private static Pawn GetSource(Pawn diplicate)
 		//{

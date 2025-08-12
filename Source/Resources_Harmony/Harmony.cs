@@ -741,7 +741,7 @@ namespace WVC_XenotypesAndGenes
             {
 				if (!__result)
 				{
-					__result = DuplicateUtility.Debug_IsDuplicate_CompCheckOnly(__instance);
+					__result = DuplicateUtility.Debug_IsDuplicate(__instance);
 				}
             }
 

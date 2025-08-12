@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+	<defName>WVC_Duplicator_Bandwidth</defName>
+	<label>duplicator bandwidth</label>
+	<description>Carriers of this gene can absorb the bandwidth of their duplicates.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_Bandwidth</geneClass> -->
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_Bandwidth</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Increases bandwidth&lt;/color&gt; depending on the bandwidth of &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+		<li>Reduces duplicate &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; to zero.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDef>WVC_Duplicator_Bandwidth</hediffDef> -->
+			<!-- <dupeHediffDef>WVC_Duplicatee_Bandwidth</dupeHediffDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Duplicator_Bandwidth</defName> -->
+	<!-- <label>bandwidth from duplicates</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_DuplicatorBandwidth</hediffClass> -->
+  <!-- </HediffDef> -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Duplicatee_Bandwidth</defName> -->
+	<!-- <label>duplicator drain</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_DuplicateBandwidth</hediffClass> -->
+  <!-- </HediffDef> -->
+
+</Defs>
