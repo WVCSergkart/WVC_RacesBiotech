@@ -49,9 +49,33 @@ namespace WVC_XenotypesAndGenes
 
 		//public override bool Active => !base.Overridden;
 
-		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Undead cachedGeneExtension_Undead;
+		public GeneExtension_Undead Props
+		{
+			get
+			{
+				if (cachedGeneExtension_Undead == null)
+				{
+					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+				}
+				return cachedGeneExtension_Undead;
+			}
+		}
+
+		private GeneExtension_Giver cachedGeneExtension_Giver;
+		public GeneExtension_Giver Giver
+		{
+			get
+			{
+				if (cachedGeneExtension_Giver == null)
+				{
+					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension_Giver;
+			}
+		}
 
 		//public bool xenogermComaAfterShapeshift = true;
 		//public bool genesRegrowAfterShapeshift = true;
@@ -77,6 +101,7 @@ namespace WVC_XenotypesAndGenes
 				if (item is Gene_ShapeshifterDependant dependant && dependant.DisableGenesRegrowing)
 				{
 					cachedGenesRegrow = false;
+					break;
 				}
 			}
 			if (!cachedGenesRegrow.HasValue)
@@ -120,8 +145,7 @@ namespace WVC_XenotypesAndGenes
         public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
-			Notify_GenesChanged(null);
-			//SetupRemoteContollers(true);
+			cachedGenesRegrow = null;
 		}
 
 		public void RemoveHediffs()
@@ -132,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Override()
 		{
 			UpdateMetabolism();
-			Notify_GenesChanged(null);
+			cachedGenesRegrow = null;
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
@@ -407,7 +431,7 @@ namespace WVC_XenotypesAndGenes
         public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
         {
             cachedPreservedGenes = null;
-            UpdGenesRegrow();
+            //UpdGenesRegrow();
             if (!genesRegrowing)
             {
                 GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
@@ -423,7 +447,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			UpdateMetabolism();
 			cachedPreservedGenes = null;
-			UpdGenesRegrow();
+			//UpdGenesRegrow();
 			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
