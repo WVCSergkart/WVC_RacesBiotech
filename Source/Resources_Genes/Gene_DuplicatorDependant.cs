@@ -99,7 +99,28 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-	public class Gene_Duplicator_Skills : Gene_DuplicatorDependant
+    public class Gene_Duplicator_DeathChain : Gene_DuplicatorDependant
+    {
+
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        {
+            if (!Active || Duplicator == null)
+            {
+                return;
+            }
+            Duplicator.Notify_GenesChanged(null);
+            foreach (Pawn dupe in Duplicator.PawnDuplicates.ToList())
+            {
+                if (!dupe.Dead)
+                {
+                    dupe.Kill(null);
+                }
+            }
+        }
+
+    }
+
+    public class Gene_Duplicator_Skills : Gene_DuplicatorDependant
     {
 
         public override void TickInterval(int delta)

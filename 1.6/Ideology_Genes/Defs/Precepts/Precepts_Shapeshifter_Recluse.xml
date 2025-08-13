@@ -41,7 +41,7 @@
 	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Morph</eventDef>
-		<eventLabel>morphing</eventLabel>
+		<eventLabel>morph</eventLabel>
 		<points>8</points>
 	  </li>
 	</comps>

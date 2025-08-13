@@ -352,7 +352,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TryInteract()
 		{
-			GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
+			GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
 			ResetInterval(new(7200, 22000));
 		}
 

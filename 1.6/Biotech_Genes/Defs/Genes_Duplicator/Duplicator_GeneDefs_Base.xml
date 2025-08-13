@@ -32,6 +32,11 @@
 			<statDef MayRequire="ludeon.rimworld.anomaly">WVC_DuplicatorOutcomeFactor</statDef>
 			<geneDefWithChances>
 				<li MayRequire="ludeon.rimworld.anomaly">
+					<geneDef>WVC_Duplicator_DeathChain</geneDef>
+					<chance>1.0</chance>
+					<reqDupesCount>1</reqDupesCount>
+				</li>
+				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_LowOutChance</geneDef>
 					<chance>0.73</chance>
 					<reqDupesCount>2</reqDupesCount>

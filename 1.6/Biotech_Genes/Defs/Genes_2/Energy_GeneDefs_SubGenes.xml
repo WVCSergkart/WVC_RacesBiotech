@@ -94,11 +94,12 @@
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<setMax>0.0</setMax>
+		<setMax>0.05</setMax>
 	  </li>
 	</capMods>
 	<customEffectDescriptions>
-	  <li>Carriers can initiate only random social interactions, and only with carriers of the gene.</li>
+	  <!-- <li>Carriers can initiate random social interactions, and only with carriers of the gene.</li> -->
+	  <li>Carrier can initiate random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any pawn on the map, if target have &lt;color=#8a8ae6&gt;same gene&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
