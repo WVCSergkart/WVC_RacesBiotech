@@ -33,6 +33,7 @@
 	<hediffClass>WVC_XenotypesAndGenes.Hediff_Thrall</hediffClass>
 	<everCurableByItem>false</everCurableByItem>
 	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<duplicationAllowed>false</duplicationAllowed>
 	<stages>
 	  <li>
 		<!-- Stages locked by hediffClass. statOffsets and statFactors only -->

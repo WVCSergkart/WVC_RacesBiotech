@@ -20,20 +20,28 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (curStage == null)
-				{
-					curStage = new();
-					curStage.statOffsets = def.stages[CurStageIndex].statOffsets;
-					curStage.statFactors = def.stages[CurStageIndex].statFactors;
-					if (!pawn.mutant.Def.breathesAir)
+                {
+                    try
                     {
-						curStage.totalBleedFactor = 0f;
+                        curStage = new();
+                        curStage.statOffsets = def.stages[CurStageIndex]?.statOffsets;
+                        curStage.statFactors = def.stages[CurStageIndex]?.statFactors;
+                        if (pawn.mutant?.Def?.breathesAir == false)
+                        {
+                            curStage.totalBleedFactor = 0f;
+                        }
+                        if (pawn.mutant?.Def?.entitledToMedicalCare == false)
+                        {
+                            curStage.regeneration = 33f;
+                        }
                     }
-					if (!pawn.mutant.Def.entitledToMedicalCare)
-					{
-						curStage.regeneration = 33f;
-					}
-				}
-				return curStage;
+                    catch
+                    {
+                        Log.Warning("Failed set curStage for Hediff_Thrall. On def: " + def.defName);
+                        curStage = new();
+                    }
+                }
+                return curStage;
 			}
 		}
 
