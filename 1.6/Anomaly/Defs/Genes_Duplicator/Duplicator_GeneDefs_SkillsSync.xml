@@ -6,7 +6,7 @@
 	<label>duplicates library</label>
 	<description>Carriers of this gene have a special psychic connection with their duplicates, allowing them to use knowledge in skills and share them with them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_Skills</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_Duplicator_LowOutChance</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_SkillsShare</iconPath>
 	<displayOrderInCategory>50</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>3</biostatArc>

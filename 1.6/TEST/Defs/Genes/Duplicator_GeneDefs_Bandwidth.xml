@@ -11,7 +11,9 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Increases bandwidth&lt;/color&gt; depending on the bandwidth of &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Increases bandwidth&lt;/color&gt; depending on the bandwidth of &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li> -->
+		<li>Gradually absorbs the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; of duplicates, increasing the &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; of the carrier.</li>
+		<!-- <li>Carrier &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt;: duplicate bandwidth</li> -->
 		<li>Duplicates &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt;: x0</li>
 	</customEffectDescriptions>
 	<modExtensions>

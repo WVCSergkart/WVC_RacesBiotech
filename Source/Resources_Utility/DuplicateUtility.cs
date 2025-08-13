@@ -62,68 +62,15 @@ namespace WVC_XenotypesAndGenes
 					letterDef = LetterDefOf.PositiveEvent;
 					return;
 				}
-				phase = "outcome randomizing";
-				int num = Rand.RangeInclusive(0, 6);
-				if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
-				{
-					num++;
-				}
-				if (num == 2 && duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.CrumblingMind))
-				{
-					num++;
-				}
-				HediffUtility.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
-                if (num == 3 && mutation == null)
-				{
-					num++;
-				}
-				switch (num)
-				{
-					case 0:
-						phase = "add duplicate sickness";
-						AddDuplicateSickness(originalPawn, duplicatePawn);
-						break;
-					case 1:
-						phase = "add organ decay";
-						duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
-						break;
-					case 2:
-						phase = "add crumbling mind";
-						duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
-						break;
-					case 3:
-						phase = "try mutate";
-						TryMutate(duplicatePawn, ref customLetter, ref letterDef, mutation);
-						break;
-					case 4:
-						phase = "randomize backstory";
-						customLetter = RandomizeBackstory(duplicatePawn, customLetter);
-						break;
-					case 5:
-						phase = "randomize traits";
-						customLetter = RandomizeTraits(duplicatePawn, customLetter);
-						break;
-					case 6:
-						phase = "make hostile";
-						customLetter = MakeHostile(caster, originalPawn, duplicatePawn, out letterDef);
-						break;
-					//case 7:
-					//	phase = "random caster subgene";
-					//	caster.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.TryAddNewSubGene();
-					//	letterDef = LetterDefOf.PositiveEvent;
-					//	break;
-					//case 8:
-					//	phase = "random dupe subgene";
-					//	duplicatePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.TryAddNewSubGene_Duplicate();
-					//	break;
-					//case 9:
-					//	phase = "random xenotype";
-					//	ReimplanterUtility.SetXenotype(duplicatePawn, ListsUtility.GetAllXenotypesExceptAndroids().Where((xenos) => xenos.genes.Count <= 21 && !xenos.genes.Any((gene) => gene.biostatArc > 0)).RandomElement());
-					//	break;
-					default:
-						Log.Error("Unhandled outcome in pawn duplication " + num);
-						break;
-				}
+				RandomOutcomes(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef, ref phase);
+				//try
+				//{
+				//}
+				//catch
+				//{
+				//	Log.Error("Failed do outcome, trying do legacy one.");
+				//	LegacyOutcomes(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef, ref phase);
+				//}
 			}
 			catch (Exception arg)
 			{
@@ -131,23 +78,87 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private static void TryMutate(Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, HediffDef mutation)
-        {
-            if (FleshbeastUtility.TryGiveMutation(duplicatePawn, mutation))
-            {
-                customLetter += "\n\n" + "WVC_XaG_GeneDuplicatorMutationLetter".Translate(duplicatePawn.Named("PAWN"));
-            }
-            else
-            {
-                letterDef = LetterDefOf.PositiveEvent;
-            }
-        }
+		private static void RandomOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, ref string phase)
+		{
+			List<DuplicatorOutcomeDef> list = DefDatabase<DuplicatorOutcomeDef>.AllDefsListForReading.Where((def) => def.Worker.CanFireNow(caster, originalPawn, duplicatePawn)).ToList();
+			if (list.TryRandomElementByWeight((outcome) => outcome.Worker.GetChance(caster, originalPawn, duplicatePawn), out DuplicatorOutcomeDef result))
+			{
+				phase = "trying do outcome: " + result.defName;
+				result.Worker.DoOutcome(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef);
+			}
+		}
 
-        private static string RandomizeBackstory(Pawn duplicatePawn, string customLetter)
-        {
-            if (TryGetRandomBackstory(duplicatePawn, out BackstoryDef childstory, out BackstoryDef adultstory))
-            {
-                duplicatePawn.story.Childhood = childstory;
+		[Obsolete]
+		private static void LegacyOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, ref string phase)
+		{
+			phase = "outcome randomizing";
+			int num = Rand.RangeInclusive(0, 6);
+			if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
+			{
+				num++;
+			}
+			if (num == 2 && duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.CrumblingMind))
+			{
+				num++;
+			}
+			HediffUtility.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
+			if (num == 3 && mutation == null)
+			{
+				num++;
+			}
+			switch (num)
+			{
+				case 0:
+					phase = "add duplicate sickness";
+					AddDuplicateSickness(originalPawn, duplicatePawn);
+					break;
+				case 1:
+					phase = "add organ decay";
+					duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
+					break;
+				case 2:
+					phase = "add crumbling mind";
+					duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
+					break;
+				case 3:
+					phase = "try mutate";
+					TryMutate(duplicatePawn, ref customLetter, ref letterDef, mutation);
+					break;
+				case 4:
+					phase = "randomize backstory";
+					RandomizeBackstory(duplicatePawn, ref customLetter);
+					break;
+				case 5:
+					phase = "randomize traits";
+					RandomizeTraits(duplicatePawn, ref customLetter);
+					break;
+				case 6:
+					phase = "make hostile";
+					MakeHostile(caster, originalPawn, duplicatePawn, ref letterDef, ref customLetter);
+					break;
+				default:
+					Log.Error("Unhandled outcome in pawn duplication " + num);
+					break;
+			}
+		}
+
+		public static void TryMutate(Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, HediffDef mutation)
+		{
+			if (FleshbeastUtility.TryGiveMutation(duplicatePawn, mutation))
+			{
+				customLetter += "\n\n" + "WVC_XaG_GeneDuplicatorMutationLetter".Translate(duplicatePawn.Named("PAWN"));
+			}
+			else
+			{
+				letterDef = LetterDefOf.PositiveEvent;
+			}
+		}
+
+		public static void RandomizeBackstory(Pawn duplicatePawn, ref string customLetter)
+		{
+			if (TryGetRandomBackstory(duplicatePawn, out BackstoryDef childstory, out BackstoryDef adultstory))
+			{
+				duplicatePawn.story.Childhood = childstory;
 				if (adultstory != null)
 				{
 					duplicatePawn.story.Adulthood = adultstory;
@@ -158,10 +169,9 @@ namespace WVC_XenotypesAndGenes
 				NullifyBackstory(duplicatePawn);
 			}
 			customLetter += "\n\n" + "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
-            return customLetter;
-        }
+		}
 
-		private static string RandomizeTraits(Pawn duplicatePawn, string customLetter)
+		public static void RandomizeTraits(Pawn duplicatePawn, ref string customLetter)
 		{
 			List<Trait> allTraits = duplicatePawn.story.traits.allTraits;
 			int traitsCount = 0;
@@ -179,12 +189,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			duplicatePawn.AddRandomTraits(traitsCount);
 			customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
-			return customLetter;
 		}
 
-        private static string MakeHostile(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, out LetterDef letterDef)
+		public static void MakeHostile(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref LetterDef letterDef, ref string customLetter)
 		{
-			string customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(caster.Named("CASTER"), duplicatePawn.Named("PAWN"));
+			customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(caster.Named("CASTER"), duplicatePawn.Named("PAWN"));
 			letterDef = LetterDefOf.ThreatBig;
 			if (!duplicatePawn.WorkTagIsDisabled(WorkTags.Violent))
 			{
@@ -201,14 +210,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				duplicatePawn.mindState?.mentalStateHandler?.TryStartMentalState(MentalStateDefOf.Berserk, null, forced: true);
 			}
-			return customLetter;
-        }
+		}
 
-        public static bool TryGetRandomBackstory(Pawn duplicatePawn, out BackstoryDef childstory, out BackstoryDef adultstory)
-        {
+		public static bool TryGetRandomBackstory(Pawn duplicatePawn, out BackstoryDef childstory, out BackstoryDef adultstory)
+		{
 			List<BackstoryDef> allDefsListForReading = DefDatabase<BackstoryDef>.AllDefsListForReading.Where((BackstoryDef def) => def.shuffleable && !def.spawnCategories.NullOrEmpty()).ToList();
 			if (duplicatePawn.story?.Childhood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def != duplicatePawn.story.Childhood && def.spawnCategories.Contains(duplicatePawn.story?.Childhood?.spawnCategories?.First())).ToList().TryRandomElement(out childstory))
-            {
+			{
 				childstory = null;
 			}
 			if (duplicatePawn.story?.Adulthood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def != duplicatePawn.story.Adulthood && def.spawnCategories.Contains(duplicatePawn.story?.Adulthood?.spawnCategories?.First())).ToList().TryRandomElement(out adultstory))
@@ -218,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 			return childstory != null;
 		}
 
-        public static void AddDuplicateSickness(Pawn originalPawn, Pawn duplicatePawn)
+		public static void AddDuplicateSickness(Pawn originalPawn, Pawn duplicatePawn)
 		{
 			Hediff_DuplicateSickness hediff_DuplicateSickness = (Hediff_DuplicateSickness)originalPawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.DuplicateSickness);
 			if (hediff_DuplicateSickness == null)

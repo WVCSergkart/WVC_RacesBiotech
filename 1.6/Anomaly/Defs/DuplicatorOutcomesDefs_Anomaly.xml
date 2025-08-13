@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_DuplicateSickness</defName>
+	<label>duplicate sickness</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_DuplicateSickness</workerClass>
+	<basicChance>0.8</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_OrganDecay</defName>
+	<label>organ decay</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_OrganDecay</workerClass>
+	<basicChance>1.0</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_CrumblingMind</defName>
+	<label>crumbling mind</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_CrumblingMind</workerClass>
+	<basicChance>0.66</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_Mutation</defName>
+	<label>mutation</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_Mutation</workerClass>
+	<basicChance>0.2</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_RandomTrait</defName>
+	<label>random trait</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_RandomTrait</workerClass>
+	<basicChance>0.8</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_RandomBackstory</defName>
+	<label>random backstory</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_RandomBackstory</workerClass>
+	<basicChance>0.75</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_Berserk</defName>
+	<label>berserk</label>
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_Berserk</workerClass>
+	<basicChance>1.5</basicChance>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
+</Defs>

@@ -161,6 +161,7 @@
     <Compile Include="Resources_BloodeaterModes\BloodeaterMode_Animal.cs" />
     <Compile Include="Resources_BloodeaterModes\BloodeaterMode_Corpse.cs" />
     <Compile Include="Resources_BloodeaterModes\BloodeaterMode_Hemogen.cs" />
+    <Compile Include="Resources_NewDefs\DuplicatorOutcomeDef.cs" />
     <Compile Include="Resources_NewDefs\XenotypesAndGenesListDef.cs" />
     <Compile Include="Resources_NewDefs\SettingsDef.cs" />
     <Compile Include="Resources_NewDefs\DevXenotypeDef.cs" />
@@ -270,6 +271,7 @@
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Duplicate.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
