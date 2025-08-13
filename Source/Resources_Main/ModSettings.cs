@@ -93,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
+		public float duplicator_RandomGeneChance = 0.12f;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
 		public bool fleshmass_HideBodypartHediffs = false;
@@ -244,6 +245,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_chimeraXenogermCD, "enable_chimeraXenogermCD", defaultValue: false);
 			// Duplicator
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
+			Scribe_Values.Look(ref duplicator_RandomGeneChance, "duplicator_RandomGeneChance", defaultValue: 0.12f);
 			// Fleshmass
 			Scribe_Values.Look(ref fleshmass_MaxMutationsLevel, "fleshmass_MaxMutationsLevel", defaultValue: 5f);
 			Scribe_Values.Look(ref fleshmass_HideBodypartHediffs, "fleshmass_HideBodypartHediffs", defaultValue: false);
@@ -907,6 +909,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogermCD".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogermCD, "WVC_ToolTip_enable_chimeraXenogermCD".Translate());
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_chimera_defaultReqMetabolismRange".Translate((int)settings.chimera_defaultReqMetabolismRange.min + "~" + (int)settings.chimera_defaultReqMetabolismRange.max), ref settings.chimera_defaultReqMetabolismRange, -99, 99, tooltip: "WVC_Tooltip_chimera_defaultReqMetabolismRange".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomGeneChance".Translate((settings.duplicator_RandomGeneChance).ToString()), ref settings.duplicator_RandomGeneChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomGeneChance".Translate());
 				//if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
 				//{
 				//	listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
@@ -1085,6 +1088,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.chimera_defaultReqMetabolismRange = settingsDef.chimera_defaultReqMetabolismRange;
 			// =
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
+			WVC_Biotech.settings.duplicator_RandomGeneChance = settingsDef.duplicator_RandomGeneChance;
 			// =
 			WVC_Biotech.settings.thrallMaker_cooldownOverride = settingsDef.thrallMaker_cooldownOverride;
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = settingsDef.thrallMaker_ThrallsInheritMasterGenes;

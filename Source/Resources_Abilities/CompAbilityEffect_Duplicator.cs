@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 				{
                     Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
 				}
-				if (ModsConfig.AnomalyActive && Rand.Chance(0.12f * failChanceFactor))
+				if (ModsConfig.AnomalyActive && Rand.Chance(WVC_Biotech.settings.duplicator_RandomGeneChance * failChanceFactor))
                 {
                     Duplicator.TryAddNewSubGene(caster.IsDuplicate);
                 }

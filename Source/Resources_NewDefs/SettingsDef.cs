@@ -89,6 +89,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
+		public float duplicator_RandomGeneChance = 0.12f;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
 		public bool fleshmass_HideBodypartHediffs = false;

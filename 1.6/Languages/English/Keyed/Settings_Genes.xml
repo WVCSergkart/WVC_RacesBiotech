@@ -215,7 +215,10 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<!-- ================================== -->
 
 	<WVC_Label_duplicator_RandomOutcomeChance>Duplicator random outcome chance {0}%</WVC_Label_duplicator_RandomOutcomeChance>
-	<WVC_Tooltip_duplicator_RandomOutcomeChance>Affects the chance that something will be wrong with the duplicate. Requires the Anomaly DLC, for obvious reasons.</WVC_Tooltip_duplicator_RandomOutcomeChance>
+	<WVC_Tooltip_duplicator_RandomOutcomeChance>Affects the chance that something will be wrong with the duplicate. Requires the Anomaly DLC, for obvious reasons. It is the main chance modifier, but not the only one.</WVC_Tooltip_duplicator_RandomOutcomeChance>
+
+	<WVC_Label_duplicator_RandomGeneChance>Duplicator random sub-gene chance {0}%</WVC_Label_duplicator_RandomGeneChance>
+	<WVC_Tooltip_duplicator_RandomGeneChance>Affects the chance of getting a random duplicator subgene. Requires the Anomaly DLC, currently. It is the main chance modifier, but not the only one.</WVC_Tooltip_duplicator_RandomGeneChance>
 
 	<!-- ================================== -->
 

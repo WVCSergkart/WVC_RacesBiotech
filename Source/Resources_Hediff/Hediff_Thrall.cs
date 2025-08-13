@@ -37,8 +37,15 @@ namespace WVC_XenotypesAndGenes
                     }
                     catch
                     {
-                        Log.Warning("Failed set curStage for Hediff_Thrall. On def: " + def.defName);
-                        curStage = new();
+                        try
+                        {
+                            curStage = def.stages[CurStageIndex];
+                            Log.Warning("Failed set curStage for Hediff_Thrall. On def: " + def.defName);
+                        }
+                        catch
+                        {
+                            curStage = new();
+                        }
                     }
                 }
                 return curStage;
