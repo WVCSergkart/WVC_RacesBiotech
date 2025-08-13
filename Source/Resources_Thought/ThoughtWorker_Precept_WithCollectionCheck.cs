@@ -5,35 +5,29 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// public abstract class ThoughtWorker_PreceptWithXaGComponent : ThoughtWorker_Precept
-	// {
+    public abstract class ThoughtWorker_Precept_WithCollectionCheck : ThoughtWorker_Precept
+	{
 
-		// [Unsaved(false)]
-		// private XaG_GameComponent cachedGameComponent;
+		public static int lastRecacheTick = -1;
 
-		// public XaG_GameComponent GameComponent
-		// {
-			// get
-			// {
-				// if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
-				// {
-					// cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
-				// }
-				// return cachedGameComponent;
-			// }
-		// }
+		public void UpdCollection()
+		{
+            if (lastRecacheTick < Find.TickManager.TicksGame)
+            {
+				//Log.Error("ShouldHaveThought Tick");
+                MiscUtility.UpdateStaticCollection();
+                lastRecacheTick = Find.TickManager.TicksGame + 6000;
+            }
+		}
 
-	// }
+	}
 
-	public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
+    public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			// if (p.Faction != Faction.OfPlayer)
-			// {
-				// return false;
-			// }
+			UpdCollection();
 			if (StaticCollectionsClass.cachedXenotypesCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
@@ -48,15 +42,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			// if (p.Faction != Faction.OfPlayer)
-			// {
-				// return false;
-			// }
+			UpdCollection();
 			if (StaticCollectionsClass.cachedNonHumansCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
@@ -71,11 +62,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class ThoughtWorker_Precept_MoreThanFiveColonistsInFaction : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_MoreThanFiveColonistsInFaction : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
+			UpdCollection();
 			if (StaticCollectionsClass.cachedColonistsCount > 5)
 			{
 				return ThoughtState.ActiveDefault;
@@ -94,11 +86,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class ThoughtWorker_Precept_MoreThanOneColonistsInFaction : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_MoreThanOneColonistsInFaction : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
+			UpdCollection();
 			if (StaticCollectionsClass.cachedColonistsCount > 1)
 			{
 				return ThoughtState.ActiveDefault;

@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class ThoughtWorker_Precept_MechanoidLabor_AssignedWork : ThoughtWorker_Precept
+    public class ThoughtWorker_Precept_MechanoidLabor_AssignedWork : ThoughtWorker_Precept_WithCollectionCheck
     {
         //protected abstract TimeAssignmentDef AssignmentDef { get; }
 

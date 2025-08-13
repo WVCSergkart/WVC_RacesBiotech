@@ -791,7 +791,13 @@ namespace WVC_XenotypesAndGenes
 		//	return mult;
 		//}
 
+		[Obsolete]
 		public static void CountAllPlayerControlledPawns_StaticCollection()
+		{
+			UpdateStaticCollection();
+		}
+
+		public static void UpdateStaticCollection()
 		{
 			int colonists = 0;
 			int xenos = 0;

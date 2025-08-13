@@ -206,13 +206,29 @@ namespace WVC_XenotypesAndGenes
         //    }
         //}
 
-  //      public override void PostSpawnSetup(bool respawningAfterLoad)
+        //      public override void PostSpawnSetup(bool respawningAfterLoad)
+        //{
+        //	if (parent is not Pawn pawn || pawn?.genes == null)
+        //	{
+        //		return;
+        //	}
+        //	StaticCollectionsClass.currentGameComponent?.TryUpdateKnownXenotype(pawn);
+        //}
+
+		//public override void Notify_Arrested(bool succeeded)
 		//{
-		//	if (parent is not Pawn pawn || pawn?.genes == null)
+		//	if (parent?.Faction?.IsPlayer == true)
 		//	{
-		//		return;
+		//		MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
 		//	}
-		//	StaticCollectionsClass.currentGameComponent?.TryUpdateKnownXenotype(pawn);
+		//}
+
+		//public override void Notify_Released()
+		//{
+		//	if (parent?.Faction?.IsPlayer == true)
+		//	{
+		//		MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
+		//	}
 		//}
 
 		// =====================

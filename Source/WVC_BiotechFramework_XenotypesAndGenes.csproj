@@ -300,7 +300,7 @@
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_WithXaGComponent.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_Precept_WithCollectionCheck.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_TEST\TEST_JobGiver_WanderNearTarget.cs" />

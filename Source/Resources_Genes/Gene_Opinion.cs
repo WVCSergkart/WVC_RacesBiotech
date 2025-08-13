@@ -413,7 +413,7 @@ namespace WVC_XenotypesAndGenes
             base.PostAdd();
 			if (MiscUtility.GameStarted())
 			{
-				MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
+				MiscUtility.UpdateStaticCollection();
 			}
         }
 
@@ -428,6 +428,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryInteract()
 		{
+			MiscUtility.UpdateStaticCollection();
 			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
 			if (StaticCollectionsClass.cachedColonistsCount > Props.colonistsLimit)
 			{
@@ -460,7 +461,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (MiscUtility.GameStarted())
 			{
-				MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
+				MiscUtility.UpdateStaticCollection();
 			}
 		}
 
@@ -475,6 +476,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryInteract()
 		{
+			MiscUtility.UpdateStaticCollection();
 			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
 			if (StaticCollectionsClass.cachedNonHumansCount > 0)
 			{
