@@ -1,87 +1,145 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- =========================
+       Precept: One-Man Army
+       ========================= -->
   <PreceptDef>
-	<defName>WVC_Shapeshifters_OneManArmy</defName>
-	<issue>WVC_Shapeshifters</issue>
-	<label>one man army</label>
-	<description>We must stand alone. Together we are more vulnerable than apart.</description>
-	<impact>High</impact>
-	<requiredMemes>
-	  <li>WVC_Shapeshifterist</li>
-	</requiredMemes>
-	<enabledForNPCFactions>false</enabledForNPCFactions>
-	<statOffsets>
-	  <MentalBreakThreshold>-0.16</MentalBreakThreshold>
-	  <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
-	  <GlobalLearningFactor>0.5</GlobalLearningFactor>
-	</statOffsets>
-	<comps>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_Shapeshifters_OneManArmy_Humanlikes</thought>
-		<description>For each colonist (non-quest, non-duplicate, non-deathresting) above 1</description>
-	  </li>
-	  <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MyDuplicateSocial</thought>
-		<description>My duplicate</description>
-	  </li>
-	  <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MySourceSocial</thought>
-		<description>My source</description>
-	  </li>
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_OneManArmy</eventDef>
-		<eventLabel>for every day being alone</eventLabel>
-		<points>1</points>
-	  </li>
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_Shapeshift</eventDef>
-		<eventLabel>shapeshift</eventLabel>
-		<points>20</points>
-	  </li>
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_Morph</eventDef>
-		<eventLabel>morphing</eventLabel>
-		<points>8</points>
-	  </li>
-	</comps>
+    <defName>WVC_Shapeshifters_OneManArmy</defName>
+    <issue>WVC_Shapeshifters</issue>
+    <label>one‑man army</label>
+    <description>We stand alone. The more we rely on others, the more exposed we are.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>10</displayOrderInIssue>
+
+    <requiredMemes>
+      <li>WVC_Shapeshifterist</li>
+    </requiredMemes>
+    <enabledForNPCFactions>false</enabledForNPCFactions>
+
+    <!-- Global stat pressure: harsher mood threshold, slower work/learning,
+         but small combat focus to fit the theme. -->
+    <statOffsets>
+      <MentalBreakThreshold>-0.16</MentalBreakThreshold>
+      <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+      <GlobalLearningFactor>0.5</GlobalLearningFactor>
+
+      <!-- NEW: modest combat proficiency to compensate for isolation -->
+      <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
+      <MeleeHitChance>0.02</MeleeHitChance>
+    </statOffsets>
+
+    <comps>
+      <!-- Scales negatively with extra colonists (see ThoughtDef stages below) -->
+      <li Class="PreceptComp_SituationalThought">
+        <thought>WVC_Shapeshifters_OneManArmy_Humanlikes</thought>
+        <description>For each colonist (non-quest, non-duplicate, non-deathresting) above 1</description>
+      </li>
+
+      <!-- Positive social link with duplicates / sources (Anomaly) -->
+      <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
+        <thought>WVC_OneManArmy_MyDuplicateSocial</thought>
+        <description>My duplicate</description>
+      </li>
+      <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
+        <thought>WVC_OneManArmy_MySourceSocial</thought>
+        <description>My source</description>
+      </li>
+
+      <!-- Development points hooks -->
+      <li Class="PreceptComp_DevelopmentPoints">
+        <eventDef>WVC_OneManArmy</eventDef>
+        <eventLabel>each day spent alone</eventLabel>
+        <points>1</points>
+      </li>
+      <li Class="PreceptComp_DevelopmentPoints">
+        <eventDef>WVC_Shapeshift</eventDef>
+        <eventLabel>shapeshift</eventLabel>
+        <points>20</points>
+      </li>
+      <li Class="PreceptComp_DevelopmentPoints">
+        <eventDef>WVC_Morph</eventDef>
+        <eventLabel>morph</eventLabel>
+        <points>8</points>
+      </li>
+    </comps>
   </PreceptDef>
 
+  <!-- =========================
+       Thought: More-than-one colonist penalty
+       ========================= -->
   <ThoughtDef>
-	<defName>WVC_Shapeshifters_OneManArmy_Humanlikes</defName>
-	<thoughtClass>Thought_Situational</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanOneColonistsInFaction</workerClass>
-	<stages>
-	  <li>
-		<label>one man army</label>
-		<description>We must stand alone. Together we are more vulnerable than apart.</description>
-		<baseMoodEffect>-20</baseMoodEffect>
-	  </li>
-	</stages>
+    <defName>WVC_Shapeshifters_OneManArmy_Humanlikes</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanOneColonistsInFaction</workerClass>
+
+    <!-- NEW: multi-stage scaling; worker picks stage by surplus colonists.
+         Stage 0 ~ 2 colonists, Stage 1 ~ 3–4, Stage 2 ~ 5–7, Stage 3 ~ 8+ -->
+    <stages>
+      <li>
+        <label>not quite alone</label>
+        <description>Another colonist is present. Reliance creeps in.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>too many around</label>
+        <description>We’re relying on others more than we should.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+      <li>
+        <label>crowded</label>
+        <description>This many colonists makes us vulnerable.</description>
+        <baseMoodEffect>-30</baseMoodEffect>
+      </li>
+      <li>
+        <label>compromised</label>
+        <description>Far too many colonists. Our edge dulls in a crowd.</description>
+        <baseMoodEffect>-40</baseMoodEffect>
+      </li>
+    </stages>
+
+    <!-- NEW: some traits nullify this precept’s mood pressure -->
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Ascetic</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <!-- =========================
+       Social Thoughts (Anomaly)
+       ========================= -->
+  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
+    <defName>WVC_OneManArmy_MyDuplicateSocial</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MyDuplicate</workerClass>
+    <!-- NEW: allow stronger bond stage if worker supports it; falls back to first stage otherwise -->
+    <stages>
+      <li>
+        <label>my duplicate</label>
+        <baseOpinionOffset>20</baseOpinionOffset>
+      </li>
+      <li>
+        <label>my mirror self</label>
+        <baseOpinionOffset>35</baseOpinionOffset>
+      </li>
+    </stages>
   </ThoughtDef>
 
   <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
-	<defName>WVC_OneManArmy_MyDuplicateSocial</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MyDuplicate</workerClass>
-	<stages>
-	  <li>
-		<label>My duplicate</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
-
-  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
-	<defName>WVC_OneManArmy_MySourceSocial</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MySource</workerClass>
-	<stages>
-	  <li>
-		<label>My source</label>
-		<baseOpinionOffset>25</baseOpinionOffset>
-	  </li>
-	</stages>
+    <defName>WVC_OneManArmy_MySourceSocial</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MySource</workerClass>
+    <!-- NEW: two-step scaling similar to duplicate -->
+    <stages>
+      <li>
+        <label>my source</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+      <li>
+        <label>my origin</label>
+        <baseOpinionOffset>40</baseOpinionOffset>
+      </li>
+    </stages>
   </ThoughtDef>
 
 </Defs>
