@@ -31,7 +31,15 @@ namespace WVC_XenotypesAndGenes
 
         public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
 		{
-			float voidCost = (float)Math.Round((pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale + (!pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty() ? pawnKindDef.race.race.mechEnabledWorkTypes.Count : 3)) * WVC_Biotech.settings.voidlink_mechCostFactor * pawnKindDef.race.race.mechWeightClass.ToFloatFactor(), 0, MidpointRounding.AwayFromZero);
+			SimpleCurve workCurve = new()
+			{
+				new CurvePoint(1, 1f),
+				new CurvePoint(2f, 2f),
+				new CurvePoint(3f, 3f),
+				new CurvePoint(5f, 3f),
+				new CurvePoint(10f, 5f)
+			};
+			float voidCost = (float)Math.Round((pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale + (!pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty() ? workCurve.Evaluate(pawnKindDef.race.race.mechEnabledWorkTypes.Count) : 3)) * WVC_Biotech.settings.voidlink_mechCostFactor * pawnKindDef.race.race.mechWeightClass.ToFloatFactor(), 0, MidpointRounding.AwayFromZero);
 			if (voidCost > limit)
 			{
 				return limit;

@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (StaticCollectionsClass.cachedColonyMechs <= StaticCollectionsClass.cachedColonistsCount * 2)
+			if (StaticCollectionsClass.cachedColonyMechsCount <= StaticCollectionsClass.cachedColonistsCount * 2)
 			{
 				return false;
 			}

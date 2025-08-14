@@ -10,10 +10,12 @@ namespace WVC_XenotypesAndGenes
 	public static class StaticCollectionsClass
 	{
 
+		public static int cachedDuplicatesCount = 0;
+		public static int cachedPlayerPawnsCount = 0;
 		public static int cachedColonistsCount = 0;
 		public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
-		public static int cachedColonyMechs = 0;
+		public static int cachedColonyMechsCount = 0;
 		public static bool haveAssignedWork = false;
 		//public static bool leaderIsUndead = false;
 		//public static bool leaderIsShapeshifter = false;
@@ -30,13 +32,16 @@ namespace WVC_XenotypesAndGenes
 		//public static XaG_GameComponent currentGameComponent;
 
 		public static List<Pawn> hideMechanitorButton = new();
+		//public static List<Pawn> duplicates = new();
 
 		public static void ResetCollection()
 		{
+			cachedDuplicatesCount = 0;
+			cachedPlayerPawnsCount = 0;
 			cachedColonistsCount = 0;
 			cachedXenotypesCount = 0;
 			cachedNonHumansCount = 0;
-			cachedColonyMechs = 0;
+			cachedColonyMechsCount = 0;
 			haveAssignedWork = false;
 			oneManArmyMode = false;
 			hideMechanitorButton = new();

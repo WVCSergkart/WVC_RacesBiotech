@@ -66,9 +66,13 @@ namespace WVC_XenotypesAndGenes
 		public override float GetChance(Pawn caster, Pawn source, Pawn duplicate)
 		{
 			float factor = 1f;
-			if (StaticCollectionsClass.cachedNonHumansCount < 10 && StaticCollectionsClass.cachedXenotypesCount < 5)
+			if (StaticCollectionsClass.cachedPlayerPawnsCount < 8 || StaticCollectionsClass.cachedDuplicatesCount < 2)
 			{
-				factor *= 0.05f;
+				factor *= 0.10f;
+			}
+			if (Find.Storyteller?.difficulty != null)
+			{
+				factor *= Find.Storyteller.difficulty.threatScale;
 			}
 			return base.GetChance(caster, source, duplicate) * factor;
 		}
@@ -85,11 +89,16 @@ namespace WVC_XenotypesAndGenes
 
 		public override float GetChance(Pawn caster, Pawn source, Pawn duplicate)
 		{
+			float factor = 1f;
+			if (Find.Storyteller?.difficulty != null)
+			{
+				factor *= Find.Storyteller.difficulty.threatScale;
+			}
 			if (duplicate.health?.immunity?.AnyGeneMakesFullyImmuneTo(HediffDefOf.OrganDecayUndiagnosedDuplicaton) == true)
 			{
-				return base.GetChance(caster, source, duplicate) * 0.01f;
+				factor *= 0.01f;
 			}
-			return base.GetChance(caster, source, duplicate);
+			return base.GetChance(caster, source, duplicate) * factor;
 		}
 
 		public override bool CanFireNow(Pawn caster, Pawn source, Pawn duplicate)
@@ -113,11 +122,20 @@ namespace WVC_XenotypesAndGenes
 
 		public override float GetChance(Pawn caster, Pawn source, Pawn duplicate)
 		{
+			float factor = 1f;
+			if (Find.Storyteller?.difficulty != null)
+			{
+				factor *= Find.Storyteller.difficulty.threatScale;
+			}
+			if (StaticCollectionsClass.cachedPlayerPawnsCount < 14)
+			{
+				factor *= 0.5f;
+			}
 			if (duplicate.health?.immunity?.AnyGeneMakesFullyImmuneTo(HediffDefOf.CrumblingMind) == true)
 			{
-				return base.GetChance(caster, source, duplicate) * 0.01f;
+				factor *= base.GetChance(caster, source, duplicate) * 0.01f;
 			}
-			return base.GetChance(caster, source, duplicate);
+			return base.GetChance(caster, source, duplicate) * factor;
 		}
 
 		public override bool CanFireNow(Pawn caster, Pawn source, Pawn duplicate)
@@ -139,9 +157,16 @@ namespace WVC_XenotypesAndGenes
 	public class DuplicatorOutcome_Mutation : DuplicatorOutcome
 	{
 
-		public override void DoOutcome(Pawn caster, Pawn source, Pawn duplicate, ref string customLetter, ref LetterDef letterDef)
+		private HediffDef mutation;
+
+		public override bool CanFireNow(Pawn caster, Pawn source, Pawn duplicate)
+        {
+			return HediffUtility.TryGetBestMutation(duplicate, out mutation);
+		}
+
+        public override void DoOutcome(Pawn caster, Pawn source, Pawn duplicate, ref string customLetter, ref LetterDef letterDef)
 		{
-			if (HediffUtility.TryGetBestMutation(duplicate, out HediffDef mutation))
+			if (mutation != null)
 			{
 				DuplicateUtility.TryMutate(duplicate, ref customLetter, ref letterDef, mutation);
 			}

@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 
         public override bool Applies(StatRequest req)
         {
-            return StaticCollectionsClass.cachedColonyMechs >= controlledPawns;
+            return StaticCollectionsClass.cachedColonyMechsCount >= controlledPawns;
         }
 
     }

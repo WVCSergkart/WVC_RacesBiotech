@@ -799,6 +799,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static void UpdateStaticCollection()
 		{
+			int playerDuplicates = 0;
+			int allPawns = 0;
 			int colonists = 0;
 			int xenos = 0;
 			int nonHumans = 0;
@@ -816,7 +818,8 @@ namespace WVC_XenotypesAndGenes
                 {
                     continue;
                 }
-                if (!item.RaceProps.Humanlike)
+				allPawns++;
+				if (!item.RaceProps.Humanlike)
                 {
                     if (!item.IsMutant)
                     {
@@ -824,7 +827,7 @@ namespace WVC_XenotypesAndGenes
                     }
                     else
                     {
-                        SubHumansCount(ref colonists, ref nonHumans, item);
+                        SubHumansCount(item);
                     }
                     if (item.RaceProps.IsMechanoid)
                     {
@@ -840,13 +843,13 @@ namespace WVC_XenotypesAndGenes
                     }
                     if (item.mutant.Def.thinkTree == null && item.mutant.Def.thinkTreeConstant == null)
 					{
-						Colonists(ref colonists, ref xenos, item);
+						Colonists(item);
 					}
                     //mutants++;
                     //SubHumansCount(ref colonists, ref nonHumans, item);
                     continue;
                 }
-                Colonists(ref colonists, ref xenos, item);
+                Colonists(item);
 				if (anyAssignedWork)
                 {
 					continue;
@@ -860,14 +863,16 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
-            StaticCollectionsClass.cachedColonistsCount = colonists;
+			StaticCollectionsClass.cachedDuplicatesCount = playerDuplicates;
+			StaticCollectionsClass.cachedPlayerPawnsCount = allPawns;
+			StaticCollectionsClass.cachedColonistsCount = colonists;
 			StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
-			StaticCollectionsClass.cachedColonyMechs = colonyMechs;
+			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
 			StaticCollectionsClass.oneManArmyMode = colonists <= 1;
 
-            static void SubHumansCount(ref int colonists, ref int nonHumans, Pawn item)
+            void SubHumansCount(Pawn item)
             {
                 if (!item.IsSubhuman)
                 {
@@ -878,17 +883,24 @@ namespace WVC_XenotypesAndGenes
                     colonists++;
                 }
 			}
-			static void Colonists(ref int colonists, ref int xenos, Pawn item)
+			void Colonists(Pawn item)
 			{
 				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
 				{
 					xenos++;
 				}
-				if (!item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
-				{
-					colonists++;
-				}
-			}
+				if (!item.Deathresting && !item.IsPrisoner)
+                {
+                    if (item.IsDuplicate)
+                    {
+						playerDuplicates++;
+					}
+					else
+                    {
+						colonists++;
+					}
+                }
+            }
 			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
 			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
 		}

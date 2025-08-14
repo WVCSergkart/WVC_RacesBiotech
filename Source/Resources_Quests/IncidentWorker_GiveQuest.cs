@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedColonyMechs > 0)
+			if (StaticCollectionsClass.cachedColonyMechsCount > 0)
 			{
 				return false;
 			}
@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (StaticCollectionsClass.cachedColonyMechs > 0)
+			if (StaticCollectionsClass.cachedColonyMechsCount > 0)
 			{
 				return false;
 			}
