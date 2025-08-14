@@ -11,6 +11,99 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneInteractionsUtility
 	{
 
+		public static bool TryRecruitMute(Pawn pawn, Gene gene)
+		{
+			if (!CanInitiateInteraction_General(pawn, true))
+			{
+				return false;
+			}
+			List<Pawn> prisoners = pawn.Map?.mapPawns?.PrisonersOfColonySpawned;
+			if (prisoners.NullOrEmpty())
+			{
+				return false;
+			}
+			foreach (Pawn item in prisoners)
+			{
+				if (item.guest == null)
+				{
+					continue;
+				}
+				if (item.guest.ExclusiveInteractionMode != PrisonerInteractionModeDefOf.AttemptRecruit)
+				{
+					continue;
+				}
+				if (gene != null)
+				{
+					if (!XaG_GeneUtility.HasActiveGene(gene.def, item))
+					{
+						continue;
+					}
+					if (!TryInteractWith(pawn, item, InteractionDefOf.RecruitAttempt, false))
+					{
+						continue;
+					}
+					item.guest.resistance *= 0.8f;
+					//SilentRecruit(item, pawn, 1.2f);
+					return true;
+				}
+				else
+				{
+					if (!TryInteractWith(pawn, item, InteractionDefOf.RecruitAttempt, false))
+					{
+						continue;
+					}
+					item.guest.resistance *= 0.9f;
+					//SilentRecruit(item, pawn, 0.8f);
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool CanInitiateInteraction_General(Pawn pawn, bool ignoreTalking)
+		{
+			if (pawn?.Map == null || pawn.Downed || pawn.Deathresting)
+			{
+				return false;
+			}
+			if (!Telepath_CanInitiateRandomInteraction(pawn, ignoreTalking))
+			{
+				return false;
+			}
+			return true;
+		}
+
+		//public static void SilentRecruit(Pawn recipient, Pawn initiator, float resistanceReduce)
+		//{
+		//	bool inspired = initiator.InspirationDef == InspirationDefOf.Inspired_Recruitment;
+		//	if (recipient.guest.resistance > 0f && !inspired)
+		//	{
+		//		recipient.guest.resistance = Mathf.Max(0f, recipient.guest.resistance - resistanceReduce);
+		//		if (recipient.guest.resistance <= 0f)
+		//		{
+		//			recipient.guest.SetLastResistanceReduceData(initiator, resistanceReduce, 1f, 1f, 1f);
+		//		}
+		//		if (recipient.guest.resistance == 0f)
+		//		{
+		//			TaggedString taggedString2 = "MessagePrisonerResistanceBroken".Translate(recipient.LabelShort, initiator.LabelShort, initiator.Named("WARDEN"), recipient.Named("PRISONER"));
+		//			if (recipient.guest.IsInteractionEnabled(PrisonerInteractionModeDefOf.AttemptRecruit))
+		//			{
+		//				taggedString2 += " " + "MessagePrisonerResistanceBroken_RecruitAttempsWillBegin".Translate();
+		//			}
+		//			Messages.Message(taggedString2, recipient, MessageTypeDefOf.PositiveEvent);
+		//		}
+		//	}
+		//	else
+		//	{
+		//		InteractionWorker_RecruitAttempt.DoRecruit(initiator, recipient, out _, out _, useAudiovisualEffects: true, sendLetter: true);
+		//		if (inspired)
+		//		{
+		//			initiator.mindState.inspirationHandler.EndInspiration(InspirationDefOf.Inspired_Recruitment);
+		//		}
+		//		recipient.guest.SetRecruitmentData(initiator);
+		//	}
+		//}
+
 		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
 			return TryInteractRandomly(pawn, pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction).Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned).ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
@@ -19,11 +112,7 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryInteractRandomly(Pawn pawn, List<Pawn> workingList, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
 			otherPawn = null;
-			if (pawn?.Map == null || pawn.Downed)
-			{
-				return false;
-			}
-			if (!Telepath_CanInitiateRandomInteraction(pawn, ignoreTalking))
+			if (!CanInitiateInteraction_General(pawn, ignoreTalking))
 			{
 				return false;
 			}

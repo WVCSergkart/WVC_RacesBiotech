@@ -328,6 +328,31 @@
 
 	<!-- ============================================================ -->
 
+	<!-- <Operation Class="PatchOperationReplace"> -->
+		<!-- <xpath>/Defs/StatDef[defName="NegotiationAbility"]/capacityFactors/li[capacity="Talking"]/allowedDefect</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+			<!-- <allowedDefect>0</allowedDefect> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/StatDef[defName="NegotiationAbility"]/valueIfMissing</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="NegotiationAbility"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<valueIfMissing>0.4</valueIfMissing>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/minValue</xpath>
 		<success>Always</success>

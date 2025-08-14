@@ -304,46 +304,6 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BinaryVoice : Gene_Speaker
 	{
 
-		//public string RemoteActionName
-		//{
-		//	get
-		//	{
-		//		if (isActive)
-		//		{
-		//			return "WVC_XaG_Gene_DustMechlink_On".Translate();
-		//		}
-		//		return "WVC_XaG_Gene_DustMechlink_Off".Translate();
-		//	}
-		//}
-
-  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
-
-  //      public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (!isActive)
-		//		{
-		//			return false;
-		//		}
-		//		return base.Active;
-		//	}
-		//}
-
-		//private bool isActive = true;
-
-		//public void Remote—ontrol()
-		//{
-		//	isActive = !isActive;
-		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
-		//}
-
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
-		//}
-
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -351,12 +311,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TryInteract()
-		{
-			GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
+        {
+            if (Rand.Chance(0.50f) || !GeneInteractionsUtility.TryRecruitMute(pawn, this))
+            {
+                GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
+			}
 			ResetInterval(new(7200, 22000));
 		}
 
-	}
+    }
 
 	public class Gene_VoidVoice : Gene_Speaker
 	{
