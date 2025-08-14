@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (member != pawn)
 				{
-					member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.packMemberLost, null);
+					member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.packMemberLost, pawn);
 				}
 			}
 		}

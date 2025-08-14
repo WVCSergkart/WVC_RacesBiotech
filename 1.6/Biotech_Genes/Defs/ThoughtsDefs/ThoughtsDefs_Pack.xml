@@ -41,7 +41,7 @@
 	<stages>
 		<li>
 			<label>pack member {0} died</label>
-			<description>We lost a valuable pack member. Can they survive without their?</description>
+			<description>We lost a valuable pack member.</description>
 			<baseMoodEffect>-5</baseMoodEffect>
 		</li>
 	</stages>
