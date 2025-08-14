@@ -35,6 +35,7 @@
 
   <ThoughtDef ParentName="DeathMemoryFamily">
 	<defName>WVC_PackMentality_DiedMember</defName>
+	<durationDays>1</durationDays>
 	<nullifyingTraits>
 		<li>Psychopath</li>
 	</nullifyingTraits>
