@@ -50,7 +50,6 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
-		//public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
@@ -86,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
 		public bool enable_chimeraXenogermCD = false;
+		public bool enable_chimeraXenogenesLimit = true;
 		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;

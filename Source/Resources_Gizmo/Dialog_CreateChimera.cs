@@ -586,7 +586,11 @@ namespace WVC_XenotypesAndGenes
             genesLimit *= genesLimitFactor;
 			cachedLimitConsumed = limitCost;
 			cachedXenogenesLimit = (int)genesLimit;
-        }
+			if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+			{
+				cachedXenogenesLimit = 999;
+			}
+		}
 
         protected override void OnGenesChanged()
 		{

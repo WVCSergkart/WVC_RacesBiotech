@@ -54,7 +54,6 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
-		//public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
@@ -90,6 +89,7 @@ namespace WVC_XenotypesAndGenes
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
 		public bool enable_chimeraXenogermCD = false;
+		public bool enable_chimeraXenogenesLimit = true;
 		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
@@ -243,6 +243,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref chimeraStartingGenes, "chimeraStartingGenes", defaultValue: 5f);
 			Scribe_Values.Look(ref enable_chimeraStartingTools, "enable_chimeraStartingTools", defaultValue: true);
 			Scribe_Values.Look(ref enable_chimeraXenogermCD, "enable_chimeraXenogermCD", defaultValue: false);
+			Scribe_Values.Look(ref enable_chimeraXenogenesLimit, "enable_chimeraXenogenesLimit", defaultValue: true);
 			// Duplicator
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
 			Scribe_Values.Look(ref duplicator_RandomGeneChance, "duplicator_RandomGeneChance", defaultValue: 0.12f);
@@ -907,6 +908,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogermCD".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogermCD, "WVC_ToolTip_enable_chimeraXenogermCD".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogenesLimit".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogenesLimit, "WVC_ToolTip_enable_chimeraXenogenesLimit".Translate());
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_chimera_defaultReqMetabolismRange".Translate((int)settings.chimera_defaultReqMetabolismRange.min + "~" + (int)settings.chimera_defaultReqMetabolismRange.max), ref settings.chimera_defaultReqMetabolismRange, -99, 99, tooltip: "WVC_Tooltip_chimera_defaultReqMetabolismRange".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomGeneChance".Translate((settings.duplicator_RandomGeneChance).ToString()), ref settings.duplicator_RandomGeneChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomGeneChance".Translate());
@@ -1085,6 +1087,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
 			WVC_Biotech.settings.enable_chimeraStartingTools = settingsDef.enable_chimeraStartingTools;
 			WVC_Biotech.settings.enable_chimeraXenogermCD = settingsDef.enable_chimeraXenogermCD;
+			WVC_Biotech.settings.enable_chimeraXenogenesLimit = settingsDef.enable_chimeraXenogenesLimit;
 			WVC_Biotech.settings.chimera_defaultReqMetabolismRange = settingsDef.chimera_defaultReqMetabolismRange;
 			// =
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
