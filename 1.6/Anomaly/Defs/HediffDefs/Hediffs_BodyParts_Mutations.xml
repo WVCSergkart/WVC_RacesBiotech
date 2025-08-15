@@ -46,7 +46,7 @@
 	</stages>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <!-- <partEfficiency>1.2</partEfficiency> -->
+	  <!-- <partEfficiency>1.1</partEfficiency> -->
 	</addedPartProps>
 	<comps>
 	  <li Class="HediffCompProperties_FleshbeastEmerge">

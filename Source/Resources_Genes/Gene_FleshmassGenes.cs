@@ -135,21 +135,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
         private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
-		{
-			hediffWithComps_FleshmassHeart = null;
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < WVC_Biotech.settings.fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
-			foreach (Hediff hediff in hediffs)
-			{
-				if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
-				{
-					hediffWithComps_FleshmassHeart = massHediff;
-					break;
-				}
-			}
-			return hediffWithComps_FleshmassHeart != null;
-		}
+        {
+            hediffWithComps_FleshmassHeart = null;
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < Fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
+            foreach (Hediff hediff in hediffs)
+            {
+                if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
+                {
+                    hediffWithComps_FleshmassHeart = massHediff;
+                    break;
+                }
+            }
+            return hediffWithComps_FleshmassHeart != null;
+        }
 
-		public static void TrySpawnMeat(Pawn pawn)
+        public static float Fleshmass_MaxMutationsLevel => WVC_Biotech.settings.fleshmass_MaxMutationsLevel;
+
+        public static void TrySpawnMeat(Pawn pawn)
 		{
 			int num = Mathf.CeilToInt(20 * pawn.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
 			int randomInRange = new IntRange(3, 6).RandomInRange;

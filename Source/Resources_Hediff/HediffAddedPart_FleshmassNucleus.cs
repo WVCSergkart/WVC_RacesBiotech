@@ -117,12 +117,21 @@ namespace WVC_XenotypesAndGenes
             }
             if (mutationLevel > 0)
             {
-                if (def.addedPartProps.partEfficiency <= 1f)
+                float partPropEfficiency = def.addedPartProps.partEfficiency;
+                if (partPropEfficiency < 1f)
                 {
-                    if (curStage.partEfficiencyOffset > 0)
-                        curStage.partEfficiencyOffset += mutationLevel * 0.02f;
-                    else
-                        curStage.partEfficiencyOffset = mutationLevel * 0.04f;
+                    partPropEfficiency = 1f;
+                }
+                float partEfficiencyOffset = curStage.partEfficiencyOffset;
+                if (partEfficiencyOffset < 0f)
+                {
+                    partEfficiencyOffset = 0f;
+                }
+                float partEfficiency = partPropEfficiency - 1f - partEfficiencyOffset;
+                float finalPartEfficiency = Mathf.Clamp(-partEfficiency + (mutationLevel * 0.04f), 0f, Gene_FleshmassNucleus.Fleshmass_MaxMutationsLevel * 0.04f);
+                if (finalPartEfficiency > 0f)
+                {
+                    curStage.partEfficiencyOffset = finalPartEfficiency;
                 }
                 //if (curStage.regeneration > 0f)
                 //    curStage.regeneration += mutationLevel;
