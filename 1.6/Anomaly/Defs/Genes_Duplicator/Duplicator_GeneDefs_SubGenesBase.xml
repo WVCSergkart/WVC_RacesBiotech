@@ -17,7 +17,7 @@
 	<prerequisite>WVC_Duplicator</prerequisite>
 	<displayCategory>WVC_Duplicator</displayCategory>
 	<customEffectDescriptions>
-		<li>Doesn't work with &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+		<li>Doesn't work on &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

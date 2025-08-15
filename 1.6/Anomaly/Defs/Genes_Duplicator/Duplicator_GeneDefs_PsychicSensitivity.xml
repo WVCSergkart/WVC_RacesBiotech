@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+	<defName>WVC_Duplicator_PsychicSensitivity</defName>
+	<label>duplicator psy-sensitivity</label>
+	<description>Carriers of this gene have archites that enhance psy-sensitivity depending on the psy-sensitivity of duplicates.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_PsychicSensitivity</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_PsychicSensitivity</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Psychic sensitivity: +10% from psy-sens of each &lt;color=#8a8ae6&gt;duplicate&lt;/color&gt;.</li>
+		<li>For &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt; created by the &lt;color=#8a8ae6&gt;obelisk&lt;/color&gt;, the update takes longer.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDef>WVC_Duplicator_PsychicSensitivity</hediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Duplicator_PsychicSensitivity</defName>
+	<label>from duplicates</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_Duplicator_PsychicSensitivity</hediffClass>
+  </HediffDef>
+
+</Defs>

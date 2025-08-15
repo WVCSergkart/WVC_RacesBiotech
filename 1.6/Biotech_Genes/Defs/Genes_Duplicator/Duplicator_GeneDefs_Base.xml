@@ -31,10 +31,17 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<statDef MayRequire="ludeon.rimworld.anomaly">WVC_DuplicatorOutcomeFactor</statDef>
 			<geneDefWithChances>
+				<!-- Genes -->
+				<!-- <li> -->
+					<!-- <geneDef>WVC_Duplicator_</geneDef> -->
+					<!-- <chance>1.0</chance> -->
+					<!-- <reqDupesCount>1</reqDupesCount> -->
+				<!-- </li> -->
+				<!-- Anomaly genes -->
 				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_DeathChain</geneDef>
-					<chance>1.0</chance>
-					<reqDupesCount>1</reqDupesCount>
+					<chance>0.4</chance>
+					<reqDupesCount>3</reqDupesCount>
 				</li>
 				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_LowOutChance</geneDef>
@@ -44,17 +51,22 @@
 				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_ZeroOutChance</geneDef>
 					<chance>0.11</chance>
-					<reqDupesCount>3</reqDupesCount>
+					<reqDupesCount>5</reqDupesCount>
 				</li>
 				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_SkillsSync</geneDef>
 					<chance>0.08</chance>
 					<reqDupesCount>6</reqDupesCount>
 				</li>
-				<li MayRequire="wvc.sergkart.test.tools">
+				<li MayRequire="ludeon.rimworld.anomaly">
 					<geneDef>WVC_Duplicator_Bandwidth</geneDef>
 					<chance>0.35</chance>
-					<reqDupesCount>2</reqDupesCount>
+					<reqDupesCount>3</reqDupesCount>
+				</li>
+				<li MayRequire="ludeon.rimworld.anomaly">
+					<geneDef>WVC_Duplicator_PsychicSensitivity</geneDef>
+					<chance>0.35</chance>
+					<reqDupesCount>3</reqDupesCount>
 				</li>
 			</geneDefWithChances>
 		</li>

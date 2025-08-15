@@ -29,6 +29,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        protected HediffStage curStage;
+        public virtual void Recache()
+        {
+            curStage = null;
+        }
+
         public virtual void TryRemoveOrUpdate()
         {
 
@@ -54,8 +60,6 @@ namespace WVC_XenotypesAndGenes
         }
         public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
         public override int TictRate => 60613;
-
-        private HediffStage curStage;
         public override HediffStage CurStage
         {
             get
@@ -89,15 +93,84 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public void Recache()
+        public override void PostRemoved()
         {
-            curStage = null;
+            base.PostRemoved();
+            if (pawn.genes.GenesListForReading.Any((gene) => gene is Gene_Duplicator_Bandwidth && gene.Active))
+            {
+                if (HediffUtility.TryAddHediff(def, pawn, null, null))
+                {
+                    if (DebugSettings.ShowDevGizmos)
+                    {
+                        Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+                    }
+                }
+            }
+        }
+
+    }
+
+    public class Hediff_Duplicator_PsychicSensitivity : Hediff_Duplicator
+    {
+
+        [Unsaved(false)]
+        private Gene_Duplicator_PsychicSensitivity cachedDuplicatorGene;
+        public Gene_Duplicator_PsychicSensitivity Gene
+        {
+            get
+            {
+                if (cachedDuplicatorGene == null || !cachedDuplicatorGene.Active)
+                {
+                    cachedDuplicatorGene = pawn?.genes?.GetFirstGeneOfType<Gene_Duplicator_PsychicSensitivity>();
+                }
+                return cachedDuplicatorGene;
+            }
+        }
+
+        public override bool Visible => false;
+        public override int TictRate => 61013;
+
+        public override HediffStage CurStage
+        {
+            get
+            {
+                if (curStage == null)
+                {
+                    curStage = new();
+                    if (Gene != null)
+                    {
+                        StatModifier statMod = new();
+                        statMod.stat = StatDefOf.PsychicSensitivity;
+                        float offset = 0f;
+                        foreach (Pawn dupe in Gene.Duplicator.PawnDuplicates)
+                        {
+                            offset += dupe.GetStatValue(StatDefOf.PsychicSensitivity) * 0.1f;
+                        }
+                        statMod.value = offset;
+                        curStage.statOffsets = new();
+                        curStage.statOffsets.Add(statMod);
+                    }
+                }
+                return curStage;
+            }
+        }
+
+        public override void TryRemoveOrUpdate()
+        {
+            if (Gene == null)
+            {
+                pawn.health.RemoveHediff(this);
+            }
+            else
+            {
+                Recache();
+            }
         }
 
         public override void PostRemoved()
         {
             base.PostRemoved();
-            if (DuplicatorBandwidth != null)
+            if (pawn.genes.GenesListForReading.Any((gene) => gene is Gene_Duplicator_PsychicSensitivity && gene.Active))
             {
                 if (HediffUtility.TryAddHediff(def, pawn, null, null))
                 {

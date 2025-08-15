@@ -30,8 +30,8 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			Pawn pawn = target.Pawn;
-			if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), IsValidSpawnCell, out var spawnCell, 100))
+			Pawn source = target.Pawn;
+			if (!CellFinder.TryFindRandomCellNear(source.Position, source.Map, Mathf.FloorToInt(4.9f), IsValidSpawnCell, out var spawnCell, 100))
 			{
 				return;
 			}
@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			Duplicator.Notify_GenesChanged(null);
             float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
-			if (DuplicateUtility.TryDuplicatePawn(caster, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
+			if (DuplicateUtility.TryDuplicatePawn(caster, source, spawnCell, source.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
             {
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
@@ -48,25 +48,30 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(duplicatePawn))
 				{
-                    Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
+                    Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), source, MessageTypeDefOf.NeutralEvent);
 				}
 				if (ModsConfig.AnomalyActive && Rand.Chance(WVC_Biotech.settings.duplicator_RandomGeneChance * failChanceFactor))
                 {
                     Duplicator.TryAddNewSubGene(caster.IsDuplicate);
                 }
 				//Duplicator.Notify_GenesChanged(null);
-				Duplicator.Notify_DuplicateCreated(duplicatePawn);
+				source.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_DuplicateCreated(duplicatePawn);
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
             }
 
             bool IsValidSpawnCell(IntVec3 pos)
 			{
-				if (pos.Standable(pawn.Map) && pos.Walkable(pawn.Map))
+				if (pos.Standable(source.Map) && pos.Walkable(source.Map))
 				{
-					return !pos.Fogged(pawn.Map);
+					return !pos.Fogged(source.Map);
 				}
 				return false;
 			}
+		}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			return Valid(target);
 		}
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)

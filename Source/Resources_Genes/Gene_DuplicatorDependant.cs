@@ -8,21 +8,22 @@ namespace WVC_XenotypesAndGenes
 {
 
     public class Gene_DuplicatorDependant : Gene, IGeneOverridden
-	{
+    {
 
+        //public virtual bool IfDuplicate => false;
         public override bool Active
         {
             get
             {
-                if (base.Active)
+                if (IsDuplicate)
                 {
-					return !IsDuplicate;
+                    return false;
                 }
-				return false;
+                return base.Active;
             }
         }
 
-		private bool? cachedIsDuplicate;
+        private bool? cachedIsDuplicate;
         public bool IsDuplicate
         {
             get
@@ -86,10 +87,10 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void Notify_Override()
         {
-			if (IsDuplicate)
-            {
-				OverrideBy(this);
-            }
+            //if (IsDuplicate)
+            //{
+            //    OverrideBy(this);
+            //}
         }
 
         public virtual void Notify_DuplicateCreated(Pawn newDupe)
@@ -98,6 +99,19 @@ namespace WVC_XenotypesAndGenes
         }
 
     }
+
+    //public class Gene_DuplicatorDependant_MeDuplicate : Gene_DuplicatorDependant
+    //{
+
+    //    public override bool IfDuplicate
+    //    {
+    //        get
+    //        {
+    //            return base.Active;
+    //        }
+    //    }
+
+    //}
 
     public class Gene_Duplicator_DeathChain : Gene_DuplicatorDependant
     {
@@ -266,57 +280,47 @@ namespace WVC_XenotypesAndGenes
                 return bandwidth;
             }
         }
-        //private Dictionary<Pawn, float> bandwidthPerPawn;
 
-        //private Hediff_DuplicatorBandwidth cachedHediff_DuplicatorBandwidth;
-        //public Hediff_DuplicatorBandwidth Hediff_DuplicatorBandwidth
+        //private Hediff_DuplicatorBandwidth cachedDuplicatorHediff;
+        //public Hediff_DuplicatorBandwidth Hediff
         //{
         //    get
         //    {
-        //        if (cachedHediff_DuplicatorBandwidth == null)
+        //        if (cachedDuplicatorHediff == null)
         //        {
-        //            cachedHediff_DuplicatorBandwidth = pawn.health?.hediffSet?.GetFirstHediff<Hediff_DuplicatorBandwidth>();
+        //            cachedDuplicatorHediff = pawn.health?.hediffSet?.GetFirstHediff<Hediff_DuplicatorBandwidth>();
         //        }
-        //        return cachedHediff_DuplicatorBandwidth;
+        //        return cachedDuplicatorHediff;
         //    }
         //}
 
-        //public float GetTotalBandwidth()
+        //public override void Notify_DuplicateCreated(Pawn newDupe)
         //{
-        //    if (pawn.Dead)
-        //    {
-        //        return 0;
-        //    }
-        //    if (bandwidthPerPawn == null)
-        //    {
-        //        NotifyDuplicates_AddHediff();
-        //    }
-        //    float bandwidth = 0;
-        //    foreach (var item in bandwidthPerPawn)
-        //    {
-        //        bandwidth += item.Value;
-        //    }
-        //    return bandwidth;
+        //    Hediff?.Recache();
         //}
 
-        //public void BandwidthPerDuplicate(Pawn dupe)
-        //{
-        //    if (bandwidthPerPawn == null)
-        //    {
-        //        bandwidthPerPawn = new();
-        //    }
-        //    if (bandwidthPerPawn.ContainsKey(dupe))
-        //    {
-        //        bandwidthPerPawn.Remove(dupe);
-        //    }
-        //    bandwidthPerPawn[dupe] = dupe.GetStatValue(StatDefOf.MechBandwidth);
-        //    //Hediff_DuplicatorBandwidth?.Recache();
-        //}
+    }
 
-        //public void Recache()
-        //{
-        //    Hediff_DuplicatorBandwidth?.Recache();
-        //}
+    public class Gene_Duplicator_PsychicSensitivity : Gene_Duplicator_HediffGiver
+    {
+
+        private Hediff_Duplicator_PsychicSensitivity cachedDuplicatorHediff;
+        public Hediff_Duplicator_PsychicSensitivity Hediff
+        {
+            get
+            {
+                if (cachedDuplicatorHediff == null)
+                {
+                    cachedDuplicatorHediff = pawn.health?.hediffSet?.GetFirstHediff<Hediff_Duplicator_PsychicSensitivity>();
+                }
+                return cachedDuplicatorHediff;
+            }
+        }
+
+        public override void Notify_DuplicateCreated(Pawn newDupe)
+        {
+            Hediff?.Recache();
+        }
 
     }
 

@@ -26,14 +26,14 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Duplicator_Bandwidth</defName>
-	<label>bandwidth from duplicates</label>
+	<label>from duplicates</label>
 	<description>Bandwidth received from duplicates.</description>
 	<hediffClass>WVC_XenotypesAndGenes.Hediff_DuplicatorBandwidth</hediffClass>
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Duplicatee_Bandwidth</defName>
-	<label>duplicator drain</label>
+	<label>from source</label>
 	<hediffClass>WVC_XenotypesAndGenes.Hediff_DuplicateBandwidth</hediffClass>
   </HediffDef>
 
