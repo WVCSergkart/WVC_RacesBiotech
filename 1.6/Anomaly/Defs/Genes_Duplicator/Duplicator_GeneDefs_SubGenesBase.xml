@@ -8,7 +8,7 @@
   </GeneCategoryDef>
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_DuplicatorDependant</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DuplicatorSubGene</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -16,14 +16,22 @@
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<prerequisite>WVC_Duplicator</prerequisite>
 	<displayCategory>WVC_Duplicator</displayCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Name="WVC_XenotypesAndGenes_GeneDuplicator_MeDuplicate" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_MeDuplicate</geneClass>
 	<customEffectDescriptions>
-		<li>Doesn't work on &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+		<li>Doesn't work on &lt;color=#8a8ae6&gt;sources&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Name="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare" Abstract="True">
-	<selectionWeight>0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Name="WVC_XenotypesAndGenes_GeneDuplicator_MeSource" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_MeSource</geneClass>
+	<customEffectDescriptions>
+		<li>Doesn't work on &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+	</customEffectDescriptions>
   </GeneDef>
 
 </Defs>

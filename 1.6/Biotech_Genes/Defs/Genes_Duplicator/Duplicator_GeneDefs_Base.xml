@@ -31,6 +31,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<statDef MayRequire="ludeon.rimworld.anomaly">WVC_DuplicatorOutcomeFactor</statDef>
 			<geneDefWithChances>
+				<!-- Sources -->
 				<!-- Genes -->
 				<!-- <li> -->
 					<!-- <geneDef>WVC_Duplicator_</geneDef> -->
@@ -68,6 +69,9 @@
 					<chance>0.35</chance>
 					<reqDupesCount>3</reqDupesCount>
 				</li>
+				<!-- Duplicates -->
+				<!-- Genes -->
+				<!-- Anomaly genes -->
 			</geneDefWithChances>
 		</li>
 	</modExtensions>

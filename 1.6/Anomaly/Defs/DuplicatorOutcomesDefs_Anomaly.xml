@@ -50,4 +50,15 @@
 	<basicChance>1.5</basicChance>
   </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
 
+  <WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+	<defName>WVC_DeathChain</defName>
+	<label>death chain</label>
+	<!-- gene giver support any genes and can be used by xml modders -->
+	<workerClass>WVC_XenotypesAndGenes.DuplicatorOutcome_GeneGiver</workerClass>
+	<basicChance>0.5</basicChance>
+	<geneDefs>
+	  <li>WVC_Duplicator_DeathChain</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.DuplicatorOutcomeDef>
+
 </Defs>

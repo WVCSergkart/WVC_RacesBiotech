@@ -13,6 +13,12 @@ namespace WVC_XenotypesAndGenes
 	public static class DuplicateUtility
 	{
 
+		// Simple version
+		public static bool TryDuplicatePawn(Pawn caster, out Pawn duplicate)
+		{
+			return DuplicateUtility.TryDuplicatePawn(caster, caster, caster.Position, caster.Map, out duplicate, out _, out _, doEffects: false);
+		}
+
 		// Clone
 		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true)
 		{
@@ -82,10 +88,10 @@ namespace WVC_XenotypesAndGenes
 		private static void RandomOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, ref string phase)
 		{
 			List<DuplicatorOutcomeDef> list = DefDatabase<DuplicatorOutcomeDef>.AllDefsListForReading.Where((def) => def.Worker.CanFireNow(caster, originalPawn, duplicatePawn)).ToList();
-			if (list.TryRandomElementByWeight((outcome) => outcome.Worker.GetChance(caster, originalPawn, duplicatePawn), out DuplicatorOutcomeDef result))
+			if (list.TryRandomElementByWeight((outcome) => outcome.Worker.GetChance(caster, originalPawn, duplicatePawn), out DuplicatorOutcomeDef outcomeDef))
 			{
-				phase = "trying do outcome: " + result.defName;
-				result.Worker.DoOutcome(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef);
+				phase = "trying do outcome: " + outcomeDef.defName;
+				outcomeDef.Worker.DoOutcome(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef);
 			}
 		}
 

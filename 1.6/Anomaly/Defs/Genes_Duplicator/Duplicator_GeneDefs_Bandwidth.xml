@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
 	<defName>WVC_Duplicator_Bandwidth</defName>
 	<label>duplicator bandwidth</label>
 	<description>Carriers of this gene can absorb the bandwidth of their duplicates.</description>

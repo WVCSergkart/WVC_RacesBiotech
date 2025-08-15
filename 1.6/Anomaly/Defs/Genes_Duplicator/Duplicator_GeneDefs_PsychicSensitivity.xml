@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
 	<defName>WVC_Duplicator_PsychicSensitivity</defName>
 	<label>duplicator psy-sensitivity</label>
 	<description>Carriers of this gene have archites that enhance psy-sensitivity depending on the psy-sensitivity of duplicates.</description>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
 	<defName>WVC_Duplicator_SkillsSync</defName>
 	<label>duplicates library</label>
 	<description>Carriers of this gene have a special psychic connection with their duplicates, allowing them to use knowledge in skills and share them with them.</description>

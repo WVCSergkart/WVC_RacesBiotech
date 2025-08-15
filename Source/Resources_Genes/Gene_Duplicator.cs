@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Duplicator : Gene, IGeneNotifyGenesChanged
+    public class Gene_Duplicator : Gene, IGeneNotifyGenesChanged
 	{
 
 		private GeneExtension_Giver cachedGeneExtension;
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
         {
 			foreach (Gene gene in pawn.genes.GenesListForReading)
             {
-				if (gene is Gene_DuplicatorDependant dependant && dependant.Active)
+				if (gene is Gene_Duplicator_MeSource dependant && dependant.Active)
                 {
 					dependant.Notify_DuplicateCreated(newDupe);
                 }
@@ -126,7 +126,32 @@ namespace WVC_XenotypesAndGenes
 			cachedDuplicatesWithSource = null;
 		}
 
-        public bool? CanDuplicate()
+		//public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		//{
+		//	if (!Active)
+		//	{
+		//		return;
+		//	}
+		//	Notify_GenesChanged(null);
+		//	foreach (Pawn dupe in PawnDuplicates_WithSource)
+		//	{
+		//		if (!dupe.Dead)
+		//		{
+		//			dupe.genes.GetFirstGeneOfType<Gene_Duplicator>();
+		//		}
+		//	}
+		//}
+
+		//public void Notify_DuplicateDied()
+		//{
+		//	foreach (Gene gene in pawn.genes.GenesListForReading)
+		//	{
+
+		//	}
+		//}
+
+
+		public bool? CanDuplicate()
 		{
 			return pawn.abilities?.GetAbility(def.abilities.First())?.OnCooldown;
 		}

@@ -7,10 +7,9 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_DuplicatorDependant : Gene, IGeneOverridden
+    public class Gene_Duplicator_MeSource : Gene_DuplicatorSubGene, IGeneOverridden
     {
 
-        //public virtual bool IfDuplicate => false;
         public override bool Active
         {
             get
@@ -22,63 +21,6 @@ namespace WVC_XenotypesAndGenes
                 return base.Active;
             }
         }
-
-        private bool? cachedIsDuplicate;
-        public bool IsDuplicate
-        {
-            get
-            {
-				if (!cachedIsDuplicate.HasValue)
-                {
-					cachedIsDuplicate = pawn.IsDuplicate;
-				}
-                return cachedIsDuplicate.Value;
-            }
-        }
-
-        private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
-
-		[Unsaved(false)]
-		private Gene_Duplicator cachedDuplicatorGene;
-		public Gene_Duplicator Duplicator
-		{
-			get
-			{
-				if (cachedDuplicatorGene == null || !cachedDuplicatorGene.Active)
-				{
-					cachedDuplicatorGene = pawn?.genes?.GetFirstGeneOfType<Gene_Duplicator>();
-				}
-				return cachedDuplicatorGene;
-			}
-		}
-
-        public bool SourceIsAlive
-        {
-            get
-            {
-				if (Duplicator == null)
-                {
-					return false;
-                }
-                return Duplicator.SourceIsAlive;
-            }
-        }
-
-        public override void TickInterval(int delta)
-        {
-
-		}
 
         public virtual void Notify_OverriddenBy(Gene overriddenBy)
         {
@@ -98,43 +40,22 @@ namespace WVC_XenotypesAndGenes
 
         }
 
+        //public virtual void Notify_DuplicateDied(Pawn newDupe)
+        //{
+
+        //}
+
     }
 
-    //public class Gene_DuplicatorDependant_MeDuplicate : Gene_DuplicatorDependant
-    //{
-
-    //    public override bool IfDuplicate
-    //    {
-    //        get
-    //        {
-    //            return base.Active;
-    //        }
-    //    }
-
-    //}
-
-    public class Gene_Duplicator_DeathChain : Gene_DuplicatorDependant
+    [Obsolete]
+    public class Gene_DuplicatorDependant : Gene_Duplicator_MeSource
     {
 
-        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-        {
-            if (!Active || Duplicator == null)
-            {
-                return;
-            }
-            Duplicator.Notify_GenesChanged(null);
-            foreach (Pawn dupe in Duplicator.PawnDuplicates.ToList())
-            {
-                if (!dupe.Dead)
-                {
-                    dupe.Kill(null);
-                }
-            }
-        }
-
     }
 
-    public class Gene_Duplicator_Skills : Gene_DuplicatorDependant
+    // =====================================
+
+    public class Gene_Duplicator_Skills : Gene_Duplicator_MeSource
     {
 
         public override void TickInterval(int delta)
@@ -157,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_Duplicator_HediffGiver : Gene_DuplicatorDependant, IGeneOverridden
+    public class Gene_Duplicator_HediffGiver : Gene_Duplicator_MeSource, IGeneOverridden
     {
 
         public override void PostAdd()

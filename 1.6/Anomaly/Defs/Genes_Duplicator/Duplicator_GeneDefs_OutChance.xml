@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
 	<defName>WVC_Duplicator_LowOutChance</defName>
 	<label>stable duplication</label>
 	<description>Carriers of this gene have a slightly lower chance of undesirable outcomes when using the duplicator gene.</description>
@@ -17,7 +17,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
 	<defName>WVC_Duplicator_ZeroOutChance</defName>
 	<label>fail-proof duplication</label>
 	<description>Carriers of this gene do not have any undesirable outcomes when using the duplicator gene.</description>

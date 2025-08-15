@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes">
 	<defName>WVC_Duplicator_DeathChain</defName>
 	<label>death chain</label>
 	<description>Carriers of this gene have a strong psychic connection with their duplicates. If the carrier dies, so will their duplicates.</description>
@@ -11,7 +11,7 @@
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
-		<li>Death triggers the death of &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt;.</li>
+		<li>Death triggers the death of &lt;color=#8a8ae6&gt;duplicates and source&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

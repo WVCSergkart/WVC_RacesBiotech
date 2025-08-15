@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
             float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
 			if (DuplicateUtility.TryDuplicatePawn(caster, source, spawnCell, source.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
-            {
+			{
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
 				{
@@ -48,16 +48,16 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(duplicatePawn))
 				{
-                    Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), source, MessageTypeDefOf.NeutralEvent);
+					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), source, MessageTypeDefOf.NeutralEvent);
 				}
 				if (ModsConfig.AnomalyActive && Rand.Chance(WVC_Biotech.settings.duplicator_RandomGeneChance * failChanceFactor))
-                {
-                    Duplicator.TryAddNewSubGene(caster.IsDuplicate);
-                }
+				{
+					Duplicator.TryAddNewSubGene(caster.IsDuplicate);
+				}
 				//Duplicator.Notify_GenesChanged(null);
 				source.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_DuplicateCreated(duplicatePawn);
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
-            }
+			}
 
             bool IsValidSpawnCell(IntVec3 pos)
 			{

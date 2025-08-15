@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
                 else if (nextGeneSet == null && CanAddNewForm)
                 {
                     phase = "trying create new pawn";
-                    DuplicateUtility.TryDuplicatePawn(pawn, pawn, pawn.Position, pawn.Map, out nextPawn, out _, out _, doEffects: false);
+                    DuplicateUtility.TryDuplicatePawn(pawn, out nextPawn);
                     phase = "trying get gene and update xenotype";
                     //if (XaG_GeneUtility.TryRemoveAllConflicts(nextPawn, def))
                     //{

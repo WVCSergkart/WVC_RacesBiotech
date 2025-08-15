@@ -686,6 +686,32 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Checker =============================
 
+		public static bool HasAllGenes(List<GeneDef> geneDefs, Pawn pawn)
+		{
+			if (geneDefs.NullOrEmpty() || pawn?.genes == null)
+			{
+				return false;
+			}
+			List<GeneDef> matchedGenes = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+				if (geneDefs.Contains(gene.def) && !matchedGenes.Contains(gene.def))
+                {
+					matchedGenes.Add(gene.def);
+                }
+            }
+			return geneDefs.Count == matchedGenes.Count;
+		}
+
+		public static bool HasAnyGene(List<GeneDef> geneDefs, Pawn pawn)
+		{
+			if (geneDefs.NullOrEmpty() || pawn?.genes == null)
+			{
+				return false;
+			}
+			return pawn.genes.GenesListForReading.Any((Gene gene) => geneDefs.Contains(gene.def));
+		}
+
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
 			if (geneDefs.NullOrEmpty() || pawn?.genes == null)
