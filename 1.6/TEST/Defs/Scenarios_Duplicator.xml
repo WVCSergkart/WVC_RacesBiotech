@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_DuplicatorDeathChain</defName>
+	<label>The Death Chain</label>
+	<description>When you opened your eyes the first thing you saw was your own reflection, or rather there were 3 of them, exact copies of you. They remembered no more than you, neither how you ended up here, nor who you are, only your name and the fact that you are bound by death.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; All starting pawns will be exact copies of the first one you choose and will have the death chain gene, the death of any pawn will kill all the pawns.</description>
+	<scenario>
+	  <summary>Four pawns with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_RogueFormer>1</WVC_RogueFormer>
+		  </xenotypeChances>
+		  <startingDuplicates>3</startingDuplicates>
+		  <additionalChronoAge>70~120</additionalChronoAge>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <geneDefs>
+			<li>WVC_Duplicator_DeathChain</li>
+		  </geneDefs>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>When you opened your eyes the first thing you saw was your own reflection, or rather there were 3 of them, exact copies of you. They remembered no more than you, neither how you ended up here, nor who you are, only your name and the fact that you are bound by death.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<visible>false</visible>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

@@ -137,8 +137,10 @@ namespace WVC_XenotypesAndGenes
                 //    curStage.regeneration += mutationLevel;
                 //else
                 //    curStage.regeneration = mutationLevel * 2f;
-                if (mutationLevel >= 5)
+                if (mutationLevel >= Gene_FleshmassNucleus.Fleshmass_MaxMutationsLevel)
+                {
                     curStage.partIgnoreMissingHP = true;
+                }
             }
         }
 

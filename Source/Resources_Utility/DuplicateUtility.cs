@@ -3,6 +3,7 @@ using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI.Group;
 using Verse.Sound;
@@ -12,6 +13,10 @@ namespace WVC_XenotypesAndGenes
 
 	public static class DuplicateUtility
 	{
+		public static bool TryDuplicatePawn(Pawn caster, IntVec3 targetCell, out Pawn duplicate)
+		{
+			return DuplicateUtility.TryDuplicatePawn(caster, caster, targetCell, caster.Map, out duplicate, out _, out _, doEffects: false);
+		}
 
 		// Simple version
 		public static bool TryDuplicatePawn(Pawn caster, out Pawn duplicate)

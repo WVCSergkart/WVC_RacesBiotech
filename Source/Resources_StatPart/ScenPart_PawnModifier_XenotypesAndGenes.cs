@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
         //public GeneDef chimeraEvolveGeneDef;
         //public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
+        public int startingDuplicates = 0;
         public IntRange additionalChronoAge = new(0, 0);
         public Gender gender = Gender.None;
         public bool startingPawnsIsPregnant = false;
@@ -169,6 +170,7 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+            DupePawns();
             ArchivePawns();
             //if (prefabDef != null)
             //{
@@ -183,6 +185,42 @@ namespace WVC_XenotypesAndGenes
             //        QuestUtility.SendLetterQuestAvailable(quest);
             //    }
             //}
+        }
+
+        private void DupePawns()
+        {
+            if (startingDuplicates <= 0)
+            {
+                return;
+            }
+            foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+            {
+                for (int i = 0; i < startingDuplicates; i++)
+                {
+                    if (startingAndOptionalPawn.Spawned)
+                    {
+                        FastDuplicatePawn(startingAndOptionalPawn);
+                    }
+                }
+            }
+
+            void FastDuplicatePawn(Pawn startingAndOptionalPawn)
+            {
+                if (CellFinder.TryFindRandomCellNear(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map, Mathf.FloorToInt(4.9f), IsValidSpawnCell, out var spawnCell, 100))
+                {
+                    DuplicateUtility.TryDuplicatePawn(startingAndOptionalPawn, spawnCell, out Pawn duplicate);
+                    duplicate.ageTracker.AgeChronologicalTicks += (long)(new IntRange(additionalChronoAge.TrueMin, startingAndOptionalPawn.ageTracker.AgeChronologicalYears).RandomInRange * 3600000L);
+                }
+
+                bool IsValidSpawnCell(IntVec3 pos)
+                {
+                    if (pos.Standable(startingAndOptionalPawn.Map) && pos.Walkable(startingAndOptionalPawn.Map))
+                    {
+                        return !pos.Fogged(startingAndOptionalPawn.Map);
+                    }
+                    return false;
+                }
+            }
         }
 
         private void ArchivePawns()
