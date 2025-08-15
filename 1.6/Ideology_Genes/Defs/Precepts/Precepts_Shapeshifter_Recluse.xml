@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Solo -->
+
   <PreceptDef>
 	<defName>WVC_Shapeshifters_OneManArmy</defName>
 	<issue>WVC_Shapeshifters</issue>
 	<label>one man army</label>
-	<description>We must stand alone. Together we are more vulnerable than apart.</description>
+	<description>We must stand alone. Together we are more vulnerable than apart.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Anomaly Duplicates, Ghouls and Shamblers do not count as separate pawns and can be used without mood debuffs.</description>
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
@@ -59,6 +61,8 @@
 	  </li>
 	</stages>
   </ThoughtDef>
+
+  <!-- Duplicates -->
 
   <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
 	<defName>WVC_OneManArmy_MyDuplicateSocial</defName>

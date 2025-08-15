@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Clone
-		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true)
+		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true, bool addDuplicate = false)
 		{
 			duplicatePawn = null;
 			customLetter = null;
@@ -36,6 +36,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
 					DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, out customLetter, out letterDef);
+					if (addDuplicate)
+					{
+						Find.PawnDuplicator.AddDuplicate(originalPawn.duplicate.duplicateOf, originalPawn);
+						Find.PawnDuplicator.AddDuplicate(duplicatePawn.duplicate.duplicateOf, duplicatePawn);
+					}
 				}
 				else
 				{
