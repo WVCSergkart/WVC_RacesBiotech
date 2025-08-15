@@ -122,13 +122,13 @@ A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 	<!-- ====================================================================================== -->
 
 	<WVC_Label_fixVanillaGeneImmunityCheck>Fixing and improving vanilla compatibility with mods</WVC_Label_fixVanillaGeneImmunityCheck>
-	<WVC_ToolTip_fixVanillaGeneImmunityCheck>A small set of harmony patches fixing some vanilla game bugs. It has no impact on game performance, since everything listed below is rare triggers that work under specific conditions.
+	<WVC_ToolTip_fixVanillaGeneImmunityCheck>A small set of harmony patches fixing some vanilla game bugs. It almost has no impact on game performance, since everything listed below is rare triggers that work under specific conditions.
 
-1) Fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.
+1) Fix (replace) the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.
 2) Checking the pawn's geneset for errors after implantation via the xenogerm implanter gene. Fixes missing abilities. Removes traits left by already removed genes. Corrects override by removing information about non-existent genes. Resets the cache of some genes.
 3) Checking the pawn's geneset after implanting a xenogerm. Does the same as for the implanter.
 4) Checking the pawn's geneset after generation. Does the same as for the implanter.
-5) Fix for duplicate flag. Pawns that are duplicates will not stop being duplicates after being unspawned and spawned again. (Req. human component and genes triggers options)
+5) Fix for duplicate flag. Pawns that are duplicates will not stop being duplicates after being unspawned and spawned again. The duplicate flag is used by this mod for some Anomaly genes and the vanilla game to remove family generation for duplicates. (Req. human component and genes triggers options)
 6) Fix for rare null ref that breaks UI if you own the Anomaly DLC but for some reason disabled it in your current playthrough.
 
 Disabling this option will not break the mod, but some genes will work incorrectly or slower than expected. If you do not have other fixes for the above, it is strongly recommended to leave the option enabled.
