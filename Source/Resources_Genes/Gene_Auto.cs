@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			if (currentProject != null)
 			{
 				pawn.skills.Learn(SkillDefOf.Intellectual, researchRate * tick);
-                float amount = (cachedResearchSpeed.Value * tick) - (StaticCollectionsClass.cachedColonistsCount > 1 ? StaticCollectionsClass.cachedColonistsCount * 12.8f : 0f);
+                float amount = (cachedResearchSpeed.Value * tick) - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 12.8f : 0f);
                 float researchAmount = Mathf.Clamp(amount, currentProject.baseCost * 0.01f, (currentProject.baseCost * 0.2f));
 				researchManager.ResearchPerformed(researchAmount, pawn);
 			}

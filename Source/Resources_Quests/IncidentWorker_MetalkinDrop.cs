@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float ChanceFactorNow(IIncidentTarget target)
 		{
-			return 1f - (StaticCollectionsClass.cachedColonistsCount * 0.1f);
+			return 1f - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.1f);
 		}
 
 		private int RandomCountToDrop
@@ -37,11 +37,11 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedColonistsCount > 6)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 6)
 			{
 				return false;
 			}
-			if (StaticCollectionsClass.cachedColonyMechsCount <= StaticCollectionsClass.cachedColonistsCount * 2)
+			if (StaticCollectionsClass.cachedColonyMechsCount <= StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 2)
 			{
 				return false;
 			}

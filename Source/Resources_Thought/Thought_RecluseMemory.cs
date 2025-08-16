@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
         public override float MoodOffset()
         {
-            return base.MoodOffset() * (1 + (StaticCollectionsClass.cachedColonistsCount * 0.2f) - 0.4f);
+            return base.MoodOffset() * (1 + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.2f) - 0.4f);
         }
 
     }

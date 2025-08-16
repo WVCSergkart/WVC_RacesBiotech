@@ -18,4 +18,16 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    //public class ConditionalStatAffecter_Solo : ConditionalStatAffecter
+    //{
+
+    //    public override string Label => "WVC_StatsReport_MechanitorTotalBandwidth".Translate();
+
+    //    public override bool Applies(StatRequest req)
+    //    {
+    //        return !(StaticCollectionsClass.cachedDuplicatesCount > 0);
+    //    }
+
+    //}
+
 }

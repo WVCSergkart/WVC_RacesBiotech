@@ -391,7 +391,7 @@ namespace WVC_XenotypesAndGenes
             int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
             int nonArchiteCount = genes.Count - architeCount;
             int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
-            int count = (days + (StaticCollectionsClass.cachedColonistsCount * 3)) * 60000;
+            int count = (days + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 3)) * 60000;
 			// get modded cd percent
 			float vanillaGenesCD = 140;
 			float moddedGenesCD = HediffDefOf.XenogermReplicating.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.TrueMax / 60000;

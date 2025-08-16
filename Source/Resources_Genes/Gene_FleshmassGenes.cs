@@ -498,7 +498,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pause)
 			{
-				nextTick = tick * (int)(300 + (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount * 0.6f : 1));
+				nextTick = tick * (int)(300 + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 0 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.6f : 1));
 			}
 			else
             {

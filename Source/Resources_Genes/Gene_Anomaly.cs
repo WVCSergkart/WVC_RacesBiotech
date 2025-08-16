@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
                 nextTick = 180000;
                 Log.Error("Failed create shambler. Reason: " + arg);
             }
-            float penaltyTick = 60 * StaticCollectionsClass.cachedColonistsCount;
+            float penaltyTick = 60 * StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
             if (pause)
             {
                 nextTick = 60000 + (int)penaltyTick;
@@ -234,7 +234,7 @@ namespace WVC_XenotypesAndGenes
             if (nextDeathRefusal <= 0)
             {
                 Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
-                nextDeathRefusal = 2 + StaticCollectionsClass.cachedColonistsCount;
+                nextDeathRefusal = 2 + StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
 			}
 		}
 

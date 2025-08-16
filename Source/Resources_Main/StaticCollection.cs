@@ -12,7 +12,9 @@ namespace WVC_XenotypesAndGenes
 
 		public static int cachedDuplicatesCount = 0;
 		public static int cachedPlayerPawnsCount = 0;
-		public static int cachedColonistsCount = 0;
+		public static int cachedDeathrestingColonistsCount = 0;
+		public static int cachedNonDeathrestingColonistsCount = 0;
+		public static int cachedColonistsDuplicatesDeathrestingCount = 0;
 		public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
 		public static int cachedColonyMechsCount = 0;
@@ -38,7 +40,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedDuplicatesCount = 0;
 			cachedPlayerPawnsCount = 0;
-			cachedColonistsCount = 0;
+			cachedNonDeathrestingColonistsCount = 0;
+			cachedColonistsDuplicatesDeathrestingCount = 0;
+			cachedDeathrestingColonistsCount = 0;
 			cachedXenotypesCount = 0;
 			cachedNonHumansCount = 0;
 			cachedColonyMechsCount = 0;

@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
 			UpdCollection();
-			if (StaticCollectionsClass.cachedColonistsCount > 5)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 5)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -77,9 +77,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedColonistsCount > 5)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 5)
 			{
-				return StaticCollectionsClass.cachedColonistsCount - 5;
+				return StaticCollectionsClass.cachedNonDeathrestingColonistsCount - 5;
 			}
 			return 0f;
 		}
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
 			UpdCollection();
-			if (StaticCollectionsClass.cachedColonistsCount > 1)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -101,9 +101,84 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedColonistsCount > 1)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1)
 			{
-				return StaticCollectionsClass.cachedColonistsCount - 1;
+				return StaticCollectionsClass.cachedNonDeathrestingColonistsCount - 1;
+			}
+			return 0f;
+		}
+
+	}
+
+	public class ThoughtWorker_Precept_OneManArmy : ThoughtWorker_Precept_WithCollectionCheck
+	{
+
+		protected override ThoughtState ShouldHaveThought(Pawn p)
+		{
+			UpdCollection();
+			if (StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount > 1)
+			{
+				return ThoughtState.ActiveDefault;
+			}
+			return ThoughtState.Inactive;
+		}
+
+		public override float MoodMultiplier(Pawn p)
+		{
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1)
+			{
+				return StaticCollectionsClass.cachedNonDeathrestingColonistsCount - 1;
+			}
+			return 0f;
+		}
+
+	}
+
+	public class ThoughtWorker_Precept_Deathwatch : ThoughtWorker_Precept_WithCollectionCheck
+	{
+
+		private static int PawnsCount => StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount - StaticCollectionsClass.cachedDeathrestingColonistsCount;
+
+		protected override ThoughtState ShouldHaveThought(Pawn p)
+		{
+			UpdCollection();
+            if (PawnsCount > 1)
+			{
+				return ThoughtState.ActiveDefault;
+			}
+			return ThoughtState.Inactive;
+		}
+
+		public override float MoodMultiplier(Pawn p)
+        {
+            if (PawnsCount > 1)
+            {
+                return PawnsCount - 1;
+            }
+            return 0f;
+        }
+	}
+
+	public class ThoughtWorker_Precept_Duplicates : ThoughtWorker_Precept_WithCollectionCheck
+	{
+
+		private static int PawnsCount => StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount - StaticCollectionsClass.cachedDuplicatesCount;
+
+		protected override ThoughtState ShouldHaveThought(Pawn p)
+		{
+			UpdCollection();
+			if (PawnsCount > 1)
+			{
+				return ThoughtState.ActiveDefault;
+			}
+			return ThoughtState.Inactive;
+		}
+
+		public override float MoodMultiplier(Pawn p)
+		{
+			if (PawnsCount > 1)
+			{
+				return PawnsCount - 1;
 			}
 			return 0f;
 		}

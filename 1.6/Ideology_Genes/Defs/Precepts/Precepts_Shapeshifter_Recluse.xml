@@ -7,12 +7,22 @@
 	<defName>WVC_Shapeshifters_OneManArmy</defName>
 	<issue>WVC_Shapeshifters</issue>
 	<label>one man army</label>
-	<description>We must stand alone. Together we are more vulnerable than apart.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Anomaly Duplicates, Ghouls and Shamblers do not count as separate pawns and can be used without mood debuffs.</description>
+	<description>We must stand alone. Together we are more vulnerable than apart.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Penalty is applied for any pawns under direct control. Only prisoners are allowed. Non-sentient ones are excluded.</description>
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
 	</requiredMemes>
 	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<displayOrderInIssue>20</displayOrderInIssue>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Solo"> -->
+		<!-- <statOffsets> -->
+		  <!-- <MentalBreakThreshold>-0.16</MentalBreakThreshold> -->
+		  <!-- <WorkSpeedGlobal>0.5</WorkSpeedGlobal> -->
+		  <!-- <GlobalLearningFactor>0.5</GlobalLearningFactor> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<statOffsets>
 	  <MentalBreakThreshold>-0.16</MentalBreakThreshold>
 	  <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
@@ -21,30 +31,22 @@
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_Shapeshifters_OneManArmy_Humanlikes</thought>
-		<description>For each colonist (non-quest, non-duplicate, non-deathresting) above 1</description>
-	  </li>
-	  <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MyDuplicateSocial</thought>
-		<description>My duplicate</description>
-	  </li>
-	  <li MayRequire="ludeon.rimworld.anomaly" Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MySourceSocial</thought>
-		<description>My source</description>
+		<description>For each colonist (non-quest) above 1</description>
 	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_OneManArmy</eventDef>
-		<eventLabel>for every day being alone</eventLabel>
+		<eventLabel>for every day alone</eventLabel>
 		<points>1</points>
 	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Shapeshift</eventDef>
 		<eventLabel>shapeshift</eventLabel>
-		<points>20</points>
+		<points>10</points>
 	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Morph</eventDef>
 		<eventLabel>morph</eventLabel>
-		<points>8</points>
+		<points>4</points>
 	  </li>
 	</comps>
   </PreceptDef>
@@ -52,7 +54,7 @@
   <ThoughtDef>
 	<defName>WVC_Shapeshifters_OneManArmy_Humanlikes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanOneColonistsInFaction</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_OneManArmy</workerClass>
 	<stages>
 	  <li>
 		<label>one man army</label>
@@ -62,7 +64,74 @@
 	</stages>
   </ThoughtDef>
 
+  <!-- <ThoughtDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_Shapeshifters_OneManArmy_Duplicates</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_DuplicatesInFaction</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>duplicates</label> -->
+		<!-- <description>We must stand alone. Together we are more vulnerable than apart.</description> -->
+		<!-- <baseMoodEffect>-3</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
   <!-- Duplicates -->
+
+  <PreceptDef MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_Shapeshifters_Duplicates</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>duplicates</label>
+	<description>In these difficult times, we can only trust ourselves. The rest will only be a burden.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Only duplicates and non-sentient pawns are allowed, all others are subject to a penalty.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<displayOrderInIssue>30</displayOrderInIssue>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.04</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_OneManArmy_Duplicates</thought>
+		<description>For each colonist (non-quest, non-duplicate) above 1</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_OneManArmy_MyDuplicateSocial</thought>
+		<description>My duplicate</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_OneManArmy_MySourceSocial</thought>
+		<description>My source</description>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>5</points>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Morph</eventDef>
+		<eventLabel>morph</eventLabel>
+		<points>3</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_Shapeshifters_OneManArmy_Duplicates</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Duplicates</workerClass>
+	<stages>
+	  <li>
+		<label>non-duplicates</label>
+		<description>Our unity is broken by the presence of an extra "Source". There should not be more than one Source.</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
   <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
 	<defName>WVC_OneManArmy_MyDuplicateSocial</defName>
@@ -84,6 +153,51 @@
 	  <li>
 		<label>My source</label>
 		<baseOpinionOffset>25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- Deathwatch -->
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_Deathwatch</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>deathwatch</label>
+	<description>We must stay awake in shifts, while one guards the peace of others, the resting ones gain strength.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Any number of pawns in deathrest state are allowed, and only one is awake. Also, non-sentient ones are allowed.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<displayOrderInIssue>40</displayOrderInIssue>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.16</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	  <!-- <GlobalLearningFactor>0.5</GlobalLearningFactor> -->
+	  <HemogenGainFactor>0.2</HemogenGainFactor>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_OneManArmy_Deathwatch</thought>
+		<description>For each colonist (non-quest, non-deathresting) above 1</description>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_OneManArmy</eventDef>
+		<eventLabel>for every day alone</eventLabel>
+		<points>1</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_OneManArmy_Deathwatch</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Deathwatch</workerClass>
+	<stages>
+	  <li>
+		<label>deathwatch</label>
+		<description>Someone has to deathrest, we can't carry watch as a group, it's dangerous.</description>
+		<baseMoodEffect>-15</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

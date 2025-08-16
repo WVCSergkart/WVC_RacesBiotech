@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float ChanceFactorNow(IIncidentTarget target)
 		{
-			return 1f - (StaticCollectionsClass.cachedColonistsCount * 0.15f);
+			return 1f - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.15f);
 		}
 
 		//protected override bool CanFireNowSub(IncidentParms parms)
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedXenotypesCount < StaticCollectionsClass.cachedColonistsCount / 2)
+			if (StaticCollectionsClass.cachedXenotypesCount < StaticCollectionsClass.cachedNonDeathrestingColonistsCount / 2)
 			{
 				return false;
 			}
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (StaticCollectionsClass.cachedColonistsCount > 3)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 3)
 			{
 				return false;
 			}
@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedColonistsCount < 2 && StaticCollectionsClass.cachedColonistsCount > 6)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount < 2 && StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 6)
 			{
 				return false;
 			}
@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedColonistsCount <= 1)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount <= 1)
 			{
 				return false;
 			}
@@ -122,7 +122,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (StaticCollectionsClass.cachedXenotypesCount != StaticCollectionsClass.cachedColonistsCount)
+			if (StaticCollectionsClass.cachedXenotypesCount != StaticCollectionsClass.cachedNonDeathrestingColonistsCount)
 			{
 				return false;
 			}
@@ -142,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (StaticCollectionsClass.cachedColonistsCount > 2)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 2)
 			{
 				return false;
 			}

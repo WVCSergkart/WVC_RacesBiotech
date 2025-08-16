@@ -393,7 +393,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			MiscUtility.UpdateStaticCollection();
 			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
-			if (StaticCollectionsClass.cachedColonistsCount > Props.colonistsLimit)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > Props.colonistsLimit)
 			{
 				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
 			}

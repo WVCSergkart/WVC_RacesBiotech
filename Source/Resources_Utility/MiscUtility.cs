@@ -801,7 +801,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			int playerDuplicates = 0;
 			int allPawns = 0;
-			int colonists = 0;
+			int activeColonists = 0;
+			int activeColonistsDuplicatesDeathresting = 0;
+			int deathresters = 0;
 			int xenos = 0;
 			int nonHumans = 0;
 			int colonyMechs = 0;
@@ -817,7 +819,11 @@ namespace WVC_XenotypesAndGenes
                 if (item.IsQuestLodger())
                 {
                     continue;
-                }
+				}
+				if (item.IsPrisoner)
+				{
+					continue;
+				}
 				allPawns++;
 				if (!item.RaceProps.Humanlike)
                 {
@@ -865,12 +871,14 @@ namespace WVC_XenotypesAndGenes
             }
 			StaticCollectionsClass.cachedDuplicatesCount = playerDuplicates;
 			StaticCollectionsClass.cachedPlayerPawnsCount = allPawns;
-			StaticCollectionsClass.cachedColonistsCount = colonists;
+			StaticCollectionsClass.cachedNonDeathrestingColonistsCount = activeColonists;
+			StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount = activeColonistsDuplicatesDeathresting;
+			StaticCollectionsClass.cachedDeathrestingColonistsCount = deathresters;
 			StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
 			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
-			StaticCollectionsClass.oneManArmyMode = colonists <= 1;
+			StaticCollectionsClass.oneManArmyMode = activeColonists <= 1;
 
             void SubHumansCount(Pawn item)
             {
@@ -880,7 +888,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 else
                 {
-                    colonists++;
+                    activeColonists++;
                 }
 			}
 			void Colonists(Pawn item)
@@ -889,25 +897,27 @@ namespace WVC_XenotypesAndGenes
 				{
 					xenos++;
 				}
-				if (!item.Deathresting && !item.IsPrisoner)
+				if (item.IsDuplicate)
+				{
+					playerDuplicates++;
+				}
+				if (!item.Deathresting)
                 {
-                    if (item.IsDuplicate)
-                    {
-						playerDuplicates++;
-					}
-					else
-                    {
-						colonists++;
-					}
-                }
-            }
-			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
-			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
-		}
+					activeColonists++;
+				}
+				else
+                {
+					deathresters++;
+				}
+				activeColonistsDuplicatesDeathresting++;
+			}
+            //StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
+            //Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
+        }
 
         public static void ForeverAloneDevelopmentPoints()
 		{
-			if (StaticCollectionsClass.cachedColonistsCount > 1 || !ModLister.IdeologyInstalled)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 || !ModLister.IdeologyInstalled)
 			{
 				return;
 			}

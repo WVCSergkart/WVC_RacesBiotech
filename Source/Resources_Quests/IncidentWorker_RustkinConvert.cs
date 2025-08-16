@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float ChanceFactorNow(IIncidentTarget target)
 		{
-			return 1f + (StaticCollectionsClass.cachedColonistsCount * 0.35f);
+			return 1f + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.35f);
 		}
 
         protected override bool CanFireNowSub(IncidentParms parms)
