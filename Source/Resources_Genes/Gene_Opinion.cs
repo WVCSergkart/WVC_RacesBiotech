@@ -382,7 +382,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 47618, delta))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 11618, delta))
 			{
 				return;
 			}
@@ -430,7 +430,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 47619, delta))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 11619, delta))
 			{
 				return;
 			}
