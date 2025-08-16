@@ -50,12 +50,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(caster.Named("PAWN")), source, MessageTypeDefOf.NeutralEvent);
 				}
-				if (ModsConfig.AnomalyActive && Rand.Chance(WVC_Biotech.settings.duplicator_RandomGeneChance * failChanceFactor))
+				if (ModsConfig.AnomalyActive)
 				{
-					Duplicator.TryAddNewSubGene(caster.IsDuplicate);
+					Gene_Duplicator sourceDuplicator = source.genes?.GetFirstGeneOfType<Gene_Duplicator>();
+					if (sourceDuplicator != null)
+					{
+						sourceDuplicator.Notify_DuplicateCreated(duplicatePawn);
+						if (Rand.Chance(WVC_Biotech.settings.duplicator_RandomGeneChance * failChanceFactor))
+						{
+							sourceDuplicator.TryAddNewSubGene(source.IsDuplicate);
+						}
+					}
 				}
 				//Duplicator.Notify_GenesChanged(null);
-				source.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_DuplicateCreated(duplicatePawn);
+				//source.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_DuplicateCreated(duplicatePawn);
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
 			}
 

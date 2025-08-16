@@ -19,6 +19,9 @@ namespace WVC_XenotypesAndGenes
 		public static int cachedNonHumansCount = 0;
 		public static int cachedColonyMechsCount = 0;
 		public static bool haveAssignedWork = false;
+
+		//[Obsolete]
+		//public static int cachedColonistsCount => cachedNonDeathrestingColonistsCount;
 		//public static bool leaderIsUndead = false;
 		//public static bool leaderIsShapeshifter = false;
 		//public static bool presentUndead = false;
