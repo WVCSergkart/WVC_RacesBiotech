@@ -128,7 +128,7 @@ namespace WVC_XenotypesAndGenes
         }
 
         public override bool Visible => false;
-        public override int TictRate => 61013;
+        public override int TictRate => 11013;
 
         public override HediffStage CurStage
         {
@@ -144,7 +144,14 @@ namespace WVC_XenotypesAndGenes
                         float offset = 0f;
                         foreach (Pawn dupe in Gene.Duplicator.PawnDuplicates)
                         {
-                            offset += dupe.GetStatValue(StatDefOf.PsychicSensitivity) * 0.1f;
+                            if (dupe.psychicEntropy != null)
+                            {
+                                offset += dupe.psychicEntropy.PsychicSensitivity * 0.1f;
+                            }
+                            else
+                            {
+                                offset += dupe.GetStatValue(StatDefOf.PsychicSensitivity) * 0.1f;
+                            }
                         }
                         statMod.value = offset;
                         curStage.statOffsets = new();

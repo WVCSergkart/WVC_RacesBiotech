@@ -13,6 +13,7 @@
 	<customEffectDescriptions>
 		<li>Psychic sensitivity: +10% from psy-sens of each &lt;color=#8a8ae6&gt;duplicate&lt;/color&gt;.</li>
 		<li>For &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt; created by the &lt;color=#8a8ae6&gt;obelisk&lt;/color&gt;, the update takes longer.</li>
+		<li>&lt;color=#ffec85&gt;The effect increases gradually.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

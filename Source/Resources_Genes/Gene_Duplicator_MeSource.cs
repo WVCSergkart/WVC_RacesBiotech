@@ -264,7 +264,18 @@ namespace WVC_XenotypesAndGenes
             PsyfocusOffset(delta);
         }
 
-        public float recoveryRate = 0.01f;
+        private float? cachedRecoveryRate;
+        public float RecoveryRate
+        {
+            get
+            {
+                if (!cachedRecoveryRate.HasValue)
+                {
+                    GetRecoveryRate();
+                }
+                return 0.01f;
+            }
+        }
 
         public void PsyfocusOffset(int delta)
         {
@@ -272,31 +283,39 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-            if (pawn.IsNestedHashIntervalTick(750, 60000))
+            pawn?.psychicEntropy?.OffsetPsyfocusDirectly(RecoveryRate);
+            if (pawn.IsNestedHashIntervalTick(750, 2500))
             {
-                GetRecoveryRate();
+                cachedRecoveryRate = null;
             }
         }
 
         public override void Notify_DuplicateCreated(Pawn newDupe)
         {
-            GetRecoveryRate();
+            cachedRecoveryRate = null;
         }
 
         private void GetRecoveryRate()
         {
             if (Duplicator == null)
             {
+                cachedRecoveryRate = 0;
                 return;
             }
-            recoveryRate = Duplicator.PawnDuplicates.Count * 0.01f;
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref recoveryRate, "psyfocusRecoveryRate", 0);
+            if (Duplicator.PawnDuplicates.NullOrEmpty())
+            {
+                cachedRecoveryRate = 0;
+                return;
+            }
+            float rate = 0f;
+            foreach (Pawn dupe in Duplicator.PawnDuplicates)
+            {
+                if (dupe.psychicEntropy.IsCurrentlyMeditating)
+                {
+                    rate += 1;
+                }
+            }
+            cachedRecoveryRate = rate * 0.01f;
         }
 
     }

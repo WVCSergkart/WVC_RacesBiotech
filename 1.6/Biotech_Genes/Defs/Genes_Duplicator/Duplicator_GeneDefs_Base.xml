@@ -69,6 +69,11 @@
 					<chance>0.35</chance>
 					<reqDupesCount>3</reqDupesCount>
 				</li>
+				<li MayRequire="wvc.sergkart.test.tools">
+					<geneDef>WVC_Duplicator_Psylink</geneDef>
+					<chance>0.2</chance>
+					<reqDupesCount>4</reqDupesCount>
+				</li>
 				<!-- Duplicates -->
 				<!-- Genes -->
 				<!-- Anomaly genes -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef MayRequire="ludeon.rimworld.royalty" ParentName="WVC_XenotypesAndGenes_GeneDuplicator_MeSource">
+	<defName>WVC_Duplicator_Psylink</defName>
+	<label>duplicator psylink</label>
+	<description>Carriers of this gene have special innate psychic abilities and can receive psyfocus from the meditation of their duplicates.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator_Psylink</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Duplicator_Psylink</iconPath>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>Guarantees &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; or forms it over time.</li>
+		<li>Passively replenishes the &lt;color=#8a8ae6&gt;psyfocus&lt;/color&gt; of relatively &lt;color=#8a8ae6&gt;meditating duplicates&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>
