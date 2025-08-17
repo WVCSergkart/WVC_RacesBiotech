@@ -245,4 +245,60 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_Duplicator_Psylink : Gene_Duplicator_MeSource
+    {
+
+        public override void PostAdd()
+        {
+            if (IsDuplicate)
+            {
+                return;
+            }
+            base.PostAdd();
+            GeneResourceUtility.AddPsylink(pawn);
+        }
+
+        public override void TickInterval(int delta)
+        {
+            GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta);
+            PsyfocusOffset(delta);
+        }
+
+        public float recoveryRate = 0.01f;
+
+        public void PsyfocusOffset(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(750, delta))
+            {
+                return;
+            }
+            pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
+            if (pawn.IsNestedHashIntervalTick(750, 60000))
+            {
+                GetRecoveryRate();
+            }
+        }
+
+        public override void Notify_DuplicateCreated(Pawn newDupe)
+        {
+            GetRecoveryRate();
+        }
+
+        private void GetRecoveryRate()
+        {
+            if (Duplicator == null)
+            {
+                return;
+            }
+            recoveryRate = Duplicator.PawnDuplicates.Count * 0.01f;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref recoveryRate, "psyfocusRecoveryRate", 0);
+        }
+
+    }
+
 }

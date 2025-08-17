@@ -59,6 +59,7 @@
 	<label>chimera mark</label>
 	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<allowMothballIfLowPriorityWorldPawn>false</allowMothballIfLowPriorityWorldPawn>
 	<stages>
 	  <li>
 		<becomeVisible>true</becomeVisible>
@@ -75,6 +76,7 @@
 	<label>chimera mark</label>
 	<description>Archite virus implanted with a chimera subgene. It slowly collects the host's genetic information. After the host dies, the virus sends the accumulated genes via a psychic link with the caster. The effectiveness of this virus directly depends on the caster's psychic sensitivity. It is harmless to the host.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<allowMothballIfLowPriorityWorldPawn>false</allowMothballIfLowPriorityWorldPawn>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark">
 		<sendOnComplete>true</sendOnComplete>
