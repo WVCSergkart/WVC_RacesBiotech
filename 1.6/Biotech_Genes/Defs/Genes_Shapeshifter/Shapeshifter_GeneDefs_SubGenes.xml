@@ -22,6 +22,7 @@
 	<displayOrderInCategory>160</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Disables &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; hediff when &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;.</li>
+		<li>&lt;color=#ffec85&gt;Completely blocks the shapeshifter gene from receiving genetic material.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
