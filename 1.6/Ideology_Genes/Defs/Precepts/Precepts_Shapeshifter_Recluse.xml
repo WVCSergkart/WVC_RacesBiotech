@@ -107,6 +107,10 @@
 		<thought>WVC_OneManArmy_MySourceSocial</thought>
 		<description>My source</description>
 	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_OneManArmy_SameSourceSocial</thought>
+		<description>Same source</description>
+	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Shapeshift</eventDef>
 		<eventLabel>shapeshift</eventLabel>
@@ -129,6 +133,18 @@
 		<label>non-duplicates</label>
 		<description>Our unity is broken by the presence of an extra "Source". There should not be more than one Source.</description>
 		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_OneManArmy_SameSourceSocial</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_SameSource</workerClass>
+	<stages>
+	  <li>
+		<label>Same source</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

@@ -37,7 +37,8 @@ namespace WVC_XenotypesAndGenes
 		//public static XaG_GameComponent currentGameComponent;
 
 		public static List<Pawn> hideMechanitorButton = new();
-		//public static List<Pawn> duplicates = new();
+
+		//public static List<DuplicateSet> duplicatesSets = new();
 
 		public static void ResetCollection()
 		{
@@ -52,9 +53,13 @@ namespace WVC_XenotypesAndGenes
 			haveAssignedWork = false;
 			oneManArmyMode = false;
 			hideMechanitorButton = new();
+            //duplicates = new();
+            ThoughtWorker_Precept_Social_Duplicates.duplicatePawns = new();
+			ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();
+			ThoughtWorker_Precept_Social_Duplicates.duplicateSets = new();
 		}
 
-		public static void AddHideMechanitors(Pawn pawn)
+        public static void AddHideMechanitors(Pawn pawn)
 		{
 			if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
 			{
