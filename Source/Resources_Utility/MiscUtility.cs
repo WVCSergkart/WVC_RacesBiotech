@@ -375,19 +375,57 @@ namespace WVC_XenotypesAndGenes
             //{
             //	return false;
             //}
-            float chance = GetFoodPoisonChance(pawn, thing);
+            //float chance = GetFoodPoisonChance(pawn, thing);
+			float chance = FoodUtility.GetFoodPoisonChanceFactor(pawn);
+			//Log.Error(chance.ToString());
             if (Rand.Chance(chance))
-            {
-                FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+			{
+				//Log.Error("1");
+				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
                 return true;
             }
             return false;
-        }
+		}
 
-        public static float GetFoodPoisonChance(Pawn pawn, Thing thing)
-        {
-            return FoodUtility.TryGetFoodPoisoningChanceOverrideFromTraits(pawn, thing, out float poisonChanceOverride) ? poisonChanceOverride : (pawn.GetStatValue(StatDefOf.FoodPoisonChanceFixedHuman) * FoodUtility.GetFoodPoisonChanceFactor(pawn));
-        }
+		//public static bool TryGetFoodPoisoningChanceFactorFromTraits(Pawn pawn, Thing ingestible, out float poisonChanceOverride)
+		//{
+		//	if (ModsConfig.AnomalyActive && pawn.IsMutant && pawn.mutant.Def.preventIllnesses)
+		//	{
+		//		poisonChanceOverride = 0f;
+		//		return false;
+		//	}
+		//	if (pawn.story != null && pawn.story.traits.AnyTraitHasIngestibleOverrides)
+		//	{
+		//		List<Trait> allTraits = pawn.story.traits.allTraits;
+		//		for (int i = 0; i < allTraits.Count; i++)
+		//		{
+		//			if (allTraits[i].Suppressed)
+		//			{
+		//				continue;
+		//			}
+		//			List<IngestibleModifiers> ingestibleModifiers = allTraits[i].CurrentData.ingestibleModifiers;
+		//			if (ingestibleModifiers.NullOrEmpty())
+		//			{
+		//				continue;
+		//			}
+		//			for (int j = 0; j < ingestibleModifiers.Count; j++)
+		//			{
+		//				if (ingestibleModifiers[j].ingestible == ingestible.def)
+		//				{
+		//					poisonChanceOverride = ingestibleModifiers[j].poisonChanceOverride;
+		//					return true;
+		//				}
+		//			}
+		//		}
+		//	}
+		//	poisonChanceOverride = 1f;
+		//	return false;
+		//}
+
+		//public static float GetFoodPoisonChance(Pawn pawn, Thing thing)
+		//{
+		//	return TryGetFoodPoisoningChanceFactorFromTraits(pawn, thing, out float poisonChanceOverride) ? poisonChanceOverride : (pawn.GetStatValue(StatDefOf.FoodPoisonChanceFixedHuman) * FoodUtility.GetFoodPoisonChanceFactor(pawn));
+		//}
 
         public static bool FurskinHasMask(FurDef furDef)
 		{
