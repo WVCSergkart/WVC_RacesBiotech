@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Deathwatch -->
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_Deathwatch</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>deathwatch</label>
+	<description>We must stay awake in shifts, while one guards the peace of others, the resting ones gain strength.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Any number of pawns in deathrest state are allowed, and only one is awake. Also, non-sentient ones are allowed.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<displayOrderInIssue>40</displayOrderInIssue>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.16</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	  <!-- <GlobalLearningFactor>0.5</GlobalLearningFactor> -->
+	  <HemogenGainFactor>0.2</HemogenGainFactor>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_OneManArmy_Deathwatch</thought>
+		<description>For each colonist (non-quest, non-deathresting) above 1</description>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_OneManArmy</eventDef>
+		<eventLabel>for every day alone</eventLabel>
+		<points>1</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_OneManArmy_Deathwatch</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Deathwatch</workerClass>
+	<stages>
+	  <li>
+		<label>deathwatch</label>
+		<description>Someone has to deathrest, we can't carry watch as a group, it's dangerous.</description>
+		<baseMoodEffect>-15</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

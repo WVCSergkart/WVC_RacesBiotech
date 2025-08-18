@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 	public class ThoughtWorker_Precept_Deathwatch : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
-		private static int PawnsCount => StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
+		private static int PawnsCount => StaticCollectionsClass.cachedNonDeathrestingColonistsCount - StaticCollectionsClass.cachedAlwaysDownedColonists;
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
