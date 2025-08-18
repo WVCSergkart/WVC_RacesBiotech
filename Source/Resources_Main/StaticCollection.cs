@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public static int cachedNonHumansCount = 0;
 		public static int cachedColonyMechsCount = 0;
 		public static bool haveAssignedWork = false;
-		public static int cachedAlwaysDownedColonists = 0;
+		public static int cachedDownedColonists = 0;
 
 		//[Obsolete]
 		//public static int cachedColonistsCount => cachedNonDeathrestingColonistsCount;
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 			cachedXenotypesCount = 0;
 			cachedNonHumansCount = 0;
 			cachedColonyMechsCount = 0;
-			cachedAlwaysDownedColonists = 0;
+			cachedDownedColonists = 0;
 			haveAssignedWork = false;
 			oneManArmyMode = false;
 			hideMechanitorButton = new();

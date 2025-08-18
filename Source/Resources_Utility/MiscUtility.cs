@@ -845,7 +845,7 @@ namespace WVC_XenotypesAndGenes
 			int xenos = 0;
 			int nonHumans = 0;
 			int colonyMechs = 0;
-			int alwaysDownedColonists = 0;
+			int downedColonists = 0;
 			//int mutants = 0;
 			bool anyAssignedWork = false;
 			//bool leaderIsShapeshifterOrSimilar = false;
@@ -917,7 +917,7 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
 			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
-			StaticCollectionsClass.cachedAlwaysDownedColonists = alwaysDownedColonists;
+			StaticCollectionsClass.cachedDownedColonists = downedColonists;
 			StaticCollectionsClass.oneManArmyMode = activeColonists <= 1;
 
             void SubHumansCount(Pawn item)
@@ -937,16 +937,16 @@ namespace WVC_XenotypesAndGenes
 				{
 					xenos++;
 				}
-				if (item.ageTracker?.CurLifeStage?.alwaysDowned == true)
-                {
-					alwaysDownedColonists++;
-				}
 				if (item.IsDuplicate)
 				{
 					playerDuplicates++;
 				}
 				if (!item.Deathresting)
-                {
+				{
+					if (item.Downed)
+					{
+						downedColonists++;
+					}
 					activeColonists++;
 				}
 				else

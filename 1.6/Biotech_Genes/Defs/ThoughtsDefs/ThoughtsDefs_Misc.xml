@@ -172,6 +172,11 @@
 	<defName>WVC_Recluse</defName>
 	<durationDays>1</durationDays>
 	<thoughtClass>WVC_XenotypesAndGenes.Thought_RecluseMemory</thoughtClass>
+	<nullifyingPrecepts>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">WVC_Shapeshifters_Duplicates</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">WVC_Shapeshifters_Deathwatch</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">WVC_Shapeshifters_OneManArmy</li>
+	</nullifyingPrecepts>
 	<stages>
 	  <li>
 		<label>recluse</label>
