@@ -14,6 +14,10 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
+                if (pawn == null)
+                {
+                    return false;
+                }
                 if (IsDuplicate)
                 {
                     return false;

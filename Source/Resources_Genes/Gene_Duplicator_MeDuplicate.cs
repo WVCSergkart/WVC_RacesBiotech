@@ -8,6 +8,10 @@
         {
             get
             {
+                if (pawn == null)
+                {
+                    return false;
+                }
                 if (IsDuplicate)
                 {
                     return base.Active;

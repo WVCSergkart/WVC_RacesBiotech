@@ -4,16 +4,22 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
     public class Hediff_Duplicator : Hediff
     {
 
         public override bool ShouldRemove => false;
         public override bool Visible => false;
-        public virtual int TictRate => 76663;
+        public virtual int TickRate => 76663;
 
+        public int nextTick = 33;
         public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(TictRate, delta))
+            //if (!pawn.IsHashIntervalTick(TictRate, delta))
+            //{
+            //    return;
+            //}
+            if (!GeneResourceUtility.CanTick(ref nextTick, TickRate, delta))
             {
                 return;
             }
@@ -40,6 +46,15 @@ namespace WVC_XenotypesAndGenes
 
         }
 
+        //public override void ExposeData()
+        //{
+        //    base.ExposeData();
+        //    if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        //    {
+        //        Recache();
+        //    }
+        //}
+
     }
 
     public class Hediff_DuplicatorBandwidth : Hediff_Duplicator
@@ -59,7 +74,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
         public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
-        public override int TictRate => 60613;
+        public override int TickRate => 60613;
         public override HediffStage CurStage
         {
             get
@@ -67,14 +82,11 @@ namespace WVC_XenotypesAndGenes
                 if (curStage == null)
                 {
                     curStage = new();
-                    if (DuplicatorBandwidth != null)
-                    {
-                        StatModifier statMod = new();
-                        statMod.stat = StatDefOf.MechBandwidth;
-                        statMod.value = DuplicatorBandwidth.TotalBandwidth;
-                        curStage.statOffsets = new();
-                        curStage.statOffsets.Add(statMod);
-                    }
+                    StatModifier statMod = new();
+                    statMod.stat = StatDefOf.MechBandwidth;
+                    statMod.value = savedBandwidth;
+                    curStage.statOffsets = new();
+                    curStage.statOffsets.Add(statMod);
                 }
                 return curStage;
             }
@@ -93,6 +105,15 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        public override void Recache()
+        {
+            if (DuplicatorBandwidth != null)
+            {
+                savedBandwidth = DuplicatorBandwidth.TotalBandwidth;
+            }
+            base.Recache();
+        }
+
         public override void PostRemoved()
         {
             base.PostRemoved();
@@ -106,6 +127,13 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+        }
+
+        public float savedBandwidth = 0;
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref savedBandwidth, "savedBandwidth", 0);
         }
 
     }
@@ -128,7 +156,7 @@ namespace WVC_XenotypesAndGenes
         }
 
         public override bool Visible => false;
-        public override int TictRate => 11013;
+        public override int TickRate => 11013;
 
         public override HediffStage CurStage
         {
@@ -137,10 +165,8 @@ namespace WVC_XenotypesAndGenes
                 if (curStage == null)
                 {
                     curStage = new();
-                    if (Gene != null)
+                    if (Gene?.Duplicator != null)
                     {
-                        StatModifier statMod = new();
-                        statMod.stat = StatDefOf.PsychicSensitivity;
                         float offset = 0f;
                         foreach (Pawn dupe in Gene.Duplicator.PawnDuplicates)
                         {
@@ -153,9 +179,19 @@ namespace WVC_XenotypesAndGenes
                                 offset += dupe.GetStatValue(StatDefOf.PsychicSensitivity) * 0.1f;
                             }
                         }
-                        statMod.value = offset;
                         curStage.statOffsets = new();
+                        StatModifier statMod = new();
+                        statMod.stat = StatDefOf.PsychicSensitivity;
+                        statMod.value = offset;
                         curStage.statOffsets.Add(statMod);
+                        StatModifier statFocusGainMod = new();
+                        statFocusGainMod.stat = StatDefOf.MeditationFocusGain;
+                        statFocusGainMod.value = offset / 2;
+                        curStage.statOffsets.Add(statFocusGainMod);
+                        StatModifier statEntropyRecoveryMod = new();
+                        statEntropyRecoveryMod.stat = StatDefOf.PsychicEntropyRecoveryRate;
+                        statEntropyRecoveryMod.value = offset / 2;
+                        curStage.statOffsets.Add(statEntropyRecoveryMod);
                     }
                 }
                 return curStage;

@@ -15,6 +15,10 @@ namespace WVC_XenotypesAndGenes
 				if (!cachedIsDuplicate.HasValue)
 				{
 					cachedIsDuplicate = pawn.IsDuplicate;
+					//if (cachedIsDuplicate == null)
+					//{
+					//	return false;
+					//}
 				}
 				return cachedIsDuplicate.Value;
 			}
