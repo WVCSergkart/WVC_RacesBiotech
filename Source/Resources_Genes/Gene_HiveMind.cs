@@ -55,6 +55,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
+            if (pawn.Faction != Faction.OfPlayer)
+            {
+                return;
+            }
             SyncHive();
         }
 

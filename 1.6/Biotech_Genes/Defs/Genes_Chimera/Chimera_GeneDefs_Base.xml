@@ -198,6 +198,7 @@
 				  <li>WVC_IncreasedVoidLimit</li>
 				  <li>WVC_DecreasedVoidLimit</li>
 				  <li>WVC_VoidResourceGain</li>
+				  <li>WVC_Voidlink_MechCharging</li>
 				  <li>WVC_MaxVoidEnergy_AccurateSummon</li>
 				</genes>
 			  </li>

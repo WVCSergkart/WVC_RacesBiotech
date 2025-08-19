@@ -12,7 +12,7 @@
 	<biostatMet>0</biostatMet>
 	<displayOrderInCategory>220</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Every 3 days the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; copies one random gene from random form.</li>
+		<li>Every 3 days the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; copies one random gene from random &lt;color=#8a8ae6&gt;archiver form&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

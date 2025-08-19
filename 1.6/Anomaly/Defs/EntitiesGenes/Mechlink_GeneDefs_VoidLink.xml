@@ -164,4 +164,20 @@
 	</statOffsets>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_Voidlink_MechCharging</defName>
+	<label>void charger</label>
+	<description>Carriers of this gene can charge their controlled mechanoids by spending voidsence.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Voidlink_MechCharging</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Voidlink_Charging</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.40</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Charges each controlled mechanoid by 20% per day, spending the same amount of voidsence resource.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

@@ -1093,11 +1093,15 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_Start>Start</WVC_Start>
 
+	<!-- <WVC_Charge>Charge</WVC_Charge> -->
+
 	<WVC_XaG_HideShowDesc>Allows to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
 
 	<!-- <WVC_XaG_Shapeshifter_HideShowDesc>Toggles shifter gizmo collapse and hides/shows the genes settings gizmo relative to this setting.</WVC_XaG_Shapeshifter_HideShowDesc> -->
 
 	<WVC_XaG_SelfOverrideDesc>Allows to override the gene at any time.</WVC_XaG_SelfOverrideDesc>
+
+	<WVC_XaG_VoidMechChargingDesc>If enabled, slowly charges mechs, but consumes voidsence.</WVC_XaG_VoidMechChargingDesc>
 
 	<WVC_Style>Style</WVC_Style>
 

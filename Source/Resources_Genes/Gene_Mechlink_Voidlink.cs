@@ -9,50 +9,50 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged
-	{
+    public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged
+    {
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
-			if (!MiscUtility.GameNotStarted())
-			{
-				return;
-			}
-			FloatRange range = new(0.01f, 0.17f);
-			OffsetResource(range.RandomInRange);
-		}
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+            if (!MiscUtility.GameNotStarted())
+            {
+                return;
+            }
+            FloatRange range = new(0.01f, 0.17f);
+            OffsetResource(range.RandomInRange);
+        }
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			KillMechs();
-			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
-		}
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            KillMechs();
+            HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+        }
 
-		public void Notify_Override()
-		{
-			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
-		}
+        public void Notify_Override()
+        {
+            HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+        }
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			KillMechs();
-			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
-		}
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            KillMechs();
+            HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+        }
 
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             base.Notify_PawnDied(dinfo, culprit);
             if (!Active)
             {
                 return;
-			}
-			if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
-			{
-				return;
-			}
+            }
+            if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
+            {
+                return;
+            }
             if (mapHeld == null)
             {
                 return;
@@ -61,25 +61,25 @@ namespace WVC_XenotypesAndGenes
         }
 
         public void Notify_PawnKilled()
-		{
-			KillMechs();
-			//StaticCollectionsClass.voidLinkNewGamePlusPawn = pawn;
-		}
+        {
+            KillMechs();
+            //StaticCollectionsClass.voidLinkNewGamePlusPawn = pawn;
+        }
 
-		public void KillMechs(bool offsetResource = false)
-		{
-			if (pawn.mechanitor != null)
-			{
-				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
-				foreach (Pawn mech in mechs)
-				{
-					if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
+        public void KillMechs(bool offsetResource = false)
+        {
+            if (pawn.mechanitor != null)
+            {
+                List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
+                foreach (Pawn mech in mechs)
+                {
+                    if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
                     {
                         KillSelectedMech(offsetResource, mech);
                     }
                 }
-			}
-		}
+            }
+        }
 
         public void KillSelectedMech(bool offsetResource, Pawn mech)
         {
@@ -97,215 +97,215 @@ namespace WVC_XenotypesAndGenes
 
         private Gizmo gizmo;
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
-			{
-				yield break;
-			}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: SkipMechs",
-					action = delegate
-					{
-						List<PawnKindDef> pawnKindDefs = MechKindDefs;
-						selectedMechs = new();
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						timeForNextSummon = 60;
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: AddResource 10",
-					action = delegate
-					{
-						OffsetResource(0.10f);
-					}
-				};
-			}
-			if (gizmo == null)
-			{
-				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
-			}
-			yield return gizmo;
-		}
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
+            {
+                yield break;
+            }
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: SkipMechs",
+                    action = delegate
+                    {
+                        List<PawnKindDef> pawnKindDefs = MechKindDefs;
+                        selectedMechs = new();
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        timeForNextSummon = 60;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: AddResource 10",
+                    action = delegate
+                    {
+                        OffsetResource(0.10f);
+                    }
+                };
+            }
+            if (gizmo == null)
+            {
+                gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+            }
+            yield return gizmo;
+        }
 
-		public List<PawnKindDef> MechKindDefs => DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind)).ToList();
+        public List<PawnKindDef> MechKindDefs => DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind)).ToList();
 
-		private float geneResource = 0;
+        private float geneResource = 0;
 
-		public float ResourceGain => def.resourceLossPerDay / 60000;
+        public float ResourceGain => def.resourceLossPerDay / 60000;
 
-		private float? cachedTotalResourceGain;
+        private float? cachedTotalResourceGain;
         public float TotalResourceGain
         {
             get
             {
-				if (!cachedTotalResourceGain.HasValue)
+                if (!cachedTotalResourceGain.HasValue)
                 {
-					float resourceGain = def.resourceLossPerDay;
-					foreach (Gene gene in pawn.genes.GenesListForReading)
+                    float resourceGain = def.resourceLossPerDay;
+                    foreach (Gene gene in pawn.genes.GenesListForReading)
                     {
-						if (gene is Gene_VoidlinkOffset offset)
+                        if (gene is Gene_VoidlinkOffset offset)
                         {
-							resourceGain += offset.def.resourceLossPerDay;
-						}
+                            resourceGain += offset.def.resourceLossPerDay;
+                        }
                     }
-					cachedTotalResourceGain = (float)Math.Round(resourceGain, 2);
-				}
+                    cachedTotalResourceGain = (float)Math.Round(resourceGain, 2);
+                }
                 return cachedTotalResourceGain.Value;
             }
         }
 
-		private float? cachedMaxResource;
+        private float? cachedMaxResource;
         public float MaxResource
         {
             get
             {
-				if (!cachedMaxResource.HasValue)
-				{
-					//cachedMaxResource = 1f;
-					//foreach (Gene gene in pawn.genes.GenesListForReading)
-					//{
-					//	if (gene is Gene_VoidlinkMaxResource resource && resource.Giver != null)
-					//	{
-					//		cachedMaxResource += resource.Giver.maxVoidEnergyOffset;
-					//	}
-					//}
-					cachedMaxResource = pawn.GetStatValue(Spawner.voidMaxResource_StatDef);
-				}
+                if (!cachedMaxResource.HasValue)
+                {
+                    //cachedMaxResource = 1f;
+                    //foreach (Gene gene in pawn.genes.GenesListForReading)
+                    //{
+                    //	if (gene is Gene_VoidlinkMaxResource resource && resource.Giver != null)
+                    //	{
+                    //		cachedMaxResource += resource.Giver.maxVoidEnergyOffset;
+                    //	}
+                    //}
+                    cachedMaxResource = pawn.GetStatValue(Spawner.voidMaxResource_StatDef);
+                }
                 return cachedMaxResource.Value;
             }
-		}
+        }
 
-		public void Notify_GenesChanged(Gene changedGene)
-		{
-			CacheReset();
-		}
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+            CacheReset();
+        }
 
-		public void CacheReset(bool notifyBandwidth = false)
-		{
-			//if (pawn.mechanitor == null)
-			//{
-			//	return;
-			//}
-			if (notifyBandwidth)
-			{
-				pawn.mechanitor?.Notify_BandwidthChanged();
-			}
-			cachedMaxResource = null;
-			allMechsCount = null;
-			cachedMaxMechs = null;
-			sphereChance = null;
-		}
+        public void CacheReset(bool notifyBandwidth = false)
+        {
+            //if (pawn.mechanitor == null)
+            //{
+            //	return;
+            //}
+            if (notifyBandwidth)
+            {
+                pawn.mechanitor?.Notify_BandwidthChanged();
+            }
+            cachedMaxResource = null;
+            allMechsCount = null;
+            cachedMaxMechs = null;
+            sphereChance = null;
+        }
 
-		public float CurrentResource => (float)Math.Round(geneResource, 2);
+        public float CurrentResource => (float)Math.Round(geneResource, 2);
 
-		private float? cachedMaxMechs;
-		public float MaxMechs
-		{
-			get
-			{
-				if (!cachedMaxMechs.HasValue)
-				{
-					cachedMaxMechs = pawn.GetStatValue(Spawner.voidMechsLimit_StatDef);
-				}
-				return cachedMaxMechs.Value;
-			}
-		}
+        private float? cachedMaxMechs;
+        public float MaxMechs
+        {
+            get
+            {
+                if (!cachedMaxMechs.HasValue)
+                {
+                    cachedMaxMechs = pawn.GetStatValue(Spawner.voidMechsLimit_StatDef);
+                }
+                return cachedMaxMechs.Value;
+            }
+        }
 
-		public float ResourcePercent => geneResource / MaxResource;
+        public float ResourcePercent => geneResource / MaxResource;
 
-		public float ResourceForDisplay => (float)Math.Round(geneResource * 100f, 2);
+        public float ResourceForDisplay => (float)Math.Round(geneResource * 100f, 2);
 
-		public TaggedString ResourcePerDay => "WVC_XaG_PerDay".Translate((TotalResourceGain < 0 ? "-" : "+").ToString() + TotalResourceGain * 100);
+        public TaggedString ResourcePerDay => "WVC_XaG_PerDay".Translate((TotalResourceGain < 0 ? "-" : "+").ToString() + TotalResourceGain * 100);
 
-		//public override void Tick()
-		//{
-		//}
+        //public override void Tick()
+        //{
+        //}
 
-		public override void TickInterval(int delta)
-		{
-			base.TickInterval(delta);
-			if (pawn.IsHashIntervalTick(2500, delta))
-			{
-				OffsetResource(ResourceGain * 2500);
-			}
-			if (timeForNextSummon > 0)
-			{
-				timeForNextSummon -= delta;
-				if (timeForNextSummon == 0)
-				{
-					if (TrySummonMechs())
-					{
-						timeForNextSummon = 45;
-					}
-					else
-					{
-						CacheReset(true);
-					}
-				}
-			}
-		}
+        public override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if (pawn.IsHashIntervalTick(2500, delta))
+            {
+                OffsetResource(ResourceGain * 2500);
+            }
+            if (timeForNextSummon > 0)
+            {
+                timeForNextSummon -= delta;
+                if (timeForNextSummon == 0)
+                {
+                    if (TrySummonMechs())
+                    {
+                        timeForNextSummon = 45;
+                    }
+                    else
+                    {
+                        CacheReset(true);
+                    }
+                }
+            }
+        }
 
-		//public void PostSummon()
-		//{
-		//	foreach (Pawn mech in pawn.mechanitor.ControlledPawns.ToList())
-		//	{
-		//		if (mech.Dead)
-		//		{
-		//			continue;
-		//		}
-		//		MechanitorControlGroup savedGroup = pawn.mechanitor.GetControlGroup(mech);
-		//		MechanoidsUtility.SetOverseer(pawn, mech);
-		//		savedGroup.Assign(mech);
-		//	}
-		//}
+        //public void PostSummon()
+        //{
+        //	foreach (Pawn mech in pawn.mechanitor.ControlledPawns.ToList())
+        //	{
+        //		if (mech.Dead)
+        //		{
+        //			continue;
+        //		}
+        //		MechanitorControlGroup savedGroup = pawn.mechanitor.GetControlGroup(mech);
+        //		MechanoidsUtility.SetOverseer(pawn, mech);
+        //		savedGroup.Assign(mech);
+        //	}
+        //}
 
-		private int? allMechsCount;
+        private int? allMechsCount;
         public int AllMechsCount
         {
             get
             {
-				if (!allMechsCount.HasValue)
+                if (!allMechsCount.HasValue)
                 {
-					allMechsCount = pawn.mechanitor.ControlledPawns.Where((mech) => !mech.Dead).ToList().Count;
-				}
+                    allMechsCount = pawn.mechanitor.ControlledPawns.Where((mech) => !mech.Dead).ToList().Count;
+                }
                 return allMechsCount.Value;
             }
-		}
+        }
 
-		private float? sphereChance;
-		public float SphereChance
-		{
-			get
-			{
-				if (!sphereChance.HasValue)
-				{
-					cachedMaxMechs = null;
-					float chance = (AllMechsCount - MaxMechs) > 0 ? (AllMechsCount - MaxMechs) * 0.01f : 0f;
-					sphereChance = chance > 0.5f ? 0.5f : chance;
-				}
-				return sphereChance.Value;
-			}
-		}
+        private float? sphereChance;
+        public float SphereChance
+        {
+            get
+            {
+                if (!sphereChance.HasValue)
+                {
+                    cachedMaxMechs = null;
+                    float chance = (AllMechsCount - MaxMechs) > 0 ? (AllMechsCount - MaxMechs) * 0.01f : 0f;
+                    sphereChance = chance > 0.5f ? 0.5f : chance;
+                }
+                return sphereChance.Value;
+            }
+        }
 
-		public void OffsetResource(float value)
-		{
-			//Log.Error("Resource gain: " + value);
-			geneResource = Mathf.Clamp((geneResource + value), 0f, MaxResource);
-		}
+        public void OffsetResource(float value)
+        {
+            //Log.Error("Resource gain: " + value);
+            geneResource = Mathf.Clamp((geneResource + value), 0f, MaxResource);
+        }
 
-		public List<PawnKindDef> selectedMechs = new();
+        public List<PawnKindDef> selectedMechs = new();
 
-		private bool TrySummonMechs()
-		{
-			string phase = "start";
-			try
+        private bool TrySummonMechs()
+        {
+            string phase = "start";
+            try
             {
                 if (pawn.Map == null || pawn.mechanitor == null)
                 {
@@ -382,45 +382,45 @@ namespace WVC_XenotypesAndGenes
                 return true;
             }
             catch (Exception arg)
-			{
-				Log.Error("Voidlink failed summon. On phase: " + phase + ". Reason: " + arg);
-			}
-			return false;
-		}
+            {
+                Log.Error("Voidlink failed summon. On phase: " + phase + ". Reason: " + arg);
+            }
+            return false;
+        }
 
         private bool NociospherePresence()
-		{
-			foreach (Pawn pawn in pawn.Map.mapPawns.AllPawnsSpawned)
-			{
-				if (pawn.kindDef == PawnKindDefOf.Nociosphere)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+        {
+            foreach (Pawn pawn in pawn.Map.mapPawns.AllPawnsSpawned)
+            {
+                if (pawn.kindDef == PawnKindDefOf.Nociosphere)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+        public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref geneResource, "geneResource", 0);
-			Scribe_Collections.Look(ref selectedMechs, "selectedMechs", LookMode.Def);
-			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
-		}
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref geneResource, "geneResource", 0);
+            Scribe_Collections.Look(ref selectedMechs, "selectedMechs", LookMode.Def);
+            Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
+        }
 
-		public void UpdHediff()
-		{
-			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_VoidMechanitor hediff))
-			{
-				hediff.Recache();
-			}
-			else
-			{
-				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
-			}
-		}
+        public void UpdHediff()
+        {
+            if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_VoidMechanitor hediff))
+            {
+                hediff.Recache();
+            }
+            else
+            {
+                HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+            }
+        }
     }
 
 }

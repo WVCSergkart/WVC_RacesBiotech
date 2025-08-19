@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdThoughts()
         {
-			if (!pawn.Faction.IsPlayer)
+			if (pawn?.Faction != Faction.OfPlayer)
             {
 				return;
 			}
