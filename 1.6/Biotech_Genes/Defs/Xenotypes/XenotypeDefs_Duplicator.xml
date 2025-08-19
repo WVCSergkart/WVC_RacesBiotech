@@ -19,34 +19,6 @@
 	<displayPriority>-1100</displayPriority>
 	<factionlessGenerationWeight>0.1</factionlessGenerationWeight>
 	<genes>
-		<!-- <li>WVC_NodeSkin</li> -->
-		<!-- <li>WVC_Eyes_Holoeyes</li> -->
-		<!-- <li>WVC_VoiceMechaTesseron</li> -->
-		<!-- <li>WVC_Mecha_NoTail</li> -->
-		<!-- <li>WVC_Mecha_ConnectorTail</li> -->
-		<!-- <li>Ears_Human</li> -->
-		<!-- <li>WVC_Mecha_EarsCat</li> -->
-		<!-- <li>WVC_Mecha_RedFormerEarsDouble</li> -->
-		<!-- <li>WVC_Mecha_RedFormerSpikesDouble</li> -->
-		<!-- <li>WVC_Mecha_YellowFormerAntennaDouble</li> -->
-		<!-- <li>Body_Standard</li> -->
-		<!-- <li>Body_Thin</li> -->
-		<!-- <li>WVC_HairColor_DarkGray</li> -->
-		<!-- <li>WVC_SkinColor_DarkGray</li> -->
-		<!-- <li>WVC_EndogermReimplanter</li> -->
-		<!-- <li>WVC_NaturalAgeless</li> -->
-		<!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
-		<!-- <li>WVC_ToxResist_Total</li> -->
-		<!-- <li>WVC_DebuffUV_ExtremeInjuryHealing</li> -->
-		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
-		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
-		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
-		<!-- <li>WVC_MecaBodyParts_Nose</li> -->
-		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
-		<!-- <li>WVC_RandomGeneticSpeciality</li> -->
-		<!-- <li>WVC_RandomMetabolism</li> -->
-		<!-- <li>WVC_MechaPowerSource_Unstable</li> -->
-		<!-- ========= NEW ========= -->
 		<!-- Graphic -->
 		<li>WVC_NodeSkin</li>
 		<li>WVC_Eyes_Holoeyes</li>
@@ -81,9 +53,6 @@
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- orange -->
-			<!-- <defaultColor>(255, 216, 133)</defaultColor> -->
-			<!-- anomaly red -->
 			<defaultColor>(214, 49, 49)</defaultColor>
 		</li>
 	</modExtensions>

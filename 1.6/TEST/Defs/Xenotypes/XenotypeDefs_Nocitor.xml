@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev Name: Nocitor -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+	<defName>WVC_Nocitor</defName>
+	<!-- new name: === -->
+	<label>nocitor</label>
+	<description>Nocitors are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Nocitors are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Xeno_DuplicatorNociokin</iconPath>
+	<displayPriority>-1105</displayPriority>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<!-- Nociokin -->
+		<!-- <li>WVC_Eyes_Colorful</li> -->
+		<li>Hemogenic</li>
+		<li>WVC_NaturalAgeless</li>
+		<!-- <li>Hair_ShortOnly</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>LongjumpLegs</li> -->
+		<li>Deathrest</li>
+		<li>Neversleep</li>
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<li>ToxResist_Total</li>
+		<!-- <li>FireWeakness</li> -->
+		<!-- <li>FireTerror</li> -->
+		<li>WVC_DemonTailA</li>
+		<!-- <li>WVC_Ears_PointedB</li> -->
+		<li>PiercingSpine</li>
+		<!-- <li>WVC_Tough</li> -->
+		<!-- <li>WVC_Chimera</li> -->
+		<li>WVC_CyberSkin</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_SkinColor_MilkWhite</li>
+		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<li>WVC_HemogenicCharge</li>
+		<li>WVC_VoidMechlink</li>
+		<li>WVC_MechaAI_MechanitorNetwork</li>
+		<li>WVC_OneManArmy</li>
+		<li>Sterile</li>
+		<li>WVC_WoundHealing_SelfRepair</li>
+		<li>WVC_Mechfeeder</li>
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+		<!-- Duplicator -->
+		<li>WVC_NodeSkin</li>
+		<li>WVC_Eyes_Holoeyes</li>
+		<!-- <li>WVC_VoiceMechaTesseron</li> -->
+		<li>Body_Standard</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<!-- <li>WVC_DragonTailA</li> -->
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_HairColor_Slate</li>
+		<!-- <li>WVC_SkinColor_Slate</li> -->
+		<!-- <li>PsychicAbility_Enhanced</li> -->
+		<li>WVC_Duplicator</li>
+		<li>WVC_Duplicator_DeathChain</li>
+		<li>WVC_Duplicator_ZeroOutChance</li>
+		<!-- <li>WVC_DebuffUV_ExtremeInjuryHealing</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
+		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+		<li>WVC_MecaBodyParts_Nose</li>
+		<!-- <li>WVC_RandomGeneticSpeciality</li> -->
+		<!-- <li>WVC_RandomMetabolism</li> -->
+		<!-- <li>WVC_MechaPowerSource_Unstable</li> -->
+		<!-- <li>WVC_WoundHealing_Unnatural</li> -->
+		<!-- <li>WVC_MecaBodyParts_Liver</li> -->
+		<!-- <li>WVC_MecaBodyParts_Lung</li> -->
+		<!-- <li>WVC_FurskinInstincts_NightHunter</li> -->
+		<!-- <li>WVC_SlaveSuppression_Submissive</li> -->
+		<!-- <li>WVC_FurskinInstincts_PredatorSense</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_DarknessExposure</li> -->
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(161, 161, 255)</defaultColor>
+			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
+
+</Defs>

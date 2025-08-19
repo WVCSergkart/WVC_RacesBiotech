@@ -13,12 +13,12 @@
 	<fur>WVC_MechaSkin</fur>
 	<tattoosVisible>true</tattoosVisible>
 	<neverGrayHair>true</neverGrayHair>
-	<forcedHeadTypes>
-	  <li>Male_AverageNormal</li>
-	  <li>Male_AveragePointy</li>
-	  <li>Female_AverageNormal</li>
-	  <li>Female_AveragePointy</li>
-	</forcedHeadTypes>
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
 	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
 	<statOffsets>
 	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
@@ -54,11 +54,11 @@
 		<li><symbol>id</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <exclusionTags Inherit="False"> -->
-	  <!-- <li>AG_Bodies</li> -->
-	  <!-- <li>Bodies</li> -->
-	  <!-- <li>Fur</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags Inherit="False">
+	  <li>AG_Bodies</li>
+	  <li>Bodies</li>
+	  <li>Fur</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
