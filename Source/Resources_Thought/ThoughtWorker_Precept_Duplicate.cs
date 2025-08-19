@@ -73,18 +73,48 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class ThoughtWorker_Precept_Social_MyDuplicate : ThoughtWorker_Precept_Social_Duplicates
+	public class ThoughtWorker_Precept_Social_SourceAndDuplicate : ThoughtWorker_Precept_Social_Duplicates
+	{
+
+		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
+		{
+			if (IsDuplicate(p))
+			{
+				// My Source
+				if (IsDuplicateOf(otherPawn, p))
+				{
+					return ThoughtState.ActiveAtStage(1);
+				}
+				// Same Source
+				if (IsSameDuplicate(p, otherPawn))
+				{
+					return ThoughtState.ActiveAtStage(2);
+				}
+				return ThoughtState.Inactive;
+			}
+			if (IsDuplicate(otherPawn))
+			{
+				// My Duplicate
+				if (IsDuplicateOf(p, otherPawn))
+				{
+					return ThoughtState.ActiveAtStage(0);
+				}
+			}
+			return ThoughtState.Inactive;
+		}
+
+	}
+
+	public class ThoughtWorker_Precept_Social_MyDuplicate : ThoughtWorker_Precept_Social_Duplicates
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
 		{
 			if (!IsDuplicate(otherPawn))
-            {
+			{
 				return ThoughtState.Inactive;
-            }
-			//Log.Error("GetSourceCyclic");
+			}
 			return IsDuplicateOf(p, otherPawn);
-			//return p.GetSourceCyclic() == otherPawn.GetSourceCyclic();
 		}
 
 	}
@@ -98,9 +128,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ThoughtState.Inactive;
 			}
-			//Log.Error("GetSourceCyclic");
 			return IsDuplicateOf(otherPawn, p);
-			//return p.GetSourceCyclic() == otherPawn;
 		}
 
 	}

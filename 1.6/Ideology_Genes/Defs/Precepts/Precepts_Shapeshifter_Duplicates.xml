@@ -24,17 +24,25 @@
 		<description>For each colonist (non-quest, non-duplicate) above 1</description>
 	  </li>
 	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MyDuplicateSocial</thought>
-		<description>My duplicate</description>
+		<thought>WVC_OneManArmy_SourceAndDuplicateSocial</thought>
+		<thoughtStageDescriptions>
+		  <li>My duplicate</li>
+		  <li>My source</li>
+		  <li>Same source</li>
+		</thoughtStageDescriptions>
 	  </li>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_MySourceSocial</thought>
-		<description>My source</description>
-	  </li>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_OneManArmy_SameSourceSocial</thought>
-		<description>Same source</description>
-	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_OneManArmy_MyDuplicateSocial</thought> -->
+		<!-- <description>My duplicate</description> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_OneManArmy_MySourceSocial</thought> -->
+		<!-- <description>My source</description> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_OneManArmy_SameSourceSocial</thought> -->
+		<!-- <description>Same source</description> -->
+	  <!-- </li> -->
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Shapeshift</eventDef>
 		<eventLabel>shapeshift</eventLabel>
@@ -62,10 +70,18 @@
   </ThoughtDef>
 
   <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
-	<defName>WVC_OneManArmy_SameSourceSocial</defName>
+	<defName>WVC_OneManArmy_SourceAndDuplicateSocial</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_SameSource</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_SourceAndDuplicate</workerClass>
 	<stages>
+	  <li>
+		<label>My duplicate</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>My source</label>
+		<baseOpinionOffset>25</baseOpinionOffset>
+	  </li>
 	  <li>
 		<label>Same source</label>
 		<baseOpinionOffset>10</baseOpinionOffset>
@@ -73,28 +89,40 @@
 	</stages>
   </ThoughtDef>
 
-  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
-	<defName>WVC_OneManArmy_MyDuplicateSocial</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MyDuplicate</workerClass>
-	<stages>
-	  <li>
-		<label>My duplicate</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- <ThoughtDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_OneManArmy_SameSourceSocial</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_SameSource</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>Same source</label> -->
+		<!-- <baseOpinionOffset>10</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
-  <ThoughtDef MayRequire="ludeon.rimworld.anomaly">
-	<defName>WVC_OneManArmy_MySourceSocial</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MySource</workerClass>
-	<stages>
-	  <li>
-		<label>My source</label>
-		<baseOpinionOffset>25</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- <ThoughtDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_OneManArmy_MyDuplicateSocial</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MyDuplicate</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>My duplicate</label> -->
+		<!-- <baseOpinionOffset>20</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <!-- <ThoughtDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_OneManArmy_MySourceSocial</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_MySource</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>My source</label> -->
+		<!-- <baseOpinionOffset>25</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
 </Defs>
