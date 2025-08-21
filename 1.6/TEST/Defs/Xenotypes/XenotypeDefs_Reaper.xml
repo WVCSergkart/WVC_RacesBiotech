@@ -32,7 +32,7 @@
 		<li>WVC_Archiver_Integrator</li>
 		<li>WVC_Archiver_Skills</li>
 		<li>WVC_Chimera</li>
-		<li>WVC_Chimera_MarkHarvest</li>
+		<!-- <li>WVC_Chimera_MarkHarvest</li> -->
 		<li>WVC_Chimera_ArchiverCopy</li>
 		<!-- <li>WVC_Chimera_GeneRipper</li> -->
 		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
@@ -99,7 +99,7 @@
 		<!-- <li>WVC_Archiver_Integrator</li> -->
 		<!-- <li>WVC_Archiver_Skills</li> -->
 		<li>WVC_Chimera</li>
-		<li>WVC_Chimera_DeathMarkHarvest</li>
+		<!-- <li>WVC_Chimera_DeathMarkHarvest</li> -->
 		<li>WVC_Chimera_GeneRipper</li>
 		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
 		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>

@@ -26,8 +26,8 @@
 			<CleaningSpeed>0.50</CleaningSpeed>
 			<!-- Other -->
 			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
-			<ConstructSuccessChance>2.0</ConstructSuccessChance>
-			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
+			<ConstructSuccessChance>5.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>5.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">

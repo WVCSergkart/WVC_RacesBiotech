@@ -576,69 +576,67 @@ namespace WVC_XenotypesAndGenes
 			// GeneOverride
 
 			public static void OverrideTrigger(Gene __instance, Gene overriddenBy)
-			{
-				if (__instance is IGeneOverridden geneOverridden)
-				{
-					if (overriddenBy != null)
-					{
-						geneOverridden.Notify_OverriddenBy(overriddenBy);
-					}
-					else
-					{
-						geneOverridden.Notify_Override();
-					}
-				}
-				if (__instance is IGeneInspectInfo || __instance is IGeneFloatMenuOptions)
-				{
-					// Log.Error("ResetGenesInspectString");
-					XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
-				}
-				//if (__instance is IGeneRemoteControl remote)
-				//{
-				//	remote.RemoteControl_Recache();
-				//}
-				// if (__instance is IGeneNotifyGenesChanged geneNotifyGenesChanged)
-				// {
-				// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);
-				// }
-			}
+            {
+                try
+                {
+                    if (__instance is IGeneOverridden geneOverridden)
+                    {
+                        if (overriddenBy != null)
+                        {
+                            geneOverridden.Notify_OverriddenBy(overriddenBy);
+                        }
+                        else
+                        {
+                            geneOverridden.Notify_Override();
+                        }
+                    }
+                    if (__instance is IGeneInspectInfo || __instance is IGeneFloatMenuOptions)
+                    {
+                        XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
+                    }
+                }
+                catch (Exception arg)
+                {
+					Log.Error("Error while overriding gene: " + __instance.def.defName + ". Reason: " + arg);
+                }
+            }
 
-			public static void FixOverrides(Pawn_GeneTracker __instance)
-			{
-				List<Gene> xenogenes = __instance.pawn.genes.Xenogenes;
-				List<Gene> endogenes = __instance.pawn.genes.Endogenes;
-				if (xenogenes.NullOrEmpty() || endogenes.NullOrEmpty())
-				{
-					return;
-				}
-				for (int i = 0; i < xenogenes.Count; i++)
-				{
-					Gene xenogene = xenogenes[i];
-					if (!xenogene.Overridden)
-					{
-						continue;
-					}
-					for (int j = 0; j < endogenes.Count; j++)
-					{
-						Gene endogene = endogenes[i];
-						if (!endogene.Overridden)
-						{
-							continue;
-						}
-						if (xenogene.def.ConflictsWith(endogene.def) || endogene.def.ConflictsWith(xenogene.def))
-						{
-							endogene.OverrideBy(xenogene);
-						}
-					}
-				}
-				__instance.pawn?.skills?.DirtyAptitudes();
-				__instance.pawn?.Notify_DisabledWorkTypesChanged();
-				//__instance.pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
-			}
+            //public static void FixOverrides(Pawn_GeneTracker __instance)
+            //{
+            //	List<Gene> xenogenes = __instance.pawn.genes.Xenogenes;
+            //	List<Gene> endogenes = __instance.pawn.genes.Endogenes;
+            //	if (xenogenes.NullOrEmpty() || endogenes.NullOrEmpty())
+            //	{
+            //		return;
+            //	}
+            //	for (int i = 0; i < xenogenes.Count; i++)
+            //	{
+            //		Gene xenogene = xenogenes[i];
+            //		if (!xenogene.Overridden)
+            //		{
+            //			continue;
+            //		}
+            //		for (int j = 0; j < endogenes.Count; j++)
+            //		{
+            //			Gene endogene = endogenes[i];
+            //			if (!endogene.Overridden)
+            //			{
+            //				continue;
+            //			}
+            //			if (xenogene.def.ConflictsWith(endogene.def) || endogene.def.ConflictsWith(xenogene.def))
+            //			{
+            //				endogene.OverrideBy(xenogene);
+            //			}
+            //		}
+            //	}
+            //	__instance.pawn?.skills?.DirtyAptitudes();
+            //	__instance.pawn?.Notify_DisabledWorkTypesChanged();
+            //	//__instance.pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
+            //}
 
-			// Predators
+            // Predators
 
-			public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
+            public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
 			{
 				if (prey.RaceProps.Humanlike && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
 				{

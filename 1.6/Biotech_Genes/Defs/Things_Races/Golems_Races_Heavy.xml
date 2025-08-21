@@ -24,8 +24,8 @@
 			<ButcheryMechanoidSpeed>0.5</ButcheryMechanoidSpeed>
 			<!-- Other -->
 			<MedicalSurgerySuccessChance>5.0</MedicalSurgerySuccessChance>
-			<ConstructSuccessChance>5.0</ConstructSuccessChance>
-			<FixBrokenDownBuildingSuccessChance>5.0</FixBrokenDownBuildingSuccessChance>
+			<ConstructSuccessChance>10.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>10.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">
