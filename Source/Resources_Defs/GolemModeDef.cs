@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 
 		public PawnKindDef pawnKindDef;
 
+		public PawnKindDef dryadKindDef;
+
 		public bool canBeSummoned = false;
 		public bool CanBeSummoned
 		{

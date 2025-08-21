@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneGolemlink_SubGenes" Abstract="True"> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <selectionWeight>0.0001</selectionWeight> -->
+	<!-- <displayOrderInCategory>5</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_SwarmConnection_Golems</prerequisite> -->
+	<!-- <canGenerateInGeneSet>true</canGenerateInGeneSet> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Base">
+	<defName>WVC_Golemlink_DryadPetrifier</defName>
+	<label>dryad petrifier</label>
+	<description>Carriers of this gene can transform their dryads into golems.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Golemlink_DryadPetrifier</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Golemlink_DryadPetrifier</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>&lt;color=#8a8ae6&gt;Unlocks&lt;/color&gt; additional golem types for &lt;color=#8a8ae6&gt;golemlink&lt;/color&gt;.</li>
+	  <li>Slowly transforms &lt;color=#8a8ae6&gt;gestated&lt;/color&gt; dryads into &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>petrif</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<golemModeDefs>
+			  <li>WVC_Golem_Barkskin</li>
+			</golemModeDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

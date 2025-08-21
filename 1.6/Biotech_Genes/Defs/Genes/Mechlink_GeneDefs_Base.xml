@@ -146,12 +146,12 @@
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<filledBlockColor>(249, 115, 6)</filledBlockColor>
-			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
-			<tipSectionTip>WVC_XaG_GolemBandwidthGizmoTip</tipSectionTip>
-			<golemistTypeIndex>0</golemistTypeIndex>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <filledBlockColor>(249, 115, 6)</filledBlockColor> -->
+			<!-- <tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle> -->
+			<!-- <tipSectionTip>WVC_XaG_GolemBandwidthGizmoTip</tipSectionTip> -->
+			<!-- <golemistTypeIndex>0</golemistTypeIndex> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<!-- <spawnIntervalRange>240000~420000</spawnIntervalRange> -->
 			<!-- <summonRange>1~3</summonRange> -->

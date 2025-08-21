@@ -10,10 +10,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo
+    public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverridden
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public List<GolemModeDef> golemsForSummon = new();
 
@@ -28,10 +28,6 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetSummonInterval()
 		{
-			if (Spawner == null)
-			{
-				return;
-			}
 			timeForNextSummon = WVC_Biotech.settings.golemlink_spawnIntervalRange.RandomInRange;
 		}
 
@@ -96,23 +92,111 @@ namespace WVC_XenotypesAndGenes
 			yield return gizmo;
 		}
 
-		private void SummonRandomMech(bool ignoreChunks = false)
+		private List<GolemModeDef> cachedAllowedGolemModes;
+		public List<GolemModeDef> AllowedGolemModes
 		{
-			if (golemsForSummon.NullOrEmpty())
+			get
 			{
-				golemsForSummon = Spawner?.golemModeDefs;
+				if (cachedAllowedGolemModes == null)
+				{
+					List<GolemModeDef> list = new();
+					list.AddRange(ListsUtility.GetAllGolemModeDefs());
+					foreach (Gene gene in pawn.genes.GenesListForReading)
+					{
+						if (gene is not Gene_GolemlinkSubGene subgene || !subgene.Active)
+						{
+							continue;
+						}
+						if (subgene.AllowedGolemModes != null)
+						{
+							list.AddRange(subgene.AllowedGolemModes);
+						}
+					}
+					cachedAllowedGolemModes = list;
+				}
+				return cachedAllowedGolemModes;
 			}
-			if (golemsForSummon.NullOrEmpty())
+		}
+
+        public int CountSpawn => WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
+
+        public void Notify_GenesChanged(Gene changedGene)
+        {
+            cachedAllowedGolemModes = null;
+            //cachedMakerSubGenes = null;
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            Notify_GenesChanged(null);
+        }
+
+        public void Notify_Override()
+        {
+            Notify_GenesChanged(null);
+        }
+
+        //private GolemlinkMode workerInt;
+        //public GolemlinkMode Worker
+        //{
+        //	get
+        //	{
+        //		if (workerInt == null)
+        //		{
+        //			foreach (Gene gene in pawn.genes.GenesListForReading)
+        //			{
+        //				if (gene is not Gene_GolemlinkSubGene subGene || !subGene.Active)
+        //				{
+        //					continue;
+        //				}
+        //				if (subGene.CustomWorker == null)
+        //				{
+        //					continue;
+        //				}
+        //				workerInt = (GolemlinkMode)Activator.CreateInstance(subGene.CustomWorker);
+        //				workerInt.golemlink = this;
+        //				workerInt.parent = subGene;
+        //				return workerInt;
+        //			}
+        //			workerInt = (GolemlinkMode)Activator.CreateInstance(typeof(GolemlinkMode));
+        //			workerInt.golemlink = this;
+        //			workerInt.parent = null;
+        //		}
+        //		return workerInt;
+        //	}
+        //}
+
+        public void DoSubMaker(out int golems)
+		{
+			golems = 0;
+			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
-				Log.Error("Failed summon golems. golemsForSummon is null.");
-				return;
+				if (gene is not Gene_GolemlinkSubGene subgene || !subgene.Active)
+				{
+					continue;
+				}
+				subgene.SubGolemMaker(out golems);
 			}
-			string phase = "";
-			try
+		}
+
+		private void SummonRandomMech(bool ignoreChunks = false)
+        {
+            if (golemsForSummon.NullOrEmpty())
             {
-                phase = "start";
-                int countSpawn = WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
-                //float possibleConsumption = 1;
+                golemsForSummon = Spawner?.golemModeDefs;
+            }
+            if (golemsForSummon.NullOrEmpty())
+            {
+                Log.Error("Failed summon golems. golemsForSummon is null.");
+                return;
+            }
+            string phase = "";
+            try
+            {
+                phase = "do sub maker";
+				DoSubMaker(out int golems);
+				phase = "start";
+                int countSpawn = CountSpawn - golems;
                 phase = "get total golembond";
                 float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
                 phase = "get consumed golembond";
@@ -124,8 +208,7 @@ namespace WVC_XenotypesAndGenes
                     currentGolems = new();
                 }
                 bool summonInsteadAnimation = false;
-				int countSummon = 0;
-                //List<Thing> summonList = new();
+                int countSummon = 0;
                 phase = "start spawn";
                 for (int i = 0; i < countSpawn; i++)
                 {
@@ -134,19 +217,8 @@ namespace WVC_XenotypesAndGenes
                     if (ignoreChunks || chunk == null)
                     {
                         summonInsteadAnimation = true;
-						countSummon = countSpawn - i;
-						break;
-                        //if (currentLimit < currentConsumption + possibleConsumption)
-                        //{
-                        //	break;
-                        //}
-                        //phase = "create golem";
-                        //MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-                        //if (i == 0)
-                        //{
-                        //	Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
-                        //}
-                        //possibleConsumption++;
+                        countSummon = countSpawn - i;
+                        break;
                     }
                     else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
                     {
@@ -161,26 +233,26 @@ namespace WVC_XenotypesAndGenes
                 if (!summonInsteadAnimation)
                 {
                     return;
-				}
-				phase = "summon random golem";
-				countSummon = Mathf.Clamp(countSummon, 0, (int)(currentLimit - currentConsumption));
+                }
+                phase = "summon random golem";
+                countSummon = Mathf.Clamp(countSummon, 0, (int)(currentLimit - currentConsumption));
                 if (countSummon <= 0)
                 {
                     return;
                 }
                 if (MechanoidsUtility.TrySummonMechanoids(pawn, countSummon, golemsForSummon, out List<Thing> summonList))
-				{
-					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
-				}
+                {
+                    Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
+                }
             }
             catch (Exception arg)
-			{
-				summonMechanoids = false;
-				Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
-			}
-		}
+            {
+                summonMechanoids = false;
+                Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
+            }
+        }
 
-		public static Thing GetBestStoneChunk(Pawn pawn, bool forced)
+        public static Thing GetBestStoneChunk(Pawn pawn, bool forced)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
 			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Chunk), PathEndMode.InteractionCell, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
@@ -200,6 +272,10 @@ namespace WVC_XenotypesAndGenes
 			golemConsumtion = 0f;
 			foreach (GolemModeDef item in candidates)
 			{
+				if (!item.canBeAnimated)
+                {
+					continue;
+                }
 				if (currentGolems.Contains(item.pawnKindDef))
 				{
 					continue;
@@ -274,6 +350,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
-	}
+    }
 
 }

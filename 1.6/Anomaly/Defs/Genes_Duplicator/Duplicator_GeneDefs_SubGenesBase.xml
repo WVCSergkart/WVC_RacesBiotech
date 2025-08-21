@@ -12,7 +12,6 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.0001</selectionWeight>
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<prerequisite>WVC_Duplicator</prerequisite>
 	<displayCategory>WVC_Duplicator</displayCategory>

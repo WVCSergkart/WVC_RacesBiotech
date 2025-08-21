@@ -129,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 		// Golems
 		public List<PawnKindDef> mechTypes;
 		public List<GolemModeDef> golemModeDefs;
+		//public GolemlinkModeDef defaultGolemlinkModeDef;
 		// Golems
 		public IntRange durationIntervalRange = new(240000, 300000);
 		// Void
@@ -308,13 +309,13 @@ namespace WVC_XenotypesAndGenes
 		public bool defaultBoolValue = false;
 		public SimpleCurve curve;
 		// Golems Gizmo
-		public Color filledBlockColor = ColorLibrary.Orange;
-		public Color excessBlockColor = ColorLibrary.Red;
-		public float gizmoOrder = -90f;
-		public int recacheFrequency = 231;
-		public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
-		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
-		public int golemistTypeIndex = -1;
+		//public Color filledBlockColor = ColorLibrary.Orange;
+		//public Color excessBlockColor = ColorLibrary.Red;
+		//public float gizmoOrder = -90f;
+		//public int recacheFrequency = 231;
+		//public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
+		//public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
+		//public int golemistTypeIndex = -1;
 		public QuestScriptDef summonQuest;
 		// Bloodeater
 		public float nutritionPerBite = 0.8f;

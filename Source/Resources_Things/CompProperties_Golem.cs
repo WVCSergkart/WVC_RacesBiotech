@@ -53,9 +53,9 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextEnergyTick = 1500;
 
-		public override void CompTick()
+		public override void CompTickInterval(int delta)
 		{
-			nextEnergyTick--;
+			nextEnergyTick -= delta;
 			if (nextEnergyTick <= 0f)
 			{
 				Pawn pawn = parent as Pawn;
@@ -106,7 +106,14 @@ namespace WVC_XenotypesAndGenes
 					}
 					else
 					{
-						Find.WindowStack.Add(new Dialog_ChangeGolemCaste(pawn, consumedGolembond, limit, this, chunk));
+						if (DefDatabase<GolemModeDef>.AllDefsListForReading?.FirstOrDefault((mode) => mode.pawnKindDef == pawn.kindDef)?.changeable == false)
+						{
+							Messages.Message("WVC_XaG_ChangeGolemCaste_NonChangeable".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+						}
+						else
+						{
+							Find.WindowStack.Add(new Dialog_ChangeGolemCaste(pawn, consumedGolembond, limit, this, chunk));
+						}
 					}
 				}
 			};

@@ -536,7 +536,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChangeGolemMode>Change golem type</WVC_XaG_ChangeGolemMode>
 	<WVC_XaG_ChangeGolemModeDesc>Archites in a golem can be ordered to change their golem type. This requires a free chunk and enough golembond.</WVC_XaG_ChangeGolemModeDesc>
 
+	<WVC_XaG_ChangeGolemCaste_NonChangeable>It is not possible to change the type of this golem.</WVC_XaG_ChangeGolemCaste_NonChangeable>
+
 	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
+	<WVC_XaG_GolemCreatedFromRandomDryad_Message>Archites transformed the dryad into a golem, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomDryad_Message>
 
 	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>
 

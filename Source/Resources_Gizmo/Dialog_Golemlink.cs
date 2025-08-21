@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_Golemlink(Gene_Golemlink thisGene)
 		{
 			gene = thisGene;
-			allPawnKinds = ListsUtility.GetAllGolemModeDefs();
+			SetupModes();
 			// selectedXeno = allXenotypes.RandomElement();
 			selectedGolems = new();
 			if (!gene.golemsForSummon.NullOrEmpty())
@@ -82,6 +82,15 @@ namespace WVC_XenotypesAndGenes
 			absorbInputAroundWindow = true;
 			// alwaysUseFullBiostatsTableHeight = true;
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
+		}
+
+		private void SetupModes()
+		{
+			allPawnKinds = gene?.AllowedGolemModes;
+			if (allPawnKinds == null)
+			{
+				allPawnKinds = ListsUtility.GetAllGolemModeDefs();
+			}
 		}
 
 		protected override void DrawGenes(Rect rect)

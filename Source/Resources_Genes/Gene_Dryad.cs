@@ -384,12 +384,19 @@ namespace WVC_XenotypesAndGenes
 
 		public void KillConnectedDryads()
 		{
-			for (int i = 0; i < DryadsListForReading.Count; i++)
+			//for (int i = 0; i < DryadsListForReading.Count; i++)
+			//{
+			//	DryadsListForReading[i].connections?.Notify_ConnectedThingDestroyed(pawn);
+			//	DryadsListForReading[i].forceNoDeathNotification = true;
+			//	DryadsListForReading[i].Kill(null, null);
+			//	DryadsListForReading[i].forceNoDeathNotification = false;
+			//}
+			foreach (Pawn dryad in DryadsListForReading.ToList())
 			{
-				DryadsListForReading[i].connections?.Notify_ConnectedThingDestroyed(pawn);
-				DryadsListForReading[i].forceNoDeathNotification = true;
-				DryadsListForReading[i].Kill(null, null);
-				DryadsListForReading[i].forceNoDeathNotification = false;
+				dryad.connections?.Notify_ConnectedThingDestroyed(pawn);
+				dryad.forceNoDeathNotification = true;
+				dryad.Kill(null, null);
+				dryad.forceNoDeathNotification = false;
 			}
 			//UpdHediff();
 		}

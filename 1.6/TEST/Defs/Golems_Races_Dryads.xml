@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+	<defName>WVC_Golem_Barkskin</defName>
+	<label>barkskin</label>
+	<description>This light golemnoid serves as.</description>
+	<statBases>
+	  <MoveSpeed>3.2</MoveSpeed>
+	  <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+	</statBases>
+	<race>
+		<body>QuadrupedAnimalWithPawsAndTail</body>
+		<baseBodySize>0.65</baseBodySize>
+		<baseHealthScale>0.9</baseHealthScale>
+		<mechFixedSkillLevel>8</mechFixedSkillLevel>
+		<mechEnabledWorkTypes>
+		  <li>Firefighter</li>
+		  <li>Mining</li>
+		</mechEnabledWorkTypes>
+	</race>
+  </ThingDef>
+  <PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+	<defName>WVC_Golem_Barkskin</defName>
+	<label>barkskin</label>
+	<race>WVC_Golem_Barkskin</race>
+	<lifeStages>
+	  <li>
+		<bodyGraphicData>
+		  <texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Dryad_Barkskin</texPath>
+		  <drawSize>1.5</drawSize>
+		</bodyGraphicData>
+	  </li>
+	</lifeStages>
+  </PawnKindDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Barkskin</defName>
+	<displayedStats>
+	  <li>MiningSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>false</canBeAnimated>
+	<changeable>false</changeable>
+	<iconSize>0.5</iconSize>
+	<pawnKindDef>WVC_Golem_Barkskin</pawnKindDef>
+	<dryadKindDef>Dryad_Barkskin</dryadKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+</Defs>
