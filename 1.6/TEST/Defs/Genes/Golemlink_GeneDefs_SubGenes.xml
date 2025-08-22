@@ -36,6 +36,9 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<golemModeDefs>
 			  <li>WVC_Golem_Barkskin</li>
+			  <li>WVC_Golem_Medicinemaker</li>
+			  <li>WVC_Golem_Woodmaker</li>
+			  <li>WVC_Golem_Berrymaker</li>
 			</golemModeDefs>
 		</li>
 	</modExtensions>
