@@ -52,10 +52,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.style.beardDef = BeardDefOf.NoBeard;
 			}
+			GetRandomHeadFromSet(pawn);
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
+		public static void GetRandomHeadFromSet(Pawn pawn)
+		{
+			pawn.story.TryGetRandomHeadFromSet(DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen));
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
         {
 
         }

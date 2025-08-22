@@ -16,6 +16,8 @@
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
 
+	<WVC_NaturalMechlink>natural mechlink</WVC_NaturalMechlink>
+
 	<WVC_XaG_CollapseButtonDesc>Allows to toggle the size of the displayed window, making it smaller or larger.</WVC_XaG_CollapseButtonDesc>
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>

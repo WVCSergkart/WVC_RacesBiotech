@@ -109,7 +109,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
 			{
+				//Type savedType = HediffDefOf.MechlinkImplant.hediffClass;
+				//if (natural)
+				//{
+				//	HediffDefOf.MechlinkImplant.hediffClass = typeof(Hediff_GeneMechlink);
+				//}
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+				//HediffDefOf.MechlinkImplant.hediffClass = savedType;
 				return true;
 			}
 			return false;

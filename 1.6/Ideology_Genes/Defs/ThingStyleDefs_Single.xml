@@ -53,4 +53,12 @@
 	<!-- </graphicData> -->
   <!-- </ThingStyleDef> -->
 
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_NaturalMechlink</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/NaturalMechlink</texPath> -->
+	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
 </Defs>
