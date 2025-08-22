@@ -39,10 +39,12 @@ namespace WVC_XenotypesAndGenes
 			if (gender == Gender.Female && pawn.story?.bodyType == BodyTypeDefOf.Male)
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Female;
+				GetRandomHeadFromSet(pawn);
 			}
 			else if (gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Male;
+				GetRandomHeadFromSet(pawn);
 			}
             if (MiscUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
             {
@@ -52,7 +54,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.style.beardDef = BeardDefOf.NoBeard;
 			}
-			GetRandomHeadFromSet(pawn);
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
