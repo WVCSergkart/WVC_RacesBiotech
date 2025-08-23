@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_GeneDatabase</defName>
+	<label>genetic database</label>
+	<description>Carriers of this gene can implant any genes they wish.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Chimera_GeneDatabase</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneDatabase</iconPath>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>7</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<displayOrderInCategory>350</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Unlocks all genes for the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt;, without restrictions.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>
