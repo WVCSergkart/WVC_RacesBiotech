@@ -3,7 +3,7 @@
   <GeneDef>
 	<defName>WVC_HalfBone</defName>
 	<label>halfbone</label>
-	<description>Carriers of this gene have skin and bone growths on their bodies.</description>
+	<description>Carriers of this gene have bone growths on their bodies.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BoneSkin</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_HalfBones</iconPath>
 	<selectionWeight>0.0022</selectionWeight>
