@@ -150,15 +150,18 @@ namespace WVC_XenotypesAndGenes
                 if (!cachedResourceGain.HasValue)
                 {
                     float gain = def.resourceLossPerDay;
-                    foreach (Pawn mech in pawn.mechanitor.ControlledPawns)
+                    if (pawn.mechanitor != null)
                     {
-                        if (mech.Dead || mech.Destroyed)
+                        foreach (Pawn mech in pawn.mechanitor.ControlledPawns)
                         {
-                            continue;
-                        }
-                        if (IsVoidMech(mech))
-                        {
-                            gain += 0.01f * WVC_Biotech.settings.voidlink_resourceGainFromMechsFactor * MechanoidHolder.GetVoidMechCost(mech.kindDef);
+                            if (mech.Dead || mech.Destroyed)
+                            {
+                                continue;
+                            }
+                            if (IsVoidMech(mech))
+                            {
+                                gain += 0.01f * WVC_Biotech.settings.voidlink_resourceGainFromMechsFactor * MechanoidHolder.GetVoidMechCost(mech.kindDef);
+                            }
                         }
                     }
                     cachedResourceGain = gain / 60000;

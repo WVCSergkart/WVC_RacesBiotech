@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
-		public float voidlink_resourceGainFromMechsFactor = 0.25f;
+		public float voidlink_resourceGainFromMechsFactor = 0.05f;
 		public bool voidlink_dynamicResourceLimit = true;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
 			Scribe_Values.Look(ref voidlink_mechCostFactor, "voidlink_mechCostFactor", defaultValue: 2f);
 			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
-			Scribe_Values.Look(ref voidlink_resourceGainFromMechsFactor, "voidlink_resourceGainFromMechsFactor", defaultValue: 0.25f);
+			Scribe_Values.Look(ref voidlink_resourceGainFromMechsFactor, "voidlink_resourceGainFromMechsFactor", defaultValue: 0.05f);
 			Scribe_Values.Look(ref voidlink_dynamicResourceLimit, "voidlink_dynamicResourceLimit", defaultValue: true);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);

@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
-		public float voidlink_resourceGainFromMechsFactor = 0.25f;
+		public float voidlink_resourceGainFromMechsFactor = 0.05f;
 		public bool voidlink_dynamicResourceLimit = true;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;

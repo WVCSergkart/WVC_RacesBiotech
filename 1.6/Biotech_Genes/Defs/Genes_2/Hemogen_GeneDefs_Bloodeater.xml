@@ -104,7 +104,7 @@
 	<customEffectDescriptions>
 		<li>Carrier &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; uses the &lt;color=#8a8ae6&gt;bloodfeeder&lt;/color&gt; ability when hungry.</li>
 		<li>Carrier &lt;color=#8a8ae6&gt;gain more nutrients&lt;/color&gt; using the &lt;color=#8a8ae6&gt;bloodfeeder&lt;/color&gt; (and similar) ability.</li>
-		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any non-liquid food sources.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any non-fluid food sources.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
