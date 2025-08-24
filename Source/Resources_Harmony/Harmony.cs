@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(Pawn_MechanitorTracker), "GetGizmos"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
 				}
 				//Log.Error("3");
-				if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck)
+				if (WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability)
 				{
 					// harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
 					harmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Immunity_makeImmuneTo))));
@@ -58,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
 					harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexNullRefFix))));
 					harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawnRelations"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerator_GeneratePawnRelations))));
+					//harmony.Patch(AccessTools.Method(typeof(Gene_Deathrest), "CanBindToBindable"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(NonHemogenDeathrest))));
 				}
 				//Log.Error("4");
 				//if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
@@ -108,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers && WVC_Biotech.settings.fixVanillaGeneImmunityCheck && WVC_Biotech.settings.enable_xagHumanComponent)
+				if (WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers && WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability && WVC_Biotech.settings.enable_xagHumanComponent)
 				{
 					harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(Pawn), "IsDuplicate"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Anomaly_IsDuplicate))));
 				}
@@ -149,9 +150,17 @@ namespace WVC_XenotypesAndGenes
 			//	return true;
 			//}
 
-            // Hide genes in editor
+			//public static void NonHemogenDeathrest(ref bool __result, Gene_Deathrest __instance)
+			//{
+			//	if (__result)
+			//	{
+			//		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
+			//	}
+			//}
 
-            public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+			// Hide genes in editor
+
+			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
 			{
 				if (geneDef.IsXenoGenesDef())
 				{
@@ -423,6 +432,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				ReimplanterUtility.PostImplantDebug(pawn);
+				//if (WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability)
+				//{
+				//	PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
+				//}
 			}
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)

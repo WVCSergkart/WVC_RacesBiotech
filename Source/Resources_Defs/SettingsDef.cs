@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
-		public bool fixVanillaGeneImmunityCheck = true;
+		public bool harmony_vanillaFixesTweaksAndCompatability = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
@@ -73,6 +73,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
+		public float voidlink_resourceGainFromMechsFactor = 0.25f;
+		public bool voidlink_dynamicResourceLimit = true;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;

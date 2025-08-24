@@ -85,7 +85,7 @@
 	<enableIncestLoverGene>false</enableIncestLoverGene>
 	<disableNonAcceptablePreyGenes>true</disableNonAcceptablePreyGenes>
 	<enable_xagHumanComponent>false</enable_xagHumanComponent>
-	<fixVanillaGeneImmunityCheck>false</fixVanillaGeneImmunityCheck>
+	<harmony_vanillaFixesTweaksAndCompatability>false</harmony_vanillaFixesTweaksAndCompatability>
 	<enable_birthQualityOffsetFromGenes>false</enable_birthQualityOffsetFromGenes>
 	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
 	<enable_StartingFoodPolicies>false</enable_StartingFoodPolicies>
@@ -95,6 +95,7 @@
   </WVC_XenotypesAndGenes.SettingsDef>
 
 	<!-- Default Settings -->
+
 
 	<!-- // Main -->
 	<!-- // Graphic -->
@@ -125,7 +126,7 @@
 	<!-- public bool enable_xagHumanComponent = true; -->
 	<!-- public bool enable_StartingFoodPolicies = true; -->
 	<!-- // Fix -->
-	<!-- public bool fixVanillaGeneImmunityCheck = true; -->
+	<!-- public bool harmony_vanillaFixesTweaksAndCompatability = true; -->
 	<!-- public bool spawnXenoForcerSerumsFromTraders = true; -->
 	<!-- public bool resetGenesOnLoad = false; -->
 	<!-- public bool fixGeneAbilitiesOnLoad = false; -->
@@ -135,7 +136,6 @@
 	<!-- public float xenotypeGestator_GestationTimeFactor = 1f; -->
 	<!-- public float xenotypeGestator_GestationMatchPercent = 0.4f; -->
 	<!-- // Reincarnation -->
-	<!-- public bool reincarnation_EnableMechanic = true; -->
 	<!-- public float reincarnation_MinChronoAge = 200f; -->
 	<!-- public float reincarnation_Chance = 0.12f; -->
 	<!-- // Hemogenic -->
@@ -171,10 +171,14 @@
 	<!-- public float chimeraStartingGenes = 5f; -->
 	<!-- public bool enable_chimeraStartingTools = true; -->
 	<!-- public bool enable_chimeraXenogermCD = false; -->
+	<!-- public bool enable_chimeraXenogenesLimit = true; -->
+	<!-- public IntRange chimera_defaultReqMetabolismRange = new(-99, 99); -->
 	<!-- // Duplicator -->
 	<!-- public float duplicator_RandomOutcomeChance = 0.66f; -->
+	<!-- public float duplicator_RandomGeneChance = 0.12f; -->
 	<!-- // Fleshmass -->
 	<!-- public float fleshmass_MaxMutationsLevel = 5f; -->
+	<!-- public bool fleshmass_HideBodypartHediffs = false; -->
 	<!-- // DryadQueen -->
 	<!-- public bool enable_dryadQueenMechanicGenerator = true; -->
 	<!-- public float gestatedDryads_FilthRateFactor = 0.1f; -->

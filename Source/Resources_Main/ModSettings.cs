@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
-		public bool fixVanillaGeneImmunityCheck = true;
+		public bool harmony_vanillaFixesTweaksAndCompatability = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
@@ -77,6 +77,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
+		public float voidlink_resourceGainFromMechsFactor = 0.25f;
+		public bool voidlink_dynamicResourceLimit = true;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public float shapeshifer_BaseGenesMatch = 0.7f;
@@ -161,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			Scribe_Values.Look(ref thrallMaker_ThrallsInheritMasterGenes, "thrallMaker_ThrallsInheritMasterGenes", defaultValue: true);
 			// Fix
-			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
+			Scribe_Values.Look(ref harmony_vanillaFixesTweaksAndCompatability, "harmony_vanillaFixesTweaksAndCompatability", defaultValue: true);
 			// Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
@@ -226,6 +228,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
 			Scribe_Values.Look(ref voidlink_mechCostFactor, "voidlink_mechCostFactor", defaultValue: 2f);
 			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
+			Scribe_Values.Look(ref voidlink_resourceGainFromMechsFactor, "voidlink_resourceGainFromMechsFactor", defaultValue: 0.25f);
+			Scribe_Values.Look(ref voidlink_dynamicResourceLimit, "voidlink_dynamicResourceLimit", defaultValue: true);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			Scribe_Values.Look(ref shapeshifer_BaseGenesMatch, "shapeshifer_BaseGenesMatch", defaultValue: 0.7f);
@@ -416,7 +420,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
 			//}
-			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_vanillaFixesTweaksAndCompatability, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.GapLine();
 			// Serums
@@ -815,6 +819,8 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_mechsToSpawnRange".Translate(settings.falselink_mechsToSpawnRange.ToString()), ref settings.falselink_mechsToSpawnRange, 1, 10);
 				listingStandard.SliderLabeledWithRef("WVC_Label_voidlink_mechCostFactor".Translate((settings.voidlink_mechCostFactor).ToString()), ref settings.voidlink_mechCostFactor, 0f, 5f, "WVC_ToolTip_voidlink_mechCostFactor".Translate(), round: 1);
 				listingStandard.SliderLabeledWithRef("WVC_Label_voidlink_mechCostLimit".Translate((settings.voidlink_mechCostLimit).ToString()), ref settings.voidlink_mechCostLimit, 99f, 200f, "WVC_ToolTip_voidlink_mechCostLimit".Translate(), round: 0);
+				listingStandard.SliderLabeledWithRef("WVC_Label_voidlink_resourceGainFromMechsFactor".Translate((settings.voidlink_resourceGainFromMechsFactor).ToStringPercent()), ref settings.voidlink_resourceGainFromMechsFactor, 0f, 1f, "WVC_ToolTip_voidlink_resourceGainFromMechsFactor".Translate(), round: 2);
+				listingStandard.CheckboxLabeled("WVC_Label_voidlink_dynamicResourceLimit".Translate().Colorize(ColorLibrary.LightBlue), ref settings.voidlink_dynamicResourceLimit, "WVC_ToolTip_voidlink_dynamicResourceLimit".Translate());
 			}
 			listingStandard.GapLine();
 			// =
@@ -1055,7 +1061,7 @@ namespace WVC_XenotypesAndGenes
 			// Misc
 			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
 			// Fix
-			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = settingsDef.fixVanillaGeneImmunityCheck;
+			WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability = settingsDef.harmony_vanillaFixesTweaksAndCompatability;
 			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
 			// Info
 			WVC_Biotech.settings.enable_xagHumanComponent = settingsDef.enable_xagHumanComponent;
@@ -1153,6 +1159,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.falselink_mechsToSpawnRange = settingsDef.falselink_mechsToSpawnRange;
 			WVC_Biotech.settings.voidlink_mechCostFactor = settingsDef.voidlink_mechCostFactor;
 			WVC_Biotech.settings.voidlink_mechCostLimit = settingsDef.voidlink_mechCostLimit;
+			WVC_Biotech.settings.voidlink_resourceGainFromMechsFactor = settingsDef.voidlink_resourceGainFromMechsFactor;
+			WVC_Biotech.settings.voidlink_dynamicResourceLimit = settingsDef.voidlink_dynamicResourceLimit;
 			// =
 			//WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			WVC_Biotech.settings.fleshmass_MaxMutationsLevel = settingsDef.fleshmass_MaxMutationsLevel;

@@ -147,6 +147,11 @@ A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
 	<WVC_Label_voidlink_mechCostLimit>Voidlink mechs max cost {0}</WVC_Label_voidlink_mechCostLimit>
 	<WVC_ToolTip_voidlink_mechCostLimit>Determines the maximum possible cost of summoning a mechanoid. Values ​​above 99 are not displayed in the interface.</WVC_ToolTip_voidlink_mechCostLimit>
 
+	<WVC_Label_voidlink_resourceGainFromMechsFactor>Voidlink resource gain x{0}</WVC_Label_voidlink_resourceGainFromMechsFactor>
+	<WVC_ToolTip_voidlink_resourceGainFromMechsFactor>Affects the resource gain factor from void mechanoids, the gain directly depends on the cost of the mechanoid. 0 no gain, 1 full gain.</WVC_ToolTip_voidlink_resourceGainFromMechsFactor>
+	<WVC_Label_voidlink_dynamicResourceLimit>Voidlink dynamic resource limit</WVC_Label_voidlink_dynamicResourceLimit>
+	<WVC_ToolTip_voidlink_dynamicResourceLimit>If enabled, the resource limit will change dynamically, relative to the mechanoids and the limit. Rewarding compliance and punishing excess.</WVC_ToolTip_voidlink_dynamicResourceLimit>
+
 	<!-- ================================== -->
 
 	<!-- <WVC_Label_shapeshifter_enableStyleButton>Enable style button</WVC_Label_shapeshifter_enableStyleButton> -->
@@ -164,7 +169,7 @@ A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
 Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
 
 	<WVC_Label_enable_chimeraStartingTools>Сhimera guaranteed tools</WVC_Label_enable_chimeraStartingTools>
-	<WVC_ToolTip_enable_chimeraStartingTools>If enabled, when starting a new game, the chimera gets 1 guaranteed tool-gene as a bonus to the rest of the genes. Also, after "eating" genes, there is a 1% chance to get a tool-gene for each gene eaten.</WVC_ToolTip_enable_chimeraStartingTools>
+	<WVC_ToolTip_enable_chimeraStartingTools>If enabled, when starting a new game, the chimera gets 1 guaranteed tool-gene as a bonus to the rest of the genes.</WVC_ToolTip_enable_chimeraStartingTools>
 
 	<WVC_Label_enable_chimeraXenogermCD>Сhimera cooldown</WVC_Label_enable_chimeraXenogermCD>
 	<WVC_ToolTip_enable_chimeraXenogermCD>If enabled, the use of Chimera will be impossible until the genes regrowing effect ends.</WVC_ToolTip_enable_chimeraXenogermCD>

@@ -26,6 +26,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			//Log.Error("0");
 			offset = 0f;
+			if (!WVC_Biotech.settings.voidlink_dynamicResourceLimit)
+            {
+				return false;
+            }
 			if (!req.HasThing || req.Thing is not Pawn pawn || pawn.genes == null)
 			{
 				return false;

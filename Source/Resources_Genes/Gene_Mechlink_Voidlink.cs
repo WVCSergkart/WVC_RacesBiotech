@@ -158,7 +158,7 @@ namespace WVC_XenotypesAndGenes
                         }
                         if (IsVoidMech(mech))
                         {
-                            gain += 0.0025f * MechanoidHolder.GetVoidMechCost(mech.kindDef);
+                            gain += 0.01f * WVC_Biotech.settings.voidlink_resourceGainFromMechsFactor * MechanoidHolder.GetVoidMechCost(mech.kindDef);
                         }
                     }
                     cachedResourceGain = gain / 60000;

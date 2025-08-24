@@ -131,6 +131,19 @@
 		</caseTrue>
 	</Operation>
 
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>harmony_vanillaFixesTweaksAndCompatability</settingName> -->
+		<!-- <caseTrue Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+			<!-- <settingName>harmony_EnableGenesMechanicsTriggers</settingName> -->
+			<!-- <caseTrue Class="PatchOperationReplace"> -->
+			  <!-- <xpath>/Defs/GeneDef[defName="Deathrest"]/prerequisite</xpath> -->
+			  <!-- <value> -->
+				  <!-- <prerequisite/> -->
+			  <!-- </value> -->
+			<!-- </caseTrue> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
 	<!-- Patch for special food for dustogenics -->
 
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
