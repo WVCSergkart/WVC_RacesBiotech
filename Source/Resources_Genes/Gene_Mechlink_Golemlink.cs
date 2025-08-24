@@ -127,13 +127,15 @@ namespace WVC_XenotypesAndGenes
         }
 
         public void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            Notify_GenesChanged(null);
+		{
+			//base.Notify_OverriddenBy(overriddenBy);
+			Notify_GenesChanged(null);
         }
 
         public void Notify_Override()
         {
-            Notify_GenesChanged(null);
+			//base.Notify_Override();
+			Notify_GenesChanged(null);
         }
 
         //private GolemlinkMode workerInt;

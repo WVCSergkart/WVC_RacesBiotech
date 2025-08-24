@@ -560,15 +560,37 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsAndroid(this GeneDef geneDef)
 		{
-			if (geneDef.IsVanillaDef() || geneDef.IsXenoGenesDef())
-			{
-				return false;
-			}
-			if (AndroidGenes.Contains(geneDef) || geneDef.prerequisite != null && AndroidGenes.Contains(geneDef.prerequisite))
+			if (IsAndroidGeneCycly(geneDef))
 			{
 				return true;
 			}
 			return false;
+		}
+
+		public static bool IsAndroidGeneCycly(GeneDef geneDef)
+		{
+			if (AndroidGenes.Contains(geneDef))
+            {
+				return true;
+			}
+			if (geneDef.prerequisite == null)
+			{
+				return false;
+			}
+			return IsAndroidGeneCycly(geneDef.prerequisite);
+		}
+
+		public static bool IsSubGeneOfThisCycly(GeneDef masterGeneDef, GeneDef subGeneDef)
+		{
+			if (subGeneDef?.prerequisite == null)
+			{
+				return false;
+			}
+			if (masterGeneDef == subGeneDef || masterGeneDef == subGeneDef.prerequisite)
+			{
+				return true;
+			}
+			return IsSubGeneOfThisCycly(masterGeneDef, subGeneDef.prerequisite);
 		}
 
 		public static bool IsAndroid(this Pawn pawn)

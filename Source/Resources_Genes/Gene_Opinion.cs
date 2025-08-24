@@ -228,6 +228,7 @@ namespace WVC_XenotypesAndGenes
 			// Debugger DO NOT TOUCH
 			if (nextTick < 0 - delta)
 			{
+				Log.Error("Wrong tick in: " + def.defName);
 				ResetInterval(new(7200, 7200));
 				return;
 			}

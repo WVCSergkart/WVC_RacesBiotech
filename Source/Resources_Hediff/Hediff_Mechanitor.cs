@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 						if (!allMechsCount.HasValue)
 						{
 							allMechsCount = pawn.mechanitor.UsedBandwidth;
-						}
+                        }
 						curStage.statOffsets = new List<StatModifier>
 						{
 							new()
@@ -61,6 +61,12 @@ namespace WVC_XenotypesAndGenes
 								value = allMechsCount.Value + 1f
 							}
 						};
+						//if (Voidlink.MaxMechs > Voidlink.AllMechsCount)
+						//{
+						//	StatModifier maxResource_StatDef = new();
+						//	maxResource_StatDef.stat = Voidlink.MaxResource_StatDef;
+						//	maxResource_StatDef.value = 0.1f * Voidlink.MaxMechs - Voidlink.AllMechsCount;
+						//}
 						curStage.statFactors = new List<StatModifier>
 						{
 							//new()
@@ -82,6 +88,11 @@ namespace WVC_XenotypesAndGenes
 						float talkCap = 1f - (allMechsCount.Value * 0.02f);
 						curStage.capMods = new()
 						{
+							//new()
+							//{
+							//	capacity = PawnCapacityDefOf.Consciousness,
+							//	offset = 0.001f * allMechsCount.Value
+							//},
 							new()
 							{
 								capacity = PawnCapacityDefOf.Talking,
@@ -149,16 +160,23 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			base.Notify_PawnDied(dinfo);
-			Voidlink.UpdHediff();
-			if (pawn.Corpse?.Map != null)
+			Voidlink?.UpdHediff();
+			if (pawn.Corpse?.MapHeld != null)
 			{
-				MiscUtility.DoSkipEffects(pawn.Corpse.Position, pawn.Corpse.Map);
-				pawn.Corpse.Destroy();
+				MiscUtility.DoSkipEffects(pawn.Corpse.PositionHeld, pawn.Corpse.MapHeld);
+				pawn.Corpse?.Destroy();
 			}
-			Voidlink.CacheReset(false);
+			Voidlink?.CacheReset(false);
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public override void PostRemoved()
+        {
+            base.PostRemoved();
+			Voidlink?.UpdHediff();
+			Voidlink?.CacheReset(false);
+		}
+
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			yield return new Command_Action
 			{

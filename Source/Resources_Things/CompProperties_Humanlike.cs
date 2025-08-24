@@ -423,6 +423,21 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new FloatMenu(list));
 				}
 			};
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = "DEV: IsSubGeneOfThis TEST",
+			//	action = delegate
+			//	{
+			//		if (XaG_GeneUtility.IsSubGeneOfThisCycly(DefDatabase<GeneDef>.GetNamed("Hemogenic"), DefDatabase<GeneDef>.GetNamed("WVC_Psyfeeder")))
+			//		{
+			//			Log.Error("YES");
+			//		}
+			//		else
+			//		{
+			//			Log.Error("NO");
+			//		}
+			//	}
+			//};
 		}
 
 		// ======================================

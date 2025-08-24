@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			public static void HarmonyPatches()
 			{
 				var harmony = new Harmony("wvc.sergkart.races.biotech");
-				//harmony.Patch(AccessTools.Method(typeof(MechanitorUtility), "ShouldBeMechanitor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IsMechanitor))));
+				//harmony.Patch(AccessTools.Method(typeof(MechanitorUtility), "ShouldBeMechanitor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IsMechanitor))));
 				if (WVC_Biotech.settings.generateXenotypeForceGenes || WVC_Biotech.settings.generateSkillGenes || WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
 				{
 					harmony.Patch(AccessTools.Method(typeof(GeneDefGenerator), "ImpliedGeneDefs"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDefGenerator_ImpliedGeneDefs))));
@@ -139,17 +139,19 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 
-			//public static void IsMechanitor(ref bool __result, Pawn pawn)
+			//public static bool IsMechanitor(ref bool __result, Pawn pawn)
 			//{
-			//	if (!__result && pawn.genes != null)
+			//	if (pawn.IsGeneticMechanitor())
 			//	{
-			//		__result = pawn.genes.GetFirstGeneOfType<Gene_Mechlink>() != null;
+			//		__result = true;
+			//		return false;
 			//	}
+			//	return true;
 			//}
 
-			// Hide genes in editor
+            // Hide genes in editor
 
-			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+            public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
 			{
 				if (geneDef.IsXenoGenesDef())
 				{

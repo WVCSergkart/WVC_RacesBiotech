@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class StatPart_OffsetFromGenes : StatPart
+    public class StatPart_OffsetFromGenes : StatPart
 	{
 
 		public string label = "WVC_XaG_StatPart_OffsetFromGenes";

@@ -33,11 +33,14 @@
 	<!-- <description>The maximum amount of void energy that a voidlink can accumulate. This energy is used to summon mechanoids, each mechanoid has its own cost. Mechanoids that are more expensive than this value cannot be summoned.</description> -->
 	<defaultBaseValue>1</defaultBaseValue>
 	<hideAtValue>1</hideAtValue>
-	<minValue>0.2</minValue>
+	<minValue>0.1</minValue>
 	<alwaysHide>true</alwaysHide>
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>
 	<toStringStyle>FloatMaxTwo</toStringStyle>
+	<parts>
+	  <li Class="WVC_XenotypesAndGenes.StatPart_MaxVoidsenceFactorFromMechs"/>
+	</parts>
   </StatDef>
 
 </Defs>

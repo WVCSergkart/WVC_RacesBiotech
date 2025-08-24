@@ -353,6 +353,26 @@
 		</operations>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MechControlGroups"]/minValue</xpath>
+			  <success>Invert</success>
+			  <value>
+				<minValue>1</minValue>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechControlGroups"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<minValue>1</minValue>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/minValue</xpath>
 		<success>Always</success>

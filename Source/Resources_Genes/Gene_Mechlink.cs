@@ -39,6 +39,10 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
 			GeneResourceUtility.TryAddMechlink(pawn);
+            //if (Active)
+            //{
+            //    StaticCollectionsClass.AddMechanitor(pawn);
+            //}
             //else
             //{
             //	pawnHadMechlinkBefore = true;
@@ -78,32 +82,20 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
 
-        //public void Notify_OverriddenBy(Gene overriddenBy)
+        //public virtual void Notify_OverriddenBy(Gene overriddenBy)
         //{
-        //	if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
-        //	{
-        //		HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-        //	}
+        //    StaticCollectionsClass.RemoveMechanitor(pawn);
         //}
 
-        //public void Notify_Override()
+        //public virtual void Notify_Override()
         //{
-        //	if (WVC_Biotech.settings.link_removeMechlinkWithGene && WVC_Biotech.settings.link_addedMechlinkWithGene)
-        //	{
-        //		if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-        //		{
-        //			pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-        //		}
-        //	}
+        //    StaticCollectionsClass.AddMechanitor(pawn);
         //}
 
         //public override void PostRemove()
         //{
-        //	base.PostRemove();
-        //	if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
-        //	{
-        //		HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-        //	}
+        //    base.PostRemove();
+        //    StaticCollectionsClass.RemoveMechanitor(pawn);
         //}
 
         public override void ExposeData()
@@ -111,8 +103,12 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
-			//Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
-		}
+            //if (pawn != null && PawnGenerator.IsBeingGenerated(pawn) is false && Active)
+            //{
+            //    StaticCollectionsClass.AddMechanitor(pawn);
+            //}
+            //Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
+        }
 
 	}
 

@@ -26,13 +26,17 @@ namespace WVC_XenotypesAndGenes
 
         public void Notify_OverriddenBy(Gene overriddenBy)
         {
+            //base.Notify_OverriddenBy(overriddenBy);
             KillMechs();
             HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+            CacheReset(true);
         }
 
         public void Notify_Override()
         {
+            //base.Notify_Override();
             HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+            CacheReset();
         }
 
         public override void PostRemove()
@@ -138,7 +142,30 @@ namespace WVC_XenotypesAndGenes
 
         private float geneResource = 0;
 
-        public float ResourceGain => def.resourceLossPerDay / 60000;
+        private float? cachedResourceGain;
+        public float ResourceGain
+        {
+            get
+            {
+                if (!cachedResourceGain.HasValue)
+                {
+                    float gain = def.resourceLossPerDay;
+                    foreach (Pawn mech in pawn.mechanitor.ControlledPawns)
+                    {
+                        if (mech.Dead || mech.Destroyed)
+                        {
+                            continue;
+                        }
+                        if (IsVoidMech(mech))
+                        {
+                            gain += 0.0025f * MechanoidHolder.GetVoidMechCost(mech.kindDef);
+                        }
+                    }
+                    cachedResourceGain = gain / 60000;
+                }
+                return cachedResourceGain.Value;
+            }
+        }
 
         private float? cachedTotalResourceGain;
         public float TotalResourceGain
@@ -147,7 +174,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedTotalResourceGain.HasValue)
                 {
-                    float resourceGain = def.resourceLossPerDay;
+                    float resourceGain = ResourceGain * 60000;
                     foreach (Gene gene in pawn.genes.GenesListForReading)
                     {
                         if (gene is Gene_VoidlinkOffset offset)
@@ -176,11 +203,13 @@ namespace WVC_XenotypesAndGenes
                     //		cachedMaxResource += resource.Giver.maxVoidEnergyOffset;
                     //	}
                     //}
-                    cachedMaxResource = pawn.GetStatValue(Spawner.voidMaxResource_StatDef);
+                    cachedMaxResource = pawn.GetStatValue(MaxResource_StatDef);
                 }
                 return cachedMaxResource.Value;
             }
         }
+
+        public StatDef MaxResource_StatDef => Spawner.voidMaxResource_StatDef;
 
         public void Notify_GenesChanged(Gene changedGene)
         {
@@ -201,6 +230,8 @@ namespace WVC_XenotypesAndGenes
             allMechsCount = null;
             cachedMaxMechs = null;
             sphereChance = null;
+            cachedResourceGain = null;
+            cachedTotalResourceGain = null;
         }
 
         public float CurrentResource => (float)Math.Round(geneResource, 2);
@@ -238,7 +269,7 @@ namespace WVC_XenotypesAndGenes
             if (timeForNextSummon > 0)
             {
                 timeForNextSummon -= delta;
-                if (timeForNextSummon == 0)
+                if (timeForNextSummon <= 0)
                 {
                     if (TrySummonMechs())
                     {
@@ -309,10 +340,12 @@ namespace WVC_XenotypesAndGenes
             {
                 if (pawn.MapHeld == null || pawn.mechanitor == null)
                 {
+                    //Log.Error("1");
                     return false;
                 }
                 if (selectedMechs.NullOrEmpty())
                 {
+                    //Log.Error("0");
                     return false;
                 }
                 phase = "check nociosphere presence";
@@ -391,7 +424,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     continue;
                 }
-                if (item.health.hediffSet.HasHediff<HediffWithComps_VoidMechanoid>())
+                if (IsVoidMech(item))
                 {
                     mech = item;
                     break;
@@ -430,6 +463,11 @@ namespace WVC_XenotypesAndGenes
                 }
             }
             return mech;
+        }
+
+        public static bool IsVoidMech(Pawn item)
+        {
+            return item.health.hediffSet.HasHediff<HediffWithComps_VoidMechanoid>();
         }
 
         private bool NociospherePresence()

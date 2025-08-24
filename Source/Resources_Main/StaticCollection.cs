@@ -89,6 +89,37 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//private static List<Pawn> mechanitors = new();
+
+		//public static bool IsGeneticMechanitor(this Pawn pawn)
+		//{
+		//	return mechanitors.Contains(pawn);
+		//}
+		//public static void AddMechanitor(Pawn pawn)
+		//{
+		//	if (!mechanitors.Contains(pawn))
+		//	{
+		//		Gene gene = pawn.genes.GetFirstGeneOfType<Gene_Mechlink>();
+		//		if (gene != null)
+		//		{
+		//			mechanitors.Add(pawn);
+		//			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
+		//		}
+		//	}
+		//}
+		//public static void RemoveMechanitor(Pawn pawn)
+		//{
+		//	if (mechanitors.Contains(pawn))
+		//	{
+		//		Gene gene = pawn.genes.GetFirstGeneOfType<Gene_Mechlink>();
+		//		if (gene == null)
+		//		{
+		//			mechanitors.Remove(pawn);
+		//			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
+		//		}
+		//	}
+		//}
+
 	}
 
 }
