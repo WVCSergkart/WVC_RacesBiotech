@@ -18,16 +18,14 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<!-- Genes eater -->
 			<chimeraConditionalGenes>
-			  <!-- Human basic -->
 			  <li ModderHook="Network_Common">
 				<reqOneManArmy>false</reqOneManArmy>
 				<chance>1.0</chance>
 				<genes>
 				  <li>WVC_Chimera_Implanter</li>
 				  <li>WVC_Chimera_SelfCopy</li>
-				  <li>WVC_Chimera_Converter</li>
+				  <li MayRequire="wvc.sergkart.test.tools">WVC_Chimera_Converter</li>
 				  <li>WVC_Chimera_BandwidthLimit</li>
 				</genes>
 			  </li>
