@@ -567,7 +567,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool IsAndroidGeneCycly(GeneDef geneDef)
+		public static bool IsAndroidGeneCycly(GeneDef geneDef, int currentCycle = 0)
 		{
 			if (AndroidGenes.Contains(geneDef))
             {
@@ -577,10 +577,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			return IsAndroidGeneCycly(geneDef.prerequisite);
+			if (currentCycle > 100)
+			{
+				return false;
+			}
+			return IsAndroidGeneCycly(geneDef.prerequisite, currentCycle++);
 		}
 
-		public static bool IsSubGeneOfThisCycly(GeneDef masterGeneDef, GeneDef subGeneDef)
+		public static bool IsSubGeneOfThisCycly(GeneDef masterGeneDef, GeneDef subGeneDef, int currentCycle = 0)
 		{
 			if (subGeneDef?.prerequisite == null)
 			{
@@ -590,7 +594,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			return IsSubGeneOfThisCycly(masterGeneDef, subGeneDef.prerequisite);
+			if (currentCycle > 100)
+			{
+				return false;
+			}
+			return IsSubGeneOfThisCycly(masterGeneDef, subGeneDef.prerequisite, currentCycle++);
 		}
 
 		public static bool IsAndroid(this Pawn pawn)
