@@ -11,6 +11,7 @@
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
+	  <li>WVC_Deathwatch</li>
 	</requiredMemes>
 	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<displayOrderInIssue>40</displayOrderInIssue>

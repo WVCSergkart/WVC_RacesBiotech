@@ -11,6 +11,7 @@
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Duplicates</li>
 	</requiredMemes>
 	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<displayOrderInIssue>30</displayOrderInIssue>

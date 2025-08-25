@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef MayRequire="ludeon.rimworld.anomaly">
+		<defName>WVC_Duplicates</defName>
+		<label>duplicate</label>
+		<description>A truly unified society has its foundation in one personality and its diversity.</description>
+		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+		<iconPath>WVC/UI/Precepts/Meme_Duplicates</iconPath>
+		<groupDef>WVC_OneManArmy</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+		  <li>WVC_OneManArmy_Memes</li>
+		</exclusionTags>
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->duped</li>
+			<li>memeCreed->dupe</li>
+			<li>memeCreed->copy</li>
+			<li>memeHyphenPrefix->copy</li>
+			<li>memeHyphenPrefix->dupe</li>
+			<li>memeConcept->duplicate</li>
+			<li>memeConcept->dupe</li>
+			<li>memeLeaderNoun->copy</li>
+			<li>memeLeaderNoun->duped</li>
+			<li>memeLeaderAdjective->duplicate</li>
+			<li>memeLeaderAdjective->copy</li>
+			<li>memeMoralist->duplicate</li>
+		  </rulesStrings>
+		</generalRules>
+		<symbolPacks>
+		  <li>
+			<ideoName>Duplicatism</ideoName>
+			<theme>duplicatism</theme>
+			<adjective>duplicatist</adjective>
+			<member>duplicate</member>
+		  </li>
+		  <li>
+			<ideoName>Copism</ideoName>
+			<theme>copism</theme>
+			<adjective>copist</adjective>
+			<member>copist</member>
+		  </li>
+		  <li>
+			<ideoName>Dupism</ideoName>
+			<theme>dupism</theme>
+			<adjective>dupist</adjective>
+			<member>dupist</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>WVC_Shapeshifters_Duplicates</li>
+		  </li>
+		</requireOne>
+		<thingStyleCategories>
+		  <li>
+			<category>Morbid</category>
+			<priority>12</priority>
+		  </li>
+		</thingStyleCategories>
+		<!-- <agreeableTraits> -->
+		  <!-- <li>Psychopath</li> -->
+		<!-- </agreeableTraits> -->
+		<!-- <disagreeableTraits> -->
+		  <!-- <li>BodyPurist</li> -->
+		<!-- </disagreeableTraits> -->
+	</MemeDef>
+
+</Defs>

@@ -15,4 +15,28 @@
 	</memes>
   </IdeoPresetDef>
 
+  <IdeoPresetDef>
+	<defName>WVC_Deathwatch</defName>
+	<label>deathwatch</label>
+	<description>Our sleep is the only reality worthy of protection.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_Deathwatch</li>
+	  <li>Bloodfeeding</li>
+	  <li>Supremacist</li>
+	</memes>
+  </IdeoPresetDef>
+
+  <IdeoPresetDef MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_Duplicates</defName>
+	<label>duplicators</label>
+	<description>There are many of us, we are united in everything, in our origin, in our thoughts, weaknesses and strengths. We are me, and I am the legion.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_Duplicates</li>
+	  <li>Inhuman</li>
+	  <li>Collectivist</li>
+	</memes>
+  </IdeoPresetDef>
+
 </Defs>

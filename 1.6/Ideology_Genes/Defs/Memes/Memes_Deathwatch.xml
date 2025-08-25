@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef>
+		<defName>WVC_Deathwatch</defName>
+		<label>deathwatch</label>
+		<description>Truth can only be found by understanding oneself, and nothing is more suitable for this than a deathly deep sleep.</description>
+		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+		<iconPath>WVC/UI/Precepts/Meme_Deathwatch</iconPath>
+		<groupDef>WVC_OneManArmy</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+		  <li>WVC_OneManArmy_Memes</li>
+		</exclusionTags>
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->watcher</li>
+			<li>memeCreed->watche</li>
+			<li>memeHyphenPrefix->watcher</li>
+			<li>memeConcept->deathwatch</li>
+			<li>memeLeaderNoun->watcher</li>
+			<li>memeLeaderAdjective->watcher</li>
+			<li>memeMoralist->watcher</li>
+		  </rulesStrings>
+		</generalRules>
+		<symbolPacks>
+		  <li>
+			<ideoName>Watcherism</ideoName>
+			<theme>watcherism</theme>
+			<adjective>watcherist</adjective>
+			<member>watcher</member>
+		  </li>
+		  <li>
+			<ideoName>Deathwatch</ideoName>
+			<theme>watch</theme>
+			<adjective>watcher</adjective>
+			<member>watcher</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>WVC_Shapeshifters_Deathwatch</li>
+		  </li>
+		</requireOne>
+		<thingStyleCategories>
+		  <li>
+			<category>Morbid</category>
+			<priority>12</priority>
+		  </li>
+		</thingStyleCategories>
+		<!-- <agreeableTraits> -->
+		  <!-- <li>Psychopath</li> -->
+		<!-- </agreeableTraits> -->
+		<!-- <disagreeableTraits> -->
+		  <!-- <li>BodyPurist</li> -->
+		<!-- </disagreeableTraits> -->
+	</MemeDef>
+
+</Defs>

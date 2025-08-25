@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MemeGroupDef>
+	<defName>WVC_OneManArmy</defName>
+	<drawOffset>(-0.5, 0)</drawOffset>
+  </MemeGroupDef>
+
+</Defs>
