@@ -6,15 +6,18 @@
 		<label>shapeshifter</label>
 		<description>There is no greater good than being who you want.</description>
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter2_v0</iconPath>
-		<groupDef>Misc</groupDef>
-		<impact>2</impact>
+		<groupDef>WVC_OneManArmy</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+		  <li>WVC_OneManArmy_Memes</li>
+		</exclusionTags>
 		<requireOne>
 		  <li Tag="ReclusePrecepts">
-			<li>WVC_Shapeshifters_Recluse</li>
 			<li>WVC_Shapeshifters_Revered</li>
-			<li>WVC_Shapeshifters_OneManArmy</li>
+			<li>WVC_Shapeshifters_Recluse</li>
 			<li MayRequire="ludeon.rimworld.anomaly">WVC_Shapeshifters_Duplicates</li>
 			<li>WVC_Shapeshifters_Deathwatch</li>
+			<li>WVC_Shapeshifters_OneManArmy</li>
 		  </li>
 		</requireOne>
 	</MemeDef>

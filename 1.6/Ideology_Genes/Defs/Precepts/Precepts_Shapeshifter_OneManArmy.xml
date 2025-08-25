@@ -6,11 +6,12 @@
   <PreceptDef>
 	<defName>WVC_Shapeshifters_OneManArmy</defName>
 	<issue>WVC_Shapeshifters</issue>
-	<label>one man army</label>
+	<label>one-man army</label>
 	<description>We must stand alone. Together we are more vulnerable than apart.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Penalty is applied for any pawns under direct control. Only prisoners are allowed. Non-sentient ones are excluded.</description>
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
+	  <li>WVC_OneManArmy</li>
 	</requiredMemes>
 	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<displayOrderInIssue>20</displayOrderInIssue>

@@ -18,7 +18,7 @@
   <IdeoPresetDef>
 	<defName>WVC_Deathwatch</defName>
 	<label>deathwatch</label>
-	<description>Our sleep is the only reality worthy of protection.</description>
+	<description>Our sleep is the only reality worthy of protection.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Deathrest solo. Colonists must work in shifts, while everyone sleeps one of the pawns is awake. Animals, mechs and some mutants are also allowed.</description>
 	<categoryDef>Intense</categoryDef>
 	<memes>
 	  <li>WVC_Deathwatch</li>
@@ -30,12 +30,24 @@
   <IdeoPresetDef MayRequire="ludeon.rimworld.anomaly">
 	<defName>WVC_Duplicates</defName>
 	<label>duplicators</label>
-	<description>There are many of us, we are united in everything, in our origin, in our thoughts, weaknesses and strengths. We are me, and I am the legion.</description>
+	<description>There are many of us, we are united in everything, in our origin, in our thoughts, weaknesses and strengths. We are me, and I am the legion.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Duplicates only. Use a Duplicator xenotype or create a custom one. An obelisk can also be used. Animals, mechs and some mutants are also allowed.</description>
 	<categoryDef>Intense</categoryDef>
 	<memes>
 	  <li>WVC_Duplicates</li>
 	  <li>Inhuman</li>
 	  <li>Collectivist</li>
+	</memes>
+  </IdeoPresetDef>
+
+  <IdeoPresetDef>
+	<defName>WVC_OneManArmy</defName>
+	<label>let me solo here</label>
+	<description>I don't need society, or unity, or a tame army. There are no obstacles that I can't overcome on my own.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; True solo mode. All colonists above 1 and all non-humans give a stacking mood penalty. Prisoners and quest pawns are ignored. Use a strong xenotype to balance the difficulty, or start as a baseliner if you want hardcore.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_OneManArmy</li>
+	  <li>WVC_XenotypesSupremacy</li>
+	  <li>Individualist</li>
 	</memes>
   </IdeoPresetDef>
 

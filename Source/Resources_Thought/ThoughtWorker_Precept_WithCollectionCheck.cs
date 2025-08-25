@@ -45,10 +45,12 @@ namespace WVC_XenotypesAndGenes
 	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_Precept_WithCollectionCheck
 	{
 
+		private static int PawnsCount => StaticCollectionsClass.cachedNonHumansCount;
+
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
 			UpdCollection();
-			if (StaticCollectionsClass.cachedNonHumansCount > 0)
+			if (PawnsCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -57,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return StaticCollectionsClass.cachedNonHumansCount;
+			return PawnsCount;
 		}
 
 	}

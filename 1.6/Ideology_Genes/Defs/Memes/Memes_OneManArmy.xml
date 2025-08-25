@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef>
+		<defName>WVC_OneManArmy</defName>
+		<label>One-man army</label>
+		<description>Unity, community, collective - bullshit, in this world you can only trust yourself.</description>
+		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+		<iconPath>WVC/UI/Precepts/Meme_OneManArmy</iconPath>
+		<groupDef>WVC_OneManArmy</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+		  <li>WVC_OneManArmy_Memes</li>
+		</exclusionTags>
+		<!-- <generalRules> -->
+		  <!-- <rulesStrings> -->
+			<!-- <li>memeAdjective->duped</li> -->
+			<!-- <li>memeCreed->dupe</li> -->
+			<!-- <li>memeCreed->copy</li> -->
+			<!-- <li>memeHyphenPrefix->copy</li> -->
+			<!-- <li>memeHyphenPrefix->dupe</li> -->
+			<!-- <li>memeConcept->duplicate</li> -->
+			<!-- <li>memeConcept->dupe</li> -->
+			<!-- <li>memeLeaderNoun->copy</li> -->
+			<!-- <li>memeLeaderNoun->duped</li> -->
+			<!-- <li>memeLeaderAdjective->duplicate</li> -->
+			<!-- <li>memeLeaderAdjective->copy</li> -->
+			<!-- <li>memeMoralist->duplicate</li> -->
+		  <!-- </rulesStrings> -->
+		<!-- </generalRules> -->
+		<symbolPacks>
+		  <li>
+			<ideoName>Solism</ideoName>
+			<theme>solism</theme>
+			<adjective>solist</adjective>
+			<member>solo</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>WVC_Shapeshifters_OneManArmy</li>
+		  </li>
+		</requireOne>
+	</MemeDef>
+
+</Defs>
