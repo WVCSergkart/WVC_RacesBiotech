@@ -166,6 +166,13 @@ namespace WVC_XenotypesAndGenes
 			geneSet.SortGenes();
 		}
 
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		{
+			// Debug fire
+			//Notify_PregnancyStarted(pregnancy);
+			return false;
+		}
+
 		public override void TickInterval(int delta)
 		{
 

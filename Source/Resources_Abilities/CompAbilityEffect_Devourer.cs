@@ -53,11 +53,11 @@ namespace WVC_XenotypesAndGenes
                     }
                     victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
                 }
+                phase = "try copy chimera genes";
+                ChimeraGene.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
                 phase = "reset xenotype";
                 float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
                 ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
-                phase = "try copy chimera genes";
-                ChimeraGene.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
                 phase = "drop apparel";
                 victim.apparel?.DropAll(victim.Position, true, false);
                 phase = "get food";

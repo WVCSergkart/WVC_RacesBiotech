@@ -92,7 +92,7 @@
 		<li>WVC_BoneTailA</li>
 		<li>WVC_HeadBoneCurveHorns</li>
 		<!-- Genes -->
-		<li>WVC_Archiver</li>
+		<!-- <li>WVC_Archiver</li> -->
 		<!-- <li>WVC_MorphCondition_Monolith</li> -->
 		<!-- <li>WVC_Archiver_AutoResearch</li> -->
 		<!-- <li>WVC_Archiver_MindsConnection</li> -->
@@ -105,10 +105,13 @@
 		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>
 		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_BleedStopper</li>
-		<li>Ageless</li>
-		<li>WVC_DeadStomach</li>
-		<!-- <li>LowSleep</li> -->
-		<li>PerfectImmunity</li>
+		<!-- <li>Ageless</li> -->
+		<li>WVC_NaturalAgeless</li>
+		<!-- <li>WVC_DeadStomach</li> -->
+		<li>WVC_EternalHunger</li>
+		<li>Neversleep</li>
+		<!-- <li>PerfectImmunity</li> -->
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<!-- <li>Deathless</li> -->
 		<li>WVC_DeathRefusal</li>
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>

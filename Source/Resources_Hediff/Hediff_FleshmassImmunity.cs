@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		//public int cachedGenes = 0;
-		public int nextTick = 114568;
+		public int nextTick = 182;
 
 		private HediffStage curStage;
 
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 				if (curStage == null)
 				{
 					curStage = new();
-                    curStage.makeImmuneTo = Immunity.ImmunizedHediffs;
+                    curStage.makeImmuneTo = Immunity?.ImmunizedHediffs;
                 }
                 return curStage;
 			}

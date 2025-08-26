@@ -18,7 +18,7 @@
 	</descriptionHyperlinks>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<biostatMet>6</biostatMet>
+	<biostatMet>2</biostatMet>
 	<customEffectDescriptions>
 		<li>Target can be any pawn suitable for &lt;color=#8a8ae6&gt;bloodfeeding&lt;/color&gt; psi-sensitive pawn.</li>
 		<li>After using the ability, the target gains &lt;color=#8a8ae6&gt;void drain&lt;/color&gt; and loses &lt;color=#8a8ae6&gt;consciousness&lt;/color&gt; until the effect is removed.</li>

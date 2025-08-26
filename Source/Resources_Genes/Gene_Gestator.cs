@@ -214,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string Desc => "WVC_XaG_Gene_ParthenogenesisDesc".Translate();
 
-        public override bool Active => pawn.gender == Gender.Female && base.Active;
+        public override bool Active => pawn?.gender == Gender.Female && base.Active;
 
         public override void StartPregnancy()
 		{
@@ -222,19 +222,31 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+        {
+            AddParentGenes(pawn, pregnancy);
+        }
+
+        public static void AddParentGenes(Pawn pawn, Hediff_Pregnant pregnancy)
+        {
+            GeneSet geneSet = pregnancy.geneSet;
+            if (geneSet != null)
+            {
+                HediffUtility.AddParentGenes(pawn, geneSet);
+            }
+            else
+            {
+                GeneSet newGeneSet = new();
+                HediffUtility.AddParentGenes(pawn, newGeneSet);
+                geneSet = newGeneSet;
+            }
+            geneSet.SortGenes();
+        }
+
+        public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
-			GeneSet geneSet = pregnancy.geneSet;
-			if (geneSet != null)
-			{
-				HediffUtility.AddParentGenes(pawn, geneSet);
-			}
-			else
-			{
-				GeneSet newGeneSet = new();
-				HediffUtility.AddParentGenes(pawn, newGeneSet);
-				geneSet = newGeneSet;
-			}
-			geneSet.SortGenes();
+			// Debug fire
+			//Notify_PregnancyStarted(pregnancy);
+			return false;
 		}
 
 	}

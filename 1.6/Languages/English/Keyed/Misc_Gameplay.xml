@@ -58,6 +58,8 @@
 	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
 	<WVC_XaG_ThrallMakerNonThrallSelected>First you need to choose the type of thrall.</WVC_XaG_ThrallMakerNonThrallSelected>
 
+	<!-- <WVC_IsNonFlesh>The target must be flesh and living.</WVC_IsNonFlesh> -->
+
 	<WVC_XaG_ScenPart_AddMechlink>Starting pawns will receive mechlink.</WVC_XaG_ScenPart_AddMechlink>
 	<WVC_XaG_ScenPart_NullifyBackstory>The backstory of the starting pawns is unknown.</WVC_XaG_ScenPart_NullifyBackstory>
 	<WVC_XaG_ScenPart_NullifySkills>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_NullifySkills>

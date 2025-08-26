@@ -109,6 +109,8 @@ namespace WVC_XenotypesAndGenes
 
 		void Notify_PregnancyStarted(Hediff_Pregnant pregnancy);
 
+		bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy);
+
 	}
 
 	public interface IGeneRemoteControl

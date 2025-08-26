@@ -706,4 +706,37 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+    public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman
+	{
+
+		public override bool Active => pawn?.gender == Gender.Female && base.Active;
+
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		{
+			return false;
+        }
+
+        public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+			Gene_Parthenogenesis.AddParentGenes(pawn, pregnancy);
+		}
+
+        public override void TickInterval(int delta)
+        {
+			if (pawn.IsHashIntervalTick(59900, delta))
+            {
+				StartPregnancyRandom();
+			}
+        }
+
+		public void StartPregnancyRandom()
+        {
+			if (Rand.Chance(0.025f * pawn.GetStatValue(StatDefOf.Fertility)))
+            {
+				MiscUtility.Impregnate(pawn);
+            }
+        }
+
+    }
+
 }

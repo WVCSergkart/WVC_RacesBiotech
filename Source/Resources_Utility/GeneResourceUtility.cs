@@ -326,6 +326,16 @@ namespace WVC_XenotypesAndGenes
 
 		// Resources
 
+		//public static bool IsFluidFood(this Thing thing)
+		//{
+		//	return thing.def.IsFluidFood();
+		//}
+
+		//public static bool IsFluidFood(this ThingDef thingDef)
+		//{
+		//	return thingDef.ingestible != null && (thingDef.ingestible.foodType & FoodTypeFlags.Fluid) != 0;
+		//}
+
 		public static bool IsRawMeat(this Thing thing)
 		{
 			if (thing is Corpse corpse && corpse.InnerPawn != null)

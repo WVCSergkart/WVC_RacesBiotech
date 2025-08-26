@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassReproduction</defName>
+	<label>fleshmass reproduction</label>
+	<description>Carriers of this gene become pregnant on their own and completely by accident.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassReproduction</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_FertileFleshmass</iconPath>
+	<selectionWeight>0.0002</selectionWeight>
+	<displayCategory>Reproduction</displayCategory>
+    <displayOrderInCategory>100</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<minAgeActive>13</minAgeActive>
+	<customEffectDescriptions>
+		<li>Carrier has a &lt;color=#ff8585&gt;2% chance&lt;/color&gt; of becoming pregnant each day. This chance is affected by &lt;color=#ff8585&gt;fertility&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+		<!-- <li>Egglaying</li> -->
+		<!-- <li>AG_Egglaying</li> -->
+		<!-- <li>AG_Gestation</li> -->
+		<!-- <li>AG_Fertility</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>impre</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

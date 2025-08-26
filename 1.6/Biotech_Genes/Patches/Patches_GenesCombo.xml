@@ -110,7 +110,7 @@
 	  <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath>
 	  <order>Prepend</order>
 	  <value>
-		<li>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_TrueParentGenes">
 		  <compClass>WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted</compClass>
 		</li>
 	  </value>

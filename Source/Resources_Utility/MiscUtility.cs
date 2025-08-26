@@ -302,21 +302,26 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void Impregnate(Pawn pawn)
-		{
-			if (pawn?.genes != null)
-			{
-				Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
-				hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
-				GeneSet newGeneSet = new();
-				HediffUtility.AddParentGenes(pawn, newGeneSet);
-				// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
-				newGeneSet.SortGenes();
-				hediff_Pregnant.SetParents(pawn, null, newGeneSet);
-				pawn.health.AddHediff(hediff_Pregnant);
-			}
-		}
+        {
+            if (pawn?.genes == null)
+            {
+                return;
+            }
+            if (!Find.Storyteller.difficulty.ChildrenAllowed)
+            {
+                return;
+            }
+            Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
+            hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
+            GeneSet newGeneSet = new();
+            HediffUtility.AddParentGenes(pawn, newGeneSet);
+            // GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
+            newGeneSet.SortGenes();
+            hediff_Pregnant.SetParents(pawn, null, newGeneSet);
+            pawn.health.AddHediff(hediff_Pregnant);
+        }
 
-		public static void MakeJobWithGeneDef(Pawn pawn, JobDef jobDef, GeneDef geneDef, Thing target)
+        public static void MakeJobWithGeneDef(Pawn pawn, JobDef jobDef, GeneDef geneDef, Thing target)
 		{
 			XaG_Job xaG_Job = new(JobMaker.MakeJob(jobDef, target));
 			xaG_Job.geneDef = geneDef;
