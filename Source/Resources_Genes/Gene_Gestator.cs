@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
             }
-			if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
+			if (MiscUtility.CanStartPregnancy(pawn, Giver))
 			{
 				if (UseDialogWarning)
 				{

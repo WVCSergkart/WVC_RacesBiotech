@@ -743,7 +743,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Rand.Chance(0.025f * pawn.GetStatValue(StatDefOf.Fertility)))
 			{
-				MiscUtility.Impregnate(pawn);
+				if (MiscUtility.CanStartPregnancy(pawn, false))
+				{
+					MiscUtility.Impregnate(pawn);
+				}
 			}
 		}
 
@@ -832,7 +835,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
-			TryAddLoveEnchancer(pawn);
+			if (Active)
+			{
+				TryAddLoveEnchancer(pawn);
+			}
 		}
 
 		public override void PostRemove()

@@ -217,12 +217,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
 		{
-            if (ModsConfig.AnomalyActive)
-            {
-                //HediffUtility.MutationMeatSplatter(pawn, false, FleshbeastUtility.MeatExplosionSize.Small);
+			if (ModsConfig.AnomalyActive)
+			{
+				//HediffUtility.MutationMeatSplatter(pawn, false, FleshbeastUtility.MeatExplosionSize.Small);
 				MiscUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Small);
 			}
-            MainDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+			MainDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 		}
 
 		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size, int bloodDropSize = 3)
@@ -240,37 +240,42 @@ namespace WVC_XenotypesAndGenes
 			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(spawnCell, map));
 		}
 
-		public static bool CanStartPregnancy_Gestator(Pawn pawn, GeneExtension_Giver giver = null, bool throwMessage = true)
-        {
-            if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn, throwMessage))
-            {
-                return false;
-            }
-            if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
+		public static bool CanStartPregnancy(Pawn pawn, GeneExtension_Giver giver = null, bool throwMessage = true)
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn, throwMessage))
 			{
-				if (throwMessage)
-				{
-					Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				}
-                return false;
-            }
-            if (giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
+				return false;
+			}
+			if (giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
 			{
 				if (throwMessage)
 				{
 					Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
-                return false;
-            }
-            if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
+				return false;
+			}
+			return CanStartPregnancy(pawn, throwMessage);
+		}
+
+		public static bool CanStartPregnancy(Pawn pawn, bool throwMessage)
+		{
+			if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
 			{
 				if (throwMessage)
 				{
 					Messages.Message("WVC_XaG_Gene_SimpleGestator_ToYoungMessage".Translate(pawn.LabelShortCap).CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
 				return false;
-            }
-            return true;
+			}
+			return true;
 		}
 
 		public static bool TryUpdChildGenes(Pawn pawn)
