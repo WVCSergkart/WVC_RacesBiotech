@@ -28,6 +28,7 @@
 	<preventIllnesses>true</preventIllnesses>
 	<useCorpseGraphics>true</useCorpseGraphics>
 	<terminatePregnancy>true</terminatePregnancy>
+	<partsCleanAndDroppable>true</partsCleanAndDroppable>
 	<clearsEgo>true</clearsEgo>
 	<woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
 	<disablesGenes>
@@ -49,6 +50,7 @@
 	<incapableOfSocialInteractions>true</incapableOfSocialInteractions>
 	<canAttackWhileCrawling>true</canAttackWhileCrawling>
 	<isConsideredCorpse>true</isConsideredCorpse>
+	<partsCleanAndDroppable>false</partsCleanAndDroppable>
 	<disableFlying>true</disableFlying>
 	<bloodDef>Filth_CorpseBile</bloodDef>
 	<bloodSmearDef>Filth_CorpseBile</bloodSmearDef>

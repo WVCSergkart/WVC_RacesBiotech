@@ -146,6 +146,16 @@ namespace WVC_XenotypesAndGenes
 
         //public bool CanLevelUp => mutationLevel < maxMutationLevel;
 
+        //public override void Notify_SurgicallyReplaced(Pawn surgeon)
+        //{
+
+        //}
+
+        //public override void Notify_SurgicallyRemoved(Pawn surgeon)
+        //{
+
+        //}
+
         public int CurrentLevel => mutationLevel;
 
         public void LevelUp()

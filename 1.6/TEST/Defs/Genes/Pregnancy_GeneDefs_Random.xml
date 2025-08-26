@@ -16,7 +16,7 @@
 	<biostatArc>1</biostatArc>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
-		<li>Carrier has a &lt;color=#ff8585&gt;2% chance&lt;/color&gt; of becoming pregnant each day. This chance is affected by &lt;color=#ff8585&gt;fertility&lt;/color&gt;.</li>
+		<li>Carrier has a &lt;color=#8a8ae6&gt;2% chance&lt;/color&gt; of becoming pregnant each day. This chance is affected by &lt;color=#8a8ae6&gt;fertility&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->
 		<!-- <li>Egglaying</li> -->

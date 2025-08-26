@@ -145,6 +145,7 @@
     <Compile Include="Resources_Hediff\HediffAddedPart_FleshmassNucleus.cs" />
     <Compile Include="Resources_Hediff\Hediff_ChimeraLimitFromBandwidth.cs" />
     <Compile Include="Resources_Hediff\Hediff_Duplicator.cs" />
+    <Compile Include="Resources_Hediff\Hediff_LoveEnhancer.cs" />
     <Compile Include="Resources_Hediff\Hediff_Morpher.cs" />
     <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
     <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />

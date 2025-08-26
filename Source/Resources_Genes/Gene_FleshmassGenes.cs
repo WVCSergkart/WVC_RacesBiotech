@@ -706,37 +706,141 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman
+	public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman, IGeneOverridden
 	{
 
-		public override bool Active => pawn?.gender == Gender.Female && base.Active;
+		public override bool Active
+		{
+			get
+			{
+				if (permanentlyDisabled)
+				{
+					return false;
+				}
+				return pawn?.gender == Gender.Female && base.Active;
+			}
+		}
 
 		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
 			return false;
-        }
+		}
 
-        public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
 		{
 			Gene_Parthenogenesis.AddParentGenes(pawn, pregnancy);
 		}
 
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 			if (pawn.IsHashIntervalTick(59900, delta))
-            {
+			{
 				StartPregnancyRandom();
 			}
-        }
+		}
 
 		public void StartPregnancyRandom()
-        {
+		{
 			if (Rand.Chance(0.025f * pawn.GetStatValue(StatDefOf.Fertility)))
-            {
+			{
 				MiscUtility.Impregnate(pawn);
-            }
-        }
+			}
+		}
 
-    }
+		public void Notify_TentacleRemoved()
+		{
+			permanentlyDisabled = true;
+		}
+
+		private bool permanentlyDisabled = false;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref permanentlyDisabled, "permanentlyDisabled", defaultValue: false);
+		}
+
+		public static bool TryAddLoveEnchancer(Pawn pawn)
+		{
+			if (!ModsConfig.RoyaltyActive)
+			{
+				return false;
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.LoveEnhancer))
+			{
+				return false;
+			}
+			if (TryMakeLoveHediff(pawn, out Hediff_Fleshmass_LoveEnhancer hediff))
+			{
+				pawn.health.AddHediff(hediff, pawn.health.hediffSet.TryGetBodyPartRecord(BodyPartDefOf.Torso, out BodyPartRecord result) && result != null ? result : null);
+				return true;
+			}
+			return false;
+		}
+
+		public static bool TryRemoveLoveEnchancer(Pawn pawn)
+		{
+			if (!ModsConfig.RoyaltyActive)
+			{
+				return false;
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.LoveEnhancer))
+			{
+				return false;
+			}
+			bool flag = false;
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+			{
+				if (hediff is Hediff_Fleshmass_LoveEnhancer)
+				{
+					pawn.health.RemoveHediff(hediff);
+					flag = true;
+				}
+			}
+			return flag;
+		}
+
+		private static bool TryMakeLoveHediff(Pawn pawn, out Hediff_Fleshmass_LoveEnhancer hediff)
+		{
+			hediff = null;
+			if (pawn == null)
+			{
+				return false;
+			}
+			hediff = (Hediff_Fleshmass_LoveEnhancer)Activator.CreateInstance(typeof(Hediff_Fleshmass_LoveEnhancer));
+			hediff.def = HediffDefOf.LoveEnhancer;
+			hediff.pawn = pawn;
+			hediff.Part = pawn.health.hediffSet.TryGetBodyPartRecord(BodyPartDefOf.Torso, out BodyPartRecord result) && result != null ? result : null;
+			hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
+			hediff.PostMake();
+			return true;
+		}
+
+		public override void PostAdd()
+		{
+			if (Active)
+			{
+				base.PostAdd();
+				TryAddLoveEnchancer(pawn);
+			}
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			TryRemoveLoveEnchancer(pawn);
+		}
+
+		public void Notify_Override()
+		{
+			TryAddLoveEnchancer(pawn);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			TryRemoveLoveEnchancer(pawn);
+		}
+
+	}
 
 }
