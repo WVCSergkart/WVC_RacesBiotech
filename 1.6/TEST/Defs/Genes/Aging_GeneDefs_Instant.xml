@@ -13,7 +13,7 @@
 	<biostatMet>-5</biostatMet>
 	<!-- <statFactors> -->
 	  <!-- <LifespanFactor>0</LifespanFactor> -->
-	  <!-- <CancerRate>100</CancerRate> -->
+	  <!-- <CancerRate>20</CancerRate> -->
 	<!-- </statFactors> -->
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>

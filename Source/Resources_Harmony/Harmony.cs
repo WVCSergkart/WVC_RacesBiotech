@@ -439,6 +439,7 @@ namespace WVC_XenotypesAndGenes
 				if (MiscUtility.GameStarted())
 				{
 					ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+					ThoughtWorker_Precept_Shapeshifter.UpdCollection();
 				}
 			}
 
