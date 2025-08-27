@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static int lastRecacheTick = -1;
 
-		public void UpdCollection()
+		public static void UpdCollection()
 		{
             if (lastRecacheTick < Find.TickManager.TicksGame)
             {

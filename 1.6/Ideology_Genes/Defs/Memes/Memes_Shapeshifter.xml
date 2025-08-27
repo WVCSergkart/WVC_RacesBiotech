@@ -7,7 +7,7 @@
 		<description>There is no greater good than being who you want.</description>
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter2_v0</iconPath>
 		<groupDef>WVC_OneManArmy</groupDef>
-		<impact>1</impact>
+		<impact>2</impact>
 		<exclusionTags>
 		  <li>WVC_OneManArmy_Memes</li>
 		</exclusionTags>

@@ -6,7 +6,7 @@
   <IdeoPresetDef>
 	<defName>WVC_XenoFanatics</defName>
 	<label>xeno fanatics</label>
-	<description>There is no place in the world for anything other than humanity and its endless incarnations.\n\nGuarantees &lt;color=#ff8585&gt;debuffs&lt;/color&gt; for using any animals and mechanoids.</description>
+	<description>There is no place in the world for anything other than humanity and its endless incarnations.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Guarantees &lt;color=#ff8585&gt;debuffs&lt;/color&gt; for using any animals, mechanoids and some mutants.</description>
 	<categoryDef>Intense</categoryDef>
 	<memes>
 	  <li>WVC_XenotypesSupremacy</li>
@@ -23,6 +23,18 @@
 	<memes>
 	  <li>WVC_Deathwatch</li>
 	  <li>Bloodfeeding</li>
+	  <li>Supremacist</li>
+	</memes>
+  </IdeoPresetDef>
+
+  <IdeoPresetDef MayRequire="wvc.sergkart.test.tools">
+	<defName>WVC_GreatFamily</defName>
+	<label>blood family</label>
+	<description>In such difficult times, only blood relatives can be trusted, and only by building strong relationships between generations will we be able to survive.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Family only run. Pawns without blood relation are subject to penalties. Quest pawns, slaves and prisoners are ignored.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_GreatFamily</li>
+	  <li>FemaleSupremacy</li>
 	  <li>Supremacist</li>
 	</memes>
   </IdeoPresetDef>

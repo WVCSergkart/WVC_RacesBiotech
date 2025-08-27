@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef>
+		<defName>WVC_GreatFamily</defName>
+		<label>great family</label>
+		<description>All of humanity once came from one family, and we will create one no less great.</description>
+		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+		<iconPath>WVC/UI/Precepts/Memes_GreatFamily</iconPath>
+		<groupDef>WVC_OneManArmy</groupDef>
+		<impact>2</impact>
+		<exclusionTags>
+		  <li>WVC_OneManArmy_Memes</li>
+		</exclusionTags>
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->member</li>
+			<li>memeCreed->member</li>
+			<li>memeHyphenPrefix->member</li>
+			<li>memeConcept->family</li>
+			<li>memeLeaderNoun->member</li>
+			<li>memeLeaderAdjective->member</li>
+			<li>memeMoralist->member</li>
+		  </rulesStrings>
+		</generalRules>
+		<symbolPacks>
+		  <li>
+			<ideoName>Familism</ideoName>
+			<theme>familism</theme>
+			<adjective>familist</adjective>
+			<member>familist</member>
+		  </li>
+		  <li>
+			<ideoName>Family</ideoName>
+			<theme>memberism</theme>
+			<adjective>member</adjective>
+			<member>member</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>Slavery_Acceptable</li>
+			<li>Slavery_Honorable</li>
+		  </li>
+		  <li>
+			<li>WVC_Shapeshifters_FamilyByBlood</li>
+		  </li>
+		</requireOne>
+		<!-- <thingStyleCategories> -->
+		  <!-- <li> -->
+			<!-- <category>Morbid</category> -->
+			<!-- <priority>12</priority> -->
+		  <!-- </li> -->
+		<!-- </thingStyleCategories> -->
+		<agreeableTraits>
+		  <li>BodyPurist</li>
+		</agreeableTraits>
+		<!-- <disagreeableTraits> -->
+		  <!-- <li>BodyPurist</li> -->
+		<!-- </disagreeableTraits> -->
+	</MemeDef>
+
+</Defs>

@@ -392,7 +392,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryInteract()
 		{
-			MiscUtility.UpdateStaticCollection();
+			ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
 			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
 			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > Props.colonistsLimit)
 			{
@@ -440,7 +440,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryInteract()
 		{
-			MiscUtility.UpdateStaticCollection();
+			ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
 			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
 			if (StaticCollectionsClass.cachedNonHumansCount > 0)
 			{

@@ -59,6 +59,7 @@ namespace WVC_XenotypesAndGenes
             ThoughtWorker_Precept_Social_Duplicates.duplicatePawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.duplicateSets = new();
+			//ThoughtWorker_Precept_Family.families = new();
 		}
 
         public static void AddHideMechanitors(Pawn pawn)

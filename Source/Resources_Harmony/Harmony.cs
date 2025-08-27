@@ -436,6 +436,10 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
 				//}
+				if (MiscUtility.GameStarted())
+				{
+					ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+				}
 			}
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)

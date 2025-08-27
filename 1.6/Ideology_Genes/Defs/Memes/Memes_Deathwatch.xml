@@ -8,14 +8,14 @@
 		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
 		<iconPath>WVC/UI/Precepts/Meme_Deathwatch</iconPath>
 		<groupDef>WVC_OneManArmy</groupDef>
-		<impact>1</impact>
+		<impact>2</impact>
 		<exclusionTags>
 		  <li>WVC_OneManArmy_Memes</li>
 		</exclusionTags>
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->watcher</li>
-			<li>memeCreed->watche</li>
+			<li>memeCreed->watcher</li>
 			<li>memeHyphenPrefix->watcher</li>
 			<li>memeConcept->deathwatch</li>
 			<li>memeLeaderNoun->watcher</li>

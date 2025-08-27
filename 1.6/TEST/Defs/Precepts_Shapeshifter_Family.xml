@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Deathwatch -->
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_FamilyByBlood</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>family by blood</label>
+	<description>Among many families, only our family is worthy of being the main one.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Only blood relatives are not subject to penalties. That is, the relationship between a wife and husband, if they are not blood relatives, will be subject to penalties, but the relationship of their children to them will not. Slaves are not subject to penalties.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_GreatFamily</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<displayOrderInIssue>50</displayOrderInIssue>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_FamilyByBlood</thought>
+		<description>For each (non-slave, non-blood) family above 1</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_FamilyByBlood_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Family member</li>
+		  <li>Family leader</li>
+		  <li>Slave</li>
+		  <li>Non-blood related</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_FamilyByBlood</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_FamilyByBlood</workerClass>
+	<stages>
+	  <li>
+		<label>too many families</label>
+		<description>There should be only one ruling family. The rest are worthy only of slavery.</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_FamilyByBlood_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_FamilyByBlood</workerClass>
+	<stages>
+	  <li>
+		<label>family member</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>family leader</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>slave</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>non-blood related</label>
+		<baseOpinionOffset>-30</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>
