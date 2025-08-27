@@ -106,13 +106,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
-			return TryInteractRandomly(pawn, pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction).Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned).ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
+			return TryInteractRandomly(pawn, pawn.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction)?.Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned)?.ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
 		}
 
 		public static bool TryInteractRandomly(Pawn pawn, List<Pawn> workingList, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
 			otherPawn = null;
-			if (!CanInitiateInteraction_General(pawn, ignoreTalking))
+			if (!CanInitiateInteraction_General(pawn, ignoreTalking) || workingList.NullOrEmpty())
 			{
 				return false;
 			}

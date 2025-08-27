@@ -185,6 +185,7 @@
 				  <li>WVC_FleshmassRegeneration</li>
 				  <li>WVC_FleshmassImmunity</li>
 				  <li MayRequire="wvc.sergkart.test.tools">WVC_FleshmassReproduction</li>
+				  <li MayRequire="wvc.sergkart.test.tools">WVC_FleshmassAging</li>
 				  <li>WVC_SelfdevourStomach</li>
 				  <!-- <li>WVC_Deadlife</li> -->
 				  <!-- <li>WVC_Duplicator</li> -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassAging</defName>
+	<label>fleshmass aging</label>
+	<description>Carriers of this gene are made up partly of a cancerous flesh mass that progresses at an incredible rate, they reach adulthood in a matter of days, but are highly likely to develop cancer if they are not immune to it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassAging</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassAging</iconPath>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<!-- <statFactors> -->
+	  <!-- <LifespanFactor>0</LifespanFactor> -->
+	  <!-- <CancerRate>100</CancerRate> -->
+	<!-- </statFactors> -->
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 20)</li>
+		<!-- <li>(18, 20)</li> -->
+		<!-- <li>(18.5, 1)</li> -->
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless_FastSlowAging</li>
+	  <li>AG_Aging</li>
+	  <li>Aging</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

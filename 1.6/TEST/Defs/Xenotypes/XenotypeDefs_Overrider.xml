@@ -45,24 +45,46 @@
 		<!-- <li>WVC_BloodyGrowths</li> -->
 		<!-- <li>WVC_HemogenGain</li> -->
 		<!-- new -->
-		<!-- <li>Hemogenic</li> -->
-		<!-- <li>WVC_Bloodeater</li> -->
-		<!-- <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Animalfeeder</li> -->
+		<li>WVC_Chimera</li>
+		<!-- <li>WVC_Chimera_Devourer</li> -->
+		<li>WVC_Chimera_HugeIncreasedLimit</li>
+		<li>WVC_Chimera_GenelineFleshmass</li>
+		<li>WVC_Chimera_Cooldown</li>
+		<li>WVC_Chimera_HighMetLimit</li>
+		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Animalfeeder</li>
+		<li>WVC_HybridImplanter</li>
 		<li>WVC_FleshmassSkin</li>
 		<li>WVC_FleshmassImmunity</li>
-		<!-- <li>WVC_LongTentacleTail</li> -->
-		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<li>WVC_FleshmassNucleus</li>
+		<li>WVC_FleshmassReproduction</li>
+		<li>WVC_FleshmassAging</li>
+		<li>WVC_EternalHunger</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>Deathrest</li>
+		<!-- <li>Neversleep</li> -->
+		<li>LowSleep</li>
+		<li>Hemogenic</li>
+		<!-- <li>WVC_BloodyGrowths</li> -->
+		<!-- <li>WVC_HemogenGain</li> -->
+		<li>HemogenDrain</li>
 		<li>WVC_HairColor_Slate</li>
-		<li>WVC_SkinColor_MilkWhite</li>
-		<!-- <li>Hair_ShortOnly</li> -->
+		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+		<li>WVC_SkinColor_FleshPink</li>
 		<li>WVC_HiveMind_Skills</li>
 		<li>WVC_HiveMind_Needs</li>
-		<li>WVC_HiveMind_Opinion</li>
 		<li>WVC_ArchiteTelepathy</li>
-		<!-- <li>MaxTemp_LargeIncrease</li> -->
-		<!-- <li>ToxResist_Partial</li> -->
-		<li>WoundHealing_Slow</li>
-		<li>Immunity_Weak</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>WVC_Overrider</li>
+		<li>WVC_Ageless_Overrider</li>
+		<li>WVC_Health_Overrider</li>
+		<li>WVC_Tough_Overrider</li>
+		<li>WVC_Pain_Overrider</li>
+		<!-- <li>WoundHealing_Slow</li> -->
+		<!-- <li>Immunity_Weak</li> -->
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<!-- <li>Aggression_HyperAggressive</li> -->
+		<li>Aggression_Aggressive</li>
+		<li>ToxicEnvironmentResistance_Total</li>
 	</genes>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->

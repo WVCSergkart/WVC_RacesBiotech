@@ -36,13 +36,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			AddOrRemoveHediff();
+        {
+            Notify_GenesChanged(null);
+            AddOrRemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			AddOrRemoveHediff();
+            Notify_GenesChanged(null);
+            AddOrRemoveHediff();
         }
 
 		public void AddOrRemoveHediff()

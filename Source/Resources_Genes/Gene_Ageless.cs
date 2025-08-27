@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -16,6 +17,24 @@ namespace WVC_XenotypesAndGenes
 				//AgelessUtility.Rejuvenation(pawn);
 				AgelessUtility.InitialRejuvenation(pawn);
 			}
+		}
+
+	}
+
+	public class Gene_FleshmassAging : Gene, IGeneLifeStageStarted
+	{
+
+        public void Notify_LifeStageStarted()
+		{
+			if (pawn.genes != null && !pawn.genes.HediffGiversCanGive(HediffDefOf.Carcinoma))
+			{
+				return;
+			}
+			if (pawn.IsMutant && !pawn.mutant.HediffGiversCanGive(HediffDefOf.Carcinoma))
+			{
+				return;
+			}
+			HediffGiverUtility.TryApply(pawn, HediffDefOf.Carcinoma, null, true);
 		}
 
 	}

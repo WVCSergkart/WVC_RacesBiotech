@@ -229,7 +229,7 @@ namespace WVC_XenotypesAndGenes
 			if (nextTick < 0 - delta)
 			{
 				Log.Error("Wrong tick in: " + def.defName);
-				ResetInterval(new(7200, 7200));
+				ResetInterval(new(72000, 72000));
 				return;
 			}
 			TryInteract();

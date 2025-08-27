@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedRefreshRate.HasValue)
                 {
-                    cachedRefreshRate = (int)(61992 * ((HiveMindPawns.Count > 1 ? HiveMindPawns.Count : 1000) * 0.4f));
+                    cachedRefreshRate = (int)(11992 * ((HiveMindPawns.Count > 1 ? HiveMindPawns.Count : 1000) * 0.4f));
                 }
                 return cachedRefreshRate.Value;
             }
