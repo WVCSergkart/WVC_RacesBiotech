@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef>
+  <ThingDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_NutrientsInjector</defName>
 	<label>nutrients injector</label>
 	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection. Dustogenic pawns will try to use these injectors instead of regular food.
@@ -81,7 +81,7 @@ Poisonous for non-dustogenic pawns.</description>
   <!-- Recipes -->
   <!-- Recipes -->
 
-  <RecipeDef Name="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector"  Abstract="True">
+  <RecipeDef Name="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector"  Abstract="True" WVC_Legacy_Hook="RemoveMe">
 	<description>Make a nutrients injector from ultranites.</description>
 	<jobString>Making nutrients injector.</jobString>
 	<workAmount>3450</workAmount>
@@ -102,7 +102,7 @@ Poisonous for non-dustogenic pawns.</description>
 	</researchPrerequisites>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_Make_NutrientsInjector</defName>
 	<label>make nutrients injector</label>
 	<ingredients>
@@ -128,7 +128,7 @@ Poisonous for non-dustogenic pawns.</description>
 	</products>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_Make_NutrientsInjector_x4c</defName>
 	<label>make nutrients injector x4</label>
 	<ingredients>

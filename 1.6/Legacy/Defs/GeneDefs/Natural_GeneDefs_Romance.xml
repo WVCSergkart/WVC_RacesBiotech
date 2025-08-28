@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Abstract="True" WVC_Legacy_Hook="RemoveMe">
 	<displayCategory>Reproduction</displayCategory>
 	<description>Carriers of this gene have certain habits that help them identify and choose the best partner.</description>
 	<biostatCpx>0</biostatCpx>
@@ -21,7 +21,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RomanceChanceA</defName>
 	<label>picky A</label>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -30,7 +30,7 @@
 	  <li>WVC_RomanceChance_A</li>
 	</exclusionTags>
   </GeneDef>
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RomanceChanceB</defName>
 	<label>picky B</label>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -39,7 +39,7 @@
 	  <li>WVC_RomanceChance_B</li>
 	</exclusionTags>
   </GeneDef>
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RomanceChanceC</defName>
 	<label>picky C</label>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -49,7 +49,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RomanceChanceNeutralized</defName>
 	<label>not picky</label>
 	<description>Carriers of this gene are common in their preferences when choosing a partner.</description>

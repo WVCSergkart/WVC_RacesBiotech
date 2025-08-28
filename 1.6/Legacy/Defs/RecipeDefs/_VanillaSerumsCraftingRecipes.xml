@@ -3,7 +3,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef Name="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" Abstract="True">
+  <RecipeDef Name="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" Abstract="True" WVC_Legacy_Hook="RemoveMe">
 	<label>Make mech serum</label>
 	<description>Make a mech serum.</description>
 	<jobString>Making mech serum.</jobString>
@@ -74,7 +74,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RacesBiotech_MakeMechSerumHealer</defName>
 	<label>make healer mech serum</label>
 	<description>Make a healer mech serum.</description>
@@ -117,7 +117,7 @@
 	</ingredients>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RacesBiotech_MechSerumResurrector</defName>
 	<label>make resurrector mech serum</label>
 	<description>Make a resurrector mech serum.</description>
@@ -168,7 +168,7 @@
 	</ingredients>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_RacesBiotech_DeathrestCapacitySerum</defName>
 	<label>make deathrest capacity serum</label>
 	<description>Make a deathrest capacity serum.</description>

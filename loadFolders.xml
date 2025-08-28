@@ -24,7 +24,7 @@
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.6/TEST</li>
 		<li IfModNotActive="vanillaracesexpanded.sanguophage">1.6/Sango</li>
 		<!-- req rework -->
-		<li IfModNotActive="wvc.wvcmod.wvcspecific">1.6/NonGenes</li>
+		<li IfModNotActive="wvc.wvcmod.wvcspecific">1.6/Legacy</li>
 	</v1.6>
 </loadFolders>
 

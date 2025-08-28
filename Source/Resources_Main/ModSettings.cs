@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
-		public bool onlyXenotypesMode = false;
+		public bool disabeLegacy = false;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
-		public bool spawnXenoForcerSerumsFromTraders = true;
+		//public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
-			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
+			Scribe_Values.Look(ref disabeLegacy, "onlyXenotypesMode", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
 			//Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref harmony_vanillaFixesTweaksAndCompatability, "harmony_vanillaFixesTweaksAndCompatability", defaultValue: true);
 			// Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
-			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
+			//Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueXenotypeScenarios, "disableUniqueXenotypeScenarios", defaultValue: false);
 			// Info
@@ -406,6 +406,7 @@ namespace WVC_XenotypesAndGenes
 			//listingStandard.Gap();
 			// Misc
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.disabeLegacy, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes_Aptitudes".Translate());
 			if (settings.generateXenotypeForceGenes || Prefs.DevMode)
 			{
@@ -421,7 +422,7 @@ namespace WVC_XenotypesAndGenes
 			//	listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
 			//}
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_vanillaFixesTweaksAndCompatability, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
+			//listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.GapLine();
 			// Serums
 			// if (settings.serumsForAllXenotypes)
@@ -984,7 +985,6 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Begin(rect);
 			// =
 			listingStandard.CheckboxLabeled("WVC_Label_enable_spawnXenotypesInFactions".Translate(), ref settings.enable_spawnXenotypesInFactions, "WVC_ToolTip_enable_spawnXenotypesInFactions".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Undeads".Translate(), ref settings.disableXenotypes_Undeads, "WVC_ToolTip_disableXenotypes_Undeads".Translate());
@@ -1044,7 +1044,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetSettings_ByTemplate(SettingsDef settingsDef)
 		{
-			WVC_Biotech.settings.onlyXenotypesMode = settingsDef.onlyXenotypesMode;
+			WVC_Biotech.settings.disabeLegacy = settingsDef.onlyXenotypesMode;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = settingsDef.hideXaGGenes;
 			WVC_Biotech.settings.disableFurGraphic = settingsDef.disableFurGraphic;
@@ -1062,7 +1062,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
 			// Fix
 			WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability = settingsDef.harmony_vanillaFixesTweaksAndCompatability;
-			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
+			//WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
 			// Info
 			WVC_Biotech.settings.enable_xagHumanComponent = settingsDef.enable_xagHumanComponent;
 			WVC_Biotech.settings.enable_StartingFoodPolicies = settingsDef.enable_StartingFoodPolicies;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True" WVC_XaG_Tag_Genepacks="AllGenePacks">
+  <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True" WVC_XaG_Tag_Genepacks="AllGenePacks" WVC_Legacy_Hook="RemoveMe">
 	<label>genepack</label>
 	<description>A small capsule containing a package of genetic information. To use a genepack, it must be placed in a gene bank near a gene assembler and combined into an implantable xenogerm.\n\nIf not kept in a powered gene bank, this genepack will slowly deteriorate.</description>
 	<thingClass>WVC_XenotypesAndGenes.XaG_Genepack</thingClass>
@@ -39,7 +39,7 @@
 
   <!-- ========== -->
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_Genepack</defName>
 	<label>w-pack</label>
 	<graphicData>
@@ -75,7 +75,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_UltraGenepack</defName>
 	<label>ultrapack</label>
 	<graphicData>
@@ -164,7 +164,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_MechaGenepack</defName>
 	<label>mechapack</label>
 	<graphicData>

@@ -3,7 +3,7 @@
 
   <!-- ============Resurrector============ -->
 
-  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_Craftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_Craftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<graphicData>
 	</graphicData>
 	<recipeMaker>
@@ -39,7 +39,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_NonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_NonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<statBases>
 	  <MarketValue>2450</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
@@ -56,7 +56,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_HybridNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_HybridNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<statBases>
 	  <MarketValue>2750</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>

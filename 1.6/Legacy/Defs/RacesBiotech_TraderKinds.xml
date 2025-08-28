@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <TraderKindDef>
+  <TraderKindDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_Orbital_GenePackTrader</defName>
 	<label>xenogenes trader</label>
 	<orbital>true</orbital>

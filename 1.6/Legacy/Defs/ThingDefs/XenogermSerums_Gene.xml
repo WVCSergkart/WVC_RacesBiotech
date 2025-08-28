@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_ArchotechGeneGiver</defName>
 	<label>gene giver</label>
 	<description>A one-use super-dose of mechanites tuned to add the user a new gene. After using the serum, users' genes will be regrowing.

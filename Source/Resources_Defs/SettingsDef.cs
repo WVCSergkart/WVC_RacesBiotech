@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
-		public bool onlyXenotypesMode = false;
+		public bool onlyXenotypesMode = true;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
-		public bool spawnXenoForcerSerumsFromTraders = true;
+		//public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;

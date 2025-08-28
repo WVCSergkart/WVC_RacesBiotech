@@ -1,0 +1,1 @@
+WVC_Legacy_Hook="RemoveMe"

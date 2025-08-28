@@ -15,7 +15,7 @@
 	<presetOrder>20</presetOrder>
 	<onlyXenotypesMode>true</onlyXenotypesMode>
 	<!-- Traders Sell Serums -->
-	<spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders>
+	<!-- <spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders> -->
 	<!-- <chimeraMinGeneCopyChance>0.55</chimeraMinGeneCopyChance> -->
 	<!-- <reincarnation_MinChronoAge>500</reincarnation_MinChronoAge> -->
 	<!-- <gestatedDryads_AnomalyRegeneration>10</gestatedDryads_AnomalyRegeneration> -->
@@ -42,7 +42,7 @@
 	<presetOrder>30</presetOrder>
 	<onlyXenotypesMode>true</onlyXenotypesMode>
 	<hideXaGGenes>true</hideXaGGenes>
-	<spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders>
+	<!-- <spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders> -->
 	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
 	<generateSkillGenes>false</generateSkillGenes>
 	<disableUniqueXenotypeScenarios>false</disableUniqueXenotypeScenarios>
@@ -55,7 +55,7 @@
 	<presetOrder>35</presetOrder>
 	<!-- genes -->
 	<hideXaGGenes>false</hideXaGGenes>
-	<spawnXenoForcerSerumsFromTraders>true</spawnXenoForcerSerumsFromTraders>
+	<!-- <spawnXenoForcerSerumsFromTraders>true</spawnXenoForcerSerumsFromTraders> -->
 	<enable_flatGenesSpawnChances>true</enable_flatGenesSpawnChances>
 	<generateSkillGenes>true</generateSkillGenes>
 	<!-- xenos -->

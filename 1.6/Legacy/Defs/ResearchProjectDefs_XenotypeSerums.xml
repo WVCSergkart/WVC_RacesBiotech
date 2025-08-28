@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_RetuneSerum</defName>
 	<label>serum retuning</label>
 	<description>Allows you to change the xenotype in the serum.</description>
@@ -12,7 +12,7 @@
 
   <!-- ======================================================================= -->
 
-  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_XenotypeSerumCrafting</defName>
 	<label>xenotype serums</label>
 	<description>Advanced injector technology to quickly overwrite the genetic code. Allows you to craft xenotype serums. To assign a xenotype, retune technology is needed.</description>
@@ -25,7 +25,7 @@
 	</prerequisites>
   </ResearchProjectDef>
 
-  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</defName>
 	<label>mech serums</label>
 	<description>Advanced injector technology to resurrect a fresh corpse.</description>

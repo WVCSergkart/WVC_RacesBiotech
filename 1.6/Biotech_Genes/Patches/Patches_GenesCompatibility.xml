@@ -4,38 +4,71 @@
 	<!-- ============================ -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>onlyXenotypesMode</settingName>
+		<settingName>disabeLegacy</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
 
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/TraderKindDef[defName="WVC_Orbital_GenePackTrader"]</xpath>
-					<success>Always</success>
-				</li>
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/TraderKindDef[defName="WVC_Orbital_GenePackTrader"]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+					  <!-- <tradeTags> -->
+						<!-- <li>ExoticMisc</li> -->
+					  <!-- </tradeTags> -->
+					<!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+					  <!-- <tradeability>Sellable</tradeability> -->
+					<!-- </value> -->
+				<!-- </li> -->
 
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath>
+					<xpath>/Defs/TraderKindDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath>
+					<xpath>/Defs/ThingDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
 					<success>Always</success>
 				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
 					<success>Always</success>
-					<value>
-					  <tradeTags>
-						<li>ExoticMisc</li>
-					  </tradeTags>
-					</value>
 				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RulePackDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
 					<success>Always</success>
-					<value>
-					  <tradeability>Sellable</tradeability>
-					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ResearchProjectDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/FleckDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/EffecterDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
 				</li>
 
 				<!-- <li Class="PatchOperationRemove"> -->
@@ -72,6 +105,17 @@
 				  </value>
 				</li>
 
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+				  <value>
+					  <li Class="StockGenerator_Tag">
+						<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+						<thingDefCountRange>0~2</thingDefCountRange>
+						<countRange>1~1</countRange>
+					  </li>
+				  </value>
+				</li>
+
 				<!-- <li Class="PatchOperationAdd"> -->
 				  <!-- <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath> -->
 				  <!-- <value> -->
@@ -81,23 +125,23 @@
 				  <!-- </value> -->
 				<!-- </li> -->
 
-				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-					<settingName>spawnXenoForcerSerumsFromTraders</settingName>
-					<caseTrue Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationAdd">
-							  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
-							  <value>
-								  <li Class="StockGenerator_Tag">
-									<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
-									<thingDefCountRange>0~2</thingDefCountRange>
-									<countRange>1~1</countRange>
-								  </li>
-							  </value>
-							</li>
-						</operations>
-					</caseTrue>
-				</li>
+				<!-- <li Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+					<!-- <settingName>spawnXenoForcerSerumsFromTraders</settingName> -->
+					<!-- <caseTrue Class="PatchOperationSequence"> -->
+						<!-- <operations> -->
+							<!-- <li Class="PatchOperationAdd"> -->
+							  <!-- <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath> -->
+							  <!-- <value> -->
+								  <!-- <li Class="StockGenerator_Tag"> -->
+									<!-- <tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag> -->
+									<!-- <thingDefCountRange>0~2</thingDefCountRange> -->
+									<!-- <countRange>1~1</countRange> -->
+								  <!-- </li> -->
+							  <!-- </value> -->
+							<!-- </li> -->
+						<!-- </operations> -->
+					<!-- </caseTrue> -->
+				<!-- </li> -->
 
 			</operations>
 		</caseFalse>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings" WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_UltranitesSpawner</defName>
 	<label>subcore gestation vat</label>
 	<!-- <description>Artificial environment for gestation of microscopic hybrid machines.</description> -->
@@ -85,7 +85,7 @@
 	</tradeTags>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings" WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings" WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler</defName>
 	<label>uranium recycler</label>
 	<description>A glittertech device that deconstructs toxic wastepacks into uranium using advanced molecular processes. The process requires considerable amounts of power.</description>
@@ -185,7 +185,7 @@
 	</comps>
   </ThingDef>
 
-  <EffecterDef>
+  <EffecterDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</defName>
 	<children>
 	  <li>
@@ -218,7 +218,7 @@
 	</children>
   </EffecterDef>
 
-  <FleckDef ParentName="FleckBase_Thrown">
+  <FleckDef ParentName="FleckBase_Thrown" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Forward</defName>
 	<altitudeLayer>Building</altitudeLayer>
 	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>
@@ -232,7 +232,7 @@
 	</graphicData>
   </FleckDef>
 
-  <FleckDef ParentName="FleckBase_Thrown">
+  <FleckDef ParentName="FleckBase_Thrown" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Backward</defName>
 	<altitudeLayer>Building</altitudeLayer>
 	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>

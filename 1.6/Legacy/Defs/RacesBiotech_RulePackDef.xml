@@ -27,7 +27,7 @@
 
   <!-- ======================================================= -->
 
-  <RulePackDef>
+  <RulePackDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_NamerGenepack</defName>
 	<rulePack>
 	  <rulesStrings>
@@ -39,7 +39,7 @@
 	</rulePack>
   </RulePackDef>
 
-  <RulePackDef>
+  <RulePackDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_NamerUltraGenepack</defName>
 	<rulePack>
 	  <rulesStrings>
@@ -51,7 +51,7 @@
 	</rulePack>
   </RulePackDef>
 
-  <RulePackDef>
+  <RulePackDef WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_NamerMechaGenepack</defName>
 	<rulePack>
 	  <rulesStrings>
