@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!geneCount.allowedGeneCategoryDefs.NullOrEmpty() && !WVC_Biotech.settings.hideXaGGenes && !geneCount.allowedGeneCategoryDefs.Contains(gene.displayCategory))
+			if (!geneCount.allowedGeneCategoryDefs.NullOrEmpty() && !geneCount.allowedGeneCategoryDefs.Contains(gene.displayCategory))
 			{
 				return false;
 			}

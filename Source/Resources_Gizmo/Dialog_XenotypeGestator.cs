@@ -136,15 +136,15 @@ namespace WVC_XenotypesAndGenes
                         matchPercent++;
                     }
 					else if (pawnGene.displayCategory == xenoGene.displayCategory)
-                    {
-						if (!WVC_Biotech.settings.hideXaGGenes)
-						{
-							matchPercent += 0.4f;
-						}
-						else
-						{
-							matchPercent += 0.05f;
-						}
+					{
+						matchPercent += 0.4f;
+						//if (!WVC_Biotech.settings.hideXaGGenes)
+						//{
+						//}
+						//else
+						//{
+						//	matchPercent += 0.05f;
+						//}
                     }
                 }
             }
