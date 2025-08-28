@@ -296,6 +296,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			settings = GetSettings<WVC_BiotechSettings>();
 			//new Harmony("wvc.sergkart.races.biotech").PatchAll();
+			if (WVC_Biotech.settings.firstModLaunch)
+			{
+				WVC_Biotech.settings.disableLegacy = true;
+			}
 			HarmonyPatches.HarmonyUtility.HarmonyPatches();
 		}
 
