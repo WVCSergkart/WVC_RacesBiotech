@@ -15,6 +15,8 @@ namespace WVC_XenotypesAndGenes
 		public bool firstModLaunch = true;
 		// public bool advancedDevMode = false;
 
+		public bool disableLegacy = false;
+
 		// Main
 		// Graphic
 		public bool hideXaGGenes = false;
@@ -28,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
-		public bool disabeLegacy = false;
+		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
@@ -147,7 +149,8 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
-			Scribe_Values.Look(ref disabeLegacy, "onlyXenotypesMode", defaultValue: false);
+			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
+			Scribe_Values.Look(ref disableLegacy, "disableLegacy", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
 			//Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
@@ -406,7 +409,7 @@ namespace WVC_XenotypesAndGenes
 			//listingStandard.Gap();
 			// Misc
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.disabeLegacy, "WVC_ToolTip_onlyXenotypesMode".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableLegacy".Translate(), ref settings.disableLegacy, "WVC_ToolTip_disableLegacy".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes_Aptitudes".Translate());
 			if (settings.generateXenotypeForceGenes || Prefs.DevMode)
 			{
@@ -984,6 +987,7 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
+			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_spawnXenotypesInFactions".Translate(), ref settings.enable_spawnXenotypesInFactions, "WVC_ToolTip_enable_spawnXenotypesInFactions".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
@@ -1044,7 +1048,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetSettings_ByTemplate(SettingsDef settingsDef)
 		{
-			WVC_Biotech.settings.disabeLegacy = settingsDef.onlyXenotypesMode;
+			WVC_Biotech.settings.onlyXenotypesMode = settingsDef.onlyXenotypesMode;
+			WVC_Biotech.settings.disableLegacy = settingsDef.disableLegacy;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = settingsDef.hideXaGGenes;
 			WVC_Biotech.settings.disableFurGraphic = settingsDef.disableFurGraphic;

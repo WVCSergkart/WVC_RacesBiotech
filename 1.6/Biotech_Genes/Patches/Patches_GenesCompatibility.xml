@@ -4,146 +4,109 @@
 	<!-- ============================ -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>disabeLegacy</settingName>
+		<settingName>disableLegacy</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
 
-				<!-- <li Class="PatchOperationRemove"> -->
-					<!-- <xpath>/Defs/TraderKindDef[defName="WVC_Orbital_GenePackTrader"]</xpath> -->
-					<!-- <success>Always</success> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationRemove"> -->
-					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath> -->
-					<!-- <success>Always</success> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationRemove"> -->
-					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath> -->
-					<!-- <success>Always</success> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationReplace"> -->
-					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath> -->
-					<!-- <success>Always</success> -->
-					<!-- <value> -->
-					  <!-- <tradeTags> -->
-						<!-- <li>ExoticMisc</li> -->
-					  <!-- </tradeTags> -->
-					<!-- </value> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationReplace"> -->
-					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath> -->
-					<!-- <success>Always</success> -->
-					<!-- <value> -->
-					  <!-- <tradeability>Sellable</tradeability> -->
-					<!-- </value> -->
-				<!-- </li> -->
-
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/TraderKindDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/RecipeDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/RulePackDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ResearchProjectDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/FleckDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/EffecterDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-					<success>Always</success>
-				</li>
-
-				<!-- <li Class="PatchOperationRemove"> -->
-					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Serums="All_XaG_XenotypeSerums"]/recipeMaker</xpath> -->
-					<!-- <success>Always</success> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationRemove"> -->
-					<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath> -->
-					<!-- <success>Always</success> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationReplace"> -->
-					<!-- <xpath>/Defs/ResearchTabDef[defName="WVC_TechTab"]/visibleByDefault</xpath> -->
-					<!-- <success>Always</success> -->
-					<!-- <value> -->
-					  <!-- <visibleByDefault>false</visibleByDefault> -->
-					<!-- </value> -->
-				<!-- </li> -->
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/TraderKindDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/ThingDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/RecipeDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/RulePackDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/ResearchProjectDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/FleckDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/EffecterDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+						<success>Always</success>
+					</li>
 
 			</operations>
 		</caseTrue>
-		<caseFalse Class="PatchOperationSequence">
-			<operations>
+		<caseFalse Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+			<settingName>onlyXenotypesMode</settingName>
+			<caseTrue Class="PatchOperationSequence">
+				<operations>
 
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
-				  <value>
-					  <li Class="StockGenerator_Tag">
-						<tradeTag>WVC_GenePacks</tradeTag>
-						<thingDefCountRange>0~3</thingDefCountRange>
-						<countRange>1~1</countRange>
-					  </li>
-				  </value>
-				</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/TraderKindDef[defName="WVC_Orbital_GenePackTrader"]</xpath>
+						<success>Always</success>
+					</li>
 
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
-				  <value>
-					  <li Class="StockGenerator_Tag">
-						<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
-						<thingDefCountRange>0~2</thingDefCountRange>
-						<countRange>1~1</countRange>
-					  </li>
-				  </value>
-				</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath>
+						<success>Always</success>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath>
+						<success>Always</success>
+						<value>
+						  <tradeTags>
+							<li>ExoticMisc</li>
+						  </tradeTags>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath>
+						<success>Always</success>
+						<value>
+						  <tradeability>Sellable</tradeability>
+						</value>
+					</li>
 
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"> -->
-						<!-- <xenotypeCostMult>320</xenotypeCostMult> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
+				</operations>
+			</caseTrue>
+			<caseFalse Class="PatchOperationSequence">
+				<operations>
 
-				<!-- <li Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
-					<!-- <settingName>spawnXenoForcerSerumsFromTraders</settingName> -->
-					<!-- <caseTrue Class="PatchOperationSequence"> -->
-						<!-- <operations> -->
-							<!-- <li Class="PatchOperationAdd"> -->
-							  <!-- <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath> -->
-							  <!-- <value> -->
-								  <!-- <li Class="StockGenerator_Tag"> -->
-									<!-- <tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag> -->
-									<!-- <thingDefCountRange>0~2</thingDefCountRange> -->
-									<!-- <countRange>1~1</countRange> -->
-								  <!-- </li> -->
-							  <!-- </value> -->
-							<!-- </li> -->
-						<!-- </operations> -->
-					<!-- </caseTrue> -->
-				<!-- </li> -->
+					<li Class="PatchOperationAdd">
+					  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+					  <value>
+						  <li Class="StockGenerator_Tag">
+							<tradeTag>WVC_GenePacks</tradeTag>
+							<thingDefCountRange>0~3</thingDefCountRange>
+							<countRange>1~1</countRange>
+						  </li>
+					  </value>
+					</li>
 
-			</operations>
+					<li Class="PatchOperationAdd">
+					  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+					  <value>
+						  <li Class="StockGenerator_Tag">
+							<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+							<thingDefCountRange>0~2</thingDefCountRange>
+							<countRange>1~1</countRange>
+						  </li>
+					  </value>
+					</li>
+
+				</operations>
+			</caseFalse>
 		</caseFalse>
 	</Operation>
 
@@ -164,13 +127,6 @@
 	</Operation>
 
 	<!-- ======================================================== -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/FactionDef/caravanTraderKinds[li="Caravan_Outlander_Exotic"]</xpath> -->
-	  <!-- <value> -->
-		  <!-- <li>WVC_GenePackTrader</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'ToxResist_Total') or contains(text(),'ToxicEnvironmentResistance_Total') or contains(text(),'Mashed_Ashlands_AshResistance_Perfect')]]]/nullifyingGenes</xpath>

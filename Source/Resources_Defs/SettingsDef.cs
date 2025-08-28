@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 		public bool firstModLaunch = true;
 		// public bool advancedDevMode = false;
 
+		public bool disableLegacy = true;
+
 		// Main
 		// Graphic
 		public bool hideXaGGenes = false;
@@ -24,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
-		public bool onlyXenotypesMode = true;
+		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;

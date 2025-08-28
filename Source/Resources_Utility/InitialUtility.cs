@@ -407,7 +407,8 @@ namespace WVC_XenotypesAndGenes
 				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
 				SetValues();
 				WVC_Biotech.settings.firstModLaunch = false;
-				WVC_Biotech.settings.disabeLegacy = true;
+				//WVC_Biotech.settings.onlyXenotypesMode = true;
+				WVC_Biotech.settings.disableLegacy = true;
 				WVC_Biotech.settings.Write();
 			}
 			// foreach (XenotypeDef item in ListsUtility.GetWhiteListedXenotypes(true, true))
