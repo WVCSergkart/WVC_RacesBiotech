@@ -61,21 +61,21 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<string> GetWhiteListedXenotypesForFilter()
-		{
-			List<string> whiteListedXenotypesFromDef = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				if (item.whiteListedXenotypesForFilter.NullOrEmpty())
-				{
-					continue;
-				}
-				whiteListedXenotypesFromDef.AddRange(item.whiteListedXenotypesForFilter);
-			}
-			return whiteListedXenotypesFromDef;
-		}
+		//public static List<string> GetWhiteListedXenotypesForFilter()
+		//{
+		//	List<string> whiteListedXenotypesFromDef = new();
+		//	foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+		//	{
+		//		if (item.whiteListedXenotypesForFilter.NullOrEmpty())
+		//		{
+		//			continue;
+		//		}
+		//		whiteListedXenotypesFromDef.AddRange(item.whiteListedXenotypesForFilter);
+		//	}
+		//	return whiteListedXenotypesFromDef;
+		//}
 
-		public static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
+		private static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
 		{
 			List<string> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -88,10 +88,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (addFromFilter)
 			{
-				if (WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
-				{
-					return list;
-				}
+				//if (WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
+				//{
+				//	return list;
+				//}
 				InitialUtility.SetValues();
 				// WVC_Biotech.settings.Write();
 				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
@@ -209,8 +209,8 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> allDevXenotypeDefs = null;
-		public static List<XenotypeDef> GetDevXenotypeDefs()
+		private static List<XenotypeDef> allDevXenotypeDefs = null;
+		private static List<XenotypeDef> GetDevXenotypeDefs()
 		{
 			if (allDevXenotypeDefs == null)
 			{

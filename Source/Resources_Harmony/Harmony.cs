@@ -35,7 +35,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (WVC_Biotech.settings.hideXaGGenes)
 				{
-					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
+					//harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
+					harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
 				}
 				//Log.Error("2");
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
@@ -160,14 +161,32 @@ namespace WVC_XenotypesAndGenes
 
 			// Hide genes in editor
 
-			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+			//public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+			//{
+			//	if (geneDef.IsXenoGenesDef())
+			//	{
+			//		__result = false;
+			//		return false;
+			//	}
+			//	return true;
+			//}
+
+			private static List<GeneDef> cachedGeneDefsInOrder;
+			public static void Patch_HideGenes(ref List<GeneDef> __result)
 			{
-				if (geneDef.IsXenoGenesDef())
-				{
-					__result = false;
-					return false;
+				if (cachedGeneDefsInOrder == null)
+                {
+					List<GeneDef> newList = new();
+					foreach (GeneDef geneDef in __result.ToList())
+                    {
+						if (!geneDef.IsXenoGenesDef())
+                        {
+							newList.Add(geneDef);
+						}
+                    }
+					cachedGeneDefsInOrder = newList;
 				}
-				return true;
+				__result = cachedGeneDefsInOrder;
 			}
 
 			// Backgroud

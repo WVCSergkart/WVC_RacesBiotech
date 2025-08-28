@@ -15,11 +15,22 @@ namespace WVC_XenotypesAndGenes
 		public bool firstModLaunch = true;
 		// public bool advancedDevMode = false;
 
-		public bool disableLegacy = false;
+		private bool disableLegacy = false;
+		public bool EnableLegacyMode
+		{
+			get
+			{
+				return !disableLegacy;
+			}
+			set
+			{
+				disableLegacy = !value;
+			}
+		}
 
-		// Main
-		// Graphic
-		public bool hideXaGGenes = false;
+        // Main
+        // Graphic
+        public bool hideXaGGenes = false;
 		public bool disableFurGraphic = false;
 		public bool enable_FurskinIsSkinAutopatch = false;
 		public bool disableAllGraphic = false;
@@ -281,7 +292,10 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref showGenesSettingsGizmo, "showGenesSettingsGizmo", defaultValue: true);
 			Scribe_Values.Look(ref hideGeneHediffs, "hideGeneHediffs", defaultValue: false);
 			// End
-			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
+			if (EnableLegacyMode || generateXenotypeForceGenes)
+			{
+				Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
+			}
 		}
 	}
 
@@ -299,7 +313,7 @@ namespace WVC_XenotypesAndGenes
 			//new Harmony("wvc.sergkart.races.biotech").PatchAll();
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
-				WVC_Biotech.settings.disableLegacy = true;
+				WVC_Biotech.settings.EnableLegacyMode = false;
 				WVC_Biotech.settings.generateSkillGenes = false;
 			}
 			HarmonyPatches.HarmonyUtility.HarmonyPatches();
@@ -334,17 +348,26 @@ namespace WVC_XenotypesAndGenes
 					PageIndex = 2;
 					WriteSettings();
 				}, PageIndex == 2),
-				new TabRecord("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
-				{
-					PageIndex = 3;
-					WriteSettings();
-				}, PageIndex == 3),
+				//new TabRecord("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
+				//{
+				//	PageIndex = 3;
+				//	WriteSettings();
+				//}, PageIndex == 3),
 				new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate(), delegate
 				{
 					PageIndex = 4;
 					WriteSettings();
 				}, PageIndex == 4)
 			};
+			if (settings.EnableLegacyMode || settings.generateXenotypeForceGenes)
+			{
+				TabRecord newXenotypeFilterTab = new("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
+				{
+					PageIndex = 3;
+					WriteSettings();
+				}, PageIndex == 3);
+				tabs.Add(newXenotypeFilterTab);
+			}
 			TabDrawer.DrawTabs(rect, tabs);
 			switch (PageIndex)
 			{
@@ -415,7 +438,12 @@ namespace WVC_XenotypesAndGenes
 			//listingStandard.Gap();
 			// Misc
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableLegacy".Translate(), ref settings.disableLegacy, "WVC_ToolTip_disableLegacy".Translate());
+			if (settings.EnableLegacyMode || Prefs.DevMode)
+			{
+				bool enableLegacy = settings.EnableLegacyMode;
+				listingStandard.CheckboxLabeled("WVC_Label_disableLegacy".Translate(), ref enableLegacy, "WVC_ToolTip_disableLegacy".Translate());
+				settings.EnableLegacyMode = enableLegacy;
+			}
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes_Aptitudes".Translate());
 			if (settings.generateXenotypeForceGenes || Prefs.DevMode)
 			{
@@ -1056,7 +1084,7 @@ namespace WVC_XenotypesAndGenes
 		public static void ResetSettings_ByTemplate(SettingsDef settingsDef)
 		{
 			WVC_Biotech.settings.onlyXenotypesMode = settingsDef.onlyXenotypesMode;
-			WVC_Biotech.settings.disableLegacy = settingsDef.disableLegacy;
+			WVC_Biotech.settings.EnableLegacyMode = settingsDef.enableLegacy;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = settingsDef.hideXaGGenes;
 			WVC_Biotech.settings.disableFurGraphic = settingsDef.disableFurGraphic;

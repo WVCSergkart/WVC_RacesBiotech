@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool firstModLaunch = true;
 		// public bool advancedDevMode = false;
 
-		public bool disableLegacy = true;
+		public bool enableLegacy = false;
 
 		// Main
 		// Graphic

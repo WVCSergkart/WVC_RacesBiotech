@@ -280,8 +280,8 @@ Technologies, buildings and crafting will still be available.
 A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_disableLegacy>Disable legacy</WVC_Label_disableLegacy>
-	<WVC_ToolTip_disableLegacy>If enabled, disables legacy content. This includes xenotype serums, genepacks, some technologies, reward buildings, some old genes, orbital trader.\n\nAt the moment, all this is legacy, and in the future it is planned to be cut completely, since the balance of the mod is built around other mechanics and ways of obtaining genes.\n\nA restart is required.</WVC_ToolTip_disableLegacy>
+	<WVC_Label_disableLegacy>Enable legacy mode</WVC_Label_disableLegacy>
+	<WVC_ToolTip_disableLegacy>If enabled, enables the legacy content of the mod. This includes xenotype serums, genepacks, some technologies, reward buildings, some old genes, orbital trader.\n\nAt the moment, all this is legacy, and in the future it is planned to be cut completely, since the balance of the mod is built around other mechanics and ways of obtaining genes.\n\nA restart is required.</WVC_ToolTip_disableLegacy>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_GeneGizmosDefaultCollapse>Collapse gene gizmos by default</WVC_Label_GeneGizmosDefaultCollapse>

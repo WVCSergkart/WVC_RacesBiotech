@@ -185,22 +185,26 @@ namespace WVC_XenotypesAndGenes
 			GeneChance(geneDef);
 			UniqueDescAutopatch(geneDef);
 			xenogenesGenes.Add(geneDef);
-			if (!WVC_Biotech.settings.hideXaGGenes)
+			if (geneDef.displayCategory == GeneCategoryDefOf.Miscellaneous)
 			{
-				if (geneDef.displayCategory == GeneCategoryDefOf.Miscellaneous)
-				{
-					geneDef.displayCategory = MainDefOf.WVC_Miscellaneous;
-				}
-				return;
+				geneDef.displayCategory = MainDefOf.WVC_Miscellaneous;
 			}
-			if (geneDef.biostatArc != 0)
-			{
-				geneDef.displayCategory = GeneCategoryDefOf.Archite;
-			}
-			else
-			{
-				geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
-			}
+			//if (!WVC_Biotech.settings.hideXaGGenes)
+			//{
+			//	if (geneDef.displayCategory == GeneCategoryDefOf.Miscellaneous)
+			//	{
+			//		geneDef.displayCategory = MainDefOf.WVC_Miscellaneous;
+			//	}
+			//	return;
+			//}
+			//if (geneDef.biostatArc != 0)
+			//{
+			//	geneDef.displayCategory = GeneCategoryDefOf.Archite;
+			//}
+			//else
+			//{
+			//	geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+			//}
 		}
 
 		public static void UniqueDescAutopatch(GeneDef geneDef)
@@ -242,7 +246,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (mutantDef.disablesGenes.NullOrEmpty())
+				if (mutantDef.disablesGenes == null)
 				{
 					mutantDef.disablesGenes = new();
 				}
@@ -401,11 +405,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
-				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
-				SetValues();
+				//WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
+				//SetValues();
 				WVC_Biotech.settings.firstModLaunch = false;
 				//WVC_Biotech.settings.onlyXenotypesMode = true;
-				WVC_Biotech.settings.disableLegacy = true;
+				WVC_Biotech.settings.EnableLegacyMode = false;
 				WVC_Biotech.settings.Write();
 			}
 			// foreach (XenotypeDef item in ListsUtility.GetWhiteListedXenotypes(true, true))
@@ -416,7 +420,14 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetValues()
 		{
-			WVC_Biotech.allXenotypes = ListsUtility.GetWhiteListedXenotypes(false);
+			if (WVC_Biotech.cachedXenotypesFilter == null)
+            {
+				WVC_Biotech.cachedXenotypesFilter = new();
+			}
+			if (WVC_Biotech.allXenotypes.NullOrEmpty())
+			{
+				WVC_Biotech.allXenotypes = ListsUtility.GetAllXenotypesExceptAndroids();
+			}
 			foreach (XenotypeDef xenotypeDef in WVC_Biotech.allXenotypes)
 			{
 

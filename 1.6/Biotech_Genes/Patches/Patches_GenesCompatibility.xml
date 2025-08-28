@@ -4,46 +4,46 @@
 	<!-- ============================ -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>disableLegacy</settingName>
-		<caseTrue Class="PatchOperationSequence">
+		<settingName>EnableLegacyMode</settingName>
+		<caseFalse Class="PatchOperationSequence">
 			<operations>
 
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/TraderKindDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/ThingDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/RecipeDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/RulePackDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/ResearchProjectDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/FleckDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/EffecterDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
-					<li Class="PatchOperationRemove">
-						<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
-						<success>Always</success>
-					</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/TraderKindDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RulePackDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ResearchProjectDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/FleckDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/EffecterDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
 
 			</operations>
-		</caseTrue>
-		<caseFalse Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		</caseFalse>
+		<caseTrue Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 			<settingName>onlyXenotypesMode</settingName>
 			<caseTrue Class="PatchOperationSequence">
 				<operations>
@@ -107,23 +107,30 @@
 
 				</operations>
 			</caseFalse>
-		</caseFalse>
+		</caseTrue>
 	</Operation>
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>hideXaGGenes</settingName>
-		<caseFalse Class="PatchOperationSequence">
-			<operations>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>hideXaGGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
 
-				<li Class="PatchOperationReplace">
-				  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
-				  <value>
-					  <displayCategory>WVC_CosmeticVoices</displayCategory>
-				  </value>
-				</li>
+				<!-- <li Class="PatchOperationReplace"> -->
+				  <!-- <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath> -->
+				  <!-- <value> -->
+					  <!-- <displayCategory>WVC_CosmeticVoices</displayCategory> -->
+				  <!-- </value> -->
+				<!-- </li> -->
 
-			</operations>
-		</caseFalse>
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
+	  <value>
+		  <displayCategory>WVC_CosmeticVoices</displayCategory>
+	  </value>
 	</Operation>
 
 	<!-- ======================================================== -->
