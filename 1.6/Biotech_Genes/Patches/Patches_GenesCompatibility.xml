@@ -3,8 +3,7 @@
 
 	<!-- ============================ -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>EnableLegacyMode</settingName>
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationLegacyMode">
 		<caseFalse Class="PatchOperationSequence">
 			<operations>
 

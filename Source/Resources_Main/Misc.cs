@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class PatchOperationOptional : PatchOperation
+	public class PatchOperationOptional : PatchOperation
 	{
 		public string settingName;
 		public PatchOperation caseTrue;
@@ -21,6 +21,23 @@ namespace WVC_XenotypesAndGenes
 				return caseTrue.Apply(xml);
 			}
 			else if (WVC_Biotech.settings.GetEnabledSettings.Contains(settingName) != true && caseFalse != null)
+			{
+				return caseFalse.Apply(xml);
+			}
+			return true;
+		}
+	}
+
+	public class PatchOperationLegacyMode : PatchOperationOptional
+	{
+
+		protected override bool ApplyWorker(XmlDocument xml)
+		{
+			if (WVC_Biotech.settings.EnableLegacyMode && caseTrue != null)
+			{
+				return caseTrue.Apply(xml);
+			}
+			else if (!WVC_Biotech.settings.EnableLegacyMode && caseFalse != null)
 			{
 				return caseFalse.Apply(xml);
 			}
