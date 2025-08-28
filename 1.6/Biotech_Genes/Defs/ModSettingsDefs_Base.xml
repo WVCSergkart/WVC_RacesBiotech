@@ -56,19 +56,20 @@
 	<!-- genes -->
 	<hideXaGGenes>false</hideXaGGenes>
 	<!-- <spawnXenoForcerSerumsFromTraders>true</spawnXenoForcerSerumsFromTraders> -->
-	<enable_flatGenesSpawnChances>true</enable_flatGenesSpawnChances>
+	<generalGenesRarity_Divisor>200</generalGenesRarity_Divisor>
 	<generateSkillGenes>true</generateSkillGenes>
 	<!-- xenos -->
 	<disableUniqueXenotypeScenarios>true</disableUniqueXenotypeScenarios>
 	<onlyXenotypesMode>false</onlyXenotypesMode>
-	<enable_OverOverridableGenesMechanic>false</enable_OverOverridableGenesMechanic>
+	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
+	<disableXenotypes_MainSwitch>true</disableXenotypes_MainSwitch>
 	<disableXenotypes_Misc>true</disableXenotypes_Misc>
 	<disableXenotypes_Bloodeaters>true</disableXenotypes_Bloodeaters>
 	<disableXenotypes_GolemMasters>true</disableXenotypes_GolemMasters>
 	<disableXenotypes_Mechalike>true</disableXenotypes_Mechalike>
 	<disableXenotypes_Psycasters>true</disableXenotypes_Psycasters>
 	<disableXenotypes_Undeads>true</disableXenotypes_Undeads>
-	<disableXenotypes_MainSwitch>true</disableXenotypes_MainSwitch>
+	<disableXenotypes_MutantMakers>true</disableXenotypes_MutantMakers>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
@@ -96,7 +97,6 @@
 
 	<!-- Default Settings -->
 
-
 	<!-- // Main -->
 	<!-- // Graphic -->
 	<!-- public bool hideXaGGenes = false; -->
@@ -107,7 +107,7 @@
 	<!-- public bool disableEyesGraphic = false; -->
 	<!-- public bool useMaskForFurskinGenes = true; -->
 	<!-- // Generator -->
-	<!-- public bool generateSkillGenes = true; -->
+	<!-- public bool generateSkillGenes = false; -->
 	<!-- public bool generateXenotypeForceGenes = false; -->
 	<!-- // Genes -->
 	<!-- public bool onlyXenotypesMode = false; -->
@@ -127,7 +127,6 @@
 	<!-- public bool enable_StartingFoodPolicies = true; -->
 	<!-- // Fix -->
 	<!-- public bool harmony_vanillaFixesTweaksAndCompatability = true; -->
-	<!-- public bool spawnXenoForcerSerumsFromTraders = true; -->
 	<!-- public bool resetGenesOnLoad = false; -->
 	<!-- public bool fixGeneAbilitiesOnLoad = false; -->
 	<!-- public bool fixGeneTypesOnLoad = false; -->
@@ -159,6 +158,8 @@
 	<!-- public IntRange falselink_mechsToSpawnRange = new(1, 6); -->
 	<!-- public float voidlink_mechCostFactor = 2f; -->
 	<!-- public float voidlink_mechCostLimit = 99f; -->
+	<!-- public float voidlink_resourceGainFromMechsFactor = 0.05f; -->
+	<!-- public bool voidlink_dynamicResourceLimit = true; -->
 	<!-- // Shapeshifter Morpher Archiver Traitshifter -->
 	<!-- public float shapeshifer_GeneCellularRegeneration = 1f; -->
 	<!-- public float shapeshifer_BaseGenesMatch = 0.7f; -->
@@ -198,7 +199,7 @@
 	<!-- public bool showGenesSettingsGizmo = true; -->
 	<!-- public bool hideGeneHediffs = false; -->
 	<!-- // ExtraSettings -->
-	<!-- public bool enable_flatGenesSpawnChances = false; -->
+	<!-- public float generalGenesRarity_Divisor = 0f; -->
 	<!-- public bool offsetMarketPriceFromGenes = false; -->
 	<!-- public bool enable_HideMechanitorButtonsPatch = false; -->
 

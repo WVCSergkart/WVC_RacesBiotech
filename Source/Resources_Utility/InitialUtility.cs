@@ -69,7 +69,6 @@ namespace WVC_XenotypesAndGenes
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
 			MutantsPatch(xenogenesGenes);
-			FlatGenesChances(xenogenesGenes);
 		}
 
 		public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
@@ -183,10 +182,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (geneDef.selectionWeight > 0.01f)
-			{
-				geneDef.selectionWeight = 0.001f;
-			}
+			GeneChance(geneDef);
 			UniqueDescAutopatch(geneDef);
 			xenogenesGenes.Add(geneDef);
 			if (!WVC_Biotech.settings.hideXaGGenes)
@@ -281,27 +277,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static void FlatGenesChances(List<GeneDef> xenogenesGenes)
+		private static void GeneChance(GeneDef geneDef)
 		{
-			if (!WVC_Biotech.settings.enable_flatGenesSpawnChances)
+			if (WVC_Biotech.settings.generalGenesRarity_Divisor > 0f)
+            {
+                if (geneDef.selectionWeight <= 0f || !geneDef.canGenerateInGeneSet)
+                {
+                    return;
+                }
+                geneDef.selectionWeight = 1f / WVC_Biotech.settings.generalGenesRarity_Divisor;
+                if (geneDef.prerequisite != null)
+                {
+                    geneDef.selectionWeight *= 0.1f;
+                }
+                GeneExtension_General extension = geneDef?.GetModExtension<GeneExtension_General>();
+                if (extension != null && extension.isAptitude)
+                {
+                    geneDef.selectionWeight *= 0.02f;
+                }
+            }
+            else if (geneDef.selectionWeight > 0.01f)
 			{
-				return;
-			}
-			foreach (GeneDef geneDef in xenogenesGenes)
-			{
-				if (geneDef.selectionWeight > 0f)
-				{
-					geneDef.selectionWeight = 1f / xenogenesGenes.Count;
-					if (geneDef.prerequisite != null)
-					{
-						geneDef.selectionWeight *= 0.1f;
-					}
-					GeneExtension_General extension = geneDef?.GetModExtension<GeneExtension_General>();
-					if (extension != null && extension.isAptitude)
-					{
-						geneDef.selectionWeight *= 0.02f;
-					}
-				}
+				geneDef.selectionWeight = 0.001f;
 			}
 		}
 

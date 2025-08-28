@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int presetOrder = 0;
 
-		public bool firstModLaunch = true;
+		// public bool firstModLaunch = true;
 		// public bool advancedDevMode = false;
 
 		public bool disableLegacy = true;
@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableEyesGraphic = false;
 		public bool useMaskForFurskinGenes = true;
 		// Generator
-		public bool generateSkillGenes = true;
+		public bool generateSkillGenes = false;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
@@ -116,7 +116,8 @@ namespace WVC_XenotypesAndGenes
 		public bool showGenesSettingsGizmo = true;
 		public bool hideGeneHediffs = false;
 		// ExtraSettings
-		public bool enable_flatGenesSpawnChances = false;
+		//public bool enable_flatGenesSpawnChances = false;
+		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
 		public bool enable_HideMechanitorButtonsPatch = false;
 

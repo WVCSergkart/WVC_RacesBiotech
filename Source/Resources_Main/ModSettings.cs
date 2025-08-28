@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableEyesGraphic = false;
 		public bool useMaskForFurskinGenes = true;
 		// Generator
-		public bool generateSkillGenes = true;
+		public bool generateSkillGenes = false;
 		public bool generateXenotypeForceGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
@@ -120,7 +120,8 @@ namespace WVC_XenotypesAndGenes
 		public bool showGenesSettingsGizmo = true;
 		public bool hideGeneHediffs = false;
 		// ExtraSettings
-		public bool enable_flatGenesSpawnChances = false;
+		//public bool enable_flatGenesSpawnChances = false;
+		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
 		public bool enable_HideMechanitorButtonsPatch = false;
 
@@ -193,7 +194,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref learning_CyclicallySelfLearning_MaxSkillLevel, "learning_CyclicallySelfLearning_MaxSkillLevel", defaultValue: 20f);
 			// ExtraSettings
 			//Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
-			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
+			Scribe_Values.Look(ref generalGenesRarity_Divisor, "generalGenesRarity_Divisor", defaultValue: 0);
 			Scribe_Values.Look(ref offsetMarketPriceFromGenes, "offsetMarketPriceFromGenes", defaultValue: false);
 			Scribe_Values.Look(ref enable_HideMechanitorButtonsPatch, "enable_HideMechanitorButtonsPatch", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
@@ -299,6 +300,7 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
 				WVC_Biotech.settings.disableLegacy = true;
+				WVC_Biotech.settings.generateSkillGenes = false;
 			}
 			HarmonyPatches.HarmonyUtility.HarmonyPatches();
 		}
@@ -572,7 +574,8 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate(), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			//listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate(), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			listingStandard.SliderLabeledWithRef("WVC_Label_generalGenesRarity_Divisor".Translate(settings.generalGenesRarity_Divisor <= 0f ? "WVC_Default_generalGenesRarity_Divisor".Translate() : settings.generalGenesRarity_Divisor.ToString()), ref settings.generalGenesRarity_Divisor, 0f, 500f, round: 0, tooltip: "WVC_ToolTip_generalGenesRarity_Divisor".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_offsetMarketPriceFromGenes".Translate(), ref settings.offsetMarketPriceFromGenes, "WVC_ToolTip_offsetMarketPriceFromGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_HideMechanitorButtonsPatch".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_HideMechanitorButtonsPatch, "WVC_ToolTip_enable_HideMechanitorButtonsPatch".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
@@ -1177,7 +1180,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			// Extra
 			//WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;
-			WVC_Biotech.settings.enable_flatGenesSpawnChances = settingsDef.enable_flatGenesSpawnChances;
+			WVC_Biotech.settings.generalGenesRarity_Divisor = settingsDef.generalGenesRarity_Divisor;
 			WVC_Biotech.settings.offsetMarketPriceFromGenes = settingsDef.offsetMarketPriceFromGenes;
 			WVC_Biotech.settings.enable_HideMechanitorButtonsPatch = settingsDef.enable_HideMechanitorButtonsPatch;
 			//WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = settingsDef.enable_ReplaceSimilarGenesAutopatch;

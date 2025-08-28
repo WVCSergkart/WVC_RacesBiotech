@@ -47,67 +47,6 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_GeneticStabilizerSerum_Archotech</defName>
-	<label>archotech genetic stabilizer</label>
-	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 80 years.</description>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerumArcho_v0</texPath>
-	  <graphicClass>Graphic_Single</graphicClass>
-	</graphicData>
-	<descriptionHyperlinks Inherit="False">
-	  <GeneDef>WVC_MildGeneticInstability</GeneDef>
-	  <GeneDef>WVC_MajorGeneticInstability</GeneDef>
-	  <GeneDef>WVC_ExtremeGeneticInstability</GeneDef>
-	</descriptionHyperlinks>
-	<statBases>
-	  <MarketValue>3670</MarketValue>
-	</statBases>
-	<tradeTags Inherit="False">
-		<li>ExoticMisc</li>
-	</tradeTags>
-	<thingSetMakerTags Inherit="False" IsNull="True"/>
-	<techHediffsTags Inherit="False" IsNull="True"/>
-	<tradeability>Sellable</tradeability>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
-		<!-- 288 000 000 ticks = 4800 days = 80 years -->
-		<daysDelay>4800</daysDelay>
-	  </li>
-	</comps>
-  </ThingDef>
-
-  <!-- ==================================== -->
-
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
-	<label>shift serum (genes regrow)</label>
-	<description>A one-use super-dose of mechanics tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer receive genes regrow after shapeshifting.</description>
-	<descriptionHyperlinks Inherit="False">
-	  <GeneDef>WVC_Shapeshifter</GeneDef>
-	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
-	</graphicData>
-	<statBases>
-	  <MarketValue>4670</MarketValue>
-	</statBases>
-	<tradeTags Inherit="False">
-		<li>ExoticMisc</li>
-	</tradeTags>
-	<thingSetMakerTags Inherit="False" IsNull="True"/>
-	<techHediffsTags Inherit="False" IsNull="True"/>
-	<tradeability>Sellable</tradeability>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
-		<disableShapeshiftGenesRegrowAfterUse>true</disableShapeshiftGenesRegrowAfterUse>
-		<geneDef>WVC_PostShapeshift_Recovery</geneDef>
-	  </li>
-	</comps>
-  </ThingDef>
-
   <!-- ==================================== -->
 
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
@@ -156,7 +95,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef MayRequire="ludeon.rimworld.anomaly" ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
 	<label>duplicate restoration serum</label>
 	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>

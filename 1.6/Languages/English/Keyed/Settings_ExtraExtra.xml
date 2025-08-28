@@ -22,17 +22,21 @@
 
 <!-- A restart is required.</WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes> -->
 
-	<WVC_Label_genesCanTickOnlyOnMap>(Dev) Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
-	<WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map.
+	<!-- <WVC_Label_genesCanTickOnlyOnMap>(Dev) Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap> -->
+	<!-- <WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map. -->
 
-Use this option only if you are sure of what you are doing.
+<!-- Use this option only if you are sure of what you are doing. -->
 
-A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
+<!-- A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap> -->
 
-	<WVC_Label_flatGenesSpawnChances>Flat genes selection weight</WVC_Label_flatGenesSpawnChances>
-	<WVC_ToolTip_flatGenesSpawnChances>If enabled, the chances of genes spawning will be equalized like vanilla genes.
+	<!-- <WVC_Label_flatGenesSpawnChances>Flat genes selection weight</WVC_Label_flatGenesSpawnChances> -->
+	<!-- <WVC_ToolTip_flatGenesSpawnChances>If enabled, the chances of genes spawning will be equalized like vanilla genes. -->
 
-A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
+<!-- A restart is required.</WVC_ToolTip_flatGenesSpawnChances> -->
+
+	<WVC_Label_generalGenesRarity_Divisor>General genes rarity: {0}</WVC_Label_generalGenesRarity_Divisor>
+	<WVC_Default_generalGenesRarity_Divisor>Default</WVC_Default_generalGenesRarity_Divisor>
+	<WVC_ToolTip_generalGenesRarity_Divisor>Affects the overall rarity of genes. Mostly the frequency of appearance in genepacks. The higher the value, the rarer. 1 is the standard frequency, like vanilla genes.\n\nA restart is required.</WVC_ToolTip_generalGenesRarity_Divisor>
 
 	<WVC_Label_offsetMarketPriceFromGenes>(Exp) Offset pawn market price from genes</WVC_Label_offsetMarketPriceFromGenes>
 	<WVC_ToolTip_offsetMarketPriceFromGenes>If enabled, the pawns' market price will change depending on the genes they have. The more archite genes and the higher the metabolism, the more the pawn affects the colony's wealth.
