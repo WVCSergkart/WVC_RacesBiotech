@@ -30,6 +30,12 @@
 	<costList>
 	  <Uranium>40</Uranium>
 	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
   </ThingDef>
 
 </Defs>

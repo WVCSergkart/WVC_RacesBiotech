@@ -18,9 +18,9 @@
 	  <MarketValue>670</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
-	<tradeTags>
-	  <li>WVC_XenotypeSerums_NonCraftable</li>
-	</tradeTags>
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	<!-- </tradeTags> -->
 	<recipeMaker>
 	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
 	  <skillRequirements>
@@ -32,6 +32,12 @@
 	  <ComponentIndustrial>2</ComponentIndustrial>
 	  <Silver>4</Silver>
 	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
@@ -57,6 +63,12 @@
 	<statBases>
 	  <MarketValue>3670</MarketValue>
 	</statBases>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
@@ -81,6 +93,12 @@
 	<statBases>
 	  <MarketValue>4670</MarketValue>
 	</statBases>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
@@ -105,9 +123,9 @@
 	  <MarketValue>670</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
-	<tradeTags>
-	  <li>WVC_XenotypeSerums_NonCraftable</li>
-	</tradeTags>
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	<!-- </tradeTags> -->
 	<recipeMaker>
 	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
 	  <skillRequirements>
@@ -117,6 +135,12 @@
 	<costList>
 	  <ComponentIndustrial>1</ComponentIndustrial>
 	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
@@ -147,6 +171,12 @@
 	  <ComponentIndustrial>3</ComponentIndustrial>
 	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
 	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>

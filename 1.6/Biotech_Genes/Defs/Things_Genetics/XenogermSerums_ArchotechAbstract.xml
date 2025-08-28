@@ -13,12 +13,18 @@
 	  <MarketValue>4750</MarketValue>
 	  <DeteriorationRate>0.0</DeteriorationRate>
 	</statBases>
+	<!-- <tradeTags Inherit="False"> -->
+	  <!-- <li>WVC_All_XenotypeSerums</li> -->
+	<!-- </tradeTags> -->
+	<!-- <thingSetMakerTags Inherit="False"> -->
+	  <!-- <li>RewardStandardQualitySuper</li> -->
+	<!-- </thingSetMakerTags> -->
 	<tradeTags Inherit="False">
-	  <li>WVC_All_XenotypeSerums</li>
+		<li>ExoticMisc</li>
 	</tradeTags>
-	<thingSetMakerTags Inherit="False">
-	  <li>RewardStandardQualitySuper</li>
-	</thingSetMakerTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
 	<costList>
 	  <Plasteel>46</Plasteel>
 	  <ComponentIndustrial>8</ComponentIndustrial>
