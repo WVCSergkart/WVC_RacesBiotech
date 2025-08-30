@@ -39,8 +39,8 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
 	<defName>WVC_RandomGeneticSpeciality</defName>
 	<label>genetic speciality</label>
-	<labelShortAdj>metabolism</labelShortAdj>
-	<description>Carriers of this gene have an unstable metabolism, which can either improve or worsen over generations.</description>
+	<labelShortAdj>speciality</labelShortAdj>
+	<description>Carriers of this gene have a certain predisposition that can change from generation to generation.</description>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Skill_v0</iconPath>
 	<selectionWeight>0.0012</selectionWeight>
 	<biostatCpx>0</biostatCpx>

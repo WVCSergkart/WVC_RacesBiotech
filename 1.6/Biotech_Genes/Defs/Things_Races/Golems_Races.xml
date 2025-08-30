@@ -223,6 +223,7 @@
 			<mechFixedSkillLevel>6</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Hunting</li>
+			  <li MayRequire="ludeon.rimworld.odyssey">Fishing</li>
 			</mechEnabledWorkTypes>
 		</race>
 	</ThingDef>
