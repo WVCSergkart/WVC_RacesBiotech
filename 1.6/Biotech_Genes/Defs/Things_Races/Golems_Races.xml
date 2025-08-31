@@ -220,7 +220,7 @@
 			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
 		<race>
-			<mechFixedSkillLevel>6</mechFixedSkillLevel>
+			<mechFixedSkillLevel>12</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Hunting</li>
 			  <li MayRequire="ludeon.rimworld.odyssey">Fishing</li>
