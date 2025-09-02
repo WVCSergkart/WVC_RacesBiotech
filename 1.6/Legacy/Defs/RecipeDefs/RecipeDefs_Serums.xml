@@ -38,7 +38,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
+  <RecipeDef MayRequire="ludeon.rimworld.anomaly" ParentName="WVC_AdministerXenotypeSerum_Base" WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_AdministerDuplicateRestorationSerum</defName>
 	<label>administer duplicate restoration serum</label>
 	<description>Administer a duplicate restoration serum.</description>
