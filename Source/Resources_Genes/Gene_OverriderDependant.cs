@@ -243,18 +243,18 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		private bool? regenerateEyes;
-		public bool RegenerateEyes
-		{
-			get
-			{
-				if (!regenerateEyes.HasValue)
-				{
-					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-				}
-				return regenerateEyes.Value;
-			}
-		}
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -263,7 +263,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 713, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 713);
 		}
 
 	}

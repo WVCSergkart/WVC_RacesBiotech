@@ -149,6 +149,7 @@ namespace WVC_XenotypesAndGenes
 				MiscUtility.ForeverAloneDevelopmentPoints();
 				nextSecondRecache = 1;
 			}
+			HealingUtility.UpdRegenCollection();
 		}
 
 		public void DelayRecache(int delay = 1500)

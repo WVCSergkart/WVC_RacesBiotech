@@ -82,22 +82,22 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Deathrest_Healing : Gene_DeathrestDependant
 	{
 
-		private bool? regenerateEyes;
-		public bool RegenerateEyes
-		{
-			get
-			{
-				if (!regenerateEyes.HasValue)
-				{
-					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-				}
-				return regenerateEyes.Value;
-			}
-		}
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
 		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: tick, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: tick);
 		}
 
 	}

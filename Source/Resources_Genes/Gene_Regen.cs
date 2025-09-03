@@ -25,18 +25,18 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private bool? regenerateEyes;
-		public bool RegenerateEyes
-        {
-			get
-            {
-				if (!regenerateEyes.HasValue)
-				{
-					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-				}
-				return regenerateEyes.Value;
-            }
-        }
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
         public override void TickInterval(int delta)
 		{
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 676, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 676);
 		}
 
 	}
@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration * 10, tick: tick, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration * 10, tick: tick);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
 			GeneResourceUtility.OffsetNeedFood(pawn, -0.01f);
 		}
@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (pawn.Map == null || !pawn.Downed && pawn.Awake())
             {
-                HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 1626, regenEyes: RegenerateEyes);
+                HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 1626);
             }
             else
             {
@@ -225,18 +225,18 @@ namespace WVC_XenotypesAndGenes
 		private float? cachedRegen;
 		private int nextRecache = 0;
 
-		private bool? regenerateEyes;
-		public bool RegenerateEyes
-		{
-			get
-			{
-				if (!regenerateEyes.HasValue)
-				{
-					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-				}
-				return regenerateEyes.Value;
-			}
-		}
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -251,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (cachedRegen.HasValue)
 			{
-				HealingUtility.Regeneration(pawn, regeneration: cachedRegen.Value, tick: 597, regenEyes: RegenerateEyes);
+				HealingUtility.Regeneration(pawn, regeneration: cachedRegen.Value, tick: 597);
 			}
 		}
 
@@ -262,18 +262,18 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		private bool? regenerateEyes;
-		public bool RegenerateEyes
-		{
-			get
-			{
-				if (!regenerateEyes.HasValue)
-				{
-					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-				}
-				return regenerateEyes.Value;
-			}
-		}
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -286,7 +286,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
             }
-			if (HealingUtility.Regeneration(pawn, regeneration: Hemogen.Value * 100, tick: 719, regenEyes: RegenerateEyes))
+			if (HealingUtility.Regeneration(pawn, regeneration: Hemogen.Value * 100, tick: 719))
             {
 				Hemogen.Value -= 0.01f;
             }

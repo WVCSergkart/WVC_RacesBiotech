@@ -11,8 +11,45 @@ namespace WVC_XenotypesAndGenes
 	public static class HealingUtility
 	{
 
+		public static List<Pawn> regenEyes = new();
+		public static List<Pawn> nonRegenEyes = new();
+
+		public static void UpdRegenCollection()
+		{
+			HealingUtility.regenEyes = new();
+			HealingUtility.nonRegenEyes = new();
+		}
+
+		public static bool RegenEyes(Pawn pawn)
+		{
+			if (nonRegenEyes.Contains(pawn))
+			{
+				return false;
+			}
+			if (regenEyes.Contains(pawn))
+			{
+				return true;
+			}
+			if (ShouldRegenerateEyes(pawn))
+			{
+				regenEyes.Add(pawn);
+				return true;
+			}
+			else
+			{
+				nonRegenEyes.Add(pawn);
+			}
+			return false;
+		}
+
+		private static bool ShouldRegenerateEyes(Pawn pawn)
+		{
+			//return !ModLister.IdeologyInstalled || !pawn.ideo.Ideo.IdeoApprovesOfBlindness();
+			return pawn.ideo?.Ideo?.IdeoApprovesOfBlindness() != true;
+		}
+
 		// Regeneration
-		public static bool Regeneration(Pawn pawn, float regeneration, int tick, bool regenEyes = true)
+		public static bool Regeneration(Pawn pawn, float regeneration, int tick)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
@@ -38,26 +75,25 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				if (regeneration > 0f)
-				{
-					pawn.health.hediffSet.GetHediffs(ref tmpHediffMissing, (Hediff_MissingPart missingPart) => missingPart.Part.parent != null && !tmpHediffInjuries.Any((Hediff_Injury injury) => injury.Part == missingPart.Part.parent) && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_MissingPart>(missingPart.Part.parent) == null && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_AddedPart>(missingPart.Part.parent) == null && (regenEyes || !missingPart.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)));
-					using List<Hediff_MissingPart>.Enumerator enumerator3 = tmpHediffMissing.GetEnumerator();
-					if (enumerator3.MoveNext())
-					{
-						HealingUtility.Regenerate(pawn, enumerator3.Current);
-						woundRegen = true;
-					}
-				}
-			}
+                {
+                    pawn.health.hediffSet.GetHediffs(ref tmpHediffMissing, (Hediff_MissingPart missingPart) => missingPart.Part.parent != null && !tmpHediffInjuries.Any((Hediff_Injury injury) => injury.Part == missingPart.Part.parent) && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_MissingPart>(missingPart.Part.parent) == null && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_AddedPart>(missingPart.Part.parent) == null && RegenIfEyes(pawn, missingPart));
+                    using List<Hediff_MissingPart>.Enumerator enumerator3 = tmpHediffMissing.GetEnumerator();
+                    if (enumerator3.MoveNext())
+                    {
+                        HealingUtility.Regenerate(pawn, enumerator3.Current);
+                        woundRegen = true;
+                    }
+                }
+            }
 			return woundRegen;
 		}
 
-		public static bool ShouldRegenerateEyes(Pawn pawn)
-		{
-			//return !ModLister.IdeologyInstalled || !pawn.ideo.Ideo.IdeoApprovesOfBlindness();
-			return pawn.ideo?.Ideo?.IdeoApprovesOfBlindness() != true;
-		}
+        private static bool RegenIfEyes(Pawn pawn, Hediff_MissingPart missingPart)
+        {
+            return !missingPart.Part.def.tags.Contains(BodyPartTagDefOf.SightSource) || RegenEyes(pawn);
+        }
 
-		public static void Regenerate(Pawn pawn, Hediff hediff)
+        public static void Regenerate(Pawn pawn, Hediff hediff)
         {
             BodyPartRecord part = hediff.Part;
             pawn.health.RemoveHediff(hediff);
@@ -163,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 		public static BodyPartRecord FindBiggestMissingBodyPart(Pawn pawn, float minCoverage = 0f)
 		{
 			BodyPartRecord bodyPartRecord = null;
-			foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
+			foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors().Where((part) => RegenIfEyes(pawn, part)))
 			{
 				if (!(missingPartsCommonAncestor.Part.coverageAbsWithChildren < minCoverage) && !pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(missingPartsCommonAncestor.Part) && (bodyPartRecord == null || missingPartsCommonAncestor.Part.coverageAbsWithChildren > bodyPartRecord.coverageAbsWithChildren))
 				{

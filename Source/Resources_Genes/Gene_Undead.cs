@@ -253,18 +253,18 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-		private bool? regenerateEyes;
-		public bool RegenerateEyes
-		{
-			get
-			{
-				if (!regenerateEyes.HasValue)
-                {
-                    regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
-                }
-                return regenerateEyes.Value;
-			}
-		}
+		//private bool? regenerateEyes;
+		//public bool RegenerateEyes
+		//{
+		//	get
+		//	{
+		//		if (!regenerateEyes.HasValue)
+		//		{
+		//			regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+		//		}
+		//		return regenerateEyes.Value;
+		//	}
+		//}
 
         public override void TickInterval(int delta)
 		{
@@ -272,7 +272,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, tick: 22222, regenEyes: RegenerateEyes);
+			HealingUtility.Regeneration(pawn, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, tick: 22222);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
