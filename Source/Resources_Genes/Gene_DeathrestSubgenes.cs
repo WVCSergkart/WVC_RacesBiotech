@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Immunization(pawn, delta, immunization: Undead.immunization, tick: tick);
+			HealingUtility.Immunization(pawn, immunization: Undead.immunization, tick: tick);
 		}
 
 	}

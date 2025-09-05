@@ -109,13 +109,13 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
         }
 
-        public static void Immunization(Pawn pawn, int delta, float immunization = -1, int tick = 200)
+        public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
 		{
 			//List<HediffWithComps> tmpHediffInjuries = new();
 			immunization *= 0.00333333341f;
 			if (tick > 0f)
 			{
-				immunization *= (tick * delta / 200);
+				immunization *= (tick / 200);
 			}
 			// Log.Error(regeneration.ToString());
 			// Old 0.0001243781

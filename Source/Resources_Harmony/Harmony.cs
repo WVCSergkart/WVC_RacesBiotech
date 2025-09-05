@@ -105,6 +105,11 @@ namespace WVC_XenotypesAndGenes
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "TryAcceptPawn", new Type[] { typeof(Pawn), typeof(CompBiosculpterPod_Cycle) }), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_TryAcceptPawn_Patch")));
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
 					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
+					if (ModsConfig.IdeologyActive)
+					{
+						harmony.Patch(AccessTools.Method(typeof(Pawn_IdeoTracker), "SetIdeo"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
+						harmony.Patch(AccessTools.Method(typeof(Ideo), "RecachePrecepts"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
+					}
 				}
 				if (!ModsConfig.AnomalyActive)
 				{
@@ -141,37 +146,47 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 
-			//public static bool IsMechanitor(ref bool __result, Pawn pawn)
-			//{
-			//	if (pawn.IsGeneticMechanitor())
-			//	{
-			//		__result = true;
-			//		return false;
-			//	}
-			//	return true;
-			//}
+            public static void IdeoUpdTrigger()
+			{
+				if (MiscUtility.GameStarted())
+				{
+					MiscUtility.UpdateStaticCollection();
+					ThoughtWorker_Precept_Shapeshifter.UpdCollection();
+					HealingUtility.UpdRegenCollection();
+				}
+			}
 
-			//public static void NonHemogenDeathrest(ref bool __result, Gene_Deathrest __instance)
-			//{
-			//	if (__result)
-			//	{
-			//		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
-			//	}
-			//}
+            //public static bool IsMechanitor(ref bool __result, Pawn pawn)
+            //{
+            //	if (pawn.IsGeneticMechanitor())
+            //	{
+            //		__result = true;
+            //		return false;
+            //	}
+            //	return true;
+            //}
 
-			// Hide genes in editor
+            //public static void NonHemogenDeathrest(ref bool __result, Gene_Deathrest __instance)
+            //{
+            //	if (__result)
+            //	{
+            //		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
+            //	}
+            //}
 
-			//public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
-			//{
-			//	if (geneDef.IsXenoGenesDef())
-			//	{
-			//		__result = false;
-			//		return false;
-			//	}
-			//	return true;
-			//}
+            // Hide genes in editor
 
-			private static List<GeneDef> cachedGeneDefsInOrder;
+            //public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+            //{
+            //	if (geneDef.IsXenoGenesDef())
+            //	{
+            //		__result = false;
+            //		return false;
+            //	}
+            //	return true;
+            //}
+
+            private static List<GeneDef> cachedGeneDefsInOrder;
 			public static void Patch_HideGenes(ref List<GeneDef> __result)
 			{
 				if (cachedGeneDefsInOrder == null)

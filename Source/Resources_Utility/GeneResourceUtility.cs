@@ -556,33 +556,40 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TryResurrectWithSickness(Pawn pawn, bool resurrectionSickness = true, float scarsChance = 0.2f)
-		{
-			ResurrectionParams resurrectionParams = new();
-			resurrectionParams.restoreMissingParts = true;
-			resurrectionParams.noLord = true;
-			resurrectionParams.removeDiedThoughts = true;
-			resurrectionParams.canPickUpOpportunisticWeapons = false;
-			resurrectionParams.gettingScarsChance = scarsChance;
-			resurrectionParams.canKidnap = false;
-			resurrectionParams.canSteal = false;
-			resurrectionParams.breachers = false;
-			if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
+        {
+            try
+            {
+                ResurrectionParams resurrectionParams = new();
+                resurrectionParams.restoreMissingParts = true;
+                resurrectionParams.noLord = true;
+                resurrectionParams.removeDiedThoughts = true;
+                resurrectionParams.canPickUpOpportunisticWeapons = false;
+                resurrectionParams.gettingScarsChance = scarsChance;
+                resurrectionParams.canKidnap = false;
+                resurrectionParams.canSteal = false;
+                resurrectionParams.breachers = false;
+                if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
+                {
+                    if (resurrectionSickness)
+                    {
+                        pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+                    }
+                    //if (resurrectThought != null)
+                    //{
+                    //	pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
+                    //}
+                    return true;
+                }
+                else
+                {
+                    Log.Error("Failed resurrect " + pawn.Name.ToString());
+                }
+            }
+            catch (Exception arg)
 			{
-				if (resurrectionSickness)
-				{
-					pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-				}
-				//if (resurrectThought != null)
-				//{
-				//	pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
-				//}
-				return true;
+				Log.Error("Failed resurrect " + pawn.Name.ToString() + ". Reason: " + arg);
 			}
-			else
-			{
-				Log.Error("Failed resurrect " + pawn.Name.ToString());
-			}
-			return false;
+            return false;
 		}
 
 		public static void ResurrectWithSickness(Pawn pawn)
