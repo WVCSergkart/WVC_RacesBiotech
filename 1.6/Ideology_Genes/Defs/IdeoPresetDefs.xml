@@ -27,7 +27,7 @@
 	</memes>
   </IdeoPresetDef>
 
-  <IdeoPresetDef MayRequire="wvc.sergkart.test.tools">
+  <IdeoPresetDef>
 	<defName>WVC_GreatFamily</defName>
 	<label>blood family</label>
 	<description>In such difficult times, only blood relatives can be trusted, and only by building strong relationships between generations will we be able to survive.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Family only run. Pawns without blood relation are subject to penalties. Quest pawns, slaves and prisoners are ignored.</description>

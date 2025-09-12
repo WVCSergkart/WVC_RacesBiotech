@@ -4,6 +4,7 @@
   <MutantDef Abstract="True" Name="WVC_XenotypesAndGenes_BaseMutantEntity">
 	<consideredSubhuman>false</consideredSubhuman>
 	<showInScenarioEditor>false</showInScenarioEditor>
+	<clearMutantStatusOnDeath>true</clearMutantStatusOnDeath>
   </MutantDef>
 
   <!-- =================================== -->

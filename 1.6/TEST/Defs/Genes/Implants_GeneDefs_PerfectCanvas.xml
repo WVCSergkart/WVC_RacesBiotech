@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef>
+	<defName>WVC_PerfectCanvas</defName>
+	<label>perfect canvas</label>
+	<description>Carriers of this gene has..</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PerfectCanvas</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>545</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>canvas</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_PerfectCanvas</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+	<defName>WVC_PerfectCanvas</defName>
+	<label>perfect canvas</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_PerfectCanvas</hediffClass>
+	<statModifiers>
+	  <!-- <statFactors> -->
+		<!-- <IncomingDamageFactor>-0.01</IncomingDamageFactor> -->
+		<!-- <MoveSpeed>0.05</MoveSpeed> -->
+		<!-- <RestRateMultiplier>0.1</RestRateMultiplier> -->
+		<!-- <ComfyTemperatureMax>1</ComfyTemperatureMax> -->
+		<!-- <ComfyTemperatureMin>-2</ComfyTemperatureMin> -->
+		<!-- <ImmunityGainSpeed>0.1</ImmunityGainSpeed> -->
+		<!-- <InjuryHealingFactor>0.05</InjuryHealingFactor> -->
+		<!-- <RestFallRateFactor>-0.03</RestFallRateFactor> -->
+		<!-- <JoyFallRateFactor>-0.03</JoyFallRateFactor> -->
+		<!-- <MeleeDodgeChance>1</MeleeDodgeChance> -->
+	  <!-- </statFactors> -->
+	  <statOffsets>
+		<IncomingDamageFactor>-0.01</IncomingDamageFactor>
+		<MoveSpeed>0.05</MoveSpeed>
+		<RestRateMultiplier>0.1</RestRateMultiplier>
+		<ComfyTemperatureMax>1</ComfyTemperatureMax>
+		<ComfyTemperatureMin>-2</ComfyTemperatureMin>
+		<ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+		<InjuryHealingFactor>0.05</InjuryHealingFactor>
+		<RestFallRateFactor>-0.03</RestFallRateFactor>
+		<JoyFallRateFactor>-0.03</JoyFallRateFactor>
+		<MeleeDodgeChance>1</MeleeDodgeChance>
+	  </statOffsets>
+	</statModifiers>
+  </HediffDef>
+
+</Defs>

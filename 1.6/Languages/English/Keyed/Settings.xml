@@ -212,9 +212,7 @@ A restart is required.</WVC_ToolTip_generateTemplateGenes_Aptitudes>
 <!-- A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes> -->
 
 	<WVC_Label_generateXenotypeForceGenes>(Advanced) Enable endo/xeno-forcer genes</WVC_Label_generateXenotypeForceGenes>
-	<WVC_ToolTip_generateXenoForcerGenes>If enabled, a gene will be generated for each xenotype on the whitelist at startup, which, when added to a pawn, will give it its corresponding xenotype. Use this option only if you are experienced enough in the mechanics of both the game and this mod.
-
-A restart is required.</WVC_ToolTip_generateXenoForcerGenes>
+	<WVC_ToolTip_generateXenoForcerGenes>If enabled, a gene will be generated for each xenotype on the whitelist at startup, which, when added to a pawn, will give it its corresponding xenotype. Use this option only if you are experienced enough in the mechanics of both the game and this mod.\n\nThis option is only visible if (dev mode/this option) is enabled.\n\nA restart is required.</WVC_ToolTip_generateXenoForcerGenes>
 
 	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_genesRemoveMechlinkUponDeath>Genes remove mechlink upon death</WVC_Label_genesRemoveMechlinkUponDeath> -->
@@ -281,7 +279,7 @@ A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableLegacy>Enable legacy mode</WVC_Label_disableLegacy>
-	<WVC_ToolTip_disableLegacy>If enabled, enables the legacy content of the mod. This includes xenotype serums, genepacks, some technologies, reward buildings, some old genes, orbital trader.\n\nAt the moment, all this is legacy, and in the future it is planned to be cut completely, since the balance of the mod is built around other mechanics and ways of obtaining genes.\n\nA restart is required.</WVC_ToolTip_disableLegacy>
+	<WVC_ToolTip_disableLegacy>If enabled, enables the legacy content of the mod. This includes xenotype serums, genepacks, some technologies, reward buildings, some old genes, orbital trader.\n\nAt the moment, all this is legacy, and in the future it is planned to be cut completely, since the balance of the mod is built around other mechanics and ways of obtaining genes.\n\nThis option is only visible if (dev mode/this option) is enabled.\n\nA restart is required.</WVC_ToolTip_disableLegacy>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_GeneGizmosDefaultCollapse>Collapse gene gizmos by default</WVC_Label_GeneGizmosDefaultCollapse>
