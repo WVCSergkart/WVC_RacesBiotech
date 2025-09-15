@@ -287,6 +287,7 @@
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_PreferedXenotype.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Duplicate.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />

@@ -5,6 +5,7 @@
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter_v1</iconPath>
 		<!-- Very rare for NPCs -->
 		<randomizationSelectionWeightFactor>0.001</randomizationSelectionWeightFactor>
+		<veneratedAnimalsCountOverride>0</veneratedAnimalsCountOverride>
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->lab</li>

@@ -64,20 +64,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private List<GeneDef> allGenes;
-
-		//private List<GeneDef> eatedGenes;
-
-		//public List<GeneDef> pawnGenes;
-
-		//private List<GeneDef> nonPassedGenes;
 		private List<GeneDef> pawnEndoGenes;
-
 		private List<GeneDef> pawnXenoGenes;
 
 		private List<GeneDef> cachedGeneDefsInOrder;
-
-		// public List<GeneDef> choosenGenes = new();
-
 		public List<GeneDef> GenesInOrder
 		{
 			get
@@ -144,7 +134,8 @@ namespace WVC_XenotypesAndGenes
 
 		private void GenesEater()
 		{
-            if (geneCustomChimeraEater != null)
+			MiscUtility.UpdateStaticCollection();
+			if (geneCustomChimeraEater != null)
             {
                 geneCustomChimeraEater.ChimeraEater(ref selectedGenes);
             }
@@ -1065,6 +1056,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			quickSearchWidget.noResultsMatched = !matchingGenes.Any() && !matchingCategories.Any();
 		}
+
 	}
 
 }

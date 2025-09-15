@@ -153,6 +153,7 @@ namespace WVC_XenotypesAndGenes
 					MiscUtility.UpdateStaticCollection();
 					ThoughtWorker_Precept_Shapeshifter.UpdCollection();
 					HealingUtility.UpdRegenCollection();
+					//ThoughtWorker_Precept_Social_PreferredXenotype.UpdCollection();
 				}
 			}
 

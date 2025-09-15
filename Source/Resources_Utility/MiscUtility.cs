@@ -845,6 +845,15 @@ namespace WVC_XenotypesAndGenes
 			UpdateStaticCollection();
 		}
 
+		//public static void UpdateStaticCollection(bool updAllCollections = false)
+		//{
+		//	if (updAllCollections)
+		//	{
+		//		ThoughtWorker_Precept_Shapeshifter.UpdCollection();
+		//	}
+		//	UpdateStaticCollection();
+		//}
+
 		public static void UpdateStaticCollection()
 		{
 			int playerDuplicates = 0;

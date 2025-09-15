@@ -105,6 +105,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class ThoughtWorker_Precept_Social_MyDuplicate : ThoughtWorker_Precept_Social_Duplicates
 	{
 
@@ -119,6 +120,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class ThoughtWorker_Precept_Social_MySource : ThoughtWorker_Precept_Social_Duplicates
 	{
 
@@ -133,6 +135,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class ThoughtWorker_Precept_Social_SameSource : ThoughtWorker_Precept_Social_Duplicates
 	{
 
