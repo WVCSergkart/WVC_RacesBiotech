@@ -112,11 +112,12 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return;
 			// }
-			CompHumanlike corpseComp = pawn.TryGetComp<CompHumanlike>();
-			if (corpseComp != null)
-			{
-				corpseComp.SetUndead(resurrect, delay, pawn);
-			}
+			//CompHumanlike corpseComp = pawn.TryGetComp<CompHumanlike>();
+			//if (corpseComp != null)
+			//{
+			//	corpseComp.SetUndead(resurrect, delay, pawn);
+			//}
+			pawn.HumanComponent()?.SetUndead(resurrect, delay, pawn);
 		}
 
 		public void Notify_PawnKilled()

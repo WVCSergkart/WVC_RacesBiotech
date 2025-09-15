@@ -619,12 +619,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool Debug_IsDuplicate(Pawn diplicate)
 		{
-			return diplicate?.TryGetComp<CompHumanlike>()?.IsDuplicate == true;
+			return diplicate?.HumanComponent()?.IsDuplicate == true;
 		}
 
 		public static Pawn GetSourceCyclic(this Pawn duplicate)
 		{
-            Pawn sourcePawn = duplicate?.TryGetComp<CompHumanlike>()?.SourcePawn;
+            Pawn sourcePawn = duplicate?.HumanComponent()?.SourcePawn;
 			//if (sourcePawn.Dead)
 			//{
 			//	return duplicate;

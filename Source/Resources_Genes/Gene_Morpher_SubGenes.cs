@@ -389,13 +389,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanMorph()
 		{
-			return pawn.health?.hediffSet?.HasHediff(HediffDefOf.ResurrectionSickness) == true;
+			return pawn.IsUndead() || pawn.health?.hediffSet?.HasHediff(HediffDefOf.ResurrectionSickness) == true;
 		}
 
 		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
 		{
-			Hediff resurrectionSickness = null;
-			pawn.health?.hediffSet?.TryGetHediff(HediffDefOf.ResurrectionSickness, out resurrectionSickness);
+			Hediff resurrectionSickness = pawn.health?.GetOrAddHediff(HediffDefOf.ResurrectionSickness);
 			HediffComp_Disappears hediffComp_Disappears = resurrectionSickness?.TryGetComp<HediffComp_Disappears>();
 			if (hediffComp_Disappears != null)
 			{

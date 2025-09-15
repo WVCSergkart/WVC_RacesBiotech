@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetGenesInspectString(Pawn pawn)
 		{
-			pawn.TryGetComp<CompHumanlike>()?.ResetInspectString();
+			pawn.HumanComponent()?.ResetInspectString();
 		}
 
 		[Obsolete]

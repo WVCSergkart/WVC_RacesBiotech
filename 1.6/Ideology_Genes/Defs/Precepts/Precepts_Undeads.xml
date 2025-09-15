@@ -16,7 +16,7 @@
 	<defName>WVC_Undeads_Revered</defName>
 	<issue>WVC_Undeads</issue>
 	<label>revered</label>
-	<description>Undeads should be worshipped. Believers will be happy if there is a undead in the colony.</description>
+	<description>Undeads should be worshipped. Believers will be happy if there is a undead in the colony.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; For the undead conditions, anyone who died but was resurrected in any way is suitable.</description>
 	<impact>Medium</impact>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
@@ -35,15 +35,15 @@
 		  <li>Undead leader</li>
 		</thoughtStageDescriptions>
 	  </li>
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_ReimplanterResurrection</eventDef>
-		<eventLabel>resurrected someone (post reimplanter)</eventLabel>
-		<points>2</points>
-	  </li>
+	  <!-- <li Class="PreceptComp_DevelopmentPoints"> -->
+		<!-- <eventDef>WVC_ReimplanterResurrection</eventDef> -->
+		<!-- <eventLabel>resurrected someone (post reimplanter)</eventLabel> -->
+		<!-- <points>2</points> -->
+	  <!-- </li> -->
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_UndeadResurrection</eventDef>
-		<eventLabel>undead resurrection</eventLabel>
-		<points>3</points>
+		<eventLabel>witnesses of the resurrection</eventLabel>
+		<points>2</points>
 	  </li>
 	</comps>
 	<!-- <exclusionTags> -->
@@ -55,7 +55,7 @@
 	<defName>WVC_Undeads_Reviled</defName>
 	<issue>WVC_Undeads</issue>
 	<label>reviled</label>
-	<description>The dead must remain dead.</description>
+	<description>The dead must remain dead.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; For the undead conditions, anyone who died but was resurrected in any way is suitable.</description>
 	<impact>Medium</impact>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
@@ -112,7 +112,7 @@
 	<stages>
 	  <li>
 		<label>revered undead</label>
-		<description>Let them worship me. My wisdom comes not only from time, but also from my blood.</description>
+		<description>Let them worship me. I have seen death, which means I understand the value of life better.</description>
 		<baseMoodEffect>4</baseMoodEffect>
 	  </li>
 	</stages>
@@ -125,7 +125,7 @@
 	<stages>
 	  <li>
 		<label>undead self hatred</label>
-		<description>I am what I hate. I must rid myself of this curse.</description>
+		<description>I am what I hate. I should be dead, but I am forcibly brought back to life.</description>
 		<baseMoodEffect>-12</baseMoodEffect>
 	  </li>
 	</stages>
@@ -149,7 +149,7 @@
 	  </li>
 	  <li>
 		<label>undead leader</label>
-		<description>The undead's presence is a great honor. May they live forever.</description>
+		<description>The undead's presence is a great honor.</description>
 		<baseMoodEffect>2</baseMoodEffect>
 	  </li>
 	</stages>

@@ -527,10 +527,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			pawn.health.AddHediff(MainDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
-			if (ModLister.IdeologyInstalled)
-			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
-			}
 			// Morph
 			//pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);
 			// Letter
@@ -707,10 +703,41 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
+		private static List<Pawn> nonResurrectedPawns = new();
+		private static List<Pawn> resurrectedPawns = new();
+
+		public static void UpdUndeads()
+        {
+			nonResurrectedPawns = new();
+			resurrectedPawns = new();
+		}
+
 		public static bool IsUndead(this Pawn pawn)
 		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null;
+			if (nonResurrectedPawns.Contains(pawn))
+			{
+				return false;
+			}
+			if (resurrectedPawns.Contains(pawn))
+			{
+				return true;
+			}
+			if (pawn.HumanComponent()?.Undead == true)
+			{
+				resurrectedPawns.Add(pawn);
+				return true;
+			}
+			else
+			{
+				nonResurrectedPawns.Add(pawn);
+			}
+			return false;
 		}
+
+		//public static bool IsUndead(this Pawn pawn)
+		//{
+		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null;
+		//}
 
 		public static bool IsShapeshifter(this Pawn pawn)
 		{

@@ -1,17 +1,25 @@
 using RimWorld;
+using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class ThoughtWorker_Precept_Undead_Social : ThoughtWorker_Precept_Social
+	//public class ThoughtWorker_Precept_Resurrected_Social : ThoughtWorker_Precept_Social
+	//{
+
+	//	protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
+	//	{
+	//		return otherPawn.IsUndead();
+	//	}
+
+	//}
+
+	public class ThoughtWorker_Precept_Undead_Social : ThoughtWorker_Precept_Social
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive)
-			{
-				return ThoughtState.Inactive;
-			}
 			return otherPawn.IsUndead();
 		}
 	}
@@ -20,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsUndead())
+			if (p.IsUndead())
 			{
 				return ThoughtState.Inactive;
 			}
@@ -39,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsUndead() || p.Faction == null)
+			if (p.IsUndead() || p.Faction == null)
 			{
 				return ThoughtState.Inactive;
 			}
@@ -69,10 +77,6 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive)
-			{
-				return ThoughtState.Inactive;
-			}
 			return p.IsUndead();
 		}
 	}

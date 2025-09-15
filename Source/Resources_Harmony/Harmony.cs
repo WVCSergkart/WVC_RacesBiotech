@@ -105,6 +105,7 @@ namespace WVC_XenotypesAndGenes
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "TryAcceptPawn", new Type[] { typeof(Pawn), typeof(CompBiosculpterPod_Cycle) }), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_TryAcceptPawn_Patch")));
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
 					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
+					harmony.Patch(AccessTools.Method(typeof(ResurrectionUtility), "TryResurrect"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Notify_PostResurrected))));
 					if (ModsConfig.IdeologyActive)
 					{
 						harmony.Patch(AccessTools.Method(typeof(Pawn_IdeoTracker), "SetIdeo"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
@@ -478,21 +479,41 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 
-			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
-			// {
-			// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-			// {
-			// if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
-			// {
-			// continue;
-			// }
-			// __instance.geneGraphics.Remove(graphicRecord);
-			// }
-			// }
+			public static void Notify_PostResurrected(ref bool __result, Pawn pawn)
+            {
+                try
+                {
+                    if (!__result)
+                    {
+                        return;
+                    }
+                    if (MiscUtility.GameStarted())
+                    {
+                        pawn.HumanComponent()?.Notify_Resurrected();
+                        ReimplanterUtility.PostImplantDebug(pawn);
+                    }
+                }
+                catch (Exception arg)
+                {
+					Log.Error("Failed Notify_Resurrected for: " + pawn.Name + ". Reason: " + arg.Message);
+                }
+            }
 
-			// Romance
+            // public static void SpecialGeneGraphic(PawnGraphicSet __instance)
+            // {
+            // foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+            // {
+            // if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
+            // {
+            // continue;
+            // }
+            // __instance.geneGraphics.Remove(graphicRecord);
+            // }
+            // }
 
-			public static void Incestuous_Relations(ref bool __result, ref Pawn one)
+            // Romance
+
+            public static void Incestuous_Relations(ref bool __result, ref Pawn one)
 			{
 				if (!__result)
 				{

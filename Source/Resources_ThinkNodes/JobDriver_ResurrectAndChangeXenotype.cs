@@ -79,10 +79,10 @@ namespace WVC_XenotypesAndGenes
 				//innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 				//GeneUtility.UpdateXenogermReplication(innerPawn);
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(innerPawn);
-				if (ModLister.IdeologyInstalled)
-				{
-					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
-				}
+				//if (ModLister.IdeologyInstalled)
+				//{
+				//	Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+				//}
 				if (PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
 					int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;

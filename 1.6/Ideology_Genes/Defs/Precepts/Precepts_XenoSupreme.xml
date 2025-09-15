@@ -44,11 +44,11 @@
 		<eventLabel>shapeshift</eventLabel>
 		<points>1</points>
 	  </li>
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_XenotypeSerumUsed</eventDef>
-		<eventLabel>xenotype serum used</eventLabel>
-		<points>1</points>
-	  </li>
+	  <!-- <li Class="PreceptComp_DevelopmentPoints"> -->
+		<!-- <eventDef>WVC_XenotypeSerumUsed</eventDef> -->
+		<!-- <eventLabel>xenotype serum used</eventLabel> -->
+		<!-- <points>1</points> -->
+	  <!-- </li> -->
 	</comps>
   </PreceptDef>
 
@@ -115,11 +115,11 @@
 		<!-- <eventLabel>shapeshift</eventLabel> -->
 		<!-- <points>1</points> -->
 	  <!-- </li> -->
-	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_XenotypeSerumUsed</eventDef>
-		<eventLabel>xenotype serum used</eventLabel>
-		<points>1</points>
-	  </li>
+	  <!-- <li Class="PreceptComp_DevelopmentPoints"> -->
+		<!-- <eventDef>WVC_XenotypeSerumUsed</eventDef> -->
+		<!-- <eventLabel>xenotype serum used</eventLabel> -->
+		<!-- <points>1</points> -->
+	  <!-- </li> -->
 	</comps>
   </PreceptDef>
 

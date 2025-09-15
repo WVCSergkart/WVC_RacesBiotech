@@ -16,6 +16,11 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static CompHumanlike HumanComponent(this Pawn pawn)
+        {
+			return pawn.TryGetComp<CompHumanlike>();
+		}
+
 		public static bool CanBleed(this Pawn pawn)
 		{
 			if (!pawn.health.CanBleed)

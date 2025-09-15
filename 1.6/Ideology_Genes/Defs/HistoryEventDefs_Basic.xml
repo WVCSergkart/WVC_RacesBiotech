@@ -6,19 +6,19 @@
 	<label>shapeshift</label>
   </HistoryEventDef>
 
-  <HistoryEventDef>
-	<defName>WVC_XenotypeSerumUsed</defName>
-	<label>xenotype serum used</label>
-  </HistoryEventDef>
+  <!-- <HistoryEventDef> -->
+	<!-- <defName>WVC_XenotypeSerumUsed</defName> -->
+	<!-- <label>xenotype serum used</label> -->
+  <!-- </HistoryEventDef> -->
 
-  <HistoryEventDef>
-	<defName>WVC_ReimplanterResurrection</defName>
-	<label>reimplanter resurrection</label>
-  </HistoryEventDef>
+  <!-- <HistoryEventDef> -->
+	<!-- <defName>WVC_ReimplanterResurrection</defName> -->
+	<!-- <label>reimplanter resurrection</label> -->
+  <!-- </HistoryEventDef> -->
 
   <HistoryEventDef>
 	<defName>WVC_UndeadResurrection</defName>
-	<label>undead resurrection</label>
+	<label>witnesses of the resurrection</label>
   </HistoryEventDef>
 
   <HistoryEventDef>
@@ -33,7 +33,7 @@
 
   <HistoryEventDef>
 	<defName>WVC_OneManArmy</defName>
-	<label>being alone and not having rituals</label>
+	<label>being alone</label>
   </HistoryEventDef>
 
 </Defs>

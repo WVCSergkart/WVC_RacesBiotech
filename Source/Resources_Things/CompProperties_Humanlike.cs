@@ -255,6 +255,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public Pawn Pawn => parent as Pawn;
+
 		private int resurrectionDelay = 0;
 		private bool shouldResurrect = false;
 
@@ -473,8 +475,25 @@ namespace WVC_XenotypesAndGenes
 		{
 			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
+			Scribe_Values.Look(ref resurrected, "resurrected_" + Props.uniqueTag, false);
 			Scribe_Values.Look(ref pawnIsDuplicate, "pawnIsDuplicate_" + Props.dupUniqueTag, false);
 			Scribe_References.Look(ref originalRef, "originalRef_" + Props.dupUniqueTag, true);
+		}
+
+		public bool Undead => resurrected;
+
+		private bool resurrected = false;
+		public virtual void Notify_Resurrected()
+		{
+			if (!resurrected)
+			{
+				GeneResourceUtility.UpdUndeads();
+			}
+			resurrected = true;
+			if (ModLister.IdeologyInstalled && (Pawn.Map != null || Pawn.Corpse?.Map != null))
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, Pawn.Named(HistoryEventArgsNames.Doer)));
+			}
 		}
 
 	}

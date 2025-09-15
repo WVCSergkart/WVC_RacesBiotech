@@ -4,7 +4,8 @@
 	<MemeDef>
 		<!-- "ist" needed for more unique defName -->
 		<defName>WVC_Undeadist</defName>
-		<label>undead</label>
+		<!-- <label>undead</label> -->
+		<label>resurrected</label>
 		<description>The meaning is revealed only when the gaze is directed beyond the screen of deception built by our perception and those who have known death are able to know this.</description>
 		<randomizationSelectionWeightFactor>0.2</randomizationSelectionWeightFactor>
 		<iconPath>WVC/UI/Precepts/Memes_Undead</iconPath>

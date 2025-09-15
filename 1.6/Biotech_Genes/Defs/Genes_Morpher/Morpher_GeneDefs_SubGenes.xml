@@ -147,8 +147,8 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Undead</iconPath>
 	<displayOrderInCategory>-65</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Allows morph after resurrection during &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt;.</li>
-		<li>After morphing, extends &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt; by 10 days.</li>
+		<li>Allows morph after &lt;color=#8a8ae6&gt;resurrection&lt;/color&gt;.</li>
+		<li>After morphing, add or/and extends &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt; by 10 days.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
