@@ -59,9 +59,10 @@
 			<priority>12</priority>
 		  </li>
 		</thingStyleCategories>
-		<!-- <agreeableTraits> -->
-		  <!-- <li>Psychopath</li> -->
-		<!-- </agreeableTraits> -->
+		<agreeableTraits>
+		  <!-- <li>Occultist</li> -->
+		  <li>VoidFascination</li>
+		</agreeableTraits>
 		<!-- <disagreeableTraits> -->
 		  <!-- <li>BodyPurist</li> -->
 		<!-- </disagreeableTraits> -->

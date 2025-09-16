@@ -75,6 +75,10 @@
 		</requireOne>
 		<thingStyleCategories>
 		  <li>
+			<category>Totemic</category>
+			<priority>12</priority>
+		  </li>
+		  <li>
 			<category>Morbid</category>
 			<priority>4</priority>
 		  </li>
