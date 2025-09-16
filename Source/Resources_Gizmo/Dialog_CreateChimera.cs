@@ -964,20 +964,29 @@ namespace WVC_XenotypesAndGenes
         }
 
 		private void ConvertToDefsAndGetGeneline(List<Gene> pawnGenes, out List<GeneDef> geneDefs, ref List<GeneDef> genelinedGenes)
-        {
+		{
 			geneDefs = new();
 			foreach (Gene item in pawnGenes)
 			{
 				geneDefs.Add(item.def);
-				if (item is Gene_ChimeraGeneline geneline)
+				if (item is not Gene_ChimeraGeneline geneline)
 				{
-					if (genelinedGenes == null)
+					continue;
+				}
+				if (genelinedGenes == null)
+				{
+					genelinedGenes = geneline.GenelineGenes;
+				}
+				else
+				{
+					//genelinedGenes.AddRange(geneline.GenelineGenes);
+					foreach (GeneDef geneDef in geneline.GenelineGenes)
 					{
-						genelinedGenes = geneline.GenelineGenes;
-					}
-					else
-					{
-						genelinedGenes.AddRange(geneline.GenelineGenes);
+						if (genelinedGenes.Contains(geneDef))
+						{
+							continue;
+						}
+						genelinedGenes.Add(geneDef);
 					}
 				}
 			}

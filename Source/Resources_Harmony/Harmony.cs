@@ -495,7 +495,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 catch (Exception arg)
                 {
-					Log.Error("Failed Notify_Resurrected for: " + pawn.Name + ". Reason: " + arg.Message);
+					Log.Error("Failed Notify_PostResurrected for: " + pawn.Name + ". Reason: " + arg.Message);
                 }
             }
 

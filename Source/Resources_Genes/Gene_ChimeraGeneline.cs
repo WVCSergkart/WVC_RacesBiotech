@@ -17,9 +17,32 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedGenelineGenes == null)
                 {
-                    cachedGenelineGenes = Giver.geneDefs;
+                    List<GeneDef> geneDefs = new();
+                    if (Giver.geneDefs != null)
+                    {
+                        foreach (GeneDef geneDef in Giver.geneDefs)
+                        {
+                            AddGene(geneDefs, geneDef);
+                        }
+                    }
+                    if (Giver.geneCategoryDefs != null)
+                    {
+                        foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading.Where((gene) => Giver.geneCategoryDefs.Contains(gene.displayCategory)))
+                        {
+                            AddGene(geneDefs, geneDef);
+                        }
+                    }
+                    cachedGenelineGenes = geneDefs;
                 }
                 return cachedGenelineGenes;
+
+                static void AddGene(List<GeneDef> geneDefs, GeneDef geneDef)
+                {
+                    if (!geneDefs.Contains(geneDef))
+                    {
+                        geneDefs.Add(geneDef);
+                    }
+                }
             }
         }
 

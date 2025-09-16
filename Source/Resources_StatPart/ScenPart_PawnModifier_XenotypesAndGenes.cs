@@ -39,6 +39,7 @@ namespace WVC_XenotypesAndGenes
         public List<TraitDefHolder> forcedTraits;
         public List<GeneralHolder> chimeraGenesPerXenotype;
         public bool archiveAllPawns = false;
+        public bool markStartedPawnsAsResurrected = false;
 
 
         //public override void ExposeData()
@@ -172,6 +173,7 @@ namespace WVC_XenotypesAndGenes
             }
             DupePawns();
             ArchivePawns();
+            MarkAsResurrected();
             //if (prefabDef != null)
             //{
             //    PrefabUtility.SpawnPrefab(prefabDef, map, map.Center, Rot4.North, Faction.OfPlayer, null, null, null, false);
@@ -185,6 +187,18 @@ namespace WVC_XenotypesAndGenes
             //        QuestUtility.SendLetterQuestAvailable(quest);
             //    }
             //}
+        }
+
+        private void MarkAsResurrected()
+        {
+            if (!markStartedPawnsAsResurrected)
+            {
+                return;
+            }
+            foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+            {
+                startingAndOptionalPawn.HumanComponent()?.SetResurrected();
+            }
         }
 
         private void DupePawns()

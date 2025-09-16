@@ -567,7 +567,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool IsAndroidGeneCycly(GeneDef geneDef, int currentCycle = 0)
+		private static bool IsAndroidGeneCycly(GeneDef geneDef, int currentCycle = 0)
 		{
 			if (AndroidGenes.Contains(geneDef))
             {

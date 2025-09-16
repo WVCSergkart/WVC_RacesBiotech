@@ -327,6 +327,7 @@
 			<!-- <li>WVC_EndogermReimplanter</li> -->
 			<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
 		  </chimeraGeneDefs>
+		  <markStartedPawnsAsResurrected>true</markStartedPawnsAsResurrected>
 		  <context>PlayerStarter</context>
 		</li>
 

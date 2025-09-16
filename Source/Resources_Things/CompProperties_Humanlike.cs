@@ -485,15 +485,20 @@ namespace WVC_XenotypesAndGenes
 		private bool resurrected = false;
 		public virtual void Notify_Resurrected()
 		{
+			SetResurrected();
+			if (ModLister.IdeologyInstalled && (Pawn.Map != null || Pawn.Corpse?.Map != null))
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, Pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+		}
+
+		public void SetResurrected()
+		{
 			if (!resurrected)
 			{
 				GeneResourceUtility.UpdUndeads();
 			}
 			resurrected = true;
-			if (ModLister.IdeologyInstalled && (Pawn.Map != null || Pawn.Corpse?.Map != null))
-			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, Pawn.Named(HistoryEventArgsNames.Doer)));
-			}
 		}
 
 	}
