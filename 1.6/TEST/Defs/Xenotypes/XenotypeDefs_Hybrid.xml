@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- Hybrid -->
+  <!-- DevName: Hybrid. New name: Mergekin -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
-	<defName>WVC_Hybrid</defName>
-	<label>hybrid</label>
-	<description>A unique variation of xenohuman that combines some genetic features of two xenotypes at the same time, but does not belong to either of them.</description>
-	<iconPath>WVC/UI/Mecha_Icons/Xeno_Vampire_v0</iconPath>
+	<defName>WVC_Mergekin</defName>
+	<label>mergekin</label>
+	<description>A unique variation of xenohuman that combines some genetic features of two xenotypes at the same time, but does not belong to either of them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; It is a random hybrid of 2 xenotypes and can hybridize itself further with the appropriate ability.</description>
+	<iconPath>WVC/UI/Icons3/Icon_Genetic0c</iconPath>
 	<isHybrid>true</isHybrid>
 	<isRandom>true</isRandom>
 	<devDisable>false</devDisable>

@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 		private static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> nonRemovableGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
         {
 			exceptedGenes.AddRange(nonRemovableGenes);
-			if (!TryGetHybridGenes(firstXenotypeGenes, secondXenotypeGenes, out List<GeneDef> allNewGenes, exceptedGenes, nonRemovableGenes))
+			if (!TryGetHybridGenes(pawn, firstXenotypeGenes, secondXenotypeGenes, out List<GeneDef> allNewGenes, exceptedGenes, nonRemovableGenes))
             {
                 return false;
             }
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
 
-        public static bool TryGetHybridGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes)
+        public static bool TryGetHybridGenes(Pawn pawn, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes)
         {
             allNewGenes = new();
 			string phase = "start";
@@ -171,6 +171,10 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
                 SetSkinAndHairGenes(firstXenotypeGenes, secondXenotypeGenes, allNewGenes);
+				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism))
+				{
+					return true;
+				}
 				XaG_GeneUtility.GetBiostatsFromList(allNewGenes, out _, out int met, out _);
 				XaG_GeneUtility.GetBiostatsFromList(ignoredGenes, out _, out int met2, out _);
 				float metabolism = met + met2;

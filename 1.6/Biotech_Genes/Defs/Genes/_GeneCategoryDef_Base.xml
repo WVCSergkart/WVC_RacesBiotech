@@ -14,7 +14,11 @@
 	<displayPriorityInXenotype>517.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
   <!-- Duplicator 516.2886992038 -->
-  <!-- Hive Mind 515.2886992038 -->
+  <GeneCategoryDef>
+	<defName>WVC_HiveMind</defName>
+	<label>hive mind</label>
+	<displayPriorityInXenotype>515.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
   <GeneCategoryDef>
 	<defName>WVC_Chimera</defName>
 	<label>chimera</label>

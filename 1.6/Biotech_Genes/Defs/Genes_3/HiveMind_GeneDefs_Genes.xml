@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Skills</defName>
+	<label>shared skills</label>
+	<description>Carriers of this gene have a psychic connection with other carriers. Due to which share some experience in skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Skills</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
+		<li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li>
+		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+	<defName>WVC_HiveMind_Needs</defName>
+	<label>shared needs</label>
+	<description>Carriers of this gene have a psychic connection with other carriers. Due to which they share some of their needs.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day or when a new mind is added, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
+		<li>Only &lt;color=#8a8ae6&gt;recreation, comfort, outdoors, indoors, beauty&lt;/color&gt; are synchronized.</li>
+		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<needDefs>
+			  <li>Joy</li>
+			  <li>Beauty</li>
+			  <li>Comfort</li>
+			  <li>Outdoors</li>
+			  <li>Indoors</li>
+			</needDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

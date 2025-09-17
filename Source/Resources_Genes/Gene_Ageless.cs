@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -34,7 +35,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HediffGiverUtility.TryApply(pawn, HediffDefOf.Carcinoma, null, true);
+			List<BodyPartDef> allowedBodyParts = pawn.health?.hediffSet?.GetNotMissingParts()?.Where((part) => part.def.canSuggestAmputation)?.ToList()?.ConvertToDefs();
+			if (allowedBodyParts.NullOrEmpty())
+            {
+				allowedBodyParts = null;
+			}
+			HediffGiverUtility.TryApply(pawn, HediffDefOf.Carcinoma, allowedBodyParts, true);
 		}
 
 	}

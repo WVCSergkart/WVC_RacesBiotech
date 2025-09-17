@@ -41,7 +41,7 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
 
 	<WVC_Label_disableXenotypes_Mechalike>|- Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
-	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin.</WVC_ToolTip_disableXenotypes_Mechalike>
+	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin, Ferrkind.</WVC_ToolTip_disableXenotypes_Mechalike>
 
 	<WVC_Label_disableXenotypes_GolemMasters>|- Disable golemists</WVC_Label_disableXenotypes_GolemMasters>
 	<WVC_ToolTip_disableXenotypes_GolemMasters>Golyad, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
@@ -54,5 +54,8 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
 	<WVC_ToolTip_disableXenotypes_Misc>None.</WVC_ToolTip_disableXenotypes_Misc>
+
+	<!-- <WVC_Label_enableXenotypes_Hybrid>|- Enable exp- hybrid xenotype</WVC_Label_enableXenotypes_Hybrid> -->
+	<!-- <WVC_ToolTip_enableXenotypes_Hybrid>None.</WVC_ToolTip_enableXenotypes_Hybrid> -->
 
 </LanguageData>

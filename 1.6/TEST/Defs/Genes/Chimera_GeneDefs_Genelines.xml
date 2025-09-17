@@ -17,10 +17,13 @@
 		<li>Only &lt;color=#8a8ae6&gt;geneline&lt;/color&gt; genes can be implanted.</li>
 		<li>&lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes are &lt;color=#8a8ae6&gt;always&lt;/color&gt; available.</li>
 		<!-- <li>For implantation, the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; must be 0.</li> -->
-		<li>&lt;color=#8a8ae6&gt;Eating&lt;/color&gt; genes is impossible.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Eating&lt;/color&gt; genes is impossible.</li> -->
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<geneCategoryDefs>
+			  <li>WVC_Fleshmass</li>
+			</geneCategoryDefs>
 			<geneDefs>
 			  <li>WVC_Chimera_Devourer</li>
 			  <li>WVC_FleshmassImmunity</li>

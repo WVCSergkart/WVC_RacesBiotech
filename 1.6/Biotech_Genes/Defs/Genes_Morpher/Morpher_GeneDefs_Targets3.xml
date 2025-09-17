@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
 	<defName>WVC_MorphTargeter_ByMatch</defName>
-	<label>matching morph</label>
+	<label>targeted morph (by match)</label>
 	<description>Carriers of this gene can only morph into matched xenotypes.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter_WithMatch</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_MorpherSubGene_TargetXenotype_ByMatch</iconPath>

@@ -28,7 +28,7 @@
 		<li>&lt;color=#8a8ae6&gt;Copies&lt;/color&gt; half of the &lt;color=#8a8ae6&gt;target's genes&lt;/color&gt; and implants them as xenogenes.</li>
 		<li>If the gene is not a &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt;, half of the existing xenogenes will be lost.</li>
 		<li>Genes are chosen randomly, but for each geneset they are &lt;color=#8a8ae6&gt;predetermined in advance&lt;/color&gt;.</li>
-		<li>If the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; does not fit into the limit between &lt;color=#8a8ae6&gt;-5 and +5&lt;/color&gt;, then the hybridization will fail.</li>
+		<li>If the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; does not fit into the limit between &lt;color=#8a8ae6&gt;-5 and +5&lt;/color&gt;, then the hybridization will fail. Some genes allow to bypass this limitation.</li>
 		<li>Regardless of the result, the ability will go on a 5 days cooldown.</li>
 	</customEffectDescriptions>
   </GeneDef>

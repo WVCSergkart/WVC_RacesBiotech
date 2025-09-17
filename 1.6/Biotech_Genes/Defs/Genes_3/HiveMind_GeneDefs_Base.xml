@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneHiveMind_Base" Abstract="True">
+	<description>Carriers of this gene have a psychic connection with other carriers.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_HiveMind</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
+	<customEffectDescriptions>
+		<li>Affects &lt;color=#8a8ae6&gt;all owners&lt;/color&gt; of any gene of the &lt;color=#8a8ae6&gt;hive mind&lt;/color&gt; series. &lt;color=#8a8ae6&gt;Psy-deaf&lt;/color&gt; pawns are ignored.</li>
+		<li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; of sync- depends on the &lt;color=#8a8ae6&gt;size&lt;/color&gt; of the &lt;color=#8a8ae6&gt;hive&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sync</symbol></li>
+		<li><symbol>mind</symbol></li>
+		<li><symbol>hive</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

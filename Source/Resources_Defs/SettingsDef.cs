@@ -111,6 +111,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Bloodeaters = false;
 		public bool disableXenotypes_MutantMakers = false;
 		public bool disableXenotypes_Misc = false;
+		public bool enableXenotypes_Hybrid = false;
 		// Misc
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;

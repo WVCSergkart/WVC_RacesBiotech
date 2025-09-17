@@ -8,6 +8,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassAging</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_FleshmassAging</iconPath>
 	<displayOrderInCategory>110</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>-5</biostatMet>

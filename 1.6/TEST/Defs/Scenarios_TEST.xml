@@ -273,7 +273,7 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Hybrid>1</WVC_Hybrid>
+			<WVC_Mergekin>1</WVC_Mergekin>
 		  </xenotypeChances>
 		  <context>PlayerStarter</context>
 		</li>
