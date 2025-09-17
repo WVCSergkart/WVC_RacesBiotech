@@ -73,7 +73,8 @@
 		<!-- New -->
 		<!-- <li>WVC_RechargeableStomach</li> -->
 		<!-- Anomaly -->
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
 		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
 	</genes>
   </XenotypeDef>

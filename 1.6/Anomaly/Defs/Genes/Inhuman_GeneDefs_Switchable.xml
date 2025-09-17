@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Rehumanized</defName>
+	<label>rehuman</label>
+	<description>Carriers of this gene are able to accept the psychic patterns of the void or cut them off at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Inhumanized_Switch</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Inhuman_Switch</iconPath>
+	<selectionWeight>0.00002</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>135</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;inhumanize/rehumanize&lt;/color&gt; at any time.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rehuman</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Inhumanized</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

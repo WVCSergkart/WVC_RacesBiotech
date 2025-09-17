@@ -101,6 +101,7 @@
     <Compile Include="Resources_Genes\Gene_GeneticConverter.cs" />
     <Compile Include="Resources_Genes\Gene_GolemlinkSubGene.cs" />
     <Compile Include="Resources_Genes\Gene_ImplanterFang.cs" />
+    <Compile Include="Resources_Genes\Gene_Inhumanized.cs" />
     <Compile Include="Resources_Genes\Gene_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_OverriderDependant.cs" />
     <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />

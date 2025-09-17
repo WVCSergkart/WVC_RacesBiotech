@@ -1146,6 +1146,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_CarnivorousSkinDesc>When enabled, slowly destroys worn apparel and replenishes the hunger bar.</WVC_XaG_CarnivorousSkinDesc>
 
+	<WVC_XaG_InhumanizedSwitchDesc>Allows to inhumanize/rehumanize at any time.</WVC_XaG_InhumanizedSwitchDesc>
+
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
 	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->

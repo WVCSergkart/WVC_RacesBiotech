@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged
+	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverridden
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -164,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedPossibleXenotypesString == null)
 				{
-					cachedPossibleXenotypesString = pawn.genes.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>()?.Giver?.morpherXenotypeChances?.Select((XenotypeChance xenoChance) => xenoChance.xenotype.label).ToCommaList(true).CapitalizeFirst();
+					cachedPossibleXenotypesString = pawn.genes?.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>()?.PossibleXenotypeDefs?.Select((XenotypeDef xenoChance) => xenoChance.label).ToCommaList(true).CapitalizeFirst();
 					if (cachedPossibleXenotypesString == null)
                     {
 						cachedPossibleXenotypesString = "Random".Translate();
@@ -835,6 +835,17 @@ namespace WVC_XenotypesAndGenes
 			storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneSet.xenotypeDef.inheritable, geneSet.iconDef, null);
 			RemoveSetHolder(geneSet);
 		}
+
+        public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Notify_GenesChanged(null);
+		}
+
+        public virtual void Notify_Override()
+        {
+			Notify_GenesChanged(null);
+        }
+
     }
 
 }

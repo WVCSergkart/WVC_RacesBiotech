@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphTargeter_ByMatch</defName>
+	<label>matching morph</label>
+	<description>Carriers of this gene can only morph into matched xenotypes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter_WithMatch</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_MorpherSubGene_TargetXenotype_ByMatch</iconPath>
+	<displayOrderInCategory>-50.050</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 60% matched xenotypes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<match>0.6</match>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

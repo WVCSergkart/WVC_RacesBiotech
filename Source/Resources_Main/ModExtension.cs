@@ -336,6 +336,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneralHolder> holofaces;
 		public Color defaultColor;
 		//Morpher
+		public float match = 1f;
 		public GeneDef morpherTriggerGene;
 		public List<GeneDef> morpherTriggerGenes;
 		public JobDef morpherTriggerChangeJob;

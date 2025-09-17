@@ -29,6 +29,57 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+
+        public List<XenotypeDef> cachedXenotypeDefs;
+        public virtual List<XenotypeDef> PossibleXenotypeDefs
+        {
+            get
+            {
+                if (cachedXenotypeDefs == null)
+                {
+                    List<XenotypeDef> list = new();
+                    foreach (XenotypeChance chance in Giver?.morpherXenotypeChances)
+                    {
+                        list.Add(chance.xenotype);
+                    }
+                    cachedXenotypeDefs = list;
+                }
+                return cachedXenotypeDefs;
+            }
+        }
+
+    }
+
+    public class Gene_MorpherXenotypeTargeter_WithMatch : Gene_MorpherXenotypeTargeter, IGeneOverridden
+    {
+
+        public override List<XenotypeDef> PossibleXenotypeDefs
+        {
+            get
+            {
+                if (cachedXenotypeDefs == null)
+                {
+                    List<XenotypeDef> list = new();
+                    foreach (XenotypeDef def in XaG_GeneUtility.GetAllMatchedXenotypes(pawn, DefDatabase<XenotypeDef>.AllDefsListForReading, percent: Giver.match))
+                    {
+                        list.Add(def);
+                    }
+                    cachedXenotypeDefs = list;
+                }
+                return cachedXenotypeDefs;
+            }
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            cachedXenotypeDefs = null;
+        }
+
+        public void Notify_Override()
+        {
+            cachedXenotypeDefs = null;
+        }
+
     }
 
 }

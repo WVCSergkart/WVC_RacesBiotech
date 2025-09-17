@@ -43,7 +43,8 @@
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>
 		<li>WVC_MecaBodyParts_Leg</li>
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
