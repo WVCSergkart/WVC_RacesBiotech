@@ -240,8 +240,62 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_ImplanterDependant : Gene
-    {
+	public class Gene_ImplanterDependant : Gene, IGeneRemoteControl
+	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(activateSubGeneEffect);
+
+		public TaggedString RemoteActionDesc => "WVC_XaG_PostImplanterSubGeneDesc".Translate();
+
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			activateSubGeneEffect = !activateSubGeneEffect;
+		}
+
+		public bool RemoteControl_Hide => !Active;
+
+		public bool RemoteControl_Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+				remoteControllerCached = false;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+		}
+
+		public bool enabled = true;
+		public bool remoteControllerCached = false;
+
+		public void RemoteControl_Recache()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+			}
+			return null;
+		}
+
+		public bool activateSubGeneEffect = true;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref activateSubGeneEffect, "activateSubGeneEffect", defaultValue: true);
+		}
 
 		//[Unsaved(false)]
 		//private Gene_PostImplanter cachedImplanterGene;
@@ -258,17 +312,25 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-        public virtual void Notify_PostReimplanted(Pawn target)
-        {
+		public void Notify_PostReimplanted(Pawn target)
+		{
+			if (activateSubGeneEffect)
+			{
+				DoEffects(target);
+			}
+		}
 
-        }
+		public virtual void DoEffects(Pawn target)
+		{
 
-    }
+		}
 
-    public class Gene_Implanter_Recruit : Gene_ImplanterDependant
+	}
+
+	public class Gene_Implanter_Recruit : Gene_ImplanterDependant
 	{
 
-		public override void Notify_PostReimplanted(Pawn target)
+		public override void DoEffects(Pawn target)
 		{
 			if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
 			{
@@ -284,7 +346,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PostImplanter_Recruit : Gene_Implanter_Recruit
 	{
 
-    }
+	}
 
 	[Obsolete]
 	public class Gene_PostImplanter_Brainwash : Gene_PostImplanter_Recruit
@@ -295,7 +357,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Implanter_Convert : Gene_ImplanterDependant
 	{
 
-		public override void Notify_PostReimplanted(Pawn target)
+		public override void DoEffects(Pawn target)
 		{
 			if (target.ideo?.Ideo != null && pawn.ideo?.Ideo != null && target.ideo.Ideo != pawn.ideo.Ideo)
 			{
@@ -309,6 +371,6 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PostImplanter_Convert : Gene_Implanter_Convert
 	{
 
-    }
+	}
 
 }
