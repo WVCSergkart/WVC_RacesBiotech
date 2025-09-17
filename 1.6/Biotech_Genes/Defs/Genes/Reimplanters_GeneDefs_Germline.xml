@@ -8,10 +8,11 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Endo_v0</iconPath>
-	<displayOrderInCategory>-505</displayOrderInCategory>
+	<displayOrderInCategory>65</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_Endogenes</li>
@@ -82,10 +83,11 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Name="WVC_XenotypesAndGenes_Reimplanters_RiseEndogenes" Abstract="True">
 	<label>post endo-implanter</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Endo_v0</iconPath>
-	<displayOrderInCategory>-510</displayOrderInCategory>
+	<displayOrderInCategory>70</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseEndogenes</li>

@@ -40,23 +40,30 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-			Pawn pawn = target.Pawn;
-			if (pawn != null)
-			{
-				if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
-                {
-					Notify_Reimplanted(pawn, parent.pawn);
-					ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
-                }
-            }
-		}
-
-		public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
         {
-
+            base.Apply(target, dest);
+            Pawn pawn = target.Pawn;
+            if (pawn == null)
+            {
+                return;
+            }
+            if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
+            {
+                Notify_Reimplanted(pawn, parent.pawn);
+                ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
+            }
         }
+
+        public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
+		{
+			foreach (Gene gene in caster.genes.GenesListForReading)
+			{
+				if (gene is Gene_ImplanterDependant postgene && gene.Active)
+				{
+					postgene.Notify_PostReimplanted(target);
+				}
+			}
+		}
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {

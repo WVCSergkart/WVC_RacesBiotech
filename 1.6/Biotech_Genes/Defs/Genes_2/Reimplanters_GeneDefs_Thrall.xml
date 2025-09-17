@@ -12,8 +12,9 @@
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaster_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType>
-	<displayCategory>WVC_ResurgentCells</displayCategory>
-	<displayOrderInCategory>1490</displayOrderInCategory>
+	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>

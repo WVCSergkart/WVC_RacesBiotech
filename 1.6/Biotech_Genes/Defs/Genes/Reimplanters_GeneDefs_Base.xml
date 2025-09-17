@@ -11,11 +11,9 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
-	<displayCategory>Ability</displayCategory>
-	<displayOrderInCategory>-523</displayOrderInCategory>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>50</displayOrderInCategory>
 	<!-- <exclusionTags> -->
 		<!-- <li>WVC_Reimplanter</li> -->
 	<!-- </exclusionTags> -->

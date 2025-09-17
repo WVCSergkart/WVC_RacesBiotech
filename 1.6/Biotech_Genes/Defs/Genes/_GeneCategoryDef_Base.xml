@@ -7,6 +7,12 @@
 	<!-- <displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
 
+  <!-- Fleshmass 525.2886992038 -->
+  <GeneCategoryDef>
+	<defName>WVC_Reimplanters</defName>
+	<label>reimplanters - Xenotypes and Genes</label>
+	<displayPriorityInXenotype>517.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
   <!-- Duplicator 516.2886992038 -->
   <!-- Hive Mind 515.2886992038 -->
   <GeneCategoryDef>

@@ -10,6 +10,8 @@
 	<iconPath>WVC/UI/Genes/Gene_HybridImplanter_v0</iconPath>
 	<!-- <displayCategory>WVC_Energy</displayCategory> -->
 	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
 	<selectionWeight>0.00125</selectionWeight>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HybridImplanter</geneClass>
 	<abilities>

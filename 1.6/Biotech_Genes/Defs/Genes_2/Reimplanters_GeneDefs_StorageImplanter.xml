@@ -8,8 +8,10 @@
 	<label>storage implanter</label>
 	<description>Carriers of this gene can implant a saved xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
 	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
-	<displayCategory>WVC_Energy</displayCategory>
-	<displayOrderInCategory>200</displayOrderInCategory>
+	<!-- <displayCategory>WVC_Energy</displayCategory> -->
+	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>5</displayOrderInCategory>
 	<selectionWeight>0.00125</selectionWeight>
 	<geneClass>WVC_XenotypesAndGenes.Gene_StorageImplanter</geneClass>
 	<abilities>

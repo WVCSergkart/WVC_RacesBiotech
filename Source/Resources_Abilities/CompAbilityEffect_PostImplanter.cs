@@ -16,29 +16,34 @@ namespace WVC_XenotypesAndGenes
         {
             base.Apply(target, dest);
             Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-			if (innerPawn == null)
-			{
-				return;
-			}
-			GeneResourceUtility.ResurrectWithSickness(innerPawn);
-			//if (ModLister.IdeologyInstalled)
-			//{
-			//	Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
-			//}
+            if (innerPawn == null)
+            {
+                return;
+            }
+            GeneResourceUtility.ResurrectWithSickness(innerPawn);
+            //if (ModLister.IdeologyInstalled)
+            //{
+            //	Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
+            //}
             Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
             MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
             if (ReimplanterUtility.TryReimplant(parent.pawn, innerPawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
-            {
-                ReimplanterUtility.FleckAndLetter(parent.pawn, innerPawn);
-			}
-			foreach (Gene gene in parent.pawn.genes.GenesListForReading)
 			{
-				if (gene is Gene_PostImplanterDependant postgene && gene.Active)
-				{
-					postgene.Notify_TargetResurrected(innerPawn);
-				}
-			}
-		}
+				Notify_Reimplanted(innerPawn);
+				ReimplanterUtility.FleckAndLetter(parent.pawn, innerPawn);
+            }
+        }
+
+        public virtual void Notify_Reimplanted(Pawn innerPawn)
+        {
+            foreach (Gene gene in parent.pawn.genes.GenesListForReading)
+            {
+                if (gene is Gene_ImplanterDependant postgene && gene.Active)
+                {
+                    postgene.Notify_PostReimplanted(innerPawn);
+                }
+            }
+        }
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{

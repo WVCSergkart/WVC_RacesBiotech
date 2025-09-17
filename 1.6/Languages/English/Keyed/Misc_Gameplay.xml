@@ -66,7 +66,7 @@
 	<WVC_XaG_ScenPart_AddMechlink>Starting pawns will receive mechlink.</WVC_XaG_ScenPart_AddMechlink>
 	<WVC_XaG_ScenPart_NullifyBackstory>The backstory of the starting pawns is unknown.</WVC_XaG_ScenPart_NullifyBackstory>
 	<WVC_XaG_ScenPart_NullifySkills>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_NullifySkills>
-	<WVC_XaG_ScenPart_StartingGenes>Starting xenogenes</WVC_XaG_ScenPart_StartingGenes>
+	<WVC_XaG_ScenPart_StartingGenes>Starting genes</WVC_XaG_ScenPart_StartingGenes>
 	<WVC_XaG_ScenPart_ChimeraStartingGenes>Chimera starting xenogenes</WVC_XaG_ScenPart_ChimeraStartingGenes>
 	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>For other biomes</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None>
 	<WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>Chimera genes for biomes: {0}</WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome>

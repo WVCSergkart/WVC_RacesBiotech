@@ -240,35 +240,35 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_PostImplanterDependant : Gene
+    public class Gene_ImplanterDependant : Gene
     {
 
-        [Unsaved(false)]
-        private Gene_PostImplanter cachedImplanterGene;
+		//[Unsaved(false)]
+		//private Gene_PostImplanter cachedImplanterGene;
 
-        public Gene_PostImplanter PostImplanter
-        {
-            get
-            {
-                if (cachedImplanterGene == null || !cachedImplanterGene.Active)
-                {
-                    cachedImplanterGene = pawn?.genes?.GetFirstGeneOfType<Gene_PostImplanter>();
-                }
-                return cachedImplanterGene;
-            }
-        }
+		//public Gene_PostImplanter PostImplanter
+		//{
+		//	get
+		//	{
+		//		if (cachedImplanterGene == null || !cachedImplanterGene.Active)
+		//		{
+		//			cachedImplanterGene = pawn?.genes?.GetFirstGeneOfType<Gene_PostImplanter>();
+		//		}
+		//		return cachedImplanterGene;
+		//	}
+		//}
 
-        public virtual void Notify_TargetResurrected(Pawn target)
+        public virtual void Notify_PostReimplanted(Pawn target)
         {
 
         }
 
     }
 
-    public class Gene_PostImplanter_Recruit : Gene_PostImplanterDependant
+    public class Gene_Implanter_Recruit : Gene_ImplanterDependant
 	{
 
-		public override void Notify_TargetResurrected(Pawn target)
+		public override void Notify_PostReimplanted(Pawn target)
 		{
 			if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
 			{
@@ -281,22 +281,34 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	[Obsolete]
+	public class Gene_PostImplanter_Recruit : Gene_Implanter_Recruit
+	{
+
+    }
+
+	[Obsolete]
 	public class Gene_PostImplanter_Brainwash : Gene_PostImplanter_Recruit
 	{
 
 	}
 
-	public class Gene_PostImplanter_Convert : Gene_PostImplanterDependant
+	public class Gene_Implanter_Convert : Gene_ImplanterDependant
 	{
 
-		public override void Notify_TargetResurrected(Pawn target)
+		public override void Notify_PostReimplanted(Pawn target)
 		{
 			if (target.ideo?.Ideo != null && pawn.ideo?.Ideo != null && target.ideo.Ideo != pawn.ideo.Ideo)
-            {
+			{
 				target.ideo.SetIdeo(pawn.ideo.Ideo);
-            }
+			}
 		}
 
 	}
+
+	[Obsolete]
+	public class Gene_PostImplanter_Convert : Gene_Implanter_Convert
+	{
+
+    }
 
 }

@@ -6,9 +6,10 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_EndoXeno" Abstract="True">
 	<label>reimplanter</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Hybrid_v0</iconPath>
-	<displayOrderInCategory>-515</displayOrderInCategory>
+	<displayOrderInCategory>75</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_EndogermReimplanter</li>
@@ -49,9 +50,10 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
-	<displayOrderInCategory>-520</displayOrderInCategory>
+	<displayOrderInCategory>80</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_Reimplanter_RiseFromTheDead</li>
@@ -148,7 +150,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base">
 	<defName>WVC_Hands_Angel</defName>
-	<label>angel hands</label>
+	<label>delayed implanter</label>
 	<description>Carriers of this gene have archites that grow special glands on their palms that contain the archite virus. This virus is capable of changing the target's genes to the caster's genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
 	<selectionWeight>0.0008</selectionWeight>
@@ -158,8 +160,10 @@
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
 	<randomChosen>false</randomChosen>
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
+		<li>Changes the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; to the caster's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; some time after the ability is used.</li>
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_Reimplanter_BlessedTouch</li>
@@ -174,7 +178,7 @@
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
 	<defName>WVC_Reimplanter_BlessedTouch</defName>
-	<label>blessed touch</label>
+	<label>delayed implant</label>
 	<description>Infects the target with a archite virus that, after a few days, completely overwrites the target's genes with the caster's genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
