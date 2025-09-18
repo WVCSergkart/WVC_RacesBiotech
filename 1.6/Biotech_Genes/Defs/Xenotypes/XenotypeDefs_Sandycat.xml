@@ -30,7 +30,7 @@ Cats spread through their bite; anyone they bite can turn into a sandycat. Pawns
 		<li>Hemogenic</li>
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
-		<li>WVC_Bloodcells</li>
+		<!-- <li>WVC_Bloodcells</li> -->
 		<li>WVC_ImplanterFangs</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>LongjumpLegs</li>
@@ -40,10 +40,10 @@ Cats spread through their bite; anyone they bite can turn into a sandycat. Pawns
 		<li>MaxTemp_LargeIncrease</li>
 		<li>WVC_MinTemp_LargeIncrease</li>
 		<!-- lich -->
-		<li>WVC_ResurgentCells</li>
+		<!-- <li>WVC_ResurgentCells</li> -->
 		<li>Deathless</li>
 		<li>WVC_ReimplanterThrallMaker</li>
-		<li>WVC_ResurgentCells_AnomalyStability</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_ResurgentCells_AnomalyStability</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 	</genes>
   </XenotypeDef>

@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
     {
 
 
-        private List<GeneDef> cachedGenelineGenes;
+        private static List<GeneDef> cachedGenelineGenes;
         public override List<GeneDef> GenelineGenes
         {
             get

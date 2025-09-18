@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -136,17 +137,22 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_AnomalyStability : Gene_ResurgentStability
+    public class Gene_GhoulMetabolism : Gene
 	{
 
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        public override void TickInterval(int delta)
+        {
+
+        }
+
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			if (!Active)
 			{
 				return;
 			}
 			base.Notify_PawnDied(dinfo, culprit);
-			if (ModsConfig.AnomalyActive && !pawn.IsMutant && MutantDefOf.Ghoul.allowedDevelopmentalStages == pawn.DevelopmentalStage)
+			if (ModsConfig.AnomalyActive && !pawn.IsMutant && (MutantDefOf.Ghoul.allowedDevelopmentalStages & pawn.DevelopmentalStage) != 0)
 			{
 				if (GeneResourceUtility.TryResurrectWithSickness(pawn, true, 0.92f))
 				{
@@ -160,6 +166,12 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_AnomalyStability : Gene_GhoulMetabolism
+	{
 
 	}
 

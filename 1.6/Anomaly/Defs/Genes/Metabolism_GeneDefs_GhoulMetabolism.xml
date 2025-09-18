@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain"> -->
+	<!-- <defName>WVC_ResurgentCells_AnomalyStability</defName> -->
+	<!-- <label>anomaly genetic</label> -->
+	<!-- <description>Carriers of this gene have a critical tendency to mutation. Their body recovers faster from any genetic changes, but when they die they turn into ghouls.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AnomalyStability</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_AnomalyGenetic_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>1232</displayOrderInCategory> -->
+	<!-- <resourceLossPerDay>-0.02</resourceLossPerDay> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <intervalRange>222000~440000</intervalRange> -->
+			<!-- <hediffDefs> -->
+				<!-- <li>XenogermReplicating</li> -->
+				<!-- <li>XenogerminationComa</li> -->
+				<!-- <li>XenogermLossShock</li> -->
+			<!-- </hediffDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef>
+	<defName>WVC_ResurgentCells_AnomalyStability</defName>
+	<label>ghoul metabolism</label>
+	<description>Carriers of this gene have an increased metabolism, but upon death they turn into ghouls.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GhoulMetabolism</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AnomalyGenetic_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<selectionWeight>0.0002</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>170</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>4</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<customEffectDescriptions>
+	  <li>Carriers of this gene &lt;color=#8a8ae6&gt;turn into ghouls upon death.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>1.2</Fertility>
+	  <ImmunityGainSpeed>1.2</ImmunityGainSpeed>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<supportMutants>false</supportMutants>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

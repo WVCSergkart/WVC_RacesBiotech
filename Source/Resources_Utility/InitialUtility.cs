@@ -232,7 +232,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private static void MutantsPatch(List<GeneDef> xenogenesGenes)
+		private static void MutantsPatch(List<GeneDef> xenogenesGenes)
 		{
 			List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
 			List<GeneDef> exceptions = ListsUtility.GetAnomalyExceptions();
@@ -242,23 +242,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (exceptions_Mutants.Contains(mutantDef))
-				{
-					continue;
-				}
-				if (mutantDef.disablesGenes == null)
-				{
-					mutantDef.disablesGenes = new();
-				}
 				foreach (GeneDef geneDef in xenogenesGenes)
 				{
 					GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
 					if (modExtension?.supportMutants == false)
 					{
-						if (!mutantDef.disablesGenes.Contains(geneDef))
-						{
-							mutantDef.disablesGenes.Add(geneDef);
-						}
+						AddGene(mutantDef, geneDef);
+						continue;
+					}
+					if (exceptions_Mutants.Contains(mutantDef))
+					{
+						continue;
+					}
+					if (geneDef.geneClass == typeof(Gene))
+					{
 						continue;
 					}
 					if (modExtension?.supportedMutantDefs?.Contains(mutantDef) == true)
@@ -269,16 +266,43 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
-					if (geneDef.geneClass == typeof(Gene))
-					{
-						continue;
-					}
-					if (!mutantDef.disablesGenes.Contains(geneDef))
-					{
-						mutantDef.disablesGenes.Add(geneDef);
-					}
+					AddGene(mutantDef, geneDef);
+				}
+				//AddSubGenes(mutantDef);
+			}
+
+			static void AddGene(MutantDef mutantDef, GeneDef geneDef)
+			{
+				if (mutantDef.disablesGenes == null)
+				{
+					mutantDef.disablesGenes = new();
+				}
+				if (!mutantDef.disablesGenes.Contains(geneDef))
+				{
+					mutantDef.disablesGenes.Add(geneDef);
 				}
 			}
+
+			//static void AddSubGenes(MutantDef mutantDef)
+			//{
+			//	if (!mutantDef.disablesGenes.NullOrEmpty())
+			//	{
+			//		foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+			//		{
+			//			if (mutantDef.disablesGenes.Contains(geneDef))
+			//			{
+			//				continue;
+			//			}
+			//			foreach (GeneDef mutantGeneDef in mutantDef.disablesGenes.ToList())
+			//			{
+			//				if (XaG_GeneUtility.IsSubGeneOfThisCycly(mutantGeneDef, geneDef))
+			//				{
+			//					AddGene(mutantDef, geneDef);
+			//				}
+			//			}
+			//		}
+			//	}
+			//}
 		}
 
 		private static void GeneChance(GeneDef geneDef)

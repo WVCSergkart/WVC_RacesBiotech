@@ -124,12 +124,12 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<nutritionPerBite>0.8</nutritionPerBite>
 			<bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef>
-			<specialFoodDefs>
-			  <li>HemogenPack</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li>
-			</specialFoodDefs>
+			<!-- <specialFoodDefs> -->
+			  <!-- <li>HemogenPack</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li> -->
+			<!-- </specialFoodDefs> -->
 			<!-- <abilityDefs> -->
 			  <!-- <li>Bloodfeed</li> -->
 			  <!-- <li>WVC_Animalfeeder</li> -->
@@ -166,12 +166,12 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<nutritionPerBite>0.08</nutritionPerBite>
-			<specialFoodDefs>
-			  <li>HemogenPack</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li>
-			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li>
-			</specialFoodDefs>
+			<!-- <specialFoodDefs> -->
+			  <!-- <li>HemogenPack</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li> -->
+			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li> -->
+			<!-- </specialFoodDefs> -->
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
                 phase = "mod settings";
                 InitialUtility.InitializeModSettings();
                 // Hediffs();
-                phase = "genes setup";
+                phase = "genes and mutants setup";
                 InitialUtility.GenesAndMutants();
                 //InitialUtility.ThingDefs();
                 //InitialUtility.XenotypeDefs();
