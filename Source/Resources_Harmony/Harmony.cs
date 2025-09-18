@@ -449,6 +449,10 @@ namespace WVC_XenotypesAndGenes
 
 			public static void Notify_LifeStageStarted(ref Pawn pawn)
 			{
+				if (MiscUtility.GameNotStarted())
+				{
+					return;
+				}
 				if (pawn?.genes == null)
 				{
 					return;
@@ -468,18 +472,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				ReimplanterUtility.PostImplantDebug(pawn);
-				//if (WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability)
-				//{
-				//	PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
-				//}
-				if (MiscUtility.GameStarted())
-				{
-					ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-					ThoughtWorker_Precept_Shapeshifter.UpdCollection();
-				}
+				ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+				ThoughtWorker_Precept_Shapeshifter.UpdCollection();
 			}
 
-			public static void Notify_PostResurrected(ref bool __result, Pawn pawn)
+            public static void Notify_PostResurrected(ref bool __result, Pawn pawn)
             {
                 try
                 {

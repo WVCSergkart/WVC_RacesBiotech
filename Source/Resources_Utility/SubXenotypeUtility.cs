@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 			return TrySetHybridXenotype(caster, ignoredGenes.ConvertToDefs(), XaG_GeneUtility.ConvertToDefs(caster.genes.Xenogenes), XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading), inheritable, new());
 		}
 
-		private static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> nonRemovableGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
+		public static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> nonRemovableGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
         {
 			exceptedGenes.AddRange(nonRemovableGenes);
 			if (!TryGetHybridGenes(pawn, firstXenotypeGenes, secondXenotypeGenes, out List<GeneDef> allNewGenes, exceptedGenes, nonRemovableGenes))

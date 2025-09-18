@@ -56,20 +56,20 @@
 	<!-- genes -->
 	<hideXaGGenes>false</hideXaGGenes>
 	<!-- <spawnXenoForcerSerumsFromTraders>true</spawnXenoForcerSerumsFromTraders> -->
-	<generalGenesRarity_Divisor>200</generalGenesRarity_Divisor>
+	<generalGenesRarity_Divisor>10</generalGenesRarity_Divisor>
 	<generateSkillGenes>true</generateSkillGenes>
 	<!-- xenos -->
 	<disableUniqueXenotypeScenarios>true</disableUniqueXenotypeScenarios>
 	<onlyXenotypesMode>false</onlyXenotypesMode>
 	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
 	<disableXenotypes_MainSwitch>true</disableXenotypes_MainSwitch>
-	<disableXenotypes_Misc>true</disableXenotypes_Misc>
 	<disableXenotypes_Bloodeaters>true</disableXenotypes_Bloodeaters>
 	<disableXenotypes_GolemMasters>true</disableXenotypes_GolemMasters>
 	<disableXenotypes_Mechalike>true</disableXenotypes_Mechalike>
 	<disableXenotypes_Psycasters>true</disableXenotypes_Psycasters>
 	<disableXenotypes_Undeads>true</disableXenotypes_Undeads>
-	<disableXenotypes_MutantMakers>true</disableXenotypes_MutantMakers>
+	<disableXenotypes_Misc>true</disableXenotypes_Misc>
+	<!-- <disableXenotypes_MutantMakers>true</disableXenotypes_MutantMakers> -->
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>

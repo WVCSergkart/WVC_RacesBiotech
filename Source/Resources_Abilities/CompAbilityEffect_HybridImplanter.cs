@@ -6,14 +6,14 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class CompAbilityEffect_HybridImplanter : CompAbilityEffect
+	public class CompAbilityEffect_GenesComboImplanter : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		[Unsaved(false)]
 		private Gene_HybridImplanter cachedGene;
-		public Gene_HybridImplanter Gene
+		public Gene_HybridImplanter HybridGene
 		{
 			get
 			{
@@ -25,39 +25,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-			Pawn victim = target.Pawn;
-			if (victim != null)
-			{
-                Pawn caster = parent.pawn;
-                List<Gene> ignoredGenes = Gene.IsEndogene ? caster.genes.Endogenes : caster.genes.Xenogenes;
-				if (!ignoredGenes.Contains(Gene))
-				{
-					ignoredGenes.Add(Gene);
-				}
-				if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, ignoredGenes, false))
-				{
-					if (Props.xenotypeDef != null && (caster.genes.Xenotype is not DevXenotypeDef hybrid || !hybrid.isHybrid))
-					{
-						ReimplanterUtility.SetXenotypeDirect(null, caster, Props.xenotypeDef);
-					}
-					ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
-					ReimplanterUtility.ExtractXenogerm(victim);
-					ReimplanterUtility.FleckAndLetter(victim, caster);
-					//Gene.SetXenotypes(caster.genes.Xenotype, victim.genes.Xenotype);
-				}
-				else
-                {
-					Messages.Message("WVC_XaG_HybridImplanterFail".Translate(), caster, MessageTypeDefOf.RejectInput, historical: false);
-				}
-			}
-		}
-
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
-			if (Gene == null)
+			if (HybridGene == null)
 			{
 				if (throwMessages)
 				{
@@ -83,6 +53,83 @@ namespace WVC_XenotypesAndGenes
 			yield return MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 
+		public virtual void PostImplant(Pawn victim, Pawn caster, List<GeneDef> firstGenes, List<GeneDef> secondGenes)
+		{
+			if (Props.xenotypeDef != null && (caster.genes.Xenotype is not DevXenotypeDef hybrid || !hybrid.isHybrid))
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, caster, Props.xenotypeDef);
+			}
+			ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
+			ReimplanterUtility.ExtractXenogerm(victim);
+			ReimplanterUtility.FleckAndLetter(victim, caster);
+			//Gene.SetXenotypes(caster.genes.Xenotype, victim.genes.Xenotype);
+		}
+
 	}
+
+	public class CompAbilityEffect_HybridImplanter : CompAbilityEffect_GenesComboImplanter
+	{
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			Pawn victim = target.Pawn;
+			if (victim != null)
+			{
+				Pawn caster = parent.pawn;
+				List<Gene> ignoredGenes = HybridGene.IsEndogene ? caster.genes.Endogenes : caster.genes.Xenogenes;
+				if (!ignoredGenes.Contains(HybridGene))
+				{
+					ignoredGenes.Add(HybridGene);
+				}
+				if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, ignoredGenes, false))
+				{
+					PostImplant(victim, caster, null, null);
+				}
+				else
+				{
+					Messages.Message("WVC_XaG_HybridImplanterFail".Translate(), caster, MessageTypeDefOf.RejectInput, historical: false);
+				}
+			}
+		}
+	}
+
+	public class CompAbilityEffect_MergeImplanter : CompAbilityEffect_GenesComboImplanter
+	{
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			Pawn victim = target.Pawn;
+			if (victim != null)
+			{
+				Pawn caster = parent.pawn;
+                List<GeneDef> firstXenotypeGenes = XaG_GeneUtility.ConvertToDefs(caster.genes.GenesListForReading);
+                List<GeneDef> secondXenotypeGenes = XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading);
+                if (SubXenotypeUtility.TrySetHybridXenotype(caster, new() { HybridGene.def }, firstXenotypeGenes, secondXenotypeGenes, true, new()))
+				{
+					PostImplant(victim, caster, firstXenotypeGenes, secondXenotypeGenes);
+				}
+				else
+				{
+					Messages.Message("WVC_XaG_HybridImplanterFail".Translate(), caster, MessageTypeDefOf.RejectInput, historical: false);
+				}
+			}
+		}
+
+        public override void PostImplant(Pawn victim, Pawn caster, List<GeneDef> firstGenes, List<GeneDef> secondGenes)
+		{
+			if (SubXenotypeUtility.TrySetHybridXenotype(victim, new() { HybridGene.def }, firstGenes, secondGenes, true, new()))
+			{
+				ReimplanterUtility.SetXenotypeDirect(caster, victim);
+				ReimplanterUtility.ExtractXenogerm(caster);
+				ReimplanterUtility.ExtractXenogerm(victim);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(victim);
+			}
+			ReimplanterUtility.FleckAndLetter(victim, caster);
+		}
+
+    }
 
 }

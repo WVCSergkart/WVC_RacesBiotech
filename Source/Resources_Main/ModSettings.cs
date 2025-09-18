@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Mechalike = false;
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
-		public bool disableXenotypes_MutantMakers = false;
+		//public bool disableXenotypes_MutantMakers = false;
 		public bool disableXenotypes_Misc = false;
 		//public bool enableXenotypes_Hybrid = false;
 		// Misc
@@ -283,7 +283,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableXenotypes_Mechalike, "disableXenotypes_Mechalike", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_GolemMasters, "disableXenotypes_GolemMasters", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Bloodeaters, "disableXenotypes_Bloodeaters", defaultValue: false);
-			Scribe_Values.Look(ref disableXenotypes_MutantMakers, "disableXenotypes_MutantMakers", defaultValue: false);
+			//Scribe_Values.Look(ref disableXenotypes_MutantMakers, "disableXenotypes_MutantMakers", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Misc, "disableXenotypes_Misc", defaultValue: false);
 			//Scribe_Values.Look(ref enableXenotypes_Hybrid, "enableXenotypes_Hybrid", defaultValue: false);
 			// PregnantHuman
@@ -1033,7 +1033,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Mechalike".Translate(), ref settings.disableXenotypes_Mechalike, "WVC_ToolTip_disableXenotypes_Mechalike".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_GolemMasters".Translate(), ref settings.disableXenotypes_GolemMasters, "WVC_ToolTip_disableXenotypes_GolemMasters".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Bloodeaters".Translate(), ref settings.disableXenotypes_Bloodeaters, "WVC_ToolTip_disableXenotypes_Bloodeaters".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MutantMakers".Translate(), ref settings.disableXenotypes_MutantMakers, "WVC_ToolTip_disableXenotypes_MutantMakers".Translate());
+			//listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MutantMakers".Translate(), ref settings.disableXenotypes_MutantMakers, "WVC_ToolTip_disableXenotypes_MutantMakers".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Misc".Translate(), ref settings.disableXenotypes_Misc, "WVC_ToolTip_disableXenotypes_Misc".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enableXenotypes_Hybrid".Translate(), ref settings.enableXenotypes_Hybrid, "WVC_ToolTip_enableXenotypes_Hybrid".Translate());
 			listingStandard.GapLine();
@@ -1223,7 +1223,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableXenotypes_Mechalike = settingsDef.disableXenotypes_Mechalike;
 			WVC_Biotech.settings.disableXenotypes_GolemMasters = settingsDef.disableXenotypes_GolemMasters;
 			WVC_Biotech.settings.disableXenotypes_Bloodeaters = settingsDef.disableXenotypes_Bloodeaters;
-			WVC_Biotech.settings.disableXenotypes_MutantMakers = settingsDef.disableXenotypes_MutantMakers;
+			//WVC_Biotech.settings.disableXenotypes_MutantMakers = settingsDef.disableXenotypes_MutantMakers;
 			//WVC_Biotech.settings.enableXenotypes_Hybrid = settingsDef.enableXenotypes_Hybrid;
 			WVC_Biotech.settings.disableXenotypes_Misc = settingsDef.disableXenotypes_Misc;
 			// PregnantHuman

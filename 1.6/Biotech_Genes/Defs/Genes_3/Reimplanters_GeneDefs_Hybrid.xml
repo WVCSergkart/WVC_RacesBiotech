@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Abstract="True" Name="WVC_XenotypesAndGenes_Reimplanters_Hybrid">
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<customEffectDescriptions>
+		<li>Genes are chosen randomly, but for each geneset they are &lt;color=#8a8ae6&gt;predetermined in advance&lt;/color&gt;.</li>
+		<li>If the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; does not fit into the limit between &lt;color=#8a8ae6&gt;-5 and +5&lt;/color&gt;, then the hybridization will fail. Some genes allow to bypass this limitation.</li>
+		<li>Regardless of the result, the ability will go on a 5 days cooldown.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
   <!-- ============================================================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Hybrid">
 	<defName>WVC_HybridImplanter</defName>
 	<label>hybrid implanter</label>
 	<description>Carriers of this gene can copy part of the genetic information of another person through a somewhat gross-looking injector organ, and combine it with part of their own genetic information, thus creating a hybrid.</description>
@@ -24,16 +33,12 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#8a8ae6&gt;Copies&lt;/color&gt; half of the &lt;color=#8a8ae6&gt;target's genes&lt;/color&gt; and combines them with half of the &lt;color=#8a8ae6&gt;carrier's genes&lt;/color&gt;.</li> -->
 		<li>&lt;color=#8a8ae6&gt;Copies&lt;/color&gt; half of the &lt;color=#8a8ae6&gt;target's genes&lt;/color&gt; and implants them as xenogenes.</li>
 		<li>If the gene is not a &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt;, half of the existing xenogenes will be lost.</li>
-		<li>Genes are chosen randomly, but for each geneset they are &lt;color=#8a8ae6&gt;predetermined in advance&lt;/color&gt;.</li>
-		<li>If the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; does not fit into the limit between &lt;color=#8a8ae6&gt;-5 and +5&lt;/color&gt;, then the hybridization will fail. Some genes allow to bypass this limitation.</li>
-		<li>Regardless of the result, the ability will go on a 5 days cooldown.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
-  <!-- ============================================================================== -->
+  <!-- =============== -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
 	<defName>WVC_HybridImplanter</defName>
@@ -44,6 +49,47 @@
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HybridImplanter</compClass>
+		<!-- <xenotypeDef>WVC_Hybrid</xenotypeDef> -->
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Hybrid">
+	<defName>WVC_MergeImplanter</defName>
+	<label>merge implanter</label>
+	<description>Carriers of this gene are able to merge their geneset with the geneset of the target, thus creating an endogenous hybrid.</description>
+	<iconPath>WVC/UI/Genes3/Gene_MergeImplanter</iconPath>
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>12</displayOrderInCategory>
+	<selectionWeight>0.00125</selectionWeight>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MergeImplanter</geneClass>
+	<abilities>
+	  <li>WVC_MergeImplanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_MergeImplanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Merge&lt;/color&gt; the &lt;color=#8a8ae6&gt;target's genes&lt;/color&gt; and the &lt;color=#8a8ae6&gt;caster's genes&lt;/color&gt;, and implant the resulting geneset into the target and caster.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- =============== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
+	<defName>WVC_MergeImplanter</defName>
+	<label>merge implanter</label>
+	<description>Merge current geneset with the geneset of the target, thus creating an endogenous hybrid. This will result in the reset of all caster genes and the loss of half of those already implanted.</description>
+	<iconPath>WVC/UI/Genes3/Gene_MergeImplanter</iconPath>
+	<cooldownTicksRange>300000</cooldownTicksRange>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MergeImplanter</compClass>
 		<!-- <xenotypeDef>WVC_Hybrid</xenotypeDef> -->
 	  </li>
 	</comps>

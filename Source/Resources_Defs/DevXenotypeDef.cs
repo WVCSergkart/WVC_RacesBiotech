@@ -32,6 +32,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (devDisable)
             {
+                base.ResolveReferences();
                 return;
             }
             if (genes == null)

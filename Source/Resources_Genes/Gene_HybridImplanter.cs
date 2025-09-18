@@ -37,4 +37,18 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_MergeImplanter : Gene_HybridImplanter
+    {
+
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            if (MiscUtility.GameNotStarted())
+            {
+                SubXenotypeUtility.XenotypeShapeShift(pawn, null);
+            }
+        }
+
+    }
+
 }

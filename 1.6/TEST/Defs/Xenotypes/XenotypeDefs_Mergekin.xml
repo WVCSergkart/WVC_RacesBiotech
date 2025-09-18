@@ -2,23 +2,27 @@
 <Defs>
 
   <!-- DevName: Hybrid. New name: Mergekin -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
 	<defName>WVC_Mergekin</defName>
 	<label>mergekin</label>
-	<description>A unique variation of xenohuman that combines some genetic features of two xenotypes at the same time, but does not belong to either of them.
+	<description>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two gene sets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; It is a random hybrid of 2 xenotypes and can hybridize itself further with the appropriate ability.</description>
+	<descriptionShort>Mergekins are superhumans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two genesets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Genetic0c</iconPath>
 	<isHybrid>true</isHybrid>
 	<isRandom>true</isRandom>
-	<devDisable>false</devDisable>
+	<!-- Disables DEV mode -->
+	<devDisable>true</devDisable>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<!-- Always -->
 	<genes>
 	  <li>WVC_HybridImplanter</li>
+	  <li>WVC_MergeImplanter</li>
 	</genes>
+	<!-- If game not started -->
 	<exceptedGenes>
-	  <!-- <li>WVC_Thrall</li> -->
 	  <li>WVC_DeadlyGeneticInstability</li>
 	  <li>WVC_NoLearning</li>
 	  <li>WVC_WoundHealing_NoHealing</li>
@@ -49,7 +53,6 @@
 	  <li MayRequire="ludeon.rimworld.royalty">WVC_Lilith</li>
 	  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Overrider</li>
-	  <!-- <li>WVC_Reaperkind</li> -->
 	  <!-- Vanilla -->
 	  <li>Dirtmole</li>
 	  <li>Genie</li>
@@ -62,11 +65,6 @@
 	  <li>Highmate</li>
 	  <li>Sanguophage</li>
 	</xenotypeDefs>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <defaultColor>(133, 202, 255)</defaultColor> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

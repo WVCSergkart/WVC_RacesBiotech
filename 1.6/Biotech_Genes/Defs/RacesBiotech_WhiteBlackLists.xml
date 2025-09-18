@@ -146,7 +146,7 @@
 	<devXenotypeDefs>
 		<!-- <li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li> -->
 		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Mergekin</li> -->
-		<li MayRequire="wvc.sergkart.test.tools">WVC_Mergekin</li>
+		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mergekin</li> -->
 	</devXenotypeDefs>
 	<!-- Required any GeneDefs -->
 	<humanGeneDefs>
