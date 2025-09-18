@@ -4,8 +4,12 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
 	<defName>WVC_Overrider</defName>
 	<label>overrider</label>
-	<description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
-	<descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<description>Overriders are ageless superhumans powered by archetech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Hybrid):&lt;/color&gt; This xenotype can copy the genes of others, thus creating a hybrid set on top of the genes they have.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Geneline):&lt;/color&gt; The abilities of this xenotype's chimera are limited by a predetermined set of genes. And using a chimera requires CD and adherence to the metabolic limit.</description>
+	<descriptionShort>Overriders are ageless superhumans powered by archetech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Overrider0c</iconPath>
 	<displayPriority>-230</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>

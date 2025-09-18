@@ -475,7 +475,12 @@ namespace WVC_XenotypesAndGenes
             return false;
 		}
 
-        public static bool IsGeneDefOfType<T>(this GeneDef geneDef)
+		public static bool IsGeneDefOfType(this GeneDef geneDef, Type geneClass)
+		{
+			return geneDef.geneClass == geneClass || geneClass.IsAssignableFrom(geneDef.geneClass);
+		}
+
+		public static bool IsGeneDefOfType<T>(this GeneDef geneDef)
         {
             return geneDef.geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDef.geneClass);
         }

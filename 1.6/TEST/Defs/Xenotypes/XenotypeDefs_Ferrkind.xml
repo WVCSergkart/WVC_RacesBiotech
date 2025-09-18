@@ -6,10 +6,12 @@
 	<defName>WVC_Ferrkind</defName>
 	<!-- biotalkin, metalmera, ferrkind, rustkind -->
 	<label>ferrkind</label>
-	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream..
+	<description>Ferrkinds are ageless superhumans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.</description>
-	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Chimera):&lt;/color&gt; This xenotype can copy the genes of other pawns with similar genes, and then convert unwanted genes into tools that will allow this ability to be spread.</description>
+	<descriptionShort>Ferrkinds are ageless superhumans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
 	<displayPriority>-1105</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>

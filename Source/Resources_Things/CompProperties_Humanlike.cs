@@ -375,6 +375,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     Pawn pawn = parent as Pawn;
                     ReimplanterUtility.PostImplantDebug(pawn);
+					StaticCollectionsClass.ResetCollection();
                 }
             };
             yield return new Command_Action

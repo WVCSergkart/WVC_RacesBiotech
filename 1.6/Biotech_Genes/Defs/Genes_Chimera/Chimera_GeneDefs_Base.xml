@@ -22,7 +22,7 @@
 		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt;, &lt;color=#8a8ae6&gt;geneharvest&lt;/color&gt; and &lt;color=#8a8ae6&gt;packharvest&lt;/color&gt; abilities, a random gene of the target is copied.</li>
 		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
 		<!-- <li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li> -->
-		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;chance&lt;/color&gt; to receive a random gene.</li>
+		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt; to receive a random gene.</li>
 		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
 		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;Allows to devour some entities.&lt;/color&gt;</li>
 	</customEffectDescriptions>
@@ -143,7 +143,7 @@
 				</genes>
 			  </li>
 			  <!-- Archiver -->
-			  <li MayRequire="wvc.sergkart.test.tools" ModderHook="ArchiverRare">
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="ArchiverRare">
 				<reqGeneDef>WVC_Archiver</reqGeneDef>
 				<chance>0.22</chance>
 				<genes>
@@ -184,8 +184,8 @@
 				  <li>WVC_FleshmassBuilder</li>
 				  <li>WVC_FleshmassRegeneration</li>
 				  <li>WVC_FleshmassImmunity</li>
-				  <li MayRequire="wvc.sergkart.test.tools">WVC_FleshmassReproduction</li>
-				  <li MayRequire="wvc.sergkart.test.tools">WVC_FleshmassAging</li>
+				  <li>WVC_FleshmassReproduction</li>
+				  <li>WVC_FleshmassAging</li>
 				  <li>WVC_SelfdevourStomach</li>
 				  <!-- <li>WVC_Deadlife</li> -->
 				  <!-- <li>WVC_Duplicator</li> -->

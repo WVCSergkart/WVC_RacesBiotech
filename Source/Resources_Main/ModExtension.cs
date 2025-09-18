@@ -38,6 +38,7 @@ namespace WVC_XenotypesAndGenes
 		public List<BiomeDef> biomeDefs;
 		public XenotypeDef xenotypeDef;
 		public IntRange? metRange;
+		public Type reqGeneClass;
 		// Duplicator
 		public GeneDef geneDef;
 		public int reqDupesCount;
@@ -64,7 +65,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-            if (reqGeneDef != null && !XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn))
+			if (forDuplicates && !pawn.IsDuplicate)
+			{
+				return false;
+			}
+			if (reqGeneClass != null && !pawn.genes.GenesListForReading.Any((gene) => gene.def.IsGeneDefOfType(reqGeneClass)))
+			{
+				return false;
+			}
+			if (reqGeneDef != null && !XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn))
 			{
 				return false;
 			}
