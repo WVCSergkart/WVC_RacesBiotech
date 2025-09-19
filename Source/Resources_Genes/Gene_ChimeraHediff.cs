@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HiveMind_ChimeraLimit : Gene_ChimeraHediff, IGeneHiveMind
+	public class Gene_HiveMind_ChimeraLimit : Gene_ChimeraHediff, IGeneHivemind
 	{
 
 		public override void PostAdd()

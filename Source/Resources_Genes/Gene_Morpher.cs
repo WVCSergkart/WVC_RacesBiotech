@@ -448,37 +448,54 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<GeneDef> list = new();
 			List<GeneDef> database = DefDatabase<GeneDef>.AllDefsListForReading;
-			foreach (Gene gene in pawn.genes.GenesListForReading)
+			List<GeneDef> pawnGenes = pawn.genes.GenesListForReading.ConvertToDefs();
+			foreach (GeneDef geneDef in database)
 			{
-				if (gene is Gene_Deathrest)
+				if (!geneDef.IsGeneDefOfType<Gene_MorpherTrigger>())
 				{
-					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathrestMorph>()).TryRandomElement(out GeneDef triggerGene))
-					{
-						list.Add(triggerGene);
-					}
+					continue;
 				}
-				else if (gene is Gene_Deathless)
+				GeneExtension_Giver geneExtension_Giver = geneDef.GetModExtension<GeneExtension_Giver>();
+				if ((geneExtension_Giver?.morpherTriggerGene) == null)
 				{
-					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathlessMorph>()).TryRandomElement(out GeneDef triggerGene))
-					{
-						list.Add(triggerGene);
-					}
+					continue;
 				}
-				else if (gene is Gene_Hemogen)
+				if (pawnGenes.Contains(geneExtension_Giver.morpherTriggerGene))
 				{
-					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_HemogenMorph>()).TryRandomElement(out GeneDef triggerGene))
-					{
-						list.Add(triggerGene);
-					}
-				}
-				else if (gene is Gene_Undead)
-				{
-					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_UndeadMorph>()).TryRandomElement(out GeneDef triggerGene))
-					{
-						list.Add(triggerGene);
-					}
+					list.Add(geneDef);
 				}
 			}
+			//foreach (Gene gene in pawn.genes.GenesListForReading)
+			//{
+			//	if (gene is Gene_Deathrest)
+			//	{
+			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathrestMorph>()).TryRandomElement(out GeneDef triggerGene))
+			//		{
+			//			list.Add(triggerGene);
+			//		}
+			//	}
+			//	else if (gene is Gene_Deathless)
+			//	{
+			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathlessMorph>()).TryRandomElement(out GeneDef triggerGene))
+			//		{
+			//			list.Add(triggerGene);
+			//		}
+			//	}
+			//	else if (gene is Gene_Hemogen)
+			//	{
+			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_HemogenMorph>()).TryRandomElement(out GeneDef triggerGene))
+			//		{
+			//			list.Add(triggerGene);
+			//		}
+			//	}
+			//	else if (gene is Gene_Undead)
+			//	{
+			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_UndeadMorph>()).TryRandomElement(out GeneDef triggerGene))
+			//		{
+			//			list.Add(triggerGene);
+			//		}
+			//	}
+			//}
 			//if (pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
 			//{
 			//}

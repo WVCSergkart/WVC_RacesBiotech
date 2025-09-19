@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHiveMind, IGeneOverridden
+    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHivemind, IGeneOverridden
     {
 
         public static List<GeneDef> cachedGenelineGenes;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TipSetDef>
+	<defName>WVC_XenoGenesTips</defName>
+	<tips>
+	  <li TKey="WVC_SettingsTip">Don't forget to check mod settings, as there may be options there that can improve your experience.</li>
+	  <li TKey="WVC_PreMadeDietsTip">Some genes may require special diets. Additional diets are generated at the start of the game and can be found in the same places as the vanilla ones.</li>
+	  <li TKey="WVC_ChimeraToolsTip">Chimera gene has many tools for collecting genes, some of which can only be obtained by meeting hidden conditions.</li>
+	  <li TKey="WVC_GolemsChargeTip">Golems don't require a charger to recharge; they recharge fairly quickly in shutdown mode. The charging speed can be adjusted in the settings.</li>
+	  <li TKey="WVC_MorpherStyleTip">Morpher saves hairstyles and beards separately for each form. Even if one form is completely bald, the other's hairstyle won't be affected.</li>
+	  <li TKey="WVC_MorpherAutoModeTip">Morpher can be switched to auto mode, which will automatically apply the trigger whenever possible.</li>
+	  <li TKey="WVC_HivemindIsPlayerTip">There can only be one hivemind, all hivemind pawns belong to one hivemind - yours.</li>
+	  <li MayRequire="ludeon.rimworld.anomaly" TKey="WVC_HivemindIsPlayerTip">Archiver doesn't change genesets like Morpher, but pawns; it's essentially an archive with pawns.</li>
+	  <li MayRequire="ludeon.rimworld.ideology" TKey="WVC_StyleGenesTip">Chimera and Shapeshifter allow you to change your pawn's hairstyle at any time, acting as a portable style station.</li>
+	  <li TKey="WVC_ShapeshifterSupportedXenotypesTip">Shapeshifter supports all kinds of xenotypes, including custom ones. You can even create your own True forms.</li>
+	  <li MayRequire="ludeon.rimworld.anomaly" TKey="WVC_FleshmassNucleusMeatTip">Fleshmass nucleus starts producing meat when it reaches the maximum level in all mutations.</li>
+	</tips>
+  </TipSetDef>
+
+</Defs>

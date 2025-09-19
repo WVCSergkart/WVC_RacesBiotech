@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Hivemind_Drone : Gene, IGeneOverridden, IGeneHiveMind
+    public class Gene_Hivemind_Drone : Gene, IGeneOverridden, IGeneHivemind
     {
 
         public override void PostAdd()
@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_Hivemind : Gene, IGeneOverridden, IGeneHiveMind
+    public class Gene_Hivemind : Gene, IGeneOverridden, IGeneHivemind
     {
 
         private static List<Pawn> cachedPawns;
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedPawns == null)
                 {
-                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHiveMind)).ToList();
+                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind)).ToList();
                 }
                 return cachedPawns;
             }

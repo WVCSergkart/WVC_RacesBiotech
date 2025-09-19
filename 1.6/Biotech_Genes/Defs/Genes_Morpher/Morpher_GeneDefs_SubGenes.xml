@@ -98,6 +98,11 @@
 		<li>Morph &lt;color=#8a8ae6&gt;heals&lt;/color&gt; all wounds and illnesses. Including restoring lost organs and limbs.</li>
 		<li>&lt;color=#ffec85&gt;Does not take into account other death-protective conditions.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGene>Deathless</morpherTriggerGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
@@ -111,6 +116,11 @@
 		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;hemogen over 80%&lt;/color&gt;</li>
 		<li>Morphing consumes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;, dropping it to 10%.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGene>Hemogenic</morpherTriggerGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
@@ -124,6 +134,11 @@
 		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;need for deathrest over 80%&lt;/color&gt;</li>
 		<li>Morphing consumes &lt;color=#8a8ae6&gt;deathrest&lt;/color&gt; need, dropping it to 10%.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGene>Deathrest</morpherTriggerGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef MayRequire="ludeon.rimworld.royalty" ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
@@ -152,6 +167,11 @@
 		<!-- <li>Allows morph after &lt;color=#8a8ae6&gt;resurrection&lt;/color&gt;.</li> -->
 		<!-- <li>After morphing, add or/and extends &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt; by 10 days.</li> -->
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGene>WVC_Undead</morpherTriggerGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- =============== -->

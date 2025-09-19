@@ -1,5 +1,6 @@
 // RimWorld.StatPart_Age
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace WVC_XenotypesAndGenes
         public List<GeneralHolder> chimeraGenesPerBiomeDef;
         //public GeneDef chimeraEvolveGeneDef;
         //public bool saveOldChimeraGeneSet = false;
+        [Obsolete]
         public int startingMutations = 0;
         public int startingDuplicates = 0;
         public IntRange additionalChronoAge = new(0, 0);
@@ -39,7 +41,7 @@ namespace WVC_XenotypesAndGenes
         public List<TraitDefHolder> forcedTraits;
         public List<GeneralHolder> chimeraGenesPerXenotype;
         public bool archiveAllPawns = false;
-        public bool markStartedPawnsAsResurrected = false;
+        public bool isResurrected = false;
 
 
         //public override void ExposeData()
@@ -191,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 
         private void MarkAsResurrected()
         {
-            if (!markStartedPawnsAsResurrected)
+            if (!isResurrected)
             {
                 return;
             }
@@ -356,6 +358,15 @@ namespace WVC_XenotypesAndGenes
 
         private void ChimeraGenes(Pawn p)
         {
+            if (chimeraGenesPerXenotype != null)
+            {
+                GetGenesSetPerXenotype(p.genes.Xenotype, out GeneralHolder genesHolder);
+                if (genesHolder != null && genesHolder.genes != null)
+                {
+                    XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes, true);
+                    return;
+                }
+            }
             if (chimeraGenesPerBiomeDef != null && Find.GameInitData != null)
             {
                 GetGenesSetPerBiome(Find.World.grid[Find.GameInitData.startingTile].PrimaryBiome, out GeneralHolder genesHolder);
@@ -365,16 +376,7 @@ namespace WVC_XenotypesAndGenes
                     return;
                 }
             }
-            else if (chimeraGenesPerXenotype != null)
-            {
-                GetGenesSetPerXenotype(p.genes.Xenotype, out GeneralHolder genesHolder);
-                if (genesHolder != null && genesHolder.genes != null)
-                {
-                    XaG_GeneUtility.AddGenesToChimera(p, genesHolder.genes, true);
-                    return;
-                }
-            }
-            else if (!chimeraGeneDefs.NullOrEmpty())
+            if (!chimeraGeneDefs.NullOrEmpty())
             {
                 XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs, true);
             }
@@ -549,11 +551,11 @@ namespace WVC_XenotypesAndGenes
                 //    stringBuilder.AppendLine();
                 //    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
                 //}
-                if (startingMutations > 0)
-                {
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
-                }
+                //if (startingMutations > 0)
+                //{
+                //    stringBuilder.AppendLine();
+                //    stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
+                //}
                 if (additionalChronoAge.max > 0)
                 {
                     stringBuilder.AppendLine();

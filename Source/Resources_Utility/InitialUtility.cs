@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
                 geneDef.exclusionTags = null;
                 geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
 			}
-			if (geneDef.IsGeneDefOfType<IGeneHiveMind>())
+			if (geneDef.IsGeneDefOfType<IGeneHivemind>())
 			{
 				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneHiveMind_Desc".Translate().ToString());
 			}

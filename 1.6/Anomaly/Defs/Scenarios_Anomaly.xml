@@ -25,6 +25,7 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
+			<WVC_Overrider>1</WVC_Overrider>
 			<WVC_Beholdkind>1</WVC_Beholdkind>
 		  </xenotypeChances>
 		  <!-- <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef> -->
@@ -38,41 +39,49 @@
 			<li>WVC_PredatorPrey_Tasty</li>
 		  </chimeraGeneDefs>
 		  <chimeraGenesPerBiomeDef>
-			  <li>
-				  <biomeDefs>
-					<!-- <li>BorealForest</li> -->
-					<li>Tundra</li>
-					<!-- <li>ColdBog</li> -->
-					<li>IceSheet</li>
-					<li>SeaIce</li>
-				  </biomeDefs>
-				  <genes>
-					<li>WVC_HairColor_Slate</li>
-					<li>WVC_SkinColor_MilkWhite</li>
-					<li>WVC_MinTemp_ArchiteDecrease</li>
-					<li>WVC_OneManArmy</li>
-					<li>WVC_TentacleHands</li>
-					<li>WVC_SelfdevourStomach</li>
-					<li>WVC_LongTentacleTail</li>
-				  </genes>
-			  </li>
-			  <!-- <li> -->
-				  <!-- <biomeDefs> -->
-					<!-- <li>AridShrubland</li> -->
-					<!-- <li>Desert</li> -->
-					<!-- <li>ExtremeDesert</li> -->
-				  <!-- </biomeDefs> -->
-				  <!-- <genes> -->
-					<!-- <li>WVC_HairColor_Slate</li> -->
-					<!-- <li>WVC_MaxTemp_ArchiteIncrease</li> -->
-					<!-- <li>WVC_OneManArmy</li> -->
-					<!-- <li>WVC_HumanCentric</li> -->
-					<!-- <li>WVC_FleshmassRegeneration</li> -->
-					<!-- <li>WVC_SelfdevourStomach</li> -->
-					<!-- <li>WVC_PredatorPrey_Tasty</li> -->
-				  <!-- </genes> -->
-			  <!-- </li> -->
+			<li>
+			  <biomeDefs>
+				<!-- <li>BorealForest</li> -->
+				<li>Tundra</li>
+				<!-- <li>ColdBog</li> -->
+				<li>IceSheet</li>
+				<li>SeaIce</li>
+			  </biomeDefs>
+			  <genes>
+				<li>WVC_HairColor_Slate</li>
+				<li>WVC_SkinColor_MilkWhite</li>
+				<li>WVC_MinTemp_ArchiteDecrease</li>
+				<li>WVC_OneManArmy</li>
+				<li>WVC_TentacleHands</li>
+				<li>WVC_SelfdevourStomach</li>
+				<li>WVC_LongTentacleTail</li>
+			  </genes>
+			</li>
+			<!-- <li> -->
+			  <!-- <biomeDefs> -->
+				<!-- <li>AridShrubland</li> -->
+				<!-- <li>Desert</li> -->
+				<!-- <li>ExtremeDesert</li> -->
+			  <!-- </biomeDefs> -->
+			  <!-- <genes> -->
+				<!-- <li>WVC_HairColor_Slate</li> -->
+				<!-- <li>WVC_MaxTemp_ArchiteIncrease</li> -->
+				<!-- <li>WVC_OneManArmy</li> -->
+				<!-- <li>WVC_HumanCentric</li> -->
+				<!-- <li>WVC_FleshmassRegeneration</li> -->
+				<!-- <li>WVC_SelfdevourStomach</li> -->
+				<!-- <li>WVC_PredatorPrey_Tasty</li> -->
+			  <!-- </genes> -->
+			<!-- </li> -->
 		  </chimeraGenesPerBiomeDef>
+		  <chimeraGenesPerXenotype>
+			<!-- Overrider start without bonus genes -->
+			<li>
+			  <xenotypeDef>WVC_Overrider</xenotypeDef>
+			  <genes>
+			  </genes>
+			</li>
+		  </chimeraGenesPerXenotype>
 		  <nullifyBackstory>true</nullifyBackstory>
 		  <startingMutations>3</startingMutations>
 		  <additionalChronoAge>900~1500</additionalChronoAge>
