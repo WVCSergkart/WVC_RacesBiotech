@@ -19,7 +19,7 @@
 	<displayPriority>-1105</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>
 	<genes>
 		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
 		<li>WVC_ReimplanterArchite_Endogenes</li>

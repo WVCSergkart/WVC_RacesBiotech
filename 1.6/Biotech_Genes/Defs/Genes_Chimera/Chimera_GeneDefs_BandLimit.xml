@@ -29,7 +29,6 @@
 	<defName>WVC_Chimera_BandwidthLimit</defName>
 	<label>bandwidth</label>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromBandwidth</hediffClass>
-	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
 	</comps>

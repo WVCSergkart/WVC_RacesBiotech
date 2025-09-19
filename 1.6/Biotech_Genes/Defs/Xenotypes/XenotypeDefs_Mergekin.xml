@@ -15,7 +15,7 @@
 	<!-- Disables DEV mode -->
 	<devDisable>true</devDisable>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>
 	<!-- Always -->
 	<genes>
 	  <li>WVC_HybridImplanter</li>

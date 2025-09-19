@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit">
+	<defName>WVC_HiveMind_ChimeraLimit</defName>
+	<label>hive xeno-increased</label>
+	<description>Carriers of this gene have increased genetic efficiency depending on the size of the hive mind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_ChimeraLimit</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_ChimeraLimit_HiveMind</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<prerequisite>WVC_Chimera</prerequisite>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+	  <li>Xenogenes limit increases depending on the &lt;color=#8a8ae6&gt;hive&lt;/color&gt; size.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_HiveMind_ChimeraLimit</defName>
+	<label>hive mind</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromHiveMind</hediffClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

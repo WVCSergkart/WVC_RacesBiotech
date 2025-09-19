@@ -71,4 +71,9 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    //public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline
+    //{
+
+    //}
+
 }

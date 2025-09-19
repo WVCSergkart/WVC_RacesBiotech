@@ -180,4 +180,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneHiveMind
+	{
+
+	}
+
 }

@@ -85,4 +85,56 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class HediffWithComps_ChimeraLimitFromHiveMind : HediffWithComps_ChimeraDependant
+	{
+
+		public int nextTick = 22;
+
+		private HediffStage curStage;
+
+		public override bool ShouldRemove => false;
+
+		public override bool Visible => false;
+
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (curStage == null)
+				{
+					curStage = new();
+					if (Chimera != null)
+					{
+						float newLimit = Gene_HiveMind.HiveMindPawns.Count;
+						curStage.statOffsets = new();
+						StatModifier statMod = new();
+						statMod.stat = Chimera.ChimeraLimitStatDef;
+						statMod.value = newLimit;
+						curStage.statOffsets.Add(statMod);
+					}
+				}
+				return curStage;
+			}
+		}
+
+		public override void PostTickInterval(int delta)
+		{
+			if (!GeneResourceUtility.CanTick(ref nextTick, 43151, delta))
+			{
+				return;
+			}
+			Recache();
+		}
+
+		public override void Recache()
+		{
+			//if (Chimera == null)
+			//{
+			//	pawn?.health?.RemoveHediff(this);
+			//}
+			curStage = null;
+		}
+
+	}
+
 }

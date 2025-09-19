@@ -8,7 +8,7 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_HiveMind : Gene, IGeneNotifyGenesChanged, IGeneOverridden
+    public class Gene_HiveMind : Gene, IGeneOverridden, IGeneHiveMind
     {
 
         private static List<Pawn> cachedPawns;
@@ -18,10 +18,16 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedPawns == null)
                 {
-                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes?.GetFirstGeneOfType<Gene_HiveMind>() != null).ToList();
+                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHiveMind)).ToList();
                 }
                 return cachedPawns;
             }
+        }
+
+        public static void ResetCollection()
+        {
+            cachedPawns = null;
+            cachedRefreshRate = null;
         }
 
         private static int? cachedRefreshRate;
@@ -93,18 +99,17 @@ namespace WVC_XenotypesAndGenes
 
         private void UpdHive(bool syncHive)
         {
-            cachedPawns = null;
-            cachedRefreshRate = null;
+            ResetCollection();
             if (syncHive && MiscUtility.GameStarted())
             {
                 SyncHive();
             }
         }
 
-        public void Notify_GenesChanged(Gene changedGene)
-        {
-            UpdHive(false);
-        }
+        //public void Notify_GenesChanged(Gene changedGene)
+        //{
+        //    UpdHive(false);
+        //}
 
         public void Notify_OverriddenBy(Gene overriddenBy)
         {
