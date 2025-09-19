@@ -22,6 +22,9 @@
 	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_5x0c</iconPath>
 	<displayOrderInCategory>60</displayOrderInCategory>
 	<biostatMet>2</biostatMet>
+	<customEffectDescriptions>
+		<li>Chimera req. total metabolism &lt;color=#8a8ae6&gt;from -5 to 0&lt;/color&gt;.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<intervalRange>-5~0</intervalRange>
@@ -36,6 +39,9 @@
 	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_0x0c</iconPath>
 	<displayOrderInCategory>65</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
+	<customEffectDescriptions>
+		<li>Chimera req. total metabolism &lt;color=#8a8ae6&gt;from 0 to 0&lt;/color&gt;.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<intervalRange>0~0</intervalRange>
@@ -50,6 +56,9 @@
 	<iconPath>WVC/UI/Genes3/Gene_Chimera_MetLimit_0x5c</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>Chimera req. total metabolism &lt;color=#8a8ae6&gt;from 0 to +5&lt;/color&gt;.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<intervalRange>0~5</intervalRange>

@@ -785,11 +785,38 @@ namespace WVC_XenotypesAndGenes
 			// }
 			// }
 
-			// PawnDuplicatorFix
+			// Perfect Memory
+
+			//public static List<Pawn> perfectMemoryPawns = new();
+			//public static List<Pawn> ignoredMemoryPawns = new();
+
+			//public static bool PerfectMemory(ref Pawn ___pawn)
+			//{
+			//	if (ignoredMemoryPawns.Contains(___pawn))
+			//	{
+			//		return true;
+			//	}
+			//	if (perfectMemoryPawns.Contains(___pawn))
+			//	{
+			//		return false;
+			//	}
+			//	if (___pawn.genes?.GetFirstGeneOfType<Gene_PerfectMemory>() != null)
+			//	{
+			//		perfectMemoryPawns.Add(___pawn);
+			//		return false;
+			//	}
+			//	else
+			//	{
+			//		ignoredMemoryPawns.Add(___pawn);
+			//	}
+			//	return true;
+			//}
+
+			// Mechanitor UI hide
 
 			public static bool MechanitorHideWithGene(ref IEnumerable<Gizmo> __result, ref Pawn ___pawn)
 			{
-				if (StaticCollectionsClass.hideMechanitorButton.Contains(___pawn))
+				if (StaticCollectionsClass.HideMechanitor(___pawn))
 				{
 					__result = MechanitorHideWithGene();
 					return false;
@@ -801,6 +828,8 @@ namespace WVC_XenotypesAndGenes
 					yield break;
 				}
 			}
+
+			// PawnDuplicatorFix
 
 			// Codex spam fix
 

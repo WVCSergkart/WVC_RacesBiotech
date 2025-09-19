@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Ripper -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Ripper0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Ripper</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Overrider -->
+  <XenotypeIconDef>
+	<defName>WVC_Overrider0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Overrider0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Overrider1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Overrider1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Metalkin -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin0c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Metalkin_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin1c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin2c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Metalkin2c</texPath>
+  </XenotypeIconDef>
+
+  <!-- Mergekin -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Genetic0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Genetic0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+</Defs>

@@ -226,6 +226,10 @@
 			<WVC_Shadoweater>1</WVC_Shadoweater>
 			<WVC_Beholdkind>1</WVC_Beholdkind>
 			<WVC_Nociokin>1</WVC_Nociokin>
+			<WVC_Reaperkind>1</WVC_Reaperkind>
+			<WVC_Ripperkind>1</WVC_Ripperkind>
+			<WVC_Overrider>1</WVC_Overrider>
+			<WVC_Ferrkind>1</WVC_Ferrkind>
 		  </xenotypeChances>
 		  <context>PlayerStarter</context>
 		</li>

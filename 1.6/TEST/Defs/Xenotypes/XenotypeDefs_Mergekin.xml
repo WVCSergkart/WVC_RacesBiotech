@@ -8,7 +8,7 @@
 	<description>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two gene sets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; It is a random hybrid of 2 xenotypes and can hybridize itself further with the appropriate ability.</description>
-	<descriptionShort>Mergekins are superhumans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two genesets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.</descriptionShort>
+	<descriptionShort>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two genesets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Genetic0c</iconPath>
 	<isHybrid>true</isHybrid>
 	<isRandom>true</isRandom>

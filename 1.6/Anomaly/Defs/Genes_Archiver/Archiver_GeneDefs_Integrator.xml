@@ -34,7 +34,7 @@
 	<showWhenDrafted>true</showWhenDrafted>
 	<cooldownTicksRange>35000</cooldownTicksRange>
 	<hostile>true</hostile>
-	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <violent>true</violent>
 	</verbProperties>

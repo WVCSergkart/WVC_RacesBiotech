@@ -23,8 +23,17 @@
 
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/XenotypeDef/genes/li[@WVC_Tag="AnomalyInhumanizedGene"]</xpath>
+	  <success>Always</success>
 	  <value>
 		  <li>WVC_Inhumanized</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Ripperkind"]/genes/li[@ReplaceTag="Deathless"]</xpath>
+	  <success>Always</success>
+	  <value>
+		  <li>WVC_DeathRefusal</li>
 	  </value>
 	</Operation>
 

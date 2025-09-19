@@ -4,54 +4,19 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
 	<defName>WVC_Overrider</defName>
 	<label>overrider</label>
-	<description>Overriders are ageless superhumans powered by archetech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.
+	<description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Hybrid):&lt;/color&gt; This xenotype can copy the genes of others, thus creating a hybrid set on top of the genes they have.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Geneline):&lt;/color&gt; The abilities of this xenotype's chimera are limited by a predetermined set of genes. And using a chimera requires CD and adherence to the metabolic limit.</description>
-	<descriptionShort>Overriders are ageless superhumans powered by archetech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Icon_Overrider0c</iconPath>
+	<descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Overrider1c</iconPath>
 	<displayPriority>-230</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
-		<!-- old -->
-		<!-- <li>WVC_Skinshaper</li> -->
-		<!-- <li>WVC_HybridImplanter</li> -->
-		<!-- <li>WVC_Incrementer</li> -->
-		<!-- <li>WVC_ReimplanterThrallMaker</li> -->
-		<!-- <li>WVC_WoundHealing_SelfRepair</li> -->
-		<!-- <li>WVC_Overrider</li> -->
-		<!-- <li>WVC_Ageless_Overrider</li> -->
-		<!-- <li>WVC_Health_Overrider</li> -->
-		<!-- <li>WVC_Tough_Overrider</li> -->
-		<!-- <li>WVC_FleshmassSkin</li> -->
-		<!-- <li>WVC_FleshmassNucleus</li> -->
-		<!-- <li>WVC_FleshmassArmor</li> -->
-		<!-- <li>WVC_FleshmassRegeneration</li> -->
-		<!-- <li>WVC_FleshmassImmunity</li> -->
-		<!-- <li>WVC_LongTentacleTail</li> -->
-		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
-		<!-- <li>WVC_HairColor_Slate</li> -->
-		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
-		<!-- <li>WVC_PsychicAbility_AlmostDeaf</li> -->
-		<!-- <li>WVC_OverallAdaptation_Overrider</li> -->
-		<!-- <li>WVC_Pain_Overrider</li> -->
-		<!-- <li>Sterile</li> -->
-		<!-- <li>WVC_MechaPowerSource_Stable</li> -->
-		<!-- <li>WVC_Stomach_Overrider</li> -->
-		<!-- <li>Hair_ShortOnly</li> -->
-		<!-- <li>Deathrest</li> -->
-		<!-- <li>Neversleep</li> -->
-		<!-- <li>Hemogenic</li> -->
-		<!-- <li>Bloodfeeder</li> -->
-		<!-- <li>WVC_Bloodeater</li> -->
-		<!-- <li>WVC_BloodyGrowths</li> -->
-		<!-- <li>WVC_HemogenGain</li> -->
-		<!-- new -->
 		<li>WVC_Chimera</li>
-		<!-- <li>WVC_Chimera_Devourer</li> -->
-		<li>WVC_Chimera_HugeIncreasedLimit</li>
+		<!-- <li>WVC_Chimera_HugeIncreasedLimit</li> -->
 		<li>WVC_Chimera_GenelineFleshmass</li>
 		<li>WVC_Chimera_Cooldown</li>
 		<li>WVC_Chimera_HighMetLimit</li>
@@ -59,93 +24,31 @@
 		<li>WVC_HybridImplanter</li>
 		<li>WVC_FleshmassSkin</li>
 		<li>WVC_FleshmassImmunity</li>
-		<li>WVC_FleshmassNucleus</li>
+		<!-- <li>WVC_FleshmassNucleus</li> -->
 		<li>WVC_FleshmassReproduction</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_EternalHunger</li>
-		<li>WVC_HeadBoneCurveHorns</li>
-		<li>Deathrest</li>
-		<!-- <li>Neversleep</li> -->
+		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<!-- <li>Deathrest</li> -->
 		<li>LowSleep</li>
 		<li>Hemogenic</li>
-		<!-- <li>WVC_BloodyGrowths</li> -->
-		<!-- <li>WVC_HemogenGain</li> -->
 		<li>HemogenDrain</li>
 		<li>WVC_HairColor_Slate</li>
-		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
 		<li>WVC_SkinColor_FleshPink</li>
 		<li>WVC_HiveMind_Skills</li>
 		<li>WVC_HiveMind_Needs</li>
 		<li>WVC_ArchiteTelepathy</li>
+		<!-- <li>WVC_NaturalTelepathy</li> -->
 		<li>MaxTemp_LargeIncrease</li>
 		<li>WVC_Overrider</li>
 		<li>WVC_Ageless_Overrider</li>
 		<li>WVC_Health_Overrider</li>
 		<li>WVC_Tough_Overrider</li>
 		<li>WVC_Pain_Overrider</li>
-		<!-- <li>WoundHealing_Slow</li> -->
-		<!-- <li>Immunity_Weak</li> -->
 		<li>WVC_PsychicAbility_AlmostDeaf</li>
-		<!-- <li>Aggression_HyperAggressive</li> -->
-		<li>Aggression_Aggressive</li>
+		<!-- <li>Aggression_Aggressive</li> -->
 		<li>ToxicEnvironmentResistance_Total</li>
 	</genes>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <geneSetByDefault> -->
-			  <!-- <name>fleshmass demon</name> -->
-			  <!-- <geneDefs> -->
-				<!-- <li>WVC_LongTentacleTail</li> -->
-				<!-- <li>WVC_HeadBoneCurveHorns</li> -->
-				<!-- <li>WVC_HairColor_Slate</li> -->
-				<!-- <li>WVC_SkinColor_MilkWhite</li> -->
-				<!-- <li>WVC_FleshmassSkin</li> -->
-			  <!-- </geneDefs> -->
-			<!-- </geneSetByDefault> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </XenotypeDef>
-
-  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers"> -->
-	<!-- <defName>WVC_Nocioder</defName> -->
-	<!-- <label>nocioder</label> -->
-	<!-- <description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</description> -->
-	<!-- <descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort> -->
-	<!-- <iconPath>WVC/UI/Icons3/Icon_Overrider0c</iconPath> -->
-	<!-- <displayPriority>-230</displayPriority> -->
-	<!-- <canGenerateAsCombatant>false</canGenerateAsCombatant> -->
-	<!-- <factionlessGenerationWeight>0</factionlessGenerationWeight> -->
-	<!-- <genes> -->
-		<!-- <li>Hemogenic</li> -->
-		<!-- <li>WVC_Tough</li> -->
-		<!-- <li>WVC_Chimera</li> -->
-		<!-- <li>FireWeakness</li> -->
-		<!-- <li>FireTerror</li> -->
-		<!-- <li>ToxResist_Total</li> -->
-		<!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
-		<!-- <li>Deathrest</li> -->
-		<!-- <li>Neversleep</li> -->
-		<!-- <li>LongjumpLegs</li> -->
-		<!-- <li>Sterile</li> -->
-		<!-- <li>WVC_HairColor_Slate</li> -->
-		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
-		<!-- <li>WVC_NaturalAgeless</li> -->
-		<!-- <li>WVC_FleshmassSkin</li> -->
-		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
-		<!-- <li>WVC_DemonTailA</li> -->
-		<!-- <li>WVC_Ears_PointedB</li> -->
-		<!-- <li>WVC_VoidMechlink</li> -->
-		<!-- <li>WVC_FleshmassNucleus</li> -->
-		<!-- <li>WVC_WoundHealing_SelfRepair</li> -->
-		<!-- <li>WVC_Incrementer</li> -->
-		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
-		<!-- <li>WVC_HemogenicCharge</li> -->
-		<!-- <li>WVC_PsychicAbility_AlmostDeaf</li> -->
-		<!-- <li>WVC_Mechfeeder</li> -->
-		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
-		<!-- <li>WVC_BodySize_Small</li> -->
-		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
-	<!-- </genes> -->
-  <!-- </XenotypeDef> -->
 
 </Defs>

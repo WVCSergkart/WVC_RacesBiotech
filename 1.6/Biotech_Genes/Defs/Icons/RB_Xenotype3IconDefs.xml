@@ -144,28 +144,4 @@
   </XenotypeIconDef>
   <!-- Used -->
 
-  <!-- Ripper -->
-  <!-- Used -->
-  <XenotypeIconDef>
-	<defName>WVC_Ripper0c</defName>
-	<texPath>WVC/UI/Icons3/Icon_Ripper</texPath>
-  </XenotypeIconDef>
-  <XenotypeIconDef>
-	<defName>WVC_Overrider0c</defName>
-	<texPath>WVC/UI/Icons3/Icon_Overrider0c</texPath>
-  </XenotypeIconDef>
-  <!-- Used -->
-
-  <!-- Metalkin -->
-  <!-- Used -->
-  <XenotypeIconDef>
-	<defName>WVC_Metalkin0c</defName>
-	<texPath>WVC/UI/Icons3/Xeno_Metalkin_v0</texPath>
-  </XenotypeIconDef>
-  <XenotypeIconDef>
-	<defName>WVC_Metalkin1c</defName>
-	<texPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</texPath>
-  </XenotypeIconDef>
-  <!-- Used -->
-
 </Defs>
