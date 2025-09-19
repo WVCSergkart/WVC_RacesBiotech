@@ -24,6 +24,8 @@
 
 	<WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc>
 
+	<WVC_XaG_IGeneHiveMind_Desc>&lt;color=#ffec85&gt;Pawns with this gene are considered part of the hivemind&lt;/color&gt;.</WVC_XaG_IGeneHiveMind_Desc>
+
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
 	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>

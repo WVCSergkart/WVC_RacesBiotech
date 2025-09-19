@@ -124,7 +124,7 @@
     <Compile Include="Resources_Genes\Gene_Mechlink_Golemlink.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
-    <Compile Include="Resources_Genes\Gene_HiveMind.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind.cs" />
     <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />

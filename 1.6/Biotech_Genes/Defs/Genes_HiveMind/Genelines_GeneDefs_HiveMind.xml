@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_GenelineHiveMind</defName>
+	<label>hivemind geneline</label>
+	<description>Carriers of this gene have a hivemind geneline that allows them to implant genes collected by other Chimeras.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Chimera_HiveGeneline</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_SharedGenes</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>275</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows them to implant &lt;color=#8a8ae6&gt;genes&lt;/color&gt; collected by other &lt;color=#8a8ae6&gt;Chimeras&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

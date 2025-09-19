@@ -8,7 +8,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassReproduction</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_FertileFleshmass</iconPath>
 	<selectionWeight>0.0002</selectionWeight>
-	<displayCategory>Reproduction</displayCategory>
+	<!-- <displayCategory>Reproduction</displayCategory> -->
     <displayOrderInCategory>100</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>

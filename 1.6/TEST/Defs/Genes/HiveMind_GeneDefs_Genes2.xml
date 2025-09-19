@@ -48,7 +48,7 @@
 	<durationDays>1</durationDays>
 	<stages>
 	  <li>
-		<label>same hive mind</label>
+		<label>same hivemind</label>
 		<baseOpinionOffset>9999</baseOpinionOffset>
 	  </li>
 	</stages>

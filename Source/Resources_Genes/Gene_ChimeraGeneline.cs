@@ -71,9 +71,77 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    //public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline
-    //{
+    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHiveMind, IGeneOverridden
+    {
 
-    //}
+        public static List<GeneDef> cachedGenelineGenes;
+        public override List<GeneDef> GenelineGenes
+        {
+            get
+            {
+                if (cachedGenelineGenes == null)
+                {
+                    List<GeneDef> geneDefs = new();
+                    SetHiveMindGeneline(geneDefs);
+                    cachedGenelineGenes = geneDefs;
+                }
+                return cachedGenelineGenes;
+            }
+        }
+
+        private static void SetHiveMindGeneline(List<GeneDef> geneDefs)
+        {
+            if (Gene_Hivemind.HivemindPawns.NullOrEmpty())
+            {
+                return;
+            }
+            foreach (Pawn hivePawn in Gene_Hivemind.HivemindPawns)
+            {
+                foreach (Gene gene in hivePawn.genes.GenesListForReading)
+                {
+                    if (gene is not Gene_Chimera chimera || !chimera.Active)
+                    {
+                        continue;
+                    }
+                    foreach (GeneDef geneDef in chimera.CollectedGenes)
+                    {
+                        if (geneDefs.Contains(geneDef))
+                        {
+                            continue;
+                        }
+                        geneDefs.Add(geneDef);
+                    }
+                }
+            }
+        }
+
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            ResetCollection();
+        }
+
+        public void ResetCollection()
+        {
+            Gene_Hivemind.ResetCollection();
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            ResetCollection();
+        }
+
+        public void Notify_Override()
+        {
+            ResetCollection();
+        }
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            ResetCollection();
+        }
+
+    }
 
 }

@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetCollection()
 		{
-			Gene_HiveMind.ResetCollection();
+			Gene_Hivemind.ResetCollection();
 		}
 
 		public override void Notify_OverriddenBy(Gene overriddenBy)

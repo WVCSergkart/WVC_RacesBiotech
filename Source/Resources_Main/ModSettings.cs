@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
-		public bool enable_OverOverridableGenesMechanic = false;
+		public bool enable_OverOverridableGenesMechanic = true;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 			// Info
 			Scribe_Values.Look(ref enable_xagHumanComponent, "enable_xagHumanComponent", defaultValue: true);
 			Scribe_Values.Look(ref enable_StartingFoodPolicies, "enable_StartingFoodPolicies", defaultValue: true);
-			Scribe_Values.Look(ref enable_OverOverridableGenesMechanic, "enable_OverOverridableGenesMechanic", defaultValue: false);
+			Scribe_Values.Look(ref enable_OverOverridableGenesMechanic, "enable_OverOverridableGenesMechanic", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
 			// Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);

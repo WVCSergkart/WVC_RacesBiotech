@@ -8,11 +8,44 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_HiveMind : Gene, IGeneOverridden, IGeneHiveMind
+
+    public class Gene_Hivemind_Drone : Gene, IGeneOverridden, IGeneHiveMind
+    {
+
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            ResetCollection();
+        }
+
+        public void ResetCollection()
+        {
+            Gene_Hivemind.ResetCollection();
+        }
+
+        public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            ResetCollection();
+        }
+
+        public void Notify_Override()
+        {
+            ResetCollection();
+        }
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            ResetCollection();
+        }
+
+    }
+
+    public class Gene_Hivemind : Gene, IGeneOverridden, IGeneHiveMind
     {
 
         private static List<Pawn> cachedPawns;
-        public static List<Pawn> HiveMindPawns
+        public static List<Pawn> HivemindPawns
         {
             get
             {
@@ -28,6 +61,7 @@ namespace WVC_XenotypesAndGenes
         {
             cachedPawns = null;
             cachedRefreshRate = null;
+            Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
         }
 
         private static int? cachedRefreshRate;
@@ -37,7 +71,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedRefreshRate.HasValue)
                 {
-                    cachedRefreshRate = (int)(11992 * ((HiveMindPawns.Count > 1 ? HiveMindPawns.Count : 1000) * 0.4f));
+                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 1000) * 0.4f));
                 }
                 return cachedRefreshRate.Value;
             }
@@ -123,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_HiveMind_Opinion : Gene_HiveMind
+    public class Gene_HiveMind_Opinion : Gene_Hivemind
     {
 
         public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
@@ -131,7 +165,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawns;
+            List<Pawn> bondedPawns = HivemindPawns;
             //string phase = "start";
             try
             {
@@ -155,7 +189,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_HiveMind_Skills : Gene_HiveMind
+    public class Gene_HiveMind_Skills : Gene_Hivemind
     {
 
 
@@ -212,7 +246,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            SyncSkills(HiveMindPawns);
+            SyncSkills(HivemindPawns);
         }
 
         public static void SyncSkills(List<Pawn> bondedPawns)
@@ -285,7 +319,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_HiveMind_Thoughts : Gene_HiveMind
+    public class Gene_HiveMind_Thoughts : Gene_Hivemind
     {
 
         private class ThoughtHolder
@@ -343,7 +377,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawns;
+            List<Pawn> bondedPawns = HivemindPawns;
             string phase = "start";
             try
             {
@@ -469,7 +503,7 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_HiveMind_Needs : Gene_HiveMind
+    public class Gene_HiveMind_Needs : Gene_Hivemind
     {
 
         public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
@@ -515,7 +549,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HiveMindPawns;
+            List<Pawn> bondedPawns = HivemindPawns;
             string phase = "start";
             try
             {

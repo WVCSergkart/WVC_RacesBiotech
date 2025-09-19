@@ -221,8 +221,12 @@ namespace WVC_XenotypesAndGenes
             {
                 geneDef.exclusionTags = null;
                 geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
-            }
-            if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
+			}
+			if (geneDef.IsGeneDefOfType<IGeneHiveMind>())
+			{
+				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneHiveMind_Desc".Translate().ToString());
+			}
+			if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
             {
                 if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
                 {

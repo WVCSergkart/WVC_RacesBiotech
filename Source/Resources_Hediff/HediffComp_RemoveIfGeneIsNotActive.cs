@@ -76,6 +76,16 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			//else
+			//{
+			//	foreach (Gene gene in Pawn.genes.GenesListForReading)
+			//	{
+			//		if (gene is )
+			//		{
+
+			//		}
+			//	}
+			//}
 		}
 
 		// public virtual void Notify_GeneRemoved(Gene gene)

@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
-		public bool enable_OverOverridableGenesMechanic = false;
+		public bool enable_OverOverridableGenesMechanic = true;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
@@ -109,9 +109,9 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Mechalike = false;
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
-		public bool disableXenotypes_MutantMakers = false;
+		//public bool disableXenotypes_MutantMakers = false;
 		public bool disableXenotypes_Misc = false;
-		public bool enableXenotypes_Hybrid = false;
+		//public bool enableXenotypes_Hybrid = false;
 		// Misc
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
