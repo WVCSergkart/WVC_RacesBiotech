@@ -11,7 +11,7 @@
 	  <li TKey="WVC_MorpherStyleTip">Morpher saves hairstyles and beards separately for each form. Even if one form is completely bald, the other's hairstyle won't be affected.</li>
 	  <li TKey="WVC_MorpherAutoModeTip">Morpher can be switched to auto mode, which will automatically apply the trigger whenever possible.</li>
 	  <li TKey="WVC_HivemindIsPlayerTip">There can only be one hivemind, all hivemind pawns belong to one hivemind - yours.</li>
-	  <li MayRequire="ludeon.rimworld.anomaly" TKey="WVC_HivemindIsPlayerTip">Archiver doesn't change genesets like Morpher, but pawns; it's essentially an archive with pawns.</li>
+	  <li MayRequire="ludeon.rimworld.anomaly" TKey="WVC_ArchiverMorphTip">Archiver doesn't change genesets like Morpher, but pawns; it's essentially an archive with pawns.</li>
 	  <li MayRequire="ludeon.rimworld.ideology" TKey="WVC_StyleGenesTip">Chimera and Shapeshifter allow you to change your pawn's hairstyle at any time, acting as a portable style station.</li>
 	  <li TKey="WVC_ShapeshifterSupportedXenotypesTip">Shapeshifter supports all kinds of xenotypes, including custom ones. You can even create your own True forms.</li>
 	  <li MayRequire="ludeon.rimworld.anomaly" TKey="WVC_FleshmassNucleusMeatTip">Fleshmass nucleus starts producing meat when it reaches the maximum level in all mutations.</li>
