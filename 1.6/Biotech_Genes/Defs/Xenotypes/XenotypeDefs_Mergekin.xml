@@ -31,10 +31,10 @@
 	  <li>Deathless</li>
 	  <li>WVC_DeadStomach</li>
 	  <li>WVC_NeverDead</li>
-	  <li>WVC_ArchitePsylink</li>
-	  <li>WVC_HemogenPsylink</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_ArchitePsylink</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_HemogenPsylink</li>
 	  <li>WVC_Wings_Levitation</li>
-	  <li>WVC_Invisibility</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_Invisibility</li>
 	  <li>WVC_Shapeshifter</li>
 	</exceptedGenes>
 	<xenotypeDefs>

@@ -9,7 +9,7 @@
 		<li>WVC_BoneSkin</li>
 		<li>WVC_SkinColor_OldBones</li>
 		<li>Hair_BaldOnly</li>
-		<li>WVC_Chameleon</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Chameleon</li>
 		<li>WVC_Incrementer</li>
 		<li>DarkVision</li>
 	</genes>
@@ -24,7 +24,7 @@
 		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_MilkWhite</li>
 		<li>Hair_ShortOnly</li>
-		<li>WVC_Chameleon</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Chameleon</li>
 		<li>WVC_Incrementer</li>
 		<li>WVC_LongTentacleTail</li>
 	</genes>
