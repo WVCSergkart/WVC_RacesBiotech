@@ -312,7 +312,6 @@
     <Compile Include="Resources_ThinkNodes\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
-    <Compile Include="Resources_Defs\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_Humanlike.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />

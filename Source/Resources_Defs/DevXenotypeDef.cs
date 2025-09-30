@@ -8,29 +8,31 @@ namespace WVC_XenotypesAndGenes
     public class DevXenotypeDef : XenotypeDef
 	{
 
-		public bool isThrall = false;
+		//public bool isThrall = false;
 
 		public bool isHybrid = false;
 
         public bool isRandom = false;
 
-        public bool devDisable = false;
+        //public bool implemented = true;
+
+        public GeneDef devGeneDef;
 
         public string xenotypeDesc = "WVC_XaG_DevXenotypeDef_XenotypeDesc";
 
         //public XenotypeIconDef iconDef;
 
-        public List<ThrallDef> thrallDefs = new();
+        //public List<ThrallDef> thrallDefs;
 
-		public List<XenotypeDef> xenotypeDefs;
+		public List<string> xenotypeDefs;
 
-		public List<GeneDef> guaranteedGenes;
+		//public List<GeneDef> guaranteedGenes;
 
 		public List<GeneDef> exceptedGenes;
 
 		public override void ResolveReferences()
         {
-            if (devDisable)
+            if (devGeneDef == null)
             {
                 base.ResolveReferences();
                 return;
@@ -39,7 +41,7 @@ namespace WVC_XenotypesAndGenes
             {
                 genes = new();
             }
-            GeneDef geneticShifter = MainDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+            GeneDef geneticShifter = devGeneDef;
             if (genes.Contains(geneticShifter))
             {
                 genes.Remove(geneticShifter);
@@ -61,28 +63,49 @@ namespace WVC_XenotypesAndGenes
             {
                 SetupHybrid();
             }
-            else if (isThrall)
-            {
-                SetupThrall();
-            }
+            //else if (isThrall)
+            //{
+            //    SetupThrall();
+            //}
         }
 
-        private void SetupThrall()
+        //private void SetupThrall()
+        //{
+        //    if (guaranteedGenes.NullOrEmpty())
+        //    {
+        //        guaranteedGenes = genes;
+        //    }
+        //    foreach (GeneDef gene in guaranteedGenes)
+        //    {
+        //        descriptionHyperlinks.Add(new DefHyperlink(gene));
+        //    }
+        //    foreach (ThrallDef thrallDef in DefDatabase<ThrallDef>.AllDefsListForReading)
+        //    {
+        //        descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
+        //    }
+        //    inheritable = true;
+        //    doubleXenotypeChances = null;
+        //}
+
+        private List<XenotypeDef> cachedXenotypeDefs;
+        public List<XenotypeDef> XenotypeDefs
         {
-            if (guaranteedGenes.NullOrEmpty())
+            get
             {
-                guaranteedGenes = genes;
+                if (cachedXenotypeDefs == null)
+                {
+                    List<XenotypeDef> list = new();
+                    foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+                    {
+                        if (xenotypeDefs.Contains(xenotypeDef.defName) && !list.Contains(xenotypeDef))
+                        {
+                            list.Add(xenotypeDef);
+                        }
+                    }
+                    cachedXenotypeDefs = list;
+                }
+                return cachedXenotypeDefs;
             }
-            foreach (GeneDef gene in guaranteedGenes)
-            {
-                descriptionHyperlinks.Add(new DefHyperlink(gene));
-            }
-            foreach (ThrallDef thrallDef in DefDatabase<ThrallDef>.AllDefsListForReading)
-            {
-                descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
-            }
-            inheritable = true;
-            doubleXenotypeChances = null;
         }
 
         private void SetupHybrid()
@@ -104,7 +127,7 @@ namespace WVC_XenotypesAndGenes
                 Log.Warning(defName + " has no xenotypes in xenotypeDefs. Min xenotypeDefs is 2.");
                 xenotypeDefs = new();
             }
-            foreach (XenotypeDef item in xenotypeDefs)
+            foreach (XenotypeDef item in XenotypeDefs)
             {
                 descriptionHyperlinks.Add(new DefHyperlink(item));
             }
@@ -112,12 +135,12 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            if (xenotypeDefs.Count != 2)
+            if (XenotypeDefs.Count != 2)
             {
                 Log.Warning(defName + " has more xenotypes than this type supports. Max xenotypeDefs is 2.");
             }
-            XenotypeDef firstXenotypeDef = xenotypeDefs.First();
-            XenotypeDef secondXenotypeDef = xenotypeDefs.Last();
+            XenotypeDef firstXenotypeDef = XenotypeDefs.First();
+            XenotypeDef secondXenotypeDef = XenotypeDefs.Last();
             if (!SubXenotypeUtility.TryGetHybridGenes(null, firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes, new()))
             {
                 description = "Failed create hybrid from: " + firstXenotypeDef.defName + " and " + secondXenotypeDef.defName + ". Because their total metabolism is not compatible. Please set other xenotypes in xenotypeDefs.";

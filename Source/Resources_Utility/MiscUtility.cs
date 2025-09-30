@@ -16,6 +16,17 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void AddRangeSafe<T>(this List<T> set, List<T> other)
+		{
+			foreach (T item in other)
+			{
+				if (!set.Contains(item))
+				{
+					set.Add(item);
+				}
+			}
+		}
+
 		public static CompHumanlike HumanComponent(this Pawn pawn)
         {
 			return pawn.TryGetComp<CompHumanlike>();

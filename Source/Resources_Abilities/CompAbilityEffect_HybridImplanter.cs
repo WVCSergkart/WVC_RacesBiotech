@@ -9,6 +9,27 @@ namespace WVC_XenotypesAndGenes
 	public class CompAbilityEffect_GenesComboImplanter : CompAbilityEffect
 	{
 
+		private static List<GeneDef> cachedHybridGenes;
+		public static List<GeneDef> HybridGenes
+		{
+			get
+			{
+				if (cachedHybridGenes == null)
+				{
+					List<GeneDef> geneDefs = new();
+					foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+					{
+						if (geneDef.IsGeneDefOfType<Gene_HybridImplanter>() && !geneDefs.Contains(geneDef))
+						{
+							geneDefs.Add(geneDef);
+						}
+					}
+					cachedHybridGenes = geneDefs;
+				}
+				return cachedHybridGenes;
+			}
+		}
+
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		[Unsaved(false)]
@@ -77,11 +98,12 @@ namespace WVC_XenotypesAndGenes
 			if (victim != null)
 			{
 				Pawn caster = parent.pawn;
-				List<Gene> ignoredGenes = HybridGene.IsEndogene ? caster.genes.Endogenes : caster.genes.Xenogenes;
-				if (!ignoredGenes.Contains(HybridGene))
-				{
-					ignoredGenes.Add(HybridGene);
-				}
+				List<GeneDef> ignoredGenes = (HybridGene.IsEndogene ? caster.genes.Endogenes : caster.genes.Xenogenes).ConvertToDefs();
+				ignoredGenes.AddRangeSafe(HybridGenes);
+				//if (!ignoredGenes.Contains(HybridGene.def))
+				//{
+				//	ignoredGenes.Add(HybridGene.def);
+				//}
 				if (SubXenotypeUtility.TrySetHybridXenotype(caster, victim, ignoredGenes, false))
 				{
 					PostImplant(victim, caster, null, null);
@@ -97,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompAbilityEffect_MergeImplanter : CompAbilityEffect_GenesComboImplanter
 	{
 
-		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
 			Pawn victim = target.Pawn;
@@ -106,7 +128,7 @@ namespace WVC_XenotypesAndGenes
 				Pawn caster = parent.pawn;
                 List<GeneDef> firstXenotypeGenes = XaG_GeneUtility.ConvertToDefs(caster.genes.GenesListForReading);
                 List<GeneDef> secondXenotypeGenes = XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading);
-                if (SubXenotypeUtility.TrySetHybridXenotype(caster, new() { HybridGene.def }, firstXenotypeGenes, secondXenotypeGenes, true, new()))
+                if (SubXenotypeUtility.TrySetHybridXenotype(caster, HybridGenes, firstXenotypeGenes, secondXenotypeGenes, true, new()))
 				{
 					PostImplant(victim, caster, firstXenotypeGenes, secondXenotypeGenes);
 				}
@@ -119,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void PostImplant(Pawn victim, Pawn caster, List<GeneDef> firstGenes, List<GeneDef> secondGenes)
 		{
-			if (SubXenotypeUtility.TrySetHybridXenotype(victim, new() { HybridGene.def }, firstGenes, secondGenes, true, new()))
+			if (SubXenotypeUtility.TrySetHybridXenotype(victim, HybridGenes, firstGenes, secondGenes, true, new()))
 			{
 				ReimplanterUtility.SetXenotypeDirect(caster, victim);
 				ReimplanterUtility.ExtractXenogerm(caster);
