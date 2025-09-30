@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- DevName: Hybrid. New name: Mergekin -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="DevXenotypes">
 	<defName>WVC_Mergekin</defName>
 	<label>mergekin</label>
 	<description>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two gene sets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.

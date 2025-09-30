@@ -296,9 +296,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (enabled)
 			{
-				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
-			return null;
 		}
 
 		public virtual void DoEffects()

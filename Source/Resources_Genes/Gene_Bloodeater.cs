@@ -376,12 +376,9 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-            if (enabled)
+			if (enabled)
 			{
-				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this))
-				{
-					yield return gizmo;
-				}
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
 			if (currentBloodfeedMode?.Worker?.CanDownedBloodfeed != true)
 			{

@@ -139,9 +139,8 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (enabled)
 			{
-				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
-			return null;
 		}
 
 		public static bool TryRecharge(Pawn pawn, JobDef jobDef, ThingDef thingDef, bool requestQueueing = true)
@@ -423,9 +422,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (enabled)
 			{
-				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
-			return null;
 		}
 
 		public override void ExposeData()

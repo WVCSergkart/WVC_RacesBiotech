@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Undead : Gene, IGeneNotifyOnKilled
 	{
 
-		private Dictionary<WorkTypeDef, int> workSettings = new();
+		private Dictionary<WorkTypeDef, int> workSettings;
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.workSettings.SetPriority(item.Key, item.Value);
 			}
-			workSettings = new();
+			workSettings = null;
 		}
 
 		public void SetCorpse(bool resurrect, int delay)
@@ -226,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), ReincarnationActive().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
 		}
 
 	}

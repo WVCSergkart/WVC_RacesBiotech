@@ -27,22 +27,23 @@ namespace WVC_XenotypesAndGenes
 
 		public static readonly CachedTexture GermlineImplanterIcon = new("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0");
 
-		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, bool remoteControllerCached, IGeneRemoteControl gene)
+		public static Gizmo GetRemoteControllerGizmo(Pawn pawn, bool remoteControllerCached, IGeneRemoteControl gene)
 		{
 			if (!remoteControllerCached)
 			{
 				gene.RemoteControl_Recache();
 			}
-			if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
-			{
-				yield break;
-			}
-			yield return new Command_GenesSettings
+			//if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
+			//{
+			//	yield break;
+			//}
+			return new Command_GenesSettings
 			{
 				defaultLabel = "WVC_XaG_GenesSettings".Translate(),
 				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
 				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
 				shrinkable = true,
+				visible = !XaG_GeneUtility.SelectorDraftedFactionMap(pawn),
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_GenesSettings(pawn));

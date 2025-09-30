@@ -160,10 +160,7 @@ namespace WVC_XenotypesAndGenes
 			//yield return command_Action;
 			if (enabled)
 			{
-				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this))
-				{
-					yield return gizmo;
-				}
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
 			}
 		}
 

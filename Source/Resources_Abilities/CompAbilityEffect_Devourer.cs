@@ -77,7 +77,10 @@ namespace WVC_XenotypesAndGenes
                     Gene_Inhumanized.Inhumanize(caster);
                 }
                 phase = "meat boom";
-                MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
+                if (ModsConfig.AnomalyActive)
+                {
+                    MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
+                }
                 phase = "kill and destroy";
                 victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
                 victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));

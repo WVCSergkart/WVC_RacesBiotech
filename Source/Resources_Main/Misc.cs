@@ -106,7 +106,9 @@ namespace WVC_XenotypesAndGenes
 	public class Command_GenesSettings : Command_Action
 	{
 
-		public override bool Visible => WVC_Biotech.settings.showGenesSettingsGizmo;
+		public bool visible = true;
+
+		public override bool Visible => WVC_Biotech.settings.showGenesSettingsGizmo && visible;
 
 	}
 
