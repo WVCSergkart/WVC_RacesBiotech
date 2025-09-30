@@ -66,6 +66,13 @@
 	  <li>Yttakin</li>
 	  <li>Highmate</li>
 	  <li>Sanguophage</li>
+	  <!-- VRE Sanguophage -->
+	  <li>VRE_Bruxa</li>
+	  <li>VRE_Ekkimian</li>
+	  <li>VRE_Strigoi</li>
+	  <!-- VRE Lycanthrope -->
+	  <li>VRE_Wolfman</li>
+	  <li>VRE_Lycan</li>
 	</xenotypeDefs>
   </XenotypeDef>
 
