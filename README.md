@@ -20,7 +20,7 @@ I try to make major updates compatible with old saves and always create snapshot
 Therefore, for protracted playthroughs lasting half a year or a year, it is **strictly recommended!!** to use the **GitHub version!!** of the mod, and not the Steam one.
 
 ## DLC compatibility and support
-The mod has full support for all released DLCs up to the Anomaly.
+The mod has full support for all released DLCs up to the Odyssey.
 
 All genes were created and designed taking into account the DLC and should not have any logical or technical conflicts with them.
 

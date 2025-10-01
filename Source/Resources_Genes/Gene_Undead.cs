@@ -174,21 +174,21 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_PawnDied(dinfo, culprit);
-			if (!ReincarnationActive())
+			if (!CanReincarnate())
 			{
 				return;
 			}
 			TryReincarnate(pawn, Spawner.summonQuest, WVC_Biotech.settings.reincarnation_Chance);
 		}
 
-		public bool ReincarnationActive()
+		public bool CanReincarnate()
 		{
 			return CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge);
 		}
 
 		public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
 		{
-            if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
+			if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
             {
                 return false;
             }
@@ -226,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), ReincarnationActive().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
 		}
 
 	}
@@ -273,6 +273,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			base.TickInterval(22222);
 			HealingUtility.Regeneration(pawn, regeneration: WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, tick: 22222);
 		}
 
