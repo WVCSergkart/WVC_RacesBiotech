@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Hivedrone</defName>
+	<label>hivedrone</label>
+	<reqGeneDef>WVC_HiveMind_Skills</reqGeneDef>
+	<genes>
+		<li>WVC_HiveMind_Drone</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+</Defs>

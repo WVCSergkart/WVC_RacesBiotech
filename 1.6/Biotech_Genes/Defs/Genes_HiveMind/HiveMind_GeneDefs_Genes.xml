@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_HiveMind_Drone</defName>
 	<label>hivemind drone</label>
 	<description>Carriers of this gene are part of the hivemind, but do not contribute any special effects to it.</description>
@@ -15,7 +15,7 @@
 
   <!-- ============================ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Skills</defName>
 	<label>shared skills</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which share some experience in skills.</description>
@@ -34,7 +34,7 @@
 
   <!-- ============================ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHiveMind_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Needs</defName>
 	<label>shared needs</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which they share some of their needs.</description>

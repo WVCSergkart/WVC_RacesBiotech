@@ -3,7 +3,7 @@
 
   <!-- Base thrall stats -->
 
-  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True">
 	<label>thrall</label>
 	<description>An basic thrall with its own strengths and weaknesses.</description>
 	<!-- Unused -->

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneHiveMind_Base" Abstract="True">
-	<description>Carriers of this gene have a psychic connection with other carriers.</description>
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneHivemind_Base" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind</geneClass>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>8</biostatCpx>
@@ -14,6 +13,10 @@
 	<displayCategory>WVC_HiveMind</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<marketValueFactor>3</marketValueFactor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Sync" Abstract="True">
+	<description>Carriers of this gene have a psychic connection with other carriers.</description>
 	<customEffectDescriptions>
 		<li>Affects &lt;color=#8a8ae6&gt;all owners&lt;/color&gt; of any gene of the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; series. &lt;color=#8a8ae6&gt;Psy-deaf&lt;/color&gt; pawns are ignored.</li>
 		<li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; of sync- depends on the &lt;color=#8a8ae6&gt;size&lt;/color&gt; of the &lt;color=#8a8ae6&gt;hive&lt;/color&gt;.</li>

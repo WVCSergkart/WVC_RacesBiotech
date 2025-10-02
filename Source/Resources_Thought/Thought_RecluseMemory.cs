@@ -39,4 +39,14 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Thought_HivemindSize : Thought_Memory
+    {
+
+        public override float MoodOffset()
+        {
+            return base.MoodOffset() * (Gene_Hivemind.HivemindPawns.Count - 1);
+        }
+
+    }
+
 }

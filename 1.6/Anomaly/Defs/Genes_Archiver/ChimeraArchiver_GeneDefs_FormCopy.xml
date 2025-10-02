@@ -10,7 +10,8 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<displayOrderInCategory>220</displayOrderInCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<displayCategory>WVC_Morpher</displayCategory>
 	<customEffectDescriptions>
 		<li>Every 3 days the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt; copies one random gene from random &lt;color=#8a8ae6&gt;archiver form&lt;/color&gt;.</li>
 	</customEffectDescriptions>

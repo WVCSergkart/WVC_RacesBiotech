@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedRefreshRate.HasValue)
                 {
-                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 1000) * 0.4f));
+                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 5) * 0.4f));
                 }
                 return cachedRefreshRate.Value;
             }
@@ -89,12 +89,19 @@ namespace WVC_XenotypesAndGenes
             UpdHive(false);
         }
 
+        public int nextTick = 2000;
         public override void TickInterval(int delta)
         {
-            if (!pawn.IsHashIntervalTick(TickRefresh, delta))
+            //if (!pawn.IsHashIntervalTick(TickRefresh, delta))
+            //{
+            //    return;
+            //}
+            nextTick -= delta;
+            if (nextTick > 0)
             {
                 return;
             }
+            nextTick = new IntRange((int)(TickRefresh * 0.9f), (int)(TickRefresh * 1.2f)).RandomInRange;
             if (pawn.Faction != Faction.OfPlayer)
             {
                 return;
@@ -104,10 +111,10 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void SyncHive()
         {
-            if (pawn.SpawnedOrAnyParentSpawned)
-            {
-                FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
-            }
+            //if (pawn.SpawnedOrAnyParentSpawned)
+            //{
+            //    FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+            //}
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -133,6 +140,10 @@ namespace WVC_XenotypesAndGenes
 
         private void UpdHive(bool syncHive)
         {
+            if (!pawn.IsColonist)
+            {
+                return;
+            }
             ResetCollection();
             if (syncHive && MiscUtility.GameStarted())
             {
@@ -155,12 +166,29 @@ namespace WVC_XenotypesAndGenes
             UpdHive(false);
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref nextTick, "nextTick", 1200);
+        }
+
     }
 
     public class Gene_HiveMind_Opinion : Gene_Hivemind
     {
 
-        public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+        private GeneExtension_Opinion cachedExtension;
+        public GeneExtension_Opinion Opinion
+        {
+            get
+            {
+                if (cachedExtension == null)
+                {
+                    cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+                }
+                return cachedExtension;
+            }
+        }
 
         public override void SyncHive()
         {
@@ -438,9 +466,9 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (holders.GetThisMemory(memory, out ThoughtHolder thoughtHolder) && memory.otherPawn == thoughtHolder.otherPawn)
                 {
-                    if (memory.DurationTicks > thoughtHolder.expireTime)
+                    if (memory.durationTicksOverride > thoughtHolder.expireTime)
                     {
-                        thoughtHolder.expireTime = memory.DurationTicks;
+                        thoughtHolder.expireTime = memory.durationTicksOverride;
                     }
                     if (memory.age > thoughtHolder.age)
                     {
@@ -625,6 +653,25 @@ namespace WVC_XenotypesAndGenes
                     need.CurLevel = needHolder.needValue;
                 }
             }
+        }
+
+    }
+
+    public class Gene_Hivemind_Mood : Gene_HiveMind_Opinion
+    {
+
+        public override void TickInterval(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(59998, delta))
+            {
+                return;
+            }
+            SyncHive();
+        }
+
+        public override void SyncHive()
+        {
+            pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.thoughtDef);
         }
 
     }
