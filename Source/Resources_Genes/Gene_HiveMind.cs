@@ -252,7 +252,7 @@ namespace WVC_XenotypesAndGenes
                 SkillRecordHolder newHolder = new();
                 newHolder.skillDef = skillRecord.def;
                 //newHolder.currentExp = skillRecord.xpSinceLastLevel;
-                newHolder.currentLevel = skillRecord.Level;
+                newHolder.currentLevel = skillRecord.levelInt;
                 skillRecords.Add(newHolder);
             }
 
@@ -314,7 +314,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (sumSkillsExp.TryGetLevel(skillRecord.def, out int value))
                 {
-                    if (skillRecord.Level < value)
+                    if (skillRecord.levelInt < value)
                     {
                         skillRecord.Level = value;
                         //skillRecord.Learn(0.01f, true, true);
@@ -333,7 +333,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (sumSkillsExp.TryGetLevel(skillRecord.def, out int value))
                 {
-                    if (value < skillRecord.Level)
+                    if (value < skillRecord.levelInt)
                     {
                         sumSkillsExp.AddSkill(skillRecord);
                     }
