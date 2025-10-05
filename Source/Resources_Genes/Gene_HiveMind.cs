@@ -20,6 +20,10 @@ namespace WVC_XenotypesAndGenes
 
         public void ResetCollection()
         {
+            if (!pawn.IsColonist)
+            {
+                return;
+            }
             Gene_Hivemind.ResetCollection();
         }
 
@@ -102,7 +106,7 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             nextTick = new IntRange((int)(TickRefresh * 0.9f), (int)(TickRefresh * 1.2f)).RandomInRange;
-            if (pawn.Faction != Faction.OfPlayer)
+            if (pawn.Faction != Faction.OfPlayer || !pawn.IsColonist)
             {
                 return;
             }

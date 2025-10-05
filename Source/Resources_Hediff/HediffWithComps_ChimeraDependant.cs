@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 22;
 
-		private HediffStage curStage;
+		private static HediffStage curStage;
 
 		public override bool ShouldRemove => false;
 
@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostTickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 43151, delta))
+			if (!GeneResourceUtility.CanTick(ref nextTick, 143151, delta))
 			{
 				return;
 			}

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare" Name="WVC_XenotypesAndGenes_GeneChimera_SubGenesGeneline" Abstract="True">
+	<description>Carriers of this gene have a rigid geneline that limits their chimera evolution.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraGeneline</geneClass>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>4</biostatMet>
+	<displayOrderInCategory>270</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Only &lt;color=#8a8ae6&gt;geneline&lt;/color&gt; genes can be implanted.</li>
+		<li>&lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes are &lt;color=#8a8ae6&gt;always&lt;/color&gt; available.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ========================== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
 	<defName>WVC_Chimera_GeneDatabase</defName>
 	<label>genetic database</label>
@@ -14,6 +29,25 @@
 	<customEffectDescriptions>
 		<li>Unlocks all genes for the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt;, without restrictions.</li>
 	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ========================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesGeneline">
+	<defName>WVC_Chimera_GenelineHiveMind</defName>
+	<label>hivemind geneline</label>
+	<iconPath>WVC/UI/Genes3/Gene_Geneline_Hivemind</iconPath>
+	<displayOrderInCategory>275</displayOrderInCategory>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<geneCategoryDefs>
+			  <li>WVC_HiveMind</li>
+			</geneCategoryDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

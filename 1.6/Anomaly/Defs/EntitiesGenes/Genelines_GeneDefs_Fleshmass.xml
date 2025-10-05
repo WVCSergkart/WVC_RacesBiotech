@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesGeneline">
 	<defName>WVC_Chimera_GenelineFleshmass</defName>
 	<label>fleshmass geneline</label>
-	<description>Carriers of this gene have a rigid geneline that limits their chimera evolution.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraGeneline</geneClass>
-	<!-- <iconPath>WVC/UI/Genes3/Gene_Geneline_Fleshmass</iconPath> -->
 	<iconPath>WVC/UI/Genes3/Gene_Geneline_Fleshmass</iconPath>
+	<displayOrderInCategory>270</displayOrderInCategory>
 	<biostatCpx>-6</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>4</biostatMet>
-	<displayOrderInCategory>270</displayOrderInCategory>
-	<customEffectDescriptions>
-		<!-- <li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; requires a cooldown.</li> -->
-		<li>Only &lt;color=#8a8ae6&gt;geneline&lt;/color&gt; genes can be implanted.</li>
-		<li>&lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes are &lt;color=#8a8ae6&gt;always&lt;/color&gt; available.</li>
-		<!-- <li>For implantation, the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; must be 0.</li> -->
-		<!-- <li>&lt;color=#8a8ae6&gt;Eating&lt;/color&gt; genes is impossible.</li> -->
-	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<geneCategoryDefs>
