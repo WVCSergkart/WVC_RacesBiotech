@@ -676,4 +676,18 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_Hivemind_SyncNode : Gene_Hivemind_Drone
+    {
+
+        public override void TickInterval(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(59997, delta))
+            {
+                return;
+            }
+            ResetCollection();
+        }
+
+    }
+
 }

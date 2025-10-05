@@ -48,4 +48,26 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Shapeshifter_SaveCellular</defName>
+	<label>preserved cellular</label>
+	<description>Carriers of this gene always retain the cellular gene when shapeshifted.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_PreservedGenes</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_PreservedCellular</iconPath>
+	<displayOrderInCategory>260</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; will not remove the &lt;color=#8a8ae6&gt;cellular&lt;/color&gt; gene when used.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<geneDefs>
+				<li>WVC_Shapeshift_Deathless</li>
+			</geneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

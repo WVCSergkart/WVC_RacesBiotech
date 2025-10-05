@@ -13,6 +13,7 @@
 	<displayCategory>WVC_HiveMind</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<marketValueFactor>3</marketValueFactor>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Sync" Abstract="True">

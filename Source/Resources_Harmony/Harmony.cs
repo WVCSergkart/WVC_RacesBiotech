@@ -158,37 +158,37 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 
-            //public static bool IsMechanitor(ref bool __result, Pawn pawn)
-            //{
-            //	if (pawn.IsGeneticMechanitor())
-            //	{
-            //		__result = true;
-            //		return false;
-            //	}
-            //	return true;
-            //}
+			//public static bool IsMechanitor(ref bool __result, Pawn pawn)
+			//{
+			//	if (pawn.IsGeneticMechanitor())
+			//	{
+			//		__result = true;
+			//		return false;
+			//	}
+			//	return true;
+			//}
 
-            //public static void NonHemogenDeathrest(ref bool __result, Gene_Deathrest __instance)
-            //{
-            //	if (__result)
-            //	{
-            //		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
-            //	}
-            //}
+			//public static void NonHemogenDeathrest(ref bool __result, Gene_Deathrest __instance)
+			//{
+			//	if (__result)
+			//	{
+			//		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
+			//	}
+			//}
 
-            // Hide genes in editor
+			// Hide genes in editor
 
-            //public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
-            //{
-            //	if (geneDef.IsXenoGenesDef())
-            //	{
-            //		__result = false;
-            //		return false;
-            //	}
-            //	return true;
-            //}
+			//public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
+			//{
+			//	if (geneDef.IsXenoGenesDef())
+			//	{
+			//		__result = false;
+			//		return false;
+			//	}
+			//	return true;
+			//}
 
-            private static List<GeneDef> cachedGeneDefsInOrder;
+			private static List<GeneDef> cachedGeneDefsInOrder;
 			public static void Patch_HideGenes(ref List<GeneDef> __result)
 			{
 				if (cachedGeneDefsInOrder == null)

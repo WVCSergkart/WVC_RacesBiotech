@@ -62,4 +62,60 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Mood</defName>
+	<label>hivemind mood</label>
+	<description>Carriers of this gene have a special organ that secretes the hormone of happiness relative to the size of hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Mood</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Mood</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Mood</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Mood</defName>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSize</thoughtClass>
+	<durationDays>1</durationDays>
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>hivemind size</label>
+		<description>Our hive is growing, it makes us stronger.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_SyncNode</defName>
+	<label>sync node</label>
+	<description>Carriers of this gene have a special psychic organ used to synchronize the hive's drones. Thanks to this organ, the hive will always be able to better integrate new drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_SyncNode</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_SyncNode</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>From time to time, it &lt;color=#8a8ae6&gt;synchronizes the hivemind&lt;/color&gt; and integrates new members from among &lt;color=#8a8ae6&gt;former prisoners or wanderers&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>
