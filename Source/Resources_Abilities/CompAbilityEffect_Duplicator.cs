@@ -25,7 +25,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
+		public override bool ShouldHideGizmo => !IsSource;
+
+		private bool? cachedIsSource;
+		public bool IsSource
+		{
+			get
+			{
+				if (!cachedIsSource.HasValue)
+				{
+					cachedIsSource = !WVC_Biotech.settings.duplicator_abilityCastForSourceOnly || !parent.pawn.IsDuplicate;
+				}
+				return cachedIsSource.Value;
+			}
+		}
+
+        public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -44,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
 				{
-					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
+					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange * 2);
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(duplicatePawn))
 				{
@@ -60,6 +75,10 @@ namespace WVC_XenotypesAndGenes
 						{
 							sourceDuplicator.TryAddNewSubGene(source.IsDuplicate);
 						}
+					}
+					if (caster.IsDuplicate)
+					{
+						parent.StartCooldown(parent.def.cooldownTicksRange.RandomInRange * 2);
 					}
 				}
 				//Duplicator.Notify_GenesChanged(null);
@@ -95,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!pawn.IsHuman() || Duplicator == null)
+			if (!pawn.IsHuman() || Duplicator == null || !IsSource)
 			{
 				if (throwMessages)
 				{

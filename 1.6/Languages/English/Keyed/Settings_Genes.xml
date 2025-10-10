@@ -228,6 +228,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_duplicator_RandomGeneChance>Duplicator random sub-gene chance {0}%</WVC_Label_duplicator_RandomGeneChance>
 	<WVC_Tooltip_duplicator_RandomGeneChance>Affects the chance of getting a random duplicator subgene. Requires the Anomaly DLC, currently. It is the main chance modifier, but not the only one.</WVC_Tooltip_duplicator_RandomGeneChance>
 
+	<WVC_Label_duplicator_abilityCastForSourceOnly>Duplicator for source only</WVC_Label_duplicator_abilityCastForSourceOnly>
+	<WVC_ToolTip_duplicator_abilityCastForSourceOnly>If enabled, duplicates cannot use the Duplicator gene's ability.</WVC_ToolTip_duplicator_abilityCastForSourceOnly>
+
 	<!-- ================================== -->
 
 	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>
