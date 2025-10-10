@@ -45,4 +45,10 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Thrall Hivedrone -->
+  <XenotypeIconDef>
+	<defName>WVC_Hivedrone0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Hivedrone0c</texPath>
+  </XenotypeIconDef>
+
 </Defs>

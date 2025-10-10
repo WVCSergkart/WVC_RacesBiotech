@@ -11,7 +11,7 @@
 	 <!-- Carriers of this gene can implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive and are therefore often dependent on those who created them. -->
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaster_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType>
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType> -->
 	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
 	<displayCategory>WVC_Reimplanters</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
@@ -45,13 +45,14 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
-	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.</description>
+	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
-	<gizmoClass>WVC_XenotypesAndGenes.Command_HiddenAbility</gizmoClass>
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_ThrallMaker</gizmoClass>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>
+		<defaultThrallDef>WVC_Basic</defaultThrallDef>
 		<geneDefs>
 		  <!-- <li>WVC_Thrall</li> -->
 		  <!-- <li>WVC_DeadStomach</li> -->

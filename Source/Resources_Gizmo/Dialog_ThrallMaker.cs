@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_ThrallMaker(Gene_ThrallMaker thisGene)
 		{
 			gene = thisGene;
-			allXenotypes = ListsUtility.GetAllThrallHolders();
+			allXenotypes = thisGene.AllowedThralls;
 			selectedXenoHolder = allXenotypes.RandomElement();
 			UpdThrallHolders(allXenotypes);
 			OnGenesChanged();
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (selectedXenoHolder is ThrallHolder holder)
 			{
-				gene.thrallDef = holder.thrallDef;
+				gene.ThrallDef = holder.thrallDef;
 			}
 			Close(doCloseSound: true);
 		}

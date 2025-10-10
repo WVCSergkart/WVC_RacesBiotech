@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -32,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			ThrallDef thrallDef = ReimplanterGene?.thrallDef;
+			ThrallDef thrallDef = ReimplanterGene?.ThrallDef;
 			if (thrallDef == null)
 			{
 				Log.Warning("Thrall maker has null thrallDef.");
@@ -45,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
-					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(innerPawn.Named("TARGET")), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.Description, MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
+					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(innerPawn.Named("TARGET")), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.ThrallDef.Description, MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
 				}
 			}
 			parent.StartCooldown((int)(60000 * WVC_Biotech.settings.thrallMaker_cooldownOverride));
@@ -183,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 
             static bool CanImplant(Pawn innerPawn, List<GeneDef> currentPawnGenes, GeneDef geneDef, MutantDef mutantDef)
 			{
-				return !mutantDef.disablesGenes.Contains(geneDef) && geneDef.passOnDirectly && geneDef.prerequisite == null && !XaG_GeneUtility.HasGene(geneDef, innerPawn) && !XaG_GeneUtility.ConflictWith(geneDef, currentPawnGenes) && CanAcceptMetabolismAfterImplanting(currentPawnGenes, geneDef);
+				return (mutantDef == null || !mutantDef.disablesGenes.Contains(geneDef)) && geneDef.passOnDirectly && geneDef.prerequisite == null && !XaG_GeneUtility.HasGene(geneDef, innerPawn) && !XaG_GeneUtility.ConflictWith(geneDef, currentPawnGenes) && CanAcceptMetabolismAfterImplanting(currentPawnGenes, geneDef);
 			}
 		}
 
@@ -231,13 +232,38 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			if (ReimplanterGene == null)
+			{
+				return false;
+			}
+			//if (ReimplanterGene.ThrallDef == null)
+			//{
+			//	ReimplanterGene.ThrallMakerDialog();
+			//	Messages.Message("WVC_XaG_ThrallMakerNonThrallSelected".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			//	return false;
+			//}
+			return Valid(target);
+		}
+
 		// =================
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
+			if (ReimplanterGene == null)
+			{
+				return false;
+			}
+			if (ReimplanterGene.ThrallDef == null)
+			{
+				ReimplanterGene.ThrallDef = Props.defaultThrallDef;
+				//Messages.Message("WVC_XaG_ThrallMakerNonThrallSelected".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
 			if (target.HasThing && target.Thing is Corpse corpse)
             {
-                ThrallDef thrallDef = ReimplanterGene?.thrallDef;
+                ThrallDef thrallDef = ReimplanterGene?.ThrallDef;
                 // if (ModsConfig.AnomalyActive && thrallDef.resurrectAsShambler)
                 // {
                 // if (!MutantUtility.CanResurrectAsShambler(corpse))

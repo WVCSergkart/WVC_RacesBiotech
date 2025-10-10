@@ -18,6 +18,8 @@ namespace WVC_XenotypesAndGenes
 
 		public MutantDef mutantDef = null;
 
+		//public bool isBasic = false;
+
 		public List<MutantByRotStage> mutantByRotStage;
 
 		public class MutantByRotStage

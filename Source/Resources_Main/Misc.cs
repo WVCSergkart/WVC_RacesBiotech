@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -112,7 +113,31 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Command_HiddenAbility : Command_Ability
+	public class Command_Ability_ThrallMaker : Command_Ability
+	{
+
+		public Command_Ability_ThrallMaker(Ability ability, Pawn pawn)
+			: base(ability, pawn)
+		{
+
+		}
+
+        public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
+        {
+            get
+            {
+				List<FloatMenuOption> list = new();
+				list.Add(new FloatMenuOption("WVC_XaG_GeneThrallMaker_MenuLabel".Translate(), delegate
+				{
+					Pawn?.genes?.GetFirstGeneOfType<Gene_ThrallMaker>()?.ThrallMakerDialog();
+				}, orderInPriority: -999));
+				return list;
+            }
+        }
+	}
+
+	[Obsolete]
+	public class Command_HiddenAbility : Command_Ability_ThrallMaker
 	{
 
 		public Command_HiddenAbility(Ability ability, Pawn pawn)
@@ -121,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		public override bool Visible => false;
+		//public override bool Visible => false;
 
 	}
 

@@ -343,6 +343,7 @@
 	<WVC_XaG_SubXeno_SubXenotypesList_Desc>Xenotypes into which this xenotype can evolve.</WVC_XaG_SubXeno_SubXenotypesList_Desc>
 
 	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the germline and mutation for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
+	<WVC_XaG_GeneThrallMaker_MenuLabel>Genesets menu</WVC_XaG_GeneThrallMaker_MenuLabel>
 
 	<WVC_XaG_DevXenotypeDef_XenotypeDesc>A unique variation of super xenohuman that resulted from the hybridization of {0} and {1} xenotypes. This one has half the genetic diversity of both xenotypes, combining both strengths and weaknesses.</WVC_XaG_DevXenotypeDef_XenotypeDesc>
 

@@ -36,6 +36,7 @@
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
 	<defName>WVC_Basic</defName>
 	<label>basic</label>
+	<!-- <isBasic>true</isBasic> -->
 	<selectionWeight>1</selectionWeight>
 	<genes Inherit="False"/>
   </WVC_XenotypesAndGenes.ThrallDef>

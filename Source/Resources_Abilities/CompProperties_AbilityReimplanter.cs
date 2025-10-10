@@ -27,6 +27,8 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotypeDef;
 
+		public ThrallDef defaultThrallDef;
+
 		public CompProperties_AbilityReimplanter()
 		{
 			compClass = typeof(CompAbilityEffect_Reimplanter);

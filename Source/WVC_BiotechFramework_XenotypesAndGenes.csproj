@@ -239,7 +239,6 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Morpher.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Shapeshifter.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />
     <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />
     <Compile Include="Resources_Genes\Gene_Ingest.cs" />

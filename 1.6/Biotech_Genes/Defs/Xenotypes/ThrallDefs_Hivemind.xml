@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Hivemind" Abstract="True">
+	<label>drone</label>
+	<description>An basic hivemind drone geneset with its own strengths and weaknesses.</description>
+	<xenotypeIconDef>WVC_Hivedrone0c</xenotypeIconDef>
+	<!-- <reqGeneDef>WVC_Hivemind_HiveMaker</reqGeneDef> -->
+	<acceptableRotStages>
+	  <li>Fresh</li>
+	</acceptableRotStages>
+	<!-- <genes> -->
+	<!-- </genes> -->
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
 	<defName>WVC_Hivedrone</defName>
 	<label>hivedrone</label>
 	<reqGeneDef>WVC_HiveMind_Skills</reqGeneDef>
 	<genes>
-		<li>WVC_HiveMind_Drone</li>
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	  <li>WVC_GeneSavant</li>
+	  <li>WVC_HiveMind_Drone</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
+
+  <!-- <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind"> -->
+	<!-- <defName>WVC_Syncdrone</defName> -->
+	<!-- <label>syncdrone</label> -->
+	<!-- <genes> -->
+		<!-- <li>WVC_Hivemind_SyncNode</li> -->
+		<!-- <li>WVC_Hivemind_IdeoSync</li> -->
+		<!-- <li>Immunity_Strong</li> -->
+		<!-- <li>MeleeDamage_Weak</li> -->
+		<!-- <li>Sterile</li> -->
+		<!-- <li>WVC_Learning_ExtremeSlow</li> -->
+	<!-- </genes> -->
+  <!-- </WVC_XenotypesAndGenes.ThrallDef> -->
+
+  <!-- <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind"> -->
+	<!-- <defName>WVC_Needrone</defName> -->
+	<!-- <label>needrone</label> -->
+	<!-- <genes> -->
+		<!-- <li>WVC_HiveMind_Needs</li> -->
+		<!-- <li>WVC_RandomHands</li> -->
+		<!-- <li>Sleepy</li> -->
+		<!-- <li>Robust</li> -->
+		<!-- <li>Sterile</li> -->
+		<!-- <li>Learning_Slow</li> -->
+	<!-- </genes> -->
+  <!-- </WVC_XenotypesAndGenes.ThrallDef> -->
 
 </Defs>
