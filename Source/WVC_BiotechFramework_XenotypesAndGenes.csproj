@@ -100,6 +100,10 @@
     <Compile Include="Resources_Genes\Gene_ChimeraNetwork.cs" />
     <Compile Include="Resources_Genes\Gene_GeneticConverter.cs" />
     <Compile Include="Resources_Genes\Gene_GolemlinkSubGene.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_Ideo.cs" />
+    <Compile Include="Resources_Genes\Gene_HiveMind_Needs.cs" />
+    <Compile Include="Resources_Genes\Gene_HiveMind_Skills.cs" />
+    <Compile Include="Resources_Genes\Gene_HiveMind_Thoughts.cs" />
     <Compile Include="Resources_Genes\Gene_ImplanterFang.cs" />
     <Compile Include="Resources_Genes\Gene_Inhumanized.cs" />
     <Compile Include="Resources_Genes\Gene_Overrider.cs" />

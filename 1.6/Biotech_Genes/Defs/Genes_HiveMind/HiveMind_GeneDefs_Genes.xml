@@ -118,4 +118,25 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ============================ -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_IdeoSync</defName>
+	<label>ideo sync</label>
+	<description>Carriers of this gene can change the ideological views of the hivemind at their own discretion.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Ideo</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_IdeoSync</iconPath>
+	<displayOrderInCategory>65</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<statFactors>
+	  <CertaintyLossFactor>0</CertaintyLossFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Allows to change the &lt;color=#8a8ae6&gt;ideology&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns to any desired one.</li>
+		<li>Cooldown: 1 day.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

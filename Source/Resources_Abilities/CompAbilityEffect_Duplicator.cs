@@ -25,10 +25,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool ShouldHideGizmo => !IsSource;
+		public override bool ShouldHideGizmo => !CanUse;
 
 		private bool? cachedIsSource;
-		public bool IsSource
+		public bool CanUse
 		{
 			get
 			{
@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!pawn.IsHuman() || Duplicator == null || !IsSource)
+			if (!pawn.IsHuman() || Duplicator == null || !CanUse)
 			{
 				if (throwMessages)
 				{

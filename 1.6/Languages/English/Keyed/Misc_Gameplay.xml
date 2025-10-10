@@ -12,6 +12,9 @@
 
 	<WVC_XaG_NoDescError>No information available.</WVC_XaG_NoDescError>
 
+	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
+	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
+
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
@@ -185,6 +188,10 @@
 	<WVC_XaG_CropsefeederNoBloodMessage>The target doesn't have enough blood.</WVC_XaG_CropsefeederNoBloodMessage>
 	<WVC_AnimalfeederBite_NonAnimal>The target can only be non-intelligent animals.</WVC_AnimalfeederBite_NonAnimal>
 	<WVC_AnimalfeederBite_NonFlesh>Only organic animals can be targeted.</WVC_AnimalfeederBite_NonFlesh>
+
+	<WVC_XaG_HemofeederErrorMessage>The target must be hemogenic and have sufficient supply!</WVC_XaG_HemofeederErrorMessage>
+
+	<WVC_XaG_Hivemind_IdeoChangeWarning>The ideology of all hivemind pawns will be changed to the chosen one, are you sure?</WVC_XaG_Hivemind_IdeoChangeWarning>
 
 	<!-- ============================ BiosculpterPod ============================ -->
 
@@ -1149,6 +1156,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_CarnivorousSkinDesc>When enabled, slowly destroys worn apparel and replenishes the hunger bar.</WVC_XaG_CarnivorousSkinDesc>
 
 	<WVC_XaG_InhumanizedSwitchDesc>Allows to inhumanize/rehumanize at any time.</WVC_XaG_InhumanizedSwitchDesc>
+
+	<WVC_XaG_RemoteControl_IdeoChangeDesc>Allows to change ideo to any other.</WVC_XaG_RemoteControl_IdeoChangeDesc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
