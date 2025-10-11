@@ -5,18 +5,30 @@
 	<label>drone</label>
 	<description>An basic hivemind drone geneset with its own strengths and weaknesses.</description>
 	<xenotypeIconDef>WVC_Hivedrone0c</xenotypeIconDef>
-	<!-- <reqGeneDef>WVC_Hivemind_HiveMaker</reqGeneDef> -->
+	<reqGeneDef>WVC_Reimplanter_HiveMaker</reqGeneDef>
 	<acceptableRotStages>
 	  <li>Fresh</li>
 	</acceptableRotStages>
-	<!-- <genes> -->
-	<!-- </genes> -->
+	<blacklistGenes>
+	  <li>WVC_Duplicator</li>
+	  <li>WVC_ReimplanterThrallMaker</li>
+	  <li>WVC_Reimplanter_HiveMaker</li>
+	  <li>Hemogenic</li>
+	  <li>WVC_ResurgentCells</li>
+	  <li>WVC_Chimera</li>
+	</blacklistGenes>
+	<blacklistCategories>
+	  <li>WVC_Shapeshifter</li>
+	  <li>WVC_Morpher</li>
+	  <li>WVC_Chimera</li>
+	  <li>WVC_Reimplanters</li>
+	</blacklistCategories>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
 	<defName>WVC_Hivedrone</defName>
 	<label>hivedrone</label>
-	<reqGeneDef>WVC_HiveMind_Skills</reqGeneDef>
+	<!-- <reqGeneDef>WVC_HiveMind_Skills</reqGeneDef> -->
 	<genes>
 	  <li>WVC_GeneSavant</li>
 	  <li>WVC_HiveMind_Drone</li>
@@ -24,30 +36,30 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <!-- <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind"> -->
-	<!-- <defName>WVC_Syncdrone</defName> -->
-	<!-- <label>syncdrone</label> -->
-	<!-- <genes> -->
-		<!-- <li>WVC_Hivemind_SyncNode</li> -->
-		<!-- <li>WVC_Hivemind_IdeoSync</li> -->
-		<!-- <li>Immunity_Strong</li> -->
-		<!-- <li>MeleeDamage_Weak</li> -->
-		<!-- <li>Sterile</li> -->
-		<!-- <li>WVC_Learning_ExtremeSlow</li> -->
-	<!-- </genes> -->
-  <!-- </WVC_XenotypesAndGenes.ThrallDef> -->
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Syncdrone</defName>
+	<label>syncdrone</label>
+	<genes>
+		<li>WVC_Hivemind_SyncNode</li>
+		<li>WVC_Hivemind_IdeoSync</li>
+		<li>Immunity_Strong</li>
+		<li>MeleeDamage_Weak</li>
+		<li>Sterile</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
 
-  <!-- <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind"> -->
-	<!-- <defName>WVC_Needrone</defName> -->
-	<!-- <label>needrone</label> -->
-	<!-- <genes> -->
-		<!-- <li>WVC_HiveMind_Needs</li> -->
-		<!-- <li>WVC_RandomHands</li> -->
-		<!-- <li>Sleepy</li> -->
-		<!-- <li>Robust</li> -->
-		<!-- <li>Sterile</li> -->
-		<!-- <li>Learning_Slow</li> -->
-	<!-- </genes> -->
-  <!-- </WVC_XenotypesAndGenes.ThrallDef> -->
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Needrone</defName>
+	<label>needrone</label>
+	<genes>
+		<li>WVC_HiveMind_Needs</li>
+		<li>WVC_RandomHands</li>
+		<li>Sleepy</li>
+		<li>Robust</li>
+		<li>Sterile</li>
+		<li>Learning_Slow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
 
 </Defs>

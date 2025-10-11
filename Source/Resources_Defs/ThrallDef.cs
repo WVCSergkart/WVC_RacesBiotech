@@ -14,6 +14,10 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> genes;
 
+		public List<GeneDef> blacklistGenes;
+
+		public List<GeneCategoryDef> blacklistCategories;
+
 		public GeneDef reqGeneDef;
 
 		public MutantDef mutantDef = null;

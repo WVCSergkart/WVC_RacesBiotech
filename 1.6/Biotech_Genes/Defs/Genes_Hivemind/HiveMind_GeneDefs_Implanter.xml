@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_Reimplanter_HiveMaker</defName>
+	<label>hive maker</label>
+	<description>Carriers of this gene can resurrect and implant a germline into a dead person through a somewhat gross-looking injector organ. The victim receives the desired set of genes, inherits some of the caster's genes, and loses skills and backstory.</description>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_HiveMaker</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindMaker</geneClass>
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType> -->
+	<displayCategory>WVC_HiveMind</displayCategory>
+	<displayOrderInCategory>-10</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<abilities>
+	  <li>WVC_Reimplanter_HiveMaker</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Reimplanter_HiveMaker</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;random caster genes&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_Reimplanter_HiveMaker</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ===== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
+	<defName>WVC_Reimplanter_HiveMaker</defName>
+	<label>hive maker</label>
+	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_HiveMaker</iconPath>
+	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_ThrallMaker</gizmoClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>
+		<defaultThrallDef>WVC_Hivedrone</defaultThrallDef>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>
