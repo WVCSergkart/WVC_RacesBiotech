@@ -12,7 +12,7 @@ Cats spread through their bite; anyone they bite can turn into a sandycat. Pawns
 	<descriptionShort>Sandycats are ageless, deathless super-humans powered by archotech-created archites in the bloodstream. They are beautiful and tolerate high temperatures well. They can raise the dead to serve them, whether through work or battle. But they are incredibly bloodthirsty, in the literal sense. They cannot eat regular food; they need blood to survive.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Bloodeater_v1</iconPath>
-	<displayPriority>-190</displayPriority>
+	<displayPriority>-1085</displayPriority>
 	<genes>
 		<!-- base -->
 		<li>WVC_CatEarsA</li>

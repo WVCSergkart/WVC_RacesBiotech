@@ -18,7 +18,7 @@
 	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
 	<inheritable>false</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
-	<displayPriority>-1100</displayPriority>
+	<displayPriority>-1050</displayPriority>
 	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~19</xenogermReplicatingDurationLeftDaysRange>
 	<combatPowerFactor>3.0</combatPowerFactor>

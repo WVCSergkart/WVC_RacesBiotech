@@ -11,7 +11,7 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Geneline):&lt;/color&gt; The abilities of this xenotype's chimera are limited by a predetermined set of genes. And using a chimera requires CD and adherence to the metabolic limit.</description>
 	<descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Overrider1c</iconPath>
-	<displayPriority>-230</displayPriority>
+	<displayPriority>-1095</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>

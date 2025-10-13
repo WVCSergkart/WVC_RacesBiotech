@@ -259,4 +259,23 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_Hivemind_Telepathy : Gene_Hivemind_Drone
+    {
+
+        public override void TickInterval(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(60001, delta))
+            {
+                return;
+            }
+            RandomInteraction();
+        }
+
+        public void RandomInteraction()
+        {
+            GeneInteractionsUtility.TryInteractRandomly(pawn, Gene_Hivemind.HivemindPawns, psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
+        }
+
+    }
+
 }

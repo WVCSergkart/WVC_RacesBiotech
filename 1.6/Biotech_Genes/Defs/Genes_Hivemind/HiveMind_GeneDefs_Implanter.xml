@@ -13,6 +13,8 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<abilities>
 	  <li>WVC_Reimplanter_HiveMaker</li>
 	</abilities>

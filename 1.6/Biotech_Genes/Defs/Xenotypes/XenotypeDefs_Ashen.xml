@@ -16,6 +16,7 @@
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<!-- <factionlessGenerationWeight>0.002</factionlessGenerationWeight> -->
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<displayPriority>-1020</displayPriority>
 	<genes>
 		<!-- = -->
 		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->

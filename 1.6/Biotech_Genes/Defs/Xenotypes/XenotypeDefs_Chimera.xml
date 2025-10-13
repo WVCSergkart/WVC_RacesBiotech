@@ -15,6 +15,7 @@
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Bloodeater</XenotypeDef>
 	</descriptionHyperlinks>
+	<displayPriority>-1030</displayPriority>
 	<genes>
 		<!-- Graphic -->
 		<!-- <li>Eyes_Red</li> -->

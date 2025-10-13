@@ -15,6 +15,8 @@
 	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
 	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
 
+	<WVC_None>None</WVC_None>
+
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
@@ -1159,6 +1161,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_InhumanizedSwitchDesc>Allows to inhumanize/rehumanize at any time.</WVC_XaG_InhumanizedSwitchDesc>
 
 	<WVC_XaG_RemoteControl_IdeoChangeDesc>Allows to change ideo to any other.</WVC_XaG_RemoteControl_IdeoChangeDesc>
+
+	<!-- <WVC_XaG_RemoteControl_GenderMorph>Allows to change ideo to any other.</WVC_XaG_RemoteControl_GenderMorph> -->
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 

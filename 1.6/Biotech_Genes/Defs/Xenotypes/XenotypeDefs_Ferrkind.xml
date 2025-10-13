@@ -16,7 +16,7 @@
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
 	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
-	<displayPriority>-1105</displayPriority>
+	<displayPriority>-1060</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>

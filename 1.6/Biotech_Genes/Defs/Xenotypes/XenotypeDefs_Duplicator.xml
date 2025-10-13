@@ -16,7 +16,7 @@
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath> -->
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Duplicator_v0</iconPath>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
-	<displayPriority>-1100</displayPriority>
+	<displayPriority>-1090</displayPriority>
 	<factionlessGenerationWeight>0.1</factionlessGenerationWeight>
 	<genes>
 		<!-- Graphic -->

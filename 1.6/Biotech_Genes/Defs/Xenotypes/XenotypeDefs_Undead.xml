@@ -16,6 +16,7 @@
 	<displayPriority>-200</displayPriority>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<displayPriority>-1005</displayPriority>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Featherdust</XenotypeDef>
 	  <XenotypeDef>WVC_Resurgent</XenotypeDef>

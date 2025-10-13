@@ -12,6 +12,7 @@ Also, pawns with this xenotype produce hemogen packs from time to time.</descrip
 	<descriptionShort>Bloodeaters are ageless super-humans, powered by archotech-created archites in the bloodstream. They are very feminine and beautiful. They are able to obtain nutrients from sunlight and from accumulated hemogen. They can charm their victims by feeding on their blood. But they are vulnerable, and their stomach is unable to feed on anything other than human blood.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<displayPriority>0</displayPriority>
 	<genes>
 		<!-- Graphic -->
 		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->

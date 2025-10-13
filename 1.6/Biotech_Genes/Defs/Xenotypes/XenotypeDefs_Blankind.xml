@@ -14,6 +14,7 @@
 	<iconPath>UI/Icons/Xenotypes/Other</iconPath>
 	<generateWithXenogermReplicatingHediffChance>0.35</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~24</xenogermReplicatingDurationLeftDaysRange>
+	<displayPriority>100</displayPriority>
 	<genes>
 		<li>WVC_WoundHealing_ExtremeFast</li>
 		<li>WVC_NaturalAgeless</li>

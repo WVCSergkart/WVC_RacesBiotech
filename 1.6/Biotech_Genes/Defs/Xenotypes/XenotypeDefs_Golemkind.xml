@@ -10,6 +10,7 @@
 	<descriptionShort>Golemkinds are xeno-humans powered by archotech-created archites in the bloodstream. They are very slow, have poor wound regeneration, are slow to learn new things, and have weak psychic sensitivity. However, they require little to no food and can control hordes of golems.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>
 	<inheritable>false</inheritable>
+	<displayPriority>-1070</displayPriority>
 	<!-- <canGenerateAsCombatant>true</canGenerateAsCombatant> -->
 	<!-- <doubleXenotypeChances> -->
 		<!-- <WVC_RuneDryad>0.2</WVC_RuneDryad> -->

@@ -17,7 +17,7 @@
 	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
-	<displayPriority>-1100</displayPriority>
+	<displayPriority>-1055</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<factionlessGenerationWeight>0.14</factionlessGenerationWeight>
 	<genes>

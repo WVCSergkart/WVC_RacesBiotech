@@ -16,7 +16,7 @@
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Shadoweater</XenotypeDef>
 	</descriptionHyperlinks>
-	<displayPriority>-190</displayPriority>
+	<displayPriority>-1040</displayPriority>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 		<li>WVC_Eyes_Colorful</li>

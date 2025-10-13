@@ -144,6 +144,17 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
 		}
 
+		public static string ToStringHuman(this Gender gender)
+		{
+			return gender switch
+			{
+				Gender.None => "WVC_None".Translate(),
+				Gender.Female => "Female".Translate(),
+				Gender.Male => "Male".Translate(),
+				_ => "WVC_None".Translate(),
+			};
+		}
+
 		public static string ToStringHuman(this RotStage rotStage)
 		{
 			return rotStage switch

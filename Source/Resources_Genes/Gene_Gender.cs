@@ -9,7 +9,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Gender : Gene, IGeneOverridden
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		private GeneExtension_Giver cachedGeneExtensionGiver;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtensionGiver == null)
+				{
+					cachedGeneExtensionGiver = def?.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtensionGiver;
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -17,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			ChangeGender();
 		}
 
-		public void ChangeGender()
+		public virtual void ChangeGender()
 		{
 			if (!Active)
 			{
@@ -59,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GetRandomHeadFromSet(Pawn pawn)
 		{
-			pawn.story.TryGetRandomHeadFromSet(DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen));
+			pawn.story.TryGetRandomHeadFromSet((pawn.genes.GenesListForReading?.First((gene) => gene.def.forcedHeadTypes != null)?.def?.forcedHeadTypes ?? DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen)));
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -123,6 +134,99 @@ namespace WVC_XenotypesAndGenes
 		// base.ExposeData();
 		// ChangeBodyType();
 		// }
+
+	}
+
+	public class Gene_GenderMorph : Gene, IGeneRemoteControl
+	{
+
+		public string RemoteActionName => choosenGender.ToStringHuman().CapitalizeFirst();
+
+		public TaggedString RemoteActionDesc => "WVC_XaG_PostImplanterSubGeneDesc".Translate();
+
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			List<FloatMenuOption> list = new();
+			list.Add(new FloatMenuOption("Female".Translate().CapitalizeFirst(), delegate
+			{
+				choosenGender = Gender.Female;
+			}));
+			list.Add(new FloatMenuOption("Male".Translate().CapitalizeFirst(), delegate
+			{
+				choosenGender = Gender.Male;
+			}));
+			list.Add(new FloatMenuOption("WVC_None".Translate(), delegate
+			{
+				choosenGender = Gender.None;
+			}));
+			Find.WindowStack.Add(new FloatMenu(list));
+		}
+
+		public bool RemoteControl_Hide => !Active;
+
+		public bool RemoteControl_Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+				remoteControllerCached = false;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+		}
+
+		public bool enabled = true;
+		public bool remoteControllerCached = false;
+
+		public void RemoteControl_Recache()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+			}
+		}
+
+		//===========
+
+		public Gender choosenGender = Gender.None;
+
+		public override void TickInterval(int delta)
+		{
+			if (!pawn.IsHashIntervalTick(59993, delta))
+			{
+				return;
+			}
+			GenderMorph();
+		}
+
+		public void GenderMorph()
+		{
+			if (pawn.gender == choosenGender || choosenGender == Gender.None)
+			{
+				return;
+			}
+			Gene_Gender.SetGender(pawn, choosenGender);
+			//MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref choosenGender, "choosenGender", Gender.None);
+		}
 
 	}
 

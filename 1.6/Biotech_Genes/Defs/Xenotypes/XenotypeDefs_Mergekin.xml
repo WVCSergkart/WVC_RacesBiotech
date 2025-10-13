@@ -16,6 +16,7 @@
 	<!-- <devGeneDef>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</devGeneDef> -->
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>
+	<displayPriority>-900</displayPriority>
 	<!-- Always -->
 	<genes>
 	  <li>WVC_HybridImplanter</li>

@@ -15,7 +15,7 @@
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Shadoweater</XenotypeDef>
 	</descriptionHyperlinks>
-	<displayPriority>-190</displayPriority>
+	<displayPriority>-1035</displayPriority>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 		<li>Hemogenic</li>

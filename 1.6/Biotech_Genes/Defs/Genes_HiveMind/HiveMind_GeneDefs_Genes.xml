@@ -139,4 +139,21 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Telepathy</defName>
+	<label>hivemind telepathy</label>
+	<description>Carriers of this gene can communicate telepathically with other members of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

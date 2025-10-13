@@ -1,51 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
-	<defName>WVC_Vampire</defName>
-	<label>vampire</label>
-	<description>Vampires are ageless xeno-humans powered by archotech-created archites in the bloodstream..</description>
-	<descriptionShort>Vampires are ageless xeno-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Icon_Ripper</iconPath>
-	<displayPriority>-230</displayPriority>
-	<combatPowerFactor>3.0</combatPowerFactor>
-	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<factionlessGenerationWeight>0</factionlessGenerationWeight>
-	<inheritable>false</inheritable>
-	<genes>
-		<!-- Graphic -->
-		<li>Skin_SheerWhite</li>
-		<!-- Genes -->
-		<li>WVC_Undead</li>
-		<li>DarkVision</li>
-		<li>Hemogenic</li>
-		<li>Bloodfeeder</li>
-		<li>WVC_Bloodeater</li>
-		<li>WVC_BloodfeederBeauty</li>
-		<li>LongjumpLegs</li>
-		<li>WVC_HemogenScarless</li>
-		<li>WVC_WoundHealing_Hemogen</li>
-		<li>WVC_ImplanterFang</li>
-		<li>PerfectImmunity</li>
-		<li>DiseaseFree</li>
-		<li>ToxResist_Total</li>
-		<li>Ageless</li>
-		<li>WVC_ReimplanterThrallMaker</li>
-		<li>WVC_BleedStopper</li>
-		<li>WVC_EternalHunger</li>
-		<li>Neversleep</li>
-		<li>MeleeDamage_Strong</li>
-		<li>Deathrest</li>
-		<li>FireWeakness</li>
-		<li>FireTerror</li>
-		<li>WVC_UVSensitivity_Deadly</li>
-		<li>AptitudeStrong_Melee</li>
-		<li>AptitudeStrong_Social</li>
-		<li>AptitudeStrong_Intellectual</li>
-		<li>Aggression_Aggressive</li>
-		<li>Robust</li>
-		<li>MoveSpeed_Quick</li>
-	</genes>
-  </XenotypeDef>
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers"> -->
+	<!-- <defName>WVC_Vampire</defName> -->
+	<!-- <label>vampire</label> -->
+	<!-- <description>Vampires are ageless xeno-humans powered by archotech-created archites in the bloodstream..</description> -->
+	<!-- <descriptionShort>Vampires are ageless xeno-humans powered by archotech-created archites in the bloodstream..</descriptionShort> -->
+	<!-- <iconPath>WVC/UI/Icons3/Icon_Ripper</iconPath> -->
+	<!-- <displayPriority>-230</displayPriority> -->
+	<!-- <combatPowerFactor>3.0</combatPowerFactor> -->
+	<!-- <canGenerateAsCombatant>false</canGenerateAsCombatant> -->
+	<!-- <factionlessGenerationWeight>0</factionlessGenerationWeight> -->
+	<!-- <inheritable>false</inheritable> -->
+	<!-- <genes> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<!-- <li>WVC_Undead</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>Hemogenic</li> -->
+		<!-- <li>Bloodfeeder</li> -->
+		<!-- <li>WVC_Bloodeater</li> -->
+		<!-- <li>WVC_BloodfeederBeauty</li> -->
+		<!-- <li>LongjumpLegs</li> -->
+		<!-- <li>WVC_HemogenScarless</li> -->
+		<!-- <li>WVC_WoundHealing_Hemogen</li> -->
+		<!-- <li>WVC_ImplanterFang</li> -->
+		<!-- <li>PerfectImmunity</li> -->
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li>Ageless</li> -->
+		<!-- <li>WVC_ReimplanterThrallMaker</li> -->
+		<!-- <li>WVC_BleedStopper</li> -->
+		<!-- <li>WVC_EternalHunger</li> -->
+		<!-- <li>Neversleep</li> -->
+		<!-- <li>MeleeDamage_Strong</li> -->
+		<!-- <li>Deathrest</li> -->
+		<!-- <li>FireWeakness</li> -->
+		<!-- <li>FireTerror</li> -->
+		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
+		<!-- <li>AptitudeStrong_Melee</li> -->
+		<!-- <li>AptitudeStrong_Social</li> -->
+		<!-- <li>AptitudeStrong_Intellectual</li> -->
+		<!-- <li>Aggression_Aggressive</li> -->
+		<!-- <li>Robust</li> -->
+		<!-- <li>MoveSpeed_Quick</li> -->
+	<!-- </genes> -->
+  <!-- </XenotypeDef> -->
 
 </Defs>

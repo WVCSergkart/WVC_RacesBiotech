@@ -14,7 +14,7 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Chimera):&lt;/color&gt; This xenotype is capable of copying the genes of other pawns and implanting them into itself.</description>
 	<descriptionShort>Ripperkinds are ageless and deathless super-humans powered by archotech-created archites in the bloodstream. Their bodies are covered in bony growths that serve as natural armor. They are immune to most diseases and require no food or sleep. They are able to extract the genes of others and make themselves stronger. They can raise the dead, transforming them into thralls. However, they are highly dependent on hemogen and must absorb it from others on a continuous basis and in large quantities.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Ripper</iconPath>
-	<displayPriority>-230</displayPriority>
+	<displayPriority>-1075</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>

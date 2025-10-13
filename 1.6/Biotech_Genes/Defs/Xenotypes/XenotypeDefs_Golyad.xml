@@ -11,6 +11,7 @@
 	<descriptionShort>Golyads are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems and dryads.</descriptionShort>
 	<!-- <iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath> -->
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
+	<displayPriority>-1065</displayPriority>
 	<genes>
 		<!-- Dryads -->
 		<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
