@@ -886,14 +886,21 @@ namespace WVC_XenotypesAndGenes
             ClearGenes(selectedGenes);
             List<GeneDef> implantedGenes = new();
             ReimplanterUtility.UnknownChimerkin(gene.pawn);
-            foreach (GeneDef geneDef in selectedGenes)
-            {
-                if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
-                {
-                    gene.ImplantGene(geneDef);
-                    implantedGenes.Add(geneDef);
-                }
-            }
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				try
+				{
+					if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
+					{
+						gene.ImplantGene(geneDef);
+						implantedGenes.Add(geneDef);
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Error during implantation in def: " + geneDef.defName + ". Reason: " + arg.Message);
+				}
+			}
             RemoveOverridenGenes(ref implantedGenes);
             ReimplanterUtility.PostImplantDebug(gene.pawn);
             gene.UpdateChimeraXenogerm(implantedGenes);
@@ -993,19 +1000,26 @@ namespace WVC_XenotypesAndGenes
 		}
 
         private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
-		{
-			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+        {
+            try
 			{
-				if (nonRemoveGenes != null && nonRemoveGenes.Contains(gene.def))
+				foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
 				{
-					continue;
+					if (nonRemoveGenes != null && nonRemoveGenes.Contains(gene.def))
+					{
+						continue;
+					}
+					gene.pawn?.genes?.RemoveGene(gene);
 				}
-				gene.pawn?.genes?.RemoveGene(gene);
+				if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
+				{
+					gene.pawn.genes.AddGene(gene.def, false);
+				}
 			}
-			if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
-			{
-				gene.pawn.genes.AddGene(gene.def, false);
-			}
+            catch
+            {
+				Log.Warning("Error during genes removing. Broken PostRemove() in some def?");
+            }
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
 			ReimplanterUtility.PostImplantDebug(gene.pawn);
 		}

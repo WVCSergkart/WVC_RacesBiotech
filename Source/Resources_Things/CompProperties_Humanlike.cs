@@ -448,6 +448,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_DuplicatedFrom(Pawn source)
 		{
 			SetDuplicate(source);
+			//foreach (Gene gene in Pawn.genes.GenesListForReading)
+			//{
+
+			//}
 		}
 
 		public bool IsDuplicate

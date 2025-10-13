@@ -56,4 +56,36 @@
 
   <!-- ============================================================================== -->
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base"> -->
+	<!-- <defName>WVC_Hivemind_Learning</defName> -->
+	<!-- <label>hivemind study</label> -->
+	<!-- <description>Carriers of this gene learn skills better depending on the size of the hivemind.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass> -->
+	<!-- <displayOrderInCategory>70</displayOrderInCategory> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-2</biostatMet> -->
+	<!-- <statOffsets> -->
+	  <!-- <GlobalLearningFactor>-0.9</GlobalLearningFactor> -->
+	<!-- </statOffsets> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Learning&lt;/color&gt; rate depends on the number of &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_Hivemind_Learning</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Hivemind_Learning</defName> -->
+	<!-- <label>hivemind study</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_HivemindLearning</hediffClass> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
 </Defs>

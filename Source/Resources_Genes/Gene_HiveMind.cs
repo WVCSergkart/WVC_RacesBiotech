@@ -71,6 +71,7 @@ namespace WVC_XenotypesAndGenes
             cachedRefreshRate = null;
             Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
             // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
+            //HediffWithComps_HivemindLearning.Recache();
         }
 
         private static int? cachedRefreshRate;

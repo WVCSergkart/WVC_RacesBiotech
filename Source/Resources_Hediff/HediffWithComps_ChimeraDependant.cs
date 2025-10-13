@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffWithComps_ChimeraDependant : HediffWithComps
+    public class HediffWithComps_ChimeraDependant : HediffWithComps
 	{
 
 		public override bool Visible => false;
