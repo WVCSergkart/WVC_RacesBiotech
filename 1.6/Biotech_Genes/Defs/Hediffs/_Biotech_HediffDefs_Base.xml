@@ -24,6 +24,16 @@
 	<everCurableByItem>true</everCurableByItem>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_Hivemind" Abstract="True">
+	<description>Psychic influence of the hivemind on the genetic state of the carrier. If the psychic connection with the hive was broken, the effect will disappear after some time.</description>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+		<compClass>WVC_XenotypesAndGenes.HediffComp_GeneHivemindHediff</compClass>
+	  </li>
+	</comps>
+  </HediffDef>
+  <!-- Childs in TEST folder in _Genes2 or in Biotech => Hivemind folder in _Hediffs -->
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">

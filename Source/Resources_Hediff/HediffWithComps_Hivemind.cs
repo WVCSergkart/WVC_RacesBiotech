@@ -9,7 +9,12 @@ namespace WVC_XenotypesAndGenes
     public class HediffWithComps_Hivemind : HediffWithComps
 	{
 
-		public override bool Visible => false;
+		public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
+
+	}
+
+	public class HediffWithComps_Hivemind_Beauty : HediffWithComps_Hivemind
+	{
 
 		public static HediffStage curStage;
 
@@ -17,11 +22,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			curStage = null;
 		}
-
-	}
-
-	public class HediffWithComps_Hivemind_Beauty : HediffWithComps_Hivemind
-    {
 
 		public override HediffStage CurStage
 		{
@@ -45,6 +45,36 @@ namespace WVC_XenotypesAndGenes
 		//{
 
 		//}
+
+	}
+
+	public class HediffWithComps_Hivemind_Learning : HediffWithComps_Hivemind
+	{
+
+		public static HediffStage curStage;
+
+		public static void Recache()
+		{
+			curStage = null;
+		}
+
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (curStage == null)
+				{
+					curStage = new();
+					float newLimit = HivemindUtility.HivemindPawns.Count;
+					curStage.statOffsets = new();
+					StatModifier statMod = new();
+					statMod.stat = StatDefOf.GlobalLearningFactor;
+					statMod.value = -0.9f + (newLimit * 0.18f);
+					curStage.statOffsets.Add(statMod);
+				}
+				return curStage;
+			}
+		}
 
 	}
 

@@ -24,13 +24,10 @@
 	</modExtensions>
   </GeneDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Hivemind">
 	<defName>WVC_HiveMind_ChimeraLimit</defName>
 	<label>hivemind</label>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromHiveMind</hediffClass>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
-	</comps>
   </HediffDef>
 
 </Defs>

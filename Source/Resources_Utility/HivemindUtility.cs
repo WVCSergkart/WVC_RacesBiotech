@@ -26,13 +26,19 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+
+        /// <summary>
+        /// General reset collection. Used for all hivemind genes.
+        /// Modders hook.
+        /// </summary>
         public static void ResetCollection()
         {
             cachedPawns = null;
             cachedRefreshRate = null;
             Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
             // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
-            HediffWithComps_Hivemind.Recache();
+            HediffWithComps_Hivemind_Beauty.Recache();
+            HediffWithComps_Hivemind_Learning.Recache();
         }
 
         private static int? cachedRefreshRate;
@@ -49,7 +55,7 @@ namespace WVC_XenotypesAndGenes
         }
 
         /// <summary>
-        /// modders hook
+        /// Modders hook.
         /// </summary>
         public static bool SuitableForHivemind(Pawn pawn)
         {
