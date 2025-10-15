@@ -191,8 +191,6 @@
 	<WVC_AnimalfeederBite_NonAnimal>The target can only be non-intelligent animals.</WVC_AnimalfeederBite_NonAnimal>
 	<WVC_AnimalfeederBite_NonFlesh>Only organic animals can be targeted.</WVC_AnimalfeederBite_NonFlesh>
 
-	<WVC_XaG_HemofeederErrorMessage>The target must be hemogenic and have sufficient supply!</WVC_XaG_HemofeederErrorMessage>
-
 	<WVC_XaG_Hivemind_IdeoChangeWarning>The ideology of all hivemind pawns will be changed to the chosen one, are you sure?</WVC_XaG_Hivemind_IdeoChangeWarning>
 
 	<!-- ============================ BiosculpterPod ============================ -->

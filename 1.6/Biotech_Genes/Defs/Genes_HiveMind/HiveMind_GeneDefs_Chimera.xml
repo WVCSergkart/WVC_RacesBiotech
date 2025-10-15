@@ -17,6 +17,10 @@
 	<customEffectDescriptions>
 	  <li>Xenogenes limit increases depending on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ChimeraLimit>-21.0</WVC_ChimeraLimit>
+	</statOffsets>
+	<exclusionTags Inherit="False"/>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName>

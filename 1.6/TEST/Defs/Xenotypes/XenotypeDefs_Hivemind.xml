@@ -19,7 +19,8 @@
 		<li>WVC_Duplicator_DeathChain</li>
 		<!-- <li>WVC_Reimplanter_HiveMaker</li> -->
 		<!-- <li>WVC_Hivemind_Mood</li> -->
-		<li>WVC_HiveMind_Drone</li>
+		<!-- <li>WVC_HiveMind_Drone</li> -->
+		<li>WVC_HiveMind_ChimeraLimit</li>
 		<li>WVC_Chimera</li>
 		<li>WVC_Chimera_Cooldown</li>
 		<li>WVC_Chimera_GenelineHiveMind</li>

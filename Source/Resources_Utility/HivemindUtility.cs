@@ -72,6 +72,11 @@ namespace WVC_XenotypesAndGenes
 
         public static bool InHivemind(Pawn pawn)
 		{
+            // Cause hivemind initialized after game start
+            if (MiscUtility.GameNotStarted())
+            {
+                return true;
+            }
 			return HivemindUtility.HivemindPawns.Contains(pawn);
 		}
 
