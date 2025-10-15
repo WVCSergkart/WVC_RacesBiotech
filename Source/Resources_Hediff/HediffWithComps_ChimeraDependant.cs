@@ -105,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 					curStage = new();
 					if (Chimera != null)
 					{
-						float newLimit = Gene_Hivemind.HivemindPawns.Count;
+						float newLimit = HivemindUtility.HivemindPawns.Count;
 						curStage.statOffsets = new();
 						StatModifier statMod = new();
 						statMod.stat = Chimera.ChimeraLimitStatDef;

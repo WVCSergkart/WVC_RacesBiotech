@@ -10,6 +10,28 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static void UpdatePawnGeneHediffs(Pawn pawn)
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+			{
+				if (hediff is IHediffGene hediffGene)
+				{
+					hediffGene.Update();
+				}
+				else if (hediff is HediffWithComps hediffWith)
+				{
+					foreach (HediffComp hediffComp in hediffWith.comps)
+					{
+						if (hediffComp is IHediffGene hediffGene1)
+						{
+							hediffGene1.Update();
+							break;
+						}
+					}
+				}
+			}
+		}
+
 		private static List<HediffDef> cachedMutationDefs;
 		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
 		{

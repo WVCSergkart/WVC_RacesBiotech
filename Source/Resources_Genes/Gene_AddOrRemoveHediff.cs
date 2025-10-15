@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			Local_AddOrRemoveHediff();
 		}
 
-		public void Local_AddOrRemoveHediff()
+		public virtual void Local_AddOrRemoveHediff()
 		{
 			try
 			{
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	Log.Error("Override gene: " + overriddenBy.def.defName);
 			//}
-            HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			RemoveHediff();
 		}
 
 		public virtual void Notify_Override()
@@ -69,12 +69,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void PostRemove()
-		{
-			base.PostRemove();
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
-		}
+        {
+            base.PostRemove();
+            RemoveHediff();
+        }
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public virtual void RemoveHediff()
+        {
+            HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{

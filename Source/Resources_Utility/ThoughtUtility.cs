@@ -15,6 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ==================
 
+		[Obsolete]
 		public static void ThoughtFromThing(Thing parent, ThoughtDef thoughtDef, bool showEffect = true, int radius = 5)
 		{
 			foreach (Thing item in GenRadial.RadialDistinctThingsAround(parent.Position, parent.Map, radius, useCenter: true))

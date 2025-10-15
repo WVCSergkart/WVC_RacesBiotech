@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
                         {
                             SetIdeo(newIdeo);
                             nextTick = 60000;
-                            Messages.Message("WVC_IdeoChanged".Translate(), new LookTargets(Gene_Hivemind.HivemindPawns), MessageTypeDefOf.PositiveEvent);
+                            Messages.Message("WVC_IdeoChanged".Translate(), new LookTargets(HivemindUtility.HivemindPawns), MessageTypeDefOf.PositiveEvent);
                         });
                         Find.WindowStack.Add(window);
                     }
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
             //{
             //    return;
             //}
-            foreach (Pawn drone in Gene_Hivemind.HivemindPawns)
+            foreach (Pawn drone in HivemindUtility.HivemindPawns)
             {
                 drone.ideo?.SetIdeo(newIdeo);
             }

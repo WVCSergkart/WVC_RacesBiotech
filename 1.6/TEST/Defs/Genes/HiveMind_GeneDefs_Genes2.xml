@@ -88,4 +88,40 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Beauty</defName>
+	<label>hivemind beauty</label>
+	<description>Carriers of this gene have archites that adjust the carrier's appearance based on information received from hivemind members, creating a more beautiful image suitable for different tastes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Starting &lt;color=#8a8ae6&gt;from -3&lt;/color&gt;, increases &lt;color=#8a8ae6&gt;beauty&lt;/color&gt; by 1 for each &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn.</li>
+		<li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Beauty</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Hivemind_Beauty</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Hivemind_Beauty</defName>
+	<label>hivemind beauty</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Hivemind_Beauty</hediffClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+		<compClass>WVC_XenotypesAndGenes.HediffComp_GeneHivemindHediff</compClass>
+	  </li>
+	</comps>
+  </HediffDef>
+
 </Defs>

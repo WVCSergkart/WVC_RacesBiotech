@@ -50,5 +50,12 @@
 	<defName>WVC_Hivedrone0c</defName>
 	<texPath>WVC/UI/Icons3/Icon_Hivedrone0c</texPath>
   </XenotypeIconDef>
+  <!-- Hivedrone -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Hivedrone1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Hivedrone1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
 
 </Defs>

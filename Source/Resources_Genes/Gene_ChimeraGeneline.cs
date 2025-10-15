@@ -91,11 +91,11 @@ namespace WVC_XenotypesAndGenes
 
         private static void SetHiveMindGeneline(List<GeneDef> geneDefs)
         {
-            if (Gene_Hivemind.HivemindPawns.NullOrEmpty())
+            if (HivemindUtility.HivemindPawns.NullOrEmpty())
             {
                 return;
             }
-            foreach (Pawn hivePawn in Gene_Hivemind.HivemindPawns)
+            foreach (Pawn hivePawn in HivemindUtility.HivemindPawns)
             {
                 foreach (Gene gene in hivePawn.genes.GenesListForReading)
                 {
@@ -123,7 +123,11 @@ namespace WVC_XenotypesAndGenes
 
         public void ResetCollection()
         {
-            Gene_Hivemind.ResetCollection();
+            if (!HivemindUtility.SuitableForHivemind(pawn))
+            {
+                return;
+            }
+            HivemindUtility.ResetCollection();
         }
 
         public void Notify_OverriddenBy(Gene overriddenBy)

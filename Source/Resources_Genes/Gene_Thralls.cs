@@ -128,11 +128,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetCollection()
 		{
-			if (!pawn.IsColonist)
+			if (!HivemindUtility.SuitableForHivemind(pawn))
 			{
 				return;
 			}
-			Gene_Hivemind.ResetCollection();
+			HivemindUtility.ResetCollection();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)

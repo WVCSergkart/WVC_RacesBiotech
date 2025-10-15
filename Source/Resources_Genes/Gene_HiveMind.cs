@@ -19,11 +19,11 @@ namespace WVC_XenotypesAndGenes
 
         public void ResetCollection()
         {
-            if (!pawn.IsColonist)
+            if (!HivemindUtility.SuitableForHivemind(pawn))
             {
                 return;
             }
-            Gene_Hivemind.ResetCollection();
+            HivemindUtility.ResetCollection();
         }
 
         public override void TickInterval(int delta)
@@ -52,41 +52,6 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Hivemind : Gene, IGeneOverridden, IGeneHivemind
     {
 
-        private static List<Pawn> cachedPawns;
-        public static List<Pawn> HivemindPawns
-        {
-            get
-            {
-                if (cachedPawns == null)
-                {
-                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind)).ToList();
-                }
-                return cachedPawns;
-            }
-        }
-
-        public static void ResetCollection()
-        {
-            cachedPawns = null;
-            cachedRefreshRate = null;
-            Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
-            // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
-            //HediffWithComps_HivemindLearning.Recache();
-        }
-
-        private static int? cachedRefreshRate;
-        public static int TickRefresh
-        {
-            get
-            {
-                if (!cachedRefreshRate.HasValue)
-                {
-                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 5) * 0.4f));
-                }
-                return cachedRefreshRate.Value;
-            }
-        }
-
         public override void PostAdd()
         {
             base.PostAdd();
@@ -111,7 +76,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            nextTick = new IntRange((int)(TickRefresh * 0.9f), (int)(TickRefresh * 1.2f)).RandomInRange;
+            nextTick = new IntRange((int)(HivemindUtility.TickRefresh * 0.9f), (int)(HivemindUtility.TickRefresh * 1.2f)).RandomInRange;
             if (pawn.Faction != Faction.OfPlayer || !pawn.IsColonist)
             {
                 return;
@@ -150,11 +115,11 @@ namespace WVC_XenotypesAndGenes
 
         private void UpdHive(bool syncHive)
         {
-            if (!pawn.IsColonist)
+            if (!HivemindUtility.SuitableForHivemind(pawn))
             {
                 return;
             }
-            ResetCollection();
+            HivemindUtility.ResetCollection();
             if (syncHive && MiscUtility.GameStarted())
             {
                 SyncHive();
@@ -203,7 +168,7 @@ namespace WVC_XenotypesAndGenes
         public override void SyncHive()
         {
             base.SyncHive();
-            List<Pawn> bondedPawns = HivemindPawns;
+            List<Pawn> bondedPawns = HivemindUtility.HivemindPawns;
             //string phase = "start";
             try
             {
@@ -274,7 +239,7 @@ namespace WVC_XenotypesAndGenes
 
         public void RandomInteraction()
         {
-            GeneInteractionsUtility.TryInteractRandomly(pawn, Gene_Hivemind.HivemindPawns, psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
+            GeneInteractionsUtility.TryInteractRandomly(pawn, HivemindUtility.HivemindPawns, psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
         }
 
     }

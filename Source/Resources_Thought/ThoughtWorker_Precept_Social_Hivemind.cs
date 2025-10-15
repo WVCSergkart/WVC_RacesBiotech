@@ -12,18 +12,13 @@ namespace WVC_XenotypesAndGenes
 	public class ThoughtWorker_Precept_Social_Hivemind : ThoughtWorker_Precept_Social
 	{
 
-		public static bool InHivemind(Pawn pawn)
-        {
-			return Gene_Hivemind.HivemindPawns.Contains(pawn);
-		}
-
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
 		{
 			// I am hiver
-			if (InHivemind(p))
+			if (HivemindUtility.InHivemind(p))
 			{
 				// My friend non hiver
-				if (!InHivemind(otherPawn))
+				if (!HivemindUtility.InHivemind(otherPawn))
 				{
 					return ThoughtState.ActiveAtStage(1);
 				}
@@ -31,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 				return ThoughtState.ActiveAtStage(2);
 			}
 			// I am not hiver, but my friend..
-			if (InHivemind(otherPawn))
+			if (HivemindUtility.InHivemind(otherPawn))
 			{
 				return ThoughtState.ActiveAtStage(0);
 			}
@@ -46,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 
         protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (ThoughtWorker_Precept_Social_Hivemind.InHivemind(p))
+			if (HivemindUtility.InHivemind(p))
 			{
 				return ThoughtState.ActiveDefault;
 			}

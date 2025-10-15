@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//StaticCollectionsClass.currentGameComponent = this;
 			StaticCollectionsClass.ResetCollection();
+			HivemindUtility.ResetCollection();
 			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
 			{
 				return;
@@ -65,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void LoadedGame()
 		{
+			HivemindUtility.ResetCollection();
 			//UpdateSavedVersion();
 			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();

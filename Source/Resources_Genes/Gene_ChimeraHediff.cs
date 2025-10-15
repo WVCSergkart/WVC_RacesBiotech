@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			Local_AddOrRemoveHediff();
 		}
 
-		private void Local_AddOrRemoveHediff()
+		public virtual void Local_AddOrRemoveHediff()
 		{
 			try
 			{
@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			RemoveHediff();
 		}
 
 		public virtual void Notify_Override()
@@ -62,6 +62,11 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			RemoveHediff();
+		}
+
+		public virtual void RemoveHediff()
+		{
 			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
@@ -177,13 +182,27 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostAdd()
 		{
-			base.PostAdd();
 			ResetCollection();
+			base.PostAdd();
 		}
 
-		public void ResetCollection()
+		public override void Local_AddOrRemoveHediff()
 		{
-			Gene_Hivemind.ResetCollection();
+			if (!HivemindUtility.InHivemind(pawn))
+			{
+				RemoveHediff();
+				return;
+			}
+			base.Local_AddOrRemoveHediff();
+		}
+
+        public void ResetCollection()
+		{
+			if (!HivemindUtility.SuitableForHivemind(pawn))
+			{
+				return;
+			}
+			HivemindUtility.ResetCollection();
 		}
 
 		public override void Notify_OverriddenBy(Gene overriddenBy)
@@ -194,8 +213,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_Override()
 		{
-			base.Notify_Override();
 			ResetCollection();
+			base.Notify_Override();
 		}
 
 		public override void PostRemove()

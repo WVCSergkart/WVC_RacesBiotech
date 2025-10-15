@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffComp_GeneHediff : HediffComp
+	public class HediffComp_GeneHediff : HediffComp, IHediffGene
 	{
 
 		public GeneDef geneDef;
@@ -55,114 +55,71 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void CompPostPostRemoved()
-		{
-			if (geneDef == null)
-			{
-				geneDef = Props.geneDef;
-			}
-			if (XaG_GeneUtility.HasActiveGene(geneDef, Pawn))
-			{
-				BodyPartDef bodyPart = parent?.Part?.def;
-				List<BodyPartDef> bodyparts = new();
-				if (bodyPart != null)
-				{
-					bodyparts.Add(bodyPart);
-				}
-				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
-				{
-					if (DebugSettings.ShowDevGizmos)
-					{
-						Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
-					}
-				}
-			}
-			//else
-			//{
-			//	foreach (Gene gene in Pawn.genes.GenesListForReading)
-			//	{
-			//		if (gene is )
-			//		{
+        {
+            TryRenewHediff();
+        }
 
-			//		}
-			//	}
-			//}
-		}
+        public virtual void TryRenewHediff()
+        {
+            if (geneDef == null)
+            {
+                geneDef = Props.geneDef;
+            }
+            if (XaG_GeneUtility.HasActiveGene(geneDef, Pawn))
+            {
+                BodyPartDef bodyPart = parent?.Part?.def;
+                List<BodyPartDef> bodyparts = new();
+                if (bodyPart != null)
+                {
+                    bodyparts.Add(bodyPart);
+                }
+                if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
+                {
+                    if (DebugSettings.ShowDevGizmos)
+                    {
+                        Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+                    }
+                }
+            }
+        }
 
-		// public virtual void Notify_GeneRemoved(Gene gene)
-		// {
-			// if (geneDef == gene.def || Props.geneDef == gene.def)
-			// {
-				// geneIsRemoved = true;
-				// base.Pawn.health.RemoveHediff(parent);
-			// }
-		// }
-
-		public override void CompExposeData()
+        public override void CompExposeData()
 		{
 			Scribe_Defs.Look(ref geneDef, "geneDef");
 			Scribe_Values.Look(ref nextTick, "nextTick", 60000);
 		}
 
-	}
+		public void Update()
+		{
+			Pawn?.health?.RemoveHediff(parent);
+			//BodyPartDef bodyPart = parent?.Part?.def;
+			//List<BodyPartDef> bodyparts = new();
+			//if (bodyPart != null)
+			//{
+			//	bodyparts.Add(bodyPart);
+			//}
+			//HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts);
+		}
 
-	//[Obsolete]
-	//public class HediffComp_ShapeshifterHediff : HediffComp
-	//{
+    }
 
-	//	public HediffCompProperties_GeneHediff Props => (HediffCompProperties_GeneHediff)props;
+	public class HediffComp_GeneHivemindHediff : HediffComp_GeneHediff
+	{
 
-	//	public override void CompPostPostRemoved()
-	//	{
-	//		if (Pawn?.health?.hediffSet?.GetBrain() == null)
-	//		{
-	//			return;
-	//		}
-	//		if (XaG_GeneUtility.HasAnyActiveGene(Props.geneDefs, Pawn))
-	//		{
-	//			BodyPartDef bodyPart = parent?.Part?.def;
-	//			List<BodyPartDef> bodyparts = new();
-	//			if (bodyPart != null)
-	//			{
-	//				bodyparts.Add(bodyPart);
-	//			}
-	//			if (HediffUtility.TryAddHediff(Def, Pawn, null, bodyparts))
-	//			{
-	//				if (DebugSettings.ShowDevGizmos)
-	//				{
-	//					Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
-	//				}
-	//			}
-	//		}
-	//	}
+		public override void TryRenewHediff()
+		{
+			if (!HivemindUtility.InHivemind(Pawn))
+			{
+				return;
+			}
+			base.TryRenewHediff();
+		}
 
-	//}
+    }
 
-	// ========================================
+    // ========================================
 
-	//[Obsolete]
-	//public class HediffCompProperties_AlwaysRemove : HediffCompProperties
-	//{
-
-	//	public HediffCompProperties_AlwaysRemove()
-	//	{
-	//		compClass = typeof(HediffComp_AlwaysRemove);
-	//	}
-
-	//}
-
-	//[Obsolete]
-	//public class HediffComp_AlwaysRemove : HediffComp
-	//{
-
-	//	public HediffCompProperties_AlwaysRemove Props => (HediffCompProperties_AlwaysRemove)props;
-
-	//	public override bool CompShouldRemove => true;
-
-	//}
-
-	// ========================================
-
-	public class HediffCompProperties_RemoveIf : HediffCompProperties
+    public class HediffCompProperties_RemoveIf : HediffCompProperties
 	{
 
 		public int checkInterval = 5220;

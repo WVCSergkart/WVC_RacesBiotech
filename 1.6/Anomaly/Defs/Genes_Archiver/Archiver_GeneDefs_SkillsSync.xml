@@ -16,6 +16,9 @@
 		<li>Only the level is synchronized, experience is not affected.</li>
 		<li>Synchronizes to the higher value.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SkillsSync</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

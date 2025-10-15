@@ -8,7 +8,7 @@
 	<!-- hivekin, gestaltkin, mindkind, hivemind, minder, collective -->
 	<description>Gestaltkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
 	<descriptionShort>Gestaltkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Icon_Hivedrone0c</iconPath>
+	<iconPath>WVC/UI/Icons3/Icon_Hivedrone1c</iconPath>
 	<displayPriority>-1100</displayPriority>
 	<combatPowerFactor>3.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>

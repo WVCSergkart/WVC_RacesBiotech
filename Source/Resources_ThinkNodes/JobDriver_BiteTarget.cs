@@ -7,12 +7,6 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-	public interface IJobCustomEater
-	{
-
-		bool ShouldFinalize { get; }
-
-	}
 
 	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility, IJobCustomEater
 	{

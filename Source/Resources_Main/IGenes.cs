@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public interface IGeneInspectInfo
+    public interface IGeneInspectInfo
 	{
 
 		string GetInspectInfo { get; }

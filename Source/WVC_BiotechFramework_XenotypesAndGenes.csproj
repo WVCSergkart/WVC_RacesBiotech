@@ -135,6 +135,8 @@
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
+    <Compile Include="Resources_Main\IHediffs.cs" />
+    <Compile Include="Resources_Main\IJobs.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skinshaper.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Skillshifter.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_Hivemind.cs" />
     <Compile Include="Resources_Hediff\Hediff_Duplicate.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
@@ -221,7 +224,7 @@
     <Compile Include="Resources_Genes\Gene_Telepathy.cs" />
     <Compile Include="Resources_Genes\Gene_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
-    <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
+    <Compile Include="Resources_Main\IGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeEyesColor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
@@ -302,6 +305,7 @@
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Utility\InitialUtility.cs" />
     <Compile Include="Resources_Utility\InteractionUtility.cs" />
+    <Compile Include="Resources_Utility\HivemindUtility.cs" />
     <Compile Include="Resources_Utility\TraitsUtility.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_BiteTarget.cs" />

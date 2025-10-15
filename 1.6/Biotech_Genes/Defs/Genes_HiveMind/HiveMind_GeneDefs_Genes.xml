@@ -30,6 +30,9 @@
 		<li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SkillsSync</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->
@@ -77,6 +80,9 @@
 	<customEffectDescriptions>
 		<li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Mood</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
 			<thoughtDef>WVC_Hivemind_Mood</thoughtDef>
@@ -154,6 +160,9 @@
 	<customEffectDescriptions>
 		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Telepathy</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

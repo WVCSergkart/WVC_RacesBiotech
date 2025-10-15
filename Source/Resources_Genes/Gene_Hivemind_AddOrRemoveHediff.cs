@@ -8,13 +8,27 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostAdd()
 		{
-			base.PostAdd();
 			ResetCollection();
+			base.PostAdd();
+		}
+
+		public override void Local_AddOrRemoveHediff()
+		{
+			if (!HivemindUtility.InHivemind(pawn))
+			{
+				RemoveHediff();
+				return;
+			}
+			base.Local_AddOrRemoveHediff();
 		}
 
 		public void ResetCollection()
 		{
-			Gene_Hivemind.ResetCollection();
+			if (!HivemindUtility.SuitableForHivemind(pawn))
+			{
+				return;
+			}
+			HivemindUtility.ResetCollection();
 		}
 
 		public override void Notify_OverriddenBy(Gene overriddenBy)
@@ -25,8 +39,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_Override()
 		{
-			base.Notify_Override();
 			ResetCollection();
+			base.Notify_Override();
 		}
 
 		public override void PostRemove()

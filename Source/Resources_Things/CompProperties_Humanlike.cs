@@ -376,7 +376,8 @@ namespace WVC_XenotypesAndGenes
                     Pawn pawn = parent as Pawn;
                     ReimplanterUtility.PostImplantDebug(pawn);
 					StaticCollectionsClass.ResetCollection();
-                }
+					HediffUtility.UpdatePawnGeneHediffs(Pawn);
+				}
             };
             yield return new Command_Action
             {
@@ -446,15 +447,16 @@ namespace WVC_XenotypesAndGenes
 		// ======================================
 
 		public override void Notify_DuplicatedFrom(Pawn source)
-		{
-			SetDuplicate(source);
+        {
+            SetDuplicate(source);
 			//foreach (Gene gene in Pawn.genes.GenesListForReading)
 			//{
 
 			//}
-		}
+			//HediffUtility.UpdatePawnGeneHediffs(Pawn);
+        }
 
-		public bool IsDuplicate
+        public bool IsDuplicate
         {
             get
             {

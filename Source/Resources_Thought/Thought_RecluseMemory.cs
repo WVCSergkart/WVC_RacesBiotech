@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 
         public override float MoodOffset()
         {
-            return base.MoodOffset() * (Gene_Hivemind.HivemindPawns.Count - 1);
+            return base.MoodOffset() * (HivemindUtility.HivemindPawns.Count - 1);
         }
 
     }
