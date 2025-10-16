@@ -122,18 +122,25 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-        public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
-        {
-            get
-            {
+		public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
+		{
+			get
+			{
 				List<FloatMenuOption> list = new();
-				list.Add(new FloatMenuOption("WVC_XaG_GeneThrallMaker_MenuLabel".Translate(), delegate
+				foreach (Gene gene in Pawn.genes.GenesListForReading)
 				{
-					Pawn?.genes?.GetFirstGeneOfType<Gene_ThrallMaker>()?.ThrallMakerDialog();
-				}, orderInPriority: -999));
+					if (gene is Gene_ThrallMaker maker)
+					{
+						list.Add(new FloatMenuOption("WVC_XaG_GeneThrallMaker_MenuLabel".Translate() + " (" + maker.LabelCap + ")", delegate
+						{
+							maker.ThrallMakerDialog();
+						}));
+					}
+				}
 				return list;
-            }
-        }
+			}
+		}
+
 	}
 
 	[Obsolete]
