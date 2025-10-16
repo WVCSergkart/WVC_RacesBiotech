@@ -26,7 +26,7 @@
 	<biostatArc>3</biostatArc>
 	<biostatMet>-4</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind is added, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
+		<li>Every day or when a new mind (with this gene) is added, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
 		<li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
@@ -48,7 +48,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind is added, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
+		<li>Every day or when a new mind (with this gene) is added, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
 		<li>Only &lt;color=#8a8ae6&gt;recreation, comfort, outdoors, indoors, beauty&lt;/color&gt; are synchronized.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
@@ -183,6 +183,23 @@
 	<exclusionTags>
 	  <li>WVC_SpecialRegeneration</li>
 	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_DeathChain</defName>
+	<label>hivemind chain</label>
+	<description>Carriers of this gene bind the hivemind with a strong psychic bond, their death will kill the entire hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_DeathChain</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_DeathChain</iconPath>
+	<displayOrderInCategory>95</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+	</customEffectDescriptions>
   </GeneDef>
 
 </Defs>

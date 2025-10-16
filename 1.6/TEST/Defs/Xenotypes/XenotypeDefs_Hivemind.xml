@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Dev name: Gestaltkind -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Hivemind">
 	<defName>WVC_Gestaltkind</defName>
 	<label>gestaltkind</label>
 	<!-- hivekin, gestaltkin, mindkind, mindkin, hivemind, minder, collective -->

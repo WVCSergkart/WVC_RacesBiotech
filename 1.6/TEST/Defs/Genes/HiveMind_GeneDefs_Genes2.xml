@@ -12,7 +12,7 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind is added, it synchronizes the &lt;color=#8a8ae6&gt;memories&lt;/color&gt;.</li>
+		<li>Every day or when a new mind (with this gene) is added, it synchronizes the &lt;color=#8a8ae6&gt;memories&lt;/color&gt;.</li>
 		<li>Only &lt;color=#8a8ae6&gt;temporary memories&lt;/color&gt; are synchronized, permanent ones are not affected.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 		<!-- <li>Allows to change the ideology of the entire mind to any desired one, at any time.</li> -->
@@ -32,7 +32,7 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind is added, the hive gets an &lt;color=#8a8ae6&gt;opinion offset&lt;/color&gt; lasting about a day.</li>
+		<li>Every day or when a new mind (with this gene) is added, the hive gets an &lt;color=#8a8ae6&gt;opinion offset&lt;/color&gt; lasting about a day.</li>
 		<li>Affects the hive's opinion with the &lt;color=#8a8ae6&gt;carrier&lt;/color&gt; and the &lt;color=#8a8ae6&gt;carrier's opinion with the hive&lt;/color&gt;, without affecting the opinion between other pawns of the hive.</li>
 	</customEffectDescriptions>
 	<modExtensions>

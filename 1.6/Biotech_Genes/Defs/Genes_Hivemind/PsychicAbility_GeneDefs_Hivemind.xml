@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_PsychicAbility_Hivemind</defName>
+	<label>psychically hivemind</label>
+	<description>Carriers of this gene are significantly more psychically sensitive than most due to their hivemind bond.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Drone</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_PsychicAbility</iconPath>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<statOffsets>
+	  <PsychicSensitivity>0.8</PsychicSensitivity>
+	  <MeditationFocusGain>0.4</MeditationFocusGain>
+	  <PsychicEntropyRecoveryRate>0.4</PsychicEntropyRecoveryRate>
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li>
+		  <symbol>psy</symbol>
+		  <weight>3</weight>
+		</li>
+		<li><symbol>senso</symbol></li>
+		<li><symbol>sensi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>PsychicAbility</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

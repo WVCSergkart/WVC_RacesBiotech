@@ -52,8 +52,11 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<!-- <WVC_Label_disableXenotypes_MutantMakers>|- Disable *xenotype* (DEV)</WVC_Label_disableXenotypes_MutantMakers> -->
 	<!-- <WVC_ToolTip_disableXenotypes_MutantMakers>Ripperkind, Reaperkind, Overrider.</WVC_ToolTip_disableXenotypes_MutantMakers> -->
 
+	<WVC_Label_disableXenotypes_Hivemind>|- Disable hivemind</WVC_Label_disableXenotypes_Hivemind>
+	<WVC_ToolTip_disableXenotypes_Hivemind>Overrider, Hivemind*.</WVC_ToolTip_disableXenotypes_Hivemind>
+
 	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
-	<WVC_ToolTip_disableXenotypes_Misc>Ripperkind, Reaperkind, Overrider, Mergekin.</WVC_ToolTip_disableXenotypes_Misc>
+	<WVC_ToolTip_disableXenotypes_Misc>Ripperkind, Reaperkind, Mergekin.</WVC_ToolTip_disableXenotypes_Misc>
 
 	<!-- <WVC_Label_enableXenotypes_Hybrid>|- Enable exp- hybrid xenotype</WVC_Label_enableXenotypes_Hybrid> -->
 	<!-- <WVC_ToolTip_enableXenotypes_Hybrid>None.</WVC_ToolTip_enableXenotypes_Hybrid> -->

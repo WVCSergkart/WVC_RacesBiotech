@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Hivemind">
 	<defName>WVC_Overrider</defName>
 	<label>overrider</label>
 	<description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.

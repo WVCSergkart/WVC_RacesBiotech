@@ -30,6 +30,7 @@
 		<nullifyingGenes>
 		  <li>WVC_MechaAI_PsychicDull</li>
 		  <li>WVC_PsychicAbility_Archite</li>
+		  <li>WVC_PsychicAbility_Hivemind</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>

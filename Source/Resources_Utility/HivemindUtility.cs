@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
             cachedPawns = null;
             cachedRefreshRate = null;
             Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
+            Gene_Hivemind_Regeneration.cachedRegenRate = null;
             // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
             HediffWithComps_Hivemind_Beauty.Recache();
             HediffWithComps_Hivemind_Learning.Recache();
@@ -70,7 +71,7 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
 
-        public static bool InHivemind(Pawn pawn)
+        public static bool InHivemind(this Pawn pawn)
 		{
             // Cause hivemind initialized after game start
             if (MiscUtility.GameNotStarted())
