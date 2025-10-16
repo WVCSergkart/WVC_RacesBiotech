@@ -5,9 +5,9 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
 	<defName>WVC_Gestaltkind</defName>
 	<label>gestaltkind</label>
-	<!-- hivekin, gestaltkin, mindkind, hivemind, minder, collective -->
-	<description>Gestaltkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
-	<descriptionShort>Gestaltkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<!-- hivekin, gestaltkin, mindkind, mindkin, hivemind, minder, collective -->
+	<description>Gestaltkinds are super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Gestaltkinds are super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Hivedrone1c</iconPath>
 	<displayPriority>-1100</displayPriority>
 	<combatPowerFactor>3.0</combatPowerFactor>
@@ -24,13 +24,15 @@
 		<li>WVC_Chimera</li>
 		<li>WVC_Chimera_Cooldown</li>
 		<li>WVC_Chimera_GenelineHiveMind</li>
+		<li>WVC_Chimera_HighMetLimit</li>
 		<li>Immunity_Strong</li>
 		<li>LowSleep</li>
 		<li>Sterile</li>
 		<!-- Graphic -->
 		<li>WVC_GenderMorph</li>
 		<li>WVC_FleshmassSkin</li>
-		<li>Hair_BaldOnly</li>
+		<!-- <li>Hair_BaldOnly</li> -->
+		<li>WVC_HeadTentacles0c</li>
 		<li>Beard_NoBeardOnly</li>
 		<li>Ears_Pointed</li>
 		<li>Body_Standard</li>

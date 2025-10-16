@@ -127,6 +127,9 @@
 	<customEffectDescriptions>
 		<li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SpecialRegeneration</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<reqGeneMat>66</reqGeneMat>

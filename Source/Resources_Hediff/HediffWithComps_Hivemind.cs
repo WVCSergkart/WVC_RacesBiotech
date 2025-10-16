@@ -78,4 +78,34 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class HediffWithComps_Hivemind_TempRange : HediffWithComps_Hivemind
+	//{
+
+	//	public static HediffStage curStage;
+
+	//	public static void Recache()
+	//	{
+	//		curStage = null;
+	//	}
+
+	//	public override HediffStage CurStage
+	//	{
+	//		get
+	//		{
+	//			if (curStage == null)
+	//			{
+	//				curStage = new();
+	//				float newLimit = HivemindUtility.HivemindPawns.Count;
+	//				curStage.statOffsets = new();
+	//				StatModifier statMod = new();
+	//				statMod.stat = StatDefOf.GlobalLearningFactor;
+	//				statMod.value = -0.9f + (newLimit * 0.18f);
+	//				curStage.statOffsets.Add(statMod);
+	//			}
+	//			return curStage;
+	//		}
+	//	}
+
+	//}
+
 }

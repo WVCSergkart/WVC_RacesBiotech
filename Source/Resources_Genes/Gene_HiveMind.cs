@@ -244,4 +244,23 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    public class Gene_Hivemind_Regeneration : Gene_Hivemind_Drone
+    {
+
+        public override void TickInterval(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(3335, delta))
+            {
+                return;
+            }
+            Regen();
+        }
+
+        public void Regen()
+        {
+            HealingUtility.Regeneration(pawn, HivemindUtility.HivemindPawns.Count * 4, 3335);
+        }
+
+    }
+
 }

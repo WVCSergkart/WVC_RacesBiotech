@@ -165,4 +165,24 @@
 	</exclusionTags>
   </GeneDef>
 
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Regeneration</defName>
+	<label>hivemind regeneration</label>
+	<description>Carriers of this gene have archites that quickly regenerate damaged tissue. The effectiveness depends on the size of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Regeneration</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Regen</iconPath>
+	<displayOrderInCategory>85</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-6</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 4 hp/day * &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SpecialRegeneration</li>
+	</exclusionTags>
+  </GeneDef>
+
 </Defs>
