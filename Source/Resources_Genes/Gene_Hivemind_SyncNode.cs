@@ -1,0 +1,103 @@
+﻿using RimWorld;
+using System.Collections.Generic;
+using Verse;
+using Verse.Sound;
+
+namespace WVC_XenotypesAndGenes
+{
+    public class Gene_Hivemind_SyncNode : Gene_Hivemind_Drone, IGeneRemoteControl
+    {
+
+        public string RemoteActionName
+        {
+            get
+            {
+                if (cooldownTick > 0)
+                {
+                    return cooldownTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+                }
+                return LabelCap;
+            }
+        }
+
+        public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControl_HivemindSyncNode".Translate();
+
+        public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+        {
+            if (!Active || cooldownTick > 0 || !HivemindUtility.SuitableForHivemind(pawn))
+            {
+                SoundDefOf.ClickReject.PlayOneShotOnCamera();
+                return;
+            }
+            Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_RemoteControl_HivemindSyncNodeWarning".Translate(), delegate
+            {
+                ResetCollection();
+                Messages.Message("WVC_XaG_RemoteControl_HivemindSyncNodeMessage".Translate(HivemindUtility.HivemindPawns.Count), new LookTargets(HivemindUtility.HivemindPawns), MessageTypeDefOf.PositiveEvent);
+            });
+            Find.WindowStack.Add(window);
+        }
+
+        public bool RemoteControl_Hide => !Active;
+
+        public bool RemoteControl_Enabled
+        {
+            get
+            {
+                return enabled;
+            }
+            set
+            {
+                enabled = value;
+                remoteControllerCached = false;
+            }
+        }
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+        }
+
+        public bool enabled = true;
+        public bool remoteControllerCached = false;
+
+        public void RemoteControl_Recache()
+        {
+            XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            if (enabled)
+            {
+                yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+            }
+        }
+
+        // =============
+
+        public override void TickInterval(int delta)
+        {
+            if (!pawn.IsHashIntervalTick(59997, delta))
+            {
+                return;
+            }
+            ResetCollection();
+        }
+
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+        {
+            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), HivemindUtility.HivemindPawns.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100);
+        }
+
+        private int cooldownTick = -1;
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref cooldownTick, "cooldownTick", -1);
+        }
+
+    }
+
+}

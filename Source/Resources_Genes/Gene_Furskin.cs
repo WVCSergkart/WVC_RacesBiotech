@@ -142,7 +142,26 @@ namespace WVC_XenotypesAndGenes
         }
 	}
 
-	public class Gene_Mechaskin : Gene_Exoskin
+	public class Gene_TentacleSkin : Gene_Exoskin
+	{
+
+		public override void TickInterval(int delta)
+		{
+			if (!pawn.IsHashIntervalTick(8345, delta))
+			{
+				return;
+			}
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart && (hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbCore) || hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbSegment))).ToList();
+			foreach (Hediff hediff in hediffs)
+			{
+				HealingUtility.Regenerate(pawn, hediff);
+			}
+			//HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
+		}
+
+	}
+
+    public class Gene_Mechaskin : Gene_Exoskin
 	{
 
 		//public bool Enabled => Giver?.mutantDef != null;

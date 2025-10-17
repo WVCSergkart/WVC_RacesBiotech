@@ -1,4 +1,3 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -100,20 +99,6 @@ namespace WVC_XenotypesAndGenes
         {
             base.ExposeData();
             Scribe_Values.Look(ref nextTick, "nextTick", 1200);
-        }
-
-    }
-
-    public class Gene_Hivemind_SyncNode : Gene_Hivemind_Drone
-    {
-
-        public override void TickInterval(int delta)
-        {
-            if (!pawn.IsHashIntervalTick(59997, delta))
-            {
-                return;
-            }
-            ResetCollection();
         }
 
     }

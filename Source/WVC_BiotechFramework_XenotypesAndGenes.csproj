@@ -106,6 +106,7 @@
     <Compile Include="Resources_Genes\Gene_HiveMind_Opinion.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Regeneration.cs" />
     <Compile Include="Resources_Genes\Gene_HiveMind_Skills.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_SyncNode.cs" />
     <Compile Include="Resources_Genes\Gene_HiveMind_Thoughts.cs" />
     <Compile Include="Resources_Genes\Gene_ImplanterFang.cs" />
     <Compile Include="Resources_Genes\Gene_Inhumanized.cs" />

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_TentacleSkin</defName>
+	<label>tentacleskin</label>
+	<description>Carriers of this gene grow numerous tentacles all over their bodies; they greatly assist in manual work but are not capable of replacing hands.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_TentacleSkin</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HalfBones</iconPath>
+	<selectionWeight>0</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<biostatArc>1</biostatArc>
+	<minAgeActive>13</minAgeActive>
+	<missingGeneRomanceChanceFactor>0.05</missingGeneRomanceChanceFactor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.20</offset>
+	  </li>
+	</capMods>
+	<customEffectDescriptions>
+		<li>&lt;color=#ffec85&gt;Regenerates missing arms.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Body</workerClass>
+		<baseLayer>6</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<overlayOverApparel>true</overlayOverApparel>
+		<!-- old bones color -->
+		<bodyTypeGraphicPaths>
+		  <!-- <Male>WVC/BodyParts/HalfBones/MaleBody</Male> -->
+		  <Female>WVC/Bodies/Tentacles/Naked_Female</Female>
+		  <!-- <Fat>WVC/BodyParts/Chest/FurChest_Fat</Fat> -->
+		  <!-- <Thin>WVC/BodyParts/HalfBones/Naked_Thin</Thin> -->
+		  <!-- <Hulk>WVC/BodyParts/HalfBones/Naked_Hulk</Hulk> -->
+		</bodyTypeGraphicPaths>
+	  </li>
+	</renderNodeProperties>
+	<exclusionTags>
+	  <li>WVC_ChestBodyParts_Tentacles</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tentacle</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

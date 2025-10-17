@@ -29,8 +29,6 @@
 
 	<WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc>
 
-	<WVC_XaG_IGeneHiveMind_Desc>&lt;color=#ffec85&gt;Pawns with this gene are considered part of the hivemind&lt;/color&gt;.</WVC_XaG_IGeneHiveMind_Desc>
-
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
 	<WVC_XaG_Gene_SimpleGestator_ToYoungMessage>{0} is not in the reproductive stage.</WVC_XaG_Gene_SimpleGestator_ToYoungMessage>
@@ -191,8 +189,6 @@
 	<WVC_AnimalfeederBite_NonAnimal>The target can only be non-intelligent animals.</WVC_AnimalfeederBite_NonAnimal>
 	<WVC_AnimalfeederBite_NonFlesh>Only organic animals can be targeted.</WVC_AnimalfeederBite_NonFlesh>
 
-	<WVC_XaG_Hivemind_IdeoChangeWarning>The ideology of all hivemind pawns will be changed to the chosen one, are you sure?</WVC_XaG_Hivemind_IdeoChangeWarning>
-
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
@@ -209,6 +205,19 @@
 	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
 
 	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
+
+	<!-- ============================ HIVEMIND ============================ -->
+
+	<WVC_XaG_HivemindPawns_Label>Hivemind size</WVC_XaG_HivemindPawns_Label>
+	<WVC_XaG_HivemindPawns_Desc>The number of pawns synchronized with the hivemind. Pawns that are compatible with the hivemind but not yet synchronized can affect the hivemind, but until synchronized, they will not be affected by other hivemind pawns.\n\nPawns without psy- sensitivity and not colonists are not counted as part of the hivemind. Temporary pawns can join the hivemind, but will be expelled from it upon leaving the colony.</WVC_XaG_HivemindPawns_Desc>
+
+	<WVC_XaG_RemoteControl_HivemindSyncNode>Allows to manually trigger hivemind synchronization. Cooldown: 7 days.</WVC_XaG_RemoteControl_HivemindSyncNode>
+	<WVC_XaG_RemoteControl_HivemindSyncNodeWarning>Are you sure you want to force sync now?</WVC_XaG_RemoteControl_HivemindSyncNodeWarning>
+	<WVC_XaG_RemoteControl_HivemindSyncNodeMessage>Hivemind is synchronized. Current number of hivemind pawns: {0}.</WVC_XaG_RemoteControl_HivemindSyncNodeMessage>
+
+	<WVC_XaG_Hivemind_IdeoChangeWarning>The ideology of all hivemind pawns will be changed to the chosen one, are you sure?</WVC_XaG_Hivemind_IdeoChangeWarning>
+
+	<WVC_XaG_IGeneHiveMind_Desc>&lt;color=#ffec85&gt;Pawns with this gene are considered part of the Hivemind&lt;/color&gt;.</WVC_XaG_IGeneHiveMind_Desc>
 
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 

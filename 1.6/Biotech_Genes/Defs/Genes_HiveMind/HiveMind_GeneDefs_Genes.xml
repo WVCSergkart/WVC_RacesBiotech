@@ -121,6 +121,7 @@
 	<customEffectDescriptions>
 		<li>From time to time, it &lt;color=#8a8ae6&gt;synchronizes the hivemind&lt;/color&gt; and integrates new members from among &lt;color=#8a8ae6&gt;former prisoners or wanderers&lt;/color&gt;.</li>
 		<li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li>
+		<li>Displays the number of pawns in the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; in &lt;color=#8a8ae6&gt;stats&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
