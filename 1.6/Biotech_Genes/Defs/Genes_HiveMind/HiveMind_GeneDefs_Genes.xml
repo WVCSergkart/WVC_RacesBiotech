@@ -20,7 +20,7 @@
 	<label>shared skills</label>
 	<description>Carriers of this gene have a psychic connection with other carriers. Due to which share some experience in skills.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Skills</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SkillsSync</iconPath>
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>

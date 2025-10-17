@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Hediffs">
+	<defName>WVC_Hivemind_Learning</defName>
+	<label>hivemind study</label>
+	<description>Carriers of this gene learn skills better depending on the size of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Skills</iconPath>
+	<displayOrderInCategory>75</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Learning&lt;/color&gt; rate depends on the number of &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
+		<li>Starting &lt;color=#8a8ae6&gt;from -90%&lt;/color&gt;, increases &lt;color=#8a8ae6&gt;learning&lt;/color&gt; by 18% for each &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Learning</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Hivemind_Learning</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Hivemind">
+	<defName>WVC_Hivemind_Learning</defName>
+	<label>hivemind study</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Hivemind_Learning</hediffClass>
+  </HediffDef>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Hediffs">
+	<defName>WVC_Hivemind_Beauty</defName>
+	<label>hivemind beauty</label>
+	<description>Carriers of this gene have archites that adjust the carrier's appearance based on information received from hivemind members, creating a more beautiful image suitable for different tastes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Beauty</iconPath>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Starting &lt;color=#8a8ae6&gt;from -3&lt;/color&gt;, increases &lt;color=#8a8ae6&gt;beauty&lt;/color&gt; by 1 for each &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Beauty</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Hivemind_Beauty</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Hivemind">
+	<defName>WVC_Hivemind_Beauty</defName>
+	<label>hivemind beauty</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Hivemind_Beauty</hediffClass>
+  </HediffDef>
 
 </Defs>

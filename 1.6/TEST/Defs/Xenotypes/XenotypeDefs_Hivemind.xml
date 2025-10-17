@@ -5,7 +5,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Hivemind">
 	<defName>WVC_Gestaltkind</defName>
 	<label>gestaltkind</label>
-	<!-- hivekin, gestaltkin, mindkind, mindkin, hivemind, minder, collective -->
+	<!-- hivekin, gestaltkin, mindkind, mindkin, fleshkind, hivemind, minder, collective -->
 	<description>Gestaltkinds are super-humans powered by archotech-created archites in the bloodstream..</description>
 	<descriptionShort>Gestaltkinds are super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Hivedrone1c</iconPath>
@@ -16,7 +16,7 @@
 	<genes>
 		<!-- Geneset -->
 		<li>WVC_Duplicator</li>
-		<li>WVC_Duplicator_DeathChain</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Duplicator_DeathChain</li>
 		<!-- <li>WVC_Reimplanter_HiveMaker</li> -->
 		<!-- <li>WVC_Hivemind_Mood</li> -->
 		<!-- <li>WVC_HiveMind_Drone</li> -->
@@ -30,19 +30,17 @@
 		<li>Sterile</li>
 		<!-- Graphic -->
 		<li>WVC_GenderMorph</li>
-		<li>WVC_FleshmassSkin</li>
-		<!-- <li>Hair_BaldOnly</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassSkin</li>
 		<li>WVC_HeadTentacles0c</li>
 		<li>Beard_NoBeardOnly</li>
 		<li>Ears_Pointed</li>
 		<li>Body_Standard</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_TentacleSkin</li>
-		<!-- <li>Hair_InkBlack</li> -->
+		<li>WVC_BodyTentacles</li>
 		<li>WVC_SkinColor_FleshPink</li>
-		<!-- <li>WVC_DemonTailA</li> -->
-		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<li>WVC_TentacleHands</li>
+		<li>WVC_LongTentacleTail</li>
 	</genes>
   </XenotypeDef>
 

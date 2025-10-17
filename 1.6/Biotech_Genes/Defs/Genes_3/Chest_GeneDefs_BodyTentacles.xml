@@ -2,11 +2,11 @@
 <Defs>
 
   <GeneDef>
-	<defName>WVC_TentacleSkin</defName>
-	<label>tentacleskin</label>
+	<defName>WVC_BodyTentacles</defName>
+	<label>body tentacles</label>
 	<description>Carriers of this gene grow numerous tentacles all over their bodies; they greatly assist in manual work but are not capable of replacing hands.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_TentacleSkin</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_HalfBones</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_TentacleSkin</iconPath>
 	<selectionWeight>0</selectionWeight>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>130</displayOrderInCategory>
@@ -15,7 +15,7 @@
 	<biostatMet>-2</biostatMet>
 	<biostatArc>1</biostatArc>
 	<minAgeActive>13</minAgeActive>
-	<missingGeneRomanceChanceFactor>0.05</missingGeneRomanceChanceFactor>
+	<missingGeneRomanceChanceFactor>0.12</missingGeneRomanceChanceFactor>
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
@@ -33,14 +33,13 @@
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
 		<colorType>Skin</colorType>
 		<parentTagDef>Body</parentTagDef>
-		<overlayOverApparel>true</overlayOverApparel>
-		<!-- old bones color -->
+		<overlayOverApparel>false</overlayOverApparel>
 		<bodyTypeGraphicPaths>
-		  <!-- <Male>WVC/BodyParts/HalfBones/MaleBody</Male> -->
+		  <Male>WVC/Bodies/Tentacles/Naked_Male</Male>
 		  <Female>WVC/Bodies/Tentacles/Naked_Female</Female>
-		  <!-- <Fat>WVC/BodyParts/Chest/FurChest_Fat</Fat> -->
-		  <!-- <Thin>WVC/BodyParts/HalfBones/Naked_Thin</Thin> -->
-		  <!-- <Hulk>WVC/BodyParts/HalfBones/Naked_Hulk</Hulk> -->
+		  <Fat>WVC/Bodies/Tentacles/Naked_Fat</Fat>
+		  <Thin>WVC/Bodies/Tentacles/Naked_Thin</Thin>
+		  <Hulk>WVC/Bodies/Tentacles/Naked_Hulk</Hulk>
 		</bodyTypeGraphicPaths>
 	  </li>
 	</renderNodeProperties>
