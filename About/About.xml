@@ -58,6 +58,22 @@ A: Add - yes. Remove - no.</description>
 			<!-- <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl> -->
 		<!-- </li> -->
 	</modDependencies>
+	<modDependenciesByVersion>
+		<v1.4>
+			<li>
+				<packageId>1.4.no.longer.supported.use.old.git.version</packageId>
+				<displayName>1.4 no longer supported</displayName>
+				<downloadUrl>https://github.com/WVCSergkart/WVC_RacesBiotech/releases/latest</downloadUrl>
+			</li>
+		</v1.4>
+		<v1.5>
+			<li>
+				<packageId>1.5.no.longer.supported.use.old.git.version</packageId>
+				<displayName>1.5 no longer supported</displayName>
+				<downloadUrl>https://github.com/WVCSergkart/WVC_RacesBiotech/releases/latest</downloadUrl>
+			</li>
+		</v1.5>
+	</modDependenciesByVersion>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Royalty</li>
