@@ -41,7 +41,7 @@
 	<label>syncdrone</label>
 	<genes>
 		<li>WVC_Hivemind_SyncNode</li>
-		<li>WVC_Hivemind_IdeoSync</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Hivemind_IdeoSync</li>
 		<li>Immunity_Strong</li>
 		<li>MeleeDamage_Weak</li>
 		<li>Sterile</li>
@@ -59,6 +59,20 @@
 		<li>Robust</li>
 		<li>Sterile</li>
 		<li>Learning_Slow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Skillsync</defName>
+	<label>skillsync</label>
+	<genes>
+		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+		<li>VerySleepy</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_Learning_ExtremeSlow</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 

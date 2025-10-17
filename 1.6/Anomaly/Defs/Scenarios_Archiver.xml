@@ -4,9 +4,9 @@
   <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_SoulReaper</defName>
 	<label>The Soulreaper</label>
-	<description>TEST</description>
+	<description>You've always wanted to be a hero, saving the weak, protecting them from certain death at the last moment. And fate gave you that chance: you came across a plundered caravan. The raiders left them no chance, leaving many dead and only two survivors, gravely wounded but still alive. You saved them, giving them a chance to survive as "part" of you.</description>
 	<scenario>
-	  <summary>One reaperkind with no supplies and with 4 archiver forms. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
+	  <summary>One reaperkind with no supplies and with 2 archiver forms. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
@@ -17,7 +17,7 @@
 		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 		  <def>ConfigurePawnsXenotypes</def>
 		  <pawnChoiceCount>8</pawnChoiceCount>
-		  <customSummary>Start with one adult reaperkind and 4 archiver forms.</customSummary>
+		  <customSummary>Start with one adult reaperkind and 2 archiver forms.</customSummary>
 		  <overrideKinds>
 			<li>
 			  <xenotype>WVC_Reaperkind</xenotype>
@@ -34,7 +34,7 @@
 			</li>
 			<li>
 			  <xenotype>Baseliner</xenotype>
-			  <count>4</count>
+			  <count>2</count>
 			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
 			</li>
 		  </xenotypeCounts>
@@ -49,10 +49,18 @@
 		<li Class="ScenPart_PlayerPawnsArriveMethod">
 			<def>PlayerPawnsArriveMethod</def>
 		</li>
-		<!-- <li Class="ScenPart_Naked"> -->
-			<!-- <def>Naked</def> -->
-			<!-- <chance>0.5</chance> -->
-		<!-- </li> -->
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You've always wanted to be a hero, saving the weak, protecting them from certain death at the last moment. And fate gave you that chance: you came across a plundered caravan. The raiders left them no chance, leaving many dead and only two survivors, gravely wounded but still alive. You saved them, giving them a chance to survive as "part" of you.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
 
 	  </parts>
 	</scenario>

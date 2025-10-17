@@ -23,6 +23,11 @@ namespace WVC_XenotypesAndGenes
 			OnGenesChanged();
 		}
 
+		public override XenotypeHolder DefaultHolder()
+		{
+			return selectedXenoHolder;
+		}
+
 		public void UpdThrallHolders(List<XenotypeHolder> list)
 		{
 			foreach (XenotypeHolder item in list)

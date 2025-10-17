@@ -14,7 +14,7 @@
 	<displayCategory>WVC_HiveMind</displayCategory>
 	<displayOrderInCategory>200</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Allows to implant &lt;color=#8a8ae6&gt;genes&lt;/color&gt; collected by other &lt;color=#8a8ae6&gt;Chimeras&lt;/color&gt;.</li>
+		<li>Allows to implant &lt;color=#8a8ae6&gt;genes&lt;/color&gt; collected by other &lt;color=#8a8ae6&gt;chimeras&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
