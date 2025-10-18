@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairStyle_Base">
 	<defName>WVC_HeadTentacles0c</defName>
 	<label>head tentacles</label>
 	<description>Carriers of this gene grow tentacles on their heads instead of hair.</description>
 	<iconPath>WVC/UI/Genes3/Gene_HeadTentacles0c</iconPath>
-	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<selectionWeight>0.0012</selectionWeight>
-	<displayCategory>WVC_Cosmetic</displayCategory>
-	<displayOrderInCategory>7</displayOrderInCategory>
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
+	<!-- <displayOrderInCategory>7</displayOrderInCategory> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
@@ -38,26 +38,29 @@
 		<skipFlag>Hair</skipFlag>
 		<baseLayer>62</baseLayer>
 		<drawSize>0.8</drawSize>
+		<!-- <tagDef>Head</tagDef> -->
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>true</useSkinShader>
 		<drawData>
-		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-		  <dataNorth>
-			<offset>(0.0, 0.0, 0.3)</offset>
-		  </dataNorth>
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0.0, 0.0, 0.0)</offset> -->
+		  <!-- </dataNorth> -->
 		  <dataSouth>
-			<offset>(0.0, 0.0, 0.3)</offset>
+			<offset>(0.0, 0.0, -0.04)</offset>
 		  </dataSouth>
 		  <dataEast>
-			<offset>(0.07, 0.0, 0.3)</offset>
+			<offset>(-0.03, 0.0, -0.04)</offset>
 		  </dataEast>
 		  <dataWest>
-			<offset>(-0.07, 0.0, 0.3)</offset>
+			<offset>(0.03, 0.0, -0.04)</offset>
 		  </dataWest>
 		</drawData>
 	  </li>
 	</renderNodeProperties>
-	<exclusionTags>
-	  <li>HairStyle</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>HairStyle</li> -->
+	<!-- </exclusionTags> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>tenta</symbol></li>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_RestStomach</defName>
+	<label>rest stomach</label>
+	<description>Carriers of this gene have archites that generate nutrients relative to their vigor.</description>
+	<iconPath>WVC/UI/Genes3/Gene_RestStomach</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_RestStomach</geneClass>
+	<iconColor>(255,255,255)</iconColor>
+	<displayOrderInCategory>-3</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x0%</li>
+		<li>&lt;color=#8a8ae6&gt;Food bar is&lt;/color&gt; a percentage dependent on the &lt;color=#8a8ae6&gt;rest bar&lt;/color&gt;.</li>
+		<li>If the &lt;color=#8a8ae6&gt;food bar or rest bar is off&lt;/color&gt;, the &lt;color=#8a8ae6&gt;gene is disabled&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rest</symbol></li>
+		<li><symbol>stom</symbol></li>
+		<li><symbol>stomach</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mach</symbol></li>
+		<li><symbol>rest</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_RestStomach</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

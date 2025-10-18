@@ -34,6 +34,7 @@
 		<colorType>Skin</colorType>
 		<parentTagDef>Body</parentTagDef>
 		<overlayOverApparel>false</overlayOverApparel>
+		<useSkinShader>true</useSkinShader>
 		<bodyTypeGraphicPaths>
 		  <Male>WVC/Bodies/Tentacles/Naked_Male</Male>
 		  <Female>WVC/Bodies/Tentacles/Naked_Female</Female>

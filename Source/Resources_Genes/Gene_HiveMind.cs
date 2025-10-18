@@ -144,4 +144,19 @@ namespace WVC_XenotypesAndGenes
 
     }
 
+    // Issue: Food sync spam
+    //public class Gene_Hivemind_FoodShare : Gene_Hivemind_Drone
+    //{
+
+    //    public override void TickInterval(int delta)
+    //    {
+    //        if (!pawn.IsHashIntervalTick(2559, delta))
+    //        {
+    //            return;
+    //        }
+    //        RandomInteraction();
+    //    }
+
+    //}
+
 }
