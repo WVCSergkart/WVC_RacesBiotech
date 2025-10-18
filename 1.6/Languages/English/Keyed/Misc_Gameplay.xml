@@ -693,7 +693,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneChimera_TargetNoGenes>The target has no genes that the chimera has not yet absorbed.</WVC_XaG_GeneChimera_TargetNoGenes>
 	<WVC_XaG_GeneChimera_DeActive>Chimera is not active, ability cannot be used.</WVC_XaG_GeneChimera_DeActive>
 
-	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
+	<!-- <WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera> -->
 
 	<WVC_XaG_CreateChimera_PresetsNameMessageError>The preset must have a name.</WVC_XaG_CreateChimera_PresetsNameMessageError>
 	<WVC_XaG_CreateChimera_NewPresetSaved>Preset saved.</WVC_XaG_CreateChimera_NewPresetSaved>

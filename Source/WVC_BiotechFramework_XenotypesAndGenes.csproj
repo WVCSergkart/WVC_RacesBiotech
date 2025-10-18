@@ -83,6 +83,7 @@
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
     <Compile Include="Resources_Genes\Gene_RestStomach.cs" />
     <Compile Include="Resources_Genes\Gene_Animalfeeder.cs" />
     <Compile Include="Resources_Genes\Gene_ArchiverDependant.cs" />

@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            nextTick = new IntRange((int)(HivemindUtility.TickRefresh * 0.9f), (int)(HivemindUtility.TickRefresh * 1.2f)).RandomInRange;
+            nextTick = new IntRange((int)(HivemindUtility.TickRefresh * 0.9f), (int)(HivemindUtility.TickRefresh * 1.7f)).RandomInRange;
             if (!HivemindUtility.SuitableForHivemind(pawn))
             {
                 return;
@@ -143,20 +143,5 @@ namespace WVC_XenotypesAndGenes
         }
 
     }
-
-    // Issue: Food sync spam
-    //public class Gene_Hivemind_FoodShare : Gene_Hivemind_Drone
-    //{
-
-    //    public override void TickInterval(int delta)
-    //    {
-    //        if (!pawn.IsHashIntervalTick(2559, delta))
-    //        {
-    //            return;
-    //        }
-    //        RandomInteraction();
-    //    }
-
-    //}
 
 }

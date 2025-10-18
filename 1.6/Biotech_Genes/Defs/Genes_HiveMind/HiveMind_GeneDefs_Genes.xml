@@ -18,7 +18,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Skills</defName>
 	<label>shared skills</label>
-	<description>Carriers of this gene have a psychic connection with other carriers. Due to which share some experience in skills.</description>
+	<description>Carriers of this gene can synchronize some of the experience accumulated by members of the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SkillsSync</iconPath>
 	<displayOrderInCategory>10</displayOrderInCategory>
@@ -38,9 +38,47 @@
   <!-- ============================ -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_Hivemind_Thoughts</defName>
+	<label>shared thoughts</label>
+	<description>Carriers of this gene can share the thoughts of hivemind members, thus improving or worsening the overall mood of the entire hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Thoughts</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Thoughts</iconPath>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood (/2)&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Thoughts</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Thoughts</defName>
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>1</durationDays>
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>hivemind</label>
+		<description>I hear the thoughts of other hivemind members, their experiences, grief and joy.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Needs</defName>
 	<label>shared needs</label>
-	<description>Carriers of this gene have a psychic connection with other carriers. Due to which they share some of their needs.</description>
+	<description>Carriers of this gene have a special influence on the hivemind, they are able to synchronize some of the needs of its members.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
@@ -64,6 +102,41 @@
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Opinion</defName>
+	<label>hivemind opinion</label>
+	<description>Carriers of this gene have a special psychic influence on the hivemind, significantly improving their relationships with its members.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Opinion</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Opinion</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day the hivemind pawns gets an &lt;color=#8a8ae6&gt;opinion offset&lt;/color&gt; lasting about a day.</li>
+		<li>Affects the hive's opinion with the &lt;color=#8a8ae6&gt;carrier&lt;/color&gt; and the &lt;color=#8a8ae6&gt;carrier's opinion with the hive&lt;/color&gt;, without affecting the opinion between other pawns of the hive.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Opinion</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_Hivemind_Opinion</defName>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>hivemind</label>
+		<baseOpinionOffset>9999</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
   <!-- ============================ -->
 

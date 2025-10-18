@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override List<GeneDef> SelectedGenes => selectedGenes;
 
-		protected override string Header => "WVC_XaG_CreateChimera".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ")";
+		protected override string Header => "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ")";
 
         protected override string AcceptButtonLabel
 		{

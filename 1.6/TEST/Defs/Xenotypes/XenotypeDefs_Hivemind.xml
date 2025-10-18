@@ -28,7 +28,7 @@
 		<li>Immunity_Strong</li>
 		<li>LowSleep</li>
 		<li>Sterile</li>
-		<li>WVC_RestStomach</li>
+		<!-- <li>WVC_RestStomach</li> -->
 		<!-- Graphic -->
 		<li>WVC_GenderMorph</li>
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassSkin</li>

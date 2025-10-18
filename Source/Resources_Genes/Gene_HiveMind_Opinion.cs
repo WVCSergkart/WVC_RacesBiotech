@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_HiveMind_Opinion : Gene_Hivemind
+    public class Gene_HiveMind_Opinion : Gene_Hivemind_Drone
     {
 
         private GeneExtension_Opinion cachedExtension;
@@ -20,9 +20,17 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void SyncHive()
+        public override void TickInterval(int delta)
         {
-            base.SyncHive();
+            if (!pawn.IsHashIntervalTick(59998, delta))
+            {
+                return;
+            }
+            SyncHive();
+        }
+
+        public virtual void SyncHive()
+        {
             List<Pawn> bondedPawns = HivemindUtility.HivemindPawns;
             //string phase = "start";
             try
@@ -33,9 +41,7 @@ namespace WVC_XenotypesAndGenes
                     {
                         continue;
                     }
-                    //phase = otherPawn.NameShortColored.ToString();
                     otherPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, pawn);
-                    //phase = pawn.NameShortColored.ToString();
                     pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, otherPawn);
                 }
             }
@@ -49,15 +55,6 @@ namespace WVC_XenotypesAndGenes
 
     public class Gene_Hivemind_Mood : Gene_HiveMind_Opinion
     {
-
-        public override void TickInterval(int delta)
-        {
-            if (!pawn.IsHashIntervalTick(59998, delta))
-            {
-                return;
-            }
-            SyncHive();
-        }
 
         public override void SyncHive()
         {
