@@ -51,6 +51,16 @@ namespace WVC_XenotypesAndGenes
     {
 
         public int nextTick = 2000;
+
+        public override void PostAdd()
+        {
+            base.PostAdd();
+            if (MiscUtility.GameStarted())
+            {
+                HivemindUtility.ResetTick(ref nextTick);
+            }
+        }
+
         public override void TickInterval(int delta)
         {
             nextTick -= delta;
@@ -58,7 +68,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            nextTick = new IntRange((int)(HivemindUtility.TickRefresh * 0.9f), (int)(HivemindUtility.TickRefresh * 1.7f)).RandomInRange;
+            HivemindUtility.ResetTick(ref nextTick);
             if (!HivemindUtility.SuitableForHivemind(pawn))
             {
                 return;

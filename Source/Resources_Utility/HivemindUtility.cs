@@ -42,6 +42,39 @@ namespace WVC_XenotypesAndGenes
             HediffWithComps_Hivemind_Learning.Recache();
         }
 
+        private static int cachedTickIndex;
+        public static int NextTickIndex
+        {
+            get
+            {
+                return cachedTickIndex;
+            }
+            set
+            {
+                cachedTickIndex = value;
+                if (cachedTickIndex > 5)
+                {
+                    cachedTickIndex = 1;
+                }
+            }
+        }
+
+        public static void ResetTick(ref int nextTick)
+        {
+            IntRange intRange = new((int)(HivemindUtility.TickRefresh * 0.8f), (int)(HivemindUtility.TickRefresh * 2f));
+            if (HivemindUtility.NextTickIndex < 1)
+            {
+                nextTick = intRange.RandomInRange;
+                //Log.Error("Index 0. New tick: " + nextTick);
+            }
+            else
+            {
+                nextTick = Mathf.Clamp((intRange.TrueMax - intRange.TrueMin) / HivemindUtility.NextTickIndex + intRange.TrueMin, intRange.TrueMin, intRange.TrueMax);
+                //Log.Error("New tick: " + nextTick);
+            }
+            HivemindUtility.NextTickIndex++;
+        }
+
         private static int? cachedRefreshRate;
         public static int TickRefresh
         {
