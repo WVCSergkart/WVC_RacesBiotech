@@ -18,7 +18,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Skills</defName>
 	<label>shared skills</label>
-	<description>Carriers of this gene can synchronize some of the experience accumulated by members of the hivemind.</description>
+	<description>Carriers of this gene can synchronize some of the experience accumulated by drones of the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SkillsSync</iconPath>
 	<displayOrderInCategory>10</displayOrderInCategory>
@@ -26,7 +26,7 @@
 	<biostatArc>3</biostatArc>
 	<biostatMet>-4</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind (with this gene) is added, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
+		<li>From time to time, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
 		<li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
@@ -40,7 +40,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_Hivemind_Thoughts</defName>
 	<label>shared thoughts</label>
-	<description>Carriers of this gene can share the thoughts of hivemind members, thus improving or worsening the overall mood of the entire hivemind.</description>
+	<description>Carriers of this gene can share the thoughts of hivemind drones, thus improving or worsening the overall mood of the entire hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Thoughts</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Thoughts</iconPath>
 	<displayOrderInCategory>20</displayOrderInCategory>
@@ -67,7 +67,7 @@
 	<stages>
 	  <li>
 		<label>hivemind</label>
-		<description>I hear the thoughts of other hivemind members, their experiences, grief and joy.</description>
+		<description>I hear the thoughts of other hivemind drones, their experiences, grief and joy.</description>
 		<baseMoodEffect>1</baseMoodEffect>
 	  </li>
 	</stages>
@@ -78,7 +78,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
 	<defName>WVC_HiveMind_Needs</defName>
 	<label>shared needs</label>
-	<description>Carriers of this gene have a special influence on the hivemind, they are able to synchronize some of the needs of its members.</description>
+	<description>Carriers of this gene have a special influence on the hivemind, they are able to synchronize some of the needs of its drones.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
@@ -86,7 +86,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day or when a new mind (with this gene) is added, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
+		<li>From time to time, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
 		<li>Only &lt;color=#8a8ae6&gt;recreation, comfort, outdoors, indoors, beauty&lt;/color&gt; are synchronized.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
@@ -105,10 +105,28 @@
 
   <!-- ============================ -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_Hivemind_SharedFood</defName>
+	<label>shared nutrients</label>
+	<description>Carriers of this gene have archites that can transfer nutrients between hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_SharedFood</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SharedFood</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; drones.</li>
+		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_Opinion</defName>
 	<label>hivemind opinion</label>
-	<description>Carriers of this gene have a special psychic influence on the hivemind, significantly improving their relationships with its members.</description>
+	<description>Carriers of this gene have a special psychic influence on the hivemind, significantly improving their relationships with its drones.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Opinion</iconPath>
 	<displayOrderInCategory>50</displayOrderInCategory>
@@ -192,8 +210,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>From time to time, it &lt;color=#8a8ae6&gt;synchronizes the hivemind&lt;/color&gt; and integrates new members from among &lt;color=#8a8ae6&gt;former prisoners or wanderers&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li>
+		<li>Every day it &lt;color=#8a8ae6&gt;synchronizes the hivemind&lt;/color&gt; and integrates new drones from among &lt;color=#8a8ae6&gt;former prisoners or wanderers&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li> -->
 		<li>Displays the number of pawns in the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; in &lt;color=#8a8ae6&gt;stats&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
@@ -224,7 +242,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_Telepathy</defName>
 	<label>hivemind telepathy</label>
-	<description>Carriers of this gene can communicate telepathically with other members of the hivemind.</description>
+	<description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>

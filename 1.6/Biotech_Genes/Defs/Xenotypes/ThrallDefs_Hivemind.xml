@@ -33,6 +33,7 @@
 	  <li>WVC_GeneSavant</li>
 	  <li>WVC_HiveMind_Drone</li>
 	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	  <li>Learning_Slow</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
@@ -73,6 +74,30 @@
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
 		<li>WVC_Learning_ExtremeSlow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Foodshare</defName>
+	<label>foodshare</label>
+	<genes>
+		<li>WVC_Hivemind_SharedFood</li>
+		<li>WVC_SleepyStomach</li>
+		<li>VerySleepy</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_BodySize_Large</li>
+		<li>Sterile</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Memoshare</defName>
+	<label>memoshare</label>
+	<genes>
+		<li>WVC_Hivemind_Mood</li>
+		<li>WVC_Hivemind_DeathChain</li>
+		<li>WVC_Hivemind_Thoughts</li>
+		<li>WVC_NoLearning</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 

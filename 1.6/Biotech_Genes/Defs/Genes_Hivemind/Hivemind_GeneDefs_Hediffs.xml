@@ -36,7 +36,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Hediffs">
 	<defName>WVC_Hivemind_Beauty</defName>
 	<label>hivemind beauty</label>
-	<description>Carriers of this gene have archites that adjust the carrier's appearance based on information received from hivemind members, creating a more beautiful image suitable for different tastes.</description>
+	<description>Carriers of this gene have archites that adjust the carrier's appearance based on information received from hivemind drones, creating a more beautiful image suitable for different tastes.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Beauty</iconPath>
 	<displayOrderInCategory>80</displayOrderInCategory>

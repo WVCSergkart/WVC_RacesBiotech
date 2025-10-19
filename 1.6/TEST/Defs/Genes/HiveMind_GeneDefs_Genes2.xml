@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- ============================ -->
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
-	<defName>WVC_Hivemind_SharedFood</defName>
-	<label>shared nutrients</label>
-	<description>Carriers of this gene have archites that can transfer nutrients between hivemind members.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_SharedFood</geneClass>
-	<!-- <iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath> -->
-	<displayOrderInCategory>45</displayOrderInCategory>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>2</biostatArc>
-	<biostatMet>-5</biostatMet>
-	<customEffectDescriptions>
-		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; members.</li>
-		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
-	</customEffectDescriptions>
-  </GeneDef>
-
   <!-- ============================================================================== -->
 
 </Defs>
