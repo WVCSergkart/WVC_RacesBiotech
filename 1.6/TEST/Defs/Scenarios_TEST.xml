@@ -230,6 +230,7 @@
 			<WVC_Ripperkind>1</WVC_Ripperkind>
 			<WVC_Overrider>1</WVC_Overrider>
 			<WVC_Ferrkind>1</WVC_Ferrkind>
+			<WVC_Fleshkind>1</WVC_Fleshkind>
 		  </xenotypeChances>
 		  <context>PlayerStarter</context>
 		</li>

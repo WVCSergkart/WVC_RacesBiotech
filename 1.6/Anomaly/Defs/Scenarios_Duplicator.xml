@@ -24,7 +24,8 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_RogueFormer>1</WVC_RogueFormer>
+			<WVC_RogueFormer>0.8</WVC_RogueFormer>
+			<WVC_Fleshkind>0.2</WVC_Fleshkind>
 		  </xenotypeChances>
 		  <startingDuplicates>3</startingDuplicates>
 		  <additionalChronoAge>70~120</additionalChronoAge>
