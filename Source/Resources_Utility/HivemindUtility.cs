@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
             HediffWithComps_Hivemind_Learning.Recache();
         }
 
-        private static int cachedTickIndex;
+        private static int cachedTickIndex = 1;
         public static int NextTickIndex
         {
             get
@@ -52,13 +52,17 @@ namespace WVC_XenotypesAndGenes
             set
             {
                 cachedTickIndex = value;
-                if (cachedTickIndex > 5)
+                if (cachedTickIndex > 9)
                 {
                     cachedTickIndex = 1;
                 }
             }
         }
 
+        /// <summary>
+        /// Cycles the tick update from min to max.
+        /// Distributes gene ticks so they overlap less often, which slightly improves performance.
+        /// </summary>
         public static void ResetTick(ref int nextTick)
         {
             IntRange intRange = new((int)(HivemindUtility.TickRefresh * 0.8f), (int)(HivemindUtility.TickRefresh * 2f));
@@ -69,12 +73,17 @@ namespace WVC_XenotypesAndGenes
             }
             else
             {
-                nextTick = Mathf.Clamp((intRange.TrueMax - intRange.TrueMin) / HivemindUtility.NextTickIndex + intRange.TrueMin, intRange.TrueMin, intRange.TrueMax);
+                nextTick = Mathf.Clamp(((intRange.TrueMax - intRange.TrueMin) / 10) * HivemindUtility.NextTickIndex + intRange.TrueMin, intRange.TrueMin, intRange.TrueMax);
                 //Log.Error("New tick: " + nextTick);
             }
             HivemindUtility.NextTickIndex++;
         }
 
+        /// <summary>
+        /// The tick frequency decreases as the hivemind grows.
+        /// This keeps the impact on performance to a minimum and is an important part of the hivemind mechanics.
+        /// Synchronization latency increases, requiring more synchronization drones.
+        /// </summary>
         private static int? cachedRefreshRate;
         public static int TickRefresh
         {
