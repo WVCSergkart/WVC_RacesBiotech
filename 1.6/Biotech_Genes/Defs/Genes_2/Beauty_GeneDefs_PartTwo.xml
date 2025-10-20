@@ -41,7 +41,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
 	<label>metal beauty</label>
-	<description>Carriers of this gene have archites that change them, creating a frightening, cold, mechanical appearance. They lose their sense of beauty, and their behavioral habits are creepy to others.</description>
+	<description>Carriers of this gene have archites that change them, creating a frightening, cold, unhuman appearance. They lose their sense of beauty, and their behavioral habits are creepy to others.</description>
 	<iconPath>WVC/UI/Genes/Gene_MetalBeauty_v0</iconPath>
 	<displayOrderInCategory>-70</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
