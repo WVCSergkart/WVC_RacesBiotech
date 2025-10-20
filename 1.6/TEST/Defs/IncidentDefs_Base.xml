@@ -7,6 +7,10 @@
 	<targetTags>
 	  <li>Map_PlayerHome</li>
 	</targetTags>
+	<layerWhitelist>
+	  <li>Surface</li>
+	  <li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
+	</layerWhitelist>
 	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MetalkinDrop</workerClass>
 	<category>ShipChunkDrop</category>
 	<baseChance>1</baseChance>
@@ -22,6 +26,9 @@
 	<targetTags>
 	  <li>Map_PlayerHome</li>
 	</targetTags>
+	<layerWhitelist>
+	  <li>Surface</li>
+	</layerWhitelist>
 	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_GiveQuest_UniqueXenotype</workerClass>
 	<questScriptDef>WVC_WandererJoins_Unique</questScriptDef>
 	<baseChance>0.25</baseChance>
