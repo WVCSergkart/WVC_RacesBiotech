@@ -706,6 +706,14 @@ namespace WVC_XenotypesAndGenes
 		private static List<Pawn> nonResurrectedPawns = new();
 		private static List<Pawn> resurrectedPawns = new();
 
+		public static bool AnyUndeads
+		{
+			get
+			{
+				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Any((pawn) => pawn.IsUndead());
+			}
+		}
+
 		public static void UpdUndeads()
         {
 			nonResurrectedPawns = new();

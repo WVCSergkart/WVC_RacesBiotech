@@ -205,7 +205,7 @@
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_RustkinConvert.cs" />
-    <Compile Include="Resources_Quests\QuestNode_Root_MechakinJoin_WalkIn.cs" />
+    <Compile Include="Resources_Quests\QuestNode_Root_WandererJoin_WalkIn.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
     <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
@@ -305,7 +305,7 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Duplicate.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
-    <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
+    <Compile Include="Resources_Thought\Thought_Memory.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Utility\InitialUtility.cs" />

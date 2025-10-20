@@ -9,56 +9,84 @@
 	</targetTags>
 	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MetalkinDrop</workerClass>
 	<category>ShipChunkDrop</category>
-	<baseChance>0.2</baseChance>
+	<baseChance>1</baseChance>
 	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
 	<populationEffect>IncreaseEasy</populationEffect>
 	<minRefireDays>78</minRefireDays>
   </IncidentDef>
 
   <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
-	<defName>WVC_WandererJoins</defName>
-	<label>mechakin join</label>
+	<defName>WVC_WandererJoins_Unique</defName>
+	<label>xeno-human join</label>
 	<category>Misc</category>
 	<targetTags>
 	  <li>Map_PlayerHome</li>
 	</targetTags>
-	<allowedBiomes>
-	  <li>SeaIce</li>
-	  <li>IceSheet</li>
-	  <li>Tundra</li>
-	  <!-- <li>Desert</li> -->
-	  <!-- <li>ExtremeDesert</li> -->
-	</allowedBiomes>
-	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MechakinQuest</workerClass>
-	<questScriptDef>WVC_WandererJoins</questScriptDef>
-	<baseChance>0.05</baseChance>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_GiveQuest_UniqueXenotype</workerClass>
+	<questScriptDef>WVC_WandererJoins_Unique</questScriptDef>
+	<baseChance>0.25</baseChance>
 	<pawnKind>Villager</pawnKind>
 	<populationEffect>IncreaseEasy</populationEffect>
-	<minRefireDays>78</minRefireDays>
+	<minRefireDays>168</minRefireDays>
   </IncidentDef>
 
-  <IncidentDef WVC_XaG_XenotypeRemoveTag="General">
-	<defName>WVC_MetalkinUpgrade</defName>
-	<label>metalkin upgrade (TEST)</label>
-	<targetTags>
-	  <li>Map_PlayerHome</li>
-	</targetTags>
-	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_MetalkinUpgrade</workerClass>
-	<category>Misc</category>
-	<baseChance>0.5</baseChance>
-	<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
-	<minRefireDays>332</minRefireDays>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef>WVC_Ferrkind</xenotypeDef>
-			<!-- <addedGenes> -->
-			  <!-- <li>WVC_Chimera</li> -->
-			  <!-- <li>WVC_Chimera_BandwidthLimit</li> -->
-			  <!-- <li>WVC_Chimera_GeneNetwork</li> -->
-			  <!-- <li>WVC_Chimera_SelfCopy</li> -->
-			<!-- </addedGenes> -->
-		</li>
-	</modExtensions>
-  </IncidentDef>
+  <!-- <IncidentDef WVC_XaG_XenotypeRemoveTag="General"> -->
+	<!-- <defName>WVC_WandererJoins_Mechakin</defName> -->
+	<!-- <label>mechakin join</label> -->
+	<!-- <category>Misc</category> -->
+	<!-- <targetTags> -->
+	  <!-- <li>Map_PlayerHome</li> -->
+	<!-- </targetTags> -->
+	<!-- <allowedBiomes> -->
+	  <!-- <li>SeaIce</li> -->
+	  <!-- <li>IceSheet</li> -->
+	  <!-- <li>Tundra</li> -->
+	<!-- </allowedBiomes> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.IncidentWorker_MechakinQuest</workerClass> -->
+	<!-- <questScriptDef>WVC_WandererJoins_Mechakin</questScriptDef> -->
+	<!-- <baseChance>1</baseChance> -->
+	<!-- <pawnKind>Villager</pawnKind> -->
+	<!-- <populationEffect>IncreaseEasy</populationEffect> -->
+	<!-- <minRefireDays>78</minRefireDays> -->
+  <!-- </IncidentDef> -->
+
+  <!-- <IncidentDef WVC_XaG_XenotypeRemoveTag="General"> -->
+	<!-- <defName>WVC_MetalkinUpgrade</defName> -->
+	<!-- <label>metalkin upgrade (TEST)</label> -->
+	<!-- <targetTags> -->
+	  <!-- <li>Map_PlayerHome</li> -->
+	<!-- </targetTags> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.IncidentWorker_MetalkinUpgrade</workerClass> -->
+	<!-- <category>Misc</category> -->
+	<!-- <baseChance>0.5</baseChance> -->
+	<!-- <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers> -->
+	<!-- <minRefireDays>332</minRefireDays> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <xenotypeDef>WVC_Ferrkind</xenotypeDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </IncidentDef> -->
+
+  <!-- <IncidentDef WVC_XaG_XenotypeRemoveTag="General"> -->
+	<!-- <defName>WVC_WandererJoins_Fleshkind</defName> -->
+	<!-- <label>fleshkind join</label> -->
+	<!-- <category>Misc</category> -->
+	<!-- <targetTags> -->
+	  <!-- <li>Map_PlayerHome</li> -->
+	<!-- </targetTags> -->
+	<!-- <allowedBiomes> -->
+	  <!-- <li>TropicalSwamp</li> -->
+	  <!-- <li>TropicalRainforest</li> -->
+	  <!-- <li>TemperateSwamp</li> -->
+	  <!-- <li>ColdBog</li> -->
+	<!-- </allowedBiomes> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.IncidentWorker_InitiateHivemindQuest</workerClass> -->
+	<!-- <questScriptDef>WVC_WandererJoins_Fleshkind</questScriptDef> -->
+	<!-- <baseChance>1</baseChance> -->
+	<!-- <pawnKind>Villager</pawnKind> -->
+	<!-- <populationEffect>IncreaseEasy</populationEffect> -->
+	<!-- <minRefireDays>66</minRefireDays> -->
+  <!-- </IncidentDef> -->
 
 </Defs>

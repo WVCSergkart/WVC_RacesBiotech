@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
         public static int cachedDeathrestingColonistsCount = 0;
         public static int cachedNonDeathrestingColonistsCount = 0;
         public static int cachedColonistsDuplicatesDeathrestingCount = 0;
-        public static int cachedXenotypesCount = 0;
+        //public static int cachedXenotypesCount = 0;
         public static int cachedNonHumansCount = 0;
         public static int cachedColonyMechsCount = 0;
         public static bool haveAssignedWork = false;
@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
             cachedNonDeathrestingColonistsCount = 0;
             cachedColonistsDuplicatesDeathrestingCount = 0;
             cachedDeathrestingColonistsCount = 0;
-            cachedXenotypesCount = 0;
+            ThoughtWorker_Precept_HasAnyXenotypesAndCount.cachedXenotypesCount = 0;
             cachedNonHumansCount = 0;
             cachedColonyMechsCount = 0;
             cachedDownedColonists = 0;
@@ -68,6 +68,16 @@ namespace WVC_XenotypesAndGenes
             ThoughtWorker_Precept_Shapeshifter.UpdCollection();
             HealingUtility.UpdRegenCollection();
             GeneResourceUtility.UpdUndeads();
+            HivemindUtility.ResetCollection();
+            ResetStaticRecacheTick();
+        }
+
+        public static void ResetStaticRecacheTick()
+        {
+            ThoughtWorker_Precept_HasAnyXenotypesAndCount.lastRecacheTick = -1;
+            ThoughtWorker_Precept_WithCollectionCheck.lastRecacheTick = -1;
+            ThoughtWorker_Precept_Family.lastRecacheTick = -1;
+            ThoughtWorker_Precept_Shapeshifter.lastRecacheTick = -1;
         }
 
         public static void AddHideMechanitors(Pawn pawn)

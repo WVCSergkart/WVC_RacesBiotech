@@ -376,7 +376,7 @@ namespace WVC_XenotypesAndGenes
                     Pawn pawn = parent as Pawn;
                     ReimplanterUtility.PostImplantDebug(pawn);
 					StaticCollectionsClass.ResetCollection();
-					HivemindUtility.ResetCollection();
+					//HivemindUtility.ResetCollection();
 					HediffUtility.UpdatePawnGeneHediffs(Pawn);
 				}
             };

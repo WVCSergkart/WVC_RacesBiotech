@@ -877,7 +877,7 @@ namespace WVC_XenotypesAndGenes
 			int activeColonists = 0;
 			int activeColonistsDuplicatesDeathresting = 0;
 			int deathresters = 0;
-			int xenos = 0;
+			//int xenos = 0;
 			int nonHumans = 0;
 			int colonyMechs = 0;
 			int downedColonists = 0;
@@ -948,7 +948,7 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.cachedNonDeathrestingColonistsCount = activeColonists;
 			StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount = activeColonistsDuplicatesDeathresting;
 			StaticCollectionsClass.cachedDeathrestingColonistsCount = deathresters;
-			StaticCollectionsClass.cachedXenotypesCount = xenos;
+			//StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
 			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
@@ -968,10 +968,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			void Colonists(Pawn item)
 			{
-				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
-				{
-					xenos++;
-				}
+				//if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
+				//{
+				//	xenos++;
+				//}
 				if (item.IsDuplicate)
 				{
 					playerDuplicates++;

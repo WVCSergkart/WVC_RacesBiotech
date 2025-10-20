@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -22,13 +23,26 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept_WithCollectionCheck
+    public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
 	{
+
+		public static int lastRecacheTick = -1;
+
+		public static int cachedXenotypesCount = 0;
+
+		public static void UpdXenotypesCount()
+		{
+			if (lastRecacheTick < Find.TickManager.TicksGame)
+			{
+				cachedXenotypesCount = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction.Where((pawn) => !pawn.IsQuestLodger() && !pawn.IsPrisoner && !XaG_GeneUtility.PawnIsBaseliner(pawn) && pawn.IsHuman()).ToList().Count;
+				lastRecacheTick = Find.TickManager.TicksGame + 6000;
+			}
+		}
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			UpdCollection();
-			if (StaticCollectionsClass.cachedXenotypesCount > 0)
+			UpdXenotypesCount();
+			if (cachedXenotypesCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -37,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return StaticCollectionsClass.cachedXenotypesCount;
+			return cachedXenotypesCount;
 		}
 
 	}
