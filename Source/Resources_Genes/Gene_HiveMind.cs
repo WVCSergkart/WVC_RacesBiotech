@@ -127,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 
         public void RandomInteraction()
         {
-            GeneInteractionsUtility.TryInteractRandomly(pawn, HivemindUtility.HivemindPawns, psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
+            GeneInteractionsUtility.TryInteractRandomly(pawn, HivemindUtility.HivemindPawns.Where((hiver) => hiver != pawn && hiver.Spawned).ToList(), psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
         }
 
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <QuestScriptDef WVC_XaG_XenotypeRemoveTag="General" Name="WVC_XaG_QuestScriptDef_WanderesBase" Abstract="True" >
+  <QuestScriptDef WVC_XaG_XenotypeRemoveTag="General" Name="WVC_XaG_QuestScriptDef_WanderersBase" Abstract="True" >
 	<autoAccept>true</autoAccept>
 	<defaultHidden>true</defaultHidden>
 	<isRootSpecial>true</isRootSpecial>
@@ -61,7 +61,7 @@
 
   <!-- ===== -->
 
-  <QuestScriptDef ParentName="WVC_XaG_QuestScriptDef_WanderesBase" WVC_XaG_XenotypeRemoveTag="General">
+  <QuestScriptDef ParentName="WVC_XaG_QuestScriptDef_WanderersBase" WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_WandererJoins_Unique</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_WandererJoin_WalkIn" />
   </QuestScriptDef>
