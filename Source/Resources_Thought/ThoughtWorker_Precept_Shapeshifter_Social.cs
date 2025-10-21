@@ -9,10 +9,10 @@ namespace WVC_XenotypesAndGenes
 	public abstract class ThoughtWorker_Precept_Shapeshifter : ThoughtWorker_Precept
     {
 
-		public static List<Pawn> shapeshifters = new();
-		public static List<Pawn> nonShapeshifters = new();
+		private static List<Pawn> shapeshifters = new();
+		private static List<Pawn> nonShapeshifters = new();
 
-		public static bool? anyShapeshiftersInFaction;
+		private static bool? anyShapeshiftersInFaction;
 		public static bool AnyShapeshifters
 		{
 			get
@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool? shapeshifterLeader;
+		private static bool? shapeshifterLeader;
         public static bool GetShapeshifterLeader(Pawn caller)
         {
 			UpdLeader();
@@ -78,12 +78,13 @@ namespace WVC_XenotypesAndGenes
             return false;
 		}
 
-		public static void UpdCollection()
+		public static void ResetXenotypesCollection()
         {
 			shapeshifters = new();
 			nonShapeshifters = new();
 			shapeshifterLeader = null;
 			anyShapeshiftersInFaction = null;
+			ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
 		}
 
 		public static int lastRecacheTick = -1;

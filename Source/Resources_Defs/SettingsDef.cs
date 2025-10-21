@@ -43,7 +43,6 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
-		//public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
@@ -111,15 +110,15 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
 		public bool disableXenotypes_Hivemind = false;
-		//public bool disableXenotypes_MutantMakers = false;
 		public bool disableXenotypes_Misc = false;
-		//public bool enableXenotypes_Hybrid = false;
+		// Preferred Xenotypes
+		public bool preferredXenotypes_enableTweak = true;
+		public float preferredXenotypes_RequiredMinMatch = 0.6f;
 		// Misc
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
 		public bool hideGeneHediffs = false;
 		// ExtraSettings
-		//public bool enable_flatGenesSpawnChances = false;
 		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
 		public bool enable_HideMechanitorButtonsPatch = false;

@@ -68,6 +68,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			StaticCollectionsClass.ResetStaticRecacheTick();
 			HivemindUtility.ResetCollection();
+			//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
+			ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
 			//UpdateSavedVersion();
 			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();

@@ -152,9 +152,9 @@ namespace WVC_XenotypesAndGenes
 				if (MiscUtility.GameStarted())
 				{
 					MiscUtility.UpdateStaticCollection();
-					ThoughtWorker_Precept_Shapeshifter.UpdCollection();
+					ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
 					HealingUtility.UpdRegenCollection();
-					//ThoughtWorker_Precept_Social_PreferredXenotype.UpdCollection();
+					//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
 				}
 			}
 
@@ -473,7 +473,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				ReimplanterUtility.PostImplantDebug(pawn);
 				ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-				ThoughtWorker_Precept_Shapeshifter.UpdCollection();
+				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
 			}
 
             public static void Notify_PostResurrected(ref bool __result, Pawn pawn)

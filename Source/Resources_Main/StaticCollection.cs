@@ -64,8 +64,8 @@ namespace WVC_XenotypesAndGenes
             ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();
             ThoughtWorker_Precept_Social_Duplicates.duplicateSets = new();
             //ThoughtWorker_Precept_Family.families = new();
-            ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-            ThoughtWorker_Precept_Shapeshifter.UpdCollection();
+            //ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+            ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
             HealingUtility.UpdRegenCollection();
             GeneResourceUtility.UpdUndeads();
             HivemindUtility.ResetCollection();

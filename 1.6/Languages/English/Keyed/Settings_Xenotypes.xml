@@ -61,4 +61,10 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<!-- <WVC_Label_enableXenotypes_Hybrid>|- Enable exp- hybrid xenotype</WVC_Label_enableXenotypes_Hybrid> -->
 	<!-- <WVC_ToolTip_enableXenotypes_Hybrid>None.</WVC_ToolTip_enableXenotypes_Hybrid> -->
 
+	<WVC_Label_preferredXenotypes_enableTweak>Enable preferred xenotypes tweak</WVC_Label_preferredXenotypes_enableTweak>
+	<WVC_ToolTip_preferredXenotypes_enableTweak>If enabled, the preferred xenotype check will evaluate gene match percentages, meaning pawns that match at least {0} of their preferred xenotypes will be considered preferred.\n\nThis option also optimizes this check by adding cache where possible.\n\nA restart is required.</WVC_ToolTip_preferredXenotypes_enableTweak>
+
+	<WVC_Label_preferredXenotypes_RequiredMinMatch>Preferred match: {0}</WVC_Label_preferredXenotypes_RequiredMinMatch>
+	<WVC_ToolTip_preferredXenotypes_RequiredMinMatch>The required level of genetic matching. The lower the level, the more pawns will match.\n\nA reload is required.</WVC_ToolTip_preferredXenotypes_RequiredMinMatch>
+
 </LanguageData>

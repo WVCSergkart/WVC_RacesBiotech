@@ -90,4 +90,33 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<!-- ========================= -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>preferredXenotypes_enableTweak</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/ThoughtDef[defName="PreferredXenotype"]/workerClass</xpath>
+				  <value>
+					<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_PreferredXenotype_Social</workerClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/ThoughtDef[defName="PreferredXenotypeMakeup"]/workerClass</xpath>
+				  <value>
+					<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_ColonyXenotypeMakeup</workerClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/ThoughtDef[defName="SelfDislikedXenotype"]/workerClass</xpath>
+				  <value>
+					<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_SelfDislikedXenotype</workerClass>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
 </Patch>
