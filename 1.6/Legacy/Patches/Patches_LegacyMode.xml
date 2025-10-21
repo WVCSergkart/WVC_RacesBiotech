@@ -37,6 +37,10 @@
 					<xpath>/Defs/GeneDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
 					<success>Always</success>
 				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingCategoryDef[@WVC_Legacy_Hook="RemoveMe"]</xpath>
+					<success>Always</success>
+				</li>
 
 			</operations>
 		</caseFalse>

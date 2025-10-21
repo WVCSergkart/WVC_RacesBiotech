@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -5,6 +6,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class JobDriver_RetuneSerum : JobDriver
 	{
 

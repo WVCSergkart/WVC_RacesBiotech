@@ -13,7 +13,7 @@
 	<label>dev choice</label>
 	<description>These are the mod developer's preferred settings. This preset is focused on testing new mechanics and changes from update to update. Please note that this preset may not suit your playstyle.</description>
 	<presetOrder>20</presetOrder>
-	<onlyXenotypesMode>true</onlyXenotypesMode>
+	<!-- <onlyXenotypesMode>true</onlyXenotypesMode> --> 	<!-- Legacy -->
 	<!-- Traders Sell Serums -->
 	<!-- <spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders> -->
 	<!-- <chimeraMinGeneCopyChance>0.55</chimeraMinGeneCopyChance> -->

@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -9,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 
+	[Obsolete]
 	public class JobDriver_ResurrectAndChangeXenotype : JobDriver
 	{
 		// private const TargetIndex CorpseInd = TargetIndex.A;

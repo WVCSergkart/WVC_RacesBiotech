@@ -7,6 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
 	{
 

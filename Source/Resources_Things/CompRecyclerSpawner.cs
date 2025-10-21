@@ -1,9 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+    [Obsolete]
     public class CompProperties_RecyclerSpawner : CompProperties
     {
         public IntRange ticksUntilSpawn = new(5000, 5000);
@@ -20,6 +22,7 @@ namespace WVC_XenotypesAndGenes
         }
     }
 
+    [Obsolete]
     public class CompRecyclerSpawner : ThingComp
     {
 

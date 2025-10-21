@@ -3,10 +3,11 @@
 
   <!-- To-Do: Mark as legacy in next month (after 3-4 upd) -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_GeneticStabilizerSerum_Archotech</defName>
 	<label>archotech genetic stabilizer</label>
 	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 80 years.</description>
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerumArcho_v0</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -36,10 +37,11 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
 	<label>shift serum (genes regrow)</label>
 	<description>A one-use super-dose of mechanics tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer receive genes regrow after shapeshifting.</description>
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<descriptionHyperlinks Inherit="False">
 	  <GeneDef>WVC_Shapeshifter</GeneDef>
 	</descriptionHyperlinks>

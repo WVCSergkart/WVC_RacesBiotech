@@ -71,8 +71,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error(parentDef.defName + " has CompProperties_UseEffect_XenogermSerum with CompUseEffect compClass.");
 			}
-			if (compClass == typeof(CompUseEffect_GeneGiver) && possibleGenes.NullOrEmpty())
-			{
+            if (compClass == typeof(CompUseEffect_GeneGiver) && possibleGenes.NullOrEmpty())
+            {
 				Log.Error(parentDef.defName + " has CompUseEffect_GeneGiver compClass with null possibleGenes.");
 			}
 			if (!hediffsToRemove.NullOrEmpty())
@@ -95,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompUseEffect_XenogermSerum : CompUseEffect
 	{
 

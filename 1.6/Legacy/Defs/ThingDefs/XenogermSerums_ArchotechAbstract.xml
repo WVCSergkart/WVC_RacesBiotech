@@ -3,9 +3,10 @@
 
   <!-- ============Archotech============ -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_ArchotechNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_ArchotechNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<techLevel>Archotech</techLevel>
 	<descriptionHyperlinks Inherit="False"/>
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<graphicData>
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>

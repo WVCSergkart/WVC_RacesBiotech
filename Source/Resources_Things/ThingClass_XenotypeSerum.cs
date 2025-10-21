@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -8,7 +9,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class XenotypeSerum : ThingWithComps
+	public class ThingWithComps_XenotypeSerum : ThingWithComps
 	{
 
 		public Pawn targetPawn;
@@ -16,42 +17,6 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture ImplantTex = new("UI/Gizmos/ImplantGenes");
 
 		public static readonly CachedTexture CancelIcon = new("UI/Designators/Cancel");
-
-		public override IEnumerable<DefHyperlink> DescriptionHyperlinks
-		{
-			get
-			{
-				CompUseEffect_XenogermSerum xenoHolderSerum = this?.TryGetComp<CompUseEffect_XenogermSerum>();
-				if (xenoHolderSerum?.xenotype != null)
-				{
-					yield return new DefHyperlink(xenoHolderSerum.xenotype);
-				}
-				if (xenoHolderSerum?.xenotypeHolder != null)
-				{
-					yield return new DefHyperlink(xenoHolderSerum.xenotypeHolder.xenotypeDef);
-				}
-				if (this?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.xenotypeDef != null)
-				{
-					yield return new DefHyperlink(this.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>().xenotypeDef);
-				}
-				if (this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
-				{
-					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().endotype);
-					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().xenotype);
-				}
-				if (this?.TryGetComp<CompUseEffect_GeneGiver>()?.geneDef != null)
-				{
-					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_GeneGiver>().geneDef);
-				}
-				if (def.descriptionHyperlinks != null)
-				{
-					for (int i = 0; i < def.descriptionHyperlinks.Count; i++)
-					{
-						yield return def.descriptionHyperlinks[i];
-					}
-				}
-			}
-		}
 
 		public void SetTargetPawnForXenoChanger(Pawn newTarget)
 		{
@@ -129,17 +94,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_References.Look(ref targetPawn, "targetPawn");
 		}
 
-		public override void Notify_RecipeProduced(Pawn pawn)
-        {
-            base.Notify_RecipeProduced(pawn);
-			if (pawn != null)
-			{
-				this?.TryGetComp<CompUseEffect_XenogermSerum>()?.Notify_SerumCrafted(pawn);
-				//this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>()?.Notify_SerumCrafted(pawn);
-				//this?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.Notify_SerumCrafted(pawn);
-			}
-		}
-
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			if (stackCount > def.stackLimit)
@@ -154,6 +108,59 @@ namespace WVC_XenotypesAndGenes
 				stackCount = def.stackLimit;
 			}
 			base.SpawnSetup(map, respawningAfterLoad);
+		}
+
+	}
+
+	[Obsolete]
+    public class XenotypeSerum : ThingWithComps_XenotypeSerum
+	{
+
+		public override IEnumerable<DefHyperlink> DescriptionHyperlinks
+		{
+			get
+			{
+                CompUseEffect_XenogermSerum xenoHolderSerum = this?.TryGetComp<CompUseEffect_XenogermSerum>();
+                if (xenoHolderSerum?.xenotype != null)
+				{
+					yield return new DefHyperlink(xenoHolderSerum.xenotype);
+				}
+				if (xenoHolderSerum?.xenotypeHolder != null)
+				{
+					yield return new DefHyperlink(xenoHolderSerum.xenotypeHolder.xenotypeDef);
+				}
+				if (this?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.xenotypeDef != null)
+				{
+					yield return new DefHyperlink(this.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>().xenotypeDef);
+				}
+				if (this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
+				{
+					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().endotype);
+					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().xenotype);
+				}
+				if (this?.TryGetComp<CompUseEffect_GeneGiver>()?.geneDef != null)
+				{
+					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_GeneGiver>().geneDef);
+				}
+				if (def.descriptionHyperlinks != null)
+				{
+					for (int i = 0; i < def.descriptionHyperlinks.Count; i++)
+					{
+						yield return def.descriptionHyperlinks[i];
+					}
+				}
+			}
+		}
+
+		public override void Notify_RecipeProduced(Pawn pawn)
+        {
+            base.Notify_RecipeProduced(pawn);
+			if (pawn != null)
+			{
+				this?.TryGetComp<CompUseEffect_XenogermSerum>()?.Notify_SerumCrafted(pawn);
+				//this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>()?.Notify_SerumCrafted(pawn);
+				//this?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.Notify_SerumCrafted(pawn);
+			}
 		}
 
 	}

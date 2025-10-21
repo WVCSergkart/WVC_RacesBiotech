@@ -4,6 +4,7 @@
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_XenotypeSerum_Base</defName>
 	<label>xenotype serum</label>
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<statBases>
 	  <MarketValue>4350</MarketValue>
 	</statBases>

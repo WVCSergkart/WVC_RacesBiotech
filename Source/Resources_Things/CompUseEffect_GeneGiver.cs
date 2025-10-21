@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,8 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompUseEffect_GeneGiver : CompUseEffect
+	//[Obsolete]
+	public class CompUseEffect_GeneGiver : CompUseEffect
 	{
 		public GeneDef geneDef = null;
 

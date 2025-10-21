@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
+	<defName>WVC_XenotypeSerums_Base</defName>
+	<label>base serums</label>
+	<parent>WVC_XenotypeSerums</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
+	<defName>WVC_XenotypeSerums_Ultra</defName>
+	<label>ultra serums</label>
+	<parent>WVC_XenotypeSerums</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs" WVC_Legacy_Hook="RemoveMe">
+	<defName>WVC_XenotypeSerums_Mecha</defName>
+	<label>hybrid serums</label>
+	<parent>WVC_XenotypeSerums</parent>
+  </ThingCategoryDef>
+
+  <!--=============== Base ====================-->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
+	<statBases>
+	  <MarketValue>2700</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
+	<costList>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <Plasteel>15</Plasteel>
+	</costList>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ArchiteSerum_v1</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_HybridNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
+	<statBases>
+	  <MarketValue>2750</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<costList>
+	  <Plasteel>30</Plasteel>
+	  <ArchiteCapsule>2</ArchiteCapsule>
+	</costList>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerumB_v1</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeResurrectorSerum_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" WVC_Legacy_Hook="RemoveMe">
+	<label>xenotype resurrector</label>
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
+	<description>A one-use super-dose of mechanites tuned to resurrect the dead. Administered to a corpse, mechanites repair broken-down tissues and kickstart the body back to life. The resurrected will return in full health and without side effects, regardless of the freshness of the body. The price is that the xenotype of the resurrected will be changed, and the resurrected will fall into a two-day coma.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>0</useDuration>
+		<warmupMote>Mote_ResurrectAbility</warmupMote>
+	  </li>
+	  <li Class="CompProperties_Targetable">
+		<compClass>WVC_XenotypesAndGenes.CompTargetable_HumanCorpse</compClass>
+		<fleshCorpsesOnly>true</fleshCorpsesOnly>
+		<nonDessicatedCorpsesOnly>true</nonDessicatedCorpsesOnly>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

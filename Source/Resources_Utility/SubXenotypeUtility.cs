@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.Endogenes.RemoveAllGenes(nonRemovableGenes);
 			}
             pawn.genes.Xenogenes.RemoveAllGenes(nonRemovableGenes);
-			allNewGenes.AddRangeSafe(nonRemovableGenes);
+			//allNewGenes.AddRangeSafe(nonRemovableGenes);
 			AddGenes(pawn, allNewGenes, inheritable, new());
 			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 			//foreach (Gene gene in genesListForReading.ToList())
