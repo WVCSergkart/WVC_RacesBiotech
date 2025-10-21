@@ -105,7 +105,7 @@ namespace WVC_XenotypesAndGenes
         //    }
         //}
 
-        public Family GetFamilyOf(Pawn pawn)
+        public static Family GetFamilyOf(Pawn pawn)
         {
             foreach (Family family in families)
             {
@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
             return null;
         }
 
-        public void AddFamilyOf(Pawn pawn)
+        public static void AddFamilyOf(Pawn pawn)
         {
             Family family = GetFamilyOf(pawn);
             if (family == null)
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public void UpdPlayerFamilies()
+        public static void UpdPlayerFamilies()
         {
             families = new();
             List<Pawn> playerPawn = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction.Where((pawn) => pawn.relations != null && pawn.RaceProps.Humanlike && !pawn.IsSlave && !pawn.IsPrisoner && !pawn.IsQuestLodger() && !pawn.Suspended).ToList();
@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
         public static int lastRecacheTick = -1;
         public static int cachedFamiliesCount = 0;
 
-        public void UpdCollection()
+        public static void UpdCollection()
         {
             if (lastRecacheTick < Find.TickManager.TicksGame)
             {

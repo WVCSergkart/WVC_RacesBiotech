@@ -63,4 +63,17 @@
 	</memes>
   </IdeoPresetDef>
 
+  <IdeoPresetDef MayRequire="wvc.sergkart.test.tools,ludeon.rimworld.anomaly">
+	<defName>WVC_Hivemind</defName>
+	<label>self-replicating hivemind</label>
+	<description>I don't need society, or unity, or a tame army. There are no obstacles that I can't overcome on my own.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; A scenario for a fleshkind xenotype. Duplicator and customizable hivemind genes are recommended.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_Hivemind</li>
+	  <li>WVC_Duplicates</li>
+	  <li>Collectivist</li>
+	  <li>Supremacist</li>
+	</memes>
+  </IdeoPresetDef>
+
 </Defs>

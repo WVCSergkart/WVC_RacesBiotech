@@ -20,12 +20,36 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedPawns == null)
                 {
-                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target.IsPsychicSensitive() && target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind)).ToList();
+                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => CanBeInHivemind(target)).ToList();
                 }
                 return cachedPawns;
             }
         }
 
+        public static bool CanBeInHivemind(Pawn target)
+        {
+            if (!target.IsPsychicSensitive())
+            {
+                return false;
+            }
+            if (target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind))
+            {
+                return true;
+            }
+            return SubCanBeInHivemind(target);
+        }
+
+        /// <summary>
+        /// Modders hook. Use for custom hivemind rules. For example hediffs or for merging with others mod hiveminds.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        #pragma warning disable IDE0060 // Remove unused parameter
+        public static bool SubCanBeInHivemind(Pawn target)
+        {
+            return false;
+        }
+        #pragma warning restore IDE0060 // Remove unused parameter
 
         /// <summary>
         /// General reset collection. Used for all hivemind genes.

@@ -3,7 +3,7 @@
 
 	<MemeDef>
 		<defName>WVC_OneManArmy</defName>
-		<label>One-man army</label>
+		<label>one-man army</label>
 		<description>Unity, community, collective - bullshit, in this world you can only trust yourself.</description>
 		<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
 		<iconPath>WVC/UI/Precepts/Meme_OneManArmy</iconPath>
