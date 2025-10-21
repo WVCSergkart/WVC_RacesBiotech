@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Eyes : Gene
+	public class Gene_Eyes : Gene, IGeneCustomGraphic
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -58,11 +58,28 @@ namespace WVC_XenotypesAndGenes
 		public Color color = Color.white;
 		public bool visible = true;
 
-		public Color? DefaultEyesColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
+		public Color CurrentColor => color;
+
+		public Color? DefaultColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
+
+		public List<GeneralHolder> ColorHolder => Props.holofaces;
 
 		public virtual float Alpha => 1f;
 
-		public override void PostAdd()
+		//Skip
+        public int CurrentTextID
+        {
+            get
+            {
+                return 1;
+            }
+			set
+            {
+
+            }
+        }
+
+        public override void PostAdd()
 		{
 			base.PostAdd();
 			if (pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor != null)
@@ -81,9 +98,9 @@ namespace WVC_XenotypesAndGenes
             //color.a = alpha;
 			this.visible = visible;
             pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
-        }
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -100,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void ChangeColor(bool closeOnAccept = true)
 		{
-			Find.WindowStack.Add(new Dialog_ChangeEyesColor(this, closeOnAccept));
+			Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, closeOnAccept));
 			//        List<FloatMenuOption> list = new();
 			//        List<XaG_CountWithChance> list2 = Props.holofaces;
 			//        for (int i = 0; i < list2.Count; i++)
@@ -123,6 +140,11 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref color, "color");
 			Scribe_Values.Look(ref visible, "visible", defaultValue: true);
+		}
+
+		public void DoAction()
+		{
+			ChangeColor(false);
 		}
 
 	}

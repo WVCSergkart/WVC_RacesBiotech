@@ -141,6 +141,7 @@
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ChangeGraphic_Simple.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
     <Compile Include="Resources_Main\IJobs.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
@@ -203,7 +204,7 @@
     <Compile Include="Resources_Defs\ThrallDef.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_Defs\XenotypeForcerGeneTemplateDef.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_FungoidHair.cs" />
+    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_RustkinConvert.cs" />
@@ -232,7 +233,7 @@
     <Compile Include="Resources_Genes\Gene_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Main\IGenes.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ChangeEyesColor.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ChangeGeneColor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeTree.cs" />

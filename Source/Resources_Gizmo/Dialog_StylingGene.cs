@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 			Beard,
 			TattooFace,
 			TattooBody,
-			EyesColor
+			Other
 		}
 
 		public Pawn pawn;
@@ -138,9 +138,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool unlockTattoos;
-		public bool unlockEyesRecolor;
+		//public bool unlockEyesRecolor;
 
-		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockEyesRecolor = true)
+		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockTattoos)
 		{
 			this.pawn = pawn;
 			this.gene = gene;
@@ -150,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 			initialFaceTattoo = pawn.style.FaceTattoo;
 			initialBodyTattoo = pawn.style.BodyTattoo;
 			this.unlockTattoos = unlockTattoos;
-			this.unlockEyesRecolor = unlockEyesRecolor;
+			//this.unlockEyesRecolor = unlockEyesRecolor;
 			forcePause = true;
 			showClothes = false;
 			closeOnAccept = false;
@@ -265,22 +265,10 @@ namespace WVC_XenotypesAndGenes
 					curTab = StylingTab.TattooBody;
 				}, curTab == StylingTab.TattooBody));
 			}
-			if (unlockEyesRecolor)
-			{
-                tabs.Add(new TabRecord("WVC_EyesColor".Translate().CapitalizeFirst(), delegate
-				{
-                    Gene_Eyes gene_Eyes = pawn.genes.GetFirstGeneOfType<Gene_Eyes>();
-                    if (gene_Eyes != null)
-                    {
-						gene_Eyes.ChangeColor(false);
-					}
-					else
-					{
-						Messages.Message("WVC_XaG_Message_EyesColor_Error".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					//curTab = StylingTab.EyesColor;
-				}, curTab == StylingTab.EyesColor));
-			}
+            tabs.Add(new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
+            {
+                OpenFloatList();
+            }, curTab == StylingTab.Other));
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
 			// curTab = StylingTab.ApparelColor;
@@ -337,22 +325,46 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
-		// {
-			// Widgets.ThingIcon(new Rect(rect.x, curY, Text.LineHeight, Text.LineHeight), ThingDefOf.Dye, null, null, 1.1f);
-			// string text = (string)("Required".Translate() + ": ") + requiredDye + " " + ThingDefOf.Dye.label;
-			// float x = Text.CalcSize(text).x;
-			// Widgets.Label(new Rect(rect.x + Text.LineHeight + 4f, curY, x, Text.LineHeight), text);
-			// Rect rect2 = new(rect.x, curY, x + Text.LineHeight + 8f, Text.LineHeight);
-			// if (Mouse.IsOver(rect2))
-			// {
-				// Widgets.DrawHighlight(rect2);
-				// TooltipHandler.TipRegionByKey(rect2, "TooltipDyeExplanation");
-			// }
-			// curY += Text.LineHeight;
-		// }
+        private void OpenFloatList()
+        {
+			List<FloatMenuOption> list = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is not IGeneCustomGraphic customGraphic || !gene.Active)
+				{
+					continue;
+				}
+				list.Add(new FloatMenuOption(gene.LabelCap, delegate
+				{
+					customGraphic.DoAction();
+				}));
+			}
+			if (!list.Any())
+			{
+				list.Add(new FloatMenuOption("WVC_None".Translate(), delegate
+				{
 
-		private void DrawHairColors(Rect rect)
+				}));
+			}
+			Find.WindowStack.Add(new FloatMenu(list));
+        }
+
+        // private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
+        // {
+        // Widgets.ThingIcon(new Rect(rect.x, curY, Text.LineHeight, Text.LineHeight), ThingDefOf.Dye, null, null, 1.1f);
+        // string text = (string)("Required".Translate() + ": ") + requiredDye + " " + ThingDefOf.Dye.label;
+        // float x = Text.CalcSize(text).x;
+        // Widgets.Label(new Rect(rect.x + Text.LineHeight + 4f, curY, x, Text.LineHeight), text);
+        // Rect rect2 = new(rect.x, curY, x + Text.LineHeight + 8f, Text.LineHeight);
+        // if (Mouse.IsOver(rect2))
+        // {
+        // Widgets.DrawHighlight(rect2);
+        // TooltipHandler.TipRegionByKey(rect2, "TooltipDyeExplanation");
+        // }
+        // curY += Text.LineHeight;
+        // }
+
+        private void DrawHairColors(Rect rect)
 		{
 			float y = rect.y;
 			Widgets.ColorSelector(new Rect(rect.x, y, rect.width, colorsHeight), ref desiredHairColor, AllHairColors, out colorsHeight);

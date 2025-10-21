@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
         public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			List<FloatMenuOption> list = new();
-			List<Window> dialogs = new() { new Dialog_StylingGene(pawn, this, true, true), new Dialog_Skinshaper(this, Giver.geneSetPresets) };
+			List<Window> dialogs = new() { new Dialog_StylingGene(pawn, this, true), new Dialog_Skinshaper(this, Giver.geneSetPresets) };
 			for (int i = 0; i < dialogs.Count; i++)
 			{
 				Window geneSet = dialogs[i];

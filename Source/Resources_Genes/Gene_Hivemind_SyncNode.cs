@@ -32,6 +32,7 @@ namespace WVC_XenotypesAndGenes
             Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_RemoteControl_HivemindSyncNodeWarning".Translate(), delegate
             {
                 ResetCollection();
+                cooldownTick = 60000 * 7;
                 Messages.Message("WVC_XaG_RemoteControl_HivemindSyncNodeMessage".Translate(HivemindUtility.HivemindPawns.Count), new LookTargets(HivemindUtility.HivemindPawns), MessageTypeDefOf.PositiveEvent);
             });
             Find.WindowStack.Add(window);
@@ -78,6 +79,10 @@ namespace WVC_XenotypesAndGenes
 
         public override void TickInterval(int delta)
         {
+            if (cooldownTick > 0)
+            {
+                cooldownTick -= delta;
+            }
             if (!pawn.IsHashIntervalTick(59997, delta))
             {
                 return;

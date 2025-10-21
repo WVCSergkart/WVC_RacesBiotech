@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			Find.WindowStack.Add(new Dialog_StylingGene(pawn, this, true, true));
+			Find.WindowStack.Add(new Dialog_StylingGene(pawn, this, true));
 			genesSettings.Close();
 		}
 

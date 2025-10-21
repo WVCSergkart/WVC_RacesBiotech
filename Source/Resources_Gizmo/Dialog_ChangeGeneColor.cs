@@ -9,10 +9,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChangeEyesColor : Window
+    public class Dialog_ChangeGeneColor : Window
 	{
 
-		public Gene_Eyes gene;
+		public IGeneCustomGraphic gene;
 
 		private List<Color> colors;
 
@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 				if (colors == null)
 				{
 					colors = new List<Color>();
-					foreach (GeneralHolder colorHolder in gene.Props.holofaces)
+					foreach (GeneralHolder colorHolder in gene.ColorHolder)
 					{
 						if (colors.Contains(colorHolder.color))
 						{
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool closeOnAccpet;
 
-		public Dialog_ChangeEyesColor(Gene_Eyes gene, bool closeOnAccpet)
+		public Dialog_ChangeGeneColor(IGeneCustomGraphic gene, bool closeOnAccpet)
 		{
 			this.gene = gene;
 			forcePause = true;
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 			//closeOnCancel = false;
 			draggable = true;
 			this.closeOnAccpet = closeOnAccpet;
-			desireColor = gene.color;
+			desireColor = gene.CurrentColor;
 			closeOnClickedOutside = !closeOnAccpet;
 		}
 
@@ -137,9 +137,9 @@ namespace WVC_XenotypesAndGenes
 
 		private void Reset()
 		{
-			if (gene.DefaultEyesColor.HasValue)
+			if (gene.DefaultColor.HasValue)
 			{
-				desireColor = gene.DefaultEyesColor.Value;
+				desireColor = gene.DefaultColor.Value;
 				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
 			}
 			else

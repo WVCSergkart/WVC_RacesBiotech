@@ -185,4 +185,22 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneCustomGraphic
+	{
+
+		//string Label { get; }
+
+		int CurrentTextID { get; set; }
+
+		void DoAction();
+
+		Color CurrentColor { get; }
+		Color? DefaultColor { get; }
+
+		void SetColor(Color color, bool visible);
+
+		List<GeneralHolder> ColorHolder { get; }
+
+	}
+
 }
