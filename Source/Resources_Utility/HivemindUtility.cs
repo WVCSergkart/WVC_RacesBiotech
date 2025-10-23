@@ -44,12 +44,15 @@ namespace WVC_XenotypesAndGenes
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
+
+        #pragma warning disable IDE0079 // Remove unnecessary suppression
         #pragma warning disable IDE0060 // Remove unused parameter
         public static bool SubCanBeInHivemind(Pawn target)
         {
             return false;
         }
         #pragma warning restore IDE0060 // Remove unused parameter
+        #pragma warning restore IDE0079 // Remove unnecessary suppression
 
         /// <summary>
         /// General reset collection. Used for all hivemind genes.

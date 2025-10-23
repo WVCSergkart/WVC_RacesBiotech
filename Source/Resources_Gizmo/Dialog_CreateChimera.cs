@@ -457,6 +457,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				result = true;
 			}
+			if (!gene.CollectedGenes.Contains(geneDef))
+			{
+                //ColorLibrary.LightBlue
+                //GenColor.FromHex("47753c") // Green
+                //GenColor.FromHex("304452") // Dark Blue
+                //Widgets.DrawBoxSolidWithOutline(rect, new(1f, 1f, 1f, 0f), GenColor.FromHex("304452"));
+                Rect genelineRect = new(rect.xMax - 25f, rect.yMax - 72f, 22f, 22f);
+                Widgets.DrawTextureFitted(genelineRect, XaG_UiUtility.GenelineIconMark.Texture, 1f, 1f);
+				if (Mouse.IsOver(genelineRect))
+				{
+					Widgets.DrawHighlight(genelineRect);
+					TooltipHandler.TipRegion(genelineRect, "WVC_XaG_GenelineMarkTooltip".Translate());
+				}
+			}
 			curX = Mathf.Max(curX, rect.xMax + 4f);
 			return result;
 		}
@@ -1018,7 +1032,7 @@ namespace WVC_XenotypesAndGenes
 			}
             catch
             {
-				Log.Warning("Error during genes removing. Broken PostRemove() in some def?");
+				Log.Warning("Error during genes removing. Broken PostRemove() in some gene?");
             }
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
 			ReimplanterUtility.PostImplantDebug(gene.pawn);

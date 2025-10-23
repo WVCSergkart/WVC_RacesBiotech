@@ -27,6 +27,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static readonly CachedTexture GermlineImplanterIcon = new("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0");
 
+		public static readonly CachedTexture GenelineIconMark = new("WVC/UI/XaG_General/GenelineBackground");
+
 		public static Gizmo GetRemoteControllerGizmo(Pawn pawn, bool remoteControllerCached, IGeneRemoteControl gene)
 		{
 			if (!remoteControllerCached)
