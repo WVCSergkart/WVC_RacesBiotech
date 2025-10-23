@@ -8,6 +8,11 @@ namespace WVC_XenotypesAndGenes
     public static class TraitsUtility
 	{
 
+		public static bool CanGetTrait(this Pawn pawn, TraitDef traitDef)
+		{
+			return traitDef.GetGenderSpecificCommonality(pawn.gender) > 0;
+		}
+
 		public static void RemoveAllTraits(Pawn pawn)
 		{
 			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
@@ -19,18 +24,23 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void AddTraitsFromList(Pawn pawn, List<TraitDefHolder> traits)
+		public static void AddTraitsFromList(Pawn pawn, List<TraitDefHolder> traits, Gene sourceGene = null)
 		{
 			foreach (TraitDefHolder traitDefHolder in traits)
 			{
 				Trait trait = new(traitDefHolder.traitDef, traitDefHolder.traitDegree.Value);
+				trait.sourceGene = sourceGene;
 				pawn.story.traits.GainTrait(trait, true);
 			}
 		}
 
 		public static void RemoveGeneTraits(Pawn pawn, Gene gene)
 		{
-			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+			//if (pawn.story?.traits?.allTraits == null)
+			//{
+			//	return;
+			//}
+			foreach (Trait trait in pawn.story?.traits?.allTraits?.ToList())
 			{
 				if (trait.sourceGene == gene)
 				{

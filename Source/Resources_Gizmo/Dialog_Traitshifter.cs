@@ -232,12 +232,12 @@ namespace WVC_XenotypesAndGenes
             lockedTraits = new();
             foreach (Trait trait in pawn.story.traits.allTraits)
             {
-                if (trait.sourceGene != null || trait.ScenForced || trait.def.GetGenderSpecificCommonality(pawn.gender) <= 0f)
+                if (trait.sourceGene != null || trait.ScenForced || !pawn.CanGetTrait(trait.def))
                 {
                     lockedTraits.Add(trait.def);
                 }
             }
-            foreach (TraitDef traitDef in DefDatabase<TraitDef>.AllDefsListForReading.Where((def) => def.GetGenderSpecificCommonality(pawn.gender) > 0f).ToList())
+            foreach (TraitDef traitDef in DefDatabase<TraitDef>.AllDefsListForReading.Where((def) => pawn.CanGetTrait(def)).ToList())
             {
                 foreach (TraitDegreeData degreeData in traitDef.degreeDatas)
                 {

@@ -3,4 +3,24 @@
 
   <!-- ============================================================================== -->
 
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Traits</defName>
+	<label>traits copy</label>
+	<description>Carriers of this gene can receive traits from other hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Traits</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Traits</iconPath>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
+		<li>Copies the &lt;color=#8a8ae6&gt;traits&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns from time to time.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; are copied as is, &lt;color=#8a8ae6&gt;including conflicting&lt;/color&gt; ones that overlap.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; that have 0 commonality are ignored.</li> <!-- Thanks VE. Armor as personality trait is soo wiiiise.. -->
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>
