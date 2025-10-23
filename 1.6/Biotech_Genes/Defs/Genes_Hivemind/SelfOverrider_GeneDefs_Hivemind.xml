@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Hivemind_Overrider</defName>
+	<label>overrided hivemind</label>
+	<description>Carriers of this gene can connect and disconnect themselves from the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Overrider</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SelfOverrider</iconPath>
+	<displayOrderInCategory>600</displayOrderInCategory>
+	<prerequisite></prerequisite>
+	<biostatMet>-1</biostatMet>
+	<minAgeActive>0</minAgeActive>
+	<customEffectDescriptions>
+		<li>Allows itself to be &lt;color=#8a8ae6&gt;overridden&lt;/color&gt; at any time, which causes &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
+		<li>Self-&lt;color=#8a8ae6&gt;override&lt;/color&gt; allows disconnecting and connecting to the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<li>Disconnecting from the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; is impossible if any &lt;color=#8a8ae6&gt;active hivemind genes&lt;/color&gt; are present.</li>
+		<li>Cooldown: 12 days</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>over</symbol></li>
+		<li><symbol>mind</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>44</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

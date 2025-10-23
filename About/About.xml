@@ -84,7 +84,7 @@ A: Add - yes. Remove - no.</description>
 		<li>wvc.sergkart.ultraexpansion</li>
 	</loadAfter>
 	<loadBefore>
-		<!-- <li>modid</li> -->
+		<li>ebsg.archite</li>
 	</loadBefore>
 	<incompatibleWith>
 	</incompatibleWith>

@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind))
+            if (target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind && gene.Active))
             {
                 return true;
             }
