@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Hivemind_SharedFood : Gene_Hivemind
     {
 
-        public override void SyncHive()
+        public override void UpdGeneSync()
         {
             try
             {
@@ -35,6 +35,26 @@ namespace WVC_XenotypesAndGenes
             catch (Exception arg)
             {
                 Log.Error("Failed share food for hivemind. Reason: " + arg.Message);
+            }
+        }
+
+        public override void Notify_IngestedThing(Thing thing, int numTaken)
+        {
+            if (!Active || !HivemindUtility.SuitableForHivemind(pawn))
+            {
+                return;
+            }
+            float nutrition = (thing.def.ingestible.CachedNutrition * numTaken) * 0.1f;
+            foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+            {
+                if (hiver == pawn)
+                {
+                    continue;
+                }
+                if (hiver.TryGetNeedFood(out Need_Food need_Food))
+                {
+                    need_Food.CurLevel += nutrition;
+                }
             }
         }
 

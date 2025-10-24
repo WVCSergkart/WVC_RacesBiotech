@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
             set
             {
                 cachedTickIndex = value;
-                if (cachedTickIndex > 9)
+                if (cachedTickIndex > 10)
                 {
                     cachedTickIndex = 1;
                 }
@@ -126,14 +126,24 @@ namespace WVC_XenotypesAndGenes
 
         /// <summary>
         /// Modders hook.
+        /// Only affects gene effects and the sync- trigger.
+        /// Pawns that fail these conditions can still be part of the hivemind.
         /// </summary>
         public static bool SuitableForHivemind(Pawn pawn)
         {
+            // Hivemind is colonists only party
             if (!pawn.IsColonist)
             {
                 return false;
             }
+            // Basic vanilla check with cache
             if (!pawn.IsPsychicSensitive())
+            {
+                return false;
+            }
+            //Log.Error("SuitableForHivemind");
+            // Deaf hivemind drones
+            if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.2f)
             {
                 return false;
             }

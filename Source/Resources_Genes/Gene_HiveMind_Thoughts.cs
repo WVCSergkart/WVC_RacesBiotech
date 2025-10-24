@@ -210,7 +210,7 @@ namespace WVC_XenotypesAndGenes
 
         public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
 
-        public override void SyncHive()
+        public override void UpdGeneSync()
         {
             try
             {

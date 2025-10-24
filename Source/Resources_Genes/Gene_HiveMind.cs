@@ -73,10 +73,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            SyncHive();
+            UpdGeneSync();
         }
 
-        public virtual void SyncHive()
+        public virtual void UpdGeneSync()
         {
 
         }
@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
                     defaultLabel = "DEV: SyncHive",
                     action = delegate
                     {
-                        SyncHive();
+                        UpdGeneSync();
                     }
                 };
             }

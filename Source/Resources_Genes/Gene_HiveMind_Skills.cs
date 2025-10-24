@@ -60,9 +60,9 @@ namespace WVC_XenotypesAndGenes
 
         }
 
-        public override void SyncHive()
+        public override void UpdGeneSync()
         {
-            base.SyncHive();
+            base.UpdGeneSync();
             SyncSkills(HivemindUtility.HivemindPawns);
         }
 

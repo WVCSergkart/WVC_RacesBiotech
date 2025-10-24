@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Hivemind_Traits : Gene_Hivemind
     {
 
-        public override void SyncHive()
+        public override void UpdGeneSync()
         {
             try
             {

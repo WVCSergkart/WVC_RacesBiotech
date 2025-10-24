@@ -48,9 +48,9 @@ namespace WVC_XenotypesAndGenes
 
         }
 
-        public override void SyncHive()
+        public override void UpdGeneSync()
         {
-            base.SyncHive();
+            base.UpdGeneSync();
             List<Pawn> bondedPawns = HivemindUtility.HivemindPawns;
             string phase = "start";
             try

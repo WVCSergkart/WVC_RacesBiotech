@@ -84,6 +84,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Traits.cs" />

@@ -209,7 +209,7 @@
 	<!-- ============================ HIVEMIND ============================ -->
 
 	<WVC_XaG_HivemindPawns_Label>Hivemind size</WVC_XaG_HivemindPawns_Label>
-	<WVC_XaG_HivemindPawns_Desc>The number of pawns synchronized with the hivemind. Pawns that are compatible with the hivemind but not yet synchronized can affect the hivemind, but until synchronized, they will not be affected by other hivemind pawns.\n\nPawns without psy- sensitivity and not colonists are not counted as part of the hivemind. Temporary pawns can join the hivemind, but will be expelled from it upon leaving the colony.</WVC_XaG_HivemindPawns_Desc>
+	<WVC_XaG_HivemindPawns_Desc>The number of pawns synchronized with the hivemind. Pawns that are compatible with the hivemind but not yet synchronized can affect the hivemind, but until synchronized, they will not be affected by other hivemind pawns.\n\nPawns without psy- sensitivity and not colonists are not counted as part of the hivemind. Temporary pawns can join the hivemind, but will be expelled from it upon leaving the colony.\n\nHivemind pawns with psy- sensitivity below 20% cannot influence other hivemind pawns or trigger hivemind synchronization. However, they are still part of the hivemind.</WVC_XaG_HivemindPawns_Desc>
 
 	<WVC_XaG_RemoteControl_HivemindSyncNode>Allows to manually trigger hivemind synchronization. Cooldown: 7 days.</WVC_XaG_RemoteControl_HivemindSyncNode>
 	<WVC_XaG_RemoteControl_HivemindSyncNodeWarning>Are you sure you want to force sync now?</WVC_XaG_RemoteControl_HivemindSyncNodeWarning>
