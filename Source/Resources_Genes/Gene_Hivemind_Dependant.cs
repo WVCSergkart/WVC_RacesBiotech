@@ -1,0 +1,62 @@
+﻿using System.Collections.Generic;
+using Verse;
+
+namespace WVC_XenotypesAndGenes
+{
+    /// <summary>
+    /// Depends on hivemind, but is not included in it.
+    /// </summary>
+    public class Gene_Hivemind_Dependant : Gene
+    {
+
+        public override bool Active
+        {
+            get
+            {
+                if (!HivemindUtility.InHivemind(pawn))
+                {
+                    return false;
+                }
+                return base.Active;
+            }
+        }
+
+    }
+
+    public class Gene_Hivemind_Gestator : Gene_XenotypeGestator
+    {
+
+        public override bool Active
+        {
+            get
+            {
+                if (!HivemindUtility.InHivemind(pawn))
+                {
+                    return false;
+                }
+                return base.Active;
+            }
+        }
+
+        public override List<Gene> GetPawnGenes()
+        {
+            List<Gene> genes = new();
+            foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+            {
+                if (hiver.genes == null)
+                {
+                    continue;
+                }
+                genes.AddRangeSafe(hiver.genes.GenesListForReading);
+            }
+            return genes;
+        }
+
+        public override void Notify_GestatorStart(XenotypeHolder holder)
+        {
+            holder.genes.AddRangeSafe(Giver.geneDefs);
+        }
+
+    }
+
+}

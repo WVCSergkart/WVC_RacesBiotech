@@ -39,4 +39,18 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Dependant" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
+	<marketValueFactor>1.5</marketValueFactor>
+	<displayOrderInCategory>300</displayOrderInCategory>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<selectionWeight>0.0008</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Requires&lt;/color&gt; being part of a &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

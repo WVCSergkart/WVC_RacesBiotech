@@ -26,6 +26,10 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
+            if (!HivemindUtility.InHivemind(pawn))
+            {
+                return;
+            }
             SyncHive();
         }
 

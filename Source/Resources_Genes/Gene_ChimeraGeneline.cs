@@ -32,6 +32,16 @@ namespace WVC_XenotypesAndGenes
                             AddGene(geneDefs, geneDef);
                         }
                     }
+                    if (Giver.excludedGeneDefs != null)
+                    {
+                        foreach (GeneDef geneDef in Giver.excludedGeneDefs)
+                        {
+                            if (geneDefs.Contains(geneDef))
+                            {
+                                geneDefs.Remove(geneDef);
+                            }
+                        }
+                    }
                     cachedGenelineGenes = geneDefs;
                 }
                 return cachedGenelineGenes;

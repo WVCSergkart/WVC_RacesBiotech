@@ -46,6 +46,9 @@
 			<geneCategoryDefs>
 			  <li>WVC_HiveMind</li>
 			</geneCategoryDefs>
+			<excludedGeneDefs>
+			  <li MayRequire="wvc.sergkart.test.tools">WVC_Hivemind_Metabolism</li>
+			</excludedGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

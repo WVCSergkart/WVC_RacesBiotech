@@ -369,6 +369,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> geneDefs;
 		public List<GeneralHolder> geneDefWithChances;
 		public List<GeneCategoryDef> geneCategoryDefs;
+		public List<GeneDef> excludedGeneDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

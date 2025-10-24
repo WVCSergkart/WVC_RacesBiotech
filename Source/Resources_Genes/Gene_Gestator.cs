@@ -177,12 +177,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_Gestator_TestTool : Gene_SimpleGestator
-	{
+	//[Obsolete]
+	//public class Gene_Gestator_TestTool : Gene_SimpleGestator
+	//{
 
 
-	}
+	//}
 
 	//[Obsolete]
 	//public class Gene_DustGestator_TestTool : Gene_FoodEfficiency
@@ -253,6 +253,7 @@ namespace WVC_XenotypesAndGenes
 	// Gene-Gestator
 	public class Gene_XenotypeGestator : Gene_SimpleGestator
 	{
+
 		public override bool UseDialogWarning => false;
 
 		public override string Desc => "WVC_XaG_GeneXenoGestator_Desc".Translate();
@@ -260,6 +261,21 @@ namespace WVC_XenotypesAndGenes
 		public override void StartPregnancy()
 		{
 			Find.WindowStack.Add(new Dialog_XenotypeGestator(this));
+		}
+
+		public virtual List<Gene> GetPawnGenes()
+		{
+			return pawn?.genes?.GenesListForReading;
+		}
+
+		public virtual void Notify_GestatorStart(XenotypeHolder holder)
+        {
+
+        }
+
+		public virtual void Notify_GestatorPostStart(Hediff hediff)
+		{
+
 		}
 
 	}
