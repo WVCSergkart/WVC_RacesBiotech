@@ -82,8 +82,10 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
+    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
+    <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Dependant.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />

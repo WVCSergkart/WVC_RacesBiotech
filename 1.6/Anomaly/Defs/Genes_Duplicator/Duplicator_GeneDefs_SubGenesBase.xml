@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneCategoryDef>
-	<defName>WVC_Duplicator</defName>
-	<label>duplicator</label>
-	<displayPriorityInXenotype>516.2886992038</displayPriorityInXenotype>
-  </GeneCategoryDef>
-
   <GeneDef Name="WVC_XenotypesAndGenes_GeneDuplicator_SubGenes" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_DuplicatorSubGene</geneClass>
 	<biostatCpx>1</biostatCpx>

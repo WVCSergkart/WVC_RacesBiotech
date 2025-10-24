@@ -80,22 +80,6 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
-	<defName>WVC_DisabledAllWork_Blank</defName>
-	<label>blank memory</label>
-	<description>Carriers of this gene very quickly lose interest and forget skills.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>29.02</displayOrderInCategory>
-	<customEffectDescriptions>
-	  <!-- <li>If the skill level is below 6, then it &lt;color=#ff8585&gt;lose passion&lt;/color&gt;.</li> -->
-	  <li>&lt;color=#ff8585&gt;Skills, regardless of level, lose exp.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>WVC_ExcellentMemory</li>
-	</exclusionTags>
-  </GeneDef>
-
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">

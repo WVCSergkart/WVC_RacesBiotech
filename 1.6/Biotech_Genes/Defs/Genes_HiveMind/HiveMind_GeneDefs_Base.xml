@@ -39,18 +39,29 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ========================== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Dependant" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
-	<marketValueFactor>1.5</marketValueFactor>
+	<marketValueFactor>1.6</marketValueFactor>
 	<displayOrderInCategory>300</displayOrderInCategory>
-	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<selectionWeight>0.0008</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Requires&lt;/color&gt; being part of a &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dependant" Name="WVC_XenotypesAndGenes_GeneHivemind_Dormant" Abstract="True">
+	<marketValueFactor>1.35</marketValueFactor>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<displayCategory>WVC_DormantHivemind</displayCategory>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<selectionWeight>0.0008</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
   </GeneDef>
 
 </Defs>

@@ -8,6 +8,35 @@
 	  <!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_ForMassiveRemove="ThingDefs"]</xpath> -->
 	<!-- </Operation> -->
 
+	<!-- Blankind rework -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Blank"]/genes</xpath>
+	  <value>
+		<genes>
+			<li>WVC_WoundHealing_ExtremeFast</li>
+			<li>WVC_NaturalAgeless</li>
+			<li>WVC_NaturalFastGrowing</li>
+			<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+			<li>PsychicAbility_Extreme</li>
+			<li>WVC_Emotionless</li>
+			<!-- <li>WVC_DisabledAllWork_Blank</li> -->
+			<li>WVC_SleepyStomach</li>
+			<li>Libido_Low</li>
+			<li>WVC_Hair_PunkOnly</li>
+			<li>Beard_NoBeardOnly</li>
+			<li>Body_Standard</li>
+			<li>WVC_BodySize_Small</li>
+			<li>Hair_SnowWhite</li>
+			<li>Skin_SheerWhite</li>
+			<li>WVC_Learning_ExtremeSlow</li>
+			<li>WVC_AgeDebuff_Timeless</li> <!-- Cell instability -->
+			<!-- rework -->
+			<li>WVC_Hivemind_DeafDrone</li>
+			<li>WVC_HivemindDependency</li>
+		</genes>
+	  </value>
+	</Operation>
+
 	<!-- Gravship start test -->
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/SketchResolverDef[defName="Gravship"]/resolver</xpath>

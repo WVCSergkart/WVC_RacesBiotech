@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- To-Do: Update for legacy after instability. Mark as legacy after+ 5-6 updates. -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneticStabilizerSerum_Base</defName>
+	<label>genetic stabilizer</label>
+	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 8 days. The effect can be cumulative.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerum_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_MildGeneticInstability</GeneDef>
+	  <GeneDef>WVC_MajorGeneticInstability</GeneDef>
+	  <GeneDef>WVC_ExtremeGeneticInstability</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	<!-- </tradeTags> -->
+	<recipeMaker>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList Inherit="False">
+	  <Steel>30</Steel>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <Silver>4</Silver>
+	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
+		<daysDelay>8</daysDelay>
+		<canBeUsedInCaravan>true</canBeUsedInCaravan>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

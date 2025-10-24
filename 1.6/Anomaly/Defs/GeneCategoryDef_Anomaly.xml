@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_Fleshmass</defName>
+	<label>fleshmass</label>
+	<displayPriorityInXenotype>525.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Duplicator</defName>
+	<label>duplicator</label>
+	<displayPriorityInXenotype>524.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+</Defs>

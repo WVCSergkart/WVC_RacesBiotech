@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dormant">
+	<defName>WVC_HivemindDependency</defName> <!-- As one word, since it is not a sub- mark, but rather like AlcoholDependency. -->
+	<label>hivemind dependency</label>
+	<description>Carriers of this gene are dependent on the hivemind; without the hive, their genetics slowly self-destruct, leading to a coma from time to time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindDependency</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_DeafDrone</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>-4</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>Carrier falls into a &lt;color=#8a8ae6&gt;coma&lt;/color&gt; every 9-15 days if not part of the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

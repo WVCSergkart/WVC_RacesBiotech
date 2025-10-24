@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <!-- To-Do: Remove/legacy in febrary. After blankind rework and 4-5 updates. -->
+
+  <GeneDef>
+	<defName>WVC_DisabledAllWork_Blank</defName>
+	<label>blank memory</label>
+	<description>Carriers of this gene very quickly lose interest and forget skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29.02</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>6</biostatMet>
+	<customEffectDescriptions>
+	  <li>&lt;color=#ff8585&gt;Skills, regardless of level, lose exp.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>use</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- To-Do: Mark as legacy in febrary. After blankind rework and 4-5 updates. -->
+
+  <GeneDef>
+	<defName>WVC_DisabledAllWork_Useless</defName>
+	<label>useless</label>
+	<displayCategory>Violence</displayCategory>
+	<disabledWorkTags>
+	  <li>AllWork</li>
+	</disabledWorkTags>
+	<!-- = -->
+	<description>Carriers of this gene are completely and irreversibly useless. They are unable to perform even the dumb work.</description>
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
+	<displayOrderInCategory>2220</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>use</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- Remove this in legacy upd -->
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+	<!-- Remove this in legacy upd -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- To-Do: Mark as legacy in febrary. After 4-5 updates. -->
+
+  <GeneDef ParentName="LibidoBase">
+	<defName>WVC_AgeDebuff_Libido</defName>
+	<label>extreme low libido</label>
+	<description>Carriers of this gene become unable to engage in lovin' with their partner.</description>
+	<customEffectDescriptions>
+	  <li>No more lovin'.</li>
+	</customEffectDescriptions>
+	<iconPath>WVC/UI/Genes/Gene_LowLibido_v0</iconPath>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<lovinMTBFactor>7</lovinMTBFactor>
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
+	<!-- Remove this in legacy upd -->
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+	<!-- Remove this in legacy upd -->
+  </GeneDef>
+
+</Defs>

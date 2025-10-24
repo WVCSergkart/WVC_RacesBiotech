@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneCategoryDef>
-	<defName>WVC_Fleshmass</defName>
-	<label>fleshmass</label>
-	<displayPriorityInXenotype>525.2886992038</displayPriorityInXenotype>
-  </GeneCategoryDef>
-
   <GeneDef Name="WVC_XenotypesAndGenes_GeneFleshmass_Mutations" Abstract="True">
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
