@@ -118,9 +118,21 @@ namespace WVC_XenotypesAndGenes
             {
                 if (!cachedRefreshRate.HasValue)
                 {
-                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 5) * 0.4f));
+                    cachedRefreshRate = (int)(11992 * ((HivemindPawns.Count > 1 ? HivemindPawns.Count : 5) * 0.4f)) + EfficiencyOffset;
                 }
                 return cachedRefreshRate.Value;
+            }
+        }
+
+
+        /// <summary>
+        /// Efficiency node. Offsets the synchronization frequency relative to hivemind pawns.
+        /// </summary>
+        public static int EfficiencyOffset
+        {
+            get
+            {
+                return Gene_Hivemind_EfficiencyNode.cachedEfficiencyOffset;
             }
         }
 

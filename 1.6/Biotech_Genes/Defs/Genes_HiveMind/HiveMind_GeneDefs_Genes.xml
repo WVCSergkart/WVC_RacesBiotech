@@ -240,26 +240,6 @@
   <!-- ============================ -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
-	<defName>WVC_Hivemind_Telepathy</defName>
-	<label>hivemind telepathy</label>
-	<description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
-	<displayOrderInCategory>70</displayOrderInCategory>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>-1</biostatMet>
-	<customEffectDescriptions>
-		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>WVC_Telepathy</li>
-	</exclusionTags>
-  </GeneDef>
-
-  <!-- ============================ -->
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_Regeneration</defName>
 	<label>hivemind regeneration</label>
 	<description>Carriers of this gene have archites that quickly regenerate damaged tissue. The effectiveness depends on the size of the hivemind.</description>
@@ -292,6 +272,46 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
 	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Traits</defName>
+	<label>traits copy</label>
+	<description>Carriers of this gene can receive traits from other hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Traits</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Traits</iconPath>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
+		<li>Copies the &lt;color=#8a8ae6&gt;traits&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns from time to time.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; are copied as is, &lt;color=#8a8ae6&gt;including conflicting&lt;/color&gt; ones that overlap.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; that have 0 commonality are ignored.</li> <!-- Thanks VE. Armor as personality trait is soo wiiiise.. -->
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Telepathy</defName>
+	<label>hivemind telepathy</label>
+	<description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Telepathy</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>
