@@ -65,6 +65,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_birthQualityOffsetFromGenes = true;
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
+		public bool enable_pregnancyForAllGenders = false;
 		// Reincarnation
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;
@@ -216,6 +217,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_birthQualityOffsetFromGenes, "enable_birthQualityOffsetFromGenes", defaultValue: true);
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
+			Scribe_Values.Look(ref enable_pregnancyForAllGenders, "enable_pregnancyForAllGenders", defaultValue: false);
 			// Reincarnation
 			//Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
@@ -823,6 +825,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//listingStandard.Label("WVC_BiotechSettings_Tab_General".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_xagHumanComponent".Translate(), ref settings.enable_xagHumanComponent, "WVC_ToolTip_enable_xagHumanComponent".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_pregnancyForAllGenders".Translate(), ref settings.enable_pregnancyForAllGenders, "WVC_ToolTip_enable_pregnancyForAllGenders".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_StartingFoodPolicies".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_StartingFoodPolicies, "WVC_ToolTip_enable_StartingFoodPolicies".Translate());
@@ -1176,6 +1179,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = settingsDef.enable_birthQualityOffsetFromGenes;
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = settingsDef.xenotypeGestator_GestationTimeFactor;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = settingsDef.xenotypeGestator_GestationMatchPercent;
+			WVC_Biotech.settings.enable_pregnancyForAllGenders = settingsDef.enable_pregnancyForAllGenders;
 			// =
 			//WVC_Biotech.settings.reincarnation_EnableMechanic = settingsDef.reincarnation_EnableMechanic;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = settingsDef.reincarnation_MinChronoAge;

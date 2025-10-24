@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
 		public HediffDef initialHediffDef;
-		public bool useMatchPercentFromSettings = false;
+		//public bool useMatchPercentFromSettings = false;
 		// WIP
 		public bool customizable = false;
 		public float stackPercent = 0.1f;

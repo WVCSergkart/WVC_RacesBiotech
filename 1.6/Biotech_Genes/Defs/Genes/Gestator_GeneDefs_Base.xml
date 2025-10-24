@@ -84,8 +84,8 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<gestationHediffDef>WVC_XenotypesAndGenes_XenotypeGestator</gestationHediffDef>
 			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
-			<matchPercent>0.4</matchPercent>
-			<useMatchPercentFromSettings>true</useMatchPercentFromSettings>
+			<!-- <matchPercent>0.4</matchPercent> -->
+			<!-- <useMatchPercentFromSettings>true</useMatchPercentFromSettings> -->
 			<!-- <minimumDays>3</minimumDays> -->
 			<!-- Half of vanilla gestation (18 * 0.5) -->
 			<gestationPeriodFactor>0.5</gestationPeriodFactor>

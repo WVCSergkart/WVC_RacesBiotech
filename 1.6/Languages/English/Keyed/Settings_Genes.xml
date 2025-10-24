@@ -67,6 +67,9 @@ A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 
 A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
+	<WVC_Label_enable_pregnancyForAllGenders>Enable pregnancy for all genders</WVC_Label_enable_pregnancyForAllGenders>
+	<WVC_ToolTip_enable_pregnancyForAllGenders>If enabled, pregnancy genes locked to female gender will also be available to none and male.</WVC_ToolTip_enable_pregnancyForAllGenders>
+
 	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
 	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
 

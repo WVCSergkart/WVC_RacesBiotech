@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;
 			cooldownDays = geneExtension == null ? 5 : geneExtension.cooldownDays;
 			gestationPeriodDays = (int)(gene.pawn.RaceProps.gestationPeriodDays * (geneExtension == null ? 1f : geneExtension.gestationPeriodFactor));
-			matchPercent = WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent;
+			matchPercent = Mathf.Clamp(gene.ReqMatch, 0f, 1f);
 			SetMatchedHolders(gene, allXenotypes, matchPercent);
 			disabled = HediffUtility.GetFirstHediffPreventsPregnancy(gene.pawn.health.hediffSet.hediffs) != null;
 			OnGenesChanged();

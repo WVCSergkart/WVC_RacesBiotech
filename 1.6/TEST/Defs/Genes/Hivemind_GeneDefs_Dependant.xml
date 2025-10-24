@@ -11,15 +11,20 @@
 	<description>Carriers of this gene can gestate a child of any xenotype as a hivemind drone.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Gestator</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Gestator</iconPath>
-	<minAgeActive>13</minAgeActive>
 	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>13</minAgeActive>
+	<displayOrderInCategory>300</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
 	<customEffectDescriptions>
 		<li>Can gestate a baby of &lt;color=#8a8ae6&gt;any xenotype&lt;/color&gt; as hivemind drone.</li>
 		<li>The &lt;color=#8a8ae6&gt;duration&lt;/color&gt; of gestation &lt;color=#8a8ae6&gt;depends&lt;/color&gt; on the &lt;color=#8a8ae6&gt;complexity&lt;/color&gt; of the xenotype.</li>
-		<li>A xenotype can be selected if &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; has at least &lt;color=#8a8ae6&gt;40% matching genes&lt;/color&gt;.</li>
+		<li>A xenotype can be selected if total &lt;color=#8a8ae6&gt;hivemind pawns&lt;/color&gt; genes has &lt;color=#8a8ae6&gt;100% matching&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>Fertility</li>
@@ -32,9 +37,9 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<gestationHediffDef>WVC_XenotypesAndGenes_XenotypeGestator</gestationHediffDef>
 			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
-			<useMatchPercentFromSettings>true</useMatchPercentFromSettings>
-			<gestationPeriodFactor>0.5</gestationPeriodFactor>
-			<xenotypeComplexityFactor>0.2</xenotypeComplexityFactor>
+			<!-- <useMatchPercentFromSettings>true</useMatchPercentFromSettings> -->
+			<gestationPeriodFactor>0.8</gestationPeriodFactor>
+			<xenotypeComplexityFactor>0.4</xenotypeComplexityFactor>
 			<cooldownDays>8</cooldownDays>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

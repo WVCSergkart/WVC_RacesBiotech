@@ -717,7 +717,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				return pawn?.gender == Gender.Female && base.Active;
+				return pawn.CanBePregnant() && base.Active;
 			}
 		}
 
@@ -784,10 +784,6 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryRemoveLoveEnchancer(Pawn pawn)
 		{
 			if (!ModsConfig.RoyaltyActive)
-			{
-				return false;
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.LoveEnhancer))
 			{
 				return false;
 			}

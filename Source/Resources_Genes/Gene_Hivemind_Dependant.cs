@@ -38,6 +38,8 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        public override float ReqMatch => 1f;
+
         public override List<Gene> GetPawnGenes()
         {
             List<Gene> genes = new();

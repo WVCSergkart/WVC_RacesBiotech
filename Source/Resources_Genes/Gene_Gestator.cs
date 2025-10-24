@@ -213,7 +213,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override string Desc => "WVC_XaG_Gene_ParthenogenesisDesc".Translate();
 
-        public override bool Active => pawn?.gender == Gender.Female && base.Active;
+        public override bool Active
+        {
+            get
+            {
+                return pawn.CanBePregnant() && base.Active;
+            }
+        }
 
         public override void StartPregnancy()
 		{
@@ -257,6 +263,8 @@ namespace WVC_XenotypesAndGenes
 		public override bool UseDialogWarning => false;
 
 		public override string Desc => "WVC_XaG_GeneXenoGestator_Desc".Translate();
+
+		public virtual float ReqMatch => WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent;
 
 		public override void StartPregnancy()
 		{

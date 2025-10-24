@@ -50,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_birthQualityOffsetFromGenes = true;
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
+		public bool enable_pregnancyForAllGenders = false;
 		// Reincarnation
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.12f;

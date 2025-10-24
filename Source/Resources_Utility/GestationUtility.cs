@@ -13,6 +13,21 @@ namespace WVC_XenotypesAndGenes
 	public static class GestationUtility
 	{
 
+		/// <summary>
+		/// Modders hook.
+		/// Performance ahead. Use optimization.
+		/// </summary>
+		/// <param name="pawn"></param>
+		/// <returns></returns>
+		public static bool CanBePregnant(this Pawn pawn)
+        {
+			if (pawn?.gender == Gender.Female)
+            {
+				return true;
+            }
+			return WVC_Biotech.settings.enable_pregnancyForAllGenders;
+        }
+
 		public static void GestateChild_WithGenes(Pawn parent, Thing motherOrEgg = null, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogenes = true, bool xenogenes = true)
 		{
 			if (motherOrEgg == null)
