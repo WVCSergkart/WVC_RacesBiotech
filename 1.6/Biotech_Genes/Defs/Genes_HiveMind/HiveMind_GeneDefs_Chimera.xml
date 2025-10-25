@@ -7,23 +7,28 @@
 	<description>Carriers of this gene have increased genetic efficiency depending on the size of the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_ChimeraLimit</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_ChimeraLimit_HiveMind</iconPath>
-	<!-- <displayOrderInCategory>40</displayOrderInCategory> -->
-	<displayCategory>WVC_HiveMind</displayCategory>
-	<displayOrderInCategory>205</displayOrderInCategory>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<!-- <displayOrderInCategory>76</displayOrderInCategory> -->
+	<!-- <displayCategory>WVC_DormantHivemind</displayCategory> -->
+	<!-- <displayOrderInCategory>205</displayOrderInCategory> -->
 	<prerequisite>WVC_Chimera</prerequisite>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 	  <li>Xenogenes limit increases depending on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
+	  <!-- <li>Does not trigger hivemind &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li> -->
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_ChimeraLimit>-21.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>-20.0</WVC_ChimeraLimit>
 	</statOffsets>
 	<exclusionTags Inherit="False"/>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDormant>true</isDormant>
 		</li>
 	</modExtensions>
   </GeneDef>

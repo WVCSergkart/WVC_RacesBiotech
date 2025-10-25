@@ -28,7 +28,7 @@
 			<li>Skin_SheerWhite</li>
 			<li>WVC_Learning_ExtremeSlow</li>
 			<li>WVC_AgeDebuff_Timeless</li>
-			<!-- <li>WVC_Hivemind_DeafDrone</li> -->
+			<li>WVC_Hivemind_DormantDrone</li>
 			<li>WVC_HivemindDependency</li>
 		</genes>
 	  </value>

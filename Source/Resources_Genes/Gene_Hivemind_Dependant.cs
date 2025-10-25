@@ -30,12 +30,42 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        /// <summary>
+        /// For special calls
+        /// </summary>
+        public virtual void ResetCollection()
+        {
+            if (!HivemindUtility.SuitableForHivemind(pawn))
+            {
+                return;
+            }
+            HivemindUtility.ResetCollection();
+        }
+
     }
 
     public class Gene_Hivemind_Denier : Gene_Hivemind_Dependant
     {
 
         public override bool InHivemind => !base.InHivemind;
+
+    }
+
+
+    /// <summary>
+    /// Simple drone. If gene removed can call hivemind recache.
+    /// </summary>
+    public class Gene_DormantDrone : Gene_Hivemind_Dependant, IGeneHivemind
+    {
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            if (InHivemind)
+            {
+                ResetCollection();
+            }
+        }
 
     }
 

@@ -502,6 +502,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Instability
 
+		[Obsolete]
 		public static void OffsetInstabilityTick(Pawn pawn, int ticks)
 		{
 			Gene_GeneticInstability gene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();

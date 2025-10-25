@@ -219,6 +219,8 @@
 
 	<WVC_XaG_IGeneHiveMind_Desc>&lt;color=#ffec85&gt;Pawns with this gene are considered part of the Hivemind&lt;/color&gt;.</WVC_XaG_IGeneHiveMind_Desc>
 
+	<WVC_XaG_IGeneHivemind_Dormant_Desc>&lt;color=#f46d6b&gt;Does not trigger hivemind synchronization.&lt;/color&gt;</WVC_XaG_IGeneHivemind_Dormant_Desc>
+
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
 	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>

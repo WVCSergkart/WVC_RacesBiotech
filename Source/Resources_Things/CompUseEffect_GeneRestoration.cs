@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompUseEffect_GeneticStabilizer : CompUseEffect_GeneRestoration
 	{
 

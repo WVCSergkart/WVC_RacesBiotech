@@ -54,10 +54,11 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
-                //if (pawn.InHivemind())
-                //{
-                //    return null;
-                //}
+                // Makes some rare manual recaches
+                if (pawn.InHivemind())
+                {
+                    return null;
+                }
                 return "WVC_XaG_NextXenogermComa_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
             }
         }

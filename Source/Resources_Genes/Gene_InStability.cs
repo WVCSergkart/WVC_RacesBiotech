@@ -246,6 +246,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_GeneticInstability : Gene, IGeneInspectInfo, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(useStabilizerAuto);

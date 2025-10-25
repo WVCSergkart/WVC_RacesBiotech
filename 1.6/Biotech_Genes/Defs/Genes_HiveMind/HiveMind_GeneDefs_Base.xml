@@ -32,32 +32,46 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Hediffs" Abstract="True">
-	<marketValueFactor>2</marketValueFactor>
-	<customEffectDescriptions>
-	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
-	</customEffectDescriptions>
-  </GeneDef>
-
-  <!-- Without sync -->
+  <!-- Non-Archite + Without sync + InHivemind check -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Dormant" Abstract="True">
 	<geneClass>Gene</geneClass>
 	<marketValueFactor>1.6</marketValueFactor>
-	<displayOrderInCategory>100</displayOrderInCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
 	<displayCategory>WVC_DormantHivemind</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Does not trigger hivemind &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDormant>true</isDormant>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Without sync -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Hediffs" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Hediff</geneClass>
+	<marketValueFactor>2</marketValueFactor>
 	<customEffectDescriptions>
-		<li>Does not cause &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li>
+	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
+	  <li>The gene's effect appears some time after &lt;color=#8a8ae6&gt;connecting&lt;/color&gt; with the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;. &lt;color=#8a8ae6&gt;Disconnecting&lt;/color&gt; will &lt;color=#8a8ae6&gt;reset&lt;/color&gt; the effect with the same delay.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDormant>true</isDormant>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ========================== -->
 
   <!-- Non-Archite + Without sync + InHivemind check -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Dependant" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dormant" Name="WVC_XenotypesAndGenes_GeneHivemind_Dependant" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
 	<marketValueFactor>1.35</marketValueFactor>
-	<displayCategory>WVC_DormantHivemind</displayCategory>
-	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>

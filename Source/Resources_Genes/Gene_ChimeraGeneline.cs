@@ -81,7 +81,10 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHivemind, IGeneOverridden
+    /// <summary>
+    /// Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+    /// </summary>
+    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHivemind
     {
 
         public static List<GeneDef> cachedGenelineGenes;
@@ -125,36 +128,36 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
-            ResetCollection();
-        }
+        //public override void PostAdd()
+        //{
+        //    base.PostAdd();
+        //    ResetCollection();
+        //}
 
-        public void ResetCollection()
-        {
-            if (!HivemindUtility.SuitableForHivemind(pawn))
-            {
-                return;
-            }
-            HivemindUtility.ResetCollection();
-        }
+        //public void ResetCollection()
+        //{
+        //    if (!HivemindUtility.SuitableForHivemind(pawn))
+        //    {
+        //        return;
+        //    }
+        //    HivemindUtility.ResetCollection();
+        //}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            ResetCollection();
-        }
+        //public void Notify_OverriddenBy(Gene overriddenBy)
+        //{
+        //    ResetCollection();
+        //}
 
-        public void Notify_Override()
-        {
-            ResetCollection();
-        }
+        //public void Notify_Override()
+        //{
+        //    ResetCollection();
+        //}
 
-        public override void PostRemove()
-        {
-            base.PostRemove();
-            ResetCollection();
-        }
+        //public override void PostRemove()
+        //{
+        //    base.PostRemove();
+        //    ResetCollection();
+        //}
 
     }
 
