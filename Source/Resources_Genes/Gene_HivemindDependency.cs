@@ -37,6 +37,10 @@ namespace WVC_XenotypesAndGenes
 
         public void DoAction()
         {
+            if (pawn.InHivemind())
+            {
+                return;
+            }
             ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
         }
 
@@ -50,6 +54,10 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
+                //if (pawn.InHivemind())
+                //{
+                //    return null;
+                //}
                 return "WVC_XaG_NextXenogermComa_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
             }
         }

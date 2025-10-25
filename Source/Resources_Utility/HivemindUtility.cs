@@ -20,7 +20,16 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedPawns == null)
                 {
-                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => CanBeInHivemind(target)).ToList();
+                    cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.Where((target) => CanBeInHivemind(target))?.ToList();
+                    if (cachedPawns == null)
+                    {
+                        cachedPawns = new();
+                        Log.Warning("Hivemind is null.");
+                    }
+                    else
+                    {
+                        cachedActivePawns = cachedPawns;
+                    }
                 }
                 return cachedPawns;
             }
@@ -28,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 
         public static bool CanBeInHivemind(Pawn target)
         {
-            if (!target.IsPsychicSensitive())
+            if (!target.IsPsychicSensitive()) // Provoke crashes. Loop in gene activity check. Hm..
             {
                 return false;
             }
@@ -60,10 +69,12 @@ namespace WVC_XenotypesAndGenes
         /// </summary>
         public static void ResetCollection()
         {
+            cachedActivePawns = null;
             cachedPawns = null;
             cachedRefreshRate = null;
             Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
             Gene_Hivemind_Regeneration.cachedRegenRate = null;
+            //Gene_Hivemind_Dependant.activePawns = null;
             // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
             HediffWithComps_Hivemind_Beauty.Recache();
             HediffWithComps_Hivemind_Learning.Recache();
@@ -149,10 +160,10 @@ namespace WVC_XenotypesAndGenes
                 return false;
             }
             // Basic vanilla check with cache
-            if (!pawn.IsPsychicSensitive())
-            {
-                return false;
-            }
+            //if (!pawn.IsPsychicSensitive())
+            //{
+            //    return false;
+            //}
             //Log.Error("SuitableForHivemind");
             // Deaf hivemind drones
             if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.2f)
@@ -162,6 +173,11 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
 
+        /// <summary>
+        /// Requests a check directly from hivemind. For gene activity and other checks involving stats, it's better to use the safe check, although it has a delay.
+        /// </summary>
+        /// <param name="pawn"></param>
+        /// <returns></returns>
         public static bool InHivemind(this Pawn pawn)
 		{
             // Cause hivemind initialized after game start
@@ -170,7 +186,26 @@ namespace WVC_XenotypesAndGenes
                 return true;
             }
 			return HivemindUtility.HivemindPawns.Contains(pawn);
-		}
+        }
 
-	}
+        /// <summary>
+        /// Checks a separate list, which is updated after the main one is generated.
+        /// This allows to bypass the loop that occurs due to the basic InHivemind check and psi-stats.
+        /// Recache must be called manually.
+        /// </summary>
+        /// <param name="pawn"></param>
+        /// <returns></returns>
+        public static bool InHivemind_Safe(Pawn pawn)
+        {
+            if (cachedActivePawns == null)
+            {
+                //_ = HivemindUtility.HivemindPawns;
+                return false;
+            }
+            return cachedActivePawns.Contains(pawn);
+        }
+
+        private static List<Pawn> cachedActivePawns;
+
+    }
 }

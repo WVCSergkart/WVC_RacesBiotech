@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool RemoteControl_Hide => !Active;
+		public virtual bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{
