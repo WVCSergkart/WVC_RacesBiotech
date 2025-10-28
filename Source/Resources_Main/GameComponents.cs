@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 		public override void StartedNewGame()
 		{
 			//StaticCollectionsClass.currentGameComponent = this;
-			HivemindUtility.ResetSafeCollection();
+			//HivemindUtility.ResetSafeCollection();
 			StaticCollectionsClass.ResetCollection();
 			//HivemindUtility.ResetCollection();
 			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			StaticCollectionsClass.ResetStaticRecacheTick();
-			HivemindUtility.ResetSafeCollection();
+			//HivemindUtility.ResetSafeCollection();
 			HivemindUtility.ResetCollection();
 			//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
 			ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
