@@ -33,7 +33,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
@@ -71,7 +71,7 @@
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
@@ -98,7 +98,7 @@
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
