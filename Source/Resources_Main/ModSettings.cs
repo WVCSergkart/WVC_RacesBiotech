@@ -105,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraStartingTools = true;
 		public bool enable_chimeraXenogermCD = false;
 		public bool enable_chimeraXenogenesLimit = true;
-		public IntRange chimera_defaultReqMetabolismRange = new(-99, 99);
+		public IntRange chimera_defaultReqMetabolismRange = new(-5, 5);
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		public float duplicator_RandomGeneChance = 0.12f;
@@ -261,7 +261,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref traitshifter_MaxTraits, "traitshifter_MaxTraits", defaultValue: 3f);
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
-			Scribe_Values.Look(ref chimera_defaultReqMetabolismRange, "chimera_defaultReqMetabolismRange", defaultValue: new(-99, 99));
+			Scribe_Values.Look(ref chimera_defaultReqMetabolismRange, "chimera_defaultReqMetabolismRange", defaultValue: new(-5, 5));
 			//Scribe_Values.Look(ref chimeraMinGeneCopyChance, "chimeraMinGeneCopyChance", defaultValue: 0.35f);
 			Scribe_Values.Look(ref chimeraStartingGenes, "chimeraStartingGenes", defaultValue: 5f);
 			Scribe_Values.Look(ref enable_chimeraStartingTools, "enable_chimeraStartingTools", defaultValue: true);

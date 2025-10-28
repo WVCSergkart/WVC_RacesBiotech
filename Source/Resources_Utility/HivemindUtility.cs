@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
         /// </summary>
         public static void ResetCollection()
         {
-            cachedActivePawns = null;
+            //cachedActivePawns = null;
             cachedPawns = null;
             cachedRefreshRate = null;
             Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
@@ -206,6 +206,11 @@ namespace WVC_XenotypesAndGenes
         }
 
         private static List<Pawn> cachedActivePawns;
+
+        public static void ResetSafeCollection()
+        {
+            cachedActivePawns = null;
+        }
 
     }
 }
