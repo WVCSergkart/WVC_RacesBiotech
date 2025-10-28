@@ -11,6 +11,8 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1253</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 	  <li>From time to time, the carrier receives a &lt;color=#8a8ae6&gt;gene loss shock&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -31,6 +33,7 @@
 				<li>XenogermLossShock</li>
 			</hediffDefs>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
 	</modExtensions>
   </GeneDef>
 
@@ -42,6 +45,8 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1254</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 	  <li>From time to time, the carrier receives a &lt;color=#8a8ae6&gt;gene loss shock&lt;/color&gt;, and the carrier's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; begin to &lt;color=#8a8ae6&gt;regrow&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -62,6 +67,7 @@
 				<li>XenogermLossShock</li>
 			</hediffDefs>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
 	</modExtensions>
   </GeneDef>
 
@@ -73,6 +79,8 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-5</biostatMet>
 	<displayOrderInCategory>1255</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 	  <li>From time to time, the carrier of the gene falls into &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt;, and the carrier's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; begin to &lt;color=#8a8ae6&gt;regrow&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -95,6 +103,7 @@
 				<!-- <li>XenogermLossShock</li> -->
 			</hediffDefs>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
 	</modExtensions>
   </GeneDef>
 
@@ -106,6 +115,8 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-8</biostatMet>
 	<displayOrderInCategory>1260</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 	  <li>Carrier must regularly use &lt;color=#8a8ae6&gt;genetic stabilizer&lt;/color&gt; serums or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -124,6 +135,7 @@
 			<intervalRange>622000~940000</intervalRange>
 			<hediffDefs/>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
 	</modExtensions>
   </GeneDef>
 
