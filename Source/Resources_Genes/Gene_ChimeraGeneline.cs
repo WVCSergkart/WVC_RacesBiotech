@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
     /// <summary>
     /// Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
     /// </summary>
-    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHivemind
+    public class Gene_Chimera_HiveGeneline : Gene_ChimeraGeneline, IGeneHivemind, IGeneNonSync
     {
 
         public static List<GeneDef> cachedGenelineGenes;

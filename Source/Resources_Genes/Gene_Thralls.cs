@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
 	/// </summary>
-	public class Gene_HivemindMaker : Gene_ThrallMaker, IGeneHivemind
+	public class Gene_HivemindMaker : Gene_ThrallMaker, IGeneHivemind, IGeneNonSync
 	{
 
         public override List<XenotypeHolder> AllowedThralls => base.AllowedThralls.Where((thrall) => thrall.genes.Any((gene) => gene.IsGeneDefOfType<IGeneHivemind>())).ToList();

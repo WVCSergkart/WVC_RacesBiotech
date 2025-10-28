@@ -215,6 +215,7 @@ namespace WVC_XenotypesAndGenes
             try
             {
                 float totalHivemindMood = 0f;
+                float psyFactor = PsyFactor;
                 //Dictionary<Pawn, float> opinionAbout = new();
                 foreach (Pawn pawn in Hivemind)
                 {
@@ -232,7 +233,7 @@ namespace WVC_XenotypesAndGenes
                     Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Props.thoughtDef);
                     if (memory != null)
                     {
-                        int totalHivemindMood1 = (int)(totalHivemindMood - GetMood(0f, pawn));
+                        int totalHivemindMood1 = (int)((totalHivemindMood * psyFactor) - GetMood(0f, pawn));
                         memory.moodOffset = totalHivemindMood1 / 2;
                     }
                     //SetOpinion(opinionAbout, pawn);

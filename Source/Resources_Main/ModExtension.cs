@@ -269,7 +269,7 @@ namespace WVC_XenotypesAndGenes
 		//Abilities
 		//public bool isBloodfeed = false;
 		//Hivemind
-		public bool isDormant = false;
+		//public bool isDormant = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

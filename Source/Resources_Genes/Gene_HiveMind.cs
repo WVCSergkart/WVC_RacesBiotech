@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -51,6 +52,8 @@ namespace WVC_XenotypesAndGenes
     {
 
         public int nextTick = 2000;
+
+        public float PsyFactor => pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 
         public override void PostAdd()
         {

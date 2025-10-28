@@ -6,7 +6,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
 	/// </summary>
-	public class Gene_Hivemind_Hediff : Gene_AddOrRemoveHediff, IGeneHivemind
+	public class Gene_Hivemind_Hediff : Gene_AddOrRemoveHediff, IGeneHivemind, IGeneNonSync
 	{
 
 		//public override void PostAdd()

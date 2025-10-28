@@ -27,9 +27,9 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isDormant>true</isDormant>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

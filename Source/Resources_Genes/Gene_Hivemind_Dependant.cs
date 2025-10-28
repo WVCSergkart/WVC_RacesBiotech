@@ -30,6 +30,47 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+    }
+
+    public class Gene_Hivemind_Denier : Gene_Hivemind_Dependant
+    {
+
+        public override bool InHivemind => !base.InHivemind;
+
+    }
+
+    //public class Gene_HiveDep_Sync : Gene, IGeneHivemind
+    //{
+
+    //    public static bool syncUpdated = false;
+
+    //    public override void TickInterval(int delta)
+    //    {
+    //        if (!syncUpdated)
+    //        {
+    //            syncUpdated = true;
+    //            _ = HivemindUtility.HivemindPawns;
+    //        }
+    //    }
+
+    //}
+
+
+    /// <summary>
+    /// Simple drone. If gene removed can call hivemind recache.
+    /// </summary>
+    public class Gene_DormantDrone : Gene, IGeneHivemind, IGeneNonSync
+    {
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
+            if (pawn.InHivemind())
+            {
+                ResetCollection();
+            }
+        }
+
         /// <summary>
         /// For special calls
         /// </summary>
@@ -40,31 +81,6 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             HivemindUtility.ResetCollection();
-        }
-
-    }
-
-    public class Gene_Hivemind_Denier : Gene_Hivemind_Dependant
-    {
-
-        public override bool InHivemind => !base.InHivemind;
-
-    }
-
-
-    /// <summary>
-    /// Simple drone. If gene removed can call hivemind recache.
-    /// </summary>
-    public class Gene_DormantDrone : Gene_Hivemind_Dependant, IGeneHivemind
-    {
-
-        public override void PostRemove()
-        {
-            base.PostRemove();
-            if (InHivemind)
-            {
-                ResetCollection();
-            }
         }
 
     }

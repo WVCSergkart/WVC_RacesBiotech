@@ -225,8 +225,9 @@ namespace WVC_XenotypesAndGenes
 			if (geneDef.IsGeneDefOfType<IGeneHivemind>())
 			{
 				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneHiveMind_Desc".Translate().ToString());
-				if (geneDef.GetModExtension<GeneExtension_General>()?.isDormant == true)
+				//if (geneDef.GetModExtension<GeneExtension_General>()?.isDormant == true)
 				//if (!geneDef.IsGeneDefOfType<Gene_Hivemind_Drone>())
+				if (geneDef.IsGeneDefOfType<IGeneNonSync>())
 				{
 					geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneHivemind_Dormant_Desc".Translate().ToString());
 				}

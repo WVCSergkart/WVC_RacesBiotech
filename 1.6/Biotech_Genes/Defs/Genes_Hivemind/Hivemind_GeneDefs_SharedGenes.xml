@@ -16,11 +16,11 @@
 	<customEffectDescriptions>
 		<li>Allows to implant &lt;color=#8a8ae6&gt;genes&lt;/color&gt; collected by other &lt;color=#8a8ae6&gt;chimeras&lt;/color&gt;.</li>
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isDormant>true</isDormant>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================ -->

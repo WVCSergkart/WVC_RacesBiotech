@@ -48,7 +48,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<customEffectDescriptions>
-		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood (/2)&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood (* psy-sens% / 2)&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>&lt;color=#8a8ae6&gt;Low psy-sensitivity&lt;/color&gt; will result in loss of nutrients.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
@@ -118,6 +119,7 @@
 	<customEffectDescriptions>
 		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; drones.</li>
 		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
+		<li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

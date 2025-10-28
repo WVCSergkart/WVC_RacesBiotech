@@ -44,11 +44,11 @@
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Does not trigger hivemind &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isDormant>true</isDormant>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- Without sync -->
@@ -59,11 +59,11 @@
 	  <li>&lt;color=#8a8ae6&gt;Efficiency&lt;/color&gt; depends on &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
 	  <li>The gene's effect appears some time after &lt;color=#8a8ae6&gt;connecting&lt;/color&gt; with the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;. &lt;color=#8a8ae6&gt;Disconnecting&lt;/color&gt; will &lt;color=#8a8ae6&gt;reset&lt;/color&gt; the effect with the same delay.</li>
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isDormant>true</isDormant>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ========================== -->

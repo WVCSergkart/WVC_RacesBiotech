@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Hivemind_Gestator : Gene_XenotypeGestator, IGeneHivemind
+    public class Gene_Hivemind_Gestator : Gene_XenotypeGestator, IGeneHivemind, IGeneNonSync
     {
 
         //public override bool Active

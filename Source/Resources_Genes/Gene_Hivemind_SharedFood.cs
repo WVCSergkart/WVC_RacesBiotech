@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -14,13 +15,14 @@ namespace WVC_XenotypesAndGenes
             {
                 List<Pawn> hivemind = HivemindUtility.HivemindPawns;
                 float totalNutriotion = 0;
+                float factor = Mathf.Clamp(PsyFactor, 0.1f, 1f);
                 foreach (Pawn pawn in hivemind)
                 {
                     if (!pawn.TryGetNeedFood(out Need_Food need_Food))
                     {
                         continue;
                     }
-                    totalNutriotion += need_Food.CurLevel;
+                    totalNutriotion += need_Food.CurLevel * factor;
                 }
                 float averageNutrition = totalNutriotion / hivemind.Count;
                 foreach (Pawn pawn in hivemind)

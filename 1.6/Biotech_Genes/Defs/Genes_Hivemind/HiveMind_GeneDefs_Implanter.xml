@@ -29,11 +29,11 @@
 	<exclusionTags>
 		<li>WVC_Reimplanter_HiveMaker</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isDormant>true</isDormant>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ===== -->

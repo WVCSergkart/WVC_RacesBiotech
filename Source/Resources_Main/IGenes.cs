@@ -10,6 +10,9 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	/// <summary>
+	/// Timers. "Next resource_name in: 4.3 days"
+	/// </summary>
     public interface IGeneInspectInfo
 	{
 
@@ -17,6 +20,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// For implanters. "Force implantation (Gene_Name)"
+	/// </summary>
 	public interface IGeneFloatMenuOptions
 	{
 
@@ -24,6 +30,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Life stage trigger. For bodies and rechaches.
+	/// </summary>
 	public interface IGeneLifeStageStarted
 	{
 
@@ -31,6 +40,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Overridden by trigger. Typically used to reset the cache when genes are changed, often in conjunction with IGeneNotifyGenesChanged.
+	/// </summary>
 	public interface IGeneOverridden
 	{
 
@@ -40,6 +52,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Over override mechanics. For override xenogenes by endogens.
+	/// </summary>
 	public interface IGeneOverOverridable
 	{
 
@@ -47,6 +62,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Dryad queen sub-genes.
+	/// </summary>
 	public interface IGeneDryadQueen
 	{
 
@@ -54,6 +72,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Triggered before PawnDied(). Used for Gene_Undead and Gene_Voidlink.
+	/// Depends on Human comp.
+	/// </summary>
 	public interface IGeneNotifyOnKilled
 	{
 
@@ -97,6 +119,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// For internal gene cache reset. Not triggered directly in vanilla, but triggered by post debug.
+	/// </summary>
 	public interface IGeneNotifyGenesChanged
 	{
 
@@ -113,6 +138,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Dynamic gene settings.
+	/// Used for all genes without a gizmo, but with some buttons, like simple switches.
+	/// It has a minimal performance impact, but is very inconvenient to use.
+	/// </summary>
 	public interface IGeneRemoteControl
 	{
 
@@ -139,6 +169,9 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
+	/// <summary>
+	/// Charger sub-genes.
+	/// </summary>
 	public interface IGeneChargeable
 	{
 
@@ -146,6 +179,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Chimera custom "eat" mechanic.
+	/// </summary>
 	public interface IGeneCustomChimeraEater
 	{
 
@@ -157,6 +193,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// For meat explosion effects when shapeshift or changing custom graphic.
+	/// </summary>
 	public interface IGeneWithEffects
 	{
 
@@ -166,6 +205,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Scarifier sub-genes.
+	/// </summary>
 	public interface IGeneScarifier
 	{
 
@@ -173,6 +215,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Metabolism mark. Chimera, shapeshifter, overrider.
+	/// </summary>
 	public interface IGeneMetabolism
 	{
 
@@ -180,11 +225,25 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	/// <summary>
+	/// Main hivemind mark. Used for all hivemind genes.
+	/// </summary>
 	public interface IGeneHivemind
 	{
 
 	}
 
+	/// <summary>
+	/// No sync hivemind mark. Used only for hivemind genes.
+	/// </summary>
+	public interface IGeneNonSync
+	{
+
+	}
+
+	/// <summary>
+	/// General custom graphic mark. Used for custom hairs (tentacle hair), eyes (colorful eyes), bodies (archo lines), etc.
+	/// </summary>
 	public interface IGeneCustomGraphic
 	{
 
