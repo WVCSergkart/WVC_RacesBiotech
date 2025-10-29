@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
             try
             {
                 List<TraitDefHolder> allTraitDefs = new();
-                foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+                foreach (Pawn hiver in Hivemind)
                 {
                     if (hiver == this.pawn)
                     {

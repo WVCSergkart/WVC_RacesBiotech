@@ -10,15 +10,15 @@ namespace WVC_XenotypesAndGenes
 
         public static int cachedEfficiencyOffset = 0;
 
-        private static void SetEfficiency()
+        private void SetEfficiency()
         {
             MiscUtility.UpdateStaticCollection();
             float efficiency = 0;
-            List<Pawn> hivemindPawns = HivemindUtility.HivemindPawns;
+            List<Pawn> hivemindPawns = Hivemind;
             if (hivemindPawns.Count <= 0)
             {
                 HivemindUtility.ResetCollection();
-                hivemindPawns = HivemindUtility.HivemindPawns;
+                hivemindPawns = Hivemind;
                 Log.Warning("Hivemind pawns count is 0, but the efficiency node was triggered. Trying recache hivemind.");
             }
             foreach (Pawn hiver in hivemindPawns)

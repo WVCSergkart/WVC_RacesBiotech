@@ -15,6 +15,9 @@
 	<statFactors>
 	  <PsychicSensitivity>0.01</PsychicSensitivity>
 	</statFactors>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Drone</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

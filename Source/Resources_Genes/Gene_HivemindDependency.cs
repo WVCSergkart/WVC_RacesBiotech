@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 
         public void DoAction()
         {
-            if (pawn.InHivemind())
+            if (InHivemind)
             {
                 return;
             }
@@ -54,8 +54,7 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
-                // Makes some rare manual recaches
-                if (pawn.InHivemind())
+                if (InHivemind)
                 {
                     return null;
                 }

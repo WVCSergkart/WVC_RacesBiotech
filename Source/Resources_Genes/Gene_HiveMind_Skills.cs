@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
         public override void UpdGeneSync()
         {
             base.UpdGeneSync();
-            SyncSkills(HivemindUtility.HivemindPawns);
+            SyncSkills(Hivemind);
         }
 
         public static void SyncSkills(List<Pawn> bondedPawns)

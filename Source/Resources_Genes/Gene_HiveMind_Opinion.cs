@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void SyncHive()
         {
-            List<Pawn> bondedPawns = HivemindUtility.HivemindPawns;
+            List<Pawn> bondedPawns = Hivemind;
             //string phase = "start";
             try
             {

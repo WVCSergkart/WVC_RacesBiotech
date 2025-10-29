@@ -11,6 +11,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Drone</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->

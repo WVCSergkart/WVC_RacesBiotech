@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
             {
                 ResetCollection();
                 cooldownTick = 60000 * 7;
-                Messages.Message("WVC_XaG_RemoteControl_HivemindSyncNodeMessage".Translate(HivemindUtility.HivemindPawns.Count), new LookTargets(HivemindUtility.HivemindPawns), MessageTypeDefOf.PositiveEvent);
+                Messages.Message("WVC_XaG_RemoteControl_HivemindSyncNodeMessage".Translate(Hivemind.Count), new LookTargets(Hivemind), MessageTypeDefOf.PositiveEvent);
             });
             Find.WindowStack.Add(window);
         }
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
         {
-            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), HivemindUtility.HivemindPawns.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100);
+            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), Hivemind.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100);
         }
 
         private int cooldownTick = -1;

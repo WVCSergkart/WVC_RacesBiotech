@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     if (pawn.InHivemind())
                     {
-                        cachedRegenRate = HivemindUtility.HivemindPawns.Count * 4;
+                        cachedRegenRate = Hivemind.Count * 4;
                     }
                     else
                     {

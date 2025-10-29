@@ -32,8 +32,8 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- Non-Archite + Without sync + InHivemind check -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_Dormant" Abstract="True">
+  <!-- Non-Archite -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base" Name="WVC_XenotypesAndGenes_GeneHivemind_NonArchite" Abstract="True">
 	<geneClass>Gene</geneClass>
 	<marketValueFactor>1.6</marketValueFactor>
 	<displayOrderInCategory>0</displayOrderInCategory>
@@ -41,9 +41,14 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<!-- <customEffectDescriptions> -->
+  </GeneDef>
+
+  <!-- Non-Archite + Without sync + InHivemind check -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_NonArchite" Name="WVC_XenotypesAndGenes_GeneHivemind_Dormant" Abstract="True">
+	<customEffectDescriptions>
 		<!-- <li>Does not trigger hivemind &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li> -->
-	<!-- </customEffectDescriptions> -->
+		<li>After &lt;color=#8a8ae6&gt;hivemind synchronization&lt;/color&gt;, it may &lt;color=#8a8ae6&gt;disconnect&lt;/color&gt; from &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;. A drone &lt;color=#8a8ae6&gt;resync&lt;/color&gt;hronizer is &lt;color=#8a8ae6&gt;required&lt;/color&gt; for stabilization.</li>
+	</customEffectDescriptions>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <isDormant>true</isDormant> -->

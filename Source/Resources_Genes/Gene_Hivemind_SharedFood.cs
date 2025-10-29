@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
         {
             try
             {
-                List<Pawn> hivemind = HivemindUtility.HivemindPawns;
+                List<Pawn> hivemind = Hivemind;
                 float totalNutriotion = 0;
                 float factor = Mathf.Clamp(PsyFactor, 0.1f, 1f);
                 foreach (Pawn pawn in hivemind)
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             float nutrition = (thing.def.ingestible.CachedNutrition * numTaken) * 0.1f;
-            foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+            foreach (Pawn hiver in Hivemind)
             {
                 if (hiver == pawn)
                 {

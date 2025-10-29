@@ -10,6 +10,8 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Hivemind_Drone : Gene, IGeneOverridden, IGeneHivemind
     {
 
+        public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
+
         public override void PostAdd()
         {
             base.PostAdd();
@@ -134,7 +136,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            GeneInteractionsUtility.TryInteractRandomly(pawn, HivemindUtility.HivemindPawns.Where((hiver) => hiver != pawn && hiver.Spawned).ToList(), psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
+            GeneInteractionsUtility.TryInteractRandomly(pawn, Hivemind.Where((hiver) => hiver != pawn && hiver.Spawned).ToList(), psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
         }
 
     }
@@ -149,7 +151,7 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             ResetCollection();
-            foreach (Pawn hiveMember in HivemindUtility.HivemindPawns.ToList())
+            foreach (Pawn hiveMember in Hivemind.ToList())
             {
                 if (!hiveMember.Dead)
                 {
@@ -175,7 +177,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (savedMetCount <= 0)
                 {
-                    savedMetCount = HivemindUtility.HivemindPawns.Count;
+                    savedMetCount = Hivemind.Count;
                 }
                 return savedMetCount;
             }

@@ -13,6 +13,14 @@ namespace WVC_XenotypesAndGenes
 	public static class HivemindUtility
     {
 
+        //public static List<Pawn> AllPlayerPawns_MapsOrCaravans_Alive
+        //{
+        //	get
+        //	{
+        //		return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayer)?.ToList() ?? new();
+        //	}
+        //}
+
         private static List<Pawn> cachedPawns;
         public static List<Pawn> HivemindPawns
         {
@@ -45,21 +53,32 @@ namespace WVC_XenotypesAndGenes
             {
                 return true;
             }
+            //if (!target.RaceProps.Humanlike)
+            //{
+            //    return SubCanBeInHivemind_NonHumanlike(target);
+            //}
             return SubCanBeInHivemind(target);
         }
+
+        #pragma warning disable IDE0079 // Remove unnecessary suppression
+        #pragma warning disable IDE0060 // Remove unused parameter
 
         /// <summary>
         /// Modders hook. Use for custom hivemind rules. For example hediffs or for merging with others mod hiveminds.
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-
-        #pragma warning disable IDE0079 // Remove unnecessary suppression
-        #pragma warning disable IDE0060 // Remove unused parameter
         public static bool SubCanBeInHivemind(Pawn target)
         {
             return false;
         }
+
+        // Animals are useless for the hivemind mechanic. I don't see the point in adding support for them.
+        //public static bool SubCanBeInHivemind_NonHumanlike(Pawn target)
+        //{
+        //    return false;
+        //}
+
         #pragma warning restore IDE0060 // Remove unused parameter
         #pragma warning restore IDE0079 // Remove unnecessary suppression
 
@@ -78,6 +97,7 @@ namespace WVC_XenotypesAndGenes
             // HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
             HediffWithComps_Hivemind_Beauty.Recache();
             HediffWithComps_Hivemind_Learning.Recache();
+            Gene_Hivemind_Resyncer.Recache();
         }
 
         private static int cachedTickIndex = 1;

@@ -10,9 +10,28 @@
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>0</biostatMet>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Drone</li>
+	</exclusionTags>
   </GeneDef>
 
-  <!-- ============================================================================== -->
+  <!-- ========================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_NonArchite">
+	<defName>WVC_Hivemind_Resyncer</defName>
+	<label>hivemind resyncer</label>
+	<description>Carriers of this gene are able to awaken the dormant genes of potential hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Resyncer</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Dormant_Resyncer</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+		<li>After &lt;color=#8a8ae6&gt;hivemind synchronization&lt;/color&gt;, it awakens &lt;color=#8a8ae6&gt;dormant&lt;/color&gt; drones, connecting them to the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ========================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dormant">
 	<defName>WVC_HivemindDependency</defName> <!-- As one word, since it is not a sub- mark, but rather like AlcoholDependency. -->
@@ -20,7 +39,7 @@
 	<description>Carriers of this gene are dependent on the hivemind; without the hive, their genetics slowly self-destruct, leading to a coma from time to time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindDependency</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_DeafDrone</iconPath>
-	<displayOrderInCategory>10</displayOrderInCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
 	<biostatCpx>-4</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<customEffectDescriptions>

@@ -39,21 +39,28 @@ namespace WVC_XenotypesAndGenes
 
     }
 
-    //public class Gene_HiveDep_Sync : Gene, IGeneHivemind
-    //{
+    /// <summary>
+    /// Synchronizes dormant drones. Serves as a trigger for safe synchronization, which must be loop-proof.
+    /// </summary>
+    public class Gene_Hivemind_Resyncer : Gene, IGeneHivemind, IGeneNonSync
+    {
 
-    //    public static bool syncUpdated = false;
+        private static bool syncUpdated = false;
+        public static void Recache()
+        {
+            syncUpdated = false;
+        }
 
-    //    public override void TickInterval(int delta)
-    //    {
-    //        if (!syncUpdated)
-    //        {
-    //            syncUpdated = true;
-    //            _ = HivemindUtility.HivemindPawns;
-    //        }
-    //    }
+        public override void TickInterval(int delta)
+        {
+            if (!syncUpdated)
+            {
+                syncUpdated = true;
+                _ = HivemindUtility.HivemindPawns;
+            }
+        }
 
-    //}
+    }
 
 
     /// <summary>
@@ -65,7 +72,7 @@ namespace WVC_XenotypesAndGenes
         public override void PostRemove()
         {
             base.PostRemove();
-            if (pawn.InHivemind())
+            if (HivemindUtility.InHivemind_Safe(pawn))
             {
                 ResetCollection();
             }
