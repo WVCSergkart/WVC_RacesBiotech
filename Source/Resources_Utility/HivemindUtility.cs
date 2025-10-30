@@ -49,15 +49,53 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (target.genes != null && target.genes.GenesListForReading.Any((gene) => gene is IGeneHivemind && gene.Active))
+            if (target.genes != null)
             {
-                return true;
+                if (target.genes.GenesListForReading.Any((gene) => IsHivemindGene(gene) && gene.Active))
+                {
+                    return true;
+                }
+                return SubCanBeInHivemind_Genes(target);
             }
             //if (!target.RaceProps.Humanlike)
             //{
             //    return SubCanBeInHivemind_NonHumanlike(target);
             //}
             return SubCanBeInHivemind(target);
+        }
+
+        public static bool IsHivemindGeneDef(GeneDef geneDef)
+        {
+            if (geneDef.IsGeneDefOfType<IGeneHivemind>())
+            {
+                return true;
+            }
+            if (ListsUtility.HivemindGenes.Contains(geneDef))
+            {
+                return true;
+            }
+            if (ListsUtility.HivemindGeneTypes.Contains(geneDef.geneClass))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private static bool IsHivemindGene(Gene gene)
+        {
+            if (gene is IGeneHivemind)
+            {
+                return true;
+            }
+            if (ListsUtility.HivemindGenes.Contains(gene.def))
+            {
+                return true;
+            }
+            if (ListsUtility.HivemindGeneTypes.Contains(gene.def.geneClass))
+            {
+                return true;
+            }
+            return false;
         }
 
         #pragma warning disable IDE0079 // Remove unnecessary suppression
@@ -69,6 +107,11 @@ namespace WVC_XenotypesAndGenes
         /// <param name="target"></param>
         /// <returns></returns>
         public static bool SubCanBeInHivemind(Pawn target)
+        {
+            return false;
+        }
+
+        public static bool SubCanBeInHivemind_Genes(Pawn target)
         {
             return false;
         }

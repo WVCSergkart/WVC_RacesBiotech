@@ -164,6 +164,14 @@
 	  <li>VREA_SyntheticBody</li>
 	  <li>PMP_PersonaMechanoid</li>
 	</androidGenes>
+	<!-- Hivemind geneDefs. Any string -->
+	<hivemindGenes>
+		<!-- <li>MOD_SomeHivemindGene</li> -->
+	</hivemindGenes>
+	<!-- Hivemind geneClasses. Any gene Type (Class) -->
+	<hivemindGeneTypes>
+		<li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li>
+	</hivemindGeneTypes>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

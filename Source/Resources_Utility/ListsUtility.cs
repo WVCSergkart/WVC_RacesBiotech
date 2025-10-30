@@ -12,6 +12,57 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
+		private static List<GeneDef> cachedHivemindGenes;
+		public static List<GeneDef> HivemindGenes
+		{
+			get
+			{
+				if (cachedHivemindGenes == null)
+				{
+					List<GeneDef> list = new();
+					List<GeneDef> dataBase = DefDatabase<GeneDef>.AllDefsListForReading;
+					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					{
+						if (item.hivemindGenes.NullOrEmpty())
+						{
+							continue;
+						}
+						foreach (GeneDef geneDef in dataBase)
+						{
+							if (item.hivemindGenes.Contains(geneDef.defName))
+							{
+								list.Add(geneDef);
+							}
+						}
+					}
+					cachedHivemindGenes = list;
+				}
+				return cachedHivemindGenes;
+			}
+		}
+
+		private static List<Type> cachedHivemindGeneTypes;
+		public static List<Type> HivemindGeneTypes
+		{
+			get
+			{
+				if (cachedHivemindGeneTypes == null)
+				{
+					List<Type> list = new();
+					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					{
+						if (item.hivemindGeneTypes.NullOrEmpty())
+						{
+							continue;
+						}
+						list.AddRangeSafe(item.hivemindGeneTypes);
+					}
+					cachedHivemindGeneTypes = list;
+				}
+				return cachedHivemindGeneTypes;
+			}
+		}
+
 		//[Obsolete]
 		//public static List<XaG_CountWithChance> GetIdenticalGeneDefs()
 		//{

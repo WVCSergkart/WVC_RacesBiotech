@@ -32,6 +32,8 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeDef> devXenotypeDefs = new();
 		public List<GeneDef> humanGeneDefs = new();
 		public List<string> androidGenes = new();
+		public List<string> hivemindGenes = new();
+		public List<Type> hivemindGeneTypes = new();
 
 		//[Obsolete]
 		//public List<XaG_CountWithChance> identicalGeneDefs = new();
