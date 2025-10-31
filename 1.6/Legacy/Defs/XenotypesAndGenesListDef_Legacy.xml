@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
+	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
+	<blackListedGenes>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_MaleOnly</li>
+		<li>WVC_Monogender_Disabled</li>
+		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+	</blackListedGenes>
+  </AlphaGenes.WretchBlacklistDef>
+
+</Defs>

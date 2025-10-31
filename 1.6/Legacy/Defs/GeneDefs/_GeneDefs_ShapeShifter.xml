@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName> -->
+	<!-- <label>evotype</label> -->
+	<!-- <description>Carriers of this gene have a very complex genetic code.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/DevHook_ReplaceGeneSet_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <selectionWeight>0.00</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <biostatCpx>7</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <biostatArc>7</biostatArc> -->
+	<!-- <customEffectDescriptions Inherit="False"> -->
+	  <!-- <li>&lt;color=#ff8585&gt;For modders only. Useless for players.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

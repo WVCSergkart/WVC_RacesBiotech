@@ -170,7 +170,7 @@
 	</hivemindGenes>
 	<!-- Hivemind geneClasses. Any gene Type (Class) -->
 	<hivemindGeneTypes>
-		<li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li>
+		<!-- <li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li> -->
 	</hivemindGeneTypes>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
@@ -183,81 +183,5 @@
 		<li>WVC_CosmeticVoices</li>
 	</geneCategories>
   </VREAndroids.AndroidConvertableGenesDef>
-
-  <!-- ======================================================================= -->
-
-  <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
-	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
-	<blackListedGenes>
-		<li>WVC_FemaleOnly</li>
-		<li>WVC_MaleOnly</li>
-		<li>WVC_Monogender_Disabled</li>
-		<!-- Cause dangerous effect -->
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
-		<li>WVC_AgeDebuff_Armless</li>
-		<li>WVC_Learning_ExtremeSlow</li>
-		<li>WVC_NoLearning</li>
-		<!-- <li>WVC_DisabledAllWork_</li> -->
-		<li>WVC_DisabledAllWork_Useless</li>
-		<li>WVC_DisabledAllWork_Blank</li>
-		<!-- <li>WVC_Thrall</li> -->
-		<li>WVC_DeadlyGeneticInstability</li>
-		<!-- = -->
-		<li>WVC_MechaSkin</li>
-		<li>WVC_RuneSkin</li>
-		<li>WVC_StoneSkin</li>
-		<li>WVC_NodeSkin</li>
-		<li>WVC_PatchSkin</li>
-		<li>WVC_FeatherSkin</li>
-		<li>WVC_ShapeshiftSkin</li>
-		<li>WVC_TransparentSkin</li>
-		<li>WVC_GauntSkin</li>
-		<li>WVC_SemifurSkin</li>
-		<!-- = -->
-		<li>WVC_MecaBodyParts_Claws</li>
-		<li>WVC_NaturalBodyParts_Claws</li>
-		<!-- <li>WVC_AgeDebuff_</li> -->
-		<!-- = -->
-		<li>WVC_Undead</li>
-		<!-- <li>WVC_NaturalUndead</li> -->
-		<li>WVC_ResurgentCellsGain</li>
-		<li>WVC_ResurgentCells_TotalHealing</li>
-		<li>WVC_ResurgentCells_Ageless</li>
-		<li>WVC_ResurgentCells_Clotting</li>
-		<li>WVC_ResurgentCells_Blood</li>
-		<li>WVC_ResurgentCells_Stomach</li>
-		<li>WVC_ResurgentCells_Sleep</li>
-		<li>WVC_ReimplanterThrallMaker</li>
-		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
-		<li>WVC_ResurgentDisease_DiseaseFree</li>
-		<!-- = -->
-		<li>WVC_GeneticStability</li>
-		<li>WVC_ResurgentCells_GeneticStability</li>
-		<!-- = -->
-		<li>WVC_Dustogenic</li>
-		<li>WVC_Dustogenic_Ageless</li>
-		<li>WVC_Dustogenic_Metabolism</li>
-		<!-- <li>WVC_Dustogenic_MechPsylink</li> -->
-		<li>WVC_Dustogenic_ImmaculateConception</li>
-		<li>WVC_Dustogenic_AngelBeauty</li>
-		<li>WVC_Dustogenic_Reincarnation</li>
-		<li>WVC_Dustogenic_GeneticStability</li>
-		<li>WVC_FamilyByBlood_Dustogenic</li>
-		<!-- = -->
-		<li>WVC_MildGeneticInstability</li>
-		<li>WVC_MajorGeneticInstability</li>
-		<li>WVC_ExtremeGeneticInstability</li>
-		<!-- = -->
-		<!-- <li>WVC_ArchiteDisableJoy</li> -->
-		<!-- <li>WVC_NaturalDisableJoy</li> -->
-		<!-- <li>WVC_ArchiteDisableBeauty</li> -->
-		<!-- <li>WVC_NaturalDisableBeauty</li> -->
-		<!-- <li>WVC_ArchiteDisableOutdoors</li> -->
-		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
-		<!-- <li>WVC_ArchiteDisableComfort</li> -->
-		<!-- <li>WVC_NaturalDisableComfort</li> -->
-		<!-- = -->
-	</blackListedGenes>
-  </AlphaGenes.WretchBlacklistDef>
 
 </Defs>
