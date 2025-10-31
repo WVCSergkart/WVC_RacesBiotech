@@ -1,7 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -9,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_ChangeGeneColor : Window
+	public class Dialog_ChangeGeneColor : Window
 	{
 
 		public IGeneCustomGraphic gene;
@@ -143,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
 			}
 			else
-            {
+			{
 				Messages.Message("WVC_XaG_ResetEyesColorWarning".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 			}
 		}

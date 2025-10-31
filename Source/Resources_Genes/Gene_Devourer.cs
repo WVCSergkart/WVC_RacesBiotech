@@ -1,13 +1,8 @@
-﻿using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
-using Verse;
-
-namespace WVC_XenotypesAndGenes
+﻿namespace WVC_XenotypesAndGenes
 {
 
 	// In Dev
-    public class Gene_Devourer : Gene_ChimeraDependant
+	public class Gene_Devourer : Gene_ChimeraDependant
 	{
 
 		//private int victimsCount = 0;

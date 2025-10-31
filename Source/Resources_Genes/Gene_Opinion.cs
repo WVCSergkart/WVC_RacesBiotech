@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -11,20 +11,20 @@ namespace WVC_XenotypesAndGenes
 
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
-        {
-            get
-            {
+		{
+			get
+			{
 				if (cachedExtension == null)
-                {
+				{
 					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
 				}
-                return cachedExtension;
-            }
-        }
+				return cachedExtension;
+			}
+		}
 
-        // public int nextTick = 1500;
+		// public int nextTick = 1500;
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			if (!pawn.IsHashIntervalTick(57250, delta))
@@ -68,8 +68,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public void ResetCounter()
 		// {
-			// IntRange range = new(42000, 72000);
-			// nextTick = range.RandomInRange();
+		// IntRange range = new(42000, 72000);
+		// nextTick = range.RandomInRange();
 		// }
 
 	}
@@ -294,7 +294,7 @@ namespace WVC_XenotypesAndGenes
 		public override void TryInteract()
 		{
 			if (GeneInteractionsUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target))
-            {
+			{
 				target.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
 			}
 			ResetInterval(new(7200, 22000));
@@ -312,15 +312,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TryInteract()
-        {
-            if (Rand.Chance(0.50f) || !GeneInteractionsUtility.TryRecruitMute(pawn, this))
-            {
-                GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
+		{
+			if (Rand.Chance(0.50f) || !GeneInteractionsUtility.TryRecruitMute(pawn, this))
+			{
+				GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
 			}
 			ResetInterval(new(7200, 22000));
 		}
 
-    }
+	}
 
 	public class Gene_VoidVoice : Gene_Speaker
 	{
@@ -345,7 +345,7 @@ namespace WVC_XenotypesAndGenes
 			if (ModsConfig.AnomalyActive && !target.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
 			{
 				target.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_VoidVoice".Translate(pawn.Named("PAWN"), target.Named("TARGET")), MentalBreakDefOf.HumanityBreak);
-                if (pawn.Map != null)
+				if (pawn.Map != null)
 				{
 					FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 				}
@@ -372,16 +372,16 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 841;
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
+		public override void PostAdd()
+		{
+			base.PostAdd();
 			if (MiscUtility.GameStarted())
 			{
 				MiscUtility.UpdateStaticCollection();
 			}
-        }
+		}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			if (!GeneResourceUtility.CanTick(ref nextTick, 11618, delta))
 			{

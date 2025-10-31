@@ -1,9 +1,9 @@
 // RimWorld.QuestGen.QuestNode_Root_MechanitorStartingMech
-using RimWorld;
-using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.QuestGen;
 using Verse;
 
 namespace WVC_XenotypesAndGenes

@@ -1,7 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -59,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public void SetGeneset(GeneSet geneset)
 		// {
-			// geneSet = geneset;
+		// geneSet = geneset;
 		// }
 
 	}
@@ -97,23 +95,23 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (parent is Genepack genepack && !respawningAfterLoad)
 			// {
-				// GeneSet newGeneSet = new();
-				// if (!Props.genesCountProbabilities.NullOrEmpty())
-				// {
-					// XaG_CountWithChance geneCount = Props.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
-					// MiscUtility.SetGenesInPack(geneCount, newGeneSet);
-					// newGeneSet.SortGenes();
-					// MiscUtility.GenerateName(newGeneSet, Props.genepackNamer);
-					// if (!newGeneSet.Empty)
-					// {
-						// genepack.Initialize(newGeneSet.GenesListForReading);
-						// genepack.GeneSet.SetNameDirect(newGeneSet.Label);
-					// }
-					// else
-					// {
-						// Log.Warning(genepack.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
-					// }
-				// }
+			// GeneSet newGeneSet = new();
+			// if (!Props.genesCountProbabilities.NullOrEmpty())
+			// {
+			// XaG_CountWithChance geneCount = Props.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+			// MiscUtility.SetGenesInPack(geneCount, newGeneSet);
+			// newGeneSet.SortGenes();
+			// MiscUtility.GenerateName(newGeneSet, Props.genepackNamer);
+			// if (!newGeneSet.Empty)
+			// {
+			// genepack.Initialize(newGeneSet.GenesListForReading);
+			// genepack.GeneSet.SetNameDirect(newGeneSet.Label);
+			// }
+			// else
+			// {
+			// Log.Warning(genepack.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
+			// }
+			// }
 			// }
 			if (Props.styleDef != null)
 			{
@@ -137,12 +135,12 @@ namespace WVC_XenotypesAndGenes
 	// public class CompReplaceWithGenepack : ThingComp
 	// {
 
-		// public CompProperties_Genepack Props => (CompProperties_Genepack)props;
+	// public CompProperties_Genepack Props => (CompProperties_Genepack)props;
 
-		// public override void PostSpawnSetup(bool respawningAfterLoad)
-		// {
-			// parent.def = ThingDefOf.Genepack;
-		// }
+	// public override void PostSpawnSetup(bool respawningAfterLoad)
+	// {
+	// parent.def = ThingDefOf.Genepack;
+	// }
 
 	// }
 
@@ -153,8 +151,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostPostMake()
 		// {
-			// OverrideGeneSet(Props.xenotypeDefs.RandomElement());
-			// SetTrueParentGenes();
+		// OverrideGeneSet(Props.xenotypeDefs.RandomElement());
+		// SetTrueParentGenes();
 		// }
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -191,28 +189,28 @@ namespace WVC_XenotypesAndGenes
 
 		// public void OverrideGeneSet(XenotypeDef xenotypeDef = null)
 		// {
-			// if (parent is not HumanEmbryo embryo)
-			// {
-				// return;
-			// }
-			// if (!Props.xenotypeDefs.NullOrEmpty())
-			// {
-				// if (xenotypeDef == null)
-				// {
-					// xenotypeDef = Props.xenotypeDefs.RandomElement();
-				// }
-				// GeneSet geneSet = embryo.GeneSet;
-				// for (int i = 0; i < geneSet.GenesListForReading.Count; i++)
-				// {
-					// GeneDef geneDef = geneSet.GenesListForReading[i];
-					// geneSet.Debug_RemoveGene(geneDef);
-				// }
-				// foreach (GeneDef geneDef in xenotypeDef.genes)
-				// {
-					// geneSet.AddGene(geneDef);
-				// }
-				// geneSet.SortGenes();
-			// }
+		// if (parent is not HumanEmbryo embryo)
+		// {
+		// return;
+		// }
+		// if (!Props.xenotypeDefs.NullOrEmpty())
+		// {
+		// if (xenotypeDef == null)
+		// {
+		// xenotypeDef = Props.xenotypeDefs.RandomElement();
+		// }
+		// GeneSet geneSet = embryo.GeneSet;
+		// for (int i = 0; i < geneSet.GenesListForReading.Count; i++)
+		// {
+		// GeneDef geneDef = geneSet.GenesListForReading[i];
+		// geneSet.Debug_RemoveGene(geneDef);
+		// }
+		// foreach (GeneDef geneDef in xenotypeDef.genes)
+		// {
+		// geneSet.AddGene(geneDef);
+		// }
+		// geneSet.SortGenes();
+		// }
 		// }
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -233,8 +231,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostExposeData()
 		// {
-			// base.PostExposeData();
-			// Scribe_Values.Look(ref newLabel, "label_" + Props.uniqueTag);
+		// base.PostExposeData();
+		// Scribe_Values.Look(ref newLabel, "label_" + Props.uniqueTag);
 		// }
 
 	}

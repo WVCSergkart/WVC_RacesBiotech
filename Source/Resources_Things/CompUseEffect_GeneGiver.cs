@@ -1,10 +1,5 @@
 using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -49,12 +44,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (SerumUtility.HumanityCheck(pawn))
 			// {
-				// return;
+			// return;
 			// }
 			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				// return;
+			// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			// return;
 			// }
 			if (XaG_GeneUtility.HasGene(geneDef, pawn))
 			{
@@ -75,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 			// CompUseEffect_GeneGiver otherXeno = other.TryGetComp<CompUseEffect_GeneGiver>();
 			// if (otherXeno != null && otherXeno.geneDef != null && otherXeno.geneDef == geneDef)
 			// {
-				// return true;
+			// return true;
 			// }
 			return false;
 		}
@@ -96,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			// }
 			return true;
 		}

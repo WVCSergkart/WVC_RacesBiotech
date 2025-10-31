@@ -1,12 +1,7 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
+using RimWorld;
 using Verse;
-using Verse.AI;
-using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -93,31 +88,31 @@ namespace WVC_XenotypesAndGenes
 
 		// public static void PatchThinkTree(ThinkTreeDef dryadTree)
 		// {
-			// if (dryadTree.thinkRoot == null)
-			// {
-				// Log.Error("Failed to patch " + dryadTree.defName + " root is null.");
-				// return;
-			// }
-			// ThinkNode node = GetReturnToGauranlenTreeSubNode(dryadTree.thinkRoot);
-			// if (node == null)
-			// {
-				// Log.Error("Failed to patch " + dryadTree.defName + " node is null.");
-				// return;
-			// }
+		// if (dryadTree.thinkRoot == null)
+		// {
+		// Log.Error("Failed to patch " + dryadTree.defName + " root is null.");
+		// return;
+		// }
+		// ThinkNode node = GetReturnToGauranlenTreeSubNode(dryadTree.thinkRoot);
+		// if (node == null)
+		// {
+		// Log.Error("Failed to patch " + dryadTree.defName + " node is null.");
+		// return;
+		// }
 		// }
 
 		// public static bool IsGestatedDryadThinkTree(ThinkTreeDef dryadTree, out ThinkTreeDef checkedTree)
 		// {
-			// checkedTree = null;
-			// foreach (ThinkNode subNode in dryadTree.thinkRoot.subNodes)
-			// {
-				// if (subNode is ThinkNode_ConditionalGestatedDryad)
-				// {
-					// checkedTree = dryadTree;
-					// return true;
-				// }
-			// }
-			// return false;
+		// checkedTree = null;
+		// foreach (ThinkNode subNode in dryadTree.thinkRoot.subNodes)
+		// {
+		// if (subNode is ThinkNode_ConditionalGestatedDryad)
+		// {
+		// checkedTree = dryadTree;
+		// return true;
+		// }
+		// }
+		// return false;
 		// }
 
 		// Dryads
@@ -146,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 				TrySetDryadComp(def.pawnKindDef.race);
 				// if (!TrySetDryadComp(def.pawnKindDef.race))
 				// {
-					// Log.Warning("Failed set CompProperties_GauranlenDryad for " + def.pawnKindDef.race.defName + ". These dryads will not work with the dryad queen gene.");
+				// Log.Warning("Failed set CompProperties_GauranlenDryad for " + def.pawnKindDef.race.defName + ". These dryads will not work with the dryad queen gene.");
 				// }
 			}
 			return gauranlenGeneModeDef;

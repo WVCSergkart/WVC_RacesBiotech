@@ -1,7 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -52,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 						if (!allMechsCount.HasValue)
 						{
 							allMechsCount = pawn.mechanitor.UsedBandwidth;
-                        }
+						}
 						curStage.statOffsets = new List<StatModifier>
 						{
 							new()
@@ -98,9 +97,9 @@ namespace WVC_XenotypesAndGenes
 								capacity = PawnCapacityDefOf.Talking,
 								setMax = (talkCap > 0.2f ? talkCap : 0.2f)
 							}
-                        };
-                    }
-                }
+						};
+					}
+				}
 				return curStage;
 			}
 		}
@@ -169,14 +168,14 @@ namespace WVC_XenotypesAndGenes
 			Voidlink?.CacheReset(false);
 		}
 
-        public override void PostRemoved()
-        {
-            base.PostRemoved();
+		public override void PostRemoved()
+		{
+			base.PostRemoved();
 			Voidlink?.UpdHediff();
 			Voidlink?.CacheReset(false);
 		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			yield return new Command_Action
 			{

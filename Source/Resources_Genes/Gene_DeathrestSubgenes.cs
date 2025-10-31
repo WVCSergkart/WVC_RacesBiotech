@@ -1,10 +1,6 @@
 using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -110,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Hemogen != null)
 			{
-				GeneResourceDrainUtility.OffsetResource(Hemogen, ((0f - def.resourceLossPerDay) * (float)delta / 60000f) * tick);
+				GeneResourceDrainUtility.OffsetResource(Hemogen, ((0f - def.resourceLossPerDay) * delta / 60000f) * tick);
 			}
 		}
 
@@ -134,9 +130,9 @@ namespace WVC_XenotypesAndGenes
 			//}
 			//Log.Error(((int)(0.1f * tick)).ToString());
 			if (Deathrest.DeathrestPercent >= 1f)
-            {
+			{
 				return;
-            }
+			}
 			Deathrest.deathrestTicks += Mathf.RoundToInt(12000f * (tick * delta / 6000));
 		}
 

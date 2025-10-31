@@ -1,11 +1,11 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public static class TraitsUtility
+	public static class TraitsUtility
 	{
 
 		public static bool CanGetTrait(this Pawn pawn, TraitDef traitDef)

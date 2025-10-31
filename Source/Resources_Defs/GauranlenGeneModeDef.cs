@@ -1,10 +1,10 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class GauranlenGeneModeDef : Def
+	public class GauranlenGeneModeDef : Def
 	{
 
 		public GauranlenTreeModeDef useDescriptionFromDef = null;

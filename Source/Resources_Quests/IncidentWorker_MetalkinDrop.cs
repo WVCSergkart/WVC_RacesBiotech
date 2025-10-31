@@ -1,16 +1,11 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class IncidentWorker_MetalkinDrop : IncidentWorker
+	public class IncidentWorker_MetalkinDrop : IncidentWorker
 	{
 		private static readonly Pair<int, float>[] CountChance = new Pair<int, float>[4]
 		{
@@ -29,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				float x2 = (float)Find.TickManager.TicksGame / 3600000f;
+				float x2 = Find.TickManager.TicksGame / 3600000f;
 				float timePassedFactor = Mathf.Clamp(GenMath.LerpDouble(0f, 1.2f, 1f, 0.1f, x2), 0.1f, 1f);
 				return CountChance.RandomElementByWeight((Pair<int, float> x) => (x.First == 1) ? x.Second : (x.Second * timePassedFactor)).First;
 			}
@@ -50,8 +45,8 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			Map map = (Map)parms.target;
-            return TryFindShipChunkDropCell(map.Center, map, 999999, out _);
-        }
+			return TryFindShipChunkDropCell(map.Center, map, 999999, out _);
+		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
@@ -79,12 +74,12 @@ namespace WVC_XenotypesAndGenes
 				else if (TryFindShipChunkDropCell(firstChunkPos, map, 5, out var pos))
 				{
 					SpawnChunk(pos, map);
-                }
+				}
 			}
 		}
 
-        private void SpawnPawn(Map map, XenotypeDef xenotypeDef, IntVec3 loc)
-        {
+		private void SpawnPawn(Map map, XenotypeDef xenotypeDef, IntVec3 loc)
+		{
 			if (TryFindShipChunkDropCell(loc, map, 4, out var result3))
 			{
 				Pawn pawn = ThingUtility.FindPawn(ThingSetMakerDefOf.RefugeePod.root.Generate());
@@ -94,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.SetFaction(null);
 				DuplicateUtility.NullifyBackstory(pawn);
 				AgelessUtility.Rejuvenation(pawn);
-				pawn.ageTracker.AgeChronologicalTicks += (long)(new IntRange(333, 1111).RandomInRange * 3600000L);
+				pawn.ageTracker.AgeChronologicalTicks += new IntRange(333, 1111).RandomInRange * 3600000L;
 				pawn.health.AddHediff(HediffDefOf.RegenerationComa);
 				ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
 				MiscUtility.Notify_DebugPawn(pawn);
@@ -103,9 +98,9 @@ namespace WVC_XenotypesAndGenes
 				Find.LetterStack.ReceiveLetter("WVC_XaG_MetalkinDropLabel".Translate(), "WVC_XaG_MetalkinDropDesc".Translate(), LetterDefOf.PositiveEvent, new LookTargets(pawn));
 				//GenSpawn.Spawn(pawn, result3, map);
 			}
-        }
+		}
 
-        private void SpawnChunk(IntVec3 pos, Map map)
+		private void SpawnChunk(IntVec3 pos, Map map)
 		{
 			SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
 		}

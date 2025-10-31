@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffWithComps_Metabolism : HediffWithComps
+	public class HediffWithComps_Metabolism : HediffWithComps
 	{
 
 		public int cachedMetabolism = 0;
@@ -97,19 +97,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void PostRemoved()
-        {
-            base.PostRemoved();
-            if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism && gene.Active))
-            {
-                if (HediffUtility.TryAddHediff(def, pawn, null, null))
-                {
-                    if (DebugSettings.ShowDevGizmos)
-                    {
-                        Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
-                    }
-                }
-            }
-        }
+		{
+			base.PostRemoved();
+			if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism && gene.Active))
+			{
+				if (HediffUtility.TryAddHediff(def, pawn, null, null))
+				{
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
+				}
+			}
+		}
 
 		//public override void ExposeData()
 		//{

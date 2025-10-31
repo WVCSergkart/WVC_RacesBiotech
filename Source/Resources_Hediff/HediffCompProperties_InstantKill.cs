@@ -1,10 +1,9 @@
-using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffCompProperties_InstantKill : HediffCompProperties
+	public class HediffCompProperties_InstantKill : HediffCompProperties
 	{
 
 		public HediffCompProperties_InstantKill()

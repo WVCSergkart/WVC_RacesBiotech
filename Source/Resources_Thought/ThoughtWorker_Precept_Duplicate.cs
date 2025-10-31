@@ -1,9 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -30,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 				ignoredPawns.Add(duplicate);
 			}
 			else
-            {
+			{
 				AddDuplicate(duplicate.GetSourceCyclic(), duplicate);
 				duplicatePawns.Add(duplicate);
 			}
@@ -51,12 +48,12 @@ namespace WVC_XenotypesAndGenes
 		public static bool IsSameDuplicate(Pawn duplicate1, Pawn duplicate2)
 		{
 			foreach (var item in duplicateSets)
-            {
+			{
 				if (item.Value.Contains(duplicate1) && item.Value.Contains(duplicate2))
-                {
+				{
 					return true;
-                }
-            }
+				}
+			}
 			return false;
 		}
 

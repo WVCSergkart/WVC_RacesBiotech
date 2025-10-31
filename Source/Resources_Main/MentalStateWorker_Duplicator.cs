@@ -1,5 +1,4 @@
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
@@ -14,10 +13,10 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			if (pawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.CanDuplicate() != true)
-            {
-                return false;
-            }
-            return base.BreakCanOccur(pawn);
+			{
+				return false;
+			}
+			return base.BreakCanOccur(pawn);
 		}
 
 		public override bool TryStart(Pawn pawn, string reason, bool causedByMood)

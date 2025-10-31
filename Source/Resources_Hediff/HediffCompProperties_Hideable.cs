@@ -3,7 +3,7 @@
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffCompProperties_Hideable : HediffCompProperties
+	public class HediffCompProperties_Hideable : HediffCompProperties
 	{
 
 		public HediffCompProperties_Hideable()

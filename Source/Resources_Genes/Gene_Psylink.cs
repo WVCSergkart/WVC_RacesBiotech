@@ -1,6 +1,5 @@
-using RimWorld;
 using System;
-using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -161,11 +160,11 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref recoveryRate, "psyfocusRecoveryRate", 0);
 		}
 
-        public void Notify_Bloodfeed(Pawn victim)
+		public void Notify_Bloodfeed(Pawn victim)
 		{
 			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(0.2f);
 		}
 
-    }
+	}
 
 }

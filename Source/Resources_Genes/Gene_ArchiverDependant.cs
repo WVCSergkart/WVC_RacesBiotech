@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_ArchiverDependant : Gene
+	public class Gene_ArchiverDependant : Gene
 	{
 
 		[Unsaved(false)]
@@ -19,10 +19,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 
-        }
+		}
 
 	}
 
@@ -30,18 +30,18 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public override void TickInterval(int delta)
-        {
-            if (!pawn.IsHashIntervalTick(59994, delta))
-            {
-                return;
-            }
-            SyncSkills();
-        }
-        public void SyncSkills()
-        {
-            Gene_HiveMind_Skills.SyncSkills(Archiver?.ArchivedPawns);
-        }
+		{
+			if (!pawn.IsHashIntervalTick(59994, delta))
+			{
+				return;
+			}
+			SyncSkills();
+		}
+		public void SyncSkills()
+		{
+			Gene_HiveMind_Skills.SyncSkills(Archiver?.ArchivedPawns);
+		}
 
-    }
+	}
 
 }

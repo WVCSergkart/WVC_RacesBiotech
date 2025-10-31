@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class StatPart_SourceFactor : StatPart
+	public class StatPart_SourceFactor : StatPart
 	{
 
 		public StatDef stat;

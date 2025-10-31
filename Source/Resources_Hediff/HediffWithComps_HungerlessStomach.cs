@@ -3,7 +3,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class HediffWithComps_HungerlessStomach : HediffWithComps
+	public class HediffWithComps_HungerlessStomach : HediffWithComps
 	{
 
 		public int cachedMetabolism = 0;

@@ -1,15 +1,12 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Skinshaper : Gene_Chameleon
+	public class Gene_Skinshaper : Gene_Chameleon
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -17,12 +14,12 @@ namespace WVC_XenotypesAndGenes
 		public override string RemoteActionName => "WVC_XaG_RemoteControlFloatMenu".Translate();
 
 		private static string cachedDescription;
-        public override TaggedString RemoteActionDesc
-        {
-            get
-            {
+		public override TaggedString RemoteActionDesc
+		{
+			get
+			{
 				if (cachedDescription == null)
-                {
+				{
 					StringBuilder stringBuilder = new();
 					stringBuilder.AppendLine("WVC_XaG_RemoteControlFloatMenu_Desc".Translate());
 					stringBuilder.AppendLine();
@@ -31,11 +28,11 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.Append(LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ":\n" + "WVC_XaG_GeneSkinshaper_Desc".Translate());
 					cachedDescription = stringBuilder.ToString();
 				}
-                return cachedDescription;
-            }
-        }
+				return cachedDescription;
+			}
+		}
 
-        public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			List<FloatMenuOption> list = new();
 			List<Window> dialogs = new() { new Dialog_StylingGene(pawn, this, true), new Dialog_Skinshaper(this, Giver.geneSetPresets) };
@@ -74,43 +71,43 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
-   //         if (MiscUtility.GameNotStarted())
-   //         {
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			//         if (MiscUtility.GameNotStarted())
+			//         {
 			//}
 			savedPreset = pawn.genes.Xenotype?.GetModExtension<GeneExtension_Giver>()?.geneSetByDefault;
 		}
 
-        public void RemovePreset()
-        {
-            if (savedPreset == null)
-            {
-                return;
-            }
-            List<Gene> pawnGenes = (IsXenogene? pawn.genes.Xenogenes : pawn.genes.Endogenes);
+		public void RemovePreset()
+		{
+			if (savedPreset == null)
+			{
+				return;
+			}
+			List<Gene> pawnGenes = (IsXenogene ? pawn.genes.Xenogenes : pawn.genes.Endogenes);
 			foreach (Gene gene in pawnGenes.ToList())
-            {
-                if (savedPreset.geneDefs.Contains(gene.def))
-                {
-                    pawn.genes.RemoveGene(gene);
-                }
-            }
-            //savedPreset = null;
-        }
+			{
+				if (savedPreset.geneDefs.Contains(gene.def))
+				{
+					pawn.genes.RemoveGene(gene);
+				}
+			}
+			//savedPreset = null;
+		}
 
-        public void ImplantPreset(GeneSetPresets newPreset)
+		public void ImplantPreset(GeneSetPresets newPreset)
 		{
 			RemovePreset();
 			bool canImplant = true;
 			foreach (GeneDef geneDef in newPreset.geneDefs)
-            {
+			{
 				if (XaG_GeneUtility.ConflictWith(geneDef, pawn.genes.GenesListForReading))
-                {
+				{
 					canImplant = false;
 					break;
-                }
+				}
 			}
 			if (canImplant)
 			{

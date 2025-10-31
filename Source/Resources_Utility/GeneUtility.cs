@@ -1,8 +1,8 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using RimWorld;
 using Verse;
 using Verse.Grammar;
 
@@ -156,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (gene.prerequisite != null && !genes.Contains(gene.prerequisite))
 			// {
-				// return false;
+			// return false;
 			// }
 			for (int i = 0; i < genes.Count; i++)
 			{
@@ -217,13 +217,13 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene.def == geneDef)
-                {
+				{
 					continue;
-                }
+				}
 				if (thisGene != null && gene.overriddenByGene != null && gene.overriddenByGene != thisGene)
-                {
+				{
 					continue;
-                }
+				}
 				if (geneDef.ConflictsWith(gene.def))
 				{
 					gene.OverrideBy(thisGene);
@@ -329,7 +329,7 @@ namespace WVC_XenotypesAndGenes
 		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)
 		{
 			XaG_GeneUtility.AddGenesToChimera(pawn, new() { geneDef });
-            if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
@@ -382,22 +382,22 @@ namespace WVC_XenotypesAndGenes
 		public static bool ContainsAll(List<GeneDef> genesToCheck, List<GeneDef> genesContainer)
 		{
 			foreach (GeneDef item in genesToCheck)
-            {
-                if (!genesContainer.Contains(item))
-                {
-                    return false;
-                }
-            }
-            return true;
+			{
+				if (!genesContainer.Contains(item))
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		public static List<GeneDef> ConvertToDefs(this List<Gene> genes)
 		{
 			List<GeneDef> geneDefs = new();
 			if (genes.NullOrEmpty())
-            {
+			{
 				return geneDefs;
-            }
+			}
 			foreach (Gene item in genes)
 			{
 				geneDefs.Add(item.def);
@@ -466,13 +466,13 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			for (int i = 0; i < geneDefs.Count; i++)
-            {
-                if (geneDefs[i].IsGeneDefOfType<T>())
-                {
-                    return true;
-                }
-            }
-            return false;
+			{
+				if (geneDefs[i].IsGeneDefOfType<T>())
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public static bool IsGeneDefOfType(this GeneDef geneDef, Type geneClass)
@@ -481,11 +481,11 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool IsGeneDefOfType<T>(this GeneDef geneDef)
-        {
-            return geneDef.geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDef.geneClass);
-        }
+		{
+			return geneDef.geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDef.geneClass);
+		}
 
-        public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
+		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
 		{
 			foreach (GeneDef item in geneDefs)
 			{
@@ -575,7 +575,7 @@ namespace WVC_XenotypesAndGenes
 		private static bool IsAndroidGeneCycly(GeneDef geneDef, int currentCycle = 0)
 		{
 			if (AndroidGenes.Contains(geneDef))
-            {
+			{
 				return true;
 			}
 			if (geneDef.prerequisite == null)
@@ -742,12 +742,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<GeneDef> matchedGenes = new();
 			foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
+			{
 				if (geneDefs.Contains(gene.def) && !matchedGenes.Contains(gene.def))
-                {
+				{
 					matchedGenes.Add(gene.def);
-                }
-            }
+				}
+			}
 			return geneDefs.Count == matchedGenes.Count;
 		}
 
@@ -1038,63 +1038,63 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        // public static bool PawnIsBaseliner(Pawn pawn)
-        // {
-        // if (pawn.genes == null)
-        // {
-        // return true;
-        // }
-        // if (pawn.genes.CustomXenotype != null)
-        // {
-        // return false;
-        // }
-        // if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
-        // {
-        // return true;
-        // }
-        // return false;
-        // }
+		// public static bool PawnIsBaseliner(Pawn pawn)
+		// {
+		// if (pawn.genes == null)
+		// {
+		// return true;
+		// }
+		// if (pawn.genes.CustomXenotype != null)
+		// {
+		// return false;
+		// }
+		// if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+		// {
+		// return true;
+		// }
+		// return false;
+		// }
 
-        // ============================= Getter =============================
+		// ============================= Getter =============================
 
-        //[Obsolete]
-        //public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
-        //{
-        //          foreach (GeneDef geneDef in geneDefs)
-        //          {
-        //              if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
-        //              {
-        //                  return true;
-        //              }
-        //          }
-        //          return false;
-        //}
+		//[Obsolete]
+		//public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
+		//{
+		//          foreach (GeneDef geneDef in geneDefs)
+		//          {
+		//              if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
+		//              {
+		//                  return true;
+		//              }
+		//          }
+		//          return false;
+		//}
 
-        //[Obsolete]
-        //public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
-        //{
-        //	if (childGeneDef == parentGeneDef)
-        //	{
-        //		return true;
-        //	}
-        //	if (childGeneDef?.prerequisite != null)
-        //	{
-        //		return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
-        //	}
-        //	return false;
-        //}
+		//[Obsolete]
+		//public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
+		//{
+		//	if (childGeneDef == parentGeneDef)
+		//	{
+		//		return true;
+		//	}
+		//	if (childGeneDef?.prerequisite != null)
+		//	{
+		//		return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
+		//	}
+		//	return false;
+		//}
 
-        public static bool GeneDefHasSubGenes_WithCount(GeneDef parentGeneDef, ref int deepness)
-        {
-            if (parentGeneDef?.prerequisite != null)
+		public static bool GeneDefHasSubGenes_WithCount(GeneDef parentGeneDef, ref int deepness)
+		{
+			if (parentGeneDef?.prerequisite != null)
 			{
 				deepness++;
 				return GeneDefHasSubGenes_WithCount(parentGeneDef.prerequisite, ref deepness);
-            }
-            return false;
-        }
+			}
+			return false;
+		}
 
-        public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
+		public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{
 			if (pawns.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
 			{
@@ -1103,14 +1103,14 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> allMatched = new();
 			// foreach (Pawn item in pawns)
 			// {
-				// List<XenotypeDef> matched = GetAllMatchedXenotypes(item, xenotypeDefs, percent);
-				// foreach (XenotypeDef xeno in matched)
-				// {
-					// if (!allMatched.Contains(xeno))
-					// {
-						// allMatched.Add(xeno);
-					// }
-				// }
+			// List<XenotypeDef> matched = GetAllMatchedXenotypes(item, xenotypeDefs, percent);
+			// foreach (XenotypeDef xeno in matched)
+			// {
+			// if (!allMatched.Contains(xeno))
+			// {
+			// allMatched.Add(xeno);
+			// }
+			// }
 			// }
 			List<Gene> genes = new();
 			foreach (Pawn pawn in pawns)
@@ -1312,7 +1312,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
+		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genesListForReading = xenotypeDef.genes;
 			for (int i = 0; i < genesListForReading.Count; i++)

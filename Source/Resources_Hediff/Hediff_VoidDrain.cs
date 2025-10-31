@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -60,20 +60,20 @@ namespace WVC_XenotypesAndGenes
 
 
 		private int nextTick = 125;
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 			if (!GeneResourceUtility.CanTick(ref nextTick, 56756, delta))
-            {
+			{
 				return;
-            }
+			}
 			if (Gene == null || Gene.Victim != pawn)
 			{
 				pawn.health.RemoveHediff(this);
 			}
 		}
 
-        public void Notify_VictimChanged()
-        {
+		public void Notify_VictimChanged()
+		{
 			pawn.health.RemoveHediff(this);
 		}
 
@@ -112,29 +112,29 @@ namespace WVC_XenotypesAndGenes
 					Find.Selector.Select(master);
 				}
 			};
-            yield return new Command_Action
-            {
-                defaultLabel = "WVC_XaG_VoidDrainRemove".Translate(),
-                defaultDesc = "WVC_XaG_VoidDrainRemove_Desc".Translate(),
-                icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_RemoveVoidDrainMaster"),
-                Order = -87f,
-                action = delegate
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_VoidDrainRemove".Translate(),
+				defaultDesc = "WVC_XaG_VoidDrainRemove_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_RemoveVoidDrainMaster"),
+				Order = -87f,
+				action = delegate
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_VoidDrainRemove_Warning".Translate(), delegate
-                    {
-                        if (Gene != null)
-                        {
-                            Gene.ResetVictim(true);
-                        }
+					{
+						if (Gene != null)
+						{
+							Gene.ResetVictim(true);
+						}
 						else
 						{
 							pawn.health.RemoveHediff(this);
 						}
-                    });
+					});
 					Find.WindowStack.Add(window);
 				}
-            };
-        }
+			};
+		}
 
 	}
 

@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			// }
 			return true;
 		}
@@ -126,12 +126,12 @@ namespace WVC_XenotypesAndGenes
 			// SerumUtility.HumanityCheck(pawn);
 			// if (SerumUtility.HumanityCheck(pawn))
 			// {
-				// return;
+			// return;
 			// }
 			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				// return;
+			// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			// return;
 			// }
 			// SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
 			if (customMode)

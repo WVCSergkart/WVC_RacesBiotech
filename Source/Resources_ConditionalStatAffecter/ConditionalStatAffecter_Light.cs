@@ -1,6 +1,5 @@
 // RimWorld.StatPart_Age
 using RimWorld;
-using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -29,9 +28,9 @@ namespace WVC_XenotypesAndGenes
 			if (req.HasThing && req.Thing.Spawned)
 			{
 				if (DarklightUtility.IsDarklightAt(req.Thing.PositionHeld, req.Thing.MapHeld))
-                {
+				{
 					return false;
-                }
+				}
 				return req.Thing.MapHeld.glowGrid.PsychGlowAt(req.Thing.PositionHeld) != PsychGlow.Dark;
 			}
 			return false;

@@ -1,12 +1,12 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class XenotypeHolder
+	public class XenotypeHolder
 	{
 
 		public string name = null;
@@ -50,9 +50,9 @@ namespace WVC_XenotypesAndGenes
 		//public bool PawnIsSameXenotype(Pawn pawn)
 		//{
 		//	if (pawn.genes.Xenotype == xenotypeDef && (pawn.genes.CustomXenotype == null || pawn.genes.CustomXenotype.name == name))
-  //          {
+		//          {
 		//		return true;
-  //          }
+		//          }
 		//	return false;
 		//}
 

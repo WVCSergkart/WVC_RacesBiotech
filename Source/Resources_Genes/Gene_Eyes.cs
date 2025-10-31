@@ -1,14 +1,14 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    [Obsolete]
+	[Obsolete]
 	public class Gene_Faceless : Gene
 	{
 
@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		//			continue;
 		//		}
 		//		if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
-  //              {
+		//              {
 		//			gene.OverrideBy(overriddenBy);
 		//		}
 		//	}
@@ -67,37 +67,37 @@ namespace WVC_XenotypesAndGenes
 		public virtual float Alpha => 1f;
 
 		//Skip
-        public int CurrentTextID
-        {
-            get
-            {
-                return 1;
-            }
+		public int CurrentTextID
+		{
+			get
+			{
+				return 1;
+			}
 			set
-            {
+			{
 
-            }
-        }
+			}
+		}
 
-        public override void PostAdd()
+		public override void PostAdd()
 		{
 			base.PostAdd();
 			if (pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor != null)
-            {
-                SetColor(pawn.genes.Xenotype.GetModExtension<GeneExtension_Giver>().defaultColor, true);
-            }
-            else if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+			{
+				SetColor(pawn.genes.Xenotype.GetModExtension<GeneExtension_Giver>().defaultColor, true);
+			}
+			else if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
 				SetColor(countWithChance.color, countWithChance.visible);
 			}
 		}
 
-        public void SetColor(Color color, bool visible)
-        {
-            this.color = color;
-            //color.a = alpha;
+		public void SetColor(Color color, bool visible)
+		{
+			this.color = color;
+			//color.a = alpha;
 			this.visible = visible;
-            pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
+			pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -105,17 +105,17 @@ namespace WVC_XenotypesAndGenes
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
-                {
+				{
 					defaultLabel = "DEV: EyesColor",
 					action = delegate
-                    {
-                        ChangeColor();
-                    }
-                };
+					{
+						ChangeColor();
+					}
+				};
 			}
 		}
 
-        public virtual void ChangeColor(bool closeOnAccept = true)
+		public virtual void ChangeColor(bool closeOnAccept = true)
 		{
 			Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, closeOnAccept));
 			//        List<FloatMenuOption> list = new();
@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 			//        Find.WindowStack.Add(new FloatMenu(list));
 		}
 
-        public override void ExposeData()
+		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref color, "color");
@@ -151,17 +151,17 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Holoface : Gene_Eyes, IGeneRemoteControl
 	{
-        public string RemoteActionName => "WVC_Color".Translate();
+		public string RemoteActionName => "WVC_Color".Translate();
 
-        public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
+		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
 
-        public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			ChangeColor();
 			genesSettings.Close();
 		}
 
-        public override float Alpha => 0.8f;
+		public override float Alpha => 0.8f;
 
 		public bool RemoteControl_Hide => !Active;
 

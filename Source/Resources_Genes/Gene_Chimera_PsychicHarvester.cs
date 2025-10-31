@@ -1,10 +1,8 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -66,24 +64,24 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void GetGene(List<Pawn> pawns)
-        {
+		{
 			//Log.Error("Pawns: " + pawns.Count);
-            foreach (Pawn pawn in pawns)
-            {
-                if (Rand.Chance(Spawner.chance))
-                {
-                    Chimera.GetGeneFromHuman(pawn);
-                }
-            }
-        }
+			foreach (Pawn pawn in pawns)
+			{
+				if (Rand.Chance(Spawner.chance))
+				{
+					Chimera.GetGeneFromHuman(pawn);
+				}
+			}
+		}
 
-        private List<Pawn> HumanFilter(List<Pawn> pawns)
-        {
+		private List<Pawn> HumanFilter(List<Pawn> pawns)
+		{
 			List<Pawn> filteredPawns = new();
 			foreach (Pawn victim in pawns)
-            {
+			{
 				if (!victim.IsHuman() || !victim.IsPsychicSensitive() || victim.Faction != pawn.Faction)
-                {
+				{
 					continue;
 				}
 				filteredPawns.Add(victim);

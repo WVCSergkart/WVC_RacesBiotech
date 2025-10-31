@@ -1,12 +1,11 @@
-﻿using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_FlycatcherSkin : Gene, IGeneRemoteControl
+	public class Gene_FlycatcherSkin : Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(eatPawnApparel);
 
@@ -65,16 +64,16 @@ namespace WVC_XenotypesAndGenes
 		// ================
 
 		public override void TickInterval(int delta)
-        {
-            //base.TickInterval(delta);
+		{
+			//base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(4449, delta))
 			{
 				EatSmallInsects(4449);
 			}
 			if (!eatPawnApparel)
-            {
+			{
 				return;
-            }
+			}
 			if (pawn.IsHashIntervalTick(17753, delta))
 			{
 				EatPawnApparel(17753);
@@ -84,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 		public void EatPawnApparel(int tick)
 		{
 			if (pawn.InSpace())
-            {
+			{
 				return;
 			}
 			if (!GeneResourceUtility.TryGetNeedFood(pawn, out Need_Food need_Food))
@@ -103,25 +102,25 @@ namespace WVC_XenotypesAndGenes
 		{
 			BiomeDef biome = pawn.MapHeld?.Biome;
 			if (biome == null)
-            {
+			{
 				return;
-            }
+			}
 			if (biome.inVacuum)
-            {
+			{
 				return;
-            }
-            if (biome.plantDensity <= 0.2f)
-            {
+			}
+			if (biome.plantDensity <= 0.2f)
+			{
 				//Log.Error("No plants");
 				return;
-            }
+			}
 			if (!GeneResourceUtility.TryGetNeedFood(pawn, out Need_Food need_Food))
-            {
+			{
 				return;
-            }
-            float outdoorTemp = pawn.MapHeld.mapTemperature.OutdoorTemp;
-            if (outdoorTemp < 9f || outdoorTemp > 64f)
-            {
+			}
+			float outdoorTemp = pawn.MapHeld.mapTemperature.OutdoorTemp;
+			if (outdoorTemp < 9f || outdoorTemp > 64f)
+			{
 				return;
 			}
 			//Log.Error("Plant dens: " + biome.plantDensity);
@@ -129,6 +128,6 @@ namespace WVC_XenotypesAndGenes
 			need_Food.CurLevelPercentage += ((0.1f * biome.plantDensity * biome.animalDensity) / 60000) * tick;
 		}
 
-    }
+	}
 
 }

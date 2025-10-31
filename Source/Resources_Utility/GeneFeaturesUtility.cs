@@ -1,8 +1,7 @@
-using RimWorld;
-using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -154,38 +153,38 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void TryLevelUpRandomSkill(Pawn student, int maxLevel = 20)
-        {
-            try
-            {
-                List<SkillRecord> studentSkills = student?.skills?.skills;
-                if (studentSkills == null)
-                {
-                    return;
-                }
-                studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled && (ssr.Aptitude > 0 ? ssr.GetLevel(true) : ssr.GetLevel(false)) < maxLevel).TryRandomElementByWeight((SkillRecord wssr) => wssr.passion != Passion.None ? 1f : 0.5f, out SkillRecord studentSkill);
-                if (studentSkill == null)
-                {
-                    return;
-                }
-                if (studentSkill.GetLevel(false) >= maxLevel)
-                {
-                    Log.Warning("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
-                }
-                studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 0.6f, true, true);
-                if (student.Map != null)
-                {
-                    FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
-                }
-            }
-            catch (Exception arg)
-            {
+		{
+			try
+			{
+				List<SkillRecord> studentSkills = student?.skills?.skills;
+				if (studentSkills == null)
+				{
+					return;
+				}
+				studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled && (ssr.Aptitude > 0 ? ssr.GetLevel(true) : ssr.GetLevel(false)) < maxLevel).TryRandomElementByWeight((SkillRecord wssr) => wssr.passion != Passion.None ? 1f : 0.5f, out SkillRecord studentSkill);
+				if (studentSkill == null)
+				{
+					return;
+				}
+				if (studentSkill.GetLevel(false) >= maxLevel)
+				{
+					Log.Warning("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
+				}
+				studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 0.6f, true, true);
+				if (student.Map != null)
+				{
+					FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+				}
+			}
+			catch (Exception arg)
+			{
 				Log.Error("Failed level up random skill. Reason: " + arg);
-            }
-        }
+			}
+		}
 
-        // ============================= GENE PSY HARVESTER =============================
+		// ============================= GENE PSY HARVESTER =============================
 
-        public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f, ThingStyleDef styleDef = null)
+		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f, ThingStyleDef styleDef = null)
 		{
 			if (pawn?.Map == null || pawn.Downed)
 			{
@@ -210,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (CanBloodFeedNowWith(pawn, p))
 				{
-					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2), styleDef: styleDef);
+					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new(1, 2), styleDef: styleDef);
 				}
 			}
 			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
@@ -227,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 			int finalStack = (int)(stackCount * victim.BodySize * num);
 			// if (finalStack <= 0)
 			// {
-				// return;
+			// return;
 			// }
 			Gene_BloodyGrowths.SpawnItems(victim, thingDef, finalStack > 1 ? finalStack : 1, styleDef: styleDef);
 			if (targetBloodLoss > 0f)
@@ -283,7 +282,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (victim.guest?.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed) == true)
 				// {
-					// return false;
+				// return false;
 				// }
 				if (victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 				{

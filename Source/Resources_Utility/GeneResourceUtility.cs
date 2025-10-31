@@ -1,13 +1,9 @@
-using RimWorld;
-using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.AI.Group;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -229,31 +225,31 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-            if (pawn.health.InPainShock)
-            {
+			if (pawn.health.InPainShock)
+			{
 				if (throwMessage)
 				{
 					Messages.Message("WVC_InPainShock".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
-                return false;
-            }
-            if (pawn.Deathresting)
+				return false;
+			}
+			if (pawn.Deathresting)
 			{
 				if (throwMessage)
 				{
 					Messages.Message("WVC_IsDeathresting".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
-                return false;
-            }
-            if (pawn.Downed && !LifeStageUtility.AlwaysDowned(pawn))
+				return false;
+			}
+			if (pawn.Downed && !LifeStageUtility.AlwaysDowned(pawn))
 			{
 				if (throwMessage)
 				{
 					Messages.Message("WVC_IsIncapacitated".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
-                return false;
-            }
-            return true;
+				return false;
+			}
+			return true;
 		}
 
 		// Dust
@@ -288,7 +284,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.TryGetNeedFood(out Need_Food need_Food))
 			{
-                float value = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
+				float value = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
 				//Log.Error(value.ToString());
 				if (value < need_Food.MaxLevel - minOffset)
 				{
@@ -363,10 +359,10 @@ namespace WVC_XenotypesAndGenes
 					return true;
 				}
 				if (IsRawMeatCyclic(category))
-                {
+				{
 					return true;
-                }
-            }
+				}
+			}
 			return false;
 		}
 
@@ -415,9 +411,9 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsHemogenPack(this Thing thing, out float offsetHemogen)
 		{
-            offsetHemogen = 0f;
+			offsetHemogen = 0f;
 			if (thing?.def?.IsHemogenPack(out offsetHemogen) == true)
-            {
+			{
 				return true;
 			}
 			return false;
@@ -553,40 +549,40 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TryResurrectWithSickness(Pawn pawn, bool resurrectionSickness = true, float scarsChance = 0.2f)
-        {
-            try
-            {
-                ResurrectionParams resurrectionParams = new();
-                resurrectionParams.restoreMissingParts = true;
-                resurrectionParams.noLord = true;
-                resurrectionParams.removeDiedThoughts = true;
-                resurrectionParams.canPickUpOpportunisticWeapons = false;
-                resurrectionParams.gettingScarsChance = scarsChance;
-                resurrectionParams.canKidnap = false;
-                resurrectionParams.canSteal = false;
-                resurrectionParams.breachers = false;
-                if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
-                {
-                    if (resurrectionSickness)
-                    {
-                        pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-                    }
-                    //if (resurrectThought != null)
-                    //{
-                    //	pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
-                    //}
-                    return true;
-                }
-                else
-                {
-                    Log.Error("Failed resurrect " + pawn.Name.ToString());
-                }
-            }
-            catch (Exception arg)
+		{
+			try
+			{
+				ResurrectionParams resurrectionParams = new();
+				resurrectionParams.restoreMissingParts = true;
+				resurrectionParams.noLord = true;
+				resurrectionParams.removeDiedThoughts = true;
+				resurrectionParams.canPickUpOpportunisticWeapons = false;
+				resurrectionParams.gettingScarsChance = scarsChance;
+				resurrectionParams.canKidnap = false;
+				resurrectionParams.canSteal = false;
+				resurrectionParams.breachers = false;
+				if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
+				{
+					if (resurrectionSickness)
+					{
+						pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+					}
+					//if (resurrectThought != null)
+					//{
+					//	pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
+					//}
+					return true;
+				}
+				else
+				{
+					Log.Error("Failed resurrect " + pawn.Name.ToString());
+				}
+			}
+			catch (Exception arg)
 			{
 				Log.Error("Failed resurrect " + pawn.Name.ToString() + ". Reason: " + arg);
 			}
-            return false;
+			return false;
 		}
 
 		public static void ResurrectWithSickness(Pawn pawn)
@@ -716,7 +712,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void UpdUndeads()
-        {
+		{
 			nonResurrectedPawns = new();
 			resurrectedPawns = new();
 		}

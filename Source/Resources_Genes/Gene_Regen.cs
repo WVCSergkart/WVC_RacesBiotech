@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -14,16 +14,16 @@ namespace WVC_XenotypesAndGenes
 
 		private GeneExtension_Undead cachedGeneExtension;
 		public GeneExtension_Undead Undead
-        {
-            get
-            {
+		{
+			get
+			{
 				if (cachedGeneExtension == null)
-                {
+				{
 					cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
 				}
-                return cachedGeneExtension;
-            }
-        }
+				return cachedGeneExtension;
+			}
+		}
 
 		//private bool? regenerateEyes;
 		//public bool RegenerateEyes
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			// base.Tick();
 			if (!pawn.IsHashIntervalTick(676, delta))
@@ -88,24 +88,24 @@ namespace WVC_XenotypesAndGenes
 				yield break;
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_Repair".Translate() + " " + pawn.LabelShort, delegate
-            {
-                GiveRepairJob(selPawn);
-            }), selPawn, pawn);
+			{
+				GiveRepairJob(selPawn);
+			}), selPawn, pawn);
 		}
 
-        public void GiveRepairJob(Pawn selPawn)
-        {
+		public void GiveRepairJob(Pawn selPawn)
+		{
 			if (selPawn == null)
-            {
+			{
 				return;
-            }
-            Job job = JobMaker.MakeJob(Props.repairJobDef, pawn);
-            selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-        }
+			}
+			Job job = JobMaker.MakeJob(Props.repairJobDef, pawn);
+			selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+		}
 
-        //private int repairTick = 10;
+		//private int repairTick = 10;
 
-        public virtual void Notify_RepairedBy(Pawn worker, int tick)
+		public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
 			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration * 10, tick: tick);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
@@ -152,34 +152,34 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            if (!pawn.IsHashIntervalTick(1626, delta))
-            {
-                return;
-            }
-            if (pawn.Drafted)
-            {
-                return;
-            }
-            if (pawn.Map == null || !pawn.Downed && pawn.Awake())
-            {
-                HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 1626);
-            }
-            else
-            {
-                if (pawn.mechanitor == null || pawn.health.summaryHealth.SummaryHealthPercent >= 1f)
-                {
-                    return;
-                }
-                List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
-                if (!mechs.NullOrEmpty() && mechs.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).TryRandomElement(out Pawn mech))
-                {
-                    GiveRepairJob(mech);
-                }
-            }
-        }
+		{
+			if (!pawn.IsHashIntervalTick(1626, delta))
+			{
+				return;
+			}
+			if (pawn.Drafted)
+			{
+				return;
+			}
+			if (pawn.Map == null || !pawn.Downed && pawn.Awake())
+			{
+				HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 1626);
+			}
+			else
+			{
+				if (pawn.mechanitor == null || pawn.health.summaryHealth.SummaryHealthPercent >= 1f)
+				{
+					return;
+				}
+				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
+				if (!mechs.NullOrEmpty() && mechs.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).TryRandomElement(out Pawn mech))
+				{
+					GiveRepairJob(mech);
+				}
+			}
+		}
 
-    }
+	}
 
 	// Health
 	public class Gene_HealingStomach : Gene
@@ -283,13 +283,13 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (Hemogen == null)
-            {
+			{
 				return;
-            }
+			}
 			if (HealingUtility.Regeneration(pawn, regeneration: Hemogen.Value * 100, tick: 719))
-            {
+			{
 				Hemogen.Value -= 0.01f;
-            }
+			}
 		}
 
 	}

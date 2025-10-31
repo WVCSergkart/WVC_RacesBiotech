@@ -1,9 +1,5 @@
 // RimWorld.CompProperties_Toxifier
 using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -124,13 +120,13 @@ namespace WVC_XenotypesAndGenes
 		{
 		}
 
-        public void EjectContents(Map previousMap, DestroyMode mode)
-        {
+		public void EjectContents(Map previousMap, DestroyMode mode)
+		{
 			if (mode == DestroyMode.WillReplace)
-            {
+			{
 				return;
-            }
-            innerContainer.TryDropAll(parent.Position, previousMap, ThingPlaceMode.Near, delegate (Thing t, int c)
+			}
+			innerContainer.TryDropAll(parent.Position, previousMap, ThingPlaceMode.Near, delegate (Thing t, int c)
 			{
 				if (t is Pawn pawn && pawn.mindState != null)
 				{
@@ -138,10 +134,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				t.Rotation = Rot4.South;
 				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
-            }, null, playDropSound: false);
-        }
+			}, null, playDropSound: false);
+		}
 
-        public override void PostExposeData()
+		public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_References.Look(ref dryadRef, "draydRef");
@@ -177,8 +173,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		protected override void Complete()
-        {
-            try
+		{
+			try
 			{
 				tickComplete = Find.TickManager.TicksGame;
 				Pawn pawn = dryadRef;
@@ -197,8 +193,8 @@ namespace WVC_XenotypesAndGenes
 				EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
 				parent.Destroy();
 			}
-            catch
-            {
+			catch
+			{
 				Log.Warning("Failed get old pawn info. Generate new.");
 				if (dryadRef != null)
 				{
@@ -310,7 +306,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			tickComplete = Find.TickManager.TicksGame;
 			EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
-			foreach (Thing item in (IEnumerable<Thing>)innerContainer)
+			foreach (Thing item in innerContainer)
 			{
 				if (item is not Pawn pawn)
 				{

@@ -3,7 +3,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Hediff_Morpher : Hediff
+	public class Hediff_Morpher : Hediff
 	{
 
 		public override bool ShouldRemove => false;
@@ -25,26 +25,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 			if (pawn.IsHashIntervalTick(2500, delta))
-            {
-                Cast();
-            }
-        }
+			{
+				Cast();
+			}
+		}
 
-        private void Cast()
-        {
-            if (Gene?.Trigger == null)
-            {
-                pawn.health.RemoveHediff(this);
-            }
-            else
-            {
-                Gene.Trigger?.MorphAutoCast();
-            }
-        }
+		private void Cast()
+		{
+			if (Gene?.Trigger == null)
+			{
+				pawn.health.RemoveHediff(this);
+			}
+			else
+			{
+				Gene.Trigger?.MorphAutoCast();
+			}
+		}
 
-    }
+	}
 
 }

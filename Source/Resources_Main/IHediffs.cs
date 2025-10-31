@@ -1,7 +1,7 @@
 ﻿namespace WVC_XenotypesAndGenes
 {
 
-    public interface IHediffGene
+	public interface IHediffGene
 	{
 
 		void Update();

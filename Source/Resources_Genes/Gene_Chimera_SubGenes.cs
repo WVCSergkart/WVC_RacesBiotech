@@ -1,15 +1,14 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ChimeraDependant : Gene
+	public class Gene_ChimeraDependant : Gene
 	{
 
 		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -48,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			
+
 		}
 
 	}
@@ -253,35 +252,35 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraSelfCopy : Gene_ChimeraDependant
 	{
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
+		public override void PostAdd()
+		{
+			base.PostAdd();
 			if (MiscUtility.GameNotStarted())
-            {
+			{
 				Chimera?.TryAddGenesFromList(pawn.genes.GenesListForReading);
-            }
-        }
+			}
+		}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			if (!pawn.IsHashIntervalTick(143450, delta))
 			{
 				return;
 			}
 			if (!pawn.Faction.IsPlayer)
-            {
+			{
 				return;
-            }
+			}
 			SelfCopy();
 		}
 
 		public void SelfCopy()
-        {
+		{
 			if (Chimera.TryGetGene(pawn, out GeneDef result))
-            {
+			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
-        }
+		}
 
 	}
 
@@ -319,9 +318,9 @@ namespace WVC_XenotypesAndGenes
 		public void SelfCopy()
 		{
 			if (Archiver == null)
-            {
+			{
 				return;
-            }
+			}
 			if (Chimera.TryGetGene(Archiver.SavedGeneSets.RandomElement() is PawnContainerHolder holder ? holder.holded : pawn, out GeneDef result))
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);

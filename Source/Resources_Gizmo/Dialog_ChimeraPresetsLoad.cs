@@ -1,9 +1,7 @@
-using RimWorld;
-using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -26,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = (float)files.Count * y;
+			float height = files.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			if (ShouldDoTypeInField)
@@ -69,10 +67,10 @@ namespace WVC_XenotypesAndGenes
 							// chimeraDialog.selectedGenes = new();
 							// foreach (GeneDef geneDef in localFile.geneDefs)
 							// {
-								// if (chimeraDialog.gene.StolenGenes.Contains(geneDef))
-								// {
-									// chimeraDialog.selectedGenes.Add(geneDef);
-								// }
+							// if (chimeraDialog.gene.StolenGenes.Contains(geneDef))
+							// {
+							// chimeraDialog.selectedGenes.Add(geneDef);
+							// }
 							// }
 							Close();
 						}, destructive: true));

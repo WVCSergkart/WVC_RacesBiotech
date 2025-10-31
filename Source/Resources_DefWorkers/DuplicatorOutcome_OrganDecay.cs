@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class DuplicatorOutcome_OrganDecay : DuplicatorOutcome
+	public class DuplicatorOutcome_OrganDecay : DuplicatorOutcome
 	{
 
 		public override float GetChance(Pawn caster, Pawn source, Pawn duplicate)

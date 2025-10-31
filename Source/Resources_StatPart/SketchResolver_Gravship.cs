@@ -1,10 +1,5 @@
 ﻿using RimWorld;
 using RimWorld.SketchGen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -33,6 +28,6 @@ namespace WVC_XenotypesAndGenes
 			parms.sketch.Merge(sketch);
 		}
 
-    }
+	}
 
 }

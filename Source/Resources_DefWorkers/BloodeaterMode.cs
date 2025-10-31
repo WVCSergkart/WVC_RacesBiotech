@@ -5,7 +5,7 @@ using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class BloodeaterMode
+	public class BloodeaterMode
 	{
 
 		public BloodeaterModeDef def;
@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual bool CanDownedBloodfeed => true;
 
 		public virtual bool CanUseAbility(Pawn pawn)
-        {
+		{
 			if (pawn.abilities.GetAbility(def.abilityDef) == null)
 			{
 				return false;
@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual bool GetFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false)
-        {
+		{
 			return GeneResourceUtility.TryHuntForFood(pawn, requestQueueing, queue);
 		}
 

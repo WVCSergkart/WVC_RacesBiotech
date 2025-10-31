@@ -1,10 +1,9 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -82,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<GeneDef> GetHumanGeneDefs()
 		{
 			if (cachedBasicGeneDefs != null)
-            {
+			{
 				return cachedBasicGeneDefs;
 			}
 			List<GeneDef> list = new();
@@ -190,9 +189,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			List<XenotypeHolder> xenotypeHolders = GetAllXenotypesHolders();
 			if (xenotypeHolders.NullOrEmpty())
-            {
+			{
 				return new();
-            }
+			}
 			List<XenotypeDef> xenotypes = GetWhiteListedXenotypes(addFromFilter, addFromResurrectorFilter);
 			if (xenotypes.NullOrEmpty())
 			{
@@ -282,7 +281,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<XenotypeDef> GetAllXenotypesExceptAndroids()
 		{
 			if (cachedAllXenotypesExceptAndroids != null)
-            {
+			{
 				return cachedAllXenotypesExceptAndroids;
 			}
 			List<XenotypeDef> list = new();
@@ -290,9 +289,9 @@ namespace WVC_XenotypesAndGenes
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
 				if (devXenotypes.Contains(item))
-                {
+				{
 					continue;
-                }
+				}
 				if (!MiscUtility.GameNotStarted() && item.Icon == null)
 				{
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
@@ -425,16 +424,16 @@ namespace WVC_XenotypesAndGenes
 
 		// public static List<GeneDef> GetShapeshifterHeritableGenes()
 		// {
-			// List<GeneDef> list = new();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// if (item.shapeshifterHeritableGenes.NullOrEmpty())
-				// {
-					// continue;
-				// }
-				// list.AddRange(item.shapeshifterHeritableGenes);
-			// }
-			// return list;
+		// List<GeneDef> list = new();
+		// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+		// {
+		// if (item.shapeshifterHeritableGenes.NullOrEmpty())
+		// {
+		// continue;
+		// }
+		// list.AddRange(item.shapeshifterHeritableGenes);
+		// }
+		// return list;
 		// }
 
 	}

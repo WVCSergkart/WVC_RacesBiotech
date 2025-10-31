@@ -1,6 +1,6 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 			// CompTargetEffect_DoJobOnTarget otherXeno = other.TryGetComp<CompTargetEffect_DoJobOnTarget>();
 			// if (otherXeno != null && otherXeno.xenotypeDef != null && otherXeno.xenotypeDef == xenotypeDef)
 			// {
-				// return true;
+			// return true;
 			// }
 			return false;
 		}

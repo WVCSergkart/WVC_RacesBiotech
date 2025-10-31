@@ -1,14 +1,13 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_HorrorPlating : Gene
+	public class Gene_HorrorPlating : Gene
 	{
 
 		public bool horrorSpawned = false;
@@ -131,41 +130,41 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void AddDeadifeGas(int tick)
-        {
-            if (!pawn.Spawned)
-            {
-                nextTick = 60000;
-                return;
-            }
-            GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
-            bool pause = true;
-            try
-            {
-                if (pawn.Map.listerThings.AllThings.TryRandomElement((Thing thing) => thing is Corpse && !thing.IsUnnaturalCorpse() && pawn.CanReach(thing, PathEndMode.Touch, Danger.Deadly), out Thing target))
-                {
-                    GasUtility.AddDeadifeGas(target.PositionHeld, target.MapHeld, pawn.Faction, 30);
-                    pause = false;
-                }
-            }
-            catch (Exception arg)
-            {
-                nextTick = 180000;
-                Log.Error("Failed create shambler. Reason: " + arg);
-            }
-            float penaltyTick = 60 * StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
-            if (pause)
-            {
-                nextTick = 60000 + (int)penaltyTick;
-                nextDeathRefusal--;
-            }
-            else
-            {
-                nextTick = tick + (int)penaltyTick;
-            }
-            if (nextDeathRefusal <= 0)
-            {
-                Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
-                nextDeathRefusal = 2 + StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
+		{
+			if (!pawn.Spawned)
+			{
+				nextTick = 60000;
+				return;
+			}
+			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
+			bool pause = true;
+			try
+			{
+				if (pawn.Map.listerThings.AllThings.TryRandomElement((Thing thing) => thing is Corpse && !thing.IsUnnaturalCorpse() && pawn.CanReach(thing, PathEndMode.Touch, Danger.Deadly), out Thing target))
+				{
+					GasUtility.AddDeadifeGas(target.PositionHeld, target.MapHeld, pawn.Faction, 30);
+					pause = false;
+				}
+			}
+			catch (Exception arg)
+			{
+				nextTick = 180000;
+				Log.Error("Failed create shambler. Reason: " + arg);
+			}
+			float penaltyTick = 60 * StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
+			if (pause)
+			{
+				nextTick = 60000 + (int)penaltyTick;
+				nextDeathRefusal--;
+			}
+			else
+			{
+				nextTick = tick + (int)penaltyTick;
+			}
+			if (nextDeathRefusal <= 0)
+			{
+				Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
+				nextDeathRefusal = 2 + StaticCollectionsClass.cachedNonDeathrestingColonistsCount;
 			}
 		}
 
@@ -230,17 +229,17 @@ namespace WVC_XenotypesAndGenes
 		public HediffDef DarknessExposure => HediffDefOf.DarknessExposure;
 
 		public override void TickInterval(int delta)
-        {
-            nextTick -= delta;
-            if (nextTick > 0)
-            {
-                return;
-            }
-            if (!pawn.health.hediffSet.TryGetHediff(DarknessExposure, out Hediff hediff) || hediff is not Hediff_DarknessExposure_Faulty)
-            {
+		{
+			nextTick -= delta;
+			if (nextTick > 0)
+			{
+				return;
+			}
+			if (!pawn.health.hediffSet.TryGetHediff(DarknessExposure, out Hediff hediff) || hediff is not Hediff_DarknessExposure_Faulty)
+			{
 				UpdExposureHediff();
 			}
-            nextTick = 133133;
+			nextTick = 133133;
 		}
 
 		public void UpdExposureHediff()
@@ -269,12 +268,12 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
+		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
 		}
 
-        public void Notify_Override()
+		public void Notify_Override()
 		{
 			UpdExposureHediff();
 		}

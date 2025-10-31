@@ -1,12 +1,10 @@
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffWithComps_Hivemind : HediffWithComps
+	public class HediffWithComps_Hivemind : HediffWithComps
 	{
 
 		public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;

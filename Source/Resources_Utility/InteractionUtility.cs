@@ -1,7 +1,6 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -208,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					text = text + "\n\n" + letterText;
 				}
-				Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets ?? ((LookTargets)pawn));
+				Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets ?? pawn);
 			}
 			if (psychicInteraction)
 			{

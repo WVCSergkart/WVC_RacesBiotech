@@ -1,8 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
@@ -58,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int ticksUntilSpawn;
 
-        public override void PostAdd()
+		public override void PostAdd()
 		{
 			base.PostAdd();
 			ResetInterval();
@@ -146,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
 				catchString = "blood";
-				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0,1));
+				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0, 1));
 				if (showMessage)
 				{
 					Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
@@ -215,6 +214,6 @@ namespace WVC_XenotypesAndGenes
 				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(ThingDefOf.Genepack, null, 1)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 		}
-    }
+	}
 
 }

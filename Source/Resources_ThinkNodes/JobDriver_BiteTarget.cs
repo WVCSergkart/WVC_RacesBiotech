@@ -1,9 +1,7 @@
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -15,20 +13,20 @@ namespace WVC_XenotypesAndGenes
 
 		public bool ShouldFinalize => Finalize;
 
-        public Pawn Victim
-        {
-            get
-            {
+		public Pawn Victim
+		{
+			get
+			{
 				Thing target = job.GetTarget(TargetIndex.A).Thing;
 				if (target is Corpse corpse)
-                {
+				{
 					return corpse.InnerPawn;
-                }
-                return (Pawn)target;
-            }
-        }
+				}
+				return (Pawn)target;
+			}
+		}
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
+		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
 			return pawn.Reserve(job.GetTarget(TargetIndex.A).Thing, job, 1, -1, null, errorOnFailed);
 		}

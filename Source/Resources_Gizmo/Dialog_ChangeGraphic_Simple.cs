@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Dialog_ChangeGraphic_Simple : Window
+	public class Dialog_ChangeGraphic_Simple : Window
 	{
 
 		public IGeneCustomGraphic gene;

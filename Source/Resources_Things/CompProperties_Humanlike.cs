@@ -1,11 +1,9 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -31,17 +29,17 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void ResolveReferences(ThingDef parentDef)
 		// {
-			// if (shouldResurrect && parentDef.race?.corpseDef != null)
-			// {
-				// if (parentDef.race.corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
-				// {
-					// return;
-				// }
-				// CompProperties_UndeadCorpse undead_comp = new();
-				// undead_comp.resurrectionDelay = resurrectionDelay;
-				// undead_comp.uniqueTag = uniqueTag;
-				// parentDef.race.corpseDef.comps.Add(undead_comp);
-			// }
+		// if (shouldResurrect && parentDef.race?.corpseDef != null)
+		// {
+		// if (parentDef.race.corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
+		// {
+		// return;
+		// }
+		// CompProperties_UndeadCorpse undead_comp = new();
+		// undead_comp.resurrectionDelay = resurrectionDelay;
+		// undead_comp.uniqueTag = uniqueTag;
+		// parentDef.race.corpseDef.comps.Add(undead_comp);
+		// }
 		// }
 
 	}
@@ -57,10 +55,10 @@ namespace WVC_XenotypesAndGenes
 		private List<IGeneFloatMenuOptions> cachedFloatMenuOptionsGenes;
 		[Unsaved(false)]
 		private List<IGeneInspectInfo> cachedInfoGenes;
-        //[Unsaved(false)]
-        //private List<IGeneRemoteControl> cachedRemoteControlGenes;
+		//[Unsaved(false)]
+		//private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
-        public List<IGeneInspectInfo> InfoGenes
+		public List<IGeneInspectInfo> InfoGenes
 		{
 			get
 			{
@@ -113,11 +111,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						cachedFloatMenuOptionsGenes.Add(geneFloatMenu);
 					}
-                    //if (gene is IGeneRemoteControl geneRemoteControl)
-                    //{
-                    //    cachedRemoteControlGenes.Add(geneRemoteControl);
-                    //}
-                }
+					//if (gene is IGeneRemoteControl geneRemoteControl)
+					//{
+					//    cachedRemoteControlGenes.Add(geneRemoteControl);
+					//}
+				}
 			}
 		}
 
@@ -189,31 +187,31 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        // =====================
+		// =====================
 
-        //[Unsaved(false)]
-        //private XaG_GameComponent cachedGameComponent;
+		//[Unsaved(false)]
+		//private XaG_GameComponent cachedGameComponent;
 
-        //public XaG_GameComponent GameComponent
-        //{
-        //    get
-        //    {
-        //        if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
-        //        {
-        //            cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
-        //        }
-        //        return cachedGameComponent;
-        //    }
-        //}
+		//public XaG_GameComponent GameComponent
+		//{
+		//    get
+		//    {
+		//        if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
+		//        {
+		//            cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
+		//        }
+		//        return cachedGameComponent;
+		//    }
+		//}
 
-        //      public override void PostSpawnSetup(bool respawningAfterLoad)
-        //{
-        //	if (parent is not Pawn pawn || pawn?.genes == null)
-        //	{
-        //		return;
-        //	}
-        //	StaticCollectionsClass.currentGameComponent?.TryUpdateKnownXenotype(pawn);
-        //}
+		//      public override void PostSpawnSetup(bool respawningAfterLoad)
+		//{
+		//	if (parent is not Pawn pawn || pawn?.genes == null)
+		//	{
+		//		return;
+		//	}
+		//	StaticCollectionsClass.currentGameComponent?.TryUpdateKnownXenotype(pawn);
+		//}
 
 		//public override void Notify_Arrested(bool succeeded)
 		//{
@@ -319,76 +317,76 @@ namespace WVC_XenotypesAndGenes
 
 		private static bool collapse = true;
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            if (!DebugSettings.ShowDevGizmos)
-            {
-                yield break;
-            }
-            yield return new Command_Action
-            {
-                defaultLabel = "DEV: ExpandDevTools",
-				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/DevMode_Setttings"),
-				action = delegate
-                {
-                    collapse = !collapse;
-                }
-            };
-            if (collapse)
+		{
+			if (!DebugSettings.ShowDevGizmos)
 			{
 				yield break;
 			}
-            yield return new Command_Action
-            {
-                defaultLabel = "DEV: ResetXenotype",
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: ExpandDevTools",
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/DevMode_Setttings"),
+				action = delegate
+				{
+					collapse = !collapse;
+				}
+			};
+			if (collapse)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: ResetXenotype",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0"),
 				action = delegate
-                {
-                    Pawn pawn = parent as Pawn;
-                    ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
-                }
-            };
-            yield return new Command_Action
-            {
-                defaultLabel = "DEV: SetXenotype",
+				{
+					Pawn pawn = parent as Pawn;
+					ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+				}
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: SetXenotype",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0"),
 				action = delegate
-                {
-                    Pawn pawn = parent as Pawn;
-                    List<FloatMenuOption> list = new();
-                    List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
-                    for (int i = 0; i < xenotypeDefs.Count; i++)
-                    {
-                        XenotypeDef xenotypeDef = xenotypeDefs[i];
-                        list.Add(new FloatMenuOption(xenotypeDef.LabelCap, delegate
-                        {
-                            ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
-                        }, orderInPriority: 0 - i));
-                    }
-                    Find.WindowStack.Add(new FloatMenu(list));
-                }
-            };
-            yield return new Command_Action
-            {
-                defaultLabel = "DEV: DebugGenes",
+				{
+					Pawn pawn = parent as Pawn;
+					List<FloatMenuOption> list = new();
+					List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
+					for (int i = 0; i < xenotypeDefs.Count; i++)
+					{
+						XenotypeDef xenotypeDef = xenotypeDefs[i];
+						list.Add(new FloatMenuOption(xenotypeDef.LabelCap, delegate
+						{
+							ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+						}, orderInPriority: 0 - i));
+					}
+					Find.WindowStack.Add(new FloatMenu(list));
+				}
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: DebugGenes",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/WorkSkillTex_v0"),
 				action = delegate
-                {
-                    Pawn pawn = parent as Pawn;
-                    ReimplanterUtility.PostImplantDebug(pawn);
+				{
+					Pawn pawn = parent as Pawn;
+					ReimplanterUtility.PostImplantDebug(pawn);
 					StaticCollectionsClass.ResetCollection();
 					//HivemindUtility.ResetCollection();
 					HediffUtility.UpdatePawnGeneHediffs(Pawn);
 				}
-            };
-            yield return new Command_Action
-            {
-                defaultLabel = "DEV: AddAllRemoteControllers",
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: AddAllRemoteControllers",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_Golemlink_GizmoSummonSettings"),
 				action = delegate
-                {
-                    XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
-                }
-            };
+				{
+					XaG_GeneUtility.Debug_ImplantAllGenes(parent as Pawn, DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<IGeneRemoteControl>()).ToList());
+				}
+			};
 			yield return new Command_Action
 			{
 				defaultLabel = "DEV: GetGenesMatchList",
@@ -400,9 +398,9 @@ namespace WVC_XenotypesAndGenes
 					foreach (XenotypeDef xenos in DefDatabase<XenotypeDef>.AllDefsListForReading)
 					{
 						if (xenos.genes.NullOrEmpty())
-                        {
+						{
 							continue;
-                        }
+						}
 						float matchedGenes = XaG_GeneUtility.GetMatchingGenesList(pawn.genes.GenesListForReading, xenos.genes).Count;
 						stringBuild.AppendLine(xenos.LabelCap + " genes match: " + (matchedGenes / xenos.genes.Count * 100) + "%");
 					}
@@ -448,22 +446,22 @@ namespace WVC_XenotypesAndGenes
 		// ======================================
 
 		public override void Notify_DuplicatedFrom(Pawn source)
-        {
-            SetDuplicate(source);
+		{
+			SetDuplicate(source);
 			//foreach (Gene gene in Pawn.genes.GenesListForReading)
 			//{
 
 			//}
 			//HediffUtility.UpdatePawnGeneHediffs(Pawn);
-        }
+		}
 
-        public bool IsDuplicate
-        {
-            get
-            {
-                return pawnIsDuplicate || originalRef != null && originalRef != parent;
-            }
-        }
+		public bool IsDuplicate
+		{
+			get
+			{
+				return pawnIsDuplicate || originalRef != null && originalRef != parent;
+			}
+		}
 
 		public Pawn SourcePawn => originalRef ?? parent as Pawn;
 
@@ -471,9 +469,9 @@ namespace WVC_XenotypesAndGenes
 		private Pawn originalRef;
 
 		public void SetDuplicate(Pawn source)
-        {
+		{
 			if (source != null && source != parent)
-            {
+			{
 				originalRef = source;
 			}
 			pawnIsDuplicate = originalRef != null;

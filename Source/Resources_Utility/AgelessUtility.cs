@@ -1,5 +1,4 @@
 using RimWorld;
-using System;
 using UnityEngine;
 using Verse;
 
@@ -11,14 +10,14 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetAge(Pawn pawn, int age)
 		{
-			pawn.ageTracker.AgeBiologicalTicks = (long)age;
-			pawn.ageTracker.AgeChronologicalTicks = (long)age;
+			pawn.ageTracker.AgeBiologicalTicks = age;
+			pawn.ageTracker.AgeChronologicalTicks = age;
 		}
 
 		public static void AddAge(Pawn pawn, int age)
 		{
-			pawn.ageTracker.AgeBiologicalTicks += (long)age;
-			pawn.ageTracker.AgeChronologicalTicks += (long)age;
+			pawn.ageTracker.AgeBiologicalTicks += age;
+			pawn.ageTracker.AgeChronologicalTicks += age;
 		}
 
 		public static void AddAgeInYears(Pawn pawn, int ageInYears)
@@ -59,16 +58,16 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanAgeReverse(Pawn pawn, int reqYears = 18)
 		{
-            if (pawn.ageTracker.AgeBiologicalYears <= reqYears)
-            {
-                return false;
-            }
-            //long oneYear = 3600000L;
-            //if ((oneYear * reqYears) + oneYear * 1.5f >= pawn.ageTracker.AgeBiologicalTicks)
-            //{
-            //    return false;
-            //}
-            return true;
+			if (pawn.ageTracker.AgeBiologicalYears <= reqYears)
+			{
+				return false;
+			}
+			//long oneYear = 3600000L;
+			//if ((oneYear * reqYears) + oneYear * 1.5f >= pawn.ageTracker.AgeBiologicalTicks)
+			//{
+			//    return false;
+			//}
+			return true;
 		}
 
 		public static void AgeReverse(Pawn pawn)
@@ -90,14 +89,14 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TryAgeReverse(Pawn pawn)
-        {
-            if (CanAgeReverse(pawn))
+		{
+			if (CanAgeReverse(pawn))
 			{
 				AgeReverse(pawn);
 				return true;
 			}
 			return false;
-        }
+		}
 
-    }
+	}
 }

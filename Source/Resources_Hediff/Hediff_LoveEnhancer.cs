@@ -5,8 +5,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Hediff_Fleshmass_LoveEnhancer : Hediff
-    {
+	public class Hediff_Fleshmass_LoveEnhancer : Hediff
+	{
 
 		public override bool Visible => false;
 

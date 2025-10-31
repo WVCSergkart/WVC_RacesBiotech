@@ -59,14 +59,14 @@ namespace WVC_XenotypesAndGenes
 
 		// public void AddHediff()
 		// {
-			// Pawn pawn = parent as Pawn;
-			// foreach (HediffDef hediff in Props.hediffDefs)
-			// {
-				// if (!pawn.health.hediffSet.HasHediff(hediff))
-				// {
-					// pawn.health.AddHediff(hediff);
-				// }
-			// }
+		// Pawn pawn = parent as Pawn;
+		// foreach (HediffDef hediff in Props.hediffDefs)
+		// {
+		// if (!pawn.health.hediffSet.HasHediff(hediff))
+		// {
+		// pawn.health.AddHediff(hediff);
+		// }
+		// }
 		// }
 	}
 

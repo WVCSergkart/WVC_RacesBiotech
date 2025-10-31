@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class DuplicatorOutcome_DuplicateSickness : DuplicatorOutcome
+	public class DuplicatorOutcome_DuplicateSickness : DuplicatorOutcome
 	{
 
 		public override float GetChance(Pawn caster, Pawn source, Pawn duplicate)

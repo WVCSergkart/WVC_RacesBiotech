@@ -1,12 +1,12 @@
-using RimWorld;
 using System;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	[Obsolete]
-    public class CompProperties_Summon : CompProperties_AbilityEffect
+	public class CompProperties_Summon : CompProperties_AbilityEffect
 	{
 		public QuestScriptDef quest;
 

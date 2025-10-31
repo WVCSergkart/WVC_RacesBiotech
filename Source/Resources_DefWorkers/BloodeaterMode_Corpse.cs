@@ -1,13 +1,13 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class BloodeaterMode_Corpse : BloodeaterMode
+	public class BloodeaterMode_Corpse : BloodeaterMode
 	{
 
 		public override bool CanDownedBloodfeed => false;
@@ -20,9 +20,9 @@ namespace WVC_XenotypesAndGenes
 		public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
 		{
 			if (pawn.TryGetNeedFood(out Need_Food food))
-            {
+			{
 				food.CurLevel = food.MaxLevel;
-            }
+			}
 			return true;
 		}
 

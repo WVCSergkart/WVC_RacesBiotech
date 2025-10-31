@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -69,22 +68,22 @@ namespace WVC_XenotypesAndGenes
 			OnGenesChanged();
 		}
 
-        private int GestationTime
-        {
-            get
-            {
-                XaG_GeneUtility.GetBiostatsFromList(selectedXenoHolder.genes, out int cpx, out _, out _);
-                return (int)(((cpx * xenotypeComplexityFactor) + gestationPeriodDays) * WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor);
-            }
-        }
+		private int GestationTime
+		{
+			get
+			{
+				XaG_GeneUtility.GetBiostatsFromList(selectedXenoHolder.genes, out int cpx, out _, out _);
+				return (int)(((cpx * xenotypeComplexityFactor) + gestationPeriodDays) * WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor);
+			}
+		}
 
-        //public static int GetXenotype_Cpx(XenotypeHolder xenotypeDef)
-        //{
-        //	XaG_GeneUtility.GetBiostatsFromList(xenotypeDef.genes, out int cpx, out _, out _);
-        //	return cpx;
-        //}
+		//public static int GetXenotype_Cpx(XenotypeHolder xenotypeDef)
+		//{
+		//	XaG_GeneUtility.GetBiostatsFromList(xenotypeDef.genes, out int cpx, out _, out _);
+		//	return cpx;
+		//}
 
-        protected override bool CanAccept()
+		protected override bool CanAccept()
 		{
 			if (disabled)
 			{
@@ -100,20 +99,20 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void SetMatchedHolders(Gene_XenotypeGestator gene, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f, bool useCurves = false)
-        {
-            List<Gene> pawnGenes = gene.GetPawnGenes();
-            if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
-            {
-                return;
-            }
-            foreach (XenotypeHolder item in xenotypeDefs)
-            {
-                item.isOverriden = !GenesIsMatch(pawnGenes, item.genes, percent, out float matchPercent, useCurves);
-                item.matchPercent = matchPercent;
-            }
-        }
+		{
+			List<Gene> pawnGenes = gene.GetPawnGenes();
+			if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
+			{
+				return;
+			}
+			foreach (XenotypeHolder item in xenotypeDefs)
+			{
+				item.isOverriden = !GenesIsMatch(pawnGenes, item.genes, percent, out float matchPercent, useCurves);
+				item.matchPercent = matchPercent;
+			}
+		}
 
-        public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float reqPercent, out float matchPercent, bool useCurves = false, float geneticMaterial = 0f)
+		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float reqPercent, out float matchPercent, bool useCurves = false, float geneticMaterial = 0f)
 		{
 			matchPercent = 0;
 			if (xenotypeGenes.NullOrEmpty() || reqPercent <= 0f)
@@ -130,15 +129,15 @@ namespace WVC_XenotypesAndGenes
 			foreach (GeneDef pawnGene in pawnGeneDefs)
 			{
 				foreach (GeneDef xenoGene in xenotypeGenes)
-                {
+				{
 					if (xenoGene == pawnGene)
 					{
 						sameGenes++;
 					}
-                    else if (xenoGene.ConflictsWith(pawnGene))
-                    {
-                        matchPercent++;
-                    }
+					else if (xenoGene.ConflictsWith(pawnGene))
+					{
+						matchPercent++;
+					}
 					else if (pawnGene.displayCategory == xenoGene.displayCategory)
 					{
 						matchPercent += 0.4f;
@@ -149,9 +148,9 @@ namespace WVC_XenotypesAndGenes
 						//{
 						//	matchPercent += 0.05f;
 						//}
-                    }
-                }
-            }
+					}
+				}
+			}
 			matchPercent *= 0.01f;
 			if (useCurves)
 			{
@@ -183,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 			matchPercent += sameGenes / xenotypeGenes.Count;
 			matchPercent += geneticMaterial;
 			if (matchPercent > 1f)
-            {
+			{
 				matchPercent = 1f;
 			}
 			if (matchPercent >= reqPercent)

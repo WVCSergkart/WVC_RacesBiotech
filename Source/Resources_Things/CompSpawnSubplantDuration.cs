@@ -1,12 +1,12 @@
 // RimWorld.CompProperties_Toxifier
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompSpawnSubplantDuration : ThingComp
+	public class CompSpawnSubplantDuration : ThingComp
 	{
 		private int nextSubplantTick;
 

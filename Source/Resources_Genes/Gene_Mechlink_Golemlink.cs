@@ -1,16 +1,14 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverridden
+	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverridden
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -118,57 +116,57 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public int CountSpawn => WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
+		public int CountSpawn => WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
 
-        public void Notify_GenesChanged(Gene changedGene)
-        {
-            cachedAllowedGolemModes = null;
-            //cachedMakerSubGenes = null;
-        }
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedAllowedGolemModes = null;
+			//cachedMakerSubGenes = null;
+		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
+		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			//base.Notify_OverriddenBy(overriddenBy);
 			Notify_GenesChanged(null);
-        }
+		}
 
-        public void Notify_Override()
-        {
+		public void Notify_Override()
+		{
 			//base.Notify_Override();
 			Notify_GenesChanged(null);
-        }
+		}
 
-        //private GolemlinkMode workerInt;
-        //public GolemlinkMode Worker
-        //{
-        //	get
-        //	{
-        //		if (workerInt == null)
-        //		{
-        //			foreach (Gene gene in pawn.genes.GenesListForReading)
-        //			{
-        //				if (gene is not Gene_GolemlinkSubGene subGene || !subGene.Active)
-        //				{
-        //					continue;
-        //				}
-        //				if (subGene.CustomWorker == null)
-        //				{
-        //					continue;
-        //				}
-        //				workerInt = (GolemlinkMode)Activator.CreateInstance(subGene.CustomWorker);
-        //				workerInt.golemlink = this;
-        //				workerInt.parent = subGene;
-        //				return workerInt;
-        //			}
-        //			workerInt = (GolemlinkMode)Activator.CreateInstance(typeof(GolemlinkMode));
-        //			workerInt.golemlink = this;
-        //			workerInt.parent = null;
-        //		}
-        //		return workerInt;
-        //	}
-        //}
+		//private GolemlinkMode workerInt;
+		//public GolemlinkMode Worker
+		//{
+		//	get
+		//	{
+		//		if (workerInt == null)
+		//		{
+		//			foreach (Gene gene in pawn.genes.GenesListForReading)
+		//			{
+		//				if (gene is not Gene_GolemlinkSubGene subGene || !subGene.Active)
+		//				{
+		//					continue;
+		//				}
+		//				if (subGene.CustomWorker == null)
+		//				{
+		//					continue;
+		//				}
+		//				workerInt = (GolemlinkMode)Activator.CreateInstance(subGene.CustomWorker);
+		//				workerInt.golemlink = this;
+		//				workerInt.parent = subGene;
+		//				return workerInt;
+		//			}
+		//			workerInt = (GolemlinkMode)Activator.CreateInstance(typeof(GolemlinkMode));
+		//			workerInt.golemlink = this;
+		//			workerInt.parent = null;
+		//		}
+		//		return workerInt;
+		//	}
+		//}
 
-        public void DoSubMaker(out int golems)
+		public void DoSubMaker(out int golems)
 		{
 			golems = 0;
 			foreach (Gene gene in pawn.genes.GenesListForReading)
@@ -182,84 +180,84 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void SummonRandomMech(bool ignoreChunks = false)
-        {
-            if (golemsForSummon.NullOrEmpty())
-            {
-                golemsForSummon = Spawner?.golemModeDefs;
-            }
-            if (golemsForSummon.NullOrEmpty())
-            {
-                Log.Error("Failed summon golems. golemsForSummon is null.");
-                return;
-            }
-            string phase = "";
-            try
-            {
-                phase = "do sub maker";
+		{
+			if (golemsForSummon.NullOrEmpty())
+			{
+				golemsForSummon = Spawner?.golemModeDefs;
+			}
+			if (golemsForSummon.NullOrEmpty())
+			{
+				Log.Error("Failed summon golems. golemsForSummon is null.");
+				return;
+			}
+			string phase = "";
+			try
+			{
+				phase = "do sub maker";
 				DoSubMaker(out int golems);
 				phase = "start";
-                int countSpawn = CountSpawn - golems;
-                phase = "get total golembond";
-                float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
-                phase = "get consumed golembond";
-                float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
-                phase = "get all controlled golems";
-                List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
-                if (currentGolems.NullOrEmpty())
-                {
-                    currentGolems = new();
-                }
-                bool summonInsteadAnimation = false;
-                int countSummon = 0;
-                phase = "start spawn";
-                for (int i = 0; i < countSpawn; i++)
-                {
-                    Thing chunk = GetBestStoneChunk(pawn, false);
-                    phase = "choose method";
-                    if (ignoreChunks || chunk == null)
-                    {
-                        summonInsteadAnimation = true;
-                        countSummon = countSpawn - i;
-                        break;
-                    }
-                    else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
-                    {
-                        phase = "try animate golem";
-                        if (TryCreateGolemFromThing(chunk, newGolem, pawn))
-                        {
-                            currentConsumption += golemConsumtion;
-                            currentGolems.Add(newGolem);
-                        }
-                    }
-                }
-                if (!summonInsteadAnimation)
-                {
-                    return;
-                }
-                phase = "summon random golem";
-                countSummon = Mathf.Clamp(countSummon, 0, (int)(currentLimit - currentConsumption));
-                if (countSummon <= 0)
-                {
-                    return;
-                }
-                if (MechanoidsUtility.TrySummonMechanoids(pawn, countSummon, golemsForSummon, out List<Thing> summonList))
-                {
-                    Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
-                }
-            }
-            catch (Exception arg)
-            {
-                summonMechanoids = false;
-                Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
-            }
-        }
+				int countSpawn = CountSpawn - golems;
+				phase = "get total golembond";
+				float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
+				phase = "get consumed golembond";
+				float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
+				phase = "get all controlled golems";
+				List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
+				if (currentGolems.NullOrEmpty())
+				{
+					currentGolems = new();
+				}
+				bool summonInsteadAnimation = false;
+				int countSummon = 0;
+				phase = "start spawn";
+				for (int i = 0; i < countSpawn; i++)
+				{
+					Thing chunk = GetBestStoneChunk(pawn, false);
+					phase = "choose method";
+					if (ignoreChunks || chunk == null)
+					{
+						summonInsteadAnimation = true;
+						countSummon = countSpawn - i;
+						break;
+					}
+					else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
+					{
+						phase = "try animate golem";
+						if (TryCreateGolemFromThing(chunk, newGolem, pawn))
+						{
+							currentConsumption += golemConsumtion;
+							currentGolems.Add(newGolem);
+						}
+					}
+				}
+				if (!summonInsteadAnimation)
+				{
+					return;
+				}
+				phase = "summon random golem";
+				countSummon = Mathf.Clamp(countSummon, 0, (int)(currentLimit - currentConsumption));
+				if (countSummon <= 0)
+				{
+					return;
+				}
+				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSummon, golemsForSummon, out List<Thing> summonList))
+				{
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
+				}
+			}
+			catch (Exception arg)
+			{
+				summonMechanoids = false;
+				Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
+			}
+		}
 
-        public static Thing GetBestStoneChunk(Pawn pawn, bool forced)
+		public static Thing GetBestStoneChunk(Pawn pawn, bool forced)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
-			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Chunk), PathEndMode.InteractionCell, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
+			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Chunk), PathEndMode.InteractionCell, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
 			{
-				Thing chunk = (Thing)t;
+				Thing chunk = t;
 				if (!pawn.CanReach(t, PathEndMode.InteractionCell, danger) || chunk.def.thingCategories.NullOrEmpty() || !chunk.def.thingCategories.Contains(ThingCategoryDefOf.StoneChunks))
 				{
 					return false;
@@ -275,9 +273,9 @@ namespace WVC_XenotypesAndGenes
 			foreach (GolemModeDef item in candidates)
 			{
 				if (!item.canBeAnimated)
-                {
+				{
 					continue;
-                }
+				}
 				if (currentGolems.Contains(item.pawnKindDef))
 				{
 					continue;
@@ -352,6 +350,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
-    }
+	}
 
 }

@@ -1,14 +1,13 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Flickable : Gene, IGeneOverridden
+	public class Gene_Flickable : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -83,19 +82,19 @@ namespace WVC_XenotypesAndGenes
 				yield break;
 			}
 			yield return new Command_Action
-            {
+			{
 				defaultLabel = def.LabelCap + ": " + Flick(pawn, Props.hediffDefName),
 				defaultDesc = Props.message.Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
-                {
-                    AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+				{
+					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
 					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Props.hediffDefName));
-                }
-            };
+				}
+			};
 		}
 
-    }
+	}
 
 	public class Gene_Wings : Gene_Flickable, IGeneRemoteControl
 	{
@@ -113,15 +112,15 @@ namespace WVC_XenotypesAndGenes
 		//public override void Tick()
 		//{
 		//	nextFly--;
-  //          if (nextFly > 0)
-  //          {
-  //              return;
-  //          }
+		//          if (nextFly > 0)
+		//          {
+		//              return;
+		//          }
 		//	nextFly = 15;
 		//	pawn.flight?.StartFlying();
 		//}
 
-        public bool RemoteControl_Hide => !Active;
+		public bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{
@@ -193,14 +192,14 @@ namespace WVC_XenotypesAndGenes
 
 		// public string GetInspectInfo
 		// {
-			// get
-			// {
-				// if (OnOrOff)
-				// {
-					// return "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
-				// }
-				// return null;
-			// }
+		// get
+		// {
+		// if (OnOrOff)
+		// {
+		// return "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
+		// }
+		// return null;
+		// }
 		// }
 
 	}

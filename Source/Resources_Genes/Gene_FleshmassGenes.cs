@@ -1,17 +1,14 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
+	public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
 	{
 
 		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
@@ -48,63 +45,63 @@ namespace WVC_XenotypesAndGenes
 			else
 			{
 				nextTick = 300000;
-            }
-        }
+			}
+		}
 
 
-        //private int? cachedRegen;
-        //public int RegenRate
-        //{
-        //	get
-        //	{
-        //		if (!cachedRegen.HasValue)
-        //		{
-        //			int regen = 0;
-        //			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-        //			{
-        //				if (hediff is HediffAddedPart_FleshmassNucleus fleshHediff)
-        //				{
-        //					regen += fleshHediff.CurrentLevel;
-        //				}
-        //			}
-        //			cachedRegen = regen;
-        //		}
-        //		return cachedRegen.Value;
-        //	}
-        //}
+		//private int? cachedRegen;
+		//public int RegenRate
+		//{
+		//	get
+		//	{
+		//		if (!cachedRegen.HasValue)
+		//		{
+		//			int regen = 0;
+		//			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+		//			{
+		//				if (hediff is HediffAddedPart_FleshmassNucleus fleshHediff)
+		//				{
+		//					regen += fleshHediff.CurrentLevel;
+		//				}
+		//			}
+		//			cachedRegen = regen;
+		//		}
+		//		return cachedRegen.Value;
+		//	}
+		//}
 
 		private float? cachedRegen;
-        public float Regeneration
-        {
-            get
-            {
+		public float Regeneration
+		{
+			get
+			{
 				if (!cachedRegen.HasValue)
-                {
-                    float regen = 0f;
+				{
+					float regen = 0f;
 					foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-                    {
+					{
 						if (hediff is HediffAddedPart_FleshmassNucleus fleshmassHediff)
-                        {
+						{
 							regen += (fleshmassHediff.CurrentLevel * 2f);
 						}
-                    }
+					}
 					cachedRegen = regen;
 				}
-                return cachedRegen.Value;
-            }
-        }
+				return cachedRegen.Value;
+			}
+		}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			if (GeneResourceUtility.CanTick(ref nextTick, 300000, delta))
 			{
 				TryGiveMutation();
 			}
-            if (pawn.IsHashIntervalTick(2571, delta))
-            {
+			if (pawn.IsHashIntervalTick(2571, delta))
+			{
 				HealingUtility.Regeneration(pawn, Regeneration, 2571);
-            }
-        }
+			}
+		}
 
 		public void TryGiveMutation()
 		{
@@ -134,24 +131,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
-        {
-            hediffWithComps_FleshmassHeart = null;
-            List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < Fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
-            foreach (Hediff hediff in hediffs)
-            {
-                if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
-                {
-                    hediffWithComps_FleshmassHeart = massHediff;
-                    break;
-                }
-            }
-            return hediffWithComps_FleshmassHeart != null;
-        }
+		private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
+		{
+			hediffWithComps_FleshmassHeart = null;
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < Fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
+			foreach (Hediff hediff in hediffs)
+			{
+				if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
+				{
+					hediffWithComps_FleshmassHeart = massHediff;
+					break;
+				}
+			}
+			return hediffWithComps_FleshmassHeart != null;
+		}
 
-        public static float Fleshmass_MaxMutationsLevel => WVC_Biotech.settings.fleshmass_MaxMutationsLevel;
+		public static float Fleshmass_MaxMutationsLevel => WVC_Biotech.settings.fleshmass_MaxMutationsLevel;
 
-        public static void TrySpawnMeat(Pawn pawn)
+		public static void TrySpawnMeat(Pawn pawn)
 		{
 			int num = Mathf.CeilToInt(20 * pawn.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
 			int randomInRange = new IntRange(3, 6).RandomInRange;
@@ -169,27 +166,27 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-        {
-            if (!Active)
-            {
-                return;
+		{
+			if (!Active)
+			{
+				return;
 			}
 			if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
 			{
 				return;
 			}
 			if (!ModsConfig.AnomalyActive || mapHeld == null)
-            {
-                return;
+			{
+				return;
 			}
 			if (GenDrop.TryDropSpawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.FleshmassNucleus, Faction.OfEntities)), positionHeld, mapHeld, ThingPlaceMode.Near, out var resultingThing))
-            {
-                CompActivity activity = resultingThing.TryGetComp<CompActivity>();
-                if (activity != null)
-                {
-                    activity.AdjustActivity(1f);
-                }
-            }
+			{
+				CompActivity activity = resultingThing.TryGetComp<CompActivity>();
+				if (activity != null)
+				{
+					activity.AdjustActivity(1f);
+				}
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -204,18 +201,18 @@ namespace WVC_XenotypesAndGenes
 						TryGiveMutation();
 					}
 				};
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: FleshmassLevelUp",
-                    action = delegate
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: FleshmassLevelUp",
+					action = delegate
 					{
 						if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
 						{
 							hediffWithComps_FleshmassHeart.LevelUp();
 						}
 					}
-                };
-            }
+				};
+			}
 		}
 
 		public override void ExposeData()
@@ -239,11 +236,11 @@ namespace WVC_XenotypesAndGenes
 
 	[Obsolete]
 	public class Gene_FleshmassBuilder : Gene_DeadlifeBuilder
-    {
+	{
 
-    }
+	}
 
-    public class Gene_FleshmassBrain : Gene_AutoResearch
+	public class Gene_FleshmassBrain : Gene_AutoResearch
 	{
 
 		public override void TickInterval(int delta)
@@ -273,7 +270,7 @@ namespace WVC_XenotypesAndGenes
 			bool spaceFlag = pawn.InSpace();
 			foreach (Apparel apparel in apparels)
 			{
-                apparel.HitPoints = Mathf.Clamp(apparel.HitPoints - (tick / apparels.Count / 1500 / (spaceFlag ? 10 : 1)), 1, apparel.MaxHitPoints);
+				apparel.HitPoints = Mathf.Clamp(apparel.HitPoints - (tick / apparels.Count / 1500 / (spaceFlag ? 10 : 1)), 1, apparel.MaxHitPoints);
 			}
 		}
 
@@ -370,14 +367,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					List<Gene_DeadlifeBuilder> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
-                    {
+					{
 						Gene_DeadlifeBuilder builder = pawn.genes?.GetFirstGeneOfType<Gene_DeadlifeBuilder>();
 						if (builder != null)
-                        {
+						{
 							list.Add(builder);
-                        }
-                    }
-                    cachedBuilderGenes = list;
+						}
+					}
+					cachedBuilderGenes = list;
 				}
 				return cachedBuilderGenes;
 			}
@@ -396,28 +393,28 @@ namespace WVC_XenotypesAndGenes
 			//	Recache();
 			//	return;
 			//}
-            if (XaG_GeneUtility.FactionMap(pawn))
-            {
-                nextTick = 60000;
-                return;
-            }
+			if (XaG_GeneUtility.FactionMap(pawn))
+			{
+				nextTick = 60000;
+				return;
+			}
 			bool foundSelf = false;
 			foreach (Gene_DeadlifeBuilder builder in Builders)
-            {
-                if (builder != this)
-                {
-                    builder.nextTick = 7000;
-                }
+			{
+				if (builder != this)
+				{
+					builder.nextTick = 7000;
+				}
 				else
-                {
+				{
 					foundSelf = true;
-                }
-            }
+				}
+			}
 			if (!foundSelf)
-            {
+			{
 				Notify_GenesChanged(null);
 			}
-            GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
+			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
 			string phase = "";
@@ -468,7 +465,7 @@ namespace WVC_XenotypesAndGenes
 						//	CellRect rect = thing.OccupiedRect();
 						//	positionHeld = rect.ClosestCellTo(positionHeld);
 						//}
-                        GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
 						phase = "learn skill";
 						if (pawn.skills != null)
@@ -478,7 +475,7 @@ namespace WVC_XenotypesAndGenes
 								builder.SkillLearn(tick, 0.01f);
 							}
 						}
-                        phase = "regen hp";
+						phase = "regen hp";
 						building.HitPoints += (int)(2 * num);
 						building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
 						phase = "Notify_BuildingRepaired";
@@ -501,23 +498,23 @@ namespace WVC_XenotypesAndGenes
 				nextTick = tick * (int)(300 + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 0 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.6f : 1));
 			}
 			else
-            {
+			{
 				nextTick = tick;
-            }
+			}
 		}
 
-        public void SkillLearn(int tick, float rate)
-        {
-            pawn.skills.Learn(SkillDefOf.Construction, rate * tick);
-        }
+		public void SkillLearn(int tick, float rate)
+		{
+			pawn.skills.Learn(SkillDefOf.Construction, rate * tick);
+		}
 
-        public override void PostRemove()
-        {
-            base.PostRemove();
+		public override void PostRemove()
+		{
+			base.PostRemove();
 			Notify_GenesChanged(null);
 		}
 
-        public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesChanged(Gene changedGene)
 		{
 			cachedBuilderGenes = null;
 		}
@@ -538,7 +535,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref nextTick, "nextTick", -1);
 		}
 
-    }
+	}
 
 	public class Gene_SelfDevourStomach : Gene
 	{
@@ -552,34 +549,34 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            if (!GeneResourceUtility.CanTick(ref nextTick, 8678, delta))
-            {
-                return;
-            }
-            if (pawn.Faction != Faction.OfPlayer)
-            {
-                //GeneResourceUtility.OffsetNeedFood(pawn, 1f, true);
-                return;
-            }
-            if (!pawn.TryGetNeedFood(out Need_Food food))
-            {
-                return;
-            }
-            if (food.CurLevelPercentage > 0.05f)
-            {
-                return;
-            }
-            DevourPart();
+		{
+			if (!GeneResourceUtility.CanTick(ref nextTick, 8678, delta))
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				//GeneResourceUtility.OffsetNeedFood(pawn, 1f, true);
+				return;
+			}
+			if (!pawn.TryGetNeedFood(out Need_Food food))
+			{
+				return;
+			}
+			if (food.CurLevelPercentage > 0.05f)
+			{
+				return;
+			}
+			DevourPart();
 		}
 
-        private void DevourPart()
-        {
-            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true, def.label), false);
+		private void DevourPart()
+		{
+			GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true, def.label), false);
 			HediffUtility.MutationMeatSplatter(pawn);
 		}
 
-        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, string geneDef)
+		public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, string geneDef)
 		{
 			//(from x in pawn.health.hediffSet.GetNotMissingParts()
 			// where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
@@ -587,8 +584,8 @@ namespace WVC_XenotypesAndGenes
 			float bodyPartNutrition = 0f;
 			if (pawn.health.hediffSet.GetNotMissingParts().Where((part) => !part.def.conceptual && part != pawn.RaceProps.body.corePart && part.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)).TryRandomElement(out BodyPartRecord bodyPart))
 			{
-                float currentCorpseNutrition = (pawn.GetStatValue(StatDefOf.MeatAmount) * 0.1f * (pawn.GetStatValue(StatDefOf.RawNutritionFactor) + pawn.GetStatValue(StatDefOf.MaxNutrition))) / pawn.health.summaryHealth.SummaryHealthPercent;
-                bodyPartNutrition = FoodUtility.GetBodyPartNutrition(currentCorpseNutrition, pawn, bodyPart);
+				float currentCorpseNutrition = (pawn.GetStatValue(StatDefOf.MeatAmount) * 0.1f * (pawn.GetStatValue(StatDefOf.RawNutritionFactor) + pawn.GetStatValue(StatDefOf.MaxNutrition))) / pawn.health.summaryHealth.SummaryHealthPercent;
+				bodyPartNutrition = FoodUtility.GetBodyPartNutrition(currentCorpseNutrition, pawn, bodyPart);
 				if (applyDigestion)
 				{
 					Hediff_MissingPart hediff_MissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, bodyPart);
@@ -624,28 +621,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_FleshmassImmunity : Gene_AddOrRemoveHediff
+	public class Gene_FleshmassImmunity : Gene_AddOrRemoveHediff
 	{
 
 		private List<HediffDef> immunizedHediffs = new();
 		public List<HediffDef> ImmunizedHediffs => immunizedHediffs;
 
 		public void ImmunizeHediff(HediffDef hediffDef)
-        {
+		{
 			if (immunizedHediffs == null)
-            {
+			{
 				immunizedHediffs = new();
 			}
 			if (!immunizedHediffs.Contains(hediffDef))
-            {
+			{
 				immunizedHediffs.Add(hediffDef);
 				foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-                {
+				{
 					if (hediff is Hediff_FleshmassImmunity fleshmass)
-                    {
+					{
 						fleshmass.Reset();
-                    }
-                }
+					}
+				}
 			}
 		}
 
@@ -658,12 +655,12 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
+		{
+			base.TickInterval(delta);
 			if (GeneResourceUtility.CanTick(ref nextTick, 66966, delta))
-            {
-                TryImmunizeNewHediffs();
-            }
+			{
+				TryImmunizeNewHediffs();
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -682,18 +679,18 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void TryImmunizeNewHediffs()
-        {
-            foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-            {
-                HediffComp_Immunizable hediffComp_Immunizable = hediff.TryGetComp<HediffComp_Immunizable>();
-                if (hediffComp_Immunizable != null)
-                {
-                    ImmunizeHediff(hediff.def);
-                }
-            }
-        }
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+			{
+				HediffComp_Immunizable hediffComp_Immunizable = hediff.TryGetComp<HediffComp_Immunizable>();
+				if (hediffComp_Immunizable != null)
+				{
+					ImmunizeHediff(hediff.def);
+				}
+			}
+		}
 
-        public override void ExposeData()
+		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", -1);

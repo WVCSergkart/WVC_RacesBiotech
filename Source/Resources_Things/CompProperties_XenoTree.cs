@@ -1,10 +1,9 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -105,24 +104,24 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void TryDoSpawn()
-        {
-            if (IsActive())
-            {
+		{
+			if (IsActive())
+			{
 				changeCooldown = 0;
 				GestationUtility.GestateChild_WithXenotype(parent, chosenXenotype, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
-                if (Subplant != null)
-                {
-                    Subplant.DoGrowSubplant();
-                }
-            }
-        }
+				if (Subplant != null)
+				{
+					Subplant.DoGrowSubplant();
+				}
+			}
+		}
 
-        private bool IsActive()
-        {
-            return spawnerIsActive && (chosenXenotype != null || xenotypeHolder != null);
-        }
+		private bool IsActive()
+		{
+			return spawnerIsActive && (chosenXenotype != null || xenotypeHolder != null);
+		}
 
-        public override string CompInspectStringExtra()
+		public override string CompInspectStringExtra()
 		{
 			StringBuilder stringBuilder = new(base.CompInspectStringExtra());
 			if (IsActive())

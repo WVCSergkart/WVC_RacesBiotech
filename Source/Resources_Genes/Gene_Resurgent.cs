@@ -1,6 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -92,13 +91,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MaxLevelOffset => 0.20f;
 
-        protected override Color BarColor => new ColorInt(93, 101, 126).ToColor;
-        protected override Color BarHighlightColor => new ColorInt(123, 131, 156).ToColor;
+		protected override Color BarColor => new ColorInt(93, 101, 126).ToColor;
+		protected override Color BarHighlightColor => new ColorInt(123, 131, 156).ToColor;
 
-        //protected override Color BarColor => new ColorInt(126, 121, 93).ToColor;
-        //protected override Color BarHighlightColor => new ColorInt(156, 156, 123).ToColor;
+		//protected override Color BarColor => new ColorInt(126, 121, 93).ToColor;
+		//protected override Color BarHighlightColor => new ColorInt(156, 156, 123).ToColor;
 
-        [Unsaved(false)]
+		[Unsaved(false)]
 		private List<IGeneResourceDrain> cachedDrainGenes = new();
 
 		public List<IGeneResourceDrain> GetDrainGenes
@@ -134,19 +133,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Reset()
-        {
-            base.Reset();
-            if (MiscUtility.GameNotStarted())
-            {
-                Value = new FloatRange(0.06f, 0.97f).RandomInRange;
-            }
-            else
-            {
-                Value = 0.5f;
-            }
-        }
+		{
+			base.Reset();
+			if (MiscUtility.GameNotStarted())
+			{
+				Value = new FloatRange(0.06f, 0.97f).RandomInRange;
+			}
+			else
+			{
+				Value = 0.5f;
+			}
+		}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			//base.Tick();
 			if (pawn.IsHashIntervalTick(2400, delta))
@@ -174,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
 		}
-    }
+	}
 
 	//[Obsolete]
 	//public class Gene_ResurgentCells : Gene_Resurgent

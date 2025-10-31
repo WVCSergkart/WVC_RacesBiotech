@@ -1,12 +1,10 @@
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffWithComps_ChimeraDependant : HediffWithComps
+	public class HediffWithComps_ChimeraDependant : HediffWithComps
 	{
 
 		public override bool Visible => false;
@@ -54,13 +52,13 @@ namespace WVC_XenotypesAndGenes
 					if (Chimera != null && pawn.mechanitor != null)
 					{
 						float newLimit = pawn.mechanitor.TotalBandwidth - pawn.mechanitor.UsedBandwidth;
-                        curStage.statOffsets = new();
+						curStage.statOffsets = new();
 						StatModifier statMod = new();
 						statMod.stat = Chimera.ChimeraLimitStatDef;
 						statMod.value = newLimit;
 						curStage.statOffsets.Add(statMod);
-                    }
-                }
+					}
+				}
 				return curStage;
 			}
 		}

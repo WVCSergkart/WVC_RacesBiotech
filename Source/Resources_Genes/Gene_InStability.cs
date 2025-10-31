@@ -1,12 +1,10 @@
-using RimWorld;
-using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -36,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			// if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			// {
-				// Gene_AddOrRemoveHediff.RemoveHediff(Props.hediffDefName, pawn);
+			// Gene_AddOrRemoveHediff.RemoveHediff(Props.hediffDefName, pawn);
 			// }
 			ResetInterval();
 		}
@@ -46,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			//base.Tick();
 			// if (!pawn.IsHashIntervalTick(nextTick))
 			// {
-				// return;
+			// return;
 			// }
 			nextTick -= delta;
 			if (nextTick > 0)
@@ -64,11 +62,11 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostRemove()
 		// {
-			// base.PostRemove();
-			// if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-			// {
-				// pawn.health.AddHediff(Props.hediffDefName);
-			// }
+		// base.PostRemove();
+		// if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+		// {
+		// pawn.health.AddHediff(Props.hediffDefName);
+		// }
 		// }
 
 		public override void ExposeData()
@@ -110,7 +108,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			// if (!pawn.IsHashIntervalTick(nextTick))
 			// {
-				// return;
+			// return;
 			// }
 			nextTick -= delta;
 			if (nextTick > 0)
@@ -137,15 +135,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_GhoulMetabolism : Gene
+	public class Gene_GhoulMetabolism : Gene
 	{
 
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 
-        }
+		}
 
-        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			if (!Active)
 			{
@@ -202,23 +200,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            //base.Tick();
-            nextTick -= delta;
-            if (nextTick > 0)
-            {
-                return;
-            }
-            Stabilize();
-            ResetInterval();
-        }
+		{
+			//base.Tick();
+			nextTick -= delta;
+			if (nextTick > 0)
+			{
+				return;
+			}
+			Stabilize();
+			ResetInterval();
+		}
 
-        public virtual void Stabilize()
-        {
-            HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
-        }
+		public virtual void Stabilize()
+		{
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+		}
 
-        private void ResetInterval()
+		private void ResetInterval()
 		{
 			nextTick = Props.intervalRange.RandomInRange;
 		}
@@ -357,9 +355,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (pawn.Faction != Faction.OfPlayer)
 			// {
-				// useStabilizerAuto = false;
-				// ResetInterval();
-				// return;
+			// useStabilizerAuto = false;
+			// ResetInterval();
+			// return;
 			// }
 			if (pawn.Map == null)
 			{
@@ -440,25 +438,25 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-            if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFaction(pawn, this))
-            {
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: GeneticInstability",
-                    action = delegate
-                    {
-                        GeneticStuff();
-                    }
-                };
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEV: Reduce instability ticker",
-                    action = delegate
-                    {
-                        nextTick -= 30000;
-                    }
-                };
-            }
+			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GeneticInstability",
+					action = delegate
+					{
+						GeneticStuff();
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Reduce instability ticker",
+					action = delegate
+					{
+						nextTick -= 30000;
+					}
+				};
+			}
 			//foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes, enabled))
 			//{
 			//	yield return gizmo;

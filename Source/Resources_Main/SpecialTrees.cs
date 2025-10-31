@@ -26,15 +26,15 @@ namespace WVC_XenotypesAndGenes
 		public override int DesiredTreeCountForMap(Map map)
 		{
 			PollutionLevel pollutionLevel = Find.WorldGrid[map.Tile].PollutionLevel();
-            return pollutionLevel switch
-            {
-                PollutionLevel.None => pollutionNone,
-                PollutionLevel.Light => pollutionLight,
-                PollutionLevel.Moderate => pollutionModerate,
-                PollutionLevel.Extreme => pollutionExtreme,
-                _ => 1,
-            };
-        }
+			return pollutionLevel switch
+			{
+				PollutionLevel.None => pollutionNone,
+				PollutionLevel.Light => pollutionLight,
+				PollutionLevel.Moderate => pollutionModerate,
+				PollutionLevel.Extreme => pollutionExtreme,
+				_ => 1,
+			};
+		}
 
 		protected override float GetGrowth()
 		{

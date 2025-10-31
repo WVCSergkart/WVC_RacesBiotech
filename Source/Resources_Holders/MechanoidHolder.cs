@@ -1,18 +1,18 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class MechanoidHolder
-    {
+	public class MechanoidHolder
+	{
 
-        public PawnKindDef pawnKindDef = null;
+		public PawnKindDef pawnKindDef = null;
 
-        public List<StatDef> displayedStats = new() { StatDefOf.WorkSpeedGlobal, StatDefOf.BandwidthCost, StatDefOf.ArmorRating_Blunt, StatDefOf.ArmorRating_Sharp };
+		public List<StatDef> displayedStats = new() { StatDefOf.WorkSpeedGlobal, StatDefOf.BandwidthCost, StatDefOf.ArmorRating_Blunt, StatDefOf.ArmorRating_Sharp };
 
 
 		private float? voidEnergyCost;
@@ -22,14 +22,14 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (!voidEnergyCost.HasValue)
-                {
-                    voidEnergyCost = GetVoidMechCost(pawnKindDef, 99f);
-                }
-                return voidEnergyCost.Value;
+				{
+					voidEnergyCost = GetVoidMechCost(pawnKindDef, 99f);
+				}
+				return voidEnergyCost.Value;
 			}
 		}
 
-        public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
+		public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
 		{
 			SimpleCurve workCurve = new()
 			{
@@ -49,29 +49,29 @@ namespace WVC_XenotypesAndGenes
 
 		private bool? isWorkGolemnoid;
 
-        public bool Worker
-        {
-            get
-            {
-                if (isWorkGolemnoid == null)
-                {
-                    isWorkGolemnoid = pawnKindDef?.race?.race?.mechEnabledWorkTypes?.NullOrEmpty() == false;
-                }
-                return isWorkGolemnoid.Value;
-            }
-        }
+		public bool Worker
+		{
+			get
+			{
+				if (isWorkGolemnoid == null)
+				{
+					isWorkGolemnoid = pawnKindDef?.race?.race?.mechEnabledWorkTypes?.NullOrEmpty() == false;
+				}
+				return isWorkGolemnoid.Value;
+			}
+		}
 
-        [Unsaved(false)]
-        private string cachedDescription;
+		[Unsaved(false)]
+		private string cachedDescription;
 
-        public virtual string Description
-        {
-            get
-            {
-                if (cachedDescription == null)
-                {
+		public virtual string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
 					string phase = "start";
-                    try
+					try
 					{
 						StringBuilder stringBuilder = new();
 						stringBuilder.AppendLine(pawnKindDef.race.description);
@@ -107,15 +107,15 @@ namespace WVC_XenotypesAndGenes
 						stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.LabelCap);
 						cachedDescription = stringBuilder.ToString();
 					}
-                    catch (Exception arg)
-                    {
+					catch (Exception arg)
+					{
 						Log.Error("Failed get description for mechanoid. On phase: " + phase + " Reason: " + arg);
 						cachedDescription = "WVC_XaG_NoDescError".Translate() + " Cause failed get description for mechanoid. On phase: " + phase;
 					}
-                }
-                return cachedDescription;
-            }
-        }
+				}
+				return cachedDescription;
+			}
+		}
 
 	}
 

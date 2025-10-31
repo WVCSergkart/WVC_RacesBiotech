@@ -1,7 +1,7 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -43,9 +43,9 @@ namespace WVC_XenotypesAndGenes
 				if (cachedDescription == null)
 				{
 					StringBuilder stringBuilder = new();
-                    stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine(traitDegreeData.description.Formatted(targetPawn.Named("PAWN")).AdjustedFor(targetPawn).Resolve());
+					stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+					stringBuilder.AppendLine();
+					stringBuilder.AppendLine(traitDegreeData.description.Formatted(targetPawn.Named("PAWN")).AdjustedFor(targetPawn).Resolve());
 					bool num = traitDegreeData.skillGains.Count > 0;
 					bool flag = GetPermaThoughts().Any();
 					bool flag2 = traitDegreeData.statOffsets != null;
@@ -233,23 +233,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool ConflictsWith(TraitDefHolder otherHolder)
-        {
+		{
 			if (traitDef.ConflictsWith(otherHolder.traitDef))
-            {
+			{
 				return true;
-            }
-            return false;
+			}
+			return false;
 		}
 
 		public bool ConflictsWithAny(List<TraitDefHolder> holders)
 		{
 			foreach (TraitDefHolder holder in holders)
-            {
+			{
 				if (ConflictsWith(holder))
-                {
+				{
 					return true;
-                }
-            }
+				}
+			}
 			return false;
 		}
 

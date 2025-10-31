@@ -1,10 +1,10 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Chameleon : Gene, IGeneRemoteControl
+	public class Gene_Chameleon : Gene, IGeneRemoteControl
 	{
 		public virtual string RemoteActionName => "WVC_Style".Translate();
 

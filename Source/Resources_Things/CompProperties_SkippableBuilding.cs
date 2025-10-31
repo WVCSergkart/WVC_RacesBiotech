@@ -1,13 +1,13 @@
 ﻿// RimWorld.CompProperties_Toxifier
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class CompProperties_SkippableBuilding : CompProperties
+	public class CompProperties_SkippableBuilding : CompProperties
 	{
 
 		[NoTranslate]
@@ -126,13 +126,13 @@ namespace WVC_XenotypesAndGenes
 
 		private int lastSkipTick = -1;
 
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
 			Scribe_Values.Look(ref lastSkipTick, "lastSkipTick", -1);
 		}
 
-    }
+	}
 
 	public class CompSkippableDryadPod : CompSkippableBuilding
 	{
@@ -148,14 +148,14 @@ namespace WVC_XenotypesAndGenes
 		//	return base.ValidateTarget(target, showMessages);
 		//}
 
-        public bool PawnIsNotPsycaster => DryadHolder?.DryadComp?.Master?.HasPsylink != true;
+		public bool PawnIsNotPsycaster => DryadHolder?.DryadComp?.Master?.HasPsylink != true;
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			if (PawnIsNotPsycaster)
-            {
+			{
 				yield break;
-            }
+			}
 			foreach (Gizmo item in base.CompGetGizmosExtra())
 			{
 				yield return item;

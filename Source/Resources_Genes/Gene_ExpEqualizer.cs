@@ -1,10 +1,10 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_ExpEqualizer : Gene
+	public class Gene_ExpEqualizer : Gene
 	{
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
@@ -38,16 +38,16 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void EqualizeSkillsExp(Pawn pawn, int tick, float expPercentPerDay = 0.1f)
-        {
+		{
 			float expPercent = (expPercentPerDay / 60000) * tick;
-            SkillRecord lowestSkill = null;
+			SkillRecord lowestSkill = null;
 			SkillRecord higherSkill = null;
-            foreach (SkillRecord skill in pawn.skills.skills)
+			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-                if (skill.TotallyDisabled)
-                {
-                    continue;
-                }
+				if (skill.TotallyDisabled)
+				{
+					continue;
+				}
 				if (lowestSkill == null)
 				{
 					lowestSkill = skill;
@@ -61,12 +61,12 @@ namespace WVC_XenotypesAndGenes
 					higherSkill = skill;
 				}
 				if (skill.XpTotalEarned < lowestSkill.XpTotalEarned)
-                {
+				{
 					lowestSkill = skill;
 				}
 			}
 			if (higherSkill == null || lowestSkill == null || lowestSkill == higherSkill || lowestSkill.levelInt == higherSkill.levelInt)
-            {
+			{
 				return;
 			}
 			if (lowestSkill.XpTotalEarned + higherSkill.XpTotalEarned * expPercent > higherSkill.XpTotalEarned - higherSkill.XpTotalEarned * expPercent)

@@ -1,12 +1,6 @@
-using RimWorld;
-using RimWorld.Planet;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -60,23 +54,23 @@ namespace WVC_XenotypesAndGenes
 
 		private ThrallDef thrallDef = null;
 
-        public ThrallDef ThrallDef
-        {
-            get
-            {
-                return thrallDef;
-            }
+		public ThrallDef ThrallDef
+		{
+			get
+			{
+				return thrallDef;
+			}
 			set
-            {
+			{
 				thrallDef = value;
 			}
-        }
+		}
 
-        //private Gizmo gizmo;
+		//private Gizmo gizmo;
 
-        //public bool shouldDrawGizmo = true;
+		//public bool shouldDrawGizmo = true;
 
-        public void ThrallMakerDialog()
+		public void ThrallMakerDialog()
 		{
 			Find.WindowStack.Add(new Dialog_ThrallMaker(this));
 		}
@@ -121,7 +115,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HivemindMaker : Gene_ThrallMaker, IGeneHivemind, IGeneNonSync
 	{
 
-        public override List<XenotypeHolder> AllowedThralls => base.AllowedThralls.Where((thrall) => thrall.genes.Any((gene) => gene.IsGeneDefOfType<IGeneHivemind>())).ToList();
+		public override List<XenotypeHolder> AllowedThralls => base.AllowedThralls.Where((thrall) => thrall.genes.Any((gene) => gene.IsGeneDefOfType<IGeneHivemind>())).ToList();
 
 		//public override void PostAdd()
 		//{

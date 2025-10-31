@@ -1,12 +1,12 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using RimWorld.Planet;
-using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class BloodeaterMode_Hemogen : BloodeaterMode
+	public class BloodeaterMode_Hemogen : BloodeaterMode
 	{
 
 		public override bool GetFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false)
@@ -14,12 +14,12 @@ namespace WVC_XenotypesAndGenes
 			return TryHuntForFood(pawn, abilityDef, requestQueueing, queue, true);
 		}
 
-        public override bool CanBloodFeedNowWith(Pawn pawn, Pawn victim)
-        {
-            return GeneFeaturesUtility.CanBloodFeedNowWith(pawn, victim, true);
-        }
+		public override bool CanBloodFeedNowWith(Pawn pawn, Pawn victim)
+		{
+			return GeneFeaturesUtility.CanBloodFeedNowWith(pawn, victim, true);
+		}
 
-        public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
+		public override bool GetFood_Caravan(Pawn pawn, Pawn victim, Caravan caravan)
 		{
 			if (!CanBloodFeedNowWith(pawn, victim))
 			{

@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -78,30 +78,30 @@ namespace WVC_XenotypesAndGenes
 
 		// private List<Color> AllColors
 		// {
-			// get
-			// {
-				// if (allColors == null)
-				// {
-					// allColors = new List<Color>();
-					// if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
-					// {
-						// allColors.Add(pawn.Ideo.ApparelColor);
-					// }
-					// if (pawn.story != null && !pawn.DevelopmentalStage.Baby() && pawn.story.favoriteColor.HasValue && !allColors.Any((Color c) => pawn.story.favoriteColor.Value.IndistinguishableFrom(c)))
-					// {
-						// allColors.Add(pawn.story.favoriteColor.Value);
-					// }
-					// foreach (ColorDef colDef in DefDatabase<ColorDef>.AllDefs.Where((ColorDef x) => x.colorType == ColorType.Ideo || x.colorType == ColorType.Misc || (DevMode && !ModsConfig.IdeologyActive && x.colorType == ColorType.Structure)))
-					// {
-						// if (!allColors.Any((Color x) => x.IndistinguishableFrom(colDef.color)))
-						// {
-							// allColors.Add(colDef.color);
-						// }
-					// }
-					// allColors.SortByColor((Color x) => x);
-				// }
-				// return allColors;
-			// }
+		// get
+		// {
+		// if (allColors == null)
+		// {
+		// allColors = new List<Color>();
+		// if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
+		// {
+		// allColors.Add(pawn.Ideo.ApparelColor);
+		// }
+		// if (pawn.story != null && !pawn.DevelopmentalStage.Baby() && pawn.story.favoriteColor.HasValue && !allColors.Any((Color c) => pawn.story.favoriteColor.Value.IndistinguishableFrom(c)))
+		// {
+		// allColors.Add(pawn.story.favoriteColor.Value);
+		// }
+		// foreach (ColorDef colDef in DefDatabase<ColorDef>.AllDefs.Where((ColorDef x) => x.colorType == ColorType.Ideo || x.colorType == ColorType.Misc || (DevMode && !ModsConfig.IdeologyActive && x.colorType == ColorType.Structure)))
+		// {
+		// if (!allColors.Any((Color x) => x.IndistinguishableFrom(colDef.color)))
+		// {
+		// allColors.Add(colDef.color);
+		// }
+		// }
+		// allColors.SortByColor((Color x) => x);
+		// }
+		// return allColors;
+		// }
 		// }
 
 		private List<Color> AllHairColors
@@ -122,9 +122,9 @@ namespace WVC_XenotypesAndGenes
 					foreach (GeneDef allDef in DefDatabase<GeneDef>.AllDefsListForReading)
 					{
 						if (!allDef.hairColorOverride.HasValue)
-                        {
+						{
 							continue;
-                        }
+						}
 						Color color = allDef.hairColorOverride.Value;
 						if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
 						{
@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginGroup(rect);
 			for (int i = 0; i < 3; i++)
 			{
-				Rect position = new Rect(0f, rect.height / 3f * (float)i, rect.width, rect.height / 3f).ContractedBy(4f);
+				Rect position = new Rect(0f, rect.height / 3f * i, rect.width, rect.height / 3f).ContractedBy(4f);
 				RenderTexture image = PortraitsCache.Get(pawn, new Vector2(position.width, position.height), new Rot4(2 - i), PortraitOffset, 1.1f, supersample: true, compensateForUIScale: true, showHeadgear, showClothes, apparelColors, desiredHairColor, stylingStation: true);
 				GUI.DrawTexture(position, image);
 			}
@@ -265,10 +265,10 @@ namespace WVC_XenotypesAndGenes
 					curTab = StylingTab.TattooBody;
 				}, curTab == StylingTab.TattooBody));
 			}
-            tabs.Add(new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
-            {
-                OpenFloatList();
-            }, curTab == StylingTab.Other));
+			tabs.Add(new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
+			{
+				OpenFloatList();
+			}, curTab == StylingTab.Other));
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
 			// curTab = StylingTab.ApparelColor;
@@ -278,55 +278,55 @@ namespace WVC_XenotypesAndGenes
 			rect = rect.ContractedBy(18f);
 			switch (curTab)
 			{
-			case StylingTab.Hair:
-				rect.yMax -= colorsHeight;
-				DrawStylingItemType(rect, ref hairScrollPosition, delegate(Rect r, HairDef h)
-				{
-					GUI.color = desiredHairColor;
-					Widgets.DefIcon(r, h, null, 1.25f);
-					GUI.color = Color.white;
-				}, delegate(HairDef h)
-				{
-					pawn.story.hairDef = h;
-				}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockTattoos);
-				break;
-			case StylingTab.Beard:
-				DrawStylingItemType(rect, ref beardScrollPosition, delegate(Rect r, BeardDef b)
-				{
-					GUI.color = desiredHairColor;
-					Widgets.DefIcon(r, b, null, 1.25f);
-					GUI.color = Color.white;
-				}, delegate(BeardDef b)
-				{
-					pawn.style.beardDef = b;
-				}, (StyleItemDef b) => pawn.style.beardDef == b, (StyleItemDef b) => initialBeardDef == b);
-				break;
-			case StylingTab.TattooFace:
-				DrawStylingItemType(rect, ref faceTattooScrollPosition, delegate(Rect r, TattooDef t)
-				{
-					Widgets.DefIcon(r, t);
-				}, delegate(TattooDef t)
-				{
-					pawn.style.FaceTattoo = t;
-				}, (StyleItemDef t) => pawn.style.FaceTattoo == t, (StyleItemDef t) => initialFaceTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Face);
-				break;
-			case StylingTab.TattooBody:
-				DrawStylingItemType(rect, ref bodyTattooScrollPosition, delegate(Rect r, TattooDef t)
-				{
-					Widgets.DefIcon(r, t);
-				}, delegate(TattooDef t)
-				{
-					pawn.style.BodyTattoo = t;
-				}, (StyleItemDef t) => pawn.style.BodyTattoo == t, (StyleItemDef t) => initialBodyTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Body);
-				break;
-			// case StylingTab.ApparelColor:
-				// DrawApparelColor(rect);
-				// break;
+				case StylingTab.Hair:
+					rect.yMax -= colorsHeight;
+					DrawStylingItemType(rect, ref hairScrollPosition, delegate (Rect r, HairDef h)
+					{
+						GUI.color = desiredHairColor;
+						Widgets.DefIcon(r, h, null, 1.25f);
+						GUI.color = Color.white;
+					}, delegate (HairDef h)
+					{
+						pawn.story.hairDef = h;
+					}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockTattoos);
+					break;
+				case StylingTab.Beard:
+					DrawStylingItemType(rect, ref beardScrollPosition, delegate (Rect r, BeardDef b)
+					{
+						GUI.color = desiredHairColor;
+						Widgets.DefIcon(r, b, null, 1.25f);
+						GUI.color = Color.white;
+					}, delegate (BeardDef b)
+					{
+						pawn.style.beardDef = b;
+					}, (StyleItemDef b) => pawn.style.beardDef == b, (StyleItemDef b) => initialBeardDef == b);
+					break;
+				case StylingTab.TattooFace:
+					DrawStylingItemType(rect, ref faceTattooScrollPosition, delegate (Rect r, TattooDef t)
+					{
+						Widgets.DefIcon(r, t);
+					}, delegate (TattooDef t)
+					{
+						pawn.style.FaceTattoo = t;
+					}, (StyleItemDef t) => pawn.style.FaceTattoo == t, (StyleItemDef t) => initialFaceTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Face);
+					break;
+				case StylingTab.TattooBody:
+					DrawStylingItemType(rect, ref bodyTattooScrollPosition, delegate (Rect r, TattooDef t)
+					{
+						Widgets.DefIcon(r, t);
+					}, delegate (TattooDef t)
+					{
+						pawn.style.BodyTattoo = t;
+					}, (StyleItemDef t) => pawn.style.BodyTattoo == t, (StyleItemDef t) => initialBodyTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Body);
+					break;
+					// case StylingTab.ApparelColor:
+					// DrawApparelColor(rect);
+					// break;
 			}
 		}
 
-        private void OpenFloatList()
-        {
+		private void OpenFloatList()
+		{
 			List<FloatMenuOption> list = new();
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
@@ -347,165 +347,165 @@ namespace WVC_XenotypesAndGenes
 				}));
 			}
 			Find.WindowStack.Add(new FloatMenu(list));
-        }
+		}
 
-        // private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
-        // {
-        // Widgets.ThingIcon(new Rect(rect.x, curY, Text.LineHeight, Text.LineHeight), ThingDefOf.Dye, null, null, 1.1f);
-        // string text = (string)("Required".Translate() + ": ") + requiredDye + " " + ThingDefOf.Dye.label;
-        // float x = Text.CalcSize(text).x;
-        // Widgets.Label(new Rect(rect.x + Text.LineHeight + 4f, curY, x, Text.LineHeight), text);
-        // Rect rect2 = new(rect.x, curY, x + Text.LineHeight + 8f, Text.LineHeight);
-        // if (Mouse.IsOver(rect2))
-        // {
-        // Widgets.DrawHighlight(rect2);
-        // TooltipHandler.TipRegionByKey(rect2, "TooltipDyeExplanation");
-        // }
-        // curY += Text.LineHeight;
-        // }
+		// private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
+		// {
+		// Widgets.ThingIcon(new Rect(rect.x, curY, Text.LineHeight, Text.LineHeight), ThingDefOf.Dye, null, null, 1.1f);
+		// string text = (string)("Required".Translate() + ": ") + requiredDye + " " + ThingDefOf.Dye.label;
+		// float x = Text.CalcSize(text).x;
+		// Widgets.Label(new Rect(rect.x + Text.LineHeight + 4f, curY, x, Text.LineHeight), text);
+		// Rect rect2 = new(rect.x, curY, x + Text.LineHeight + 8f, Text.LineHeight);
+		// if (Mouse.IsOver(rect2))
+		// {
+		// Widgets.DrawHighlight(rect2);
+		// TooltipHandler.TipRegionByKey(rect2, "TooltipDyeExplanation");
+		// }
+		// curY += Text.LineHeight;
+		// }
 
-        private void DrawHairColors(Rect rect)
+		private void DrawHairColors(Rect rect)
 		{
 			float y = rect.y;
 			Widgets.ColorSelector(new Rect(rect.x, y, rect.width, colorsHeight), ref desiredHairColor, AllHairColors, out colorsHeight);
 			// y += colorsHeight;
 			// if (pawn.Spawned && desiredHairColor != pawn.story.HairColor)
 			// {
-				// Color value = desiredHairColor;
-				// Color? nextHairColor = pawn.style.nextHairColor;
-				// if (value != nextHairColor)
-				// {
-					// DrawDyeRequirement(rect, ref y, 1);
-					// if (pawn.Map.resourceCounter.GetCount(ThingDefOf.Dye) < 1)
-					// {
-						// Rect rect2 = new(rect.x, y, rect.width, Text.LineHeight);
-						// Color color = GUI.color;
-						// GUI.color = ColorLibrary.RedReadable;
-						// Widgets.Label(rect2, "NotEnoughDye".Translate() + " " + "NotEnoughDyeWillRecolorHair".Translate());
-						// GUI.color = color;
-					// }
-				// }
+			// Color value = desiredHairColor;
+			// Color? nextHairColor = pawn.style.nextHairColor;
+			// if (value != nextHairColor)
+			// {
+			// DrawDyeRequirement(rect, ref y, 1);
+			// if (pawn.Map.resourceCounter.GetCount(ThingDefOf.Dye) < 1)
+			// {
+			// Rect rect2 = new(rect.x, y, rect.width, Text.LineHeight);
+			// Color color = GUI.color;
+			// GUI.color = ColorLibrary.RedReadable;
+			// Widgets.Label(rect2, "NotEnoughDye".Translate() + " " + "NotEnoughDyeWillRecolorHair".Translate());
+			// GUI.color = color;
+			// }
+			// }
 			// }
 			colorsHeight += Text.LineHeight * 2f;
 		}
 
 		// private void DrawApparelColor(Rect rect)
 		// {
-			// Rect viewRect = new Rect(rect.x, rect.y, rect.width - 16f, viewRectHeight);
-			// Widgets.BeginScrollView(rect, ref apparelColorScrollPosition, viewRect);
-			// int num = 0;
-			// float curY = rect.y;
-			// foreach (Apparel item in pawn.apparel.WornApparel)
-			// {
-				// Rect rect2 = new Rect(rect.x, curY, viewRect.width, 92f);
-				// Color color = apparelColors[item];
-				// curY += rect2.height + 10f;
-				// if (!pawn.apparel.IsLocked(item) || DevMode)
-				// {
-					// Widgets.ColorSelector(rect2, ref color, AllColors, out var _, Widgets.GetIconFor(item.def, item.Stuff, item.StyleDef), 22, 2, ColorSelecterExtraOnGUI);
-					// float num2 = rect2.x;
-					// if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
-					// {
-						// rect2 = new Rect(num2, curY, 200f, 24f);
-						// if (Widgets.ButtonText(rect2, "SetIdeoColor".Translate()))
-						// {
-							// color = pawn.Ideo.ApparelColor;
-							// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						// }
-						// num2 += 210f;
-					// }
-					// Pawn_StoryTracker story = pawn.story;
-					// if (story != null && story.favoriteColor.HasValue)
-					// {
-						// rect2 = new Rect(num2, curY, 200f, 24f);
-						// if (Widgets.ButtonText(rect2, "SetFavoriteColor".Translate()))
-						// {
-							// color = pawn.story.favoriteColor.Value;
-							// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						// }
-					// }
-					// if (!color.IndistinguishableFrom(item.DrawColor))
-					// {
-						// num++;
-					// }
-					// apparelColors[item] = color;
-				// }
-				// else
-				// {
-					// Widgets.ColorSelectorIcon(new Rect(rect2.x, rect2.y, 88f, 88f), item.def.uiIcon, color);
-					// Text.Anchor = TextAnchor.MiddleLeft;
-					// Rect rect3 = rect2;
-					// rect3.x += 100f;
-					// Widgets.Label(rect3, ((string)"ApparelLockedCannotRecolor".Translate(pawn.Named("PAWN"), item.Named("APPAREL"))).Colorize(ColorLibrary.RedReadable));
-					// Text.Anchor = TextAnchor.UpperLeft;
-				// }
-				// curY += 34f;
-			// }
-			// if (pawn.Spawned)
-			// {
-				// if (num > 0)
-				// {
-					// DrawDyeRequirement(rect, ref curY, num);
-				// }
-				// if (pawn.Map.resourceCounter.GetCount(ThingDefOf.Dye) < num)
-				// {
-					// Rect rect4 = new Rect(rect.x, curY, rect.width - 16f - 10f, 60f);
-					// Color color2 = GUI.color;
-					// GUI.color = ColorLibrary.RedReadable;
-					// Widgets.Label(rect4, "NotEnoughDye".Translate() + " " + "NotEnoughDyeWillRecolorApparel".Translate());
-					// GUI.color = color2;
-					// curY += rect4.height;
-				// }
-			// }
-			// if (Event.current.type == EventType.Layout)
-			// {
-				// viewRectHeight = curY - rect.y;
-			// }
-			// Widgets.EndScrollView();
+		// Rect viewRect = new Rect(rect.x, rect.y, rect.width - 16f, viewRectHeight);
+		// Widgets.BeginScrollView(rect, ref apparelColorScrollPosition, viewRect);
+		// int num = 0;
+		// float curY = rect.y;
+		// foreach (Apparel item in pawn.apparel.WornApparel)
+		// {
+		// Rect rect2 = new Rect(rect.x, curY, viewRect.width, 92f);
+		// Color color = apparelColors[item];
+		// curY += rect2.height + 10f;
+		// if (!pawn.apparel.IsLocked(item) || DevMode)
+		// {
+		// Widgets.ColorSelector(rect2, ref color, AllColors, out var _, Widgets.GetIconFor(item.def, item.Stuff, item.StyleDef), 22, 2, ColorSelecterExtraOnGUI);
+		// float num2 = rect2.x;
+		// if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
+		// {
+		// rect2 = new Rect(num2, curY, 200f, 24f);
+		// if (Widgets.ButtonText(rect2, "SetIdeoColor".Translate()))
+		// {
+		// color = pawn.Ideo.ApparelColor;
+		// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+		// }
+		// num2 += 210f;
+		// }
+		// Pawn_StoryTracker story = pawn.story;
+		// if (story != null && story.favoriteColor.HasValue)
+		// {
+		// rect2 = new Rect(num2, curY, 200f, 24f);
+		// if (Widgets.ButtonText(rect2, "SetFavoriteColor".Translate()))
+		// {
+		// color = pawn.story.favoriteColor.Value;
+		// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+		// }
+		// }
+		// if (!color.IndistinguishableFrom(item.DrawColor))
+		// {
+		// num++;
+		// }
+		// apparelColors[item] = color;
+		// }
+		// else
+		// {
+		// Widgets.ColorSelectorIcon(new Rect(rect2.x, rect2.y, 88f, 88f), item.def.uiIcon, color);
+		// Text.Anchor = TextAnchor.MiddleLeft;
+		// Rect rect3 = rect2;
+		// rect3.x += 100f;
+		// Widgets.Label(rect3, ((string)"ApparelLockedCannotRecolor".Translate(pawn.Named("PAWN"), item.Named("APPAREL"))).Colorize(ColorLibrary.RedReadable));
+		// Text.Anchor = TextAnchor.UpperLeft;
+		// }
+		// curY += 34f;
+		// }
+		// if (pawn.Spawned)
+		// {
+		// if (num > 0)
+		// {
+		// DrawDyeRequirement(rect, ref curY, num);
+		// }
+		// if (pawn.Map.resourceCounter.GetCount(ThingDefOf.Dye) < num)
+		// {
+		// Rect rect4 = new Rect(rect.x, curY, rect.width - 16f - 10f, 60f);
+		// Color color2 = GUI.color;
+		// GUI.color = ColorLibrary.RedReadable;
+		// Widgets.Label(rect4, "NotEnoughDye".Translate() + " " + "NotEnoughDyeWillRecolorApparel".Translate());
+		// GUI.color = color2;
+		// curY += rect4.height;
+		// }
+		// }
+		// if (Event.current.type == EventType.Layout)
+		// {
+		// viewRectHeight = curY - rect.y;
+		// }
+		// Widgets.EndScrollView();
 		// }
 
 		// private void ColorSelecterExtraOnGUI(Color color, Rect boxRect)
 		// {
-			// Texture2D texture2D = null;
-			// TaggedString taggedString = null;
-			// bool flag = Mouse.IsOver(boxRect);
-			// Pawn_StoryTracker story = pawn.story;
-			// if (story != null && story.favoriteColor.HasValue && color.IndistinguishableFrom(pawn.story.favoriteColor.Value))
-			// {
-				// texture2D = FavoriteColorTex;
-				// if (flag)
-				// {
-					// taggedString = "FavoriteColorPickerTip".Translate(pawn.Named("PAWN"));
-				// }
-			// }
-			// else if (pawn.Ideo != null && !Find.IdeoManager.classicMode && color.IndistinguishableFrom(pawn.Ideo.ApparelColor))
-			// {
-				// texture2D = IdeoColorTex;
-				// if (flag)
-				// {
-					// taggedString = "IdeoColorPickerTip".Translate(pawn.Named("PAWN"));
-				// }
-			// }
-			// if (texture2D != null)
-			// {
-				// Rect position = boxRect.ContractedBy(4f);
-				// GUI.color = Color.black.ToTransparent(0.2f);
-				// GUI.DrawTexture(new Rect(position.x + 2f, position.y + 2f, position.width, position.height), texture2D);
-				// GUI.color = Color.white.ToTransparent(0.8f);
-				// GUI.DrawTexture(position, texture2D);
-				// GUI.color = Color.white;
-			// }
-			// if (!taggedString.NullOrEmpty())
-			// {
-				// TooltipHandler.TipRegion(boxRect, taggedString);
-			// }
+		// Texture2D texture2D = null;
+		// TaggedString taggedString = null;
+		// bool flag = Mouse.IsOver(boxRect);
+		// Pawn_StoryTracker story = pawn.story;
+		// if (story != null && story.favoriteColor.HasValue && color.IndistinguishableFrom(pawn.story.favoriteColor.Value))
+		// {
+		// texture2D = FavoriteColorTex;
+		// if (flag)
+		// {
+		// taggedString = "FavoriteColorPickerTip".Translate(pawn.Named("PAWN"));
+		// }
+		// }
+		// else if (pawn.Ideo != null && !Find.IdeoManager.classicMode && color.IndistinguishableFrom(pawn.Ideo.ApparelColor))
+		// {
+		// texture2D = IdeoColorTex;
+		// if (flag)
+		// {
+		// taggedString = "IdeoColorPickerTip".Translate(pawn.Named("PAWN"));
+		// }
+		// }
+		// if (texture2D != null)
+		// {
+		// Rect position = boxRect.ContractedBy(4f);
+		// GUI.color = Color.black.ToTransparent(0.2f);
+		// GUI.DrawTexture(new Rect(position.x + 2f, position.y + 2f, position.width, position.height), texture2D);
+		// GUI.color = Color.white.ToTransparent(0.8f);
+		// GUI.DrawTexture(position, texture2D);
+		// GUI.color = Color.white;
+		// }
+		// if (!taggedString.NullOrEmpty())
+		// {
+		// TooltipHandler.TipRegion(boxRect, taggedString);
+		// }
 		// }
 
 		private void DrawStylingItemType<T>(Rect rect, ref Vector2 scrollPosition, Action<Rect, T> drawAction, Action<T> selectAction, Func<StyleItemDef, bool> hasStyleItem, Func<StyleItemDef, bool> hadStyleItem, Func<StyleItemDef, bool> extraValidator = null, bool doColors = false) where T : StyleItemDef
 		{
 			Rect viewRect = new(rect.x, rect.y, rect.width - 16f, viewRectHeight);
 			int num = Mathf.FloorToInt(viewRect.width / 60f) - 1;
-			float num2 = (viewRect.width - (float)num * 60f - (float)(num - 1) * 10f) / 2f;
+			float num2 = (viewRect.width - num * 60f - (num - 1) * 10f) / 2f;
 			int num3 = 0;
 			int num4 = 0;
 			int num5 = 0;
@@ -530,7 +530,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						num5++;
 					}
-					Rect rect2 = new(rect.x + num2 + (float)num5 * 60f + (float)num5 * 10f, rect.y + (float)num4 * 60f + (float)num4 * 10f, 60f, 60f);
+					Rect rect2 = new(rect.x + num2 + num5 * 60f + num5 * 10f, rect.y + num4 * 60f + num4 * 10f, 60f, 60f);
 					Widgets.DrawHighlight(rect2);
 					if (Mouse.IsOver(rect2))
 					{
@@ -552,7 +552,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (Event.current.type == EventType.Layout)
 				{
-					viewRectHeight = (float)(num4 + 1) * 60f + (float)num4 * 10f + 10f;
+					viewRectHeight = (num4 + 1) * 60f + num4 * 10f + 10f;
 				}
 				Widgets.EndScrollView();
 			}
@@ -582,9 +582,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (!DevMode)
 				// {
-					// pawn.style.SetupNextLookChangeData(pawn.story.hairDef, pawn.style.beardDef, pawn.style.FaceTattoo, pawn.style.BodyTattoo, desiredHairColor);
-					// Reset(resetColors: false);
-					// pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.UseStylingStation, stylingStation), JobTag.Misc);
+				// pawn.style.SetupNextLookChangeData(pawn.story.hairDef, pawn.style.beardDef, pawn.style.FaceTattoo, pawn.style.BodyTattoo, desiredHairColor);
+				// Reset(resetColors: false);
+				// pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.UseStylingStation, stylingStation), JobTag.Misc);
 				// }
 				// else
 				// {
@@ -593,7 +593,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.style.Notify_StyleItemChanged();
 				// if (pawn.Map != null)
 				// {
-					// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+				// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 				// }
 				if (gene is IGeneWithEffects effecter)
 				{
@@ -606,23 +606,23 @@ namespace WVC_XenotypesAndGenes
 
 		// private void ApplyApparelColors()
 		// {
-			// foreach (KeyValuePair<Apparel, Color> apparelColor in apparelColors)
-			// {
-				// if (!DevMode)
-				// {
-					// if (apparelColor.Key.DrawColor != apparelColor.Value)
-					// {
-						// apparelColor.Key.DesiredColor = apparelColor.Value;
-					// }
-				// }
-				// else if (apparelColor.Key.DrawColor != apparelColor.Value)
-				// {
-					// apparelColor.Key.DrawColor = apparelColor.Value;
-					// apparelColor.Key.Notify_ColorChanged();
-					// apparelColor.Key.DesiredColor = null;
-				// }
-			// }
-			// pawn.mindState.Notify_OutfitChanged();
+		// foreach (KeyValuePair<Apparel, Color> apparelColor in apparelColors)
+		// {
+		// if (!DevMode)
+		// {
+		// if (apparelColor.Key.DrawColor != apparelColor.Value)
+		// {
+		// apparelColor.Key.DesiredColor = apparelColor.Value;
+		// }
+		// }
+		// else if (apparelColor.Key.DrawColor != apparelColor.Value)
+		// {
+		// apparelColor.Key.DrawColor = apparelColor.Value;
+		// apparelColor.Key.Notify_ColorChanged();
+		// apparelColor.Key.DesiredColor = null;
+		// }
+		// }
+		// pawn.mindState.Notify_OutfitChanged();
 		// }
 
 		private void Reset(bool resetColors = true)

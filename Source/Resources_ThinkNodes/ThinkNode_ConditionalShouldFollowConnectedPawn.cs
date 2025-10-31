@@ -4,9 +4,9 @@ using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    // Queen Dryads
+	// Queen Dryads
 
-    public class ThinkNode_ConditionalShouldFollowConnectedPawn : ThinkNode_Conditional
+	public class ThinkNode_ConditionalShouldFollowConnectedPawn : ThinkNode_Conditional
 	{
 
 		protected override bool Satisfied(Pawn pawn)

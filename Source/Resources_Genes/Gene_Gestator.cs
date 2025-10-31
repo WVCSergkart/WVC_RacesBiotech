@@ -1,15 +1,13 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_SimpleGestator : Gene, IGeneOverridden, IGeneRemoteControl
+	public class Gene_SimpleGestator : Gene, IGeneOverridden, IGeneRemoteControl
 	{
 		public virtual string RemoteActionName => "WVC_Start".Translate();
 
@@ -18,10 +16,10 @@ namespace WVC_XenotypesAndGenes
 		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!Active)
-            {
+			{
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
-            }
+			}
 			if (MiscUtility.CanStartPregnancy(pawn, Giver))
 			{
 				if (UseDialogWarning)
@@ -129,32 +127,32 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void StartPregnancy()
-        {
-            Hediff hediff = HediffMaker.MakeHediff(Spawner.gestationHediffDef, pawn);
-            HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
-            if (hediff_GeneCheck != null)
-            {
-                hediff_GeneCheck.geneDef = def;
-            }
-            pawn.health.AddHediff(hediff);
-            if (Spawner.cooldownHediffDef != null)
-            {
-                Hediff cooldownHediff = HediffMaker.MakeHediff(Spawner.cooldownHediffDef, pawn);
-                HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
-                if (hediffComp_Disappears != null)
-                {
-                    hediffComp_Disappears.ticksToDisappear = 60000 * 15;
-                }
-                HediffComp_GeneHediff cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_GeneHediff>();
-                if (cooldownHediff_GeneCheck != null)
-                {
-                    cooldownHediff_GeneCheck.geneDef = def;
-                }
-                pawn.health.AddHediff(cooldownHediff);
-            }
-        }
+		{
+			Hediff hediff = HediffMaker.MakeHediff(Spawner.gestationHediffDef, pawn);
+			HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
+			if (hediff_GeneCheck != null)
+			{
+				hediff_GeneCheck.geneDef = def;
+			}
+			pawn.health.AddHediff(hediff);
+			if (Spawner.cooldownHediffDef != null)
+			{
+				Hediff cooldownHediff = HediffMaker.MakeHediff(Spawner.cooldownHediffDef, pawn);
+				HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear = 60000 * 15;
+				}
+				HediffComp_GeneHediff cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_GeneHediff>();
+				if (cooldownHediff_GeneCheck != null)
+				{
+					cooldownHediff_GeneCheck.geneDef = def;
+				}
+				pawn.health.AddHediff(cooldownHediff);
+			}
+		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
+		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
 		}
@@ -213,41 +211,41 @@ namespace WVC_XenotypesAndGenes
 
 		public override string Desc => "WVC_XaG_Gene_ParthenogenesisDesc".Translate();
 
-        public override bool Active
-        {
-            get
-            {
-                return pawn.CanBePregnant() && base.Active;
-            }
-        }
+		public override bool Active
+		{
+			get
+			{
+				return pawn.CanBePregnant() && base.Active;
+			}
+		}
 
-        public override void StartPregnancy()
+		public override void StartPregnancy()
 		{
 			MiscUtility.Impregnate(pawn);
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
-        {
-            AddParentGenes(pawn, pregnancy);
-        }
+		{
+			AddParentGenes(pawn, pregnancy);
+		}
 
-        public static void AddParentGenes(Pawn pawn, Hediff_Pregnant pregnancy)
-        {
-            GeneSet geneSet = pregnancy.geneSet;
-            if (geneSet != null)
-            {
-                HediffUtility.AddParentGenes(pawn, geneSet);
-            }
-            else
-            {
-                GeneSet newGeneSet = new();
-                HediffUtility.AddParentGenes(pawn, newGeneSet);
-                geneSet = newGeneSet;
-            }
-            geneSet.SortGenes();
-        }
+		public static void AddParentGenes(Pawn pawn, Hediff_Pregnant pregnancy)
+		{
+			GeneSet geneSet = pregnancy.geneSet;
+			if (geneSet != null)
+			{
+				HediffUtility.AddParentGenes(pawn, geneSet);
+			}
+			else
+			{
+				GeneSet newGeneSet = new();
+				HediffUtility.AddParentGenes(pawn, newGeneSet);
+				geneSet = newGeneSet;
+			}
+			geneSet.SortGenes();
+		}
 
-        public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
 			// Debug fire
 			//Notify_PregnancyStarted(pregnancy);
@@ -277,9 +275,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void Notify_GestatorStart(XenotypeHolder holder)
-        {
+		{
 
-        }
+		}
 
 		public virtual void Notify_GestatorPostStart(Hediff hediff)
 		{
@@ -321,15 +319,15 @@ namespace WVC_XenotypesAndGenes
 		public override string Desc => "WVC_XaG_GeneStorageGestator_Desc".Translate();
 
 		public override void StartPregnancy()
-        {
+		{
 			if (Gene?.XenotypeHolder == null)
-            {
+			{
 				return;
-            }
-            base.StartPregnancy();
+			}
+			base.StartPregnancy();
 			HediffComp_XenotypeGestator hediff = pawn.health.hediffSet?.GetHediffComps<HediffComp_XenotypeGestator>()?.FirstOrDefault();
 			if (hediff != null)
-            {
+			{
 				hediff.SetupHolder(Gene.XenotypeHolder);
 				//hediff.xenotypeDef = null;
 				hediff.gestationIntervalDays = pawn.RaceProps.gestationPeriodDays;
@@ -337,6 +335,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-    }
+	}
 
 }

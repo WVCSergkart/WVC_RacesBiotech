@@ -1,5 +1,5 @@
-using RimWorld;
 using System;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -34,9 +34,9 @@ namespace WVC_XenotypesAndGenes
 			// Gene_GeneticInstability geneticInstability = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
 			// if (!ReimplanterUtility.IsHuman(pawn) || geneticInstability == null)
 			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// return;
+			// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+			// return;
 			// }
 			pawn.genes.GetFirstGeneOfType<Gene_GeneticInstability>().nextTick += 60000 * Props.daysDelay;
 		}
@@ -60,9 +60,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (!ReimplanterUtility.IsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
 			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// return;
+			// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+			// return;
 			// }
 			if (!pawn.health.hediffSet.HasHediff(Props.hediffDef))
 			{
@@ -99,9 +99,9 @@ namespace WVC_XenotypesAndGenes
 			//Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
 			// if (!ReimplanterUtility.IsHuman(pawn) || shapeshifter == null)
 			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// return;
+			// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+			// return;
 			// }
 			//if (Props.disableShapeshiftComaAfterUse)
 			//{
@@ -127,35 +127,35 @@ namespace WVC_XenotypesAndGenes
 
 	// public class CompUseEffect_GeneShapeshifterModes : CompUseEffect
 	// {
-		// public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
+	// public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
 
-		// public override void DoEffect(Pawn pawn)
-		// {
-			// Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
-			// if (!SerumUtility.IsHuman(pawn) || shapeshifter == null)
-			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// return;
-			// }
-			// if (Props.unlockModes.NullOrEmpty())
-			// {
-				// return;
-			// }
-			// foreach (ShapeshiftModeDef shapeshiftModeDef in Props.unlockModes)
-			// {
-				// shapeshifter.UnlockMode(shapeshiftModeDef);
-			// }
-		// }
+	// public override void DoEffect(Pawn pawn)
+	// {
+	// Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+	// if (!SerumUtility.IsHuman(pawn) || shapeshifter == null)
+	// {
+	// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+	// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+	// return;
+	// }
+	// if (Props.unlockModes.NullOrEmpty())
+	// {
+	// return;
+	// }
+	// foreach (ShapeshiftModeDef shapeshiftModeDef in Props.unlockModes)
+	// {
+	// shapeshifter.UnlockMode(shapeshiftModeDef);
+	// }
+	// }
 
-		// public override AcceptanceReport CanBeUsedBy(Pawn p)
-		// {
-			// if (!SerumUtility.IsHuman(p) || !p.IsShapeshifter())
-			// {
-				// return "WVC_PawnIsAndroidCheck".Translate();
-			// }
-			// return true;
-		// }
+	// public override AcceptanceReport CanBeUsedBy(Pawn p)
+	// {
+	// if (!SerumUtility.IsHuman(p) || !p.IsShapeshifter())
+	// {
+	// return "WVC_PawnIsAndroidCheck".Translate();
+	// }
+	// return true;
+	// }
 
 	// }
 
@@ -167,12 +167,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (SerumUtility.HumanityCheck(pawn))
 			// {
-				// return;
+			// return;
 			// }
 			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				// return;
+			// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			// return;
 			// }
 			if (Props.removeSkinColor)
 			{
@@ -201,7 +201,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			// }
 			return true;
 		}

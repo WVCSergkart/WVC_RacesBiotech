@@ -1,20 +1,20 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    //[Obsolete]
-    //public class Gene_DustDrain : Gene_FoodEfficiency
-    //{
+	//[Obsolete]
+	//public class Gene_DustDrain : Gene_FoodEfficiency
+	//{
 
 
-    //}
+	//}
 
-    public class Gene_Dustogenic : Gene, IGeneRemoteControl
+	public class Gene_Dustogenic : Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
@@ -177,7 +177,7 @@ namespace WVC_XenotypesAndGenes
 		public static Thing GetBestDustFoodStack(Pawn pawn, bool forced)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
-			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.FoodSourceNotPlantOrTree), PathEndMode.Touch, TraverseParms.For(pawn, danger), 9999f, delegate (Thing thing)
+			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.FoodSourceNotPlantOrTree), PathEndMode.Touch, TraverseParms.For(pawn, danger), 9999f, delegate (Thing thing)
 			{
 				if (!pawn.CanReach(thing, PathEndMode.InteractionCell, danger))
 				{

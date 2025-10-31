@@ -1,12 +1,11 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_RegenerationSleep : Gene_OverOverridable, IGeneRemoteControl
+	public class Gene_RegenerationSleep : Gene_OverOverridable, IGeneRemoteControl
 	{
 
 		public string RemoteActionName => "WVC_Coma".Translate();
@@ -19,47 +18,47 @@ namespace WVC_XenotypesAndGenes
 			//genesSettings.Close();
 			List<FloatMenuOption> list = new();
 			list.Add(new FloatMenuOption("WVC_AddComaOrExtendIt".Translate(), delegate
-            {
-                AddHediff();
-            }, orderInPriority: 1));
+			{
+				AddHediff();
+			}, orderInPriority: 1));
 			list.Add(new FloatMenuOption("WVC_EndComa".Translate(), delegate
-            {
-                RemoveHediff();
-            }, orderInPriority: 0));
+			{
+				RemoveHediff();
+			}, orderInPriority: 0));
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
-        private void RemoveHediff()
-        {
-            Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.RegenerationComa);
-            if (firstHediffOfDef != null)
-            {
-                HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
-                if (hediffComp_Disappears != null)
-                {
-                    hediffComp_Disappears.ticksToDisappear = 2500;
-                }
-            }
-        }
+		private void RemoveHediff()
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.RegenerationComa);
+			if (firstHediffOfDef != null)
+			{
+				HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear = 2500;
+				}
+			}
+		}
 
-        private void AddHediff()
-        {
-            Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.RegenerationComa);
-            if (firstHediffOfDef != null)
-            {
-                HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
-                if (hediffComp_Disappears != null)
-                {
-                    hediffComp_Disappears.ticksToDisappear += 360000;
-                }
-            }
-            else
-            {
-                pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.RegenerationComa, pawn));
-            }
-        }
+		private void AddHediff()
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.RegenerationComa);
+			if (firstHediffOfDef != null)
+			{
+				HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear += 360000;
+				}
+			}
+			else
+			{
+				pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.RegenerationComa, pawn));
+			}
+		}
 
-        public bool RemoteControl_Hide => !Active;
+		public bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{
@@ -74,13 +73,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            base.Notify_OverriddenBy(overriddenBy);
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
 			RemoveHediff();
 		}
 
-        public override void PostRemove()
+		public override void PostRemove()
 		{
 			base.PostRemove();
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);

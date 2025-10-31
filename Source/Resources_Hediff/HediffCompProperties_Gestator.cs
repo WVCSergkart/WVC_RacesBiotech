@@ -1,11 +1,11 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffCompProperties_Gestator : HediffCompProperties
+	public class HediffCompProperties_Gestator : HediffCompProperties
 	{
 
 		public int gestationIntervalDays = -1;
@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public HediffCompProperties_Gestator()
 		// {
-			// compClass = typeof(HediffComp_Gestator);
+		// compClass = typeof(HediffComp_Gestator);
 		// }
 
 	}
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Pawn.Faction == Faction.OfPlayer)
 			{
-				return ((float)ticksCounter / (ticksInday * gestationIntervalDays)).ToStringPercent();
+				return (ticksCounter / (ticksInday * gestationIntervalDays)).ToStringPercent();
 			}
 			return "";
 		}
@@ -211,7 +211,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = parent.pawn;
 			if (pawn.Faction == Faction.OfPlayer && pawn.ageTracker.CurLifeStage.reproductive)
 			{
-				float percent = (float)ticksCounter / (float)(ticksInday * GestationIntervalDays);
+				float percent = ticksCounter / (float)(ticksInday * GestationIntervalDays);
 				return percent.ToStringPercent();
 			}
 			return "";

@@ -1,8 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -196,16 +195,16 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.IsMutant)
 			{
 				return false;
-            }
-            if (!pawn.IsHuman())
-            {
-                return false;
-            }
+			}
+			if (!pawn.IsHuman())
+			{
+				return false;
+			}
 			if (pawn.IsSubhuman)
 			{
 				return false;
 			}
-            return false;
+			return false;
 		}
 
 		//public static bool IsAnomaly(this Pawn pawn)
@@ -245,10 +244,10 @@ namespace WVC_XenotypesAndGenes
 		public static void GeneralReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool xenogerm = true)
 		{
 			Pawn_GeneTracker recipientGenes = recipient.genes;
-            if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
-            {
-                SetXenotypeDirect(caster, recipient);
-            }
+			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			{
+				SetXenotypeDirect(caster, recipient);
+			}
 			//else if (recipientGenes.Xenogenes.NullOrEmpty())
 			//{
 			//	if (caster.genes.Xenotype.inheritable || caster.genes.UniqueXenotype)
@@ -260,11 +259,11 @@ namespace WVC_XenotypesAndGenes
 			//		SetXenotypeDirect(null, null, caster.GetXenotype(false));
 			//	}
 			//}
-            if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
+			if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
 			{
 				// foreach (Gene item in recipientGenes.Xenogenes.ToList())
 				// {
-					// recipient.genes?.RemoveGene(item);
+				// recipient.genes?.RemoveGene(item);
 				// }
 				recipientGenes.Xenogenes.RemoveAllGenes();
 			}
@@ -272,7 +271,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// foreach (Gene item in recipientGenes.Endogenes.ToList())
 				// {
-					// recipient.genes?.RemoveGene(item);
+				// recipient.genes?.RemoveGene(item);
 				// }
 				recipientGenes.Endogenes.RemoveAllGenes();
 			}
@@ -297,26 +296,26 @@ namespace WVC_XenotypesAndGenes
 					caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
 				}
 				UpdateXenogermReplication_WithComa(recipient);
-            }
-            //XaG_GameComponent.AddMissingGeneAbilities(recipient);
-            //FixGeneTraits(recipient);
-            ReimplanterUtility.PostImplantDebug(recipient);
-        }
+			}
+			//XaG_GameComponent.AddMissingGeneAbilities(recipient);
+			//FixGeneTraits(recipient);
+			ReimplanterUtility.PostImplantDebug(recipient);
+		}
 
-        public static void UpdateXenogermReplication_WithComa(Pawn recipient)
-        {
-            recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
-            GeneUtility.UpdateXenogermReplication(recipient);
-        }
+		public static void UpdateXenogermReplication_WithComa(Pawn recipient)
+		{
+			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+			GeneUtility.UpdateXenogermReplication(recipient);
+		}
 
-        // =============================== New ===============================
+		// =============================== New ===============================
 
-        public static void PostImplantDebug(Pawn pawn)
-        {
-            try
-            {
+		public static void PostImplantDebug(Pawn pawn)
+		{
+			try
+			{
 				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDefs();
-                List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 				List<Gene> endogenes = pawn.genes.Endogenes;
 				List<Gene> xenogenes = pawn.genes.Xenogenes;
 				foreach (Gene xenogene in xenogenes)
@@ -352,21 +351,21 @@ namespace WVC_XenotypesAndGenes
 				XaG_GeneUtility.ResetGenesInspectString(pawn);
 				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
 				if (DebugSettings.ShowDevGizmos)
-                {
-                    Log.Warning("Post implant debug called.");
-                }
-            }
-            catch (Exception arg)
+				{
+					Log.Warning("Post implant debug called.");
+				}
+			}
+			catch (Exception arg)
 			{
 				Log.Error("Failed do post implant debug. Reason: " + arg);
 			}
-        }
+		}
 
-        public static void NotifyGenesChanged(Gene item)
-        {
-            if (item is IGeneNotifyGenesChanged iGeneNotifyGenesChanged)
-            {
-                iGeneNotifyGenesChanged.Notify_GenesChanged(null);
+		public static void NotifyGenesChanged(Gene item)
+		{
+			if (item is IGeneNotifyGenesChanged iGeneNotifyGenesChanged)
+			{
+				iGeneNotifyGenesChanged.Notify_GenesChanged(null);
 			}
 			//if (item is IGeneMetabolism metabol)
 			//{
@@ -394,39 +393,39 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void TrySetSkinAndHairGenes(Pawn pawn)
-        {
-            FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
-            if (!xenotypeHasSkinColor)
-            {
-                recipientGenes?.AddGene(MainDefOf.Skin_SheerWhite, false);
-            }
-            if (!xenotypeHasHairColor)
-            {
-                recipientGenes?.AddGene(MainDefOf.Hair_SnowWhite, false);
-            }
+		{
+			FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
+			if (!xenotypeHasSkinColor)
+			{
+				recipientGenes?.AddGene(MainDefOf.Skin_SheerWhite, false);
+			}
+			if (!xenotypeHasHairColor)
+			{
+				recipientGenes?.AddGene(MainDefOf.Hair_SnowWhite, false);
+			}
 		}
 
 		public static void FindSkinAndHairGenes(Pawn pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor)
-        {
-            recipientGenes = pawn.genes;
-            xenotypeHasSkinColor = false;
-            xenotypeHasHairColor = false;
-            foreach (Gene gene in recipientGenes.Endogenes)
-            {
-                IsSkinOrHairGene(ref xenotypeHasSkinColor, ref xenotypeHasHairColor, gene.def);
-            }
-        }
+		{
+			recipientGenes = pawn.genes;
+			xenotypeHasSkinColor = false;
+			xenotypeHasHairColor = false;
+			foreach (Gene gene in recipientGenes.Endogenes)
+			{
+				IsSkinOrHairGene(ref xenotypeHasSkinColor, ref xenotypeHasHairColor, gene.def);
+			}
+		}
 
-        public static void IsSkinOrHairGene(ref bool xenotypeHasSkinColor, ref bool xenotypeHasHairColor, GeneDef geneDef)
-        {
-            if (XaG_GeneUtility.IsSkinGeneDef(geneDef))
-            {
-                xenotypeHasSkinColor = true;
-            }
-            if (XaG_GeneUtility.IsHairGeneDef(geneDef))
-            {
-                xenotypeHasHairColor = true;
-            }
+		public static void IsSkinOrHairGene(ref bool xenotypeHasSkinColor, ref bool xenotypeHasHairColor, GeneDef geneDef)
+		{
+			if (XaG_GeneUtility.IsSkinGeneDef(geneDef))
+			{
+				xenotypeHasSkinColor = true;
+			}
+			if (XaG_GeneUtility.IsHairGeneDef(geneDef))
+			{
+				xenotypeHasHairColor = true;
+			}
 		}
 
 		// =============================== Debug Xenotype ===============================
@@ -435,9 +434,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			bool isBaseliner = true;
 			if (XaG_GeneUtility.PawnIsBaseliner(pawn))
-            {
+			{
 				return false;
-            }
+			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (!gene.def.passOnDirectly)
@@ -465,16 +464,16 @@ namespace WVC_XenotypesAndGenes
 		//{
 		//	bool hasAnyNonSkinOrHairGene = false;
 		//	foreach (Gene gene in pawn.genes.GenesListForReading)
-  //          {
+		//          {
 		//		if (gene.def.biostatCpx > 0 || gene.def.biostatArc > 0 || gene.def.biostatMet > 0)
-  //              {
+		//              {
 		//			hasAnyNonSkinOrHairGene = true;
 		//			break;
-  //              }
+		//              }
 		//		if (gene.def.skinColorOverride != null || gene.def.hairColorOverride != null || gene.def.skinColorBase != null)
-  //              {
+		//              {
 		//			continue;
-  //              }
+		//              }
 		//		hasAnyNonSkinOrHairGene = true;
 		//		break;
 		//	}
@@ -573,8 +572,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
-        {
-            SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);
+		{
+			SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, XenotypeHolder xenotypeDef)
@@ -588,10 +587,10 @@ namespace WVC_XenotypesAndGenes
 			genes.Shuffle();
 			int currentTry = 0;
 			foreach (GeneDef geneDef in genes.ToList())
-            {
+			{
 				float chanceFactor = currentTry * 0.02f;
 				if (Rand.Chance(chance + chanceFactor))
-                {
+				{
 					genes.Remove(geneDef);
 				}
 				currentTry++;
@@ -608,9 +607,9 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene gene in genes.ToList())
 			{
 				if (maxCycleTry <= currentTry)
-                {
+				{
 					break;
-                }
+				}
 				if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, gene.def))
 				{
 					pawn.genes.AddGene(gene.def, false);
@@ -631,34 +630,34 @@ namespace WVC_XenotypesAndGenes
 		//}
 
 		public static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
-        {
-            Pawn_GeneTracker geneTracker = pawn.genes;
+		{
+			Pawn_GeneTracker geneTracker = pawn.genes;
 			geneTracker.Xenogenes.RemoveAllGenes();
-            if (inheritable)
-            {
+			if (inheritable)
+			{
 				geneTracker.Endogenes.RemoveAllGenes();
-            }
+			}
 			geneTracker.SetXenotypeDirect(XenotypeDefOf.Baseliner);
 			geneTracker.xenotypeName = name;
 			geneTracker.iconDef = iconDef;
-            foreach (GeneDef geneDef in genes)
-            {
+			foreach (GeneDef geneDef in genes)
+			{
 				geneTracker.AddGene(geneDef, !inheritable);
-            }
-            TrySetSkinAndHairGenes(pawn);
-            ReimplanterUtility.PostImplantDebug(pawn);
-        }
+			}
+			TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
+		}
 
-        // Ideology Hook
+		// Ideology Hook
 
-        public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
+		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
 		{
 			if (ModLister.IdeologyInstalled)
 			{
 				//Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
 				if (isXenoMod)
 				{
-                    Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
 			}
 		}

@@ -1,14 +1,13 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
+	public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
 	{
 
 		public ThoughtDef afterResurrectionThoughtDef;
@@ -42,21 +41,21 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            base.Apply(target, dest);
-            Pawn pawn = target.Pawn;
-            if (pawn == null)
-            {
-                return;
-            }
-            if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
-            {
-                Notify_Reimplanted(pawn, parent.pawn);
-                ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
-            }
-        }
+		{
+			base.Apply(target, dest);
+			Pawn pawn = target.Pawn;
+			if (pawn == null)
+			{
+				return;
+			}
+			if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
+			{
+				Notify_Reimplanted(pawn, parent.pawn);
+				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
+			}
+		}
 
-        public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
+		public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
 		{
 			foreach (Gene gene in caster.genes.GenesListForReading)
 			{
@@ -67,12 +66,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-        {
-            return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
-        }
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+		{
+			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
+		}
 
-        public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
+		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
 		{
 			if (GeneUtility.PawnWouldDieFromReimplanting(parent.pawn))
 			{

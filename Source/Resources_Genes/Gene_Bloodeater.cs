@@ -1,16 +1,14 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl, IGeneOverridden
+	public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl, IGeneOverridden
 	{
 
 		public string RemoteActionName
@@ -30,20 +28,20 @@ namespace WVC_XenotypesAndGenes
 		public BloodeaterModeDef currentBloodfeedMode;
 
 
-        private static List<BloodeaterModeDef> cachedModeDefs;
-        public static List<BloodeaterModeDef> ModeDefs
-        {
-            get
-            {
-                if (cachedModeDefs == null)
-                {
+		private static List<BloodeaterModeDef> cachedModeDefs;
+		public static List<BloodeaterModeDef> ModeDefs
+		{
+			get
+			{
+				if (cachedModeDefs == null)
+				{
 					cachedModeDefs = DefDatabase<BloodeaterModeDef>.AllDefsListForReading;
-                }
-                return cachedModeDefs;
-            }
-        }
+				}
+				return cachedModeDefs;
+			}
+		}
 
-        public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			//canAutoFeed = !canAutoFeed;
 			List<FloatMenuOption> list = new();
@@ -83,33 +81,33 @@ namespace WVC_XenotypesAndGenes
 		{
 			bool anyHided = false;
 			foreach (Ability ability in pawn.abilities.abilities)
-            {
-                CompAbilityEffect_HideIfBloodeater hideIfBloodeater = ability.CompOfType<CompAbilityEffect_HideIfBloodeater>();
-                if (hideIfBloodeater == null)
-                {
-                    continue;
-                }
-                if (hide.HasValue)
-                {
-                    hideIfBloodeater.shouldHide = hide.Value;
-                }
-                else
-                {
-                    if (hideIfBloodeater.shouldHide)
-                    {
-                        anyHided = true;
-                    }
-                    if (anyHided)
-                    {
-                        hideIfBloodeater.shouldHide = !anyHided;
-                    }
-                    else
-                    {
-                        hideIfBloodeater.shouldHide = !hideIfBloodeater.shouldHide;
-                    }
-                }
-            }
-        }
+			{
+				CompAbilityEffect_HideIfBloodeater hideIfBloodeater = ability.CompOfType<CompAbilityEffect_HideIfBloodeater>();
+				if (hideIfBloodeater == null)
+				{
+					continue;
+				}
+				if (hide.HasValue)
+				{
+					hideIfBloodeater.shouldHide = hide.Value;
+				}
+				else
+				{
+					if (hideIfBloodeater.shouldHide)
+					{
+						anyHided = true;
+					}
+					if (anyHided)
+					{
+						hideIfBloodeater.shouldHide = !anyHided;
+					}
+					else
+					{
+						hideIfBloodeater.shouldHide = !hideIfBloodeater.shouldHide;
+					}
+				}
+			}
+		}
 
 		public bool RemoteControl_Hide => !Active;
 
@@ -142,47 +140,47 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-        //===========
+		//===========
 
-        public override string LabelCap
-        {
-            get
-            {
+		public override string LabelCap
+		{
+			get
+			{
 				if (currentBloodfeedMode != null)
-                {
+				{
 					return base.LabelCap + " (" + currentBloodfeedMode.LabelCap + ")";
 				}
-                return base.LabelCap;
-            }
-        }
+				return base.LabelCap;
+			}
+		}
 
-        public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
-            //pawn.foodRestriction;
-            TrySetInitialMod();
-        }
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			//pawn.foodRestriction;
+			TrySetInitialMod();
+		}
 
-        private void TrySetInitialMod()
-        {
-            if (ModeDefs != null)
-            {
-                foreach (BloodeaterModeDef mode in ModeDefs)
-                {
-                    if (mode.CanUse(pawn))
-                    {
-                        currentBloodfeedMode = mode;
-                        break;
-                    }
-                }
-            }
-        }
+		private void TrySetInitialMod()
+		{
+			if (ModeDefs != null)
+			{
+				foreach (BloodeaterModeDef mode in ModeDefs)
+				{
+					if (mode.CanUse(pawn))
+					{
+						currentBloodfeedMode = mode;
+						break;
+					}
+				}
+			}
+		}
 
-        public bool canAutoFeed = true;
+		public bool canAutoFeed = true;
 
-        public override void ExposeData()
+		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
@@ -190,67 +188,67 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
-            if (!canAutoFeed)
-            {
-                return;
-            }
-            if (!pawn.IsHashIntervalTick(2210, delta))
-            {
-                return;
+		{
+			base.TickInterval(delta);
+			if (!canAutoFeed)
+			{
+				return;
+			}
+			if (!pawn.IsHashIntervalTick(2210, delta))
+			{
+				return;
 			}
 			if (pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}
 			if (!pawn.TryGetNeedFood(out Need_Food food))
-            {
-                return;
-            }
-            if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
-            {
-                return;
-            }
-            TryEat();
-        }
+			{
+				return;
+			}
+			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+			{
+				return;
+			}
+			TryEat();
+		}
 
-        private void TryEat(bool queue = false)
-        {
+		private void TryEat(bool queue = false)
+		{
 			//if (currentBloodfeedMethod != null && !currentBloodfeedMethod.Worker.CanUseAbility(pawn, currentBloodfeedMethod.abilityDef))
 			//{
 			//	currentBloodfeedMethod = null;
 			//	return;
 			//}
 			if (canAutoFeed && currentBloodfeedMode == null)
-            {
+			{
 				TrySetInitialMod();
 			}
-            if (pawn.Map == null)
-            {
-                // In caravan use
-                InCaravan();
-                return;
-            }
-            if (pawn.Downed || pawn.Drafted || !pawn.Awake())
-            {
-                return;
-            }
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
+			{
+				return;
+			}
 			if (currentBloodfeedMode != null)
-            {
-                if (!currentBloodfeedMode.CanUse(pawn))
-                {
-                    return;
-                }
-                currentBloodfeedMode.Worker.GetFood(pawn, currentBloodfeedMode.abilityDef, MiscUtility.PawnDoIngestJob(pawn), queue);
-            }
-            else
+			{
+				if (!currentBloodfeedMode.CanUse(pawn))
+				{
+					return;
+				}
+				currentBloodfeedMode.Worker.GetFood(pawn, currentBloodfeedMode.abilityDef, MiscUtility.PawnDoIngestJob(pawn), queue);
+			}
+			else
 			{
 				GeneResourceUtility.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
 			}
-        }
+		}
 
-        private void InCaravan()
+		private void InCaravan()
 		{
 			Caravan caravan = pawn.GetCaravan();
 			if (caravan == null)
@@ -278,12 +276,12 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-                    if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
-                    {
-                        continue;
-                    }
-                    SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new(0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
-                }
+					if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+					{
+						continue;
+					}
+					SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new(0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				}
 				break;
 			}
 		}
@@ -327,7 +325,7 @@ namespace WVC_XenotypesAndGenes
 				//Log.Error(food.CurLevelPercentage.ToString());
 				TryEat(true);
 			}
-        }
+		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
@@ -354,10 +352,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-            //foreach (Gizmo item in base.GetGizmos())
-            //{
-            //	yield return item;
-            //}
+			//foreach (Gizmo item in base.GetGizmos())
+			//{
+			//	yield return item;
+			//}
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -366,11 +364,11 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						if (currentBloodfeedMode != null)
-                        {
+						{
 							currentBloodfeedMode.Worker.GetFood(pawn, currentBloodfeedMode.abilityDef);
 						}
 						else
-                        {
+						{
 							GeneResourceUtility.TryHuntForFood(pawn);
 						}
 					}
@@ -419,16 +417,16 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
-        {
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
 			SetHideAbilities(false);
 		}
 
-        public void Notify_Override()
-        {
+		public void Notify_Override()
+		{
 
-        }
+		}
 
-    }
+	}
 
 }

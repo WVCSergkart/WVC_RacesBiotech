@@ -1,9 +1,7 @@
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -75,8 +73,8 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
 			yield return Toils_General.WaitWith(TargetIndex.A, 320, useProgressBar: true).WithEffect(EffecterDefOf.ButcherMechanoid, TargetIndex.A);
 			yield return Toils_General.Do(delegate
-            {
-                Target.ReduceStack();
+			{
+				Target.ReduceStack();
 				if (job is XaG_Job xaG_Job)
 				{
 					Gene_Morpher morpher = pawn.genes?.GetFirstGeneOfType<Gene_Morpher>();

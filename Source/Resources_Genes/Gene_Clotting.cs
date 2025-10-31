@@ -1,6 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes

@@ -1,10 +1,5 @@
 using RimWorld;
 using RimWorld.Planet;
-using RimWorld.QuestGen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -19,34 +14,34 @@ namespace WVC_XenotypesAndGenes
 		private float? cachedNutritionPerTick;
 
 		public override void TickInterval(int delta)
-        {
+		{
 			//base.TickInterval(delta);
 			if (!pawn.IsHashIntervalTick(541, delta))
-            {
-                return;
-            }
-            SolarEating();
-        }
+			{
+				return;
+			}
+			SolarEating();
+		}
 
-        private void SolarEating()
-        {
-            if (pawn.Map == null)
-            {
-                InCaravan();
-                return;
-            }
-            if (!pawn.Position.InSunlight(pawn.Map))
-            {
-                return;
-            }
-            if (pawn.apparel.AnyClothing)
-            {
-                return;
-            }
-            ReplenishHunger();
-        }
+		private void SolarEating()
+		{
+			if (pawn.Map == null)
+			{
+				InCaravan();
+				return;
+			}
+			if (!pawn.Position.InSunlight(pawn.Map))
+			{
+				return;
+			}
+			if (pawn.apparel.AnyClothing)
+			{
+				return;
+			}
+			ReplenishHunger();
+		}
 
-        private void InCaravan()
+		private void InCaravan()
 		{
 			Caravan caravan = pawn.GetCaravan();
 			if (caravan?.NightResting != false)
@@ -65,12 +60,12 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
-        public void Notify_GenesChanged(Gene changedGene)
-        {
+		public void Notify_GenesChanged(Gene changedGene)
+		{
 			cachedNutritionPerTick = null;
-        }
+		}
 
-    }
+	}
 
 	public class Gene_DeadlyUVSensitivity : Gene
 	{

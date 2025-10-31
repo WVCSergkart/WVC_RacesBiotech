@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using RimWorld;
 using RimWorld.QuestGen;
-using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Slate slate = new();
 				slate.Set("map", jobRitual.Map);
-                PawnGenerationRequest newPawnGen = new(PawnKindDefOf.Villager, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 20f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, jobRitual.Ritual.ideo);
+				PawnGenerationRequest newPawnGen = new(PawnKindDefOf.Villager, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 20f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, jobRitual.Ritual.ideo);
 				newPawnGen.ForcedXenotype = xenotypeChance?.xenotype;
 				slate.Set("overridePawnGenParams", newPawnGen);
 				QuestUtility.GenerateQuestAndMakeAvailable(QuestScriptDefOf.WandererJoins, slate);

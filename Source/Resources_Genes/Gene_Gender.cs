@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -46,59 +46,59 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void SetGender(Pawn pawn, Gender gender)
-        {
-            try
-            {
-                pawn.gender = gender;
-                if (gender == Gender.Female && pawn.story?.bodyType == BodyTypeDefOf.Male)
-                {
-                    pawn.story.bodyType = BodyTypeDefOf.Female;
-                    GetRandomHeadFromSet(pawn);
-                }
-                else if (gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
-                {
-                    pawn.story.bodyType = BodyTypeDefOf.Male;
-                    GetRandomHeadFromSet(pawn);
-                }
-                if (MiscUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
-                {
-                    pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
-                }
-                if (!pawn.style.CanWantBeard && pawn.style.beardDef != BeardDefOf.NoBeard)
-                {
-                    pawn.style.beardDef = BeardDefOf.NoBeard;
-                }
-            }
-            catch (Exception arg)
-            {
+		{
+			try
+			{
+				pawn.gender = gender;
+				if (gender == Gender.Female && pawn.story?.bodyType == BodyTypeDefOf.Male)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Female;
+					GetRandomHeadFromSet(pawn);
+				}
+				else if (gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Male;
+					GetRandomHeadFromSet(pawn);
+				}
+				if (MiscUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
+				{
+					pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
+				}
+				if (!pawn.style.CanWantBeard && pawn.style.beardDef != BeardDefOf.NoBeard)
+				{
+					pawn.style.beardDef = BeardDefOf.NoBeard;
+				}
+			}
+			catch (Exception arg)
+			{
 				Log.Error("Failed update pawn gender. For pawn: " + pawn.Name + ". Reason: " + arg.Message);
-            }
-            pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+			}
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		public static void GetRandomHeadFromSet(Pawn pawn)
-        {
-            try
-            {
-                pawn.story.TryGetRandomHeadFromSet((pawn.genes.GenesListForReading?.First((gene) => gene.def.forcedHeadTypes != null)?.def?.forcedHeadTypes ?? DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen)));
-            }
-            catch (Exception arg)
-            {
-				Log.Error("Failed fix pawn head during gender update. Reason: "+ arg.Message);
-            }
-        }
+		{
+			try
+			{
+				pawn.story.TryGetRandomHeadFromSet((pawn.genes.GenesListForReading?.Where((gene) => gene.def.forcedHeadTypes != null)?.ToList()?.RandomElement()?.def?.forcedHeadTypes ?? DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen)));
+			}
+			catch (Exception arg)
+			{
+				Log.Warning("Failed fix pawn head during gender update. Reason: " + arg.Message);
+			}
+		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
-        {
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
 
-        }
+		}
 
-        public void Notify_Override()
+		public void Notify_Override()
 		{
 			ChangeGender();
 		}
 
-    }
+	}
 
 	public class Gene_Feminine : Gene_GauntSkin
 	{

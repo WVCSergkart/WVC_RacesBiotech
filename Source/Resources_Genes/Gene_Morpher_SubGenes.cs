@@ -1,10 +1,9 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -38,12 +37,12 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-        public override void TickInterval(int delta)
-        {
+		public override void TickInterval(int delta)
+		{
 
-        }
+		}
 
-    }
+	}
 
 	// In Dev
 	public class Gene_MorpherOneTimeUse : Gene_MorpherDependant
@@ -56,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_MorphMutations : Gene_MorpherDependant
+	public class Gene_MorphMutations : Gene_MorpherDependant
 	{
 
 		public override void PostMorph(Pawn pawn)
@@ -71,9 +70,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-    }
+	}
 
-    public class Gene_MorpherTrigger : Gene_MorpherDependant
+	public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{
 
 		//public bool OneTimeUse
@@ -87,26 +86,26 @@ namespace WVC_XenotypesAndGenes
 		public virtual bool NonRandom_AutoCast => true;
 
 		public void MorphAutoCast()
-        {
-            if (!NonRandom_AutoCast && !Rand.Chance(0.013f))
-            {
-                return;
-            }
-            if (!CanMorph())
-            {
-                return;
-            }
-            if (Morpher.SavedGeneSets.NullOrEmpty())
-            {
-                MorpherTrigger(null);
-            }
-            else
-            {
-                MorpherTrigger(Morpher.SavedGeneSets.RandomElement());
-            }
-        }
+		{
+			if (!NonRandom_AutoCast && !Rand.Chance(0.013f))
+			{
+				return;
+			}
+			if (!CanMorph())
+			{
+				return;
+			}
+			if (Morpher.SavedGeneSets.NullOrEmpty())
+			{
+				MorpherTrigger(null);
+			}
+			else
+			{
+				MorpherTrigger(Morpher.SavedGeneSets.RandomElement());
+			}
+		}
 
-        public virtual bool CanMorph()
+		public virtual bool CanMorph()
 		{
 			return false;
 		}
@@ -222,10 +221,10 @@ namespace WVC_XenotypesAndGenes
 
 
 	//	public override void PostAdd()
- //		  {
- //			  base.PostAdd();
- //			  ResetInterval();
- //		  }
+	//		  {
+	//			  base.PostAdd();
+	//			  ResetInterval();
+	//		  }
 
 	//	public override void Tick()
 	//	{
@@ -235,10 +234,10 @@ namespace WVC_XenotypesAndGenes
 	//			return;
 	//		}
 	//		if (ShouldMorph())
- //			  {
- //				  MorpherTrigger();
- //			  }
- //			  ResetInterval();
+	//			  {
+	//				  MorpherTrigger();
+	//			  }
+	//			  ResetInterval();
 	//	}
 
 	//	private void ResetInterval()
@@ -483,27 +482,27 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MonolithMorph : Gene_AbilityMorph
 	{
 
-        [Unsaved(false)]
-        private GameComponent_Anomaly cachedGameComponent;
+		[Unsaved(false)]
+		private GameComponent_Anomaly cachedGameComponent;
 
-        public GameComponent_Anomaly GameComponent
-        {
-            get
-            {
-                if (cachedGameComponent == null)
-                {
-                    cachedGameComponent = Current.Game.GetComponent<GameComponent_Anomaly>();
-                }
-                return cachedGameComponent;
-            }
-        }
+		public GameComponent_Anomaly GameComponent
+		{
+			get
+			{
+				if (cachedGameComponent == null)
+				{
+					cachedGameComponent = Current.Game.GetComponent<GameComponent_Anomaly>();
+				}
+				return cachedGameComponent;
+			}
+		}
 
-        public override bool CanMorph()
+		public override bool CanMorph()
 		{
 			if (GameComponent.AmbientHorrorMode)
-            {
+			{
 				return true;
-            }
+			}
 			return GameComponent?.LevelDef == MonolithLevelDefOf.Embraced;
 		}
 
@@ -528,9 +527,9 @@ namespace WVC_XenotypesAndGenes
 				refusal.SetUseAmountDirect(refusal.UsesLeft - 1, true);
 			}
 			else
-            {
+			{
 				pawn.health.RemoveHediff(resurrectionSickness);
-            }
+			}
 			base.MorpherTrigger(geneSet);
 		}
 

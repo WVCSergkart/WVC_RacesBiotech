@@ -1,12 +1,12 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Ageless : Gene
+	public class Gene_Ageless : Gene
 	{
 
 		public override void PostAdd()
@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshmassAging : Gene, IGeneLifeStageStarted
 	{
 
-        public void Notify_LifeStageStarted()
+		public void Notify_LifeStageStarted()
 		{
 			if (pawn.genes != null && !pawn.genes.HediffGiversCanGive(HediffDefOf.Carcinoma))
 			{
@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<BodyPartDef> allowedBodyParts = pawn.health?.hediffSet?.GetNotMissingParts()?.Where((part) => part.def.canSuggestAmputation)?.ToList()?.ConvertToDefs();
 			if (allowedBodyParts.NullOrEmpty())
-            {
+			{
 				allowedBodyParts = null;
 			}
 			HediffGiverUtility.TryApply(pawn, HediffDefOf.Carcinoma, allowedBodyParts, true);

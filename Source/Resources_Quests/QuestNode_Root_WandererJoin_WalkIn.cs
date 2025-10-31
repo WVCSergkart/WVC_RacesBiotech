@@ -1,11 +1,9 @@
 ﻿using RimWorld;
-using RimWorld.Planet;
-using RimWorld.QuestGen;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class QuestNode_Root_WandererJoin_WalkIn : RimWorld.QuestGen.QuestNode_Root_WandererJoin_WalkIn
+	public class QuestNode_Root_WandererJoin_WalkIn : RimWorld.QuestGen.QuestNode_Root_WandererJoin_WalkIn
 	{
 
 		public XenotypeDef xenotypeDef;

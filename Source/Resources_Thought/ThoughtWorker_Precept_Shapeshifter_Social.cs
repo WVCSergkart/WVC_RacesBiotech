@@ -1,13 +1,13 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public abstract class ThoughtWorker_Precept_Shapeshifter : ThoughtWorker_Precept
-    {
+	{
 
 		private static List<Pawn> shapeshifters = new();
 		private static List<Pawn> nonShapeshifters = new();
@@ -34,29 +34,29 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static bool? shapeshifterLeader;
-        public static bool GetShapeshifterLeader(Pawn caller)
-        {
+		public static bool GetShapeshifterLeader(Pawn caller)
+		{
 			UpdLeader();
 			if (!shapeshifterLeader.HasValue)
-            {
-                shapeshifterLeader = false;
-                foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
-                {
-                    if (IsShapeshifter(item))
-                    {
-                        Precept_Role precept_Role = item.Ideo?.GetRole(item);
-                        if (precept_Role != null && precept_Role.ideo == caller.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
-                        {
-                            shapeshifterLeader = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            return shapeshifterLeader.Value;
-        }
+			{
+				shapeshifterLeader = false;
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
+				{
+					if (IsShapeshifter(item))
+					{
+						Precept_Role precept_Role = item.Ideo?.GetRole(item);
+						if (precept_Role != null && precept_Role.ideo == caller.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
+						{
+							shapeshifterLeader = true;
+							break;
+						}
+					}
+				}
+			}
+			return shapeshifterLeader.Value;
+		}
 
-        public static bool IsShapeshifter(Pawn pawn)
+		public static bool IsShapeshifter(Pawn pawn)
 		{
 			if (nonShapeshifters.Contains(pawn))
 			{
@@ -66,20 +66,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-            if (pawn.IsShapeshifterChimeraOrMorpher())
-            {
-                shapeshifters.Add(pawn);
+			if (pawn.IsShapeshifterChimeraOrMorpher())
+			{
+				shapeshifters.Add(pawn);
 				return true;
 			}
-            else
-            {
-                nonShapeshifters.Add(pawn);
+			else
+			{
+				nonShapeshifters.Add(pawn);
 			}
-            return false;
+			return false;
 		}
 
 		public static void ResetXenotypesCollection()
-        {
+		{
 			shapeshifters = new();
 			nonShapeshifters = new();
 			shapeshifterLeader = null;
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class ThoughtWorker_Precept_Shapeshifter_Social : ThoughtWorker_Precept_Social
+	public class ThoughtWorker_Precept_Shapeshifter_Social : ThoughtWorker_Precept_Social
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)

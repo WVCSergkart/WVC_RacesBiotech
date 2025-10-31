@@ -1,13 +1,12 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class PawnGeneSetHolder : IExposable
+	public class PawnGeneSetHolder : IExposable
 	{
 
 		public int formId;
@@ -64,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 			Color? hairColorOverride = XaG_GeneUtility.GetFirstHairColorGene(pawn)?.def?.hairColorOverride;
 			if (hairColorOverride.HasValue)
 			{
-                pawn.story.HairColor = hairColorOverride.Value.ClampToValueRange(GeneTuning.HairColorValueRange);
+				pawn.story.HairColor = hairColorOverride.Value.ClampToValueRange(GeneTuning.HairColorValueRange);
 			}
 			Color? skinColorOverride = XaG_GeneUtility.GetFirstSkinColorOverrideGene(pawn)?.def?.skinColorOverride;
 			if (skinColorOverride.HasValue)
@@ -93,39 +92,39 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void SaveGenes(Pawn pawn, Gene_Morpher morpher)
-        {
-            SaveAppearance(pawn);
-            savedPawnNeeds = new();
-            foreach (Need need in pawn.needs.AllNeeds)
-            {
-                if (!need.def.onlyIfCausedByGene)
-                {
-                    continue;
-                }
-                savedPawnNeeds[need.def] = need.CurLevel;
-            }
-            savedPawnResources = new();
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene is Gene_Resource resource)
-                {
-                    savedPawnResources[resource.def] = resource.Value;
-                }
-            }
-            overrideSaverList = new();
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene == morpher)
-                {
-                    continue;
-                }
-                if (gene.overriddenByGene != null)
+		{
+			SaveAppearance(pawn);
+			savedPawnNeeds = new();
+			foreach (Need need in pawn.needs.AllNeeds)
+			{
+				if (!need.def.onlyIfCausedByGene)
+				{
+					continue;
+				}
+				savedPawnNeeds[need.def] = need.CurLevel;
+			}
+			savedPawnResources = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is Gene_Resource resource)
+				{
+					savedPawnResources[resource.def] = resource.Value;
+				}
+			}
+			overrideSaverList = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene == morpher)
+				{
+					continue;
+				}
+				if (gene.overriddenByGene != null)
 				{
 					GeneDefOverrideSaver newOverrideSaver = new();
 					newOverrideSaver.overrided = gene.def;
 					newOverrideSaver.overridedIsXenogene = pawn.genes.IsXenogene(gene);
 					newOverrideSaver.overrider = gene.overriddenByGene.def;
-                    newOverrideSaver.overriderIsXenogene = pawn.genes.IsXenogene(gene.overriddenByGene);
+					newOverrideSaver.overriderIsXenogene = pawn.genes.IsXenogene(gene.overriddenByGene);
 					overrideSaverList.Add(newOverrideSaver);
 				}
 			}
@@ -155,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public void LoadGenes(Pawn pawn, Gene_Morpher morpher)
+		public void LoadGenes(Pawn pawn, Gene_Morpher morpher)
 		{
 			foreach (GeneDef gene in endogeneDefs)
 			{
@@ -192,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-            overrideSaverList = null;
+			overrideSaverList = null;
 			foreach (Need need in pawn.needs.AllNeeds)
 			{
 				foreach (var item in savedPawnNeeds)
@@ -272,7 +271,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public virtual void ExposeData()
+		public virtual void ExposeData()
 		{
 			Scribe_Values.Look(ref formId, "formId");
 			Scribe_Values.Look(ref name, "name");
@@ -328,30 +327,30 @@ namespace WVC_XenotypesAndGenes
 				//	Log.Warning("Removed null overrideSaver(s)");
 				//}
 			}
-            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				if (xenotypeDef == null)
-                {
-                    xenotypeDef = XenotypeDefOf.Baseliner;
-                }
-                //if (xenogenes == null)
-                //{
-                //    xenogenes = new();
-                //}
-                //if (endogenes == null)
-                //{
-                //    endogenes = new();
-                //}
-                //if (xenogeneDefs == null)
-                //{
-                //    xenogeneDefs = new();
-                //}
-                //if (endogeneDefs == null)
-                //{
-                //    endogeneDefs = new();
-                //}
-            }
-        }
+				{
+					xenotypeDef = XenotypeDefOf.Baseliner;
+				}
+				//if (xenogenes == null)
+				//{
+				//    xenogenes = new();
+				//}
+				//if (endogenes == null)
+				//{
+				//    endogenes = new();
+				//}
+				//if (xenogeneDefs == null)
+				//{
+				//    xenogeneDefs = new();
+				//}
+				//if (endogeneDefs == null)
+				//{
+				//    endogeneDefs = new();
+				//}
+			}
+		}
 
 	}
 

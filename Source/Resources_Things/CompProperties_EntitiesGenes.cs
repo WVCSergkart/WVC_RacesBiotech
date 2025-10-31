@@ -1,8 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -30,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
 			if (Props.geneDef == null || Props.devourJob == null)
-            {
+			{
 				yield break;
 			}
 			//if (!selPawn.IsChimera())
@@ -49,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(window);
 				}
 				else
-                {
+				{
 					Messages.Message("WVC_XaG_GeneChimeraReqGene".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
 			}), selPawn, parent);

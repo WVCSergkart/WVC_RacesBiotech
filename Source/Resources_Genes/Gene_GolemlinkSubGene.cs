@@ -1,13 +1,12 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_GolemlinkSubGene : Gene
+	public class Gene_GolemlinkSubGene : Gene
 	{
 
 		private GeneExtension_Spawner cachedGeneExtension_Spawner;
@@ -46,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void SubGolemMaker(out int golemsSpawned)
-        {
+		{
 			golemsSpawned = 0;
 		}
 

@@ -1,15 +1,11 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_PackMentality : Gene, IGeneOverridden, IGeneNotifyGenesChanged
+	public class Gene_PackMentality : Gene, IGeneOverridden, IGeneNotifyGenesChanged
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -77,9 +73,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void UpdThoughts()
-        {
+		{
 			if (pawn?.Faction != Faction.OfPlayer)
-            {
+			{
 				return;
 			}
 			Notify_GenesChanged(null);
@@ -99,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
 			}
-        }
+		}
 
 		public override void PostRemove()
 		{
@@ -124,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 			UpdThoughts();
 		}
 
-        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			foreach (Pawn member in ThePack)
 			{

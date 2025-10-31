@@ -1,11 +1,10 @@
-using HarmonyLib;
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using WVC_XenotypesAndGenes.HarmonyPatches;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -147,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 
-            public static void IdeoUpdTrigger()
+			public static void IdeoUpdTrigger()
 			{
 				if (MiscUtility.GameStarted())
 				{
@@ -192,15 +191,15 @@ namespace WVC_XenotypesAndGenes
 			public static void Patch_HideGenes(ref List<GeneDef> __result)
 			{
 				if (cachedGeneDefsInOrder == null)
-                {
+				{
 					List<GeneDef> newList = new();
 					foreach (GeneDef geneDef in __result.ToList())
-                    {
+					{
 						if (!geneDef.IsXenoGenesDef())
-                        {
+						{
 							newList.Add(geneDef);
 						}
-                    }
+					}
 					cachedGeneDefsInOrder = newList;
 				}
 				__result = cachedGeneDefsInOrder;
@@ -214,32 +213,32 @@ namespace WVC_XenotypesAndGenes
 				{
 					XaG_UiUtility.DrawGeneBasics(gene.def, geneRect, geneType, doBackground, clickable, !gene.Active);
 					if (Mouse.IsOver(geneRect))
-                    {
-                        string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
-                        text += XaG_UiUtility.AdditionalInfo_GeneDef(gene.def);
-                        text = OverridenByGene(gene, text);
-                        if (Prefs.DevMode)
-                        {
-                            text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
-                            text += "\n - defName: " + gene.def.defName.ToString();
-                            text += "\n - geneClass: " + gene.GetType().ToString();
-                        }
-                        if (clickable)
-                        {
-                            text += "\n\n" + "ClickForMoreInfo".Translate().ToString().Colorize(ColoredText.SubtleGrayColor);
-                        }
-                        TooltipHandler.TipRegion(geneRect, text);
-                    }
-                    return false;
+					{
+						string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
+						text += XaG_UiUtility.AdditionalInfo_GeneDef(gene.def);
+						text = OverridenByGene(gene, text);
+						if (Prefs.DevMode)
+						{
+							text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
+							text += "\n - defName: " + gene.def.defName.ToString();
+							text += "\n - geneClass: " + gene.GetType().ToString();
+						}
+						if (clickable)
+						{
+							text += "\n\n" + "ClickForMoreInfo".Translate().ToString().Colorize(ColoredText.SubtleGrayColor);
+						}
+						TooltipHandler.TipRegion(geneRect, text);
+					}
+					return false;
 				}
 				return true;
 			}
 
-            private static string OverridenByGene(Gene gene, string text)
-            {
-                if (gene.Overridden)
-                {
-                    text += "\n\n";
+			private static string OverridenByGene(Gene gene, string text)
+			{
+				if (gene.Overridden)
+				{
+					text += "\n\n";
 					if (gene.overriddenByGene != gene)
 					{
 						text = ((gene.overriddenByGene.def != gene.def) ? (text + ("OverriddenByGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)) : (text + ("OverriddenByIdenticalGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)));
@@ -248,11 +247,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						text += ("WVC_XaG_OverriddenByItself".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable);
 					}
-                }
-                return text;
-            }
+				}
+				return text;
+			}
 
-            public static bool Xag_DrawGeneDef(ref GeneDef gene, ref Rect geneRect, ref GeneType geneType, ref Func<string> extraTooltip, ref bool doBackground, ref bool clickable, ref bool overridden)
+			public static bool Xag_DrawGeneDef(ref GeneDef gene, ref Rect geneRect, ref GeneType geneType, ref Func<string> extraTooltip, ref bool doBackground, ref bool clickable, ref bool overridden)
 			{
 				if (gene.IsXenoGenesDef())
 				{
@@ -285,86 +284,86 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 
-            // Telepathy
+			// Telepathy
 
-            //public static void TelepathyGene(ref bool __result, Pawn p, Pawn recipient)
-            //{
-            //	if (__result)
-            //	{
-            //		return;
-            //	}
-            //	if (recipient.IsPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
-            //	{
-            //		if (p.Map != null)
-            //		{
-            //			FleckMaker.AttachedOverlay(p, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
-            //		}
-            //		__result = true;
-            //	}
-            //}
+			//public static void TelepathyGene(ref bool __result, Pawn p, Pawn recipient)
+			//{
+			//	if (__result)
+			//	{
+			//		return;
+			//	}
+			//	if (recipient.IsPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
+			//	{
+			//		if (p.Map != null)
+			//		{
+			//			FleckMaker.AttachedOverlay(p, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			//		}
+			//		__result = true;
+			//	}
+			//}
 
-            // Body graphic
+			// Body graphic
 
-            // public static void GraphicSize(ref Vector3 __result, PawnRenderNode node)
-            // {
-            // if (node is PawnRenderNode_Body)
-            // {
-            // if (node.Props is PawnRenderNodeProperties_Size size)
-            // {
-            // __result *= size.bodyScaleFactor;
-            // }
-            // }
-            // else if (node is PawnRenderNode_Head)
-            // {
-            // if (node.Props is PawnRenderNodeProperties_Size size)
-            // {
-            // __result *= size.headScaleFactor;
-            // }
-            // }
-            // }
+			// public static void GraphicSize(ref Vector3 __result, PawnRenderNode node)
+			// {
+			// if (node is PawnRenderNode_Body)
+			// {
+			// if (node.Props is PawnRenderNodeProperties_Size size)
+			// {
+			// __result *= size.bodyScaleFactor;
+			// }
+			// }
+			// else if (node is PawnRenderNode_Head)
+			// {
+			// if (node.Props is PawnRenderNodeProperties_Size size)
+			// {
+			// __result *= size.headScaleFactor;
+			// }
+			// }
+			// }
 
-            // public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
-            // {
-            // Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
-            // if (gene == null)
-            // {
-            // return;
-            // }
-            // GeneExtension_Graphic modExtension = gene.Graphic;
-            // if (modExtension == null)
-            // {
-            // return;
-            // }
-            // __result *= modExtension.bodyScaleFactor;
-            // }
+			// public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
+			// {
+			// Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+			// if (gene == null)
+			// {
+			// return;
+			// }
+			// GeneExtension_Graphic modExtension = gene.Graphic;
+			// if (modExtension == null)
+			// {
+			// return;
+			// }
+			// __result *= modExtension.bodyScaleFactor;
+			// }
 
-            // public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
-            // {
-            // Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
-            // if (gene == null)
-            // {
-            // return;
-            // }
-            // GeneExtension_Graphic modExtension = gene.Graphic;
-            // if (modExtension == null)
-            // {
-            // return;
-            // }
-            // __result *= modExtension.headScaleFactor;
-            // }
+			// public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
+			// {
+			// Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+			// if (gene == null)
+			// {
+			// return;
+			// }
+			// GeneExtension_Graphic modExtension = gene.Graphic;
+			// if (modExtension == null)
+			// {
+			// return;
+			// }
+			// __result *= modExtension.headScaleFactor;
+			// }
 
-            //public static void GlowingHair(Pawn pawn, ref Graphic __result, PawnRenderNode_Hair __instance)
-            //{
-            //	if (__result == null)
-            //	{
-            //		return;
-            //	}
-            //	if (!GeneFeaturesUtility.HasLuminescentHairGene(pawn))
-            //	{
-            //		return;
-            //	}
-            //	__result = GraphicDatabase.Get<Graphic_Multi>(pawn.story.hairDef.texPath, ShaderDatabase.MoteGlow, Vector2.one, __instance.ColorFor(pawn));
-            //}
+			//public static void GlowingHair(Pawn pawn, ref Graphic __result, PawnRenderNode_Hair __instance)
+			//{
+			//	if (__result == null)
+			//	{
+			//		return;
+			//	}
+			//	if (!GeneFeaturesUtility.HasLuminescentHairGene(pawn))
+			//	{
+			//		return;
+			//	}
+			//	__result = GraphicDatabase.Get<Graphic_Multi>(pawn.story.hairDef.texPath, ShaderDatabase.MoteGlow, Vector2.one, __instance.ColorFor(pawn));
+			//}
 
 			//public static void HeadIsFurskin(Pawn pawn, ref Graphic __result, PawnRenderNode_Head __instance)
 			//{
@@ -476,41 +475,41 @@ namespace WVC_XenotypesAndGenes
 				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
 			}
 
-            public static void Notify_PostResurrected(ref bool __result, Pawn pawn)
-            {
-                try
-                {
-                    if (!__result)
-                    {
-                        return;
-                    }
-                    if (MiscUtility.GameStarted())
-                    {
-                        pawn.HumanComponent()?.Notify_Resurrected();
-                        ReimplanterUtility.PostImplantDebug(pawn);
-                    }
-                }
-                catch (Exception arg)
-                {
+			public static void Notify_PostResurrected(ref bool __result, Pawn pawn)
+			{
+				try
+				{
+					if (!__result)
+					{
+						return;
+					}
+					if (MiscUtility.GameStarted())
+					{
+						pawn.HumanComponent()?.Notify_Resurrected();
+						ReimplanterUtility.PostImplantDebug(pawn);
+					}
+				}
+				catch (Exception arg)
+				{
 					Log.Error("Failed Notify_PostResurrected for: " + pawn.Name + ". Reason: " + arg.Message);
-                }
-            }
+				}
+			}
 
-            // public static void SpecialGeneGraphic(PawnGraphicSet __instance)
-            // {
-            // foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-            // {
-            // if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
-            // {
-            // continue;
-            // }
-            // __instance.geneGraphics.Remove(graphicRecord);
-            // }
-            // }
+			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
+			// {
+			// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+			// {
+			// if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
+			// {
+			// continue;
+			// }
+			// __instance.geneGraphics.Remove(graphicRecord);
+			// }
+			// }
 
-            // Romance
+			// Romance
 
-            public static void Incestuous_Relations(ref bool __result, ref Pawn one)
+			public static void Incestuous_Relations(ref bool __result, ref Pawn one)
 			{
 				if (!__result)
 				{
@@ -536,8 +535,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (!ModLister.BiotechInstalled)
 				// {
-					// __result = true;
-					// return false;
+				// __result = true;
+				// return false;
 				// }
 				for (int i = 0; i < __instance.GenesListForReading.Count; i++)
 				{
@@ -560,8 +559,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (!ModsConfig.BiotechActive || __instance?.pawn?.genes == null)
 				// {
-					// __result = false;
-					// return false;
+				// __result = false;
+				// return false;
 				// }
 				if (__instance?.pawn?.genes == null)
 				{
@@ -658,67 +657,67 @@ namespace WVC_XenotypesAndGenes
 			// GeneOverride
 
 			public static void OverrideTrigger(Gene __instance, Gene overriddenBy)
-            {
-                try
-                {
-                    if (__instance is IGeneOverridden geneOverridden)
-                    {
-                        if (overriddenBy != null)
-                        {
-                            geneOverridden.Notify_OverriddenBy(overriddenBy);
-                        }
-                        else
-                        {
-                            geneOverridden.Notify_Override();
-                        }
-                    }
-                    if (__instance is IGeneInspectInfo || __instance is IGeneFloatMenuOptions)
-                    {
-                        XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
-                    }
-                }
-                catch (Exception arg)
-                {
+			{
+				try
+				{
+					if (__instance is IGeneOverridden geneOverridden)
+					{
+						if (overriddenBy != null)
+						{
+							geneOverridden.Notify_OverriddenBy(overriddenBy);
+						}
+						else
+						{
+							geneOverridden.Notify_Override();
+						}
+					}
+					if (__instance is IGeneInspectInfo || __instance is IGeneFloatMenuOptions)
+					{
+						XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
+					}
+				}
+				catch (Exception arg)
+				{
 					Log.Error("Error while overriding gene: " + __instance.def.defName + ". Reason: " + arg);
-                }
-            }
+				}
+			}
 
-            //public static void FixOverrides(Pawn_GeneTracker __instance)
-            //{
-            //	List<Gene> xenogenes = __instance.pawn.genes.Xenogenes;
-            //	List<Gene> endogenes = __instance.pawn.genes.Endogenes;
-            //	if (xenogenes.NullOrEmpty() || endogenes.NullOrEmpty())
-            //	{
-            //		return;
-            //	}
-            //	for (int i = 0; i < xenogenes.Count; i++)
-            //	{
-            //		Gene xenogene = xenogenes[i];
-            //		if (!xenogene.Overridden)
-            //		{
-            //			continue;
-            //		}
-            //		for (int j = 0; j < endogenes.Count; j++)
-            //		{
-            //			Gene endogene = endogenes[i];
-            //			if (!endogene.Overridden)
-            //			{
-            //				continue;
-            //			}
-            //			if (xenogene.def.ConflictsWith(endogene.def) || endogene.def.ConflictsWith(xenogene.def))
-            //			{
-            //				endogene.OverrideBy(xenogene);
-            //			}
-            //		}
-            //	}
-            //	__instance.pawn?.skills?.DirtyAptitudes();
-            //	__instance.pawn?.Notify_DisabledWorkTypesChanged();
-            //	//__instance.pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
-            //}
+			//public static void FixOverrides(Pawn_GeneTracker __instance)
+			//{
+			//	List<Gene> xenogenes = __instance.pawn.genes.Xenogenes;
+			//	List<Gene> endogenes = __instance.pawn.genes.Endogenes;
+			//	if (xenogenes.NullOrEmpty() || endogenes.NullOrEmpty())
+			//	{
+			//		return;
+			//	}
+			//	for (int i = 0; i < xenogenes.Count; i++)
+			//	{
+			//		Gene xenogene = xenogenes[i];
+			//		if (!xenogene.Overridden)
+			//		{
+			//			continue;
+			//		}
+			//		for (int j = 0; j < endogenes.Count; j++)
+			//		{
+			//			Gene endogene = endogenes[i];
+			//			if (!endogene.Overridden)
+			//			{
+			//				continue;
+			//			}
+			//			if (xenogene.def.ConflictsWith(endogene.def) || endogene.def.ConflictsWith(xenogene.def))
+			//			{
+			//				endogene.OverrideBy(xenogene);
+			//			}
+			//		}
+			//	}
+			//	__instance.pawn?.skills?.DirtyAptitudes();
+			//	__instance.pawn?.Notify_DisabledWorkTypesChanged();
+			//	//__instance.pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
+			//}
 
-            // Predators
+			// Predators
 
-            public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
+			public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
 			{
 				if (prey.RaceProps.Humanlike && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
 				{
@@ -843,24 +842,24 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 
-            // Duplicates fix
+			// Duplicates fix
 
-            //public static void AnomalyDuplicates_SetDuplicate(ref Pawn pawn, ref Pawn __result)
-            //{
-            //	DuplicateUtility.SetDuplicate(__result, pawn);
-            //}
+			//public static void AnomalyDuplicates_SetDuplicate(ref Pawn pawn, ref Pawn __result)
+			//{
+			//	DuplicateUtility.SetDuplicate(__result, pawn);
+			//}
 
-            public static void Anomaly_IsDuplicate(ref Pawn __instance, ref bool __result)
-            {
+			public static void Anomaly_IsDuplicate(ref Pawn __instance, ref bool __result)
+			{
 				if (!__result)
 				{
 					__result = DuplicateUtility.Debug_IsDuplicate(__instance);
 				}
-            }
+			}
 
-            // Dev TESTS
+			// Dev TESTS
 
-            public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+			public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
 			{
 				if (__instance.pawn.Map == null)
 				{

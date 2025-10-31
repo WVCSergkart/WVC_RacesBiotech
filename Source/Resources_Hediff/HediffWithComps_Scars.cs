@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffWithComps_Scars : HediffWithComps
+	public class HediffWithComps_Scars : HediffWithComps
 	{
 
 		// public XaG_HediffDef def;
@@ -70,14 +70,14 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            if (GeneResourceUtility.CanTick(ref nextTick, 52988, delta))
-            {
-                Reset();
-            }
-        }
+		{
+			if (GeneResourceUtility.CanTick(ref nextTick, 52988, delta))
+			{
+				Reset();
+			}
+		}
 
-        public void Reset()
+		public void Reset()
 		{
 			cachedScarsCount = 0;
 			curStage = null;
@@ -93,46 +93,46 @@ namespace WVC_XenotypesAndGenes
 	// public class HediffWithComps_Scarshield : HediffWithComps_Scars
 	// {
 
-		// public override HediffStage CurStage
-		// {
-			// get
-			// {
-				// if (curStage == null && cachedScarsCount > 0)
-				// {
-					// StatModifier statModifier = new();
-					// statModifier.stat = StatDefOf.IncomingDamageFactor;
-					// statModifier.value = 1f - (0.15f * cachedScarsCount);
-					// curStage = new HediffStage
-					// {
-						// statFactors = new List<StatModifier> { statModifier }
-					// };
-				// }
-				// return curStage;
-			// }
-		// }
+	// public override HediffStage CurStage
+	// {
+	// get
+	// {
+	// if (curStage == null && cachedScarsCount > 0)
+	// {
+	// StatModifier statModifier = new();
+	// statModifier.stat = StatDefOf.IncomingDamageFactor;
+	// statModifier.value = 1f - (0.15f * cachedScarsCount);
+	// curStage = new HediffStage
+	// {
+	// statFactors = new List<StatModifier> { statModifier }
+	// };
+	// }
+	// return curStage;
+	// }
+	// }
 
 	// }
 
 	// public class HediffWithComps_Scarstomach : HediffWithComps_Scars
 	// {
 
-		// public override HediffStage CurStage
-		// {
-			// get
-			// {
-				// if (curStage == null && cachedScarsCount > 0)
-				// {
-					// StatModifier statModifier = new();
-					// statModifier.stat = StatDefOf.MaxNutrition;
-					// statModifier.value = 0.2f * cachedScarsCount;
-					// curStage = new HediffStage
-					// {
-						// statOffsets = new List<StatModifier> { statModifier }
-					// };
-				// }
-				// return curStage;
-			// }
-		// }
+	// public override HediffStage CurStage
+	// {
+	// get
+	// {
+	// if (curStage == null && cachedScarsCount > 0)
+	// {
+	// StatModifier statModifier = new();
+	// statModifier.stat = StatDefOf.MaxNutrition;
+	// statModifier.value = 0.2f * cachedScarsCount;
+	// curStage = new HediffStage
+	// {
+	// statOffsets = new List<StatModifier> { statModifier }
+	// };
+	// }
+	// return curStage;
+	// }
+	// }
 
 	// }
 

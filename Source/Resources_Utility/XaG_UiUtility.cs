@@ -1,7 +1,5 @@
-using RimWorld;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -51,11 +49,11 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_GenesSettings(pawn));
 				}
 			};
-            //if (gene is Gene genegene)
-            //{
-            //    Log.Error(genegene.def.defName);
-            //}
-        }
+			//if (gene is Gene genegene)
+			//{
+			//    Log.Error(genegene.def.defName);
+			//}
+		}
 
 		public static void RecacheRemoteController(Pawn pawn, ref bool remoteControllerCached, ref bool enabled)
 		{
@@ -80,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 					geneRemoteControl.RemoteControl_Enabled = setTo;
 				}
 				//else if (gene is IGeneRemoteMainframe mainframe && mainframe != mainGene)
-    //            {
+				//            {
 				//	mainframe.RemoteMainframe_Reset();
 				//}
 			}
@@ -324,24 +322,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				switch (geneType)
 				{
-				case GeneType.Endogene:
-					cachedTexture = GeneBackground_Endogene;
-					break;
-				case GeneType.Xenogene:
-					cachedTexture = GeneBackground_Xenogene;
-					break;
+					case GeneType.Endogene:
+						cachedTexture = GeneBackground_Endogene;
+						break;
+					case GeneType.Xenogene:
+						cachedTexture = GeneBackground_Xenogene;
+						break;
 				}
 			}
 			else
 			{
 				switch (geneType)
 				{
-				case GeneType.Endogene:
-					cachedTexture = GeneBackground_ArchiteEndogene;
-					break;
-				case GeneType.Xenogene:
-					cachedTexture = GeneBackground_ArchiteXenogene;
-					break;
+					case GeneType.Endogene:
+						cachedTexture = GeneBackground_ArchiteEndogene;
+						break;
+					case GeneType.Xenogene:
+						cachedTexture = GeneBackground_ArchiteXenogene;
+						break;
 				}
 			}
 			return cachedTexture;

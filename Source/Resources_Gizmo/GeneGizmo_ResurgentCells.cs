@@ -1,8 +1,7 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -21,19 +20,19 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string BarLabel => $"{gene.ValueForDisplay}" + "%";
 
-        protected override bool DraggingBar
-        {
-            get
-            {
+		protected override bool DraggingBar
+		{
+			get
+			{
 				return false;
-            }
-            set
-            {
+			}
+			set
+			{
 
-            }
-        }
+			}
+		}
 
-        public Gene_ResurgentTotalHealing totalHealingGene = null;
+		public Gene_ResurgentTotalHealing totalHealingGene = null;
 		public Gene_ResurgentAgeless ageReversionGene = null;
 		public Gene_ResurgentClotting woundClottingGene = null;
 

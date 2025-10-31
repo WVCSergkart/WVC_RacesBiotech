@@ -1,7 +1,5 @@
 using RimWorld;
 using RimWorld.Planet;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
@@ -20,13 +18,13 @@ namespace WVC_XenotypesAndGenes
 		/// <param name="pawn"></param>
 		/// <returns></returns>
 		public static bool CanBePregnant(this Pawn pawn)
-        {
+		{
 			if (pawn?.gender == Gender.Female)
-            {
+			{
 				return true;
-            }
+			}
 			return WVC_Biotech.settings.enable_pregnancyForAllGenders;
-        }
+		}
 
 		public static void GestateChild_WithGenes(Pawn parent, Thing motherOrEgg = null, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogenes = true, bool xenogenes = true)
 		{
@@ -155,8 +153,8 @@ namespace WVC_XenotypesAndGenes
 			Name name = PawnBioAndNameGenerator.GeneratePawnName(baby, forcedLastName: GetParentLastName(parent), forceNoNick: true, xenotype: baby.genes.Xenotype);
 			// if (parent != null & baby != null)
 			// {
-				// string name = PawnNameDatabaseShuffled.BankOf(PawnNameCategory.HumanStandard).GetName(PawnNameSlot.First, baby.gender);
-				// baby.Name = new NameTriple(name, null, GetParentLastName(parent));
+			// string name = PawnNameDatabaseShuffled.BankOf(PawnNameCategory.HumanStandard).GetName(PawnNameSlot.First, baby.gender);
+			// baby.Name = new NameTriple(name, null, GetParentLastName(parent));
 			// }
 			string parentName = GetParentLastName(parent);
 			if (baby != null && name is NameTriple babyNameTriple && parentName != null)

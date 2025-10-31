@@ -115,9 +115,9 @@ namespace WVC_XenotypesAndGenes
 	// [DefOf]
 	// public static class ShapeshiftModeDefOf
 	// {
-		// public static ShapeshiftModeDef WVC_Shapeshift;
-		// public static ShapeshiftModeDef WVC_Safeshift;
-		// public static ShapeshiftModeDef WVC_Duplicate;
+	// public static ShapeshiftModeDef WVC_Shapeshift;
+	// public static ShapeshiftModeDef WVC_Safeshift;
+	// public static ShapeshiftModeDef WVC_Duplicate;
 	// }
 
 }

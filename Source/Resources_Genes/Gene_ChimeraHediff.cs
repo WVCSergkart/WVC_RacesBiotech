@@ -5,10 +5,10 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden
+	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden
 	{
 
-        public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
 		public virtual Hediff ChimeraHediff
 		{
@@ -80,12 +80,12 @@ namespace WVC_XenotypesAndGenes
 		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlHideBandwitdhDesc".Translate();
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-        {
-            HideOrUnhideUI();
-            //genesSettings.Close();
-        }
+		{
+			HideOrUnhideUI();
+			//genesSettings.Close();
+		}
 
-        public bool RemoteControl_Hide => !WVC_Biotech.settings.enable_HideMechanitorButtonsPatch || !Active;
+		public bool RemoteControl_Hide => !WVC_Biotech.settings.enable_HideMechanitorButtonsPatch || !Active;
 
 		public bool RemoteControl_Enabled
 		{
@@ -101,13 +101,13 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void PostRemove()
-        {
-            base.PostRemove();
-            XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-            UnhideUI();
-        }
+		{
+			base.PostRemove();
+			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+			UnhideUI();
+		}
 
-        public bool enabled = true;
+		public bool enabled = true;
 		public bool remoteControllerCached = false;
 
 		public void RemoteControl_Recache()
@@ -125,49 +125,49 @@ namespace WVC_XenotypesAndGenes
 
 		public bool shouldHideMechanitorUI = true;
 
-        public override void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            base.Notify_OverriddenBy(overriddenBy);
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
 			UnhideUI();
 		}
 
-        public override void Notify_Override()
-        {
-            base.Notify_Override();
-            Load();
-        }
+		public override void Notify_Override()
+		{
+			base.Notify_Override();
+			Load();
+		}
 
-        private void Load()
-        {
-            if (!shouldHideMechanitorUI)
-            {
-                StaticCollectionsClass.AddHideMechanitors(pawn);
-            }
-        }
+		private void Load()
+		{
+			if (!shouldHideMechanitorUI)
+			{
+				StaticCollectionsClass.AddHideMechanitors(pawn);
+			}
+		}
 
-        private void HideOrUnhideUI()
+		private void HideOrUnhideUI()
 		{
 			shouldHideMechanitorUI = !shouldHideMechanitorUI;
-            if (shouldHideMechanitorUI)
-            {
-                StaticCollectionsClass.RemoveHideMechanitors(pawn);
-            }
-            else
-            {
-                StaticCollectionsClass.AddHideMechanitors(pawn);
-            }
-            //StaticCollectionsClass.AddOrRemoveHideMechanitors(pawn);
-        }
+			if (shouldHideMechanitorUI)
+			{
+				StaticCollectionsClass.RemoveHideMechanitors(pawn);
+			}
+			else
+			{
+				StaticCollectionsClass.AddHideMechanitors(pawn);
+			}
+			//StaticCollectionsClass.AddOrRemoveHideMechanitors(pawn);
+		}
 
-        private void UnhideUI()
+		private void UnhideUI()
 		{
 			shouldHideMechanitorUI = true;
 			StaticCollectionsClass.RemoveHideMechanitors(pawn);
 		}
 
 		public override void ExposeData()
-        {
-            base.ExposeData();
+		{
+			base.ExposeData();
 			Scribe_Values.Look(ref shouldHideMechanitorUI, "shouldHideMechanitorUI", defaultValue: true);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{

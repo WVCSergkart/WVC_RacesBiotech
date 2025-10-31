@@ -1,10 +1,7 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -29,17 +26,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			MasterGene?.CacheReset();
 		}
 
-        public virtual void Notify_Override()
+		public virtual void Notify_Override()
 		{
 			MasterGene?.CacheReset();
 		}
 
-        public override void PostAdd()
+		public override void PostAdd()
 		{
 			base.PostAdd();
 			MasterGene?.CacheReset();
@@ -143,16 +140,16 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (MasterGene == null)
-            {
+			{
 				return;
-            }
+			}
 			foreach (Pawn mech in pawn.mechanitor.ControlledPawns)
 			{
 				Need_MechEnergy need_MechEnergy = mech.needs?.energy;
 				if (need_MechEnergy != null)
 				{
-                    float value = Mathf.Clamp(0.20f / 60000 * tick, 0f, need_MechEnergy.MaxLevel - need_MechEnergy.CurLevel);
-                    need_MechEnergy.CurLevel += value;
+					float value = Mathf.Clamp(0.20f / 60000 * tick, 0f, need_MechEnergy.MaxLevel - need_MechEnergy.CurLevel);
+					need_MechEnergy.CurLevel += value;
 					MasterGene?.OffsetResource(-value);
 				}
 			}

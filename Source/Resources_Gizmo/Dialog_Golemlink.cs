@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -336,7 +335,7 @@ namespace WVC_XenotypesAndGenes
 				gene.golemsForSummon = allPawnKinds;
 			}
 			else
-            {
+			{
 				gene.golemsForSummon = selectedGolems;
 			}
 			Close(doCloseSound: true);

@@ -1,6 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 
 	// Driver
 
-	public abstract class JobDriver_NewDryads_CreateAndEnterDryadHolder: JobDriver
+	public abstract class JobDriver_NewDryads_CreateAndEnterDryadHolder : JobDriver
 	{
 
 		public GeneExtension_Spawner Props => job?.def?.GetModExtension<GeneExtension_Spawner>();

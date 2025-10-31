@@ -1,11 +1,6 @@
-using RimWorld;
-using RimWorld.QuestGen;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -13,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Timers. "Next resource_name in: 4.3 days"
 	/// </summary>
-    public interface IGeneInspectInfo
+	public interface IGeneInspectInfo
 	{
 
 		string GetInspectInfo { get; }
@@ -148,9 +143,9 @@ namespace WVC_XenotypesAndGenes
 
 		void RemoteControl_Action(Dialog_GenesSettings genesSettings);
 
-        //void Notify_PawnResurrected();
+		//void Notify_PawnResurrected();
 
-        string RemoteActionName { get; }
+		string RemoteActionName { get; }
 
 		TaggedString RemoteActionDesc { get; }
 

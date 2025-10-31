@@ -1,10 +1,10 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Rejuvenator : Gene_Ageless, IGeneRemoteControl
+	public class Gene_Rejuvenator : Gene_Ageless, IGeneRemoteControl
 	{
 		public string RemoteActionName => "WVC_DesiredAge".Translate();
 

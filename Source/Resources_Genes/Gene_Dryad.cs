@@ -1,8 +1,7 @@
-using RimWorld;
-using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -43,20 +42,20 @@ namespace WVC_XenotypesAndGenes
 
 		private bool spawnDryads = false;
 
-        public bool SpawnDryads
-        {
-            get
-            {
-                return spawnDryads;
-            }
+		public bool SpawnDryads
+		{
+			get
+			{
+				return spawnDryads;
+			}
 			set
-            {
+			{
 				spawnDryads = value;
 				//ResetInterval();
 			}
-        }
+		}
 
-        public override void PostAdd()
+		public override void PostAdd()
 		{
 			base.PostAdd();
 			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
@@ -85,12 +84,12 @@ namespace WVC_XenotypesAndGenes
 		private void SpawnDryad()
 		{
 			if (!WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
-            {
+			{
 				spawnDryads = false;
 				return;
-            }
-            string phase = "start";
-            try
+			}
+			string phase = "start";
+			try
 			{
 				if (dryads == null)
 				{
@@ -143,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 				UpdHediff();
 			}
 			catch (Exception arg)
-            {
+			{
 				spawnDryads = false;
 				nextTick = 2000;
 				Log.Error("Failed spawn dryad. On phase: " + phase + ". Reason: " + arg);
@@ -153,7 +152,7 @@ namespace WVC_XenotypesAndGenes
 		public void UpdHediff()
 		{
 			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_DryadQueen hediff))
-            {
+			{
 				hediff.Recache();
 			}
 			else
@@ -165,29 +164,29 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
-        {
-            // if (dryadThing == null)
-            // {
-            // return null;
-            // }
-            Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
-            // dryad.def = dryadThing;
-            // dryad.InitializeComps();
-            ResetDryad(dryad);
-            CompGestatedDryad newPawnComp = dryad.TryGetComp<CompGestatedDryad>();
-            if (newPawnComp == null)
-            {
-                return null;
-            }
-            newPawnComp.SetMaster(pawn);
-            dryad.connections?.ConnectTo(pawn);
-            AddDryad(dryad);
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
-                {
-                    geneDryadQueen.Notify_DryadSpawned(dryad);
-                }
+		{
+			// if (dryadThing == null)
+			// {
+			// return null;
+			// }
+			Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
+			// dryad.def = dryadThing;
+			// dryad.InitializeComps();
+			ResetDryad(dryad);
+			CompGestatedDryad newPawnComp = dryad.TryGetComp<CompGestatedDryad>();
+			if (newPawnComp == null)
+			{
+				return null;
+			}
+			newPawnComp.SetMaster(pawn);
+			dryad.connections?.ConnectTo(pawn);
+			AddDryad(dryad);
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
+				{
+					geneDryadQueen.Notify_DryadSpawned(dryad);
+				}
 			}
 			//if (dryad?.needs?.rest != null)
 			//{
@@ -200,9 +199,9 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
 			Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
 			return dryad;
-        }
+		}
 
-        private void ResetDryad(Pawn dryad)
+		private void ResetDryad(Pawn dryad)
 		{
 			if (dryad.Faction != pawn?.Faction)
 			{
@@ -268,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//nextTick = Spawner.spawnIntervalRange.RandomInRange;
 			CompProperties_TreeConnection compProperties_TreeConnection = MainDefOf.Plant_TreeGauranlen?.GetCompProperties<CompProperties_TreeConnection>();
-            float basicDays = (compProperties_TreeConnection != null ? compProperties_TreeConnection.spawnDays : 8);
+			float basicDays = (compProperties_TreeConnection != null ? compProperties_TreeConnection.spawnDays : 8);
 			//float humanGestationDays = pawn.RaceProps.gestationPeriodDays / 2;
 			//float ticks = (basicDays / humanGestationDays);
 			nextTick = (int)(basicDays * 60000);
@@ -325,36 +324,36 @@ namespace WVC_XenotypesAndGenes
 			yield return gizmo;
 			// yield return new Command_Action
 			// {
-				// defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
-				// defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// spawnDryads = !spawnDryads;
-					// if (spawnDryads)
-					// {
-						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					// }
-					// else
-					// {
-						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					// }
-				// }
+			// defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
+			// defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
+			// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			// action = delegate
+			// {
+			// spawnDryads = !spawnDryads;
+			// if (spawnDryads)
+			// {
+			// SoundDefOf.Tick_High.PlayOneShotOnCamera();
+			// }
+			// else
+			// {
+			// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			// }
+			// }
 			// };
 			// yield return new Command_Action
 			// {
-				// defaultLabel = "WVC_XaG_DryadQueenSelectAllDryads".Translate(),
-				// defaultDesc = "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryads"),
-				// Order = -87f,
-				// action = delegate
-				// {
-					// Find.Selector.ClearSelection();
-					// for (int i = 0; i < dryads.Count; i++)
-					// {
-						// Find.Selector.Select(dryads[i]);
-					// }
-				// }
+			// defaultLabel = "WVC_XaG_DryadQueenSelectAllDryads".Translate(),
+			// defaultDesc = "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate(),
+			// icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryads"),
+			// Order = -87f,
+			// action = delegate
+			// {
+			// Find.Selector.ClearSelection();
+			// for (int i = 0; i < dryads.Count; i++)
+			// {
+			// Find.Selector.Select(dryads[i]);
+			// }
+			// }
 			// };
 		}
 
@@ -418,13 +417,13 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
 			// if (!dryads.NullOrEmpty())
 			// {
-				// foreach (Pawn dryad in dryads.ToList())
-				// {
-					// if (dryad == null)
-					// {
-						// RemoveDryad(dryad);
-					// }
-				// }
+			// foreach (Pawn dryad in dryads.ToList())
+			// {
+			// if (dryad == null)
+			// {
+			// RemoveDryad(dryad);
+			// }
+			// }
 			// }
 			if (dryads != null && dryads.RemoveAll((Pawn x) => x == null || x.Destroyed || x.Dead) > 0)
 			{

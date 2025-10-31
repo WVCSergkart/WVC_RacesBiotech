@@ -1,36 +1,35 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_Skinshaper : Window
+	public class Dialog_Skinshaper : Window
 	{
 
 		public List<GeneSetPresets> presets;
 		public Gene_Skinshaper gene;
 
 		public Dialog_Skinshaper(Gene_Skinshaper gene, List<GeneSetPresets> presets)
-        {
+		{
 			//remoteContoller.RemoteControl_Recache();
 			this.presets = presets;
 			this.gene = gene;
 			forcePause = true;
-            doCloseButton = true;
-        }
+			doCloseButton = true;
+		}
 
-        protected Vector2 scrollPosition;
+		protected Vector2 scrollPosition;
 		protected float bottomAreaHeight;
 
 		public override void DoWindowContents(Rect inRect)
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = (float)presets.Count * y;
+			float height = presets.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			Rect outRect = inRect.TopPartPixels(num);
@@ -62,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 					Widgets.Label(rect4, geneSet.name.CapitalizeFirst().Truncate(rect4.width));
 					Text.Anchor = TextAnchor.UpperLeft;
 					Widgets.EndGroup();
-                }
+				}
 				num2 += vector.y;
 				num3++;
 			}

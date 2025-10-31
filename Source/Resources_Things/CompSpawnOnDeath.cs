@@ -1,7 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -29,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public CompProperties_SpawnOnDeath()
 		// {
-			// compClass = typeof(CompSpawnOnDeath);
+		// compClass = typeof(CompSpawnOnDeath);
 		// }
 	}
 
@@ -110,11 +108,11 @@ namespace WVC_XenotypesAndGenes
 			rockDef = chunkDef ?? Props.thingDefsToSpawn.RandomElement();
 			// if (Props.hediffDefs != null)
 			// {
-				// Pawn pawn = parent as Pawn;
-				// foreach (HediffDef hediff in Props.hediffDefs)
-				// {
-					// pawn.health.AddHediff(hediff);
-				// }
+			// Pawn pawn = parent as Pawn;
+			// foreach (HediffDef hediff in Props.hediffDefs)
+			// {
+			// pawn.health.AddHediff(hediff);
+			// }
 			// }
 		}
 
@@ -134,20 +132,20 @@ namespace WVC_XenotypesAndGenes
 
 		// public override List<PawnRenderNode> CompRenderNodes()
 		// {
-			// if (!Props.renderNodeProperties.NullOrEmpty() && parent is Pawn pawn)
-			// {
-				// List<PawnRenderNode> list = new();
-				// {
-					// foreach (PawnRenderNodeProperties renderNodeProperty in Props.renderNodeProperties)
-					// {
-						// PawnRenderNode_ColorFromGetColorComp pawnRenderNode_ColorFromGetColorComp = (PawnRenderNode_ColorFromGetColorComp)Activator.CreateInstance(renderNodeProperty.nodeClass, pawn, renderNodeProperty, pawn.Drawer.renderer.renderTree);
-						// pawnRenderNode_ColorFromGetColorComp.colorComp = this;
-						// list.Add(pawnRenderNode_ColorFromGetColorComp);
-					// }
-					// return list;
-				// }
-			// }
-			// return null;
+		// if (!Props.renderNodeProperties.NullOrEmpty() && parent is Pawn pawn)
+		// {
+		// List<PawnRenderNode> list = new();
+		// {
+		// foreach (PawnRenderNodeProperties renderNodeProperty in Props.renderNodeProperties)
+		// {
+		// PawnRenderNode_ColorFromGetColorComp pawnRenderNode_ColorFromGetColorComp = (PawnRenderNode_ColorFromGetColorComp)Activator.CreateInstance(renderNodeProperty.nodeClass, pawn, renderNodeProperty, pawn.Drawer.renderer.renderTree);
+		// pawnRenderNode_ColorFromGetColorComp.colorComp = this;
+		// list.Add(pawnRenderNode_ColorFromGetColorComp);
+		// }
+		// return list;
+		// }
+		// }
+		// return null;
 		// }
 
 		public override void PostExposeData()

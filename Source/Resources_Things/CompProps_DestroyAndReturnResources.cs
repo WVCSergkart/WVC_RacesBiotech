@@ -1,5 +1,4 @@
 using RimWorld;
-using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes

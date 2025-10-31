@@ -1,29 +1,28 @@
-using RimWorld;
-using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public abstract class ThoughtWorker_Precept_WithCollectionCheck : ThoughtWorker_Precept
+	public abstract class ThoughtWorker_Precept_WithCollectionCheck : ThoughtWorker_Precept
 	{
 
 		public static int lastRecacheTick = -1;
 
 		public static void UpdCollection()
 		{
-            if (lastRecacheTick < Find.TickManager.TicksGame)
-            {
+			if (lastRecacheTick < Find.TickManager.TicksGame)
+			{
 				//Log.Error("ShouldHaveThought Tick");
-                MiscUtility.UpdateStaticCollection();
-                lastRecacheTick = Find.TickManager.TicksGame + 6000;
-            }
+				MiscUtility.UpdateStaticCollection();
+				lastRecacheTick = Find.TickManager.TicksGame + 6000;
+			}
 		}
 
 	}
 
-    public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
 	{
 
 		public static int lastRecacheTick = -1;
@@ -160,7 +159,7 @@ namespace WVC_XenotypesAndGenes
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
 			UpdCollection();
-            if (PawnsCount > 1)
+			if (PawnsCount > 1)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -168,13 +167,13 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override float MoodMultiplier(Pawn p)
-        {
-            if (PawnsCount > 1)
-            {
-                return PawnsCount - 1;
-            }
-            return 0f;
-        }
+		{
+			if (PawnsCount > 1)
+			{
+				return PawnsCount - 1;
+			}
+			return 0f;
+		}
 	}
 
 	public class ThoughtWorker_Precept_Duplicates : ThoughtWorker_Precept_WithCollectionCheck

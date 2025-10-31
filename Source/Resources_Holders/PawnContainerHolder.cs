@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class PawnContainerHolder : PawnGeneSetHolder, IThingHolder, ISuspendableThingHolder
+	public class PawnContainerHolder : PawnGeneSetHolder, IThingHolder, ISuspendableThingHolder
 	{
 
 		public override TaggedString Label
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool TrySetContainer(Pawn owner, Pawn toHold)
-        {
+		{
 			innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
 			if (Accepts(toHold))
 			{
@@ -64,11 +64,11 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        public IThingHolder ParentHolder => owner?.ParentHolder;
+		public IThingHolder ParentHolder => owner?.ParentHolder;
 
-        public bool IsContentsSuspended => true;
+		public bool IsContentsSuspended => true;
 
-        public bool Accepts(Thing thing)
+		public bool Accepts(Thing thing)
 		{
 			return innerContainer.CanAcceptAnyOf(thing, canMergeWithExistingStacks: false);
 		}

@@ -1,6 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -34,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = (float)possibleParts.Count * y;
+			float height = possibleParts.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			Rect outRect = inRect.TopPartPixels(num);
@@ -101,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = (float)possibleParts.Count * y;
+			float height = possibleParts.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			Rect outRect = inRect.TopPartPixels(num);

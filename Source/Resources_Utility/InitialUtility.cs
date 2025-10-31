@@ -1,8 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -61,9 +58,9 @@ namespace WVC_XenotypesAndGenes
 					//	geneDef.exclusionTags = new();
 					//}
 				}
-                if (geneExtension_Giver != null)
-                {
-                    GeneExtension_Giver(geneDef, geneExtension_Giver);
+				if (geneExtension_Giver != null)
+				{
+					GeneExtension_Giver(geneDef, geneExtension_Giver);
 				}
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
@@ -72,21 +69,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
-        {
-            if (geneExtension_Giver.metHediffDef != null && geneDef.IsGeneDefOfType<IGeneMetabolism>())
+		{
+			if (geneExtension_Giver.metHediffDef != null && geneDef.IsGeneDefOfType<IGeneMetabolism>())
 			{
 				if (geneDef.customEffectDescriptions == null)
 				{
 					geneDef.customEffectDescriptions = new();
 				}
 				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
-            }
-            //int scarsCount = geneExtension_Giver.scarsCount;
-            //if (scarsCount != 0)
-            //{
-            //    geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
-            //}
-        }
+			}
+			//int scarsCount = geneExtension_Giver.scarsCount;
+			//if (scarsCount != 0)
+			//{
+			//    geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
+			//}
+		}
 
 		public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
@@ -126,8 +123,8 @@ namespace WVC_XenotypesAndGenes
 		private static void InheritableGeneStats(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
 			List<GeneDef> inheritableGeneDefs = geneExtension_General.inheritableGeneDefs;
-            List<GeneralHolder> copyFromGeneDefs = geneExtension_General.copyFromGeneDefs;
-            if (inheritableGeneDefs != null)
+			List<GeneralHolder> copyFromGeneDefs = geneExtension_General.copyFromGeneDefs;
+			if (inheritableGeneDefs != null)
 			{
 				foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 				{
@@ -139,9 +136,9 @@ namespace WVC_XenotypesAndGenes
 				foreach (GeneralHolder inheritableGeneDef in copyFromGeneDefs)
 				{
 					if (inheritableGeneDef == null)
-                    {
+					{
 						continue;
-                    }
+					}
 					MiscUtility.CopyFromGeneDef(geneDef, inheritableGeneDef);
 				}
 			}
@@ -208,19 +205,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void UniqueDescAutopatch(GeneDef geneDef)
-        {
-            if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
-            {
-                geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
-            }
-            if (geneDef.customEffectDescriptions == null)
-            {
-                geneDef.customEffectDescriptions = new();
-            }
-            if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
-            {
-                geneDef.exclusionTags = null;
-                geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
+		{
+			if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
+			{
+				geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
+			}
+			if (geneDef.customEffectDescriptions == null)
+			{
+				geneDef.customEffectDescriptions = new();
+			}
+			if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
+			{
+				geneDef.exclusionTags = null;
+				geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
 			}
 			if (geneDef.IsGeneDefOfType<IGeneHivemind>())
 			{
@@ -233,14 +230,14 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
-            {
-                if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
-                {
-                    return;
-                }
-                geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
-            }
-        }
+			{
+				if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
+				{
+					return;
+				}
+				geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
+			}
+		}
 
 		private static void MutantsPatch(List<GeneDef> xenogenesGenes)
 		{
@@ -318,23 +315,23 @@ namespace WVC_XenotypesAndGenes
 		private static void GeneChance(GeneDef geneDef)
 		{
 			if (WVC_Biotech.settings.generalGenesRarity_Divisor > 0f)
-            {
-                if (geneDef.selectionWeight <= 0f || !geneDef.canGenerateInGeneSet)
-                {
-                    return;
-                }
-                geneDef.selectionWeight = 1f / WVC_Biotech.settings.generalGenesRarity_Divisor;
-                if (geneDef.prerequisite != null)
-                {
-                    geneDef.selectionWeight *= 0.1f;
-                }
-                GeneExtension_General extension = geneDef?.GetModExtension<GeneExtension_General>();
-                if (extension != null && extension.isAptitude)
-                {
-                    geneDef.selectionWeight *= 0.02f;
-                }
-            }
-            else if (geneDef.selectionWeight > 0.01f)
+			{
+				if (geneDef.selectionWeight <= 0f || !geneDef.canGenerateInGeneSet)
+				{
+					return;
+				}
+				geneDef.selectionWeight = 1f / WVC_Biotech.settings.generalGenesRarity_Divisor;
+				if (geneDef.prerequisite != null)
+				{
+					geneDef.selectionWeight *= 0.1f;
+				}
+				GeneExtension_General extension = geneDef?.GetModExtension<GeneExtension_General>();
+				if (extension != null && extension.isAptitude)
+				{
+					geneDef.selectionWeight *= 0.02f;
+				}
+			}
+			else if (geneDef.selectionWeight > 0.01f)
 			{
 				geneDef.selectionWeight = 0.001f;
 			}
@@ -455,7 +452,7 @@ namespace WVC_XenotypesAndGenes
 		public static void SetValues()
 		{
 			if (WVC_Biotech.cachedXenotypesFilter == null)
-            {
+			{
 				WVC_Biotech.cachedXenotypesFilter = new();
 			}
 			if (WVC_Biotech.allXenotypes.NullOrEmpty())

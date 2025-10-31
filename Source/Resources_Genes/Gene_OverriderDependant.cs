@@ -1,13 +1,13 @@
-﻿using RimWorld;
+﻿using System.Linq;
+using RimWorld;
 using RimWorld.Planet;
-using System.Linq;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_OverriderDependant : Gene_SelfOverrider
+	public class Gene_OverriderDependant : Gene_SelfOverrider
 	{
 
 		// public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
@@ -54,36 +54,36 @@ namespace WVC_XenotypesAndGenes
 			lastTick = Find.TickManager.TicksGame + 30000;
 		}
 
-        public override void Notify_OverriddenBy(Gene overriddenBy)
-        {
-            base.Notify_OverriddenBy(overriddenBy);
-            Notify_Overrider();
-        }
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
+			Notify_Overrider();
+		}
 
-        public override void Notify_Override()
-        {
-            base.Notify_Override();
-            Notify_Overrider();
-        }
+		public override void Notify_Override()
+		{
+			base.Notify_Override();
+			Notify_Overrider();
+		}
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
-            Notify_Overrider();
-        }
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Notify_Overrider();
+		}
 
-        public override void PostRemove()
-        {
-            base.PostRemove();
-            Notify_Overrider();
-        }
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Notify_Overrider();
+		}
 
-        public void Notify_Overrider()
+		public void Notify_Overrider()
 		{
 			Energy?.Notify_HediffReset();
 		}
 
-    }
+	}
 
 	public class Gene_SelfOverrider_Deathrest : Gene_OverriderDependant
 	{
@@ -405,14 +405,14 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
-            if (!pawn.IsHashIntervalTick(59001, delta))
-            {
-                return;
-            }
-            AgeRevers();
-        }
+		{
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(59001, delta))
+			{
+				return;
+			}
+			AgeRevers();
+		}
 
 	}
 
@@ -420,14 +420,14 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
-            if (!pawn.IsHashIntervalTick(11345, delta))
-            {
-                return;
-            }
-            Recreation();
-        }
+		{
+			base.TickInterval(delta);
+			if (!pawn.IsHashIntervalTick(11345, delta))
+			{
+				return;
+			}
+			Recreation();
+		}
 
 		public void Recreation()
 		{
@@ -500,15 +500,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void ReplenishHunger()
-        {
-            GeneResourceUtility.OffsetNeedFood(pawn, Nutrition);
+		{
+			GeneResourceUtility.OffsetNeedFood(pawn, Nutrition);
 		}
 
-        public void Notify_GenesChanged(Gene changedGene)
-        {
+		public void Notify_GenesChanged(Gene changedGene)
+		{
 			cachedNutritionPerTick = null;
 		}
 
-    }
+	}
 
 }

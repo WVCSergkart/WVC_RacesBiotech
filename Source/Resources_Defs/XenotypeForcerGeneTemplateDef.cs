@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class XenotypeForcerGeneTemplateDef : Def
+	public class XenotypeForcerGeneTemplateDef : Def
 	{
 		public Type geneClass = typeof(Gene_XenotypeForcer);
 

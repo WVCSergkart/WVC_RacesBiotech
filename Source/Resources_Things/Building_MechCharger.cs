@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (wasteProduced >= (float)WasteProducedPerChargingCycle)
+				if (wasteProduced >= WasteProducedPerChargingCycle)
 				{
 					return Container.innerContainer.Any;
 				}
@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int WasteProducedPerChargingCycle => Container.Props.stackLimit;
 
-		private float WasteProducedPercentFull => wasteProduced / (float)WasteProducedPerChargingCycle;
+		private float WasteProducedPercentFull => wasteProduced / WasteProducedPerChargingCycle;
 
 		// private float WasteProducedPerTick => currentlyChargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (0.000833333354f / currentlyChargingMech.needs.food.MaxLevel);
 		private float WasteProducedPerTick => 0.5f * (chargePerTick / currentlyChargingMech.needs.food.MaxLevel);
@@ -121,14 +121,14 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostPostMake()
 		// {
-			// if (!ModLister.CheckBiotech("Mech recharger"))
-			// {
-				// Destroy();
-			// }
-			// else
-			// {
-				// base.PostPostMake();
-			// }
+		// if (!ModLister.CheckBiotech("Mech recharger"))
+		// {
+		// Destroy();
+		// }
+		// else
+		// {
+		// base.PostPostMake();
+		// }
 		// }
 
 		public bool CanPawnChargeCurrently(Pawn pawn)
@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (!IsCompatibleWithCharger(pawn?.genes?.GetFirstGeneOfType<Gene_RechargeableStomach>()))
 			// {
-				// return false;
+			// return false;
 			// }
 			if (IsPowered)
 			{
@@ -165,21 +165,21 @@ namespace WVC_XenotypesAndGenes
 
 		// public bool IsCompatibleWithCharger(Gene_RechargeableStomach gene)
 		// {
-			// return gene.Props.xenoChargerDef == def;
+		// return gene.Props.xenoChargerDef == def;
 		// }
 
 		// public static bool IsCompatibleWithCharger(ThingDef chargerDef, PawnKindDef kindDef)
 		// {
-			// return IsCompatibleWithCharger(chargerDef, kindDef.race);
+		// return IsCompatibleWithCharger(chargerDef, kindDef.race);
 		// }
 
 		// public static bool IsCompatibleWithCharger(ThingDef chargerDef, ThingDef mechRace)
 		// {
-			// if (mechRace.race.IsMechanoid && mechRace.GetCompProperties<CompProperties_OverseerSubject>() != null)
-			// {
-				// return chargerDef.building.requiredMechWeightClasses.NotNullAndContains(mechRace.race.mechWeightClass);
-			// }
-			// return false;
+		// if (mechRace.race.IsMechanoid && mechRace.GetCompProperties<CompProperties_OverseerSubject>() != null)
+		// {
+		// return chargerDef.building.requiredMechWeightClasses.NotNullAndContains(mechRace.race.mechWeightClass);
+		// }
+		// return false;
 		// }
 
 		private Gene_Rechargeable gene_RechargeableStomach;
@@ -210,7 +210,7 @@ namespace WVC_XenotypesAndGenes
 				RechargeableStomach.Notify_Charging(chargePerTick, 5);
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
-				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
+				if (wasteProduced >= WasteProducedPerChargingCycle && !Container.innerContainer.Any)
 				{
 					wasteProduced = 0f;
 					GenerateWastePack();
@@ -310,7 +310,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				action = delegate
 				{
-					wasteProduced += 0.25f * (float)WasteProducedPerChargingCycle;
+					wasteProduced += 0.25f * WasteProducedPerChargingCycle;
 					wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				},
 				defaultLabel = "DEV: Waste +25%"
@@ -404,7 +404,7 @@ namespace WVC_XenotypesAndGenes
 			barDrawData.rotation = Rot4.South;
 			GenDraw.DrawFillableBar(barDrawData);
 			Vector3 a = drawLoc;
-			float num = EaseInOutQuart((float)wireExtensionTicks / 70f);
+			float num = EaseInOutQuart(wireExtensionTicks / 70f);
 			if (currentlyChargingMech == null)
 			{
 				num = 1f - num;
@@ -418,7 +418,7 @@ namespace WVC_XenotypesAndGenes
 
 		private float EaseInOutQuart(float val)
 		{
-			if (!((double)val < 0.5))
+			if (!(val < 0.5))
 			{
 				return 1f - Mathf.Pow(-2f * val + 2f, 4f) / 2f;
 			}

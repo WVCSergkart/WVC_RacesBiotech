@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using RimWorld;
-using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -25,12 +24,12 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.Do(delegate
 			{
 				if (job is XaG_Job xaG_Job)
-                {
+				{
 					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
 					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
 					GeneResourceUtility.OffsetNeedFood(pawn, 100, true);
 				}
-                //HediffUtility.MutationMeatSplatter(Victim, false);
+				//HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Destroy();
 			});
 		}

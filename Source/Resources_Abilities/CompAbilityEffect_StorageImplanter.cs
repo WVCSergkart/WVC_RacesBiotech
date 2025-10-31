@@ -1,14 +1,13 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompAbilityEffect_StorageImplanter : CompAbilityEffect
+	public class CompAbilityEffect_StorageImplanter : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
@@ -74,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 			SaveableXenotypeHolder xenotypeHolder = Gene?.XenotypeHolder;
 			if (xenotypeHolder != null)
 			{
-                return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(xenotypeHolder.LabelCap, xenotypeHolder.genes.Count, xenotypeHolder.inheritable.ToStringYesNo(), xenotypeHolder.CustomXenotype.ToStringYesNo()).ToString();
+				return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(xenotypeHolder.LabelCap, xenotypeHolder.genes.Count, xenotypeHolder.inheritable.ToStringYesNo(), xenotypeHolder.CustomXenotype.ToStringYesNo()).ToString();
 			}
 			return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate("-", "-", "-", "-").ToString();
 		}

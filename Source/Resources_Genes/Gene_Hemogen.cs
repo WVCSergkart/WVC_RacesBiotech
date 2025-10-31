@@ -1,18 +1,14 @@
+using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    // Rare Hemogen Drain
-    public class Gene_HemogenDependant : Gene
+	// Rare Hemogen Drain
+	public class Gene_HemogenDependant : Gene
 	{
 
 		[Unsaved(false)]
@@ -61,13 +57,13 @@ namespace WVC_XenotypesAndGenes
 
 		//public override void Tick()
 		//{
-  //          tick--;
-  //          if (tick <= 0)
-  //          {
-  //              tick = 360;
-  //              Log.Error("Tick");
-  //          }
-  //      }
+		//          tick--;
+		//          if (tick <= 0)
+		//          {
+		//              tick = 360;
+		//              Log.Error("Tick");
+		//          }
+		//      }
 
 		public override void TickInterval(int delta)
 		{
@@ -84,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error(tick.ToString() + " | 120");
 				// tick = 0;
 				//Log.Error("TickHemogenDrain");
-                GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
+				GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
 			}
 		}
 
@@ -169,7 +165,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.1f, 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.1f, 0.4f, 1f, new(0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 				break;
 			}
 		}

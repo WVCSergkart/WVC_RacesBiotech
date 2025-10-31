@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -132,21 +132,21 @@ namespace WVC_XenotypesAndGenes
 
 		public bool shouldHide = false;
 
-        public override bool ShouldHideGizmo
-        {
-            get
-            {
-                return shouldHide;
-            }
-        }
+		public override bool ShouldHideGizmo
+		{
+			get
+			{
+				return shouldHide;
+			}
+		}
 
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
 			Scribe_Values.Look(ref shouldHide, "shouldHide", false);
 		}
 
-    }
+	}
 
 	// =======================================
 

@@ -1,9 +1,7 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -40,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
+		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -52,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			Pawn caster = parent.pawn;
 			Duplicator.Notify_GenesChanged(null);
-            float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
+			float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
 			if (DuplicateUtility.TryDuplicatePawn(caster, source, spawnCell, source.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance), addDuplicate: true))
 			{
@@ -86,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
 			}
 
-            bool IsValidSpawnCell(IntVec3 pos)
+			bool IsValidSpawnCell(IntVec3 pos)
 			{
 				if (pos.Standable(source.Map) && pos.Walkable(source.Map))
 				{

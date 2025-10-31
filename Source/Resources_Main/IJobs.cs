@@ -1,6 +1,6 @@
 ﻿namespace WVC_XenotypesAndGenes
 {
-    public interface IJobCustomEater
+	public interface IJobCustomEater
 	{
 
 		bool ShouldFinalize { get; }

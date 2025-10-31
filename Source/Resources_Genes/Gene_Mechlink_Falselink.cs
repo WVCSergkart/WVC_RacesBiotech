@@ -1,17 +1,17 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    //[Obsolete]
-    //public class Gene_Stonelink : Gene_Golemlink
-    //{
-    //}
+	//[Obsolete]
+	//public class Gene_Stonelink : Gene_Golemlink
+	//{
+	//}
 
-    public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo, IGeneRemoteControl
+	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(summonMechanoids);
 
@@ -87,29 +87,29 @@ namespace WVC_XenotypesAndGenes
 		private void SummonRandomMech()
 		{
 			int countSpawn = WVC_Biotech.settings.falselink_mechsToSpawnRange.RandomInRange;
-            //for (int i = 0; i < countSpawn; i++)
-            //{
-            //	MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-            //	if (i == 0)
-            //	{
-            //		Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
-            //	}
-            //}
-            try
-            {
+			//for (int i = 0; i < countSpawn; i++)
+			//{
+			//	MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+			//	if (i == 0)
+			//	{
+			//		Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+			//	}
+			//}
+			try
+			{
 				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Spawner.allowedMechWeightClasses, out List<Thing> summonList, Spawner.mechHediff))
 				{
 					pawn.mechanitor?.Notify_BandwidthChanged();
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 				}
 			}
-            catch (Exception arg)
-            {
+			catch (Exception arg)
+			{
 				Log.Error("Failed summon hacked mechanoid. Reason: " + arg);
-            }
-        }
+			}
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{
@@ -173,12 +173,12 @@ namespace WVC_XenotypesAndGenes
 					return null;
 				}
 				if (pawn.mechanitor == null)
-                {
-                    return null;
-                }
-                return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
-            }
-        }
+				{
+					return null;
+				}
+				return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+		}
 
 	}
 

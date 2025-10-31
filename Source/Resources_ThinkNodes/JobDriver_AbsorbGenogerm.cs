@@ -1,6 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
@@ -8,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class JobDriver_AbsorbGenogerm : JobDriver
+	public class JobDriver_AbsorbGenogerm : JobDriver
 	{
 
 		// public int ticksToAbsorb = 60;
@@ -30,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (!ModLister.CheckBiotech("xenogerm absorbing"))
 			// {
-				// yield break;
+			// yield break;
 			// }
 			GeneExtension_General jobExtension = job.def?.GetModExtension<GeneExtension_General>();
 			if (jobExtension == null)
@@ -45,28 +44,28 @@ namespace WVC_XenotypesAndGenes
 			// toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
 			// toil.tickAction = delegate
 			// {
-				// Thing thing = Target;
-				// if (warmupEffecter == null && jobExtension.warmupEffecter != null)
-				// {
-					// if (thing != null)
-					// {
-						// warmupEffecter = jobExtension.warmupEffecter.SpawnAttached(thing, pawn.MapHeld);
-						// verbTargetInfoTmp = thing;
-					// }
-					// else
-					// {
-						// warmupEffecter = jobExtension.warmupEffecter.Spawn(Target.Position, pawn.MapHeld);
-						// verbTargetInfoTmp = new TargetInfo(Target.Position, pawn.MapHeld);
-					// }
-					// warmupEffecter.Trigger(verbTargetInfoTmp, verbTargetInfoTmp);
-				// }
-				// warmupEffecter?.EffectTick(verbTargetInfoTmp, verbTargetInfoTmp);
-				// warmupMote = MoteMaker.MakeAttachedOverlay(Target, ThingDefOf.Mote_XenogermImplantation, Vector3.zero);
-				// if (jobExtension.warmupMote != null)
-				// {
-					// warmupMote = MoteMaker.MakeAttachedOverlay(Target, jobExtension.warmupMote, Vector3.zero);
-				// }
-				// warmupMote?.Maintain();
+			// Thing thing = Target;
+			// if (warmupEffecter == null && jobExtension.warmupEffecter != null)
+			// {
+			// if (thing != null)
+			// {
+			// warmupEffecter = jobExtension.warmupEffecter.SpawnAttached(thing, pawn.MapHeld);
+			// verbTargetInfoTmp = thing;
+			// }
+			// else
+			// {
+			// warmupEffecter = jobExtension.warmupEffecter.Spawn(Target.Position, pawn.MapHeld);
+			// verbTargetInfoTmp = new TargetInfo(Target.Position, pawn.MapHeld);
+			// }
+			// warmupEffecter.Trigger(verbTargetInfoTmp, verbTargetInfoTmp);
+			// }
+			// warmupEffecter?.EffectTick(verbTargetInfoTmp, verbTargetInfoTmp);
+			// warmupMote = MoteMaker.MakeAttachedOverlay(Target, ThingDefOf.Mote_XenogermImplantation, Vector3.zero);
+			// if (jobExtension.warmupMote != null)
+			// {
+			// warmupMote = MoteMaker.MakeAttachedOverlay(Target, jobExtension.warmupMote, Vector3.zero);
+			// }
+			// warmupMote?.Maintain();
 			// };
 			// yield return toil;
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
@@ -76,9 +75,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Target.HomeFaction != null && pawn.Faction == Faction.OfPlayer)
 				{
-                    Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, RimWorld.HistoryEventDefOf.AbsorbedXenogerm);
+					Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, RimWorld.HistoryEventDefOf.AbsorbedXenogerm);
 				}
-                QuestUtility.SendQuestTargetSignals(Target.questTags, "XenogermAbsorbed", Target.Named("SUBJECT"));
+				QuestUtility.SendQuestTargetSignals(Target.questTags, "XenogermAbsorbed", Target.Named("SUBJECT"));
 				if (ReimplanterUtility.TryReimplant(Target, pawn, jobExtension.reimplantEndogenes, jobExtension.reimplantXenogenes))
 				{
 					if (jobExtension.warmupStartSound != null)

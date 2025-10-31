@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class GeneSetPresets : IExposable
+	public class GeneSetPresets : IExposable
 	{
 
 		[MustTranslate]

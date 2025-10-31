@@ -52,18 +52,18 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void CompPostTick(ref float severityAdjustment)
 		// {
-			// if (Pawn.IsHashIntervalTick(120))
-			// {
-				// if (XenotypeGestator == null)
-				// {
-					// Pawn.health.RemoveHediff(parent);
-				// }
-			// }
+		// if (Pawn.IsHashIntervalTick(120))
+		// {
+		// if (XenotypeGestator == null)
+		// {
+		// Pawn.health.RemoveHediff(parent);
+		// }
+		// }
 		// }
 
 		// public override bool CompDisallowVisible()
 		// {
-			// return XenotypeGestator == null;
+		// return XenotypeGestator == null;
 		// }
 
 		public override void CompPostPostRemoved()

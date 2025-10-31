@@ -1,5 +1,3 @@
-using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 
@@ -20,35 +18,35 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (curStage == null)
-                {
-                    try
-                    {
-                        curStage = new();
-                        curStage.statOffsets = def.stages[CurStageIndex]?.statOffsets;
-                        curStage.statFactors = def.stages[CurStageIndex]?.statFactors;
-                        if (pawn.mutant?.Def?.breathesAir == false)
-                        {
-                            curStage.totalBleedFactor = 0f;
-                        }
-                        if (pawn.mutant?.Def?.entitledToMedicalCare == false)
-                        {
-                            curStage.regeneration = 33f;
-                        }
-                    }
-                    catch
-                    {
-                        try
-                        {
-                            curStage = def.stages[CurStageIndex];
-                            Log.Warning("Failed set curStage for Hediff_Thrall. On def: " + def.defName);
-                        }
-                        catch
-                        {
-                            curStage = new();
-                        }
-                    }
-                }
-                return curStage;
+				{
+					try
+					{
+						curStage = new();
+						curStage.statOffsets = def.stages[CurStageIndex]?.statOffsets;
+						curStage.statFactors = def.stages[CurStageIndex]?.statFactors;
+						if (pawn.mutant?.Def?.breathesAir == false)
+						{
+							curStage.totalBleedFactor = 0f;
+						}
+						if (pawn.mutant?.Def?.entitledToMedicalCare == false)
+						{
+							curStage.regeneration = 33f;
+						}
+					}
+					catch
+					{
+						try
+						{
+							curStage = def.stages[CurStageIndex];
+							Log.Warning("Failed set curStage for Hediff_Thrall. On def: " + def.defName);
+						}
+						catch
+						{
+							curStage = new();
+						}
+					}
+				}
+				return curStage;
 			}
 		}
 

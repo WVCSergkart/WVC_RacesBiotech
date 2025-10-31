@@ -1,12 +1,12 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 
 namespace WVC_XenotypesAndGenes
 {
-    public class SkillsGeneTemplateDef : Def
+	public class SkillsGeneTemplateDef : Def
 	{
 		public Type geneClass = typeof(Gene);
 

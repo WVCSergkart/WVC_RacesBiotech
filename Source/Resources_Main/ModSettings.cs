@@ -1,8 +1,6 @@
-using HarmonyLib;
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -28,9 +26,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        // Main
-        // Graphic
-        public bool hideXaGGenes = false;
+		// Main
+		// Graphic
+		public bool hideXaGGenes = false;
 		public bool disableFurGraphic = false;
 		public bool enable_FurskinIsSkinAutopatch = false;
 		public bool disableAllGraphic = false;
@@ -666,7 +664,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
 								{
-									genesCount ++;
+									genesCount++;
 									genes.Add(geneDef);
 								}
 							}
@@ -694,7 +692,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
 								{
-									genesCount ++;
+									genesCount++;
 									genes.Add(geneDef);
 								}
 							}
@@ -714,7 +712,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 					// {
-						// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
+					// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
 					// }
 					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
@@ -818,7 +816,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Begin(rect);
 			// =
 			if (listingStandard.ButtonTextWithTooltip("WVC_BiotechSettings_Tab_General".Translate(), tooltip: "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate()))
-            {
+			{
 				collapse_genesSettings_general = !collapse_genesSettings_general;
 			}
 			if (collapse_genesSettings_general)
@@ -965,7 +963,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogermCD".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogermCD, "WVC_ToolTip_enable_chimeraXenogermCD".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraXenogenesLimit".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraXenogenesLimit, "WVC_ToolTip_enable_chimeraXenogenesLimit".Translate());
-				listingStandard.IntRangeLabeledWithRef("WVC_Label_chimera_defaultReqMetabolismRange".Translate((int)settings.chimera_defaultReqMetabolismRange.min + "~" + (int)settings.chimera_defaultReqMetabolismRange.max), ref settings.chimera_defaultReqMetabolismRange, -99, 99, tooltip: "WVC_Tooltip_chimera_defaultReqMetabolismRange".Translate());
+				listingStandard.IntRangeLabeledWithRef("WVC_Label_chimera_defaultReqMetabolismRange".Translate(settings.chimera_defaultReqMetabolismRange.min + "~" + settings.chimera_defaultReqMetabolismRange.max), ref settings.chimera_defaultReqMetabolismRange, -99, 99, tooltip: "WVC_Tooltip_chimera_defaultReqMetabolismRange".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomGeneChance".Translate((settings.duplicator_RandomGeneChance).ToString()), ref settings.duplicator_RandomGeneChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomGeneChance".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_duplicator_abilityCastForSourceOnly".Translate().Colorize(ColorLibrary.LightBlue), ref settings.duplicator_abilityCastForSourceOnly, "WVC_ToolTip_duplicator_abilityCastForSourceOnly".Translate());
@@ -978,28 +976,28 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_traitshifter_MaxTraits".Translate((settings.traitshifter_MaxTraits).ToString()), ref settings.traitshifter_MaxTraits, 1f, 50f, round: 0, tooltip: "WVC_ToolTip_traitshifter_MaxTraits".Translate());
 			}
 			listingStandard.GapLine();
-            // =
-            if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Fleshmass".Translate()))
-            {
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Fleshmass".Translate()))
+			{
 				collapse_genesSettings_Anomaly = !collapse_genesSettings_Anomaly;
-            }
-            if (collapse_genesSettings_Anomaly)
-            {
-                listingStandard.SliderLabeledWithRef("WVC_Label_fleshmass_MaxMutationsLevel".Translate(settings.fleshmass_MaxMutationsLevel), ref settings.fleshmass_MaxMutationsLevel, 0f, 100f, "WVC_ToolTip_fleshmass_MaxMutationsLevel".Translate(), 0);
+			}
+			if (collapse_genesSettings_Anomaly)
+			{
+				listingStandard.SliderLabeledWithRef("WVC_Label_fleshmass_MaxMutationsLevel".Translate(settings.fleshmass_MaxMutationsLevel), ref settings.fleshmass_MaxMutationsLevel, 0f, 100f, "WVC_ToolTip_fleshmass_MaxMutationsLevel".Translate(), 0);
 				listingStandard.CheckboxLabeled("WVC_Label_fleshmass_HideBodypartHediffs".Translate().Colorize(ColorLibrary.LightBlue), ref settings.fleshmass_HideBodypartHediffs, "WVC_ToolTip_fleshmass_HideBodypartHediffs".Translate());
 			}
-            listingStandard.GapLine();
-            // =
-            //listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
-            //listingStandard.GapLine();
-            //listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
-            //listingStandard.GapLine();
-            //listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
-            //listingStandard.GapLine();
-            //listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
-            //listingStandard.GapLine();
-            // =
-            if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_DryadQueen".Translate()))
+			listingStandard.GapLine();
+			// =
+			//listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_DryadQueen".Translate()))
 			{
 				collapse_genesSettings_DryadQueen = !collapse_genesSettings_DryadQueen;
 			}

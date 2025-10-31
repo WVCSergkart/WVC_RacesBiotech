@@ -1,9 +1,8 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -31,21 +30,21 @@ namespace WVC_XenotypesAndGenes
 
 		private bool? cachedOneTimeMorpher;
 
-        public virtual bool CanMorphNow => true;
+		public virtual bool CanMorphNow => true;
 
-        public virtual bool IsOneTime
-        {
+		public virtual bool IsOneTime
+		{
 			get
-            {
+			{
 				if (!cachedOneTimeMorpher.HasValue)
-                {
+				{
 					cachedOneTimeMorpher = pawn.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() != null;
 				}
 				return cachedOneTimeMorpher.Value;
 			}
-        }
+		}
 
-        private int currentLimit = 1;
+		private int currentLimit = 1;
 
 		public int CurrentLimit => currentLimit;
 		public int FormsCount
@@ -134,16 +133,16 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public List<PawnGeneSetHolder> SavedGeneSets
-        {
-            get
+		{
+			get
 			{
 				if (savedGeneSets == null)
 				{
 					savedGeneSets = new();
 				}
 				return savedGeneSets;
-            }
-        }
+			}
+		}
 
 		//public override string LabelCap
 		//{
@@ -166,9 +165,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					cachedPossibleXenotypesString = pawn.genes?.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>()?.PossibleXenotypeDefs?.Select((XenotypeDef xenoChance) => xenoChance.label).ToCommaList(true).CapitalizeFirst();
 					if (cachedPossibleXenotypesString == null)
-                    {
+					{
 						cachedPossibleXenotypesString = "Random".Translate();
-                    }
+					}
 				}
 				return cachedPossibleXenotypesString;
 			}
@@ -205,18 +204,18 @@ namespace WVC_XenotypesAndGenes
 
 		private GeneExtension_Giver cachedExtension;
 		public GeneExtension_Giver Giver
-        {
-            get
-            {
+		{
+			get
+			{
 				if (cachedExtension == null)
-                {
+				{
 					cachedExtension = def?.GetModExtension<GeneExtension_Giver>();
 				}
-                return cachedExtension;
-            }
-        }
+				return cachedExtension;
+			}
+		}
 
-        public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
 
 		public virtual bool TryMorph(PawnGeneSetHolder nextGeneSet, bool shouldMorph = false, bool removeMorpher = false)
 		{
@@ -277,14 +276,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        private void PostMorph()
-        {
+		private void PostMorph()
+		{
 			foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
+			{
 				if (gene is not Gene_MorpherDependant postMorphGene)
-                {
+				{
 					continue;
-                }
+				}
 				postMorphGene.PostMorph(pawn);
 			}
 			if (ModLister.IdeologyInstalled)
@@ -293,9 +292,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private void TryCreateNewForm(XenotypeHolder xenotypeHolder)
+		private void TryCreateNewForm(XenotypeHolder xenotypeHolder)
 		{
-            if (xenotypeHolder != null)
+			if (xenotypeHolder != null)
 			{
 				Reimplant(xenotypeHolder);
 			}
@@ -317,9 +316,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				exclude.Add(set.xenotypeDef);
 			}
-            Gene_MorpherXenotypeTargeter gene_MorpherXenotypeTargeter = pawn.genes.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>();
-            if (gene_MorpherXenotypeTargeter != null)
-            {
+			Gene_MorpherXenotypeTargeter gene_MorpherXenotypeTargeter = pawn.genes.GetFirstGeneOfType<Gene_MorpherXenotypeTargeter>();
+			if (gene_MorpherXenotypeTargeter != null)
+			{
 				//Log.Error("0");
 				xenotypeHolder = gene_MorpherXenotypeTargeter.TargetedXenotype;
 			}
@@ -352,7 +351,7 @@ namespace WVC_XenotypesAndGenes
 			return xenotypeHolder;
 		}
 
-        public static XenotypeHolder GetBestNewForm(Gene gene)
+		public static XenotypeHolder GetBestNewForm(Gene gene)
 		{
 			List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
 			List<XenotypeHolder> result = new();
@@ -524,7 +523,7 @@ namespace WVC_XenotypesAndGenes
 				list.AddRange(XenotypeGiver.morpherTriggerGenes);
 			}
 			if (list.NullOrEmpty())
-            {
+			{
 				Log.Warning("Failed get trigger genes for pawn. Trying random from database.");
 				return database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>()).RandomElement();
 			}
@@ -670,23 +669,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void LoadGenes(PawnGeneSetHolder pawnGeneSet)
-        {
-            ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
-            if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
-            {
-                pawn.genes.xenotypeName = pawnGeneSet.name;
-                pawn.genes.iconDef = pawnGeneSet.iconDef;
-            }
+		{
+			ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
+			if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+			{
+				pawn.genes.xenotypeName = pawnGeneSet.name;
+				pawn.genes.iconDef = pawnGeneSet.iconDef;
+			}
 			pawnGeneSet.LoadGenes(pawn, this);
-            //CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
-            //CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
-            //pawn.needs.AddOrRemoveNeedsAsAppropriate();
-            currentFormName = pawnGeneSet.name;
-            formId = pawnGeneSet.formId;
-            savedGeneSets.Remove(pawnGeneSet);
-        }
+			//CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
+			//CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
+			//pawn.needs.AddOrRemoveNeedsAsAppropriate();
+			currentFormName = pawnGeneSet.name;
+			formId = pawnGeneSet.formId;
+			savedGeneSets.Remove(pawnGeneSet);
+		}
 
-        public void CopyGeneID(Gene gene, Gene sourceGene, List<Gene> genes)
+		public void CopyGeneID(Gene gene, Gene sourceGene, List<Gene> genes)
 		{
 			try
 			{
@@ -706,7 +705,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public void Reimplant(XenotypeHolder xenotypeDef)
+		public void Reimplant(XenotypeHolder xenotypeDef)
 		{
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef.xenotypeDef, true);
 			foreach (GeneDef geneDef in xenotypeDef.genes)
@@ -724,7 +723,7 @@ namespace WVC_XenotypesAndGenes
 			//currentFormName = xenotypeDef.Label;
 		}
 
-        public virtual void AddGene(GeneDef geneDef, bool inheritable)
+		public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{
 			//if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
 			//{
@@ -853,16 +852,16 @@ namespace WVC_XenotypesAndGenes
 			RemoveSetHolder(geneSet);
 		}
 
-        public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			Notify_GenesChanged(null);
 		}
 
-        public virtual void Notify_Override()
-        {
+		public virtual void Notify_Override()
+		{
 			Notify_GenesChanged(null);
-        }
+		}
 
-    }
+	}
 
 }

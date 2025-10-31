@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class JobGiver_WanderGravship : JobGiver_Wander
+	public class JobGiver_WanderGravship : JobGiver_Wander
 	{
 		public JobGiver_WanderGravship()
 		{

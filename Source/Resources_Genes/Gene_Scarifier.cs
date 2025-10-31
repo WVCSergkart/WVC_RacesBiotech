@@ -1,6 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
@@ -15,9 +15,9 @@ namespace WVC_XenotypesAndGenes
 		private int nextTick = 60000;
 		private float? cachedMaxScars;
 
-        public bool CanScarify
-        {
-            get
+		public bool CanScarify
+		{
+			get
 			{
 				if (MaxScars > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
 				{
@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-        }
+		}
 
 		// public IntRange range = new(1,5);
 		// public int BaseScars => def.GetModExtension<GeneExtension_Spawner>().stackCount;
@@ -35,17 +35,17 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (MiscUtility.GameNotStarted())
 			{
-				IntRange range = new(0,3);
+				IntRange range = new(0, 3);
 				for (int i = 0; i < range.RandomInRange; i++)
 				{
 					// if (!CanScarifyCheck())
 					// {
-						// continue;
+					// continue;
 					// }
 					Scarify(pawn);
 				}
-                nextTick = new IntRange(50000, 140000).RandomInRange;
-            }
+				nextTick = new IntRange(50000, 140000).RandomInRange;
+			}
 			else
 			{
 				nextTick = 300000;
@@ -108,36 +108,36 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private float MaxScars
-        {
-            get
-            {
-                if (!cachedMaxScars.HasValue)
-                {
+		{
+			get
+			{
+				if (!cachedMaxScars.HasValue)
+				{
 					cachedMaxScars = pawn.GetStatValue(Giver.scarsStatDef);
 				}
-                return cachedMaxScars.Value;
-            }
-        }
+				return cachedMaxScars.Value;
+			}
+		}
 
-        public static void Scarify(Pawn pawn)
-        {
-            if (!ModLister.CheckIdeology("Scarification"))
-            {
-                return;
-            }
-            //List<BodyPartRecord> bodyparts = new();
-            //foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
-            //{
-            //	if (notMissingPart.def.canScarify)
-            //	{
-            //		bodyparts.Add(notMissingPart);
-            //	}
-            //}
-            if (!pawn.health.hediffSet.GetNotMissingParts().Where((BodyPartRecord part) => part.def.canScarify && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) && !pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f)).ToList().TryRandomElement(out BodyPartRecord part))
-            {
-                return;
-            }
-            Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
+		public static void Scarify(Pawn pawn)
+		{
+			if (!ModLister.CheckIdeology("Scarification"))
+			{
+				return;
+			}
+			//List<BodyPartRecord> bodyparts = new();
+			//foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
+			//{
+			//	if (notMissingPart.def.canScarify)
+			//	{
+			//		bodyparts.Add(notMissingPart);
+			//	}
+			//}
+			if (!pawn.health.hediffSet.GetNotMissingParts().Where((BodyPartRecord part) => part.def.canScarify && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) && !pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f)).ToList().TryRandomElement(out BodyPartRecord part))
+			{
+				return;
+			}
+			Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
 			HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
 			if (hediffComp_GetsPermanent != null)
 			{
@@ -146,24 +146,24 @@ namespace WVC_XenotypesAndGenes
 				hediffComp_GetsPermanent.parent.Severity = 0.001f;
 				hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
 			}
-            pawn.health.AddHediff(hediff);
-            Notify_SubGenes(pawn);
-            if (pawn.RaceProps.BloodDef == null || pawn.Map == null)
-            {
-                return;
-            }
-            SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-            GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2, 3));
-        }
+			pawn.health.AddHediff(hediff);
+			Notify_SubGenes(pawn);
+			if (pawn.RaceProps.BloodDef == null || pawn.Map == null)
+			{
+				return;
+			}
+			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
+			GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2, 3));
+		}
 
-        private static void Notify_SubGenes(Pawn pawn)
-        {
-            foreach (Hediff item in pawn.health.hediffSet.hediffs)
-            {
-                if (item is HediffWithComps_Scars scarsHediff)
-                {
-                    scarsHediff.Reset();
-                }
+		private static void Notify_SubGenes(Pawn pawn)
+		{
+			foreach (Hediff item in pawn.health.hediffSet.hediffs)
+			{
+				if (item is HediffWithComps_Scars scarsHediff)
+				{
+					scarsHediff.Reset();
+				}
 			}
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
@@ -174,12 +174,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, Giver.scarsStatDef.LabelCap, pawn.GetStatValue(Giver.scarsStatDef).ToString(), Giver.scarsStatDef.description, 500);
 		}
 
-  //      public void Notify_GenesChanged(Gene changedGene)
+		//      public void Notify_GenesChanged(Gene changedGene)
 		//{
 		//	Notify_SubGenes(pawn);
 		//}
@@ -211,9 +211,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_Scarified()
-        {
+		{
 			Stabilize();
-        }
+		}
 
 	}
 

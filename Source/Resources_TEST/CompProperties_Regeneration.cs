@@ -1,12 +1,9 @@
-using RimWorld;
-using System;
-using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_Regeneration : CompProperties
+	public class CompProperties_Regeneration : CompProperties
 	{
 
 		public float regenAmount = 10f;

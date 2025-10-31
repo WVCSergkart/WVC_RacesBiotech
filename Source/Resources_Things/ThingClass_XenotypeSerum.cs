@@ -4,7 +4,6 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -113,15 +112,15 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	[Obsolete]
-    public class XenotypeSerum : ThingWithComps_XenotypeSerum
+	public class XenotypeSerum : ThingWithComps_XenotypeSerum
 	{
 
 		public override IEnumerable<DefHyperlink> DescriptionHyperlinks
 		{
 			get
 			{
-                CompUseEffect_XenogermSerum xenoHolderSerum = this?.TryGetComp<CompUseEffect_XenogermSerum>();
-                if (xenoHolderSerum?.xenotype != null)
+				CompUseEffect_XenogermSerum xenoHolderSerum = this?.TryGetComp<CompUseEffect_XenogermSerum>();
+				if (xenoHolderSerum?.xenotype != null)
 				{
 					yield return new DefHyperlink(xenoHolderSerum.xenotype);
 				}
@@ -153,8 +152,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Notify_RecipeProduced(Pawn pawn)
-        {
-            base.Notify_RecipeProduced(pawn);
+		{
+			base.Notify_RecipeProduced(pawn);
 			if (pawn != null)
 			{
 				this?.TryGetComp<CompUseEffect_XenogermSerum>()?.Notify_SerumCrafted(pawn);

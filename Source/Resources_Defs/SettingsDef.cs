@@ -3,7 +3,7 @@
 namespace WVC_XenotypesAndGenes
 {
 
-    public class SettingsDef : Def
+	public class SettingsDef : Def
 	{
 
 		public int presetOrder = 0;

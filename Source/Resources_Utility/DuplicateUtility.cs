@@ -1,12 +1,9 @@
-using RimWorld;
-using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI.Group;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -267,58 +264,58 @@ namespace WVC_XenotypesAndGenes
 			{
 				num = ageBiologicalYearsFloat;
 			}
-			PawnGenerationRequest request = new (pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 0f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 0f, null, null, null, null, null, fixedGender: pawn.gender, fixedIdeo: pawn.Ideo, fixedBiologicalAge: ageBiologicalYearsFloat, fixedChronologicalAge: num, fixedLastName: GestationUtility.GetParentLastName(pawn), fixedBirthName: null, fixedTitle: null, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: false, forceDead: false, forcedXenogenes: null, forcedEndogenes: null, forcedXenotype: pawn.genes.Xenotype, forcedCustomXenotype: pawn.genes.CustomXenotype, allowedXenotypes: null, forceBaselinerChance: 0f, developmentalStages: DevelopmentalStage.Adult, pawnKindDefGetter: null, excludeBiologicalAgeRange: null, biologicalAgeRange: null, forceRecruitable: false, dontGiveWeapon: false, onlyUseForcedBackstories: false, maximumAgeTraits: 0, minimumAgeTraits: 0, forceNoGear: true);
+			PawnGenerationRequest request = new(pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 0f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 0f, null, null, null, null, null, fixedGender: pawn.gender, fixedIdeo: pawn.Ideo, fixedBiologicalAge: ageBiologicalYearsFloat, fixedChronologicalAge: num, fixedLastName: GestationUtility.GetParentLastName(pawn), fixedBirthName: null, fixedTitle: null, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: false, forceDead: false, forcedXenogenes: null, forcedEndogenes: null, forcedXenotype: pawn.genes.Xenotype, forcedCustomXenotype: pawn.genes.CustomXenotype, allowedXenotypes: null, forceBaselinerChance: 0f, developmentalStages: DevelopmentalStage.Adult, pawnKindDefGetter: null, excludeBiologicalAgeRange: null, biologicalAgeRange: null, forceRecruitable: false, dontGiveWeapon: false, onlyUseForcedBackstories: false, maximumAgeTraits: 0, minimumAgeTraits: 0, forceNoGear: true);
 			request.IsCreepJoiner = pawn.IsCreepJoiner;
 			request.ForceNoIdeoGear = true;
 			return request;
 		}
 
 		public static void DuplicatePawn(Pawn progenitor, Pawn clone, bool addParent = true)
-        {
-            clone.apparel.DestroyAll();
-            CopyPawn(progenitor, clone);
-            // DuplicateUtility.CopyNeeds(progenitor, clone);
-            if (ModsConfig.IdeologyActive)
-            {
-                clone.ideo.SetIdeo(progenitor.ideo.Ideo);
-            }
-            if (clone.playerSettings != null && progenitor.playerSettings != null)
-            {
-                clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
-            }
-            if (addParent && clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
-            {
-                clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
-            }
-            //if (xenotypeDef != null)
-            //{
-            //	clone.health.AddHediff(HediffDefOf.XenogerminationComa);
-            //	GeneUtility.UpdateXenogermReplication(clone);
-            //	ReimplanterUtility.ExtractXenogerm(progenitor);
-            //	ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
-            //}
-            // GestationUtility.GetBabyName(clone, progenitor);
-            clone?.Drawer?.renderer?.SetAllGraphicsDirty();
-            clone?.Notify_DisabledWorkTypesChanged();
-        }
+		{
+			clone.apparel.DestroyAll();
+			CopyPawn(progenitor, clone);
+			// DuplicateUtility.CopyNeeds(progenitor, clone);
+			if (ModsConfig.IdeologyActive)
+			{
+				clone.ideo.SetIdeo(progenitor.ideo.Ideo);
+			}
+			if (clone.playerSettings != null && progenitor.playerSettings != null)
+			{
+				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
+			}
+			if (addParent && clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
+			{
+				clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
+			}
+			//if (xenotypeDef != null)
+			//{
+			//	clone.health.AddHediff(HediffDefOf.XenogerminationComa);
+			//	GeneUtility.UpdateXenogermReplication(clone);
+			//	ReimplanterUtility.ExtractXenogerm(progenitor);
+			//	ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+			//}
+			// GestationUtility.GetBabyName(clone, progenitor);
+			clone?.Drawer?.renderer?.SetAllGraphicsDirty();
+			clone?.Notify_DisabledWorkTypesChanged();
+		}
 
-        public static void CopyPawn(Pawn progenitor, Pawn clone)
-        {
-            CopyStory(progenitor, clone);
-            CopyApperance(progenitor, clone);
-            CopyTraits(progenitor, clone);
-            CopyGenes(progenitor, clone);
-            CopySkills(progenitor, clone);
+		public static void CopyPawn(Pawn progenitor, Pawn clone)
+		{
+			CopyStory(progenitor, clone);
+			CopyApperance(progenitor, clone);
+			CopyTraits(progenitor, clone);
+			CopyGenes(progenitor, clone);
+			CopySkills(progenitor, clone);
 			//CopyHediffs(progenitor, clone);
 			//CopyNeeds(progenitor, clone);
 		}
 
-        public static void CopyGenes(Pawn pawn, Pawn newPawn)
-        {
-            ReimplanterUtility.GeneralReimplant(pawn, newPawn, xenogerm: false);
-            CopyGenesOverrides(newPawn, newPawn.genes.Endogenes, pawn.genes.Endogenes);
+		public static void CopyGenes(Pawn pawn, Pawn newPawn)
+		{
+			ReimplanterUtility.GeneralReimplant(pawn, newPawn, xenogerm: false);
+			CopyGenesOverrides(newPawn, newPawn.genes.Endogenes, pawn.genes.Endogenes);
 			CopyGenesOverrides(newPawn, newPawn.genes.Xenogenes, pawn.genes.Xenogenes);
-        }
+		}
 
 		public static void CopyGenesOverrides(Pawn newPawn, List<Gene> newGenes, List<Gene> sourceGenes)
 		{
@@ -329,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 				Gene sourceGene = sourceGenes[i];
 				try
 				{
-                    if (sourceGene.Overridden)
+					if (sourceGene.Overridden)
 					{
 						gene.overriddenByGene = GetOverriderGene(newPawn.genes.GenesListForReading, sourceGene, gene);
 					}
@@ -348,12 +345,12 @@ namespace WVC_XenotypesAndGenes
 		public static Gene GetOverriderGene(List<Gene> genes, Gene sourceGene, Gene newGene)
 		{
 			foreach (Gene item in genes)
-            {
+			{
 				if ((newGene != item || sourceGene.overriddenByGene == sourceGene) && item.def == sourceGene.overriddenByGene.def)
-                {
+				{
 					return item;
-                }
-            }
+				}
+			}
 			return null;
 		}
 
@@ -384,9 +381,9 @@ namespace WVC_XenotypesAndGenes
 			//	memories.Add(thought_Memory);
 			//}
 			if (pawn?.needs == null || newPawn?.needs == null)
-            {
+			{
 				return;
-            }
+			}
 			foreach (Need need in pawn.needs.AllNeeds)
 			{
 				foreach (Need newNeed in newPawn.needs.AllNeeds)
@@ -482,9 +479,9 @@ namespace WVC_XenotypesAndGenes
 				foreach (SkillRecord skill in pawn.skills.skills.ToList())
 				{
 					if (skillRange.Skill != skill.def)
-                    {
+					{
 						continue;
-                    }
+					}
 					pawn.skills.skills.Remove(skill);
 					SkillRecord item = new(pawn, skill.def)
 					{
@@ -519,7 +516,7 @@ namespace WVC_XenotypesAndGenes
 					xpSinceMidnight = 0
 				};
 				if (removePassion)
-                {
+				{
 					item.passion = Passion.None;
 				}
 				pawn.skills.skills.Add(item);
@@ -534,11 +531,11 @@ namespace WVC_XenotypesAndGenes
 			genes.Endogenes.RemoveAllGenes();
 			// foreach (Gene item in genes.Xenogenes.ToList())
 			// {
-				// pawn.genes?.RemoveGene(item);
+			// pawn.genes?.RemoveGene(item);
 			// }
 			// foreach (Gene item in genes.Endogenes.ToList())
 			// {
-				// pawn.genes?.RemoveGene(item);
+			// pawn.genes?.RemoveGene(item);
 			// }
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, XenotypeDefOf.Baseliner, true);
 			FloatRange floatRange = new(0f, 1f);
@@ -566,9 +563,9 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene gene in genes.ToList())
 			{
 				if (exclude != null && exclude.Contains(gene.def))
-                {
+				{
 					continue;
-                }
+				}
 				gene.pawn?.genes?.RemoveGene(gene);
 			}
 		}
@@ -624,7 +621,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static Pawn GetSourceCyclic(this Pawn duplicate)
 		{
-            Pawn sourcePawn = duplicate?.HumanComponent()?.SourcePawn;
+			Pawn sourcePawn = duplicate?.HumanComponent()?.SourcePawn;
 			//if (sourcePawn.Dead)
 			//{
 			//	return duplicate;

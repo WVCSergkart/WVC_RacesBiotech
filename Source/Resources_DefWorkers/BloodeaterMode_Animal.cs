@@ -1,13 +1,13 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class BloodeaterMode_Animal : BloodeaterMode
+	public class BloodeaterMode_Animal : BloodeaterMode
 	{
 
 		public override bool GetFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false)
@@ -42,9 +42,9 @@ namespace WVC_XenotypesAndGenes
 			foreach (Pawn animal in targets)
 			{
 				if (animal.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-                {
+				{
 					continue;
-                }
+				}
 				if (animal.IsForbidden(pawn) || !pawn.CanReserveAndReach(animal, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;

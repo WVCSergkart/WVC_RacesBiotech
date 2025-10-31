@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -21,11 +21,11 @@ namespace WVC_XenotypesAndGenes
 
 		// public float OffsetFromGenes(Pawn pawn)
 		// {
-			// if (!cachedOffsetFromGenes.HasValue)
-			// {
-				// cachedOffsetFromGenes = GetBirthQualityOffsetFromGenes(pawn);
-			// }
-			// return cachedOffsetFromGenes.Value;
+		// if (!cachedOffsetFromGenes.HasValue)
+		// {
+		// cachedOffsetFromGenes = GetBirthQualityOffsetFromGenes(pawn);
+		// }
+		// return cachedOffsetFromGenes.Value;
 		// }
 
 		public override float QualityOffset(LordJob_Ritual ritual, RitualOutcomeComp_Data data)
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			// Pawn pawn = ritual?.PawnWithRole(roleId);
 			// if (XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
 			// {
-				// return true;
+			// return true;
 			// }
 			return true;
 		}

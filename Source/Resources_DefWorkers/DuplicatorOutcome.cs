@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class DuplicatorOutcome
+	public class DuplicatorOutcome
 	{
 
 		public DuplicatorOutcomeDef def;

@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<string> ExtraStatSummary()
 		{
-			yield return (string)("WVC_XaG_AbilityResurgentCost".Translate() + ": ") + Mathf.RoundToInt(resurgentCost * 100f);
+			yield return "WVC_XaG_AbilityResurgentCost".Translate() + ": " + Mathf.RoundToInt(resurgentCost * 100f);
 		}
 	}
 

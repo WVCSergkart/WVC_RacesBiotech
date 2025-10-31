@@ -1,11 +1,9 @@
-﻿using RimWorld;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class ThrallHolder : XenotypeHolder
+	public class ThrallHolder : XenotypeHolder
 	{
 
 		public ThrallDef thrallDef;

@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					curStage = new();
 					if (Gauranlen != null && Gauranlen.DryadsListForReading.Count > 0)
-                    {
+					{
 						savedDryadsCount = Gauranlen.DryadsListForReading.Count;
 					}
 					if (savedDryadsCount.HasValue)

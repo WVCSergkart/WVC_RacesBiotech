@@ -1,7 +1,7 @@
-using RimWorld;
-using RimWorld.QuestGen;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -20,9 +20,9 @@ namespace WVC_XenotypesAndGenes
 		//[Unsaved(false)]
 		private List<HediffDef> cachedPreventiveHediffs;
 
-        public bool PawnCanResurrect
+		public bool PawnCanResurrect
 		{
-            get
+			get
 			{
 				if (Giver.ignoreHediffs)
 				{
@@ -34,10 +34,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-        }
+		}
 
-        // Getter
-        public List<HediffDef> PreventResurrectionHediffs
+		// Getter
+		public List<HediffDef> PreventResurrectionHediffs
 		{
 			get
 			{
@@ -64,13 +64,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, 
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics,
 			"WVC_XaG_Gene_DisplayStats_Undead_CanResurrect".Translate().CapitalizeFirst(),
-			PawnCanResurrect.ToString(), 
+			PawnCanResurrect.ToString(),
 			"WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc".Translate()
 			+ "\n\n"
 			+ (PreventResurrectionHediffs != null ? ("WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":\n"
-			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
+			+ PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
 			1100);
 		}
 
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (pawn.Corpse == null)
 			// {
-				// return;
+			// return;
 			// }
 			//CompHumanlike corpseComp = pawn.TryGetComp<CompHumanlike>();
 			//if (corpseComp != null)
@@ -189,10 +189,10 @@ namespace WVC_XenotypesAndGenes
 		public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
 		{
 			if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
-            {
-                return false;
-            }
-            if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
+			{
+				return false;
+			}
+			if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
 			{
 				return true;
 			}
@@ -244,14 +244,14 @@ namespace WVC_XenotypesAndGenes
 
 		// public float Regeneration
 		// {
-			// get
-			// {
-				// if (!cachedRegeneration.HasValue)
-				// {
-					// cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
-				// }
-				// return cachedRegeneration.Value;
-			// }
+		// get
+		// {
+		// if (!cachedRegeneration.HasValue)
+		// {
+		// cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
+		// }
+		// return cachedRegeneration.Value;
+		// }
 		// }
 
 		//private bool? regenerateEyes;
@@ -267,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-        public override void TickInterval(int delta)
+		public override void TickInterval(int delta)
 		{
 			if (!pawn.IsHashIntervalTick(22222, delta))
 			{
@@ -302,7 +302,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
 			// {
-				// yield break;
+			// yield break;
 			// }
 			yield return new Command_Action
 			{
@@ -348,6 +348,6 @@ namespace WVC_XenotypesAndGenes
 			pawn.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: killer));
 		}
 
-    }
+	}
 
 }

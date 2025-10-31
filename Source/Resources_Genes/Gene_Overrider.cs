@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged, IGeneRemoteControl
+	public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged, IGeneRemoteControl
 	{
 		public string RemoteActionName => addPsychicSensitivity ? "WVC_XaG_Increase".Translate() : "WVC_XaG_Decrease".Translate();
 
@@ -48,35 +48,35 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        //===========
+		//===========
 
-        private static int? cahcedSubGeneCount;
-        public static int SubGenesCount
-        {
-            get
-            {
-                if (!cahcedSubGeneCount.HasValue)
-                {
-                    cahcedSubGeneCount = DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_OverriderDependant>()).ToList().Count;
-                }
-                return cahcedSubGeneCount.Value;
-            }
-        }
+		private static int? cahcedSubGeneCount;
+		public static int SubGenesCount
+		{
+			get
+			{
+				if (!cahcedSubGeneCount.HasValue)
+				{
+					cahcedSubGeneCount = DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_OverriderDependant>()).ToList().Count;
+				}
+				return cahcedSubGeneCount.Value;
+			}
+		}
 
-        //public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
+		//public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
 
-        public HediffDef MetHediffDef => Giver?.metHediffDef;
+		public HediffDef MetHediffDef => Giver?.metHediffDef;
 		public HediffDef PsyHediffDef => Giver?.hediffDef;
 
-        public List<HediffDef> Hediffs
-        {
-            get
-            {
-                List<HediffDef> list = new();
+		public List<HediffDef> Hediffs
+		{
+			get
+			{
+				List<HediffDef> list = new();
 				list.Add(MetHediffDef);
 				list.Add(PsyHediffDef);
 				return list;
-            }
+			}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -86,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_Override()
-        {
+		{
 			UpdateMetabolism();
 		}
 
@@ -108,29 +108,29 @@ namespace WVC_XenotypesAndGenes
 		public void UpdateMetabolism()
 		{
 			HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
-        }
+		}
 
 		//private int resource = 0;
 
 		public bool addPsychicSensitivity = true;
 
 		public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref addPsychicSensitivity, "addPsychicSensitivity", true);
-        }
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref addPsychicSensitivity, "addPsychicSensitivity", true);
+		}
 
-        private bool? isShapeshifter;
-        public bool IsShapeshifter
-        {
-            get
-            {
+		private bool? isShapeshifter;
+		public bool IsShapeshifter
+		{
+			get
+			{
 				if (!isShapeshifter.HasValue)
-                {
+				{
 					isShapeshifter = Shapeshifter != null;
 				}
-                return isShapeshifter.Value;
-            }
+				return isShapeshifter.Value;
+			}
 		}
 
 		public void Notify_GenesChanged(Gene changedGene)
@@ -153,12 +153,12 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_HediffReset()
 		{
 			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-            {
+			{
 				if (hediff is Hediff_PsychicSensitivity hediffWithComps)
-                {
+				{
 					hediffWithComps.Reset();
 				}
-            }
+			}
 		}
 
 	}

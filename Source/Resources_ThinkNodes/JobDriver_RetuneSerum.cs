@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[Obsolete]
-    public class JobDriver_RetuneSerum : JobDriver
+	public class JobDriver_RetuneSerum : JobDriver
 	{
 
 		public int ticksToRetune = 180;

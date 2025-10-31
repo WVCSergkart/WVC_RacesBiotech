@@ -1,12 +1,12 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Duplicator : Gene, IGeneNotifyGenesChanged
+	public class Gene_Duplicator : Gene, IGeneNotifyGenesChanged
 	{
 
 		private GeneExtension_Giver cachedGeneExtension;
@@ -73,8 +73,8 @@ namespace WVC_XenotypesAndGenes
 		public bool TryAddNewSubGene(bool forDuplicates)
 		{
 			IEnumerable<GeneralHolder> enumerable = PossibleGenesOutcome?.Where((geneWith) => (!geneWith.forDuplicates || forDuplicates) && geneWith.reqDupesCount <= PawnDuplicates.Count && !XaG_GeneUtility.ConflictWith(geneWith.geneDef, pawn.genes.GenesListForReading));
-            if (!enumerable.EnumerableNullOrEmpty() && enumerable.TryRandomElementByWeight((geneWith) => geneWith.chance, out GeneralHolder result))
-            {
+			if (!enumerable.EnumerableNullOrEmpty() && enumerable.TryRandomElementByWeight((geneWith) => geneWith.chance, out GeneralHolder result))
+			{
 				pawn.genes.AddGene(result.geneDef, IsXenogene);
 				Messages.Message("WVC_XaG_GeneDuplicator_AddNewSubGene".Translate(pawn.NameShortColored, result.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				return true;
@@ -82,16 +82,16 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
+		public override void PostAdd()
+		{
+			base.PostAdd();
 			if (MiscUtility.GameStarted() && SourcePawn != pawn)
-            {
+			{
 				SourcePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_GenesChanged(null);
 			}
-        }
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -107,15 +107,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_DuplicateCreated(Pawn newDupe)
-        {
+		{
 			foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
+			{
 				if (gene is Gene_Duplicator_MeSource dependant && dependant.Active)
-                {
+				{
 					dependant.Notify_DuplicateCreated(newDupe);
-                }
-            }
-        }
+				}
+			}
+		}
 
 		public StatDef StatDef => Giver.statDef;
 

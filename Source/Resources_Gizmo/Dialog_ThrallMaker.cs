@@ -1,8 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {

@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class JobGiver_AIDefendConnectedPawn : JobGiver_AIDefendPawn
+	public class JobGiver_AIDefendConnectedPawn : JobGiver_AIDefendPawn
 	{
 
 		public float radiusUnreleased = 5f;

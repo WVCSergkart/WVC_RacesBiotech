@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_CreateChimera : GeneCreationDialogBase
+	public class Dialog_CreateChimera : GeneCreationDialogBase
 	{
 		// private int generationRequestIndex = 1;
 
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string Header => "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ")";
 
-        protected override string AcceptButtonLabel
+		protected override string AcceptButtonLabel
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				// else if (eatAllSelectedGenes)
 				// {
-					// return "WVC_XaG_ChimeraApply_Eat".Translate().CapitalizeFirst();
+				// return "WVC_XaG_ChimeraApply_Eat".Translate().CapitalizeFirst();
 				// }
 				return "WVC_XaG_ChimeraApply_Implant".Translate().CapitalizeFirst();
 			}
@@ -89,46 +89,46 @@ namespace WVC_XenotypesAndGenes
 		public bool subActionsDisabled = false;
 
 		public Dialog_CreateChimera(Gene_Chimera chimera)
-        {
-            // generationRequestIndex = index;
-            // this.callback = callback;
-            xenotypeName = string.Empty;
-            gene = chimera;
-            //storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
-            forcePause = true;
-            closeOnAccept = false;
-            absorbInputAroundWindow = true;
-            alwaysUseFullBiostatsTableHeight = true;
-            searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-            foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading)
-            {
-                collapsedCategories.Add(allDef, value: false);
-            }
+		{
+			// generationRequestIndex = index;
+			// this.callback = callback;
+			xenotypeName = string.Empty;
+			gene = chimera;
+			//storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
+			forcePause = true;
+			closeOnAccept = false;
+			absorbInputAroundWindow = true;
+			alwaysUseFullBiostatsTableHeight = true;
+			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
+			foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading)
+			{
+				collapsedCategories.Add(allDef, value: false);
+			}
 			//pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
 			//pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
 			//pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
 			//allGenes = gene.CollectedGenes;
 			//eatedGenes = gene.EatedGenes;
 			//selectedGenes = pawnXenoGenes;
-            UpdateGenesInforamtion();
-            OnGenesChanged();
-        }
+			UpdateGenesInforamtion();
+			OnGenesChanged();
+		}
 
-        private void GetCustomEater()
-        {
-            foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
-            {
-                if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
-                {
-                    geneCustomChimeraEater = customEater;
-                    chimeraApplyEater = customEater.ChimeraEater_Name;
-                    chimeraApplyEaterWarning = customEater.ChimeraEater_Desc.ToString();
-                    break;
-                }
-            }
-        }
+		private void GetCustomEater()
+		{
+			foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
+			{
+				if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
+				{
+					geneCustomChimeraEater = customEater;
+					chimeraApplyEater = customEater.ChimeraEater_Name;
+					chimeraApplyEaterWarning = customEater.ChimeraEater_Desc.ToString();
+					break;
+				}
+			}
+		}
 
-        private string chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
+		private string chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
 		private TaggedString chimeraApplyEaterWarning = "WVC_XaG_GeneGeneticThief_EatSelectedGenes";
 		private IGeneCustomChimeraEater geneCustomChimeraEater;
 
@@ -136,12 +136,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			MiscUtility.UpdateStaticCollection();
 			if (geneCustomChimeraEater != null)
-            {
-                geneCustomChimeraEater.ChimeraEater(ref selectedGenes);
-            }
+			{
+				geneCustomChimeraEater.ChimeraEater(ref selectedGenes);
+			}
 			else
-            {
-                BasicEater();
+			{
+				BasicEater();
 			}
 			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
 			{
@@ -152,46 +152,46 @@ namespace WVC_XenotypesAndGenes
 			OnGenesChanged();
 		}
 
-        private void BasicEater()
-        {
-            float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 7;
-            if (bonusChanceForGameDays > 0.3f)
-            {
-                bonusChanceForGameDays = 0.3f;
-            }
-            foreach (GeneDef geneDef in selectedGenes)
-            {
-                if (!gene.TryEatGene(geneDef))
-                {
-                    continue;
-                }
-                try
-                {
-                    if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
-                    {
-                        gene.TryGetUniqueGene();
-                    }
-                }
-                catch (Exception arg)
-                {
-                    Log.Error("Failed obtaine gene. Reason: " + arg);
-                }
-            }
-        }
+		private void BasicEater()
+		{
+			float bonusChanceForGameDays = (Find.TickManager.TicksGame / 60000) * 0.01f / 7;
+			if (bonusChanceForGameDays > 0.3f)
+			{
+				bonusChanceForGameDays = 0.3f;
+			}
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				if (!gene.TryEatGene(geneDef))
+				{
+					continue;
+				}
+				try
+				{
+					if ((!Rand.Chance(0.07f + bonusChanceForGameDays) || !gene.TryGetToolGene()) && Rand.Chance(0.04f + bonusChanceForGameDays))
+					{
+						gene.TryGetUniqueGene();
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed obtaine gene. Reason: " + arg);
+				}
+			}
+		}
 
-        // public override void PostOpen()
-        // {
-        // if (!ModLister.CheckBiotech("xenotype creation"))
-        // {
-        // Close(doCloseSound: false);
-        // }
-        // else
-        // {
-        // base.PostOpen();
-        // }
-        // }
+		// public override void PostOpen()
+		// {
+		// if (!ModLister.CheckBiotech("xenotype creation"))
+		// {
+		// Close(doCloseSound: false);
+		// }
+		// else
+		// {
+		// base.PostOpen();
+		// }
+		// }
 
-        protected override void DrawGenes(Rect rect)
+		protected override void DrawGenes(Rect rect)
 		{
 			hoveredAnyGene = false;
 			GUI.BeginGroup(rect);
@@ -242,27 +242,27 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void DrawSection(Rect rect, List<GeneDef> genes, string label, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref bool? collapsed)
-        {
-            float curX = 4f;
+		{
+			float curX = 4f;
 			Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
-            if (collapsed == true)
-            {
-                if (Event.current.type == EventType.Layout)
-                {
-                    sectionHeight = 0f;
-                }
-                return;
-            }
-            Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
-            DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, containingRect, ref curX, num, ref flag, num2, num3, b, rect3);
-        }
+			if (collapsed == true)
+			{
+				if (Event.current.type == EventType.Layout)
+				{
+					sectionHeight = 0f;
+				}
+				return;
+			}
+			Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
+			DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, containingRect, ref curX, num, ref flag, num2, num3, b, rect3);
+		}
 
-        public static void DrawGenesSections_Label(ref Rect rect, string label, ref float curY, bool adding, ref bool? collapsed)
-        {
-            if (!label.NullOrEmpty())
-            {
-                Rect rect2 = new(0f, curY, rect.width, Text.LineHeight);
-                rect2.xMax -= (adding ? 16f : (Text.CalcSize("ClickToAddOrRemove".Translate()).x + 4f));
+		public static void DrawGenesSections_Label(ref Rect rect, string label, ref float curY, bool adding, ref bool? collapsed)
+		{
+			if (!label.NullOrEmpty())
+			{
+				Rect rect2 = new(0f, curY, rect.width, Text.LineHeight);
+				rect2.xMax -= (adding ? 16f : (Text.CalcSize("ClickToAddOrRemove".Translate()).x + 4f));
 				if (collapsed.HasValue)
 				{
 					Rect position = new(rect2.x, rect2.y + (rect2.height - 18f) / 2f, 18f, 18f);
@@ -287,148 +287,148 @@ namespace WVC_XenotypesAndGenes
 				}
 				Widgets.Label(rect2, label);
 				if (!adding)
-                {
-                    Text.Anchor = TextAnchor.UpperRight;
-                    GUI.color = ColoredText.SubtleGrayColor;
-                    Widgets.Label(new Rect(rect2.xMax - 18f, curY, rect.width - rect2.width, Text.LineHeight), "ClickToAddOrRemove".Translate());
-                    GUI.color = Color.white;
-                    Text.Anchor = TextAnchor.UpperLeft;
-                }
-                curY += Text.LineHeight + 3f;
-            }
-        }
+				{
+					Text.Anchor = TextAnchor.UpperRight;
+					GUI.color = ColoredText.SubtleGrayColor;
+					Widgets.Label(new Rect(rect2.xMax - 18f, curY, rect.width - rect2.width, Text.LineHeight), "ClickToAddOrRemove".Translate());
+					GUI.color = Color.white;
+					Text.Anchor = TextAnchor.UpperLeft;
+				}
+				curY += Text.LineHeight + 3f;
+			}
+		}
 
-        private void DrawGenesSection_Local(Rect rect, List<GeneDef> genes, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref float curX, float num, ref bool flag, float num2, float num3, float b, Rect rect3)
-        {
-            if (!genes.Any())
+		private void DrawGenesSection_Local(Rect rect, List<GeneDef> genes, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref float curX, float num, ref bool flag, float num2, float num3, float b, Rect rect3)
+		{
+			if (!genes.Any())
 			{
 				XaG_UiUtility.MiddleLabel_None(rect3);
 			}
-            else
-            {
-                GeneCategoryDef geneCategoryDef = null;
-                int num5 = 0;
-                for (int i = 0; i < genes.Count; i++)
-                {
-                    GeneDef geneDef = genes[i];
-                    if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)))
-                    {
-                        continue;
-                    }
-                    bool flag2 = false;
-                    if (curX + num2 > num3)
-                    {
-                        curX = 4f;
-                        curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
-                        flag2 = true;
-                    }
-                    bool flag3 = quickSearchWidget.filter.Active && (matchingGenes.Contains(geneDef) || matchingCategories.Contains(geneDef.displayCategory));
-                    bool flag4 = collapsedCategories[geneDef.displayCategory] && !flag3;
-                    if (adding && geneCategoryDef != geneDef.displayCategory)
-                    {
-                        if (!flag2 && flag)
-                        {
-                            curX = 4f;
-                            curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
-                        }
-                        geneCategoryDef = geneDef.displayCategory;
-                        Rect rect4 = new(curX, curY, rect.width - 8f, Text.LineHeight);
-                        if (!flag3)
-                        {
-                            Rect position2 = new(rect4.x, rect4.y + (rect4.height - 18f) / 2f, 18f, 18f);
-                            GUI.DrawTexture(position2, flag4 ? TexButton.Reveal : TexButton.Collapse);
-                            if (Widgets.ButtonInvisible(rect4))
-                            {
-                                collapsedCategories[geneDef.displayCategory] = !collapsedCategories[geneDef.displayCategory];
-                                if (collapsedCategories[geneDef.displayCategory])
-                                {
-                                    SoundDefOf.TabClose.PlayOneShotOnCamera();
-                                }
-                                else
-                                {
-                                    SoundDefOf.TabOpen.PlayOneShotOnCamera();
-                                }
-                            }
-                            if (num5 % 2 == 1)
-                            {
-                                Widgets.DrawLightHighlight(rect4);
-                            }
-                            if (Mouse.IsOver(rect4))
-                            {
-                                Widgets.DrawHighlight(rect4);
-                            }
-                            rect4.xMin += position2.width;
-                        }
-                        Widgets.Label(rect4, geneCategoryDef.LabelCap);
-                        curY += rect4.height;
-                        if (!flag4)
-                        {
-                            GUI.color = Color.grey;
-                            Widgets.DrawLineHorizontal(curX, curY, rect.width - 8f);
-                            GUI.color = Color.white;
-                            curY += 10f;
-                        }
-                        num5++;
-                    }
-                    if (adding && flag4)
-                    {
-                        flag = false;
-                        if (Event.current.type == EventType.Layout)
-                        {
-                            sectionHeight = curY - num;
-                        }
-                        continue;
-                    }
-                    curX = Mathf.Max(curX, b);
-                    flag = true;
-                    if (DrawGene(geneDef, !adding, ref curX, curY, num2, containingRect))
-                    {
-                        if (selectedGenes.Contains(geneDef))
-                        {
-                            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-                            selectedGenes.Remove(geneDef);
-                        }
-                        else
-                        {
-                            SoundDefOf.Tick_High.PlayOneShotOnCamera();
-                            selectedGenes.Add(geneDef);
-                        }
-                        if (!xenotypeNameLocked)
-                        {
-                            xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
-                        }
-                        OnGenesChanged();
-                        break;
-                    }
-                }
-            }
-            if (!adding || flag)
-            {
-                curY += GeneCreationDialogBase.GeneSize.y + 12f;
-            }
-            if (Event.current.type == EventType.Layout)
-            {
-                sectionHeight = curY - num;
-            }
-        }
+			else
+			{
+				GeneCategoryDef geneCategoryDef = null;
+				int num5 = 0;
+				for (int i = 0; i < genes.Count; i++)
+				{
+					GeneDef geneDef = genes[i];
+					if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)))
+					{
+						continue;
+					}
+					bool flag2 = false;
+					if (curX + num2 > num3)
+					{
+						curX = 4f;
+						curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
+						flag2 = true;
+					}
+					bool flag3 = quickSearchWidget.filter.Active && (matchingGenes.Contains(geneDef) || matchingCategories.Contains(geneDef.displayCategory));
+					bool flag4 = collapsedCategories[geneDef.displayCategory] && !flag3;
+					if (adding && geneCategoryDef != geneDef.displayCategory)
+					{
+						if (!flag2 && flag)
+						{
+							curX = 4f;
+							curY += GeneCreationDialogBase.GeneSize.y + 8f + 4f;
+						}
+						geneCategoryDef = geneDef.displayCategory;
+						Rect rect4 = new(curX, curY, rect.width - 8f, Text.LineHeight);
+						if (!flag3)
+						{
+							Rect position2 = new(rect4.x, rect4.y + (rect4.height - 18f) / 2f, 18f, 18f);
+							GUI.DrawTexture(position2, flag4 ? TexButton.Reveal : TexButton.Collapse);
+							if (Widgets.ButtonInvisible(rect4))
+							{
+								collapsedCategories[geneDef.displayCategory] = !collapsedCategories[geneDef.displayCategory];
+								if (collapsedCategories[geneDef.displayCategory])
+								{
+									SoundDefOf.TabClose.PlayOneShotOnCamera();
+								}
+								else
+								{
+									SoundDefOf.TabOpen.PlayOneShotOnCamera();
+								}
+							}
+							if (num5 % 2 == 1)
+							{
+								Widgets.DrawLightHighlight(rect4);
+							}
+							if (Mouse.IsOver(rect4))
+							{
+								Widgets.DrawHighlight(rect4);
+							}
+							rect4.xMin += position2.width;
+						}
+						Widgets.Label(rect4, geneCategoryDef.LabelCap);
+						curY += rect4.height;
+						if (!flag4)
+						{
+							GUI.color = Color.grey;
+							Widgets.DrawLineHorizontal(curX, curY, rect.width - 8f);
+							GUI.color = Color.white;
+							curY += 10f;
+						}
+						num5++;
+					}
+					if (adding && flag4)
+					{
+						flag = false;
+						if (Event.current.type == EventType.Layout)
+						{
+							sectionHeight = curY - num;
+						}
+						continue;
+					}
+					curX = Mathf.Max(curX, b);
+					flag = true;
+					if (DrawGene(geneDef, !adding, ref curX, curY, num2, containingRect))
+					{
+						if (selectedGenes.Contains(geneDef))
+						{
+							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+							selectedGenes.Remove(geneDef);
+						}
+						else
+						{
+							SoundDefOf.Tick_High.PlayOneShotOnCamera();
+							selectedGenes.Add(geneDef);
+						}
+						if (!xenotypeNameLocked)
+						{
+							xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
+						}
+						OnGenesChanged();
+						break;
+					}
+				}
+			}
+			if (!adding || flag)
+			{
+				curY += GeneCreationDialogBase.GeneSize.y + 12f;
+			}
+			if (Event.current.type == EventType.Layout)
+			{
+				sectionHeight = curY - num;
+			}
+		}
 
-        public static void DrawGenesSection_DrawRectFast(ref Rect rect, ref float curY, float sectionHeight, bool adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3)
-        {
-            num = curY;
-            flag = false;
-            num2 = 34f + GeneCreationDialogBase.GeneSize.x + 8f;
-            num3 = rect.width - 16f;
-            float num4 = num2 + 4f;
-            b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
-            rect3 = new(0f, curY, rect.width, sectionHeight);
-            if (!adding)
-            {
-                Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
-            }
-            curY += 4f;
-        }
+		public static void DrawGenesSection_DrawRectFast(ref Rect rect, ref float curY, float sectionHeight, bool adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3)
+		{
+			num = curY;
+			flag = false;
+			num2 = 34f + GeneCreationDialogBase.GeneSize.x + 8f;
+			num3 = rect.width - 16f;
+			float num4 = num2 + 4f;
+			b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
+			rect3 = new(0f, curY, rect.width, sectionHeight);
+			if (!adding)
+			{
+				Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
+			}
+			curY += 4f;
+		}
 
-        private bool DrawGene(GeneDef geneDef, bool selectedSection, ref float curX, float curY, float packWidth, Rect containingRect)
+		private bool DrawGene(GeneDef geneDef, bool selectedSection, ref float curX, float curY, float packWidth, Rect containingRect)
 		{
 			bool result = false;
 			Rect rect = new(curX, curY, packWidth, GeneCreationDialogBase.GeneSize.y + 8f);
@@ -459,12 +459,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!gene.CollectedGenes.Contains(geneDef))
 			{
-                //ColorLibrary.LightBlue
-                //GenColor.FromHex("47753c") // Green
-                //GenColor.FromHex("304452") // Dark Blue
-                //Widgets.DrawBoxSolidWithOutline(rect, new(1f, 1f, 1f, 0f), GenColor.FromHex("304452"));
-                Rect genelineRect = new(rect.xMax - 25f, rect.yMax - 72f, 22f, 22f);
-                Widgets.DrawTextureFitted(genelineRect, XaG_UiUtility.GenelineIconMark.Texture, 1f, 1f);
+				//ColorLibrary.LightBlue
+				//GenColor.FromHex("47753c") // Green
+				//GenColor.FromHex("304452") // Dark Blue
+				//Widgets.DrawBoxSolidWithOutline(rect, new(1f, 1f, 1f, 0f), GenColor.FromHex("304452"));
+				Rect genelineRect = new(rect.xMax - 25f, rect.yMax - 72f, 22f, 22f);
+				Widgets.DrawTextureFitted(genelineRect, XaG_UiUtility.GenelineIconMark.Texture, 1f, 1f);
 				if (Mouse.IsOver(genelineRect))
 				{
 					Widgets.DrawHighlight(genelineRect);
@@ -478,12 +478,12 @@ namespace WVC_XenotypesAndGenes
 		private string GeneTip(GeneDef geneDef, bool selectedSection)
 		{
 			string text = null;
-            if (selectedSection)
-            {
-                if (overridenGenes.Contains(geneDef))
-                {
-                    text = "WVC_XaG_ChimeraDialog_ConflictWith".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor) + "\n" + (overridenGenes.Where((gene) => gene != geneDef && gene.ConflictsWith(geneDef)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList("  - ")).Colorize(ColorLibrary.RedReadable);
-                }
+			if (selectedSection)
+			{
+				if (overridenGenes.Contains(geneDef))
+				{
+					text = "WVC_XaG_ChimeraDialog_ConflictWith".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor) + "\n" + (overridenGenes.Where((gene) => gene != geneDef && gene.ConflictsWith(geneDef)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList("  - ")).Colorize(ColorLibrary.RedReadable);
+				}
 			}
 			if (pawnEndoGenes.Contains(geneDef))
 			{
@@ -535,31 +535,31 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (!cachedXenogenesLimit.HasValue)
-                {
-                    GetLimitAndCost();
-                }
-                return cachedXenogenesLimit.Value;
+				{
+					GetLimitAndCost();
+				}
+				return cachedXenogenesLimit.Value;
 			}
 		}
 
-        private void GetLimitAndCost()
-        {
+		private void GetLimitAndCost()
+		{
 			int limitCost = 0;
-            float genesLimit = 0;
+			float genesLimit = 0;
 			float genesLimitFactor = 1f;
 			StatDef statDef = gene.ChimeraLimitStatDef;
-            //foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
-            //{
-            //    gene.GetStatFromStatModifiers(statDef, item.CurStage?.statOffsets, item.CurStage?.statFactors, out float offset, out float factor);
-            //    genesLimit += offset;
-            //    genesLimitFactor *= factor;
-            //}
-            foreach (GeneDef item in pawnEndoGenes)
-            {
-                if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
-                {
-                    continue;
-                }
+			//foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
+			//{
+			//    gene.GetStatFromStatModifiers(statDef, item.CurStage?.statOffsets, item.CurStage?.statFactors, out float offset, out float factor);
+			//    genesLimit += offset;
+			//    genesLimitFactor *= factor;
+			//}
+			foreach (GeneDef item in pawnEndoGenes)
+			{
+				if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
+				{
+					continue;
+				}
 				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
 				genesLimit += offset;
 				genesLimitFactor *= factor;
@@ -572,23 +572,23 @@ namespace WVC_XenotypesAndGenes
 				genesLimitFactor *= factor;
 			}
 			foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
-            {
-                if (!SelectedGenes.Contains(pawnGene.def) && pawnGene.pawn.genes.Xenogenes.Contains(pawnGene))
-                {
-                    continue;
-                }
-                if (pawnGene is not Gene_ChimeraHediff chimeraHediffGene)
-                {
-                    continue;
-                }
-                if (chimeraHediffGene.ChimeraHediff != null)
+			{
+				if (!SelectedGenes.Contains(pawnGene.def) && pawnGene.pawn.genes.Xenogenes.Contains(pawnGene))
 				{
-                    gene.GetStatFromStatModifiers(statDef, chimeraHediffGene.ChimeraHediff?.CurStage?.statOffsets, chimeraHediffGene.ChimeraHediff?.CurStage?.statFactors, out float offset, out float factor);
-                    genesLimit += offset;
-                    genesLimitFactor *= factor;
-                }
+					continue;
+				}
+				if (pawnGene is not Gene_ChimeraHediff chimeraHediffGene)
+				{
+					continue;
+				}
+				if (chimeraHediffGene.ChimeraHediff != null)
+				{
+					gene.GetStatFromStatModifiers(statDef, chimeraHediffGene.ChimeraHediff?.CurStage?.statOffsets, chimeraHediffGene.ChimeraHediff?.CurStage?.statFactors, out float offset, out float factor);
+					genesLimit += offset;
+					genesLimitFactor *= factor;
+				}
 			}
-            genesLimit *= genesLimitFactor;
+			genesLimit *= genesLimitFactor;
 			cachedLimitConsumed = limitCost;
 			cachedXenogenesLimit = (int)genesLimit;
 			if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
@@ -597,7 +597,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        protected override void OnGenesChanged()
+		protected override void OnGenesChanged()
 		{
 			overridenGenes = new();
 			gcx = 0;
@@ -837,9 +837,9 @@ namespace WVC_XenotypesAndGenes
 				selectedGenes = new();
 			}
 			if (subActionsDisabled)
-            {
+			{
 				return;
-            }
+			}
 			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), chimeraApplyEater.Translate()))
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.pawn.LabelCap), GenesEater));
@@ -851,39 +851,39 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		protected override bool CanAccept()
-        {
-            if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
-            {
-                return false;
-            }
-            if (XenogenesLimit < ConsumedLimit)
-            {
-                Messages.Message("WVC_XaG_Gene_Chimera_LimitMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-                return false;
-            }
-            foreach (GeneDef selectedGene in SelectedGenes)
-            {
-                if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
-                {
-                    Messages.Message("MessageGeneMissingPrerequisite".Translate(selectedGene.label).CapitalizeFirst() + ": " + selectedGene.prerequisite.LabelCap, null, MessageTypeDefOf.RejectInput, historical: false);
-                    return false;
-                }
-            }
-            if (overridenGenes.Any())
-            {
-                Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-                return false;
-            }
-            IntRange reqMetRange = gene.ReqMetRange;
-            if (reqMetRange.TrueMin > met || reqMetRange.TrueMax < met)
-            {
-                Messages.Message("WVC_XaG_ChimeraBadMetabol_Message".Translate(reqMetRange.TrueMin, reqMetRange.TrueMax, met), null, MessageTypeDefOf.RejectInput, historical: false);
-                return false;
-            }
-            return true;
-        }
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
+			{
+				return false;
+			}
+			if (XenogenesLimit < ConsumedLimit)
+			{
+				Messages.Message("WVC_XaG_Gene_Chimera_LimitMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			foreach (GeneDef selectedGene in SelectedGenes)
+			{
+				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
+				{
+					Messages.Message("MessageGeneMissingPrerequisite".Translate(selectedGene.label).CapitalizeFirst() + ": " + selectedGene.prerequisite.LabelCap, null, MessageTypeDefOf.RejectInput, historical: false);
+					return false;
+				}
+			}
+			if (overridenGenes.Any())
+			{
+				Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			IntRange reqMetRange = gene.ReqMetRange;
+			if (reqMetRange.TrueMin > met || reqMetRange.TrueMax < met)
+			{
+				Messages.Message("WVC_XaG_ChimeraBadMetabol_Message".Translate(reqMetRange.TrueMin, reqMetRange.TrueMax, met), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			return true;
+		}
 
-        protected override void Accept()
+		protected override void Accept()
 		{
 			if (selectedGenes.NullOrEmpty())
 			{
@@ -896,10 +896,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void StartChange()
-        {
-            ClearGenes(selectedGenes);
-            List<GeneDef> implantedGenes = new();
-            ReimplanterUtility.UnknownChimerkin(gene.pawn);
+		{
+			ClearGenes(selectedGenes);
+			List<GeneDef> implantedGenes = new();
+			ReimplanterUtility.UnknownChimerkin(gene.pawn);
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				try
@@ -915,45 +915,45 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Error during implantation in def: " + geneDef.defName + ". Reason: " + arg.Message);
 				}
 			}
-            RemoveOverridenGenes(ref implantedGenes);
-            ReimplanterUtility.PostImplantDebug(gene.pawn);
-            gene.UpdateChimeraXenogerm(implantedGenes);
-            gene.DoEffects();
-            gene.UpdateMetabolism();
+			RemoveOverridenGenes(ref implantedGenes);
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
+			gene.UpdateChimeraXenogerm(implantedGenes);
+			gene.DoEffects();
+			gene.UpdateMetabolism();
 			gene.UpdSubHediffs();
 			Close(doCloseSound: false);
-        }
+		}
 
-        private void RemoveOverridenGenes(ref List<GeneDef> implantedGenes)
-        {
-            bool postImplantRemoveMessage = false;
-            foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
-            {
-                if (gene.Overridden && gene.overriddenByGene != null)
-                {
-                    gene.pawn.genes.RemoveGene(gene);
-                    if (implantedGenes.Contains(gene.def))
-                    {
-                        implantedGenes.Remove(gene.def);
-                    }
-                    postImplantRemoveMessage = true;
-                }
-                if (pawnEndoGenes.Contains(gene.def))
-                {
-                    gene.pawn.genes.RemoveGene(gene);
-                    if (implantedGenes.Contains(gene.def))
-                    {
-                        implantedGenes.Remove(gene.def);
-                    }
-                }
-            }
-            if (postImplantRemoveMessage)
-            {
-                Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-            }
-        }
+		private void RemoveOverridenGenes(ref List<GeneDef> implantedGenes)
+		{
+			bool postImplantRemoveMessage = false;
+			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+			{
+				if (gene.Overridden && gene.overriddenByGene != null)
+				{
+					gene.pawn.genes.RemoveGene(gene);
+					if (implantedGenes.Contains(gene.def))
+					{
+						implantedGenes.Remove(gene.def);
+					}
+					postImplantRemoveMessage = true;
+				}
+				if (pawnEndoGenes.Contains(gene.def))
+				{
+					gene.pawn.genes.RemoveGene(gene);
+					if (implantedGenes.Contains(gene.def))
+					{
+						implantedGenes.Remove(gene.def);
+					}
+				}
+			}
+			if (postImplantRemoveMessage)
+			{
+				Messages.Message("WVC_XaG_GeneChimera_PostImplantRemove".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			}
+		}
 
-        private void UpdateGenesInforamtion()
+		private void UpdateGenesInforamtion()
 		{
 			subActionsDisabled = gene.EaterDisabled;
 			GetCustomEater();
@@ -980,9 +980,9 @@ namespace WVC_XenotypesAndGenes
 			//		nonPassedGenes.Add(item);
 			//	}
 			//}
-            selectedGenes = this.pawnXenoGenes;
+			selectedGenes = this.pawnXenoGenes;
 			UpdateSearchResults();
-        }
+		}
 
 		private void ConvertToDefsAndGetGeneline(List<Gene> pawnGenes, out List<GeneDef> geneDefs, ref List<GeneDef> genelinedGenes)
 		{
@@ -1013,9 +1013,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
-        {
-            try
+		private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
+		{
+			try
 			{
 				foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
 				{
@@ -1030,10 +1030,10 @@ namespace WVC_XenotypesAndGenes
 					gene.pawn.genes.AddGene(gene.def, false);
 				}
 			}
-            catch
-            {
+			catch
+			{
 				Log.Warning("Error during genes removing. Broken PostRemove() in some gene?");
-            }
+			}
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
 			ReimplanterUtility.PostImplantDebug(gene.pawn);
 		}
@@ -1051,21 +1051,21 @@ namespace WVC_XenotypesAndGenes
 
 		// private IEnumerable<string> GetWarnings()
 		// {
-			// if (ignoreRestrictions)
-			// {
-				// if (arc > 0 && eatAllSelectedGenes)
-				// {
-					// yield return "XenotypeBreaksLimits_Archites".Translate();
-				// }
-				// if (met > GeneTuning.BiostatRange.TrueMax)
-				// {
-					// yield return "XenotypeBreaksLimits_Exceeds".Translate("Metabolism".Translate().Named("STAT"), met.Named("VALUE"), GeneTuning.BiostatRange.TrueMax.Named("MAX")).CapitalizeFirst();
-				// }
-				// else if (met < GeneTuning.BiostatRange.TrueMin)
-				// {
-					// yield return "XenotypeBreaksLimits_Below".Translate("Metabolism".Translate().Named("STAT"), met.Named("VALUE"), GeneTuning.BiostatRange.TrueMin.Named("MIN")).CapitalizeFirst();
-				// }
-			// }
+		// if (ignoreRestrictions)
+		// {
+		// if (arc > 0 && eatAllSelectedGenes)
+		// {
+		// yield return "XenotypeBreaksLimits_Archites".Translate();
+		// }
+		// if (met > GeneTuning.BiostatRange.TrueMax)
+		// {
+		// yield return "XenotypeBreaksLimits_Exceeds".Translate("Metabolism".Translate().Named("STAT"), met.Named("VALUE"), GeneTuning.BiostatRange.TrueMax.Named("MAX")).CapitalizeFirst();
+		// }
+		// else if (met < GeneTuning.BiostatRange.TrueMin)
+		// {
+		// yield return "XenotypeBreaksLimits_Below".Translate("Metabolism".Translate().Named("STAT"), met.Named("VALUE"), GeneTuning.BiostatRange.TrueMin.Named("MIN")).CapitalizeFirst();
+		// }
+		// }
 		// }
 
 		protected override void UpdateSearchResults()

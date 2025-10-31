@@ -1,6 +1,6 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -38,9 +38,9 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 			if (!Active)
-            {
+			{
 				return;
-            }
+			}
 			if (thing.IsHemogenPack(out float offsetHemogen) && Cells != null)
 			{
 				GeneResourceUtility.OffsetResource(Cells, offsetHemogen * 0.5f);
@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_ResurgentOffset : Gene_ResurgentDependent, IGeneResourceDrain
+	public class Gene_ResurgentOffset : Gene_ResurgentDependent, IGeneResourceDrain
 	{
 
 		public Gene_Resource Resource => Resurgent;
@@ -114,16 +114,16 @@ namespace WVC_XenotypesAndGenes
 
 	[Obsolete]
 	public class Gene_ResurgentCellsGain : Gene_ResurgentOffset
-    {
+	{
 
-    }
+	}
 
-    //public class Gene_ArchitesOffset : Gene_ResurgentDependent, IGeneResourceDrain
-    //   {
+	//public class Gene_ArchitesOffset : Gene_ResurgentDependent, IGeneResourceDrain
+	//   {
 
-    //   }
+	//   }
 
-    public class Gene_ResurgentFungus : Gene_ResurgentOffset
+	public class Gene_ResurgentFungus : Gene_ResurgentOffset
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();

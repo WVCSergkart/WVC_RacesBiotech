@@ -3,7 +3,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Hediff_FleshmassImmunity : Hediff
+	public class Hediff_FleshmassImmunity : Hediff
 	{
 
 		//public int cachedGenes = 0;
@@ -51,9 +51,9 @@ namespace WVC_XenotypesAndGenes
 				if (curStage == null)
 				{
 					curStage = new();
-                    curStage.makeImmuneTo = Immunity?.ImmunizedHediffs;
-                }
-                return curStage;
+					curStage.makeImmuneTo = Immunity?.ImmunizedHediffs;
+				}
+				return curStage;
 			}
 		}
 

@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -24,11 +24,11 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	SetThrallGenes(pawn, thrall);
 				//}
-                if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid && hybrid.isRandom)
-                {
-                    SetHybridGenes(pawn, hybrid);
-                }
-            }
+				if (subXenotypeDef is DevXenotypeDef hybrid && hybrid.isHybrid && hybrid.isRandom)
+				{
+					SetHybridGenes(pawn, hybrid);
+				}
+			}
 			if (shapeShiftGene != null)
 			{
 				pawn.genes.RemoveGene(shapeShiftGene);
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 				if (xenotype.XenotypeDefs.TryRandomElement((xenos) => xenos != firstXenotype && xenos.inheritable == firstXenotype.inheritable, out var result))
 				{
 					if (TrySetHybridXenotype(pawn, xenotype, firstXenotype, result))
-                    {
+					{
 						//string xenos = "";
 						//foreach (var item in failedCombos)
 						//{
@@ -54,14 +54,14 @@ namespace WVC_XenotypesAndGenes
 						//}
 						//Log.Error("Failed xenotyps: " + xenos);
 						return;
-                    }
+					}
 				}
 				cycleTry++;
 			}
 			ReimplanterUtility.SetXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement());
 		}
 
-        public static bool TrySetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
+		public static bool TrySetHybridXenotype(Pawn pawn, DevXenotypeDef devXenotypeDef, XenotypeDef firstXenotype, XenotypeDef secondXenotype)
 		{
 			//pawn.genes.GetFirstGeneOfType<Gene_HybridImplanter>()?.SetXenotypes(firstXenotype, secondXenotype);
 			return TrySetHybridXenotype(pawn, devXenotypeDef.genes, firstXenotype.genes, secondXenotype.genes, devXenotypeDef.inheritable, devXenotypeDef.exceptedGenes);
@@ -78,17 +78,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TrySetHybridXenotype(Pawn pawn, List<GeneDef> nonRemovableGenes, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, bool inheritable, List<GeneDef> exceptedGenes)
-        {
+		{
 			exceptedGenes.AddRange(nonRemovableGenes);
 			if (!TryGetHybridGenes(pawn, firstXenotypeGenes, secondXenotypeGenes, out List<GeneDef> allNewGenes, exceptedGenes, nonRemovableGenes))
-            {
-                return false;
-            }
+			{
+				return false;
+			}
 			if (inheritable)
 			{
 				pawn.genes.Endogenes.RemoveAllGenes(nonRemovableGenes);
 			}
-            pawn.genes.Xenogenes.RemoveAllGenes(nonRemovableGenes);
+			pawn.genes.Xenogenes.RemoveAllGenes(nonRemovableGenes);
 			//allNewGenes.AddRangeSafe(nonRemovableGenes);
 			AddGenes(pawn, allNewGenes, inheritable, new());
 			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
@@ -99,84 +99,84 @@ namespace WVC_XenotypesAndGenes
 			//		pawn.genes.RemoveGene(gene);
 			//	}
 			//}
-            ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-            ReimplanterUtility.PostImplantDebug(pawn);
-            return true;
-        }
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
+			return true;
+		}
 
-        public static bool TryGetHybridGenes(Pawn pawn, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes)
-        {
-            allNewGenes = new();
+		public static bool TryGetHybridGenes(Pawn pawn, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes)
+		{
+			allNewGenes = new();
 			string phase = "start";
-            try
-            {
-                List<GeneDef> allSubGenes = new();
-                phase = "sort genes";
-                // sort genes
-                List<GeneDef> firstGenes = new();
-                foreach (GeneDef item in firstXenotypeGenes)
-                {
-                    if (exceptedGenes.Contains(item))
-                    {
-                        continue;
-                    }
-                    if (item.prerequisite == null)
-                    {
-                        firstGenes.Add(item);
-                    }
-                    else
-                    {
-                        allSubGenes.Add(item);
-                    }
-                }
-                List<GeneDef> secondGenes = new();
-                foreach (GeneDef item in secondXenotypeGenes)
-                {
-                    if (exceptedGenes.Contains(item))
-                    {
-                        continue;
-                    }
-                    if (item.prerequisite == null)
-                    {
-                        secondGenes.Add(item);
-                    }
-                    else
-                    {
-                        allSubGenes.Add(item);
-                    }
-                }
-                phase = "add main genes";
-                // add genes
-                int firstGenesCount = firstGenes.Count / 2;
-                for (int i = 0; i < firstGenesCount; i++)
-                {
-                    if (!XaG_GeneUtility.ConflictWith(firstGenes[i], allNewGenes))
-                    {
-                        allNewGenes.Add(firstGenes[i]);
-                    }
-                }
-                int secondGenesCount = secondGenes.Count / 2;
-                for (int i = 0; i < secondGenesCount; i++)
-                {
-                    if (!XaG_GeneUtility.ConflictWith(secondGenes[i], allNewGenes))
-                    {
-                        allNewGenes.Add(secondGenes[i]);
-                    }
-                }
-                phase = "add sub genes";
-                // add sub-genes
-                int maxGenesCount = firstGenesCount + secondGenesCount;
-                phase = "count all tries";
-                int tryReq = CountTries(allSubGenes);
-                if (tryReq > 0)
-                {
-                    phase = "add sub genes";
-                    for (int i = 0; i < tryReq; i++)
-                    {
-                        AddSubGenes(allNewGenes, allSubGenes, maxGenesCount);
-                    }
-                }
-                SetSkinAndHairGenes(firstXenotypeGenes, secondXenotypeGenes, allNewGenes);
+			try
+			{
+				List<GeneDef> allSubGenes = new();
+				phase = "sort genes";
+				// sort genes
+				List<GeneDef> firstGenes = new();
+				foreach (GeneDef item in firstXenotypeGenes)
+				{
+					if (exceptedGenes.Contains(item))
+					{
+						continue;
+					}
+					if (item.prerequisite == null)
+					{
+						firstGenes.Add(item);
+					}
+					else
+					{
+						allSubGenes.Add(item);
+					}
+				}
+				List<GeneDef> secondGenes = new();
+				foreach (GeneDef item in secondXenotypeGenes)
+				{
+					if (exceptedGenes.Contains(item))
+					{
+						continue;
+					}
+					if (item.prerequisite == null)
+					{
+						secondGenes.Add(item);
+					}
+					else
+					{
+						allSubGenes.Add(item);
+					}
+				}
+				phase = "add main genes";
+				// add genes
+				int firstGenesCount = firstGenes.Count / 2;
+				for (int i = 0; i < firstGenesCount; i++)
+				{
+					if (!XaG_GeneUtility.ConflictWith(firstGenes[i], allNewGenes))
+					{
+						allNewGenes.Add(firstGenes[i]);
+					}
+				}
+				int secondGenesCount = secondGenes.Count / 2;
+				for (int i = 0; i < secondGenesCount; i++)
+				{
+					if (!XaG_GeneUtility.ConflictWith(secondGenes[i], allNewGenes))
+					{
+						allNewGenes.Add(secondGenes[i]);
+					}
+				}
+				phase = "add sub genes";
+				// add sub-genes
+				int maxGenesCount = firstGenesCount + secondGenesCount;
+				phase = "count all tries";
+				int tryReq = CountTries(allSubGenes);
+				if (tryReq > 0)
+				{
+					phase = "add sub genes";
+					for (int i = 0; i < tryReq; i++)
+					{
+						AddSubGenes(allNewGenes, allSubGenes, maxGenesCount);
+					}
+				}
+				SetSkinAndHairGenes(firstXenotypeGenes, secondXenotypeGenes, allNewGenes);
 				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism))
 				{
 					return true;
@@ -185,19 +185,19 @@ namespace WVC_XenotypesAndGenes
 				XaG_GeneUtility.GetBiostatsFromList(ignoredGenes, out _, out int met2, out _);
 				float metabolism = met + met2;
 				if (metabolism > 5 || metabolism < -5)
-                {
-                    return false;
-                }
-            }
-            catch (Exception arg)
-            {
+				{
+					return false;
+				}
+			}
+			catch (Exception arg)
+			{
 				Log.Error("Failed create hybrid. On phase: " + phase + " Reason: " + arg);
 				return false;
 			}
 			return !allNewGenes.NullOrEmpty();
-        }
+		}
 
-        private static void SetSkinAndHairGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, List<GeneDef> allNewGenes)
+		private static void SetSkinAndHairGenes(List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, List<GeneDef> allNewGenes)
 		{
 			bool xenotypeHasSkinColor = false;
 			bool xenotypeHasHairColor = false;
@@ -206,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.IsSkinOrHairGene(ref xenotypeHasSkinColor, ref xenotypeHasHairColor, item);
 			}
 			if (!xenotypeHasSkinColor)
-            {
+			{
 				List<GeneDef> allGenes = new();
 				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
 				allGenes.AddRange(secondXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsSkinGeneDef(geneDef)));
@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 					allNewGenes.Add(MainDefOf.Skin_SheerWhite);
 				}
 			}
-            if (!xenotypeHasHairColor)
+			if (!xenotypeHasHairColor)
 			{
 				List<GeneDef> allGenes = new();
 				allGenes.AddRange(firstXenotypeGenes.Where((geneDef) => XaG_GeneUtility.IsHairGeneDef(geneDef)));
@@ -233,13 +233,13 @@ namespace WVC_XenotypesAndGenes
 					allNewGenes.Add(MainDefOf.Hair_SnowWhite);
 				}
 			}
-        }
+		}
 
-        private static int CountTries(List<GeneDef> allSubGenes)
-        {
-            int tryReq = 1;
-            foreach (GeneDef subGene in allSubGenes)
-            {
+		private static int CountTries(List<GeneDef> allSubGenes)
+		{
+			int tryReq = 1;
+			foreach (GeneDef subGene in allSubGenes)
+			{
 				//if (subGene.prerequisite?.prerequisite != null)
 				//{
 				//    tryReq++;
@@ -247,17 +247,17 @@ namespace WVC_XenotypesAndGenes
 				XaG_GeneUtility.GeneDefHasSubGenes_WithCount(subGene.prerequisite, ref tryReq);
 			}
 			return tryReq;
-        }
+		}
 
-        private static void AddSubGenes(List<GeneDef> allNewGenes, List<GeneDef> allSubGenes, int maxGenesCount)
+		private static void AddSubGenes(List<GeneDef> allNewGenes, List<GeneDef> allSubGenes, int maxGenesCount)
 		{
-            int maxGenes = maxGenesCount - allNewGenes.Count;
+			int maxGenes = maxGenesCount - allNewGenes.Count;
 			if (maxGenes < 1)
-            {
+			{
 				return;
-            }
+			}
 			int breaker = 0;
-   //         for (int i = 0; i < maxGenes; i++)
+			//         for (int i = 0; i < maxGenes; i++)
 			//{
 			//	if (breaker > maxGenesCount)
 			//	{
@@ -269,26 +269,26 @@ namespace WVC_XenotypesAndGenes
 			//		allNewGenes.Add(allSubGenes[i]);
 			//	}
 			//	else
-   //             {
+			//             {
 			//		maxGenes++;
 			//	}
 			//}
-            foreach (GeneDef item in allSubGenes)
-            {
-                if (!XaG_GeneUtility.ConflictWith(item, allNewGenes) && allNewGenes.Contains(item.prerequisite))
-                {
-                    allNewGenes.Add(item);
-                }
+			foreach (GeneDef item in allSubGenes)
+			{
+				if (!XaG_GeneUtility.ConflictWith(item, allNewGenes) && allNewGenes.Contains(item.prerequisite))
+				{
+					allNewGenes.Add(item);
+				}
 				if (breaker > maxGenes)
-                {
+				{
 					break;
-                }
+				}
 				breaker++;
 			}
-        }
+		}
 
 		//[Obsolete]
-  //      public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
+		//      public static void SetThrallGenes(Pawn pawn, DevXenotypeDef xenotype)
 		//{
 		//	if (xenotype.thrallDefs.Where((ThrallDef x) => x.mutantDef == null).TryRandomElementByWeight((ThrallDef x) => x.selectionWeight, out var result))
 		//	{

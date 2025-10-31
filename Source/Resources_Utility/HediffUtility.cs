@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -88,24 +88,24 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (metHediffDef == null)
-                {
+				{
 					metHediffDef = DefDatabase<HediffDef>.AllDefsListForReading.Where((def) => def.IsHediffDefOfType<HediffWithComps_Metabolism>()).FirstOrDefault();
 				}
 				return metHediffDef;
 			}
 		}
 
-        public static void TryAddOrUpdMetabolism(Pawn pawn, Gene gene)
-        {
+		public static void TryAddOrUpdMetabolism(Pawn pawn, Gene gene)
+		{
 			TryAddOrUpdMetabolism(MetHediffDef, pawn, gene);
 		}
 
-        public static void TryAddOrUpdMetabolism(HediffDef metHediffDef, Pawn pawn, Gene gene)
+		public static void TryAddOrUpdMetabolism(HediffDef metHediffDef, Pawn pawn, Gene gene)
 		{
 			if (!WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor)
-            {
+			{
 				return;
-            }
+			}
 			if (!HediffUtility.TryAddOrRemoveHediff(metHediffDef, pawn, gene, null))
 			{
 				GeneResourceUtility.UpdMetabolism(pawn);
@@ -141,42 +141,42 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef, bool bloodLoss = true)
-        {
-            if (!ModsConfig.AnomalyActive)
-            {
-                return false;
-            }
-            if (mutationDef.defaultInstallPart == null)
-            {
-                Log.ErrorOnce("Attempted to use mutation hediff which didn't specify a default install part (hediff: " + mutationDef.label, 194783821);
-                return false;
-            }
-			//List<BodyPartRecord> allBodyParts = pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart).Where((part) => !pawn.health.hediffSet.HasHediff(mutationDef, part)).ToList();
-            List<BodyPartRecord> list = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-										 where pawn.health.hediffSet.HasMissingPartFor(part)
-                                         select part).ToList();
-            List<BodyPartRecord> list2 = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-										  where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
-                                          select part).ToList();
-            BodyPartRecord bodyPartRecord = null;
-            if (list.Any())
-            {
-                bodyPartRecord = list.RandomElement();
-            }
-            else if (list2.Any())
-            {
-                bodyPartRecord = list2.RandomElement();
-            }
-            if (bodyPartRecord == null)
-            {
-                return false;
+		{
+			if (!ModsConfig.AnomalyActive)
+			{
+				return false;
 			}
-            if (!TryMakeFleshmassNucleusHediff(mutationDef, pawn, out HediffAddedPart_FleshmassNucleus hediff, bodyPartRecord))
-            {
-                return false;
-            }
-            MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
-            pawn.health.RestorePart(bodyPartRecord);
+			if (mutationDef.defaultInstallPart == null)
+			{
+				Log.ErrorOnce("Attempted to use mutation hediff which didn't specify a default install part (hediff: " + mutationDef.label, 194783821);
+				return false;
+			}
+			//List<BodyPartRecord> allBodyParts = pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart).Where((part) => !pawn.health.hediffSet.HasHediff(mutationDef, part)).ToList();
+			List<BodyPartRecord> list = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
+										 where pawn.health.hediffSet.HasMissingPartFor(part)
+										 select part).ToList();
+			List<BodyPartRecord> list2 = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
+										  where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
+										  select part).ToList();
+			BodyPartRecord bodyPartRecord = null;
+			if (list.Any())
+			{
+				bodyPartRecord = list.RandomElement();
+			}
+			else if (list2.Any())
+			{
+				bodyPartRecord = list2.RandomElement();
+			}
+			if (bodyPartRecord == null)
+			{
+				return false;
+			}
+			if (!TryMakeFleshmassNucleusHediff(mutationDef, pawn, out HediffAddedPart_FleshmassNucleus hediff, bodyPartRecord))
+			{
+				return false;
+			}
+			MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
+			pawn.health.RestorePart(bodyPartRecord);
 			pawn.health.AddHediff(hediff, bodyPartRecord);
 			//Type currentClass = mutationDef.hediffClass;
 			//if (mutationDef.IsHediffDefOfType<Hediff_AddedPart>())
@@ -189,13 +189,13 @@ namespace WVC_XenotypesAndGenes
 			//}
 			//Hediff hediff = HediffMaker.MakeHediff(mutationDef, pawn);
 			//pawn.health.AddHediff(hediff, bodyPartRecord);
-   //         mutationDef.hediffClass = currentClass;
+			//         mutationDef.hediffClass = currentClass;
 			//if (hediff is HediffAddedPart_FleshmassNucleus hediffAddedPart_FleshmassNucleus)
 			//{
 			//	hediffAddedPart_FleshmassNucleus.maxMutationLevel = maxMutationLevel;
 			//}
 			//else if (hediff is HediffImplant_FleshmassNucleus hediffImplant_FleshmassNucleus)
-   //         {
+			//         {
 			//	hediffImplant_FleshmassNucleus.maxMutationLevel = maxMutationLevel;
 			//}
 			if (bloodLoss)
@@ -203,9 +203,9 @@ namespace WVC_XenotypesAndGenes
 				MutationMeatSplatter(pawn);
 			}
 			return true;
-        }
+		}
 
-        public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true, FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
+		public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true, FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
 		{
 			if (bloodLoss && !pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 			{
@@ -214,33 +214,33 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.AddHediff(hediff);
 			}
 			if (pawn.Spawned)
-            {
+			{
 				MiscUtility.MeatSplatter(pawn, size);
-            }
-        }
+			}
+		}
 
-        public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)
+		public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)
 		{
 			return hediffDef.hediffClass == typeof(T) || typeof(T).IsAssignableFrom(hediffDef.hediffClass);
 		}
 
-        public static bool TryMakeFleshmassNucleusHediff(HediffDef def, Pawn pawn, out HediffAddedPart_FleshmassNucleus hediff, BodyPartRecord partRecord = null)
-        {
+		public static bool TryMakeFleshmassNucleusHediff(HediffDef def, Pawn pawn, out HediffAddedPart_FleshmassNucleus hediff, BodyPartRecord partRecord = null)
+		{
 			hediff = null;
 			if (pawn == null)
-            {
-                return false;
-            }
+			{
+				return false;
+			}
 			hediff = (HediffAddedPart_FleshmassNucleus)Activator.CreateInstance(typeof(HediffAddedPart_FleshmassNucleus));
-            hediff.def = def;
-            hediff.pawn = pawn;
-            hediff.Part = partRecord;
-            hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
-            hediff.PostMake();
-            return true;
-        }
+			hediff.def = def;
+			hediff.pawn = pawn;
+			hediff.Part = partRecord;
+			hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
+			hediff.PostMake();
+			return true;
+		}
 
-        public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
+		public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
 		{
 			bool flag = pawn.MapHeld.glowGrid.PsychGlowAt(pawn.PositionHeld) != PsychGlow.Dark;
 			return flag ? exposurePerSecond_Lit * (ticks / 60) : (exposurePerSecond_Unlit * (ticks / 60));
@@ -251,17 +251,17 @@ namespace WVC_XenotypesAndGenes
 			// int num = 0;
 			// foreach (BodyPartDef bodypart in bodyparts)
 			// {
-				// if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
-				// {
-					// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-					// HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
-					// if (hediff_GeneCheck != null)
-					// {
-						// hediff_GeneCheck.geneDef = geneDef;
-					// }
-					// pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
-					// num++;
-				// }
+			// if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
+			// {
+			// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+			// HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
+			// if (hediff_GeneCheck != null)
+			// {
+			// hediff_GeneCheck.geneDef = geneDef;
+			// }
+			// pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+			// num++;
+			// }
 			// }
 			foreach (BodyPartDef bodypart in bodyparts)
 			{
@@ -292,19 +292,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (!pawn.health.hediffSet.HasHediff(hediffDef))
 				// {
-					// if (!bodyparts.NullOrEmpty())
-					// {
-						// HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
-						// return true;
-					// }
-					// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-					// HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
-					// if (hediff_GeneCheck != null)
-					// {
-						// hediff_GeneCheck.geneDef = gene.def;
-					// }
-					// pawn.health.AddHediff(hediff);
-					// return true;
+				// if (!bodyparts.NullOrEmpty())
+				// {
+				// HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
+				// return true;
+				// }
+				// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+				// HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+				// if (hediff_GeneCheck != null)
+				// {
+				// hediff_GeneCheck.geneDef = gene.def;
+				// }
+				// pawn.health.AddHediff(hediff);
+				// return true;
 				// }
 				return TryAddHediff(hediffDef, pawn, gene.def, bodyparts, randomizeSeverity);
 			}
@@ -357,7 +357,7 @@ namespace WVC_XenotypesAndGenes
 				// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
 				// if (firstHediffOfDef != null)
 				// {
-					// pawn.health.RemoveHediff(firstHediffOfDef);
+				// pawn.health.RemoveHediff(firstHediffOfDef);
 				// }
 				foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 				{
@@ -427,69 +427,69 @@ namespace WVC_XenotypesAndGenes
 						Find.WindowStack.Add(new Dialog_ImplantImplanter(pawn, recipeDef, parts, implant));
 					}
 					else
-                    {
-                        ApplyImplantOnPawn(pawn, recipeDef, parts, implant);
-                    }
-                }
+					{
+						ApplyImplantOnPawn(pawn, recipeDef, parts, implant);
+					}
+				}
 				return true;
 			}
 			return false;
 		}
 
-        public static void ApplyImplantOnPawn(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> parts, Thing implant)
-        {
-            recipeDef.Worker.ApplyOnPawn(pawn, parts.RandomElement(), null, new() { implant }, null);
-        }
+		public static void ApplyImplantOnPawn(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> parts, Thing implant)
+		{
+			recipeDef.Worker.ApplyOnPawn(pawn, parts.RandomElement(), null, new() { implant }, null);
+		}
 
-        //public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
-        //{
-        //	if (pawn?.genes == null || pawn?.story == null)
-        //	{
-        //		return false;
-        //	}
-        //	if (headTypeDefs.Contains(pawn.story.headType))
-        //	{
-        //		if (pawn?.health != null && pawn?.health?.hediffSet != null)
-        //		{
-        //			if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
-        //			{
-        //				return false;
-        //			}
-        //		}
-        //		return true;
-        //	}
-        //	return false;
-        //}
+		//public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
+		//{
+		//	if (pawn?.genes == null || pawn?.story == null)
+		//	{
+		//		return false;
+		//	}
+		//	if (headTypeDefs.Contains(pawn.story.headType))
+		//	{
+		//		if (pawn?.health != null && pawn?.health?.hediffSet != null)
+		//		{
+		//			if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
+		//			{
+		//				return false;
+		//			}
+		//		}
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
-        //public static bool AnyEyeIsMissing(Pawn pawn)
-        //{
-        //	List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
-        //	for (int i = 0; i < missingPart.Count; i++)
-        //	{
-        //		if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
-        //		{
-        //			return true;
-        //		}
-        //	}
-        //	return false;
-        //}
+		//public static bool AnyEyeIsMissing(Pawn pawn)
+		//{
+		//	List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
+		//	for (int i = 0; i < missingPart.Count; i++)
+		//	{
+		//		if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
-        //public static bool HasEyesGraphic(Pawn pawn)
-        //{
-        //	List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-        //	for (int i = 0; i < hediffs.Count; i++)
-        //	{
-        //		if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
-        //		{
-        //			return true;
-        //		}
-        //	}
-        //	return false;
-        //}
+		//public static bool HasEyesGraphic(Pawn pawn)
+		//{
+		//	List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+		//	for (int i = 0; i < hediffs.Count; i++)
+		//	{
+		//		if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
-        // Add and Remove
+		// Add and Remove
 
-        public static void AddHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
+		public static void AddHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
 		{
 			if (hediffDefs.NullOrEmpty() || pawn?.health?.hediffSet == null)
 			{

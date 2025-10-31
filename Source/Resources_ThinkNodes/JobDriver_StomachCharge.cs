@@ -1,10 +1,9 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -31,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (energyGene == null)
 			// {
-				// energyGene = pawn?.genes?.GetFirstGeneOfType<Gene_RechargeableStomach>();
+			// energyGene = pawn?.genes?.GetFirstGeneOfType<Gene_RechargeableStomach>();
 			// }
 			this.FailOnDespawnedOrNull(TargetIndex.A);
 			this.FailOn(() => !Charger.CanPawnChargeCurrently(pawn));

@@ -1,7 +1,7 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -126,9 +126,9 @@ namespace WVC_XenotypesAndGenes
 					foreach (GeneDef allDef in allGenes)
 					{
 						if (allDef == gene.def)
-                        {
+						{
 							continue;
-                        }
+						}
 						cachedGeneDefsInOrder.Add(allDef);
 					}
 					cachedGeneDefsInOrder.SortBy((GeneDef x) => 0f - x.displayCategory.displayPriorityInXenotype, (GeneDef x) => x.displayCategory.label, (GeneDef x) => x.displayOrderInCategory);
@@ -404,7 +404,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return false;
-            }
+			}
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
 			{
 				return false;
@@ -436,7 +436,7 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed remove gene. Reason: " + arg);
 			}
 			if (gene is IGeneWithEffects effecter)
-            {
+			{
 				effecter.DoEffects();
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(gene.pawn);
@@ -450,7 +450,7 @@ namespace WVC_XenotypesAndGenes
 			cachedGeneDefsInOrder = new();
 			allGenes = new();
 			foreach (GeneDef item in XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading))
-            {
+			{
 				if (!allGenes.Contains(item))
 				{
 					allGenes.Add(item);

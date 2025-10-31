@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -24,10 +23,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override Vector2 InitialSize => new(Mathf.Min(UI.screenWidth, 1036), UI.screenHeight - 4);
 
-        protected override List<GeneDef> SelectedGenes
-        {
-            get
-            {
+		protected override List<GeneDef> SelectedGenes
+		{
+			get
+			{
 				List<GeneDef> genes = new();
 				if (!selectedEndogenes.NullOrEmpty())
 				{
@@ -38,10 +37,10 @@ namespace WVC_XenotypesAndGenes
 					genes.AddRange(selectedXenogenes);
 				}
 				return genes;
-            }
-        }
+			}
+		}
 
-        protected override string Header => gene.LabelCap;
+		protected override string Header => gene.LabelCap;
 
 		protected override string AcceptButtonLabel
 		{
@@ -311,13 +310,13 @@ namespace WVC_XenotypesAndGenes
 			//}
 			CachedTexture cachedTexture = geneSet.xenogeneDefs.NullOrEmpty() ? EndotypeBackground : XenotypeBackground;
 			GUI.DrawTexture(rect2, cachedTexture.Texture);
-            Def defIcon = geneSet.xenotypeDef;
-            if (geneSet.iconDef != null)
-            {
+			Def defIcon = geneSet.xenotypeDef;
+			if (geneSet.iconDef != null)
+			{
 				defIcon = geneSet.iconDef;
-            }
+			}
 			XaG_UiUtility.XaG_DefIcon(rect2, defIcon, 0.9f, iconColor);
-            Text.Font = GameFont.Tiny;
+			Text.Font = GameFont.Tiny;
 			float num2 = Text.CalcHeight(geneSet.name.CapitalizeFirst(), rect.width);
 			Rect rect3 = new(0f, rect.yMax - num2, rect.width, num2);
 			GUI.DrawTexture(new(rect3.x, rect3.yMax - num2, rect3.width, num2), TexUI.GrayTextBG);
@@ -329,24 +328,24 @@ namespace WVC_XenotypesAndGenes
 			GUI.EndGroup();
 		}
 
-        public static void DrawBiostats(int genes, ref float curX, float curY, float margin = 6f)
-        {
-            // float num = GeneCreationDialogBase.GeneSize.y / 3f;
-            float num2 = 0f;
-            float baseWidthOffset = 38f;
-            float num3 = Text.LineHeightOf(GameFont.Small);
-            Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-            DrawStat(iconRect, XGTex, genes.ToString(), num3);
-            Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
-            if (Mouse.IsOver(rect))
-            {
-                Widgets.DrawHighlight(rect);
-                TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
-            }
-            curX += 34f;
-        }
+		public static void DrawBiostats(int genes, ref float curX, float curY, float margin = 6f)
+		{
+			// float num = GeneCreationDialogBase.GeneSize.y / 3f;
+			float num2 = 0f;
+			float baseWidthOffset = 38f;
+			float num3 = Text.LineHeightOf(GameFont.Small);
+			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
+			DrawStat(iconRect, XGTex, genes.ToString(), num3);
+			Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
+			if (Mouse.IsOver(rect))
+			{
+				Widgets.DrawHighlight(rect);
+				TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
+			}
+			curX += 34f;
+		}
 
-        public static void DrawStat(Rect iconRect, CachedTexture icon, string stat, float iconWidth)
+		public static void DrawStat(Rect iconRect, CachedTexture icon, string stat, float iconWidth)
 		{
 			GUI.DrawTexture(iconRect, icon.Texture);
 			Text.Anchor = TextAnchor.MiddleRight;
@@ -448,15 +447,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		protected override void Accept()
-        {
+		{
 
-        }
+		}
 
-        protected override void UpdateSearchResults()
-        {
+		protected override void UpdateSearchResults()
+		{
 
-        }
+		}
 
-    }
+	}
 
 }

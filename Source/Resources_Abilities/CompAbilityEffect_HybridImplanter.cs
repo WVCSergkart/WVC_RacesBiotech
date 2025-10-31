@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -119,16 +119,16 @@ namespace WVC_XenotypesAndGenes
 	public class CompAbilityEffect_MergeImplanter : CompAbilityEffect_GenesComboImplanter
 	{
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
 			Pawn victim = target.Pawn;
 			if (victim != null)
 			{
 				Pawn caster = parent.pawn;
-                List<GeneDef> firstXenotypeGenes = XaG_GeneUtility.ConvertToDefs(caster.genes.GenesListForReading);
-                List<GeneDef> secondXenotypeGenes = XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading);
-                if (SubXenotypeUtility.TrySetHybridXenotype(caster, HybridGenes, firstXenotypeGenes, secondXenotypeGenes, true, new()))
+				List<GeneDef> firstXenotypeGenes = XaG_GeneUtility.ConvertToDefs(caster.genes.GenesListForReading);
+				List<GeneDef> secondXenotypeGenes = XaG_GeneUtility.ConvertToDefs(victim.genes.GenesListForReading);
+				if (SubXenotypeUtility.TrySetHybridXenotype(caster, HybridGenes, firstXenotypeGenes, secondXenotypeGenes, true, new()))
 				{
 					PostImplant(victim, caster, firstXenotypeGenes, secondXenotypeGenes);
 				}
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public override void PostImplant(Pawn victim, Pawn caster, List<GeneDef> firstGenes, List<GeneDef> secondGenes)
+		public override void PostImplant(Pawn victim, Pawn caster, List<GeneDef> firstGenes, List<GeneDef> secondGenes)
 		{
 			if (SubXenotypeUtility.TrySetHybridXenotype(victim, HybridGenes, firstGenes, secondGenes, true, new()))
 			{
@@ -152,6 +152,6 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.FleckAndLetter(victim, caster);
 		}
 
-    }
+	}
 
 }

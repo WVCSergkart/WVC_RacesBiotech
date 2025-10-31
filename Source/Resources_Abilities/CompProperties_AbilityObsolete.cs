@@ -1,7 +1,5 @@
-using RimWorld;
-using System;
-using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -27,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						bool xenogene = parent.pawn.genes.IsXenogene(gene);
 						parent.pawn.genes.RemoveGene(gene);
-                        parent.pawn.genes.AddGene(gene.def, xenogene);
+						parent.pawn.genes.AddGene(gene.def, xenogene);
 					}
 				}
 				if (Props.geneDef.IsGeneDefOfType<Gene_MechsSummon>())

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -13,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> geneDefs;
 
 		// ~1 day
-		public IntRange checkInterval = new (56720, 72032);
+		public IntRange checkInterval = new(56720, 72032);
 
 		public HediffCompProperties_GeneHediff()
 		{
@@ -55,35 +54,35 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void CompPostPostRemoved()
-        {
-            TryRenewHediff();
-        }
+		{
+			TryRenewHediff();
+		}
 
-        public virtual void TryRenewHediff()
-        {
-            if (geneDef == null)
-            {
-                geneDef = Props.geneDef;
-            }
-            if (XaG_GeneUtility.HasActiveGene(geneDef, Pawn))
-            {
-                BodyPartDef bodyPart = parent?.Part?.def;
-                List<BodyPartDef> bodyparts = new();
-                if (bodyPart != null)
-                {
-                    bodyparts.Add(bodyPart);
-                }
-                if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
-                {
-                    if (DebugSettings.ShowDevGizmos)
-                    {
-                        Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
-                    }
-                }
-            }
-        }
+		public virtual void TryRenewHediff()
+		{
+			if (geneDef == null)
+			{
+				geneDef = Props.geneDef;
+			}
+			if (XaG_GeneUtility.HasActiveGene(geneDef, Pawn))
+			{
+				BodyPartDef bodyPart = parent?.Part?.def;
+				List<BodyPartDef> bodyparts = new();
+				if (bodyPart != null)
+				{
+					bodyparts.Add(bodyPart);
+				}
+				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
+				{
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
+				}
+			}
+		}
 
-        public override void CompExposeData()
+		public override void CompExposeData()
 		{
 			Scribe_Defs.Look(ref geneDef, "geneDef");
 			Scribe_Values.Look(ref nextTick, "nextTick", 60000);
@@ -101,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 			//HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts);
 		}
 
-    }
+	}
 
 	public class HediffComp_GeneHivemindHediff : HediffComp_GeneHediff
 	{
@@ -115,11 +114,11 @@ namespace WVC_XenotypesAndGenes
 			base.TryRenewHediff();
 		}
 
-    }
+	}
 
-    // ========================================
+	// ========================================
 
-    public class HediffCompProperties_RemoveIf : HediffCompProperties
+	public class HediffCompProperties_RemoveIf : HediffCompProperties
 	{
 
 		public int checkInterval = 5220;

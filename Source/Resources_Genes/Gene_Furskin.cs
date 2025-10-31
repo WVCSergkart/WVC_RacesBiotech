@@ -1,8 +1,6 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -135,11 +133,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart && hediff.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)).ToList();
 			foreach (Hediff hediff in hediffs)
-            {
+			{
 				HealingUtility.Regenerate(pawn, hediff);
-            }
-            //HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
-        }
+			}
+			//HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
+		}
 	}
 
 	public class Gene_TentacleSkin : Gene_Exoskin
@@ -161,7 +159,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_Mechaskin : Gene_Exoskin
+	public class Gene_Mechaskin : Gene_Exoskin
 	{
 
 		//public bool Enabled => Giver?.mutantDef != null;
@@ -233,20 +231,20 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Notify_Scarified()
-        {
-            if (Shapeshifter == null)
-            {
-                return;
-            }
-            if (!Shapeshifter.TryOffsetResource(4))
-            {
-                return;
-            }
-            if (PawnUtility.ShouldSendNotificationAbout(pawn))
-            {
-                Messages.Message("WVC_XaG_ScarsSkin_ResourceOffset".Translate(pawn.Named("PAWN"), 4), pawn, MessageTypeDefOf.NeutralEvent);
-            }
-        }
+		{
+			if (Shapeshifter == null)
+			{
+				return;
+			}
+			if (!Shapeshifter.TryOffsetResource(4))
+			{
+				return;
+			}
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Messages.Message("WVC_XaG_ScarsSkin_ResourceOffset".Translate(pawn.Named("PAWN"), 4), pawn, MessageTypeDefOf.NeutralEvent);
+			}
+		}
 
 	}
 

@@ -1,52 +1,49 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverridden
+	public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverridden
 	{
 
 		public int lastTick = -1;
 
-        public virtual string RemoteActionName
-        {
-            get
+		public virtual string RemoteActionName
+		{
+			get
 			{
-                int tick = lastTick - Find.TickManager.TicksGame;
-                if (tick > 0)
+				int tick = lastTick - Find.TickManager.TicksGame;
+				if (tick > 0)
 				{
 					return tick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}
 				return XaG_UiUtility.OnOrOff(!Overridden);
-            }
-        }
+			}
+		}
 
-        public virtual TaggedString RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
+		public virtual TaggedString RemoteActionDesc => "WVC_XaG_SelfOverrideDesc".Translate();
 
-        public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-        {
-            if (OverridedByNonOverrider || lastTick > Find.TickManager.TicksGame)
-            {
-                SoundDefOf.ClickReject.PlayOneShotOnCamera();
-                return;
-            }
-            cycleTry = 0;
+		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		{
+			if (OverridedByNonOverrider || lastTick > Find.TickManager.TicksGame)
+			{
+				SoundDefOf.ClickReject.PlayOneShotOnCamera();
+				return;
+			}
+			cycleTry = 0;
 			ResetCooldown();
-            if (Overridden)
-            {
-                overrided = false;
-                OverrideBy(null);
-            }
-            else
-            {
-                overrided = true;
-                OverrideBy(this);
+			if (Overridden)
+			{
+				overrided = false;
+				OverrideBy(null);
+			}
+			else
+			{
+				overrided = true;
+				OverrideBy(this);
 			}
 			GeneResourceUtility.UpdMetabolism(pawn);
 			MiscUtility.Notify_DebugPawn(pawn);
@@ -59,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool OverridedByNonOverrider => base.overriddenByGene != null && base.overriddenByGene != this && base.overriddenByGene?.overriddenByGene != this;
 
-        public virtual bool RemoteControl_Hide => OverridedByNonOverrider;
+		public virtual bool RemoteControl_Hide => OverridedByNonOverrider;
 
 		public bool overrided = false;
 		//public bool OverridedBeforeSave => overrided;

@@ -1,11 +1,11 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Inhumanized : Gene, IGeneOverridden
+	public class Gene_Inhumanized : Gene, IGeneOverridden
 	{
 
 		private int nextTick = 45679;
@@ -17,9 +17,9 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			if (!Active)
-            {
+			{
 				return;
-            }
+			}
 			base.PostAdd();
 			if (pawn.Inhumanized())
 			{
@@ -29,24 +29,24 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            // base.Tick();
-            nextTick -= delta;
-            if (nextTick > 0)
-            {
-                return;
-            }
-            Inhumanize(pawn);
-            nextTick = 157889;
-        }
+		{
+			// base.Tick();
+			nextTick -= delta;
+			if (nextTick > 0)
+			{
+				return;
+			}
+			Inhumanize(pawn);
+			nextTick = 157889;
+		}
 
-        public static void Inhumanize(Pawn pawn)
-        {
-            if (ModsConfig.AnomalyActive && !pawn.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
-            {
-                pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
-            }
-        }
+		public static void Inhumanize(Pawn pawn)
+		{
+			if (ModsConfig.AnomalyActive && !pawn.Inhumanized() && Find.Anomaly.LevelDef != MonolithLevelDefOf.Disrupted)
+			{
+				pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
+			}
+		}
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
@@ -88,17 +88,17 @@ namespace WVC_XenotypesAndGenes
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(Inhumanized);
-            if (hediff != null)
-            {
-                pawn.health.RemoveHediff(hediff);
-            }
+			if (hediff != null)
+			{
+				pawn.health.RemoveHediff(hediff);
+			}
 			else
-            {
+			{
 				pawn.health.AddHediff(Inhumanized);
-            }
-        }
+			}
+		}
 
-        public bool RemoteControl_Hide => !Active;
+		public bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{

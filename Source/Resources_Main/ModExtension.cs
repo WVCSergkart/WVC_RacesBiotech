@@ -1,6 +1,6 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class GeneralHolder
+	public class GeneralHolder
 	{
 		// GenePacks
 		public int genesCount = 0;
@@ -57,11 +57,11 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanAddGene(Pawn pawn, Gene_Chimera chimera)
 		{
-            if (genes == null)
-            {
+			if (genes == null)
+			{
 				return false;
-            }
-            if (reqOneManArmy && !StaticCollectionsClass.oneManArmyMode)
+			}
+			if (reqOneManArmy && !StaticCollectionsClass.oneManArmyMode)
 			{
 				return false;
 			}
@@ -77,11 +77,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-            if (metRange.HasValue && (metRange.Value.TrueMin != chimera.ReqMetRange.TrueMin || metRange.Value.TrueMax != chimera.ReqMetRange.TrueMax))
+			if (metRange.HasValue && (metRange.Value.TrueMin != chimera.ReqMetRange.TrueMin || metRange.Value.TrueMax != chimera.ReqMetRange.TrueMax))
 			{
 				return false;
 			}
-            return true;
+			return true;
 		}
 
 	}

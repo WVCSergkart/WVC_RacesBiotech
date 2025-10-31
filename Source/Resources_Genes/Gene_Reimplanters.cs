@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -9,7 +9,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_XenotypeForcer : Gene
+	public class Gene_XenotypeForcer : Gene
 	{
 
 		public XenotypeDef Xenotype => def.GetModExtension<GeneExtension_Giver>()?.xenotypeForcerDef;
@@ -67,20 +67,20 @@ namespace WVC_XenotypesAndGenes
 		public static void XenotypeForcer_SimpleVersion(Pawn pawn, XenotypeDef xenotype)
 		{
 			Pawn_GeneTracker genes = pawn.genes;
-            if (xenotype.inheritable)
-            {
-                for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
-                {
-                    pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
-                }
-            }
-            else
-            {
-                for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
-                {
-                    pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
-                }
-            }
+			if (xenotype.inheritable)
+			{
+				for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
+				{
+					pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
+				}
+			}
+			else
+			{
+				for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
+				{
+					pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
+				}
+			}
 			//if (pawn.genes.Xenogenes.NullOrEmpty() && xenotype.inheritable || !xenotype.inheritable)
 			//{
 			//	pawn.genes?.SetXenotypeDirect(xenotype);
@@ -91,11 +91,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes?.AddGene(xenotype.genes[i], !xenotype.inheritable);
 			}
-            ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 			ReimplanterUtility.PostImplantDebug(pawn);
-        }
+		}
 
-    }
+	}
 
 	public class Gene_Implanter : Gene, IGeneFloatMenuOptions
 	{
@@ -220,8 +220,8 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    // InDev
-    public class Gene_PostImplanter : Gene
+	// InDev
+	public class Gene_PostImplanter : Gene
 	{
 
 		private CompAbilityEffect_PostImplanter cachedReimplanterComp;

@@ -1,9 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -63,9 +58,9 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	public class ThoughtWorker_Precept_Hivemind : ThoughtWorker_Precept
-    {
+	{
 
-        protected override ThoughtState ShouldHaveThought(Pawn p)
+		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
 			if (HivemindUtility.InHivemind(p))
 			{
@@ -74,6 +69,6 @@ namespace WVC_XenotypesAndGenes
 			return ThoughtState.Inactive;
 		}
 
-    }
+	}
 
 }

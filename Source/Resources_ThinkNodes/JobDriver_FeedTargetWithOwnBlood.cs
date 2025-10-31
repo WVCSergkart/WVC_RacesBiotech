@@ -1,9 +1,7 @@
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -34,8 +32,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void Notify_Starting()
 		// {
-			// base.Notify_Starting();
-			// job.ability?.Notify_StartedCasting();
+		// base.Notify_Starting();
+		// job.ability?.Notify_StartedCasting();
 		// }
 
 	}

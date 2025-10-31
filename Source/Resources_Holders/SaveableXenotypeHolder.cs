@@ -1,10 +1,10 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class SaveableXenotypeHolder : XenotypeHolder, IExposable
+	public class SaveableXenotypeHolder : XenotypeHolder, IExposable
 	{
 
 		public void ExposeData()
@@ -19,31 +19,31 @@ namespace WVC_XenotypesAndGenes
 				Log.Warning("Removed null geneDef(s)");
 			}
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                PostSetup();
-            }
-        }
+			{
+				PostSetup();
+			}
+		}
 
-        public void PostSetup()
-        {
-            if (xenotypeDef == null)
-            {
-                xenotypeDef = XenotypeDefOf.Baseliner;
-            }
-            if (genes == null)
-            {
-                genes = new();
-            }
-            if (xenotypeDef != XenotypeDefOf.Baseliner)
-            {
-                genes = xenotypeDef.genes;
-                name = null;
-                iconDef = null;
-                inheritable = xenotypeDef.inheritable;
-            }
-        }
+		public void PostSetup()
+		{
+			if (xenotypeDef == null)
+			{
+				xenotypeDef = XenotypeDefOf.Baseliner;
+			}
+			if (genes == null)
+			{
+				genes = new();
+			}
+			if (xenotypeDef != XenotypeDefOf.Baseliner)
+			{
+				genes = xenotypeDef.genes;
+				name = null;
+				iconDef = null;
+				inheritable = xenotypeDef.inheritable;
+			}
+		}
 
-        public SaveableXenotypeHolder()
+		public SaveableXenotypeHolder()
 		{
 
 		}
@@ -98,12 +98,12 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public ReferencableXenotypeHolder(Pawn pawn)
-        {
+		{
 			xenotypeDef = pawn.genes.Xenotype;
 			name = pawn.genes.CustomXenotype?.name;
 		}
 
-        public ReferencableXenotypeHolder(XenotypeDef xenotypeDef)
+		public ReferencableXenotypeHolder(XenotypeDef xenotypeDef)
 		{
 			this.xenotypeDef = xenotypeDef;
 		}

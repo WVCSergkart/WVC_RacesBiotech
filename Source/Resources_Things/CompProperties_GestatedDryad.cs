@@ -1,13 +1,13 @@
 ﻿// RimWorld.CompProperties_Toxifier
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_GestatedDryad : CompProperties
+	public class CompProperties_GestatedDryad : CompProperties
 	{
 
 		public PawnKindDef defaultDryadPawnKindDef;

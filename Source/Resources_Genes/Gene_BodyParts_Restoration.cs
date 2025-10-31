@@ -1,6 +1,6 @@
 // Verse.Gene_Healing
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -31,11 +31,11 @@ namespace WVC_XenotypesAndGenes
 
 		// public static void TryHealRandomPermanentWound(Pawn pawn)
 		// {
-			// TaggedString taggedString = HealthUtility.FixWorstHealthCondition(pawn);
-			// if (PawnUtility.ShouldSendNotificationAbout(pawn))
-			// {
-				// Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
-			// }
+		// TaggedString taggedString = HealthUtility.FixWorstHealthCondition(pawn);
+		// if (PawnUtility.ShouldSendNotificationAbout(pawn))
+		// {
+		// Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
+		// }
 		// }
 
 		private void ResetInterval()
@@ -192,18 +192,18 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            //base.Tick();
-            ticksToHealBodyPart -= delta;
-            if (ticksToHealBodyPart > 0)
-            {
-                return;
-            }
-            TryHealRandomPermanentWound(pawn, this);
-            ResetInterval();
-        }
+		{
+			//base.Tick();
+			ticksToHealBodyPart -= delta;
+			if (ticksToHealBodyPart > 0)
+			{
+				return;
+			}
+			TryHealRandomPermanentWound(pawn, this);
+			ResetInterval();
+		}
 
-        private void TryHealRandomPermanentWound(Pawn pawn, Gene gene)
+		private void TryHealRandomPermanentWound(Pawn pawn, Gene gene)
 		{
 			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (Resurgent != null)
@@ -335,17 +335,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void TickInterval(int delta)
-        {
-            // base.Tick();
-            ticksToHeal -= delta;
-            if (ticksToHeal > 0)
-            {
-                return;
-            }
-            TryConsumeHemogenAndHealWound();
-        }
+		{
+			// base.Tick();
+			ticksToHeal -= delta;
+			if (ticksToHeal > 0)
+			{
+				return;
+			}
+			TryConsumeHemogenAndHealWound();
+		}
 
-        private void ResetInterval()
+		private void ResetInterval()
 		{
 			ticksToHeal = HealingIntervalTicksRange.RandomInRange;
 		}
@@ -367,11 +367,11 @@ namespace WVC_XenotypesAndGenes
 
 		private void TryConsumeHemogenAndHealWound()
 		{
-            if (Hemogen != null && (Hemogen.Value - def.resourceLossPerDay) > 0f && HealingUtility.TryHealRandomPermanentWound(pawn, Label))
-            {
-                GeneResourceDrainUtility.OffsetResource(Hemogen, 0f - def.resourceLossPerDay);
-            }
-            ResetInterval();
+			if (Hemogen != null && (Hemogen.Value - def.resourceLossPerDay) > 0f && HealingUtility.TryHealRandomPermanentWound(pawn, Label))
+			{
+				GeneResourceDrainUtility.OffsetResource(Hemogen, 0f - def.resourceLossPerDay);
+			}
+			ResetInterval();
 		}
 
 		public override void ExposeData()

@@ -1,6 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -8,39 +7,39 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_GenesSettings : Window
+	public class Dialog_GenesSettings : Window
 	{
 
 		public List<IGeneRemoteControl> genes;
 
 		public Dialog_GenesSettings(Pawn pawn)
-        {
-            //remoteContoller.RemoteControl_Recache();
-            UpdGenes(pawn);
-            forcePause = true;
-            doCloseButton = true;
-        }
+		{
+			//remoteContoller.RemoteControl_Recache();
+			UpdGenes(pawn);
+			forcePause = true;
+			doCloseButton = true;
+		}
 
-        private void UpdGenes(Pawn pawn)
-        {
-            this.genes = new();
-            foreach (Gene item in pawn.genes.GenesListForReading)
-            {
-                if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
-                {
-                    genes.Add(controller);
-                }
-            }
-        }
+		private void UpdGenes(Pawn pawn)
+		{
+			this.genes = new();
+			foreach (Gene item in pawn.genes.GenesListForReading)
+			{
+				if (item is IGeneRemoteControl controller && !controller.RemoteControl_Hide)
+				{
+					genes.Add(controller);
+				}
+			}
+		}
 
-        protected Vector2 scrollPosition;
+		protected Vector2 scrollPosition;
 		protected float bottomAreaHeight;
 
 		public override void DoWindowContents(Rect inRect)
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = (float)genes.Count * y;
+			float height = genes.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			Rect outRect = inRect.TopPartPixels(num);

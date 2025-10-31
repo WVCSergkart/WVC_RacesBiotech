@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> possibleXenotypes;
 
-		public XenotypeType xenotypeType = (XenotypeType)0;
+		public XenotypeType xenotypeType = 0;
 
 		public bool removeEndogenes = false;
 
@@ -71,8 +71,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error(parentDef.defName + " has CompProperties_UseEffect_XenogermSerum with CompUseEffect compClass.");
 			}
-            if (compClass == typeof(CompUseEffect_GeneGiver) && possibleGenes.NullOrEmpty())
-            {
+			if (compClass == typeof(CompUseEffect_GeneGiver) && possibleGenes.NullOrEmpty())
+			{
 				Log.Error(parentDef.defName + " has CompUseEffect_GeneGiver compClass with null possibleGenes.");
 			}
 			if (!hediffsToRemove.NullOrEmpty())
@@ -105,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			xenotypeHolder =  new SaveableXenotypeHolder(holder);
+			xenotypeHolder = new SaveableXenotypeHolder(holder);
 		}
 
 		//public bool customMode = false;
@@ -267,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 			// CompUseEffect_XenogermSerum otherXeno = other.TryGetComp<CompUseEffect_XenogermSerum>();
 			// if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.customMode == customMode)
 			// {
-				// return true;
+			// return true;
 			// }
 			return false;
 		}
@@ -284,7 +284,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			// {
-				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			// }
 			return true;
 		}

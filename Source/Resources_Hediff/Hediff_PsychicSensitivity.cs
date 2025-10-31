@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Hediff_PsychicSensitivity : Hediff
+	public class Hediff_PsychicSensitivity : Hediff
 	{
 
 		public int cachedGenes = 0;
@@ -64,11 +64,11 @@ namespace WVC_XenotypesAndGenes
 					newStatMod.value = 0;
 					newStatMod.stat = StatDefOf.PsychicSensitivity;
 					if (cachedGenes > 0)
-                    {
+					{
 						float offset = 0;
 						float genesFactor = 1f / Gene_Overrider.SubGenesCount;
 						if (Overrider.addPsychicSensitivity)
-                        {
+						{
 							offset = cachedGenes * (genesFactor * 1.5f);
 						}
 						else
@@ -85,11 +85,11 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void Reset()
-        {
+		{
 			cachedGenes = 0;
 			curStage = null;
 			if (Overrider == null)
-            {
+			{
 				pawn.health.RemoveHediff(this);
 			}
 		}

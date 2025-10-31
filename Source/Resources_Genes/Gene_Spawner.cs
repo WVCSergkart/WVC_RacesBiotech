@@ -1,7 +1,5 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
-using UnityEngine;
+using RimWorld;
 using Verse;
 using Verse.Sound;
 
@@ -167,7 +165,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (XaG_GeneUtility.ActiveFactionMap(pawn, this))
 			// {
-				// return;
+			// return;
 			// }
 			if (pawn.Map == null)
 			{
@@ -183,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 				SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount, styleDef: Props.styleDef);
 				Hemogen.Value -= Props.hemogenPerThing * Props.stackCount;
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(1,2));
+				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(1, 2));
 				return true;
 			}
 			return false;

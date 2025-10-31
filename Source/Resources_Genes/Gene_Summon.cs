@@ -1,10 +1,6 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
-using Verse.AI;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
@@ -46,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 					nextTick = Spawner.spawnIntervalRange.RandomInRange;
 				}
 				else
-                {
+				{
 					SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				}
 				//Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);

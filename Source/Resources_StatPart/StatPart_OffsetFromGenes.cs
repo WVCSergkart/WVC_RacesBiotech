@@ -1,12 +1,11 @@
 // RimWorld.StatPart_Age
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class StatPart_OffsetFromGenes : StatPart
+	public class StatPart_OffsetFromGenes : StatPart
 	{
 
 		public string label = "WVC_XaG_StatPart_OffsetFromGenes";
@@ -36,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
+			{
 				float cost = 0;
 				if (gene.def.biostatArc > 0)
 				{
@@ -53,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 				cost *= gene.def.marketValueFactor;
 				offset += cost;
 			}
-            return true;
+			return true;
 		}
 
 	}

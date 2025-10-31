@@ -3,7 +3,7 @@ using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class JobGiver_WanderNearConnectedPawn : JobGiver_Wander
+	public class JobGiver_WanderNearConnectedPawn : JobGiver_Wander
 	{
 
 		public JobGiver_WanderNearConnectedPawn()

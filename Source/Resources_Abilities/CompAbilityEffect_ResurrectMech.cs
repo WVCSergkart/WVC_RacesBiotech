@@ -1,6 +1,6 @@
-using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -108,7 +108,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				zero += target.Cell.ToVector3Shifted();
 			}
-			zero /= (float)targets.Count();
+			zero /= targets.Count();
 			IntVec3 intVec = zero.ToIntVec3();
 			EffecterDefOf.ApocrionAoeResolve.Spawn(intVec, map).EffectTick(new TargetInfo(intVec, map), new TargetInfo(intVec, map));
 		}

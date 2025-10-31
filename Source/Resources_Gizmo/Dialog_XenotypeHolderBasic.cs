@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -217,11 +216,11 @@ namespace WVC_XenotypesAndGenes
 					if (DrawXenotype(xenotypeDef, ref curX, curY, num2, containingRect))
 					{
 						if (selectedXenoHolder == xenotypeDef)
-                        {
-                            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-                            selectedXenoHolder = DefaultHolder();
-                        }
-                        else
+						{
+							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+							selectedXenoHolder = DefaultHolder();
+						}
+						else
 						{
 							SoundDefOf.Tick_High.PlayOneShotOnCamera();
 							selectedXenoHolder = xenotypeDef;
@@ -238,12 +237,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public virtual XenotypeHolder DefaultHolder()
-        {
-            return allXenotypes.First((XenotypeHolder holder) => holder.Baseliner);
-        }
+		public virtual XenotypeHolder DefaultHolder()
+		{
+			return allXenotypes.First((XenotypeHolder holder) => holder.Baseliner);
+		}
 
-        private bool DrawGene(GeneDef geneDef, ref float curX, float curY, float packWidth, Rect containingRect)
+		private bool DrawGene(GeneDef geneDef, ref float curX, float curY, float packWidth, Rect containingRect)
 		{
 			bool result = false;
 			Rect rect = new(curX, curY, packWidth, GeneCreationDialogBase.GeneSize.y + 8f);

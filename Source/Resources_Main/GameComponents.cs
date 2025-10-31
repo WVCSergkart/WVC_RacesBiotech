@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -50,8 +50,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 				}
-            }
-            ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
+			}
+			ApparelPolicy thrallApparelPolicy = Current.Game.outfitDatabase.MakeNewOutfit();
 			thrallApparelPolicy.label = "WVC_XaG_ThrallOutfitPolicy".Translate();
 			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowDeadmansApparel, allow: true);
 			thrallApparelPolicy.filter.SetAllow(SpecialThingFilterDefOf.AllowNonDeadmansApparel, allow: false);
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 		//{
 		//	Scribe_Deep.Look(ref knownXenotypeDefs, "knownXenotypeDefs");
 		//	if (knownXenotypeDefs == null)
-  //          {
+		//          {
 		//		knownXenotypeDefs = new();
 		//	}
 		//}
@@ -179,8 +179,8 @@ namespace WVC_XenotypesAndGenes
 		//	savedModVersion = WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion;
 		//}
 
-        // DEV
-        public void DevFixes()
+		// DEV
+		public void DevFixes()
 		{
 			FixGenesClasses();
 			ResetGenes();
@@ -221,26 +221,26 @@ namespace WVC_XenotypesAndGenes
 		{
 			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDefs(item.abilities.AllAbilitiesForReading);
 			foreach (Gene gene in item.genes.GenesListForReading)
-            {
-                AddMissingGeneAbilities(item, pawnAbilities, gene);
-            }
-        }
+			{
+				AddMissingGeneAbilities(item, pawnAbilities, gene);
+			}
+		}
 
 		public static void AddMissingGeneAbilities(Pawn item, List<AbilityDef> pawnAbilities, Gene gene)
-        {
-            if (gene.def?.abilities != null)
-            {
-                foreach (AbilityDef ability in gene.def.abilities)
-                {
-                    if (!pawnAbilities.Contains(ability))
-                    {
-                        item.abilities.GainAbility(ability);
-                    }
-                }
-            }
-        }
+		{
+			if (gene.def?.abilities != null)
+			{
+				foreach (AbilityDef ability in gene.def.abilities)
+				{
+					if (!pawnAbilities.Contains(ability))
+					{
+						item.abilities.GainAbility(ability);
+					}
+				}
+			}
+		}
 
-        private static void ResetGenes()
+		private static void ResetGenes()
 		{
 			if (WVC_Biotech.settings.resetGenesOnLoad)
 			{

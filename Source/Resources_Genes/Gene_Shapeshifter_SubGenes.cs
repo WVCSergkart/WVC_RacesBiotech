@@ -1,8 +1,6 @@
-using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -50,55 +48,55 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-        public virtual void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
-        {
-            
-        }
+		public virtual void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
+		{
 
-        public virtual void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
-        {
-            
-        }
+		}
 
-        // public override void PostRemove()
-        // {
-        // base.PostRemove();
-        // HediffUtility.Notify_GeneRemoved(this, pawn);
-        // }
+		public virtual void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		{
 
-    }
+		}
+
+		// public override void PostRemove()
+		// {
+		// base.PostRemove();
+		// HediffUtility.Notify_GeneRemoved(this, pawn);
+		// }
+
+	}
 
 	public class Gene_Shapeshifter_PreservedGenes : Gene_ShapeshifterDependant
 	{
 
 		private List<GeneDef> cachedPreservedGenes;
-        public override List<GeneDef> PreservedGeneDefs
-        {
-            get
-            {
+		public override List<GeneDef> PreservedGeneDefs
+		{
+			get
+			{
 				if (cachedPreservedGenes == null)
-                {
+				{
 					List<GeneDef> newList = new();
-                    newList.Add(def);
+					newList.Add(def);
 					if (Giver.geneDefs != null)
-                    {
+					{
 						foreach (GeneDef item in Giver.geneDefs)
-                        {
+						{
 							if (!newList.Contains(item))
-                            {
+							{
 								newList.Add(item);
 							}
-                        }
-                    }
-                    cachedPreservedGenes = newList;
+						}
+					}
+					cachedPreservedGenes = newList;
 				}
-                return cachedPreservedGenes;
-            }
-        }
+				return cachedPreservedGenes;
+			}
+		}
 
-    }
+	}
 
-    public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
+	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
 	{
 
 		public override bool DisableGenesRegrowing => true;
@@ -142,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 		//	Scribe_Values.Look(ref savedBool, "savedGenesRegrowStatus");
 		//}
 
-    }
+	}
 
 	public class Gene_PostShapeshift_Regeneration : Gene_ShapeshifterDependant
 	{
@@ -228,11 +226,11 @@ namespace WVC_XenotypesAndGenes
 			// List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			// for (int num = 0; num < hediffs.Count; num++)
 			// {
-				// if (hediffs[num].def != HediffDefOf.Scarification)
-				// {
-					// continue;
-				// }
-				// pawn.health.RemoveHediff(hediffs[num]);
+			// if (hediffs[num].def != HediffDefOf.Scarification)
+			// {
+			// continue;
+			// }
+			// pawn.health.RemoveHediff(hediffs[num]);
 			// }
 			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 			{
@@ -345,7 +343,7 @@ namespace WVC_XenotypesAndGenes
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn))
-            {
+			{
 				return;
 			}
 			Find.WindowStack.Add(new Dialog_Traitshifter(this));

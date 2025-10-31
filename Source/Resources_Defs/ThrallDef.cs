@@ -1,13 +1,12 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class ThrallDef : Def
+	public class ThrallDef : Def
 	{
 
 		public XenotypeIconDef xenotypeIconDef;
@@ -27,29 +26,29 @@ namespace WVC_XenotypesAndGenes
 		public List<MutantByRotStage> mutantByRotStage;
 
 		public class MutantByRotStage
-        {
+		{
 
-            public MutantDef mutantDef;
+			public MutantDef mutantDef;
 
-            public RotStage rotStage;
+			public RotStage rotStage;
 
 			public List<GeneDef> genes;
 
 		}
 
 		public MutantDef GetMutantFromStage(RotStage rotStage)
-        {
+		{
 			if (mutantByRotStage == null)
-            {
+			{
 				return null;
-            }
+			}
 			foreach (MutantByRotStage item in mutantByRotStage)
-            {
+			{
 				if (rotStage == item.rotStage)
-                {
+				{
 					return item.mutantDef;
 				}
-            }
+			}
 			return null;
 		}
 
@@ -84,9 +83,9 @@ namespace WVC_XenotypesAndGenes
 
 		private string cachedDescription = null;
 		public string Description
-        {
+		{
 			get
-            {
+			{
 				if (cachedDescription == null)
 				{
 					StringBuilder stringBuilder = new();
@@ -114,36 +113,36 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedDescription;
 			}
-        }
-        //[Obsolete]
-        //public string generalDesc;
+		}
+		//[Obsolete]
+		//public string generalDesc;
 
-        //public override void ResolveReferences()
-        //{
-        //	base.ResolveReferences();
-        //	if (genes.NullOrEmpty())
-        //	{
-        //		return;
-        //	}
-        //	if (descriptionHyperlinks == null)
-        //	{
-        //		descriptionHyperlinks = new List<DefHyperlink>();
-        //	}
-        //	foreach (GeneDef gene in genes)
-        //	{
-        //		descriptionHyperlinks.Add(new DefHyperlink(gene));
-        //	}
-        //}
+		//public override void ResolveReferences()
+		//{
+		//	base.ResolveReferences();
+		//	if (genes.NullOrEmpty())
+		//	{
+		//		return;
+		//	}
+		//	if (descriptionHyperlinks == null)
+		//	{
+		//		descriptionHyperlinks = new List<DefHyperlink>();
+		//	}
+		//	foreach (GeneDef gene in genes)
+		//	{
+		//		descriptionHyperlinks.Add(new DefHyperlink(gene));
+		//	}
+		//}
 
-        //public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
-        //{
-        //	foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
-        //	{
-        //		yield return item;
-        //	}
-        //	yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
-        //}
+		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		//{
+		//	foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+		//	{
+		//		yield return item;
+		//	}
+		//	yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
+		//}
 
-    }
+	}
 
 }

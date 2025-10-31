@@ -1,21 +1,21 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    //public class ChimeraDef : Def
-    //{
+	//public class ChimeraDef : Def
+	//{
 
-    //	public List<GeneDef> addedGenes = new();
+	//	public List<GeneDef> addedGenes = new();
 
-    //	public List<GeneDef> removedGenes = new();
+	//	public List<GeneDef> removedGenes = new();
 
-    //}
+	//}
 
-    public class GolemModeDef : Def
+	public class GolemModeDef : Def
 	{
 
 		public List<StatDef> displayedStats;

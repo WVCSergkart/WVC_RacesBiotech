@@ -1,13 +1,12 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using Verse;
 
 // namespace WVC
 namespace WVC_XenotypesAndGenes
 {
-    public class XenotypesAndGenesListDef : Def
+	public class XenotypesAndGenesListDef : Def
 	{
 		public List<string> blackListedXenotypesForSerums = new();
 		// public List<XenotypeDef> blackListedXenotypesForSingleSerums;

@@ -1,5 +1,5 @@
-using RimWorld;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = parent.pawn;
 			if (pawn.Faction == Faction.OfPlayer)
 			{
-				float percent = (float)ticksCounter / (float)(ticksInday * GestationIntervalDays);
+				float percent = ticksCounter / (float)(ticksInday * GestationIntervalDays);
 				return percent.ToStringPercent();
 			}
 			return "";

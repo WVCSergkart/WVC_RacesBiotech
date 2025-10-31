@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-    public class GeneDefOverrideSaver : IExposable
+	public class GeneDefOverrideSaver : IExposable
 	{
 
 		public bool overriderIsXenogene = false;

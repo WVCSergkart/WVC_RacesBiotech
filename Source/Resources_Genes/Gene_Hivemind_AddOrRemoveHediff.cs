@@ -1,6 +1,4 @@
-﻿using Verse;
-
-namespace WVC_XenotypesAndGenes
+﻿namespace WVC_XenotypesAndGenes
 {
 
 	/// <summary>

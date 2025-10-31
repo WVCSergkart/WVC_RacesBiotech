@@ -1,13 +1,12 @@
-using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_BackstoryChanger : Gene
+	public class Gene_BackstoryChanger : Gene
 	{
 
 		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>().childBackstoryDef;
@@ -95,14 +94,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
 				// {
-					// continue;
+				// continue;
 				// }
 				int reservedExp = reserve * skill.GetLevel(false);
 				if (skill.xpSinceLastLevel - reservedExp > minExp)
 				{
 					continue;
 				}
-				skill.xpSinceLastLevel = (float)reservedExp;
+				skill.xpSinceLastLevel = reservedExp;
 			}
 		}
 
@@ -112,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
 				// {
-					// continue;
+				// continue;
 				// }
 				skill.xpSinceLastLevel = 0f;
 			}
@@ -219,9 +218,9 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
+		//      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
 
-  //      public override bool Active
+		//      public override bool Active
 		//{
 		//	get
 		//	{
@@ -318,8 +317,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostAdd()
 		// {
-			// base.PostAdd();
-			// ResetInterval();
+		// base.PostAdd();
+		// ResetInterval();
 		// }
 
 		public override void TickInterval(int delta)
@@ -340,9 +339,9 @@ namespace WVC_XenotypesAndGenes
 
 		// private void ResetInterval()
 		// {
-			//IntRange range = new(120000, 240000);
-			//hashIntervalTick = range.RandomInRange;
-			// hashIntervalTick = 120000;
+		//IntRange range = new(120000, 240000);
+		//hashIntervalTick = range.RandomInRange;
+		// hashIntervalTick = 120000;
 		// }
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -362,8 +361,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void ExposeData()
 		// {
-			// base.ExposeData();
-			// Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 120000);
+		// base.ExposeData();
+		// Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 120000);
 		// }
 
 	}

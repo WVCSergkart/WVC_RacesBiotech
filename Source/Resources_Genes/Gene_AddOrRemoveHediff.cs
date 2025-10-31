@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void Notify_Override()
-        {
+		{
 			//Log.Error("Override with null gene");
 			Local_AddOrRemoveHediff();
 		}
@@ -69,17 +69,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void PostRemove()
-        {
-            base.PostRemove();
-            RemoveHediff();
-        }
+		{
+			base.PostRemove();
+			RemoveHediff();
+		}
 
-        public virtual void RemoveHediff()
-        {
-            HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
-        }
+		public virtual void RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -102,20 +102,20 @@ namespace WVC_XenotypesAndGenes
 	// public class Gene_HediffGiver : Gene
 	// {
 
-		// public List<HediffDef> HediffDefs => def.GetModExtension<GeneExtension_Giver>().hediffDefs;
-		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
+	// public List<HediffDef> HediffDefs => def.GetModExtension<GeneExtension_Giver>().hediffDefs;
+	// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// foreach (HediffDef hediffDef in HediffDefs)
-			// {
-				// if (!pawn.health.hediffSet.HasHediff(hediffDef))
-				// {
-					// Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, hediffDef);
-				// }
-			// }
-		// }
+	// public override void PostAdd()
+	// {
+	// base.PostAdd();
+	// foreach (HediffDef hediffDef in HediffDefs)
+	// {
+	// if (!pawn.health.hediffSet.HasHediff(hediffDef))
+	// {
+	// Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, hediffDef);
+	// }
+	// }
+	// }
 
 	// }
 
@@ -140,19 +140,19 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		private HediffDef cachedHediffDef;
-        public HediffDef HediffDef
-        {
-            get
-            {
+		public HediffDef HediffDef
+		{
+			get
+			{
 				if (cachedHediffDef == null)
-                {
+				{
 					cachedHediffDef = def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 				}
-                return cachedHediffDef;
-            }
-        }
+				return cachedHediffDef;
+			}
+		}
 
-        public override void PostAdd()
+		public override void PostAdd()
 		{
 			base.PostAdd();
 			AddOrRemoveHediff(HediffDef, pawn, this);

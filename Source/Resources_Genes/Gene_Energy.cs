@@ -1,12 +1,9 @@
-using RimWorld;
-using RimWorld.Planet;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -71,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
-        public Building_XenoCharger currentCharger;
+		public Building_XenoCharger currentCharger;
 
 		public override void TickInterval(int delta)
 		{
@@ -80,8 +77,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (!pawn.IsHashIntervalTick(2301, delta))
-            {
-                return;
+			{
+				return;
 			}
 			if (pawn.Faction != Faction.OfPlayer)
 			{
@@ -93,28 +90,28 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
-            {
-                return;
-            }
-            if (pawn.Map == null)
-            {
-                // In caravan use
-                OffsetNeedFood();
-                return;
-            }
-            if (pawn.Drafted)
-            {
-                return;
-            }
-            if (pawn.Downed || !pawn.Awake())
-            {
-                OffsetNeedFood();
-                return;
-            }
-            TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
-        }
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				OffsetNeedFood();
+				return;
+			}
+			if (pawn.Drafted)
+			{
+				return;
+			}
+			if (pawn.Downed || !pawn.Awake())
+			{
+				OffsetNeedFood();
+				return;
+			}
+			TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
+		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			//if (DebugSettings.ShowDevGizmos)
 			//{
@@ -175,7 +172,7 @@ namespace WVC_XenotypesAndGenes
 		public static Building_XenoCharger GetClosestCharger(Pawn mech, bool forced, ThingDef thingDef)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
-			return (Building_XenoCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForDef(thingDef), PathEndMode.InteractionCell, TraverseParms.For(mech, danger), 9999f, delegate(Thing t)
+			return (Building_XenoCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForDef(thingDef), PathEndMode.InteractionCell, TraverseParms.For(mech, danger), 9999f, delegate (Thing t)
 			{
 				Building_XenoCharger building_MechCharger = (Building_XenoCharger)t;
 				if (!mech.CanReach(t, PathEndMode.InteractionCell, danger))
@@ -197,30 +194,30 @@ namespace WVC_XenotypesAndGenes
 		private int chargingTick = 0;
 
 		public void Notify_Charging(float chargePerTick, int tick)
-        {
-            if (!GeneResourceUtility.CanTick(ref chargingTick, tick, 1))
-            {
-                return;
-            }
-            if (pawn.needs?.food != null)
-            {
-                pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
-            }
-            NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor);
-        }
+		{
+			if (!GeneResourceUtility.CanTick(ref chargingTick, tick, 1))
+			{
+				return;
+			}
+			if (pawn.needs?.food != null)
+			{
+				pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
+			}
+			NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor);
+		}
 
-        public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor)
-        {
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene is IGeneChargeable charge && gene.Active)
-                {
-                    charge.Notify_Charging(chargePerTick, tick, chargeSpeedFactor);
-                }
-            }
-        }
+		public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor)
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneChargeable charge && gene.Active)
+				{
+					charge.Notify_Charging(chargePerTick, tick, chargeSpeedFactor);
+				}
+			}
+		}
 
-        public void Notify_StopCharging()
+		public void Notify_StopCharging()
 		{
 			currentCharger = null;
 			if (Opinion?.MeAboutThoughtDef != null)
@@ -233,9 +230,9 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			if (!Active)
-            {
+			{
 				return;
-            }
+			}
 			if (Props?.foodPoisoningFromFood == false)
 			{
 				return;
@@ -312,7 +309,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_HemogenRecharge : Gene_HemogenOffset, IGeneChargeable, IGeneRemoteControl
+	public class Gene_HemogenRecharge : Gene_HemogenOffset, IGeneChargeable, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoCharge);
 

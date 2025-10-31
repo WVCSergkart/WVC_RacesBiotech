@@ -1,7 +1,7 @@
-using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -81,16 +81,16 @@ namespace WVC_XenotypesAndGenes
 		//public bool genesRegrowAfterShapeshift = true;
 
 		private bool? cachedGenesRegrow;
-        public bool GenesRegrow
-        {
-            get
-            {
+		public bool GenesRegrow
+		{
+			get
+			{
 				if (!cachedGenesRegrow.HasValue)
-                {
+				{
 					UpdGenesRegrow();
 				}
-                return cachedGenesRegrow.Value;
-            }
+				return cachedGenesRegrow.Value;
+			}
 		}
 
 		private void UpdGenesRegrow()
@@ -132,17 +132,17 @@ namespace WVC_XenotypesAndGenes
 				yield break;
 			}
 			//if (!remoteControllerCached)
-   //         {
-   //             SetupRemoteContollers(false);
-   //         }
-            if (gizmo == null)
+			//         {
+			//             SetupRemoteContollers(false);
+			//         }
+			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
 		}
 
-        public void Notify_OverriddenBy(Gene overriddenBy)
+		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
 			cachedGenesRegrow = null;
@@ -183,9 +183,9 @@ namespace WVC_XenotypesAndGenes
 			base.PostRemove();
 			// if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
 			// {
-				// pawn.genes.AddGene(this.def, false);
-				// Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
-				// newShifter.UpdateForNewGene(this);
+			// pawn.genes.AddGene(this.def, false);
+			// Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+			// newShifter.UpdateForNewGene(this);
 			// }
 			RemoveHediffs();
 			//SetupRemoteContollers(true);
@@ -247,40 +247,40 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void ChangeType_GermlineXenogerm()
-        {
-            bool xenogene = pawn.genes.IsXenogene(this);
-            if (!XaG_GeneUtility.TryRemoveAllConflicts(pawn, def))
-            {
-                return;
-            }
-            pawn.genes.AddGene(def, !xenogene);
-            Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
-            if (gene_Shapeshifter != null)
-            {
-                gene_Shapeshifter.UpdateForNewGene(this);
-                gene_Shapeshifter.AddXenogermReplicating(new() { def });
-                gene_Shapeshifter.DoEffects();
-                Messages.Message("WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-            }
-        }
+		{
+			bool xenogene = pawn.genes.IsXenogene(this);
+			if (!XaG_GeneUtility.TryRemoveAllConflicts(pawn, def))
+			{
+				return;
+			}
+			pawn.genes.AddGene(def, !xenogene);
+			Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+			if (gene_Shapeshifter != null)
+			{
+				gene_Shapeshifter.UpdateForNewGene(this);
+				gene_Shapeshifter.AddXenogermReplicating(new() { def });
+				gene_Shapeshifter.DoEffects();
+				Messages.Message("WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
 
-        private float geneticMaterial = 0;
+		private float geneticMaterial = 0;
 
 		public int GeneticMaterial => (int)geneticMaterial;
 
 		//public float ReqMatchPercent => WVC_Biotech.settings.shapeshifer_BaseGenesMatch - (GeneticMaterial * 0.01f);
 
 		public bool TryOffsetResource(float count)
-        {
+		{
 			if (!GenesRegrow && count > 0f)
-            {
+			{
 				return false;
 			}
 			//Log.Error(count.ToString());
 			geneticMaterial += count;
-            if (geneticMaterial < 0f)
-            {
-                geneticMaterial = 0f;
+			if (geneticMaterial < 0f)
+			{
+				geneticMaterial = 0f;
 			}
 			return true;
 		}
@@ -291,27 +291,27 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool TryConsumeResource(int count)
-        {
+		{
 			if (count > 0)
-            {
+			{
 				count *= -1;
 			}
-            if ((geneticMaterial + count) >= 0)
-            {
-                return TryOffsetResource(count);
-            }
-            return false;
+			if ((geneticMaterial + count) >= 0)
+			{
+				return TryOffsetResource(count);
+			}
+			return false;
 		}
 
-        public void TryForceGene(GeneDef geneDef, bool inheritable)
-        {
-            if (!geneDef.ConflictsWith(this.def) && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
+		public void TryForceGene(GeneDef geneDef, bool inheritable)
+		{
+			if (!geneDef.ConflictsWith(this.def) && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
 			{
 				pawn.genes.AddGene(geneDef, !inheritable);
 				AddXenogermReplicating(new() { geneDef });
 				//UpdateMetabolism();
 			}
-        }
+		}
 
 		// Reimplanter
 
@@ -343,34 +343,34 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual void AddGene(GeneDef geneDef, bool inheritable)
-        {
-            if (!geneDef.ConflictsWith(this.def))
-            {
-                pawn.genes.AddGene(geneDef, !inheritable);
-            }
-        }
+		{
+			if (!geneDef.ConflictsWith(this.def))
+			{
+				pawn.genes.AddGene(geneDef, !inheritable);
+			}
+		}
 
-        public virtual void RemoveGene(Gene gene)
-        {
-            if (gene != this && !PreservedGeneDefs.Contains(gene.def))
-            {
-                pawn.genes.RemoveGene(gene);
-            }
-        }
+		public virtual void RemoveGene(Gene gene)
+		{
+			if (gene != this && !PreservedGeneDefs.Contains(gene.def))
+			{
+				pawn.genes.RemoveGene(gene);
+			}
+		}
 
-        public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool removeXenogenes = true, bool hybridizeXenotypes = false)
-        {
-            if (hybridizeXenotypes)
-            {
+		public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool removeXenogenes = true, bool hybridizeXenotypes = false)
+		{
+			if (hybridizeXenotypes)
+			{
 				foreach (GeneDef geneDef in xenotypeHolder.genes)
-                {
+				{
 					if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef, new() { def }))
 					{
 						pawn.TryAddOrRemoveGene(this, null, geneDef, xenotypeHolder.inheritable);
 					}
 				}
 				ReimplanterUtility.UnknownXenotype(pawn, pawn.genes.XenotypeLabel.TrimmedToLength(3) + xenotypeHolder.Label.ToString().Reverse().TrimmedToLength(4).Reverse());
-            }
+			}
 			else
 			{
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
@@ -383,22 +383,22 @@ namespace WVC_XenotypesAndGenes
 				}
 				//GeneUtility.UpdateXenogermReplication(pawn);
 				AddXenogermReplicating(xenotypeHolder.genes, (hybridizeXenotypes ? 2f : 1f) * WVC_Biotech.settings.shapeshifer_CooldownDurationFactor);
-                //AddGenMat(days);
-            }
-            if (ModLister.IdeologyInstalled)
+				//AddGenMat(days);
+			}
+			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_Shapeshift, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			DoEffects();
 		}
 
-        public void AddXenogermReplicating(List<GeneDef> genes, float durationFactor = 1f)
-        {
-            XaG_GeneUtility.GetBiostatsFromList(genes, out int cpx, out int met, out int _);
-            int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
-            int nonArchiteCount = genes.Count - architeCount;
-            int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
-            int count = (days + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 3)) * 60000;
+		public void AddXenogermReplicating(List<GeneDef> genes, float durationFactor = 1f)
+		{
+			XaG_GeneUtility.GetBiostatsFromList(genes, out int cpx, out int met, out int _);
+			int architeCount = genes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+			int nonArchiteCount = genes.Count - architeCount;
+			int days = Mathf.Clamp(nonArchiteCount + (architeCount * 2) - met + (int)(cpx * 0.1f), 0, 999);
+			int count = (days + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 3)) * 60000;
 			// get modded cd percent
 			float vanillaGenesCD = 140;
 			float moddedGenesCD = HediffDefOf.XenogermReplicating.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.TrueMax / 60000;
@@ -407,9 +407,9 @@ namespace WVC_XenotypesAndGenes
 			//Log.Error("CD Percent: " + finalPercent);
 			// get modded cd percent
 			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f * finalPercent * durationFactor), (int)(count * 1.1f * finalPercent * durationFactor)));
-        }
+		}
 
-        public virtual void DoEffects()
+		public virtual void DoEffects()
 		{
 			if (pawn.Map == null)
 			{
@@ -429,23 +429,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void UpdateMetabolism()
-        {
+		{
 			HediffUtility.TryAddOrUpdMetabolism(Giver.metHediffDef, pawn, this);
-        }
+		}
 
-        // Shapeshift
+		// Shapeshift
 
-        public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
-        {
-            cachedPreservedGenes = null;
-            //UpdGenesRegrow();
-            if (!genesRegrowing)
-            {
-                GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
-            }
-        }
+		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		{
+			cachedPreservedGenes = null;
+			//UpdGenesRegrow();
+			if (!genesRegrowing)
+			{
+				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
+			}
+		}
 
-        public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			if (!genesRegrowing)
 			{
@@ -458,12 +458,12 @@ namespace WVC_XenotypesAndGenes
 			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
-        public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesChanged(Gene changedGene)
 		{
 			cachedGenesRegrow = null;
 			cachedPreservedGenes = null;
 		}
 
-    }
+	}
 
 }

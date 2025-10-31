@@ -1,8 +1,8 @@
-using RimWorld;
-using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.QuestGen;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	return;
 			//}
-            mech.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, mech);
+			mech.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, mech);
 			if (mech.Faction != newOverseer.Faction)
 			{
 				mech.SetFaction(newOverseer.Faction);
@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			//	_ => 5,
 			//};
 			if (weightClass == MechWeightClassDefOf.Light)
-            {
+			{
 				return 1;
 			}
 			else if (weightClass == MechWeightClassDefOf.Medium || weightClass == MechWeightClassDefOf.Heavy)
@@ -108,33 +108,33 @@ namespace WVC_XenotypesAndGenes
 		// [Obsolete]
 		// public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
 		// {
-			// List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
-			// if (mechs.NullOrEmpty())
-			// {
-				// return null;
-			// }
-			// List<Pawn> list = new();
-			// foreach (Pawn item in mechs)
-			// {
-				// if (item.health.Dead)
-				// {
-					// continue;
-				// }
-				// if (!item.IsGolemlike())
-				// {
-					// continue;
-				// }
-				// CompGolem compGolem = item.GetComp<CompGolem>();
-				// if (compGolem == null)
-				// {
-					// continue;
-				// }
-				// if (compGolem.Props.golemIndex == golemIndex)
-				// {
-					// list.Add(item);
-				// }
-			// }
-			// return list;
+		// List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
+		// if (mechs.NullOrEmpty())
+		// {
+		// return null;
+		// }
+		// List<Pawn> list = new();
+		// foreach (Pawn item in mechs)
+		// {
+		// if (item.health.Dead)
+		// {
+		// continue;
+		// }
+		// if (!item.IsGolemlike())
+		// {
+		// continue;
+		// }
+		// CompGolem compGolem = item.GetComp<CompGolem>();
+		// if (compGolem == null)
+		// {
+		// continue;
+		// }
+		// if (compGolem.Props.golemIndex == golemIndex)
+		// {
+		// list.Add(item);
+		// }
+		// }
+		// return list;
 		// }
 
 		public static bool IsGolemlike(this Pawn pawn)
@@ -157,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool GetGolemistGene(this Pawn pawn, out Gene_MechlinkWithGizmo mechlinkWithGizmo)
 		// {
-			// return (mechlinkWithGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>())?.def?.resourceGizmoType == typeof(GeneGizmo_Golems);
+		// return (mechlinkWithGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>())?.def?.resourceGizmoType == typeof(GeneGizmo_Golems);
 		// }
 
 
@@ -187,17 +187,17 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool IsGolemistOfIndex(this Pawn mechanitor, int golemsIndex)
 		// {
-			// if (MechanitorUtility.IsMechanitor(mechanitor))
-			// {
-				// return mechanitor.GetGolemistGene(out Gene_MechlinkWithGizmo mechlinkWithGizmo) && mechlinkWithGizmo?.Giver?.golemistTypeIndex == golemsIndex;
-			// }
-			// return false;
+		// if (MechanitorUtility.IsMechanitor(mechanitor))
+		// {
+		// return mechanitor.GetGolemistGene(out Gene_MechlinkWithGizmo mechlinkWithGizmo) && mechlinkWithGizmo?.Giver?.golemistTypeIndex == golemsIndex;
+		// }
+		// return false;
 		// }
 
 		// [Obsolete]
 		// public static bool MechanitorIsLich(Pawn mechanitor)
 		// {
-			// return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
+		// return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
 		// }
 
 		public static bool MechanitorIsGolemist(Pawn mechanitor)
@@ -230,54 +230,54 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<MechWeightClassDef> allowedMechWeightClasses, out List<Thing> summonList, HediffDef hediffDef = null)
-        {
-            List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, allowedMechWeightClasses)).ToList();
-            return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
+		{
+			List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, allowedMechWeightClasses)).ToList();
+			return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
 		}
 
 		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<GolemModeDef> golemModeDefs, out List<Thing> summonList, HediffDef hediffDef = null)
-        {
+		{
 			summonList = new();
 			List<PawnKindDef> pawnKindDefs = new();
 			foreach (GolemModeDef golemModeDef in golemModeDefs)
-            {
+			{
 				if (golemModeDef.CanBeSummoned)
-                {
+				{
 					pawnKindDefs.Add(golemModeDef.pawnKindDef);
 				}
-            }
+			}
 			if (pawnKindDefs.Empty())
-            {
+			{
 				return false;
-            }
+			}
 			return TrySummonMechanoids(pawn, countSpawn, pawnKindDefs, out summonList, hediffDef);
 		}
 
 		public static bool TrySummonMechanoids(Pawn pawn, int countSpawn, List<PawnKindDef> pawnKindDefs, out List<Thing> summonList, HediffDef hediffDef = null)
 		{
-            summonList = new();
-            for (int i = 0; i < countSpawn; i++)
-            {
-                PawnGenerationRequest request = new(pawnKindDefs.RandomElement(), pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
-                Pawn mech = PawnGenerator.GeneratePawn(request);
-                AgelessUtility.SetAge(mech, 3600000 * new IntRange(12, 74).RandomInRange);
-                if (hediffDef != null)
-                {
-                    mech.health.AddHediff(hediffDef);
-                }
-                MechanoidsUtility.SetOverseer(pawn, mech);
-                summonList.Add(mech);
-            }
+			summonList = new();
+			for (int i = 0; i < countSpawn; i++)
+			{
+				PawnGenerationRequest request = new(pawnKindDefs.RandomElement(), pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+				Pawn mech = PawnGenerator.GeneratePawn(request);
+				AgelessUtility.SetAge(mech, 3600000 * new IntRange(12, 74).RandomInRange);
+				if (hediffDef != null)
+				{
+					mech.health.AddHediff(hediffDef);
+				}
+				MechanoidsUtility.SetOverseer(pawn, mech);
+				summonList.Add(mech);
+			}
 			if (MiscUtility.TrySummonDropPod(pawn.Map, summonList))
 			{
 				Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(summonList.Select((Thing thing) => (thing as Pawn).KindLabel).ToCommaList(useAnd: true).UncapitalizeFirst(), pawn), LetterDefOf.PositiveEvent, new LookTargets(summonList));
 				return true;
 			}
 			return false;
-        }
+		}
 
 		[Obsolete]
-        public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
+		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
 		{
 			if (pawn.Map.IsUnderground())
 			{
@@ -294,33 +294,33 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool LimitExceedCheck(Pawn mechanitor, StatDef bandwidth)
 		// {
-			// float totalBandwidth = mechanitor.GetStatValue(bandwidth);
-			// float golems = GolemsUtility.GetConsumedBandwidth(mechanitor);
-			// float walkers = WalkingUtility.GetConsumedBandwidth(mechanitor);
-			// if (totalBandwidth >= golems && totalBandwidth >= walkers)
-			// {
-				// return true;
-			// }
-			// return false;
+		// float totalBandwidth = mechanitor.GetStatValue(bandwidth);
+		// float golems = GolemsUtility.GetConsumedBandwidth(mechanitor);
+		// float walkers = WalkingUtility.GetConsumedBandwidth(mechanitor);
+		// if (totalBandwidth >= golems && totalBandwidth >= walkers)
+		// {
+		// return true;
+		// }
+		// return false;
 		// }
 
 		// public static float GetConsumedBandwidth(Pawn mechanitor, StatDef bandwidth)
 		// {
-			// float result = 0;
-			// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
-			// if (mechs.NullOrEmpty())
-			// {
-				// return result;
-			// }
-			// foreach (Pawn mech in mechs)
-			// {
-				// float bandwidth = mech.GetStatValue(bandwidth);
-				// if (bandwidth > 0)
-				// {
-					// result += bandwidth;
-				// }
-			// }
-			// return result;
+		// float result = 0;
+		// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
+		// if (mechs.NullOrEmpty())
+		// {
+		// return result;
+		// }
+		// foreach (Pawn mech in mechs)
+		// {
+		// float bandwidth = mech.GetStatValue(bandwidth);
+		// if (bandwidth > 0)
+		// {
+		// result += bandwidth;
+		// }
+		// }
+		// return result;
 		// }
 
 		// =====================================
@@ -344,31 +344,31 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool CanSpawnMoreMechanoids(Pawn mechanitor, Pawn mech)
 		// {
-			// float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: 360000));
-			// if (weight < 0f)
-			// {
-				// return false;
-			// }
-			// return true;
+		// float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: 360000));
+		// if (weight < 0f)
+		// {
+		// return false;
+		// }
+		// return true;
 		// }
 
 		// public static float GetConsumedBandwidth(Pawn mechanitor)
 		// {
-			// float result = 0;
-			// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
-			// if (mechs.NullOrEmpty())
-			// {
-				// return result;
-			// }
-			// foreach (Pawn mech in mechs)
-			// {
-				// float bandwidth = mech.GetStatValue(StatDefOf.BandwidthCost);
-				// if (bandwidth > 0)
-				// {
-					// result += bandwidth;
-				// }
-			// }
-			// return result;
+		// float result = 0;
+		// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
+		// if (mechs.NullOrEmpty())
+		// {
+		// return result;
+		// }
+		// foreach (Pawn mech in mechs)
+		// {
+		// float bandwidth = mech.GetStatValue(StatDefOf.BandwidthCost);
+		// if (bandwidth > 0)
+		// {
+		// result += bandwidth;
+		// }
+		// }
+		// return result;
 		// }
 
 		public static void OffsetNeedEnergy(Pawn pawn, float offset, int hours)
@@ -386,11 +386,11 @@ namespace WVC_XenotypesAndGenes
 		// [Obsolete]
 		// public static bool MechanoidIsGolemlike(Pawn mech)
 		// {
-			// if (WalkingUtility.PawnIsBoneGolem(mech) || GolemsUtility.PawnIsGolem(mech))
-			// {
-				// return true;
-			// }
-			// return false;
+		// if (WalkingUtility.PawnIsBoneGolem(mech) || GolemsUtility.PawnIsGolem(mech))
+		// {
+		// return true;
+		// }
+		// return false;
 		// }
 
 		// Mecha summon

@@ -4,33 +4,33 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompAbilityEffect_HemofeederBite : CompAbilityEffect_BloodfeederBite
-    {
-        public new CompProperties_AbilityBloodfeederBite Props => (CompProperties_AbilityBloodfeederBite)props;
+	public class CompAbilityEffect_HemofeederBite : CompAbilityEffect_BloodfeederBite
+	{
+		public new CompProperties_AbilityBloodfeederBite Props => (CompProperties_AbilityBloodfeederBite)props;
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            base.Apply(target, dest);
-            //Gene_Hemogen hemogen = target.Pawn.genes.GetFirstGeneOfType<Gene_Hemogen>();
-            //if (hemogen != null)
-            //{
-            //    hemogen.Value -= Props.hemogenGain;
-            //}
-        }
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			//Gene_Hemogen hemogen = target.Pawn.genes.GetFirstGeneOfType<Gene_Hemogen>();
+			//if (hemogen != null)
+			//{
+			//    hemogen.Value -= Props.hemogenGain;
+			//}
+		}
 
-        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-        {
-            Gene_Hemogen hemogen = target.Pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>();
-            if (hemogen == null || hemogen.Value < Props.hemogenGain)
-            {
-                if (throwMessages)
-                {
-                    Messages.Message("WVC_XaG_HemofeederErrorMessage".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
-                }
-                return false;
-            }
-            return base.Valid(target, throwMessages);
-        }
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+		{
+			Gene_Hemogen hemogen = target.Pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>();
+			if (hemogen == null || hemogen.Value < Props.hemogenGain)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_XaG_HemofeederErrorMessage".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return base.Valid(target, throwMessages);
+		}
 
 	}
 
@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-            }
+			}
 			return base.Valid(target, throwMessages);
 		}
 
@@ -102,10 +102,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-        {
-            Pawn animal = target.Pawn;
+		{
+			Pawn animal = target.Pawn;
 			if (animal == null)
-            {
+			{
 				return false;
 			}
 			if (!animal.IsAnimal)

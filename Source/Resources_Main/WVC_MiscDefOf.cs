@@ -1,5 +1,4 @@
 using RimWorld;
-using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -15,8 +14,8 @@ namespace WVC_XenotypesAndGenes
 		public static HistoryEventDef WVC_Shapeshift;
 		//[MayRequireIdeology]
 		//public static HistoryEventDef WVC_XenotypeSerumUsed;
-        [MayRequireIdeology]
-        public static HistoryEventDef WVC_Morph;
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_Morph;
 		//[MayRequireIdeology]
 		//public static HistoryEventDef WVC_ChimeraEvolve;
 		[MayRequireIdeology]
