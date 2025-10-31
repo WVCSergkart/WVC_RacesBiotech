@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.Sound;
 
@@ -92,7 +93,8 @@ namespace WVC_XenotypesAndGenes
 
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
         {
-            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), Hivemind.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100);
+            List<Pawn> hivemind = Hivemind;
+            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), hivemind.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100, hyperlinks: hivemind.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
         }
 
         private int cooldownTick = -1;

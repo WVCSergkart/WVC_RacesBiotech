@@ -6,7 +6,9 @@
 	<defName>WVC_Fleshkind</defName>
 	<label>fleshkind</label>
 	<!-- hivekin, gestaltkin, mindkind, mindkin, fleshkind, hivemind, minder, collective -->
-	<description>Fleshkinds are super-humans powered by archotech-created archites in the bloodstream. They have strong immunity and don't require much sleep. Their bodies are covered with numerous eyes and tentacles, and they are capable of regenerating lost eyes and arms. They are capable of limited evolution within the hivemind branch. Overall, they are a versatile, rapidly self-replicating hivemind.</description>
+	<description>Fleshkinds are super-humans powered by archotech-created archites in the bloodstream. They have strong immunity and don't require much sleep. Their bodies are covered with numerous eyes and tentacles, and they are capable of regenerating lost eyes and arms. They are capable of limited evolution within the hivemind branch. Overall, they are a versatile, rapidly self-replicating hivemind.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; This xenotype is a versatile hivemind builder. Read the descriptions of genes carefully and use their capabilities wisely. Recommended geneline genes: Sync node and Shared genes.</description>
 	<descriptionShort>Fleshkinds are super-humans powered by archotech-created archites in the bloodstream. They have strong immunity and don't require much sleep. Their bodies are covered with numerous eyes and tentacles, and they are capable of regenerating lost eyes and arms. They are capable of limited evolution within the hivemind branch. Overall, they are a versatile, rapidly self-replicating hivemind.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Hivedrone1c</iconPath>
 	<displayPriority>-1100</displayPriority>
