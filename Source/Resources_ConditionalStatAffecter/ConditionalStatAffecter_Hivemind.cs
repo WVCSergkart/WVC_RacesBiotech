@@ -4,17 +4,17 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// Cause loop. Req save version
-	public class ConditionalStatAffecter_Hivemind : ConditionalStatAffecter
+	public class ConditionalStatAffecter_HivemindSize : ConditionalStatAffecter
 	{
 
-		public float controlledPawns;
+		public float size;
 
-		public override string Label => "WVC_StatsReport_HivemindCount".Translate(controlledPawns);
+		public override string Label => "WVC_StatsReport_HivemindCount".Translate(size);
 
 		public override bool Applies(StatRequest req)
 		{
-			return HivemindUtility.HivemindPawns.Count >= controlledPawns;
+			//return HivemindUtility.HivemindPawns.Count >= controlledPawns;
+			return HivemindUtility.SafePawnsCount >= size;
 		}
 
 	}

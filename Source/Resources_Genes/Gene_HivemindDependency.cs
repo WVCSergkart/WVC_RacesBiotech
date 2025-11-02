@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void DoAction()
 		{
-			if (InHivemind)
+			if (!InHivemind)
 			{
 				return;
 			}
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (InHivemind)
+				if (!InHivemind)
 				{
 					return null;
 				}

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- To-Do: Add integration patch for Mushkins. (In patches TEST) -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dormant">
 	<defName>WVC_Hivemind_DormantDrone</defName>
 	<label>dormant drone</label>
@@ -26,9 +27,82 @@
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-4</biostatMet>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>After &lt;color=#8a8ae6&gt;hivemind synchronization&lt;/color&gt;, it awakens &lt;color=#8a8ae6&gt;dormant&lt;/color&gt; drones, connecting them to the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ========================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dependant">
+	<defName>WVC_Hivemind_DormantImmunity</defName>
+	<label>dormant immunity</label>
+	<description>Carriers of this gene have an immune system that draws information about diseases from other hivemind drones. The larger the hivemind, the more effective the immune system.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
+	<!-- <iconPath>WVC/UI/Genes3/Gene_Dormant_Immunity</iconPath> -->
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>2</size>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>4</size>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>8</size>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>Immunity</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ========================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Dependant">
+	<defName>WVC_Hivemind_DormantHealing</defName>
+	<label>dormant wound healing</label>
+	<description>Carriers of this gene heal from wounds faster the larger their hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
+	<!-- <iconPath>WVC/UI/Genes3/Gene_Dormant_Heal</iconPath> -->
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>2</size>
+		<statOffsets>
+		  <InjuryHealingFactor>0.25</InjuryHealingFactor>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>4</size>
+		<statOffsets>
+		  <InjuryHealingFactor>0.25</InjuryHealingFactor>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_HivemindSize">
+		<size>8</size>
+		<statOffsets>
+		  <InjuryHealingFactor>0.25</InjuryHealingFactor>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ========================= -->
@@ -38,12 +112,12 @@
 	<label>hivemind dependency</label>
 	<description>Carriers of this gene are dependent on the hivemind; without the hive, their genetics slowly self-destruct, leading to a coma from time to time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindDependency</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_Hivemind_DeafDrone</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_HivemindDependant</iconPath>
 	<displayOrderInCategory>100</displayOrderInCategory>
 	<biostatCpx>-4</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<customEffectDescriptions>
-		<li>Carrier falls into a &lt;color=#8a8ae6&gt;coma&lt;/color&gt; every 9-15 days if not part of the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<li>Carrier falls into a &lt;color=#8a8ae6&gt;coma&lt;/color&gt; every (*DateTime)9-15 days(/DateTime) if not part of the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <LifespanFactor>0.5</LifespanFactor>

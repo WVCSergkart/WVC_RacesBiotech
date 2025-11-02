@@ -266,6 +266,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static List<Pawn> cachedActivePawns;
+		public static int SafePawnsCount => cachedActivePawns.Count;
 
 		public static void ResetSafeCollection()
 		{
