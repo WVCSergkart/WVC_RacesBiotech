@@ -778,13 +778,23 @@ namespace WVC_XenotypesAndGenes
 			bool isShapeshifter = false;
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
-				if ((gene is Gene_Morpher || gene is Gene_Shapeshifter || gene is Gene_Chimera) && gene.Active)
+				if (IsShapeshiftGene(gene) && gene.Active)
 				{
 					isShapeshifter = true;
 					break;
 				}
 			}
 			return isShapeshifter;
+		}
+
+		/// <summary>
+		/// Modders hook.
+		/// </summary>
+		/// <param name="gene"></param>
+		/// <returns></returns>
+		private static bool IsShapeshiftGene(Gene gene)
+		{
+			return gene is Gene_Morpher or Gene_Shapeshifter or Gene_Chimera;
 		}
 
 	}

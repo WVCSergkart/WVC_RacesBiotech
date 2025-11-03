@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			base.Notify_OverriddenBy(overriddenBy);
-			if (!overriddenBy.def.geneClass.IsSubclassOf(typeof(Gene_Hivemind_EfficiencyNode)))
+			if (overriddenBy is not Gene_Hivemind_EfficiencyNode)
 			{
 				cachedEfficiencyOffset = 0;
 			}

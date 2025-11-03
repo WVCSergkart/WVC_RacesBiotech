@@ -12,6 +12,7 @@
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayCategory>Reproduction</displayCategory>
 	<displayOrderInCategory>372</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>

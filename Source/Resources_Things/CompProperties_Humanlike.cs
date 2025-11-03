@@ -237,6 +237,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (ModsConfig.IdeologyActive)
+			{
+				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
+				StaticCollectionsClass.ResetStaticRecacheTick();
+			}
+			if (HivemindUtility.InHivemind_Safe(pawn))
+			{
+				HivemindUtility.ResetCollection();
+			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneNotifyOnKilled igene && gene.Active)

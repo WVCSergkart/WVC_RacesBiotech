@@ -286,13 +286,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<XenotypeDef> list = new();
 			List<XenotypeDef> devXenotypes = GetDevXenotypeDefs();
+			bool gameStarted = MiscUtility.GameStarted();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
 				if (devXenotypes.Contains(item))
 				{
 					continue;
 				}
-				if (!MiscUtility.GameNotStarted() && item.Icon == null)
+				if (gameStarted && item.Icon == null)
 				{
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
 					continue;
@@ -302,7 +303,7 @@ namespace WVC_XenotypesAndGenes
 					list.Add(item);
 				}
 			}
-			if (!MiscUtility.GameNotStarted())
+			if (gameStarted)
 			{
 				cachedAllXenotypesExceptAndroids = list;
 			}

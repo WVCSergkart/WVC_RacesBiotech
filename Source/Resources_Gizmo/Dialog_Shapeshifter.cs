@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (GeneDef geneDef in item.genes)
 				{
-					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+					if (geneDef.IsGeneDefOfType<Gene_Shapeshift_TrueForm>())
 					{
 						item.isTrueShiftForm = true;
 						item.matchPercent = 1f;

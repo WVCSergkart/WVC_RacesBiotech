@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// Animals are useless for the hivemind mechanic. I don't see the point in adding support for them.
+		// Animals are useless for the hivemind mechanic. I don't see the point in adding direct support for them.
 		//public static bool SubCanBeInHivemind_NonHumanlike(Pawn target)
 		//{
 		//    return false;
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 			// HediffWithComps_ChimeraLimitFromHiveMind.curStage = null; // Reset by chimera gene
 			HediffWithComps_Hivemind_Beauty.Recache();
 			HediffWithComps_Hivemind_Learning.Recache();
-			Gene_Hivemind_Resyncer.Recache();
+			Gene_Hivemind_Resyncer.UpdResync();
 		}
 
 		private static int cachedTickIndex = 1;

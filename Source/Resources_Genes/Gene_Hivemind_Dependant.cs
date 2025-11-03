@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		private static bool syncUpdated = false;
-		public static void Recache()
+		public static void UpdResync()
 		{
 			syncUpdated = false;
 		}
