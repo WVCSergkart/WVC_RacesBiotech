@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffComp_GeneHediff : HediffComp, IHediffGene
+	public class HediffComp_GeneHediff : HediffComp
 	{
 
 		public GeneDef geneDef;

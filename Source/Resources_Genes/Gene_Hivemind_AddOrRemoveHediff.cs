@@ -17,7 +17,7 @@
 		{
 			if (!HivemindUtility.InHivemind(pawn))
 			{
-				RemoveHediff();
+				Local_RemoveHediff();
 				return;
 			}
 			base.Local_AddOrRemoveHediff();

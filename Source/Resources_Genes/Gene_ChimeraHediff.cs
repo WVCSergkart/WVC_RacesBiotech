@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden
+	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
 		public virtual void Notify_Override()
@@ -62,10 +62,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
-		public virtual void RemoveHediff()
+		public virtual void Local_RemoveHediff()
 		{
 			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
@@ -193,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!HivemindUtility.InHivemind(pawn))
 			{
-				RemoveHediff();
+				Local_RemoveHediff();
 				return;
 			}
 			base.Local_AddOrRemoveHediff();

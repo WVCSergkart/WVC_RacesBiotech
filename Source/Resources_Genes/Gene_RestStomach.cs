@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 		public void DisableGene()
 		{
 			disabled = true;
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
 		//public override void Notify_OverriddenBy(Gene overriddenBy)

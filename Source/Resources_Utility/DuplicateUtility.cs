@@ -102,59 +102,59 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		[Obsolete]
-		private static void LegacyOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, ref string phase)
-		{
-			phase = "outcome randomizing";
-			int num = Rand.RangeInclusive(0, 6);
-			if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
-			{
-				num++;
-			}
-			if (num == 2 && duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.CrumblingMind))
-			{
-				num++;
-			}
-			HediffUtility.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
-			if (num == 3 && mutation == null)
-			{
-				num++;
-			}
-			switch (num)
-			{
-				case 0:
-					phase = "add duplicate sickness";
-					AddDuplicateSickness(originalPawn, duplicatePawn);
-					break;
-				case 1:
-					phase = "add organ decay";
-					duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
-					break;
-				case 2:
-					phase = "add crumbling mind";
-					duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
-					break;
-				case 3:
-					phase = "try mutate";
-					TryMutate(duplicatePawn, ref customLetter, ref letterDef, mutation);
-					break;
-				case 4:
-					phase = "randomize backstory";
-					RandomizeBackstory(duplicatePawn, ref customLetter);
-					break;
-				case 5:
-					phase = "randomize traits";
-					RandomizeTraits(duplicatePawn, ref customLetter);
-					break;
-				case 6:
-					phase = "make hostile";
-					MakeHostile(caster, originalPawn, duplicatePawn, ref letterDef, ref customLetter);
-					break;
-				default:
-					Log.Error("Unhandled outcome in pawn duplication " + num);
-					break;
-			}
-		}
+		//[Obsolete]
+		//private static void LegacyOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, ref string phase)
+		//{
+		//	phase = "outcome randomizing";
+		//	int num = Rand.RangeInclusive(0, 6);
+		//	if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
+		//	{
+		//		num++;
+		//	}
+		//	if (num == 2 && duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.CrumblingMind))
+		//	{
+		//		num++;
+		//	}
+		//	HediffUtility.TryGetBestMutation(duplicatePawn, out HediffDef mutation);
+		//	if (num == 3 && mutation == null)
+		//	{
+		//		num++;
+		//	}
+		//	switch (num)
+		//	{
+		//		case 0:
+		//			phase = "add duplicate sickness";
+		//			AddDuplicateSickness(originalPawn, duplicatePawn);
+		//			break;
+		//		case 1:
+		//			phase = "add organ decay";
+		//			duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
+		//			break;
+		//		case 2:
+		//			phase = "add crumbling mind";
+		//			duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
+		//			break;
+		//		case 3:
+		//			phase = "try mutate";
+		//			TryMutate(duplicatePawn, ref customLetter, ref letterDef, mutation);
+		//			break;
+		//		case 4:
+		//			phase = "randomize backstory";
+		//			RandomizeBackstory(duplicatePawn, ref customLetter);
+		//			break;
+		//		case 5:
+		//			phase = "randomize traits";
+		//			RandomizeTraits(duplicatePawn, ref customLetter);
+		//			break;
+		//		case 6:
+		//			phase = "make hostile";
+		//			MakeHostile(caster, originalPawn, duplicatePawn, ref letterDef, ref customLetter);
+		//			break;
+		//		default:
+		//			Log.Error("Unhandled outcome in pawn duplication " + num);
+		//			break;
+		//	}
+		//}
 
 		public static void TryMutate(Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, HediffDef mutation)
 		{

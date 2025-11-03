@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AddOrRemoveHediff : Gene, IGeneOverridden
+	public class Gene_AddOrRemoveHediff : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	Log.Error("Override gene: " + overriddenBy.def.defName);
 			//}
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
 		public virtual void Notify_Override()
@@ -71,10 +71,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
-		public virtual void RemoveHediff()
+		public virtual void Local_RemoveHediff()
 		{
 			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_GenerateHediffWithRandomSeverity : Gene, IGeneOverridden
+	public class Gene_GenerateHediffWithRandomSeverity : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		private HediffDef cachedHediffDef;
@@ -155,17 +155,17 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			AddOrRemoveHediff(HediffDef, pawn, this);
+			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			AddOrRemoveHediff(HediffDef, pawn, this);
+			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			AddOrRemoveHediff(HediffDef, pawn, this);
+			Local_AddOrRemoveHediff();
 		}
 
 		public override void TickInterval(int delta)
@@ -174,18 +174,23 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			AddOrRemoveHediff(HediffDef, pawn, this);
+			Local_AddOrRemoveHediff();
 		}
 
-		public void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
+		public void Local_AddOrRemoveHediff()
 		{
-			HediffUtility.TryAddOrRemoveHediff(hediffDef, pawn, gene, randomizeSeverity: true);
+			HediffUtility.TryAddOrRemoveHediff(HediffDef, pawn, this, randomizeSeverity: true);
+		}
+
+		public void Local_RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(HediffDef, pawn);
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			HediffUtility.TryRemoveHediff(HediffDef, pawn);
+			Local_RemoveHediff();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -197,12 +202,11 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Add Or Remove Hediff",
 					action = delegate
 					{
-						AddOrRemoveHediff(HediffDef, pawn, this);
+						Local_AddOrRemoveHediff();
 					}
 				};
 			}
 		}
-
 	}
 
 	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverridden

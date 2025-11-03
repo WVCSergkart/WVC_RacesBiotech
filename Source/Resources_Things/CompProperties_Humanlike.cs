@@ -282,7 +282,7 @@ namespace WVC_XenotypesAndGenes
 			UndeadTick();
 		}
 
-		public void UndeadTick()
+		private void UndeadTick()
 		{
 			if (!shouldResurrect)
 			{
@@ -295,7 +295,7 @@ namespace WVC_XenotypesAndGenes
 			TryResurrect();
 		}
 
-		public void TryResurrect()
+		private void TryResurrect()
 		{
 			if (parent is not Pawn pawn)
 			{
@@ -310,7 +310,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (pawn.Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
 				{
-					if (ModLister.CheckAnomaly("Shambler"))
+					if (ModsConfig.AnomalyActive)
 					{
 						MutantUtility.ResurrectAsShambler(pawn, new IntRange(145563, 888855).RandomInRange, pawn.Faction);
 					}
@@ -350,7 +350,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0"),
 				action = delegate
 				{
-					Pawn pawn = parent as Pawn;
+					Pawn pawn = Pawn;
 					ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
 				}
 			};
@@ -360,7 +360,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0"),
 				action = delegate
 				{
-					Pawn pawn = parent as Pawn;
+					Pawn pawn = Pawn;
 					List<FloatMenuOption> list = new();
 					List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
 					for (int i = 0; i < xenotypeDefs.Count; i++)
@@ -380,11 +380,11 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/WorkSkillTex_v0"),
 				action = delegate
 				{
-					Pawn pawn = parent as Pawn;
-					ReimplanterUtility.PostImplantDebug(pawn);
+					ReimplanterUtility.PostImplantDebug(Pawn);
 					StaticCollectionsClass.ResetCollection();
 					//HivemindUtility.ResetCollection();
-					HediffUtility.UpdatePawnGeneHediffs(Pawn);
+					//HediffUtility.UpdatePawnGeneHediffs(Pawn);
+					HediffUtility.ResetGeneHediffs(Pawn);
 				}
 			};
 			yield return new Command_Action
@@ -402,7 +402,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate"),
 				action = delegate
 				{
-					Pawn pawn = parent as Pawn;
+					Pawn pawn = Pawn;
 					StringBuilder stringBuild = new();
 					foreach (XenotypeDef xenos in DefDatabase<XenotypeDef>.AllDefsListForReading)
 					{
@@ -462,6 +462,7 @@ namespace WVC_XenotypesAndGenes
 
 			//}
 			//HediffUtility.UpdatePawnGeneHediffs(Pawn);
+			HediffUtility.ResetGeneHediffs(Pawn);
 		}
 
 		public bool IsDuplicate

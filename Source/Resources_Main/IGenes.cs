@@ -257,4 +257,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneAddOrRemoveHediff
+	{
+
+		void Local_AddOrRemoveHediff();
+
+		void Local_RemoveHediff();
+
+	}
+
 }

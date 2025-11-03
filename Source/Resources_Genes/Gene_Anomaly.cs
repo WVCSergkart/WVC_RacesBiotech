@@ -244,12 +244,17 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdExposureHediff()
 		{
-			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+			RemoveHediff();
 			if (!TryMakeHediff(DarknessExposure, pawn, out Hediff_DarknessExposure_Faulty hediff, null))
 			{
 				return;
 			}
 			pawn.health.AddHediff(hediff);
+		}
+
+		private void RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
 		}
 
 		public static bool TryMakeHediff(HediffDef def, Pawn pawn, out Hediff_DarknessExposure_Faulty hediff, BodyPartRecord partRecord = null)
@@ -270,7 +275,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+			RemoveHediff();
 		}
 
 		public void Notify_Override()
@@ -281,7 +286,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+			RemoveHediff();
 		}
 
 	}

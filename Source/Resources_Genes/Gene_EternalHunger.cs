@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder, IGeneNotifyGenesChanged
+	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -30,22 +30,22 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			Notify_GenesChanged(null);
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
 			Notify_GenesChanged(null);
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
-		public void AddOrRemoveHediff()
+		public void Local_AddOrRemoveHediff()
 		{
 			try
 			{
@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(56421, delta))
 			{
-				AddOrRemoveHediff();
+				Local_AddOrRemoveHediff();
 			}
 			if (!pawn.IsHashIntervalTick(455, delta))
 			{
@@ -112,6 +112,11 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			Local_RemoveHediff();
+		}
+
+		public void Local_RemoveHediff()
+		{
 			HediffUtility.TryRemoveHediff(Props?.hediffDefName, pawn);
 		}
 
@@ -124,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: AddOrRemoveHediff",
 					action = delegate
 					{
-						AddOrRemoveHediff();
+						Local_AddOrRemoveHediff();
 					}
 				};
 			}

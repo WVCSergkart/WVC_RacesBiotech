@@ -157,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 					hiveMember.Kill(null);
 				}
 			}
-			ResetCollection();
+			//ResetCollection();
 		}
 
 	}
