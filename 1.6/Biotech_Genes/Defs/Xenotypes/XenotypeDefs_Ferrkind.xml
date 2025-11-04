@@ -51,11 +51,11 @@
 		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
 	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isChimerkin>true</isChimerkin>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

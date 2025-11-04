@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				List<Pawn> hivemind = Hivemind;
 				float totalNutriotion = 0;
-				float factor = Mathf.Clamp(PsyFactor, 0.1f, 1f);
+				float factor = Mathf.Clamp(PsyFactor, 0.1f, 1.1f);
 				foreach (Pawn pawn in hivemind)
 				{
 					if (!pawn.TryGetNeedFood(out Need_Food need_Food))
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
-					need_Food.CurLevel = averageNutrition;
+					need_Food.CurLevel = Mathf.Clamp(averageNutrition * pawn.GetStatValue(StatDefOf.PsychicSensitivity), 0f, averageNutrition);
 				}
 			}
 			catch (Exception arg)

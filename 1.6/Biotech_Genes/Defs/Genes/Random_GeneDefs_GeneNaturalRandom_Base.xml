@@ -20,7 +20,7 @@
 	<labelShortAdj>speciality</labelShortAdj>
 	<description>Carriers of this gene have a certain predisposition that can change from generation to generation.</description>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Skill_v0</iconPath>
-	<selectionWeight>0.0012</selectionWeight>
+	<selectionWeight>0.00022</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>

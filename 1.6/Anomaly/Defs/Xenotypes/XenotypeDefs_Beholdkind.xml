@@ -51,10 +51,9 @@
 		<li>WVC_Incrementer</li>
 	</genes>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isChimerkin>true</isChimerkin>
-			<!-- <isEvolvedChimerkin>true</isEvolvedChimerkin> -->
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<defaultColor>(255, 133, 133)</defaultColor>
 			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>

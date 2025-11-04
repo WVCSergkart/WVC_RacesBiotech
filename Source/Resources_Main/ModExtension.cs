@@ -262,7 +262,7 @@ namespace WVC_XenotypesAndGenes
 		//Fleshmass
 		public bool isFleshmass = false;
 		//Xenos
-		public bool isChimerkin = false;
+		//public bool isChimerkin = false;
 		//public bool isEvolvedChimerkin = false;
 		// Quests
 		//public string questDescription = null;

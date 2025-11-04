@@ -45,6 +45,11 @@
 		<li>WVC_TentacleHands</li>
 		<li>WVC_LongTentacleTail</li>
 	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

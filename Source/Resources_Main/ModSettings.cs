@@ -786,6 +786,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Log chimerkins"))
+				{
+					Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
+				}
 			}
 			listingStandard.End();
 			Widgets.EndScrollView();

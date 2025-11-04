@@ -11,6 +11,19 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
+		private static List<XenotypeDef> cachedChimerkinXenotypes;
+		public static List<XenotypeDef> ChimeraXenotypes
+		{
+			get
+			{
+				if (cachedChimerkinXenotypes == null)
+				{
+					cachedChimerkinXenotypes = ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef.inheritable && xenotypeDef?.genes?.Any((geneDef) => geneDef.IsGeneDefOfType<Gene_Chimera>()) == true).ToList();
+				}
+				return cachedChimerkinXenotypes;
+			}
+		}
+
 		private static List<GeneDef> cachedHivemindGenes;
 		public static List<GeneDef> HivemindGenes
 		{

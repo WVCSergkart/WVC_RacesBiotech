@@ -231,10 +231,11 @@ namespace WVC_XenotypesAndGenes
 					Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Props.thoughtDef);
 					if (memory != null)
 					{
+						float psychicSens = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 						int totalHivemindMood1 = (int)((totalHivemindMood - GetMood(0f, pawn)) * Mathf.Clamp(psyFactor >= 1f ? psyFactor * 0.88f : psyFactor, psyFactor >= 1f ? 1f : 0f, 3f));
-						memory.moodOffset = totalHivemindMood1 / 2;
+						memory.moodOffset = (int)(totalHivemindMood1 / (2 / psychicSens));
+						memory.durationTicksOverride = (int)(memory.DurationTicks * (pawn == base.pawn ? psyFactor : psychicSens * psyFactor));
 					}
-					memory.durationTicksOverride = (int)(memory.DurationTicks * pawn.GetStatValue(StatDefOf.PsychicSensitivity));
 					//SetOpinion(opinionAbout, pawn);
 				}
 			}

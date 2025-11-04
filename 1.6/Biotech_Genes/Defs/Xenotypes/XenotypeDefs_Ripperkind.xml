@@ -68,9 +68,9 @@
 		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
 	</genes>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isChimerkin>true</isChimerkin>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<defaultColor>(189, 205, 255)</defaultColor>
 			<!-- <morpherTriggerGene>WVC_MorphCondition_DeathRefusal</morpherTriggerGene> -->
