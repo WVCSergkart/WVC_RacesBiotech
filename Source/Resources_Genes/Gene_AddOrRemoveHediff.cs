@@ -167,6 +167,10 @@ namespace WVC_XenotypesAndGenes
 
 		private void UpdSeverity()
 		{
+			if (savedSeverity.HasValue)
+			{
+				return;
+			}
 			Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef);
 			if (hediff != null)
 			{
@@ -294,7 +298,7 @@ namespace WVC_XenotypesAndGenes
 		public override void TickInterval(int delta)
 		{
 			//base.TickInterval(delta);
-			if (!pawn.IsHashIntervalTick(67200, delta))
+			if (!pawn.IsHashIntervalTick(67230, delta))
 			{
 				return;
 			}

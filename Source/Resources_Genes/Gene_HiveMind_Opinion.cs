@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!HivemindUtility.InHivemind(pawn))
+			if (!HivemindUtility.SuitableForHivemind(pawn) || !HivemindUtility.InHivemind(pawn))
 			{
 				return;
 			}

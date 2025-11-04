@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -230,15 +231,16 @@ namespace WVC_XenotypesAndGenes
 					Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Props.thoughtDef);
 					if (memory != null)
 					{
-						int totalHivemindMood1 = (int)((totalHivemindMood * psyFactor) - GetMood(0f, pawn));
+						int totalHivemindMood1 = (int)((totalHivemindMood - GetMood(0f, pawn)) * Mathf.Clamp(psyFactor >= 1f ? psyFactor * 0.88f : psyFactor, psyFactor >= 1f ? 1f : 0f, 3f));
 						memory.moodOffset = totalHivemindMood1 / 2;
 					}
+					memory.durationTicksOverride = (int)(memory.DurationTicks * pawn.GetStatValue(StatDefOf.PsychicSensitivity));
 					//SetOpinion(opinionAbout, pawn);
 				}
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Failed sync hivemind thoughts. Reason: " + arg);
+				Log.Error("Failed sync hivemind thoughts. Reason: " + arg.Message);
 			}
 		}
 

@@ -334,6 +334,7 @@ namespace WVC_XenotypesAndGenes
 			yield return new Command_Action
 			{
 				defaultLabel = "DEV: ExpandDevTools",
+				defaultDesc = "Simple debug commands. Allows reset/set xenotype, reset hivemind, reset/debug pawn genes, etc.",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/DevMode_Setttings"),
 				action = delegate
 				{
@@ -347,6 +348,7 @@ namespace WVC_XenotypesAndGenes
 			yield return new Command_Action
 			{
 				defaultLabel = "DEV: ResetXenotype",
+				defaultDesc = "Reimplant current xenotype. Reset all genes and remove all non-xenotype genes.",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0"),
 				action = delegate
 				{
@@ -377,6 +379,7 @@ namespace WVC_XenotypesAndGenes
 			yield return new Command_Action
 			{
 				defaultLabel = "DEV: DebugGenes",
+				defaultDesc = "Post implant debug. GeneHediffs reset. Hivemind collection reset.",
 				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/WorkSkillTex_v0"),
 				action = delegate
 				{

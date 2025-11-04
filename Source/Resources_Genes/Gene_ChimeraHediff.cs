@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(67200, delta))
+			if (!pawn.IsHashIntervalTick(67150, delta))
 			{
 				return;
 			}
