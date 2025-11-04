@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					bodyparts.Add(bodyPart);
 				}
-				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
+				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts, parent.Severity))
 				{
 					if (DebugSettings.ShowDevGizmos)
 					{

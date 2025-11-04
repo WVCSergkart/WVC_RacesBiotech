@@ -34,7 +34,7 @@
 	<defaultLabelColor>(255, 216, 133)</defaultLabelColor>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomGeneticSpeciality</geneDef> -->
+			<geneDef>WVC_RandomGeneticSpeciality</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -96,7 +96,7 @@
 	<label>genetic metabolism</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomMetabolism</geneDef> -->
+			<geneDef>WVC_RandomMetabolism</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -132,7 +132,7 @@
 	<label>genetic psychic</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomPsychicAbility</geneDef> -->
+			<geneDef>WVC_RandomPsychicAbility</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -176,7 +176,7 @@
 	<label>genetic speed</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomMoveSpeed</geneDef> -->
+			<geneDef>WVC_RandomMoveSpeed</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -220,7 +220,7 @@
 	<label>genetic healing</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomWoundHealing</geneDef> -->
+			<geneDef>WVC_RandomWoundHealing</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -264,7 +264,7 @@
 	<label>genetic learning</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomLearning</geneDef> -->
+			<geneDef>WVC_RandomLearning</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -308,7 +308,7 @@
 	<label>genetic manipulation</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomHands</geneDef> -->
+			<geneDef>WVC_RandomHands</geneDef>
 		</li>
 	</comps>
 	<stages>
@@ -376,7 +376,7 @@
 	<label>genetic immunity</label>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <geneDef>WVC_RandomImmunity</geneDef> -->
+			<geneDef>WVC_RandomImmunity</geneDef>
 		</li>
 	</comps>
 	<stages>

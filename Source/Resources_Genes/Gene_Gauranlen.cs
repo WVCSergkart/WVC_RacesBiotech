@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_DryadSpawned(Pawn dryad)
 		{
-			HediffUtility.TryAddHediff(Props.hediffDefName, dryad, null, null, false);
+			HediffUtility.TryAddHediff(Props.hediffDefName, dryad, null, null);
 		}
 
 	}

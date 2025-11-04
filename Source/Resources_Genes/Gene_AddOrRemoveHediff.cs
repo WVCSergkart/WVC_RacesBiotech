@@ -79,23 +79,23 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Add Or Remove Hediff",
-					action = delegate
-					{
-						if (Active)
-						{
-							Local_AddOrRemoveHediff();
-						}
-					}
-				};
-			}
-		}
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: Add Or Remove Hediff",
+		//			action = delegate
+		//			{
+		//				if (Active)
+		//				{
+		//					Local_AddOrRemoveHediff();
+		//				}
+		//			}
+		//		};
+		//	}
+		//}
 
 	}
 
@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_GenerateHediffWithRandomSeverity : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
+	public class Gene_SeverityHediff : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		private HediffDef cachedHediffDef;
@@ -146,9 +146,35 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHediffDef == null)
 				{
-					cachedHediffDef = def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+					cachedHediffDef = def?.GetModExtension<GeneExtension_Giver>()?.hediffDefName;
 				}
 				return cachedHediffDef;
+			}
+		}
+
+		private float? savedSeverity;
+		public float GeneSeverity
+		{
+			get
+			{
+				if (savedSeverity == null)
+				{
+					UpdSeverity();
+				}
+				return savedSeverity.Value;
+			}
+		}
+
+		private void UpdSeverity()
+		{
+			Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef);
+			if (hediff != null)
+			{
+				savedSeverity = hediff.Severity;
+			}
+			else
+			{
+				savedSeverity = new FloatRange(HediffDef.minSeverity, HediffDef.maxSeverity).RandomInRange;
 			}
 		}
 
@@ -179,11 +205,20 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_AddOrRemoveHediff()
 		{
-			HediffUtility.TryAddOrRemoveHediff(HediffDef, pawn, this, randomizeSeverity: true);
+			try
+			{
+				UpdSeverity();
+				HediffUtility.TryAddOrRemoveHediff(HediffDef, pawn, this, severity: GeneSeverity);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Error in Gene_SeverityHediff in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+			}
 		}
 
 		public void Local_RemoveHediff()
 		{
+			UpdSeverity();
 			HediffUtility.TryRemoveHediff(HediffDef, pawn);
 		}
 
@@ -193,23 +228,36 @@ namespace WVC_XenotypesAndGenes
 			Local_RemoveHediff();
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: SeverityHediff",
+		//			action = delegate
+		//			{
+		//				Local_AddOrRemoveHediff();
+		//			}
+		//		};
+		//	}
+		//}
+
+		public override void ExposeData()
 		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Add Or Remove Hediff",
-					action = delegate
-					{
-						Local_AddOrRemoveHediff();
-					}
-				};
-			}
+			base.ExposeData();
+			Scribe_Values.Look(ref savedSeverity, "savedSeverity", null);
 		}
+
 	}
 
-	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverridden
+	[Obsolete]
+	public class Gene_GenerateHediffWithRandomSeverity : Gene_SeverityHediff
+	{
+
+	}
+
+	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		//public HediffDef HediffDef => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -230,17 +278,17 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
 		public override void TickInterval(int delta)
@@ -250,16 +298,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			AddOrRemoveHediff();
+			Local_AddOrRemoveHediff();
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff();
+			Local_RemoveHediff();
 		}
 
-		public void AddOrRemoveHediff()
+		public void Local_AddOrRemoveHediff()
 		{
 			if (Active)
 			{
@@ -281,17 +329,17 @@ namespace WVC_XenotypesAndGenes
 					}
 					else
 					{
-						RemoveHediff();
+						Local_RemoveHediff();
 					}
 				}
 			}
 			else
 			{
-				RemoveHediff();
+				Local_RemoveHediff();
 			}
 		}
 
-		public void RemoveHediff()
+		public void Local_RemoveHediff()
 		{
 			if (pawn.health.hediffSet.HasHediff(HediffDef))
 			{
@@ -303,20 +351,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Add Or Remove Hediff",
-					action = delegate
-					{
-						AddOrRemoveHediff();
-					}
-				};
-			}
-		}
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: Add Or Remove Hediff",
+		//			action = delegate
+		//			{
+		//				AddOrRemoveHediff();
+		//			}
+		//		};
+		//	}
+		//}
 
 	}
 

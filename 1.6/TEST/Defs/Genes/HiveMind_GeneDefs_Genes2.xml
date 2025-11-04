@@ -38,4 +38,23 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Blacklist</defName>
+	<label>hivemind blacklist</label>
+	<description>Carriers of this gene may exclude others from the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Blacklist</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_IdeoSync</iconPath>
+	<displayOrderInCategory>115</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;blacklist&lt;/color&gt; other pawns for &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<li>Removing the gene will &lt;color=#8a8ae6&gt;reset the list&lt;/color&gt;, regardless of whether other pawns have it.</li>
+		<li>&lt;color=#8a8ae6&gt;Hivemind resync&lt;/color&gt; is required for the changes to apply.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

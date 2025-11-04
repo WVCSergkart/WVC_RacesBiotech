@@ -162,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// In Dev
 	public class Gene_Hivemind_Metabolism : Gene_Hivemind_Drone
 	{
 

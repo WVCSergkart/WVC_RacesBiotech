@@ -35,6 +35,13 @@
 	<!-- ======================================================== -->
 
 	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_PostImplantDebug"/>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'ToxResist_Total') or contains(text(),'ToxicEnvironmentResistance_Total') or contains(text(),'Mashed_Ashlands_AshResistance_Perfect')]]]/nullifyingGenes</xpath>
 	  <value>
 		  <li>WVC_ToxResist_Total</li>

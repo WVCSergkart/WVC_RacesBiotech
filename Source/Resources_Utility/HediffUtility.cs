@@ -298,7 +298,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TryAddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
+		public static bool TryAddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null, float severity = -1)
 		{
 			if (hediffDef == null)
 			{
@@ -306,23 +306,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (gene.Active)
 			{
-				// if (!pawn.health.hediffSet.HasHediff(hediffDef))
-				// {
-				// if (!bodyparts.NullOrEmpty())
-				// {
-				// HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
-				// return true;
-				// }
-				// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-				// HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
-				// if (hediff_GeneCheck != null)
-				// {
-				// hediff_GeneCheck.geneDef = gene.def;
-				// }
-				// pawn.health.AddHediff(hediff);
-				// return true;
-				// }
-				return TryAddHediff(hediffDef, pawn, gene.def, bodyparts, randomizeSeverity);
+				return TryAddHediff(hediffDef, pawn, gene.def, bodyparts, severity);
 			}
 			else
 			{
@@ -331,7 +315,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool TryAddHediff(HediffDef hediffDef, Pawn pawn, GeneDef geneDef, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
+		public static bool TryAddHediff(HediffDef hediffDef, Pawn pawn, GeneDef geneDef, List<BodyPartDef> bodyparts = null, float severity = -1)
 		{
 			if (hediffDef == null)
 			{
@@ -351,10 +335,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					hediff_GeneCheck.geneDef = geneDef;
 				}
-				if (randomizeSeverity)
+				if (severity > 0)
 				{
-					FloatRange floatRange = new(hediffDef.minSeverity, hediffDef.maxSeverity);
-					hediff.Severity = floatRange.RandomInRange;
+					hediff.Severity = severity;
 				}
 				pawn.health.AddHediff(hediff);
 				return true;

@@ -31,10 +31,6 @@ namespace WVC_XenotypesAndGenes
 						cachedPawns = new();
 						Log.Warning("Hivemind is null.");
 					}
-					else
-					{
-						cachedActivePawns = cachedPawns;
-					}
 				}
 				return cachedPawns;
 			}
@@ -42,6 +38,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanBeInHivemind(Pawn target)
 		{
+			//if (Gene_Hivemind_Blacklist.BlacklistedPawns.Contains(target))
+			//{
+			//	return false;
+			//}
 			if (!target.IsPsychicSensitive()) // Provoke crashes. Loop in gene activity check. Hm..
 			{
 				return false;
@@ -257,21 +257,21 @@ namespace WVC_XenotypesAndGenes
 		/// <returns></returns>
 		public static bool InHivemind_Safe(Pawn pawn)
 		{
-			if (cachedActivePawns == null)
+			if (cachedPawns == null)
 			{
 				//_ = HivemindUtility.HivemindPawns;
 				return false;
 			}
-			return cachedActivePawns.Contains(pawn);
+			return cachedPawns.Contains(pawn);
 		}
 
-		private static List<Pawn> cachedActivePawns;
-		public static int SafePawnsCount => cachedActivePawns.Count;
+		//private static List<Pawn> cachedActivePawns;
+		public static int SafePawnsCount => cachedPawns.Count;
 
-		public static void ResetSafeCollection()
-		{
-			cachedActivePawns = null;
-		}
+		//public static void ResetSafeCollection()
+		//{
+		//	cachedActivePawns = null;
+		//}
 
 	}
 }

@@ -87,6 +87,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_Blacklist.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Dependant.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Gestator.cs" />
@@ -150,6 +151,8 @@
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeGraphic_Simple.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
+    <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
     <Compile Include="Resources_Main\IJobs.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
@@ -270,7 +273,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_GeneHediff.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ReplaceWithHediff.cs" />
     <Compile Include="Resources_Hediff\HediffComp_Spawner.cs" />

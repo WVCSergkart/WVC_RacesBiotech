@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneRandom_Base" Abstract="True"> -->
-	<!-- <iconColor>(255, 255, 255)</iconColor> -->
-	<!-- <displayCategory>WVC_RandomGenes</displayCategory> -->
-	<!-- <displayOrderInCategory>-537</displayOrderInCategory> -->
-	<!-- <randomChosen>false</randomChosen> -->
-	<!-- <selectionWeight>0.00</selectionWeight> -->
-	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
-	<!-- <biostatCpx>0</biostatCpx> -->
-	<!-- <biostatArc>0</biostatArc> -->
-	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="VEF.Genes.GeneExtension"> -->
-			<!-- <hideGene>true</hideGene> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </GeneDef> -->
-
   <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Base" Abstract="True">
-	<!-- <iconColor>(93, 101, 126)</iconColor> -->
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<selectionWeight>0.0012</selectionWeight>
 	<displayCategory>WVC_RandomGenes</displayCategory>
 	<displayOrderInCategory>-537</displayOrderInCategory>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Randomizer</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_GenerateHediffWithRandomSeverity</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SeverityHediff</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Replaced with one random gene from its series.</li> -->
-	<!-- </customEffectDescriptions> -->
   </GeneDef>
 
   <!-- ============================= -->
@@ -92,15 +70,6 @@
 	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomMetabolism_A</li> -->
-				<!-- <li>WVC_RandomMetabolism_B</li> -->
-				<!-- <li>WVC_RandomMetabolism_C</li> -->
-				<!-- <li>WVC_RandomMetabolism_D</li> -->
-				<!-- <li>WVC_RandomMetabolism_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_hungerRateFactor</hediffDefName>
 		</li>
@@ -125,15 +94,6 @@
 	  <li>Immunity</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomImmunity_A</li> -->
-				<!-- <li>WVC_RandomImmunity_B</li> -->
-				<!-- <li>WVC_RandomImmunity_C</li> -->
-				<!-- <li>WVC_RandomImmunity_D</li> -->
-				<!-- <li>WVC_RandomImmunity_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_ImmunityGainSpeed</hediffDefName>
 		</li>
@@ -158,15 +118,6 @@
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomWoundHealing_A</li> -->
-				<!-- <li>WVC_RandomWoundHealing_B</li> -->
-				<!-- <li>WVC_RandomWoundHealing_C</li> -->
-				<!-- <li>WVC_RandomWoundHealing_D</li> -->
-				<!-- <li>WVC_RandomWoundHealing_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_InjuryHealingFactor</hediffDefName>
 		</li>
@@ -195,15 +146,6 @@
 	  <li>Hands</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomHands_A</li> -->
-				<!-- <li>WVC_RandomHands_B</li> -->
-				<!-- <li>WVC_RandomHands_C</li> -->
-				<!-- <li>WVC_RandomHands_D</li> -->
-				<!-- <li>WVC_RandomHands_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_Manipulation</hediffDefName>
 		</li>
@@ -229,15 +171,6 @@
 	</exclusionTags>
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomLearning_A</li> -->
-				<!-- <li>WVC_RandomLearning_B</li> -->
-				<!-- <li>WVC_RandomLearning_C</li> -->
-				<!-- <li>WVC_RandomLearning_D</li> -->
-				<!-- <li>WVC_RandomLearning_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_GlobalLearningFactor</hediffDefName>
 		</li>
@@ -264,16 +197,7 @@
 	<exclusionTags>
 	  <li>MoveSpeed</li>
 	</exclusionTags>
-	<modExtensions> 
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomMoveSpeed_A</li> -->
-				<!-- <li>WVC_RandomMoveSpeed_B</li> -->
-				<!-- <li>WVC_RandomMoveSpeed_C</li> -->
-				<!-- <li>WVC_RandomMoveSpeed_D</li> -->
-				<!-- <li>WVC_RandomMoveSpeed_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
+	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_MoveSpeed</hediffDefName>
 		</li>
@@ -301,15 +225,6 @@
 	  <li>PsychicAbility</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <randomizerGenesList> -->
-				<!-- <li>WVC_RandomPsychicAbility_A</li> -->
-				<!-- <li>WVC_RandomPsychicAbility_B</li> -->
-				<!-- <li>WVC_RandomPsychicAbility_C</li> -->
-				<!-- <li>WVC_RandomPsychicAbility_D</li> -->
-				<!-- <li>WVC_RandomPsychicAbility_E</li> -->
-			<!-- </randomizerGenesList> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GeneHediffStatRand_PsychicSensitivity</hediffDefName>
 		</li>

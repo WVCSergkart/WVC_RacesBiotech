@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (XaG_GeneUtility.HasAnyActiveGene(Props.geneDefs, Pawn))
 			{
-				HediffUtility.TryAddHediff(Props.hediffDef, Pawn, null, Props.bodyparts);
+				HediffUtility.TryAddHediff(Props.hediffDef, Pawn, null, Props.bodyparts, parent.Severity);
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Pawn.health.hediffSet.PartIsMissing(parent.Part))
 			{
-				HediffUtility.TryAddHediff(Props.hediffDef, Pawn, null);
+				HediffUtility.TryAddHediff(Props.hediffDef, Pawn, null, severity: parent.Severity);
 				if (Props.removeWhenBodyPartDestroyed)
 				{
 					Pawn.health.RemoveHediff(parent);

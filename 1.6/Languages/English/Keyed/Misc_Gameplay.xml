@@ -211,6 +211,9 @@
 	<WVC_XaG_HivemindPawns_Label>Hivemind size</WVC_XaG_HivemindPawns_Label>
 	<WVC_XaG_HivemindPawns_Desc>The number of pawns synchronized with the hivemind. Pawns that are compatible with the hivemind but not yet synchronized can affect the hivemind, but until synchronized, they will not be affected by other hivemind pawns.\n\nPawns without psy- sensitivity and not colonists are not counted as part of the hivemind. Temporary pawns can join the hivemind, but will be expelled from it upon leaving the colony.\n\nHivemind pawns with psy- sensitivity below 20% cannot influence other hivemind pawns or trigger hivemind synchronization. However, they are still part of the hivemind.</WVC_XaG_HivemindPawns_Desc>
 
+	<WVC_XaG_HivemindBlackPawns_Label>Blacklist size</WVC_XaG_HivemindBlackPawns_Label>
+	<WVC_XaG_HivemindBlackPawns_Desc>Blacklisted pawns for the hivemind. These pawns cannot join the hivemind while they are on this list.</WVC_XaG_HivemindBlackPawns_Desc>
+
 	<WVC_XaG_RemoteControl_HivemindSyncNode>Allows to manually trigger hivemind synchronization. Cooldown: 7 days.</WVC_XaG_RemoteControl_HivemindSyncNode>
 	<WVC_XaG_RemoteControl_HivemindSyncNodeWarning>Are you sure you want to force sync now?</WVC_XaG_RemoteControl_HivemindSyncNodeWarning>
 	<WVC_XaG_RemoteControl_HivemindSyncNodeMessage>Hivemind is synchronized. Current number of hivemind pawns: {0}.</WVC_XaG_RemoteControl_HivemindSyncNodeMessage>
@@ -1125,7 +1128,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_HideShow>Hide/Show</WVC_HideShow>
 
+	<WVC_AddOrRemove>Add/Remove</WVC_AddOrRemove>
+
 	<WVC_Start>Start</WVC_Start>
+
+	<WVC_Edit>Edit</WVC_Edit>
 
 	<!-- <WVC_Charge>Charge</WVC_Charge> -->
 
@@ -1175,6 +1182,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControl_IdeoChangeDesc>Allows to change ideo to any other.</WVC_XaG_RemoteControl_IdeoChangeDesc>
 
 	<!-- <WVC_XaG_RemoteControl_GenderMorph>Allows to change ideo to any other.</WVC_XaG_RemoteControl_GenderMorph> -->
+
+	<WVC_XaG_RemoteControl_HivemindBlacklistDesc>Allows to blacklist hivemind pawns for hivemind. Changes will be applied after hivemind syncs.</WVC_XaG_RemoteControl_HivemindBlacklistDesc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
