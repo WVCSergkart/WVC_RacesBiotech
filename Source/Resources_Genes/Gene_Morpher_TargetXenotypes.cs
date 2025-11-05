@@ -78,4 +78,38 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_MorpherXenotypeTargeter_Hivemind : Gene_MorpherXenotypeTargeter, IGeneOverridden
+	{
+
+		public new static List<XenotypeDef> cachedXenotypeDefs;
+		public override List<XenotypeDef> PossibleXenotypeDefs
+		{
+			get
+			{
+				if (cachedXenotypeDefs == null)
+				{
+					List<XenotypeDef> list = new();
+					List<XenotypeDef> xenotypeDefs = ListsUtility.GetAllXenotypesExceptAndroids();
+					foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+					{
+						list.AddRangeSafe(XaG_GeneUtility.GetAllMatchedXenotypes(hiver, xenotypeDefs, 1f));
+					}
+					cachedXenotypeDefs = list;
+				}
+				return cachedXenotypeDefs;
+			}
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			cachedXenotypeDefs = null;
+		}
+
+		public void Notify_Override()
+		{
+			cachedXenotypeDefs = null;
+		}
+
+	}
+
 }

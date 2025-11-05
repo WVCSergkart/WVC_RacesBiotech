@@ -115,13 +115,21 @@ namespace WVC_XenotypesAndGenes
 
 		private bool CacheableBool(int ticksTimeOut = 120)
 		{
-			nextTick--;
+			//nextTick--;
 			if (nextTick < 0)
 			{
 				cachedBool = !CanMorph();
 				nextTick = ticksTimeOut;
 			}
 			return cachedBool;
+		}
+
+		public override void TickInterval(int delta)
+		{
+			if (nextTick > 0)
+			{
+				nextTick -= delta;
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -142,10 +150,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					FloatMenu();
 				},
-				onHover = delegate
-				{
-					cachedBool = !CanMorph();
-				}
+				//onHover = delegate
+				//{
+				//	cachedBool = !CanMorph();
+				//}
 			};
 		}
 
@@ -482,9 +490,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MonolithMorph : Gene_AbilityMorph
 	{
 
-		[Unsaved(false)]
 		private GameComponent_Anomaly cachedGameComponent;
-
 		public GameComponent_Anomaly GameComponent
 		{
 			get
@@ -503,7 +509,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			return GameComponent?.LevelDef == MonolithLevelDefOf.Embraced;
+			return GameComponent.LevelDef == MonolithLevelDefOf.Embraced;
 		}
 
 	}
@@ -531,6 +537,22 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.RemoveHediff(resurrectionSickness);
 			}
 			base.MorpherTrigger(geneSet);
+		}
+
+	}
+
+	public class Gene_HivemindMorph : Gene_AbilityMorph
+	{
+
+		public override bool CanMorph()
+		{
+			return pawn.InHivemind();
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			base.MorpherTrigger(geneSet);
+			HivemindUtility.ResetCollection();
 		}
 
 	}

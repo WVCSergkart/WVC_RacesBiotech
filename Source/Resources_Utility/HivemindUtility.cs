@@ -138,6 +138,7 @@ namespace WVC_XenotypesAndGenes
 			HediffWithComps_Hivemind_Beauty.Recache();
 			HediffWithComps_Hivemind_Learning.Recache();
 			Gene_Hivemind_Resyncer.UpdResync();
+			Gene_MorpherXenotypeTargeter_Hivemind.cachedXenotypeDefs = null;
 		}
 
 		private static int cachedTickIndex = 1;
