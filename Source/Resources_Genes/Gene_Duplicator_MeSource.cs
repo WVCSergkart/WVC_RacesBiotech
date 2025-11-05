@@ -322,4 +322,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// In Dev
+	public class Gene_Duplicator_Hivemind : Gene_Duplicator_MeSource, IGeneHivemind, IGeneNonSync
+	{
+
+	}
+
 }

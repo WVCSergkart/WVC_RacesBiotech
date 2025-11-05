@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_Hivemind</defName>
+	<label>hivemind trigger</label>
+	<description>Carriers of this gene can morph if they are part of a hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindMorph</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
+	<displayOrderInCategory>-70</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph if &lt;color=#8a8ae6&gt;in hivemind&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGeneClass>WVC_XenotypesAndGenes.IGeneHivemind</morpherTriggerGeneClass>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphTargeter_Hivemind</defName>
+	<label>targeted morph (hivemind)</label>
+	<description>Carriers of this gene can only morph into xenotypes that are present in the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter_Hivemind</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
+	<displayOrderInCategory>-50.045</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to current &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; xenotypes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

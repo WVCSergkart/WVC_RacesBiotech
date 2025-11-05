@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		private bool CacheableBool(int ticksTimeOut = 120)
 		{
 			//nextTick--;
-			if (nextTick < 0)
+			if (nextTick <= 0)
 			{
 				cachedBool = !CanMorph();
 				nextTick = ticksTimeOut;

@@ -49,6 +49,14 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MorpherXenotypeTargeter_WithMatch : Gene_MorpherXenotypeTargeter, IGeneOverridden
 	{
 
+		public override XenotypeHolder TargetedXenotype
+		{
+			get
+			{
+				return new(PossibleXenotypeDefs.RandomElement());
+			}
+		}
+
 		public override List<XenotypeDef> PossibleXenotypeDefs
 		{
 			get
@@ -80,6 +88,14 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_MorpherXenotypeTargeter_Hivemind : Gene_MorpherXenotypeTargeter, IGeneOverridden
 	{
+
+		public override XenotypeHolder TargetedXenotype
+		{
+			get
+			{
+				return new(PossibleXenotypeDefs.RandomElement());
+			}
+		}
 
 		public new static List<XenotypeDef> cachedXenotypeDefs;
 		public override List<XenotypeDef> PossibleXenotypeDefs

@@ -1223,15 +1223,16 @@ namespace WVC_XenotypesAndGenes
 		{
 			for (int i = 0; i < geneDefs.Count; i++)
 			{
-				if (geneDefs[i] != null)
+				if (geneDefs[i] == null)
 				{
-					List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-					for (int j = 0; j < genesListForReading.Count; j++)
+					continue;
+				}
+				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+				for (int j = 0; j < genesListForReading.Count; j++)
+				{
+					if (genesListForReading[j].def == geneDefs[i] && genesListForReading[j].Active == true)
 					{
-						if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
-						{
-							return geneDefs[i];
-						}
+						return geneDefs[i];
 					}
 				}
 			}

@@ -354,6 +354,7 @@ namespace WVC_XenotypesAndGenes
 		public JobDef morpherTriggerChangeJob;
 		public List<XenotypeDef> morpherXenotypeDefs;
 		public List<XenotypeChance> morpherXenotypeChances;
+		public Type morpherTriggerGeneClass;
 		//Voidlink
 		//public float maxVoidEnergyOffset = 0f;
 		//Subhumans

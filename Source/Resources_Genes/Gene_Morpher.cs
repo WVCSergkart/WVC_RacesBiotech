@@ -455,72 +455,35 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				GeneExtension_Giver geneExtension_Giver = geneDef.GetModExtension<GeneExtension_Giver>();
-				if ((geneExtension_Giver?.morpherTriggerGene) == null)
+				if (geneExtension_Giver?.morpherTriggerGene != null)
 				{
-					continue;
+					if (pawnGenes.Contains(geneExtension_Giver.morpherTriggerGene))
+					{
+						SafeAdd(list, geneDef);
+					}
 				}
-				if (pawnGenes.Contains(geneExtension_Giver.morpherTriggerGene))
+				else if (geneExtension_Giver?.morpherTriggerGeneClass != null)
 				{
-					list.Add(geneDef);
+					if (pawnGenes.Any((gene) => gene.IsGeneDefOfType(geneExtension_Giver.morpherTriggerGeneClass)))
+					{
+						SafeAdd(list, geneDef);
+					}
 				}
 			}
-			//foreach (Gene gene in pawn.genes.GenesListForReading)
-			//{
-			//	if (gene is Gene_Deathrest)
-			//	{
-			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathrestMorph>()).TryRandomElement(out GeneDef triggerGene))
-			//		{
-			//			list.Add(triggerGene);
-			//		}
-			//	}
-			//	else if (gene is Gene_Deathless)
-			//	{
-			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathlessMorph>()).TryRandomElement(out GeneDef triggerGene))
-			//		{
-			//			list.Add(triggerGene);
-			//		}
-			//	}
-			//	else if (gene is Gene_Hemogen)
-			//	{
-			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_HemogenMorph>()).TryRandomElement(out GeneDef triggerGene))
-			//		{
-			//			list.Add(triggerGene);
-			//		}
-			//	}
-			//	else if (gene is Gene_Undead)
-			//	{
-			//		if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_UndeadMorph>()).TryRandomElement(out GeneDef triggerGene))
-			//		{
-			//			list.Add(triggerGene);
-			//		}
-			//	}
-			//}
-			//if (pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
-			//{
-			//}
-			//if (pawn.genes?.GetFirstGeneOfType<Gene_Deathless>() != null)
-			//{
-			//}
-			//if (pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
-			//{
-			//}
-			//if (pawn.genes?.GetFirstGeneOfType<Gene_Undead>() != null)
-			//{
-			//}
 			if (pawn.psychicEntropy?.NeedsPsyfocus == true)
 			{
 				if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_PsyfocusMorph>()).TryRandomElement(out GeneDef triggerGene))
 				{
-					list.Add(triggerGene);
+					SafeAdd(list, triggerGene);
 				}
 			}
 			if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
 			{
-				list.AddRange(Giver.morpherTriggerGenes);
+				list.AddRangeSafe(Giver.morpherTriggerGenes);
 			}
 			if (XenotypeGiver != null && !XenotypeGiver.morpherTriggerGenes.NullOrEmpty())
 			{
-				list.AddRange(XenotypeGiver.morpherTriggerGenes);
+				list.AddRangeSafe(XenotypeGiver.morpherTriggerGenes);
 			}
 			if (list.NullOrEmpty())
 			{
@@ -528,6 +491,15 @@ namespace WVC_XenotypesAndGenes
 				return database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>()).RandomElement();
 			}
 			return list.RandomElement();
+
+			static void SafeAdd(List<GeneDef> list, GeneDef geneDef)
+			{
+				if (list.Contains(geneDef))
+				{
+					return;
+				}
+				list.Add(geneDef);
+			}
 		}
 
 		private void UpdSkinAndHair()
