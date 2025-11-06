@@ -794,7 +794,7 @@ namespace WVC_XenotypesAndGenes
 		/// <returns></returns>
 		private static bool IsShapeshiftGene(Gene gene)
 		{
-			return gene is Gene_Morpher or Gene_Shapeshifter or Gene_Chimera;
+			return gene is IGeneShapeshifter;
 		}
 
 	}

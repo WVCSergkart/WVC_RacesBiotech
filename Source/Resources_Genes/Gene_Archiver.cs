@@ -287,6 +287,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				postMorphGene.PostMorph(newPawn);
 			}
+			Notify_Ideology();
 			MiscUtility.Notify_DebugPawn(pawn);
 			//pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}

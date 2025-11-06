@@ -118,7 +118,7 @@
 			<foodPoisoningFromFood>true</foodPoisoningFromFood>
 			<rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef>
 			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
-			<chargeSpeedFactor>1</chargeSpeedFactor>
+			<chargeSpeedFactor>1.2</chargeSpeedFactor>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
 			<MeAboutThoughtDef>WVC_WellCharged</MeAboutThoughtDef>

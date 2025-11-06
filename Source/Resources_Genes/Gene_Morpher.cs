@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverridden
+	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverridden, IGeneShapeshifter
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -286,6 +286,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				postMorphGene.PostMorph(pawn);
 			}
+			Notify_Ideology();
+		}
+
+		public void Notify_Ideology()
+		{
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_Morph, pawn.Named(HistoryEventArgsNames.Doer)));
@@ -833,7 +838,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			Notify_GenesChanged(null);
 		}
-
 	}
 
 }

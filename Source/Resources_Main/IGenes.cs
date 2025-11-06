@@ -266,4 +266,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//InDev
+	public interface IGeneShapeshifter
+	{
+
+
+
+	}
+
 }

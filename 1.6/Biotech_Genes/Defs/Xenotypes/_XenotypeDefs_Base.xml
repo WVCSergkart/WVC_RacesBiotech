@@ -75,4 +75,33 @@
 	</genes>
   </XenotypeDef>
 
+  <!-- Metalkins -->
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike" Abstract="True">
+	<inheritable>true</inheritable>
+	<displayPriority>-1055</displayPriority>
+	<factionlessGenerationWeight>0.04</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_CyberSkin</li>
+		<li>WVC_VoiceMechaScorcher</li>
+		<li>WVC_MechaAI_SoftwareMoving</li>
+		<li>WVC_MechaAI_PsychicDull</li>
+		<li>WVC_CyclicallySelfLearning</li>
+		<li Hook="RemoveMeInTest">WVC_MecaBodyParts_Stomach</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Metal</li>
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
+	</genes>
+  </XenotypeDef>
+
 </Defs>

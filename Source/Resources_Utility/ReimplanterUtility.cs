@@ -108,6 +108,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SetXenotypeDirect(Pawn pawn, XenotypeHolder xenotypeHolder)
+		{
+			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
+			if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
+			{
+				pawn.genes.xenotypeName = xenotypeHolder.name;
+				pawn.genes.iconDef = xenotypeHolder.iconDef;
+			}
+		}
+
 		public static void UnknownXenotype(Pawn pawn, string xenotypeName = null, XenotypeIconDef xenotypeIconDef = null)
 		{
 			// pawn.genes.xenotypeName = "WVC_XaG_SubXenotypeUnknownXenotypeError".Translate();
@@ -520,12 +530,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn_GeneTracker recipientGenes = pawn.genes;
 			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || xenogenes)
 			{
-				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
-				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
-				{
-					pawn.genes.xenotypeName = xenotypeHolder.name;
-					pawn.genes.iconDef = xenotypeHolder.iconDef;
-				}
+				SetXenotypeDirect(pawn, xenotypeHolder);
 			}
 			if (xenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{

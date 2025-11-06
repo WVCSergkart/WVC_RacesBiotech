@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- metalkin hivemind -->
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Minder</defName>
+	<!-- minder, rustkind -->
+	<label>minder</label>
+	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.</description>
+	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
+	<displayPriority>-1057</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_ExpEqualizer</li>
+		<li>WVC_Hivemind_SyncNode</li>
+		<li>WVC_Hivemind_IdeoSync</li>
+		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_WoundHealing_SelfRepair</li>
+		<li>WVC_NaturalAgeless</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_BioferriteGrowths</li>
+		<li>Body_Standard</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

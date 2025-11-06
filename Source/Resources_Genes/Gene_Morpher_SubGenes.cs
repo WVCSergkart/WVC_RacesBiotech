@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 		private int nextTick = 0;
 		private bool cachedBool = false;
 
-		private bool CacheableBool(int ticksTimeOut = 120)
+		private bool CacheableBool(int ticksTimeOut = 360)
 		{
 			//nextTick--;
 			if (nextTick <= 0)

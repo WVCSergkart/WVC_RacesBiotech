@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!MiscUtility.GameNotStarted())
+			if (MiscUtility.GameStarted())
 			{
 				nextTick = Spawner.spawnIntervalRange.RandomInRange;
 			}
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 			if (nextTick > 0)
 			{
 				nextTick -= delta;
-				if (nextTick == 0)
+				if (nextTick <= 0)
 				{
 					Find.LetterStack.ReceiveLetter("AbilityReadyLabel".Translate(def.LabelCap), "AbilityReadyText".Translate(pawn, def.label), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 				}

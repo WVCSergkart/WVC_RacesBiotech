@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- metalkin -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_GeneThrower</defName>
 	<label>metalkin</label>
 	<!-- <label>throwex</label> -->
@@ -11,72 +11,24 @@
 	<!-- Mechanized, covered in creepy metal growths, with a repulsive appearance, metalkins are a product of artificial evolution.\n\nMetalkins were created in a glitter world engulfed in war with the mechanoids, when the atmosphere was poisoned by toxins, and colossal buildings turned into ruins. Scientists, trying to adapt humans to the new world, conducted many inhumane experiments. The surviving technological achievements and many trophies collected in the ruins helped create the first prototypes capable of comfortably existing in the new world. A dying world, where the basis of survival was to become like its destroyers, caused a split in societies and ideologies, including the creation of a cult worshiping a machine god. It was the mad leader of the cult, claiming that the machine god sent him revelations about survival, who led the last experiment as a result of which the metalkins were created. -->
 	<description>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Anomaly):&lt;/color&gt; Upon death, it &lt;color=#8a8ae6&gt;spawns a metalhorror&lt;/color&gt; (only once) and emerge any metalhorror that has taken up residence in their body.</description>
 	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
-	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</iconPath> -->
 	<displayPriority>-1055</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<factionlessGenerationWeight>0.14</factionlessGenerationWeight>
 	<genes>
-		<!-- <li>WVC_MechaSkin</li> -->
-		<li>WVC_CyberSkin</li>
-		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
-		<li>WVC_MechaPowerSource_Stable</li>
-		<!-- <li>WVC_GenePackSpawner_Disable</li> -->
-		<!-- <li>WVC_GenePackSpawner_Mecha</li> -->
+		<li Hook="RemoveMeInTest">WVC_MechaPowerSource_Stable</li>
 		<li>WVC_Genemaker</li>
-		<!-- <li>WVC_MechaAI_FirmwareCreatorMachine</li> -->
-		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
-		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
-		<!-- <li>WVC_Eyes_ceae69_HEX</li> -->
-		<li>WVC_CyclicallySelfLearning</li>
-		<li>WVC_MechaAI_PsychicDull</li>
-		<li>WVC_MecaBodyParts_Ear</li>
-		<li>WVC_MecaBodyParts_Eye</li>
-		<li>WVC_MecaBodyParts_Leg</li>
-		<li>WVC_MecaBodyParts_Stomach</li>
-		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Kidney</li>
-		<li>WVC_MecaBodyParts_Liver</li>
-		<!-- <li>WVC_Mecha_ConnectorTail</li> -->
 		<li>WVC_Mecha_AntennaTail</li>
-		<!-- <li>WVC_DragonTailA</li> -->
 		<li>WVC_Mecha_RedFormerSpikesDouble</li>
-		<li>WVC_VoiceMechaScorcher</li>
-		<!-- <li>WVC_VoiceMechaFabricor</li> -->
 		<li>WVC_MechaAI_SoftwareManipulation</li>
-		<li>WVC_MechaAI_SoftwareMoving</li>
 		<li>Ageless</li>
-		<!-- <li>DiseaseFree</li> -->
-		<!-- <li>PerfectImmunity</li> -->
-		<!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
 		<li>WVC_FirefoampopMech</li>
-		<!-- <li>WVC_XenotypeGestator</li> -->
-		<li>WVC_ReimplanterArchite_Endogenes</li>
-		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
-		<!-- <li>ToxResist_Total</li> -->
-		<!-- <li>WVC_ToxResist_Total</li> -->
-		<!-- <li>WVC_MinMaxTemp_Archite</li> -->
-		<li>WVC_MecaBodyParts_Lung</li>
-		<!-- <li>WVC_Neversleep</li> -->
-		<li>WVC_MecaUpgrades_EnergySavingMode</li>
 		<li>Body_Standard</li>
-		<!-- <li>Hair_InkBlack</li> -->
-		<li>WVC_HairColor_Slate</li>
-		<!-- <li>WVC_SkinColor_b4c8ff_HEX</li> -->
-		<!-- <li>WVC_SkinColor_c8b4ff_HEX</li> -->
-		<li>WVC_SkinColor_Metal</li>
-		<!-- <li>WVC_BodySize_Small</li> -->
-		<li>WVC_PredatorPrey_NotTasty</li>
-		<!-- New -->
-		<!-- <li>WVC_RechargeableStomach</li> -->
-		<!-- Anomaly -->
-		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
-		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
 	</genes>
   </XenotypeDef>
 

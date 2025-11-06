@@ -53,6 +53,20 @@
 	  </value>
 	</Operation>
 
+	<!-- RemoveMeInTest -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/XenotypeDef/genes/li[@Hook="RemoveMeInTest"]</xpath>
+	</Operation>
+
+	<!-- Metalkin update -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/XenotypeDef[@Name="WVC_XenotypesAndGenes_XenoDef_Metalkin"]/genes</xpath>
+	  <value>
+		<li>WVC_Switcher</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+	  </value>
+	</Operation>
+
 	<!-- Gravship start test -->
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/SketchResolverDef[defName="Gravship"]/resolver</xpath>

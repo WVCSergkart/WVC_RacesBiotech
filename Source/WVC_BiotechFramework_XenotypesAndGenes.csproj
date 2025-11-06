@@ -130,6 +130,7 @@
     <Compile Include="Resources_Genes\Gene_RegenerationSleep.cs" />
     <Compile Include="Resources_Genes\Gene_Rejuvenator.cs" />
     <Compile Include="Resources_Genes\Gene_ExpEqualizer.cs" />
+    <Compile Include="Resources_Genes\Gene_Switcher.cs" />
     <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Archiver.cs" />
     <Compile Include="Resources_Genes\Gene_Auto.cs" />

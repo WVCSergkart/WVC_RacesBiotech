@@ -80,13 +80,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			if (cooldownTick > 0)
-			{
-				cooldownTick -= delta;
-			}
 			if (!pawn.IsHashIntervalTick(59997, delta))
 			{
 				return;
+			}
+			if (cooldownTick > 0)
+			{
+				cooldownTick -= 59997;
 			}
 			ResetCollection();
 		}

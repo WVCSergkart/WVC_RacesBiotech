@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+	<defName>WVC_Switcher</defName>
+	<label>switcher</label>
+	<description>Carriers of this gene are able to rewrite their genetic code to the closest similar one, allowing them to switch between specific xenotypes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Switcher</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Switcher</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>-120</displayOrderInCategory>
+	<displayCategory>WVC_Morpher</displayCategory>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0</selectionWeight>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;switch&lt;/color&gt; between &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt; that have this gene.</li>
+		<li>Cooldown: ~15 days</li>
+		<li>&lt;color=#ffec85&gt;Can only switch within its own heredity type (endogene/xenogene).&lt;/color&gt;</li>
+		<li>&lt;color=#f46d6b&gt;Does not store information about previous genes in any form.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>VRE_Morphs</li>
+	  <li>MorphCondition</li>
+	  <li>WVC_MorphCondition_Targeter</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+</Defs>
