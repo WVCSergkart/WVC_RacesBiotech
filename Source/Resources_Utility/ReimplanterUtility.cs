@@ -354,7 +354,7 @@ namespace WVC_XenotypesAndGenes
 				TraitsUtility.FixGeneTraits(pawn, genesListForReading);
 				//NotifyGenesChanged(pawn);
 				XaG_GeneUtility.ResetGenesInspectString(pawn);
-				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
+				GeneshiftUtility.ResetXenotypesCollection();
 				if (DebugSettings.ShowDevGizmos)
 				{
 					Log.Warning("Post implant debug called.");

@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return DefDatabase<XenotypeDef>.GetNamed("WVC_Meca");
 			}
-			if (!ThoughtWorker_Precept_Shapeshifter.AnyShapeshifters && StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount >= StaticCollectionsClass.cachedNonDeathrestingColonistsCount / 2)
+			if (!GeneshiftUtility.AnyShapeshifters && StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount >= StaticCollectionsClass.cachedNonDeathrestingColonistsCount / 2)
 			{
 				return DefDatabase<XenotypeDef>.GetNamed("WVC_Shadoweater");
 			}

@@ -744,20 +744,20 @@ namespace WVC_XenotypesAndGenes
 		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null;
 		//}
 
-		public static bool IsShapeshifter(this Pawn pawn)
-		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>() != null;
-		}
+		//public static bool IsShapeshifter(this Pawn pawn)
+		//{
+		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>() != null;
+		//}
 
 		public static bool IsMorpher(this Pawn pawn)
 		{
 			return pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>() != null;
 		}
 
-		public static bool IsChimerkin(this Pawn pawn)
-		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>() != null;
-		}
+		//public static bool IsChimerkin(this Pawn pawn)
+		//{
+		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>() != null;
+		//}
 
 		public static bool IsBloodeater(this Pawn pawn)
 		{

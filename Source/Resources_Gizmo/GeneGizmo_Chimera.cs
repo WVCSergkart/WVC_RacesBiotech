@@ -42,7 +42,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_EatAndDes".Translate(gene.EatedGenes.Count, gene.DestroyedGenes.Count));
 					}
-					stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.XenogenesLimit));
+					if (WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+					{
+						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.XenogenesLimit, gene.ArchiteLimit));
+					}
 					IntRange reqMetRange = gene.ReqMetRange;
 					if (reqMetRange.TrueMin > -99 || reqMetRange.TrueMax < 99)
 					{

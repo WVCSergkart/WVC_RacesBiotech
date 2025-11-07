@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 			//HivemindUtility.ResetSafeCollection();
 			HivemindUtility.ResetCollection();
 			//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
-			ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
+			GeneshiftUtility.ResetXenotypesCollection();
 			//UpdateSavedVersion();
 			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();

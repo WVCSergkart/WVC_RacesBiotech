@@ -45,7 +45,17 @@ namespace WVC_XenotypesAndGenes
 
 		protected override List<GeneDef> SelectedGenes => selectedGenes;
 
-		protected override string Header => "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ")";
+		protected override string Header
+		{
+			get
+			{
+				if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+				{
+					return gene.LabelCap;
+				}
+				return "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ") | " + "WVC_Archites".Translate().CapitalizeFirst() + " (" + ConsumedLimit_Arc + "/" + ArchitesLimit.ToString() + ")";
+			}
+		}
 
 		protected override string AcceptButtonLabel
 		{
@@ -542,6 +552,32 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int? cachedArchitesLimit;
+		public int ArchitesLimit
+		{
+			get
+			{
+				if (!cachedArchitesLimit.HasValue)
+				{
+					GetLimitAndCost();
+				}
+				return cachedArchitesLimit.Value;
+			}
+		}
+
+		private int? cachedLimitConsumed_Arc;
+		public int ConsumedLimit_Arc
+		{
+			get
+			{
+				if (!cachedLimitConsumed_Arc.HasValue)
+				{
+					GetLimitAndCost();
+				}
+				return cachedLimitConsumed_Arc.Value;
+			}
+		}
+
 		private void GetLimitAndCost()
 		{
 			int limitCost = 0;
@@ -554,8 +590,11 @@ namespace WVC_XenotypesAndGenes
 			//    genesLimit += offset;
 			//    genesLimitFactor *= factor;
 			//}
+			//int archites = 0;
+			int arcLimitCost = 0;
 			foreach (GeneDef item in pawnEndoGenes)
 			{
+				//archites += item.biostatArc;
 				if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
 				{
 					continue;
@@ -568,6 +607,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
 				limitCost++;
+				arcLimitCost += item.biostatArc;
 				genesLimit += offset;
 				genesLimitFactor *= factor;
 			}
@@ -591,9 +631,14 @@ namespace WVC_XenotypesAndGenes
 			genesLimit *= genesLimitFactor;
 			cachedLimitConsumed = limitCost;
 			cachedXenogenesLimit = (int)genesLimit;
+			//
+			cachedArchitesLimit = gene.ArchiteLimit;
+			cachedLimitConsumed_Arc = arcLimitCost;
+			//
 			if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
 			{
 				cachedXenogenesLimit = 999;
+				cachedArchitesLimit = 999;
 			}
 		}
 
@@ -633,6 +678,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			cachedXenogenesLimit = null;
 			cachedLimitConsumed = null;
+			cachedArchitesLimit = null;
 		}
 
 		public override void DoWindowContents(Rect rect)
@@ -856,7 +902,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (XenogenesLimit < ConsumedLimit)
+			if (XenogenesLimit < ConsumedLimit || ArchitesLimit < ConsumedLimit_Arc)
 			{
 				Messages.Message("WVC_XaG_Gene_Chimera_LimitMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;

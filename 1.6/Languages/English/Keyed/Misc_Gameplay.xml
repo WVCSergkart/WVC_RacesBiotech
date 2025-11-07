@@ -17,6 +17,8 @@
 
 	<WVC_None>None</WVC_None>
 
+	<WVC_Archites>Archites</WVC_Archites>
+
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
@@ -635,7 +637,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Chimera_GizmoTip_Basic> -  &lt;color=#aad8a2&gt;Collected genes&lt;/color&gt;: {0}</WVC_XaG_Chimera_GizmoTip_Basic>
 	<WVC_XaG_Chimera_GizmoTip_Geneline> -  &lt;color=#aad8a2&gt;Geneline genes&lt;/color&gt;: {0}</WVC_XaG_Chimera_GizmoTip_Geneline>
 	<WVC_XaG_Chimera_GizmoTip_EatAndDes> -  &lt;color=#b26160&gt;Eated genes&lt;/color&gt;: {0}\n -  &lt;color=#999999&gt;Destroyed genes&lt;/color&gt;: {1}</WVC_XaG_Chimera_GizmoTip_EatAndDes>
-	<WVC_XaG_Chimera_GizmoTip_GenesLimit> -  &lt;color=#8a8ae6&gt;Xenogenes limit&lt;/color&gt;: {0}</WVC_XaG_Chimera_GizmoTip_GenesLimit>
+	<WVC_XaG_Chimera_GizmoTip_GenesLimit> -  &lt;color=#8a8ae6&gt;Xenogenes limit&lt;/color&gt;: {0}\n -  &lt;color=#8a8ae6&gt;Archites limit&lt;/color&gt;: {1}</WVC_XaG_Chimera_GizmoTip_GenesLimit>
 	<WVC_XaG_Chimera_GizmoTip_MetLimit> -  &lt;color=#8a8ae6&gt;Metabolic limit&lt;/color&gt;: from {0} to {1}</WVC_XaG_Chimera_GizmoTip_MetLimit>
 
 	<WVC_XaG_ChimeraDialog_ConflictWith>Conflicts with genes:</WVC_XaG_ChimeraDialog_ConflictWith>
@@ -743,6 +745,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- =============== CHIMERA EVOLVE =============== -->
 
 	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
+
+	<WVC_XaG_GeneChimera_ArchiteDevour>Increase chimera archite limit.</WVC_XaG_GeneChimera_ArchiteDevour>
 
 	<!-- <WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene> -->
 	<WVC_XaG_GeneChimeraReqGene>Entityty study is not complete or the pawn does not have the chimera gene.</WVC_XaG_GeneChimeraReqGene>

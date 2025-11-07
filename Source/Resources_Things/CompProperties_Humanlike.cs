@@ -239,7 +239,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (ModsConfig.IdeologyActive)
 			{
-				ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
+				GeneshiftUtility.ResetXenotypesCollection();
 				StaticCollectionsClass.ResetStaticRecacheTick();
 			}
 			if (HivemindUtility.InHivemind_Safe(pawn))

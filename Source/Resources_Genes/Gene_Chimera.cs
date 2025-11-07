@@ -46,6 +46,21 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneSetPresets> geneSetPresets = new();
 
+
+		private int currentArchiteLimit = 1;
+		public int ArchiteLimit
+		{
+			get
+			{
+				return currentArchiteLimit + (int)(pawn.genes.Endogenes.Sum((gene) => gene.def.biostatArc) * 0.12f);
+			}
+		}
+
+		public void AddArchiteLimit(int newLimit = 1)
+		{
+			currentArchiteLimit += newLimit;
+		}
+
 		// private float minCopyChance = WVC_Biotech.settings.chimeraMinGeneCopyChance;
 
 		//public float MinCopyChance
@@ -127,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryGetToolGene()
 		{
-			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef) && (geneDef.prerequisite == null || XaG_GeneUtility.HasActiveGene(geneDef.prerequisite, pawn))).TryRandomElement(out GeneDef result))
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => geneDef.biostatArc <= ArchiteLimit && !AllGenes.Contains(geneDef) && (geneDef.prerequisite == null || XaG_GeneUtility.HasActiveGene(geneDef.prerequisite, pawn))).TryRandomElement(out GeneDef result))
 			{
 				TryAddGene(result);
 				if (pawn.SpawnedOrAnyParentSpawned)
@@ -298,6 +313,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref currentArchiteLimit, "currentArchiteLimit", 1);
 			Scribe_Collections.Look(ref consumedGenes, "eatedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref collectedGenes, "stolenGenes", LookMode.Def);
 			Scribe_Collections.Look(ref destroyedGenes, "destroyedGenes", LookMode.Def);
@@ -327,7 +343,6 @@ namespace WVC_XenotypesAndGenes
 				Debug_RemoveDupes();
 			}
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
-			//Scribe_Values.Look(ref lastGeneObtainedTick, "lastGeneObtainedTick", -1);
 		}
 
 		public void Debug_RemoveDupes()

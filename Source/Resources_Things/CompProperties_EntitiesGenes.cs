@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -5,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_EntitiesGenes : CompProperties
+	public class CompProperties_CustomFloatMenu : CompProperties
 	{
 
 		public GeneDef geneDef;
@@ -14,16 +15,26 @@ namespace WVC_XenotypesAndGenes
 
 		public string warningText = "WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning";
 
-		public CompProperties_EntitiesGenes()
+
+
+		public CompProperties_CustomFloatMenu()
 		{
 			compClass = typeof(CompEntitiesGenes);
 		}
 	}
 
+	[Obsolete]
+	public class CompProperties_EntitiesGenes : CompProperties_CustomFloatMenu
+	{
+
+
+
+	}
+
 	public class CompEntitiesGenes : ThingComp
 	{
 
-		public CompProperties_EntitiesGenes Props => (CompProperties_EntitiesGenes)props;
+		public CompProperties_CustomFloatMenu Props => (CompProperties_CustomFloatMenu)props;
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
@@ -31,14 +42,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			//if (!selPawn.IsChimera())
-			//{
-			//	yield break;
-			//}
+			if (!selPawn.IsChimerkin())
+			{
+				yield break;
+			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_GeneChimeraEntitiesDevour".Translate(), delegate
 			{
 				CompStudyUnlocks study = parent.TryGetComp<CompStudyUnlocks>();
-				if (selPawn.IsChimerkin() && (study == null || study.Completed))
+				if (study == null || study.Completed)
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Props.warningText.Translate(), delegate
 					{
@@ -50,6 +61,31 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("WVC_XaG_GeneChimeraReqGene".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
+			}), selPawn, parent);
+			//return Enumerable.Empty<FloatMenuOption>();
+		}
+
+	}
+
+	public class CompChimeraArchiteLimit : ThingComp
+	{
+
+		public CompProperties_CustomFloatMenu Props => (CompProperties_CustomFloatMenu)props;
+
+		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (Props.devourJob == null)
+			{
+				yield break;
+			}
+			if (!selPawn.IsChimerkin())
+			{
+				yield break;
+			}
+			//Log.Error("01");
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_GeneChimera_ArchiteDevour".Translate(), delegate
+			{
+				MiscUtility.MakeJobWithGeneDef(selPawn, Props.devourJob, Props.geneDef, parent);
 			}), selPawn, parent);
 			//return Enumerable.Empty<FloatMenuOption>();
 		}

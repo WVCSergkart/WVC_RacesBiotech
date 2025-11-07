@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 			ThoughtWorker_Precept_Social_Duplicates.duplicateSets = new();
 			//ThoughtWorker_Precept_Family.families = new();
 			//ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-			ThoughtWorker_Precept_Shapeshifter.ResetXenotypesCollection();
+			GeneshiftUtility.ResetXenotypesCollection();
 			HealingUtility.UpdRegenCollection();
 			GeneResourceUtility.UpdUndeads();
 			HivemindUtility.ResetCollection();
@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 			ThoughtWorker_Precept_HasAnyXenotypesAndCount.lastRecacheTick = -1;
 			ThoughtWorker_Precept_WithCollectionCheck.lastRecacheTick = -1;
 			ThoughtWorker_Precept_Family.lastRecacheTick = -1;
-			ThoughtWorker_Precept_Shapeshifter.lastRecacheTick = -1;
+			GeneshiftUtility.lastRecacheTick = -1;
 		}
 
 		public static void AddHideMechanitors(Pawn pawn)

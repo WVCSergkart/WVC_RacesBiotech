@@ -8,7 +8,7 @@
 				<li Class="PatchOperationAdd">
 				  <xpath>/Defs/ThingDef[defName="FleshmassNucleus"]/comps</xpath>
 				  <value>
-					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_FleshmassNucleus</geneDef>
 					  <devourJob>WVC_DevourEntitie</devourJob>
@@ -18,7 +18,7 @@
 				<li Class="PatchOperationAdd">
 				  <xpath>/Defs/ThingDef[defName="Nociosphere"]/comps</xpath>
 				  <value>
-					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_VoidMechlink</geneDef>
 					  <devourJob>WVC_DevourEntitie</devourJob>

@@ -442,6 +442,19 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_chimeraXenogenesLimit</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath>
+		  <value>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+			  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
+			  <devourJob>WVC_ConsumeArchiteCapsule</devourJob>
+			</li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
 	<!-- ================== -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
