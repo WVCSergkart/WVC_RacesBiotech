@@ -78,6 +78,9 @@
   <!-- Metalkins -->
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike" Abstract="True">
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_GeneRecharger</ThingDef>
+	</descriptionHyperlinks>
 	<inheritable>true</inheritable>
 	<displayPriority>-1055</displayPriority>
 	<factionlessGenerationWeight>0.04</factionlessGenerationWeight>

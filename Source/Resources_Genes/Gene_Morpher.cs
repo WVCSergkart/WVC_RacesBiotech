@@ -783,6 +783,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			if (IsOneTime)
+			{
+				yield break;
+			}
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);

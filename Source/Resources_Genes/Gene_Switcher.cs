@@ -133,6 +133,10 @@ namespace WVC_XenotypesAndGenes
 						{
 							continue;
 						}
+						//if (!XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, xenotypeHolder.genes, WVC_Biotech.settings.))
+						//{
+						//	continue;
+						//}
 						if (xenotypeHolder.genes.Any((geneDef) => geneDef.IsGeneDefOfType<Gene_Switcher>()))
 						{
 							newList.Add(xenotypeHolder);
@@ -146,6 +150,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Switch(XenotypeHolder newHolder)
 		{
+			//cachedHolders = null;
 			try
 			{
 				if (!newHolder.inheritable || pawn.genes.Xenogenes.NullOrEmpty())
@@ -160,6 +165,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					SetXenotype(newHolder, pawn.genes.Xenogenes);
 				}
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new(nextTick, nextTick));
 				ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 				ReimplanterUtility.PostImplantDebug(pawn);
 				if (ModLister.IdeologyInstalled)

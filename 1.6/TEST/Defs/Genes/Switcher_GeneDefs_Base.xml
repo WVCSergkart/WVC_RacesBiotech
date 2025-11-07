@@ -18,6 +18,7 @@
 		<li>Allows to &lt;color=#8a8ae6&gt;switch&lt;/color&gt; between &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt; that have this gene.</li>
 		<li>Cooldown: ~15 days</li>
 		<li>&lt;color=#ffec85&gt;Can only switch within its own heredity type (endogene/xenogene).&lt;/color&gt;</li>
+		 <!-- Required genetic match is 60%. -->
 		<li>&lt;color=#f46d6b&gt;Does not store information about previous genes in any form.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>

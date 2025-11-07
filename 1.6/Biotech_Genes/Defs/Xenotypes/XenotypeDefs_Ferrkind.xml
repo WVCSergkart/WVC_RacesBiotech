@@ -14,6 +14,7 @@
 	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.</descriptionShort>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
+	  <!-- <XenotypeDef>WVC_Rustkind</XenotypeDef> -->
 	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
 	<displayPriority>-1060</displayPriority>

@@ -3,7 +3,7 @@
 
 	<!-- Body size -->
 
-	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
+	<GeneDef MayRequire="oskarpotocki.vanillafactionsexpanded.core" ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 		<defName>WVC_BodySize_ChildlikeSmall</defName>
 		<label>childlike size</label>
 		<description>Carriers of this gene are significantly smaller than baseline humans.</description>
@@ -13,7 +13,7 @@
 		<biostatMet>4</biostatMet>
 		<statFactors>
 		  <MaxNutrition>2.78</MaxNutrition>
-		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.6</VEF_BodySize_Multiplier>
+		  <VEF_BodySize_Multiplier>0.6</VEF_BodySize_Multiplier>
 		</statFactors>
 		<symbolPack>
 		  <prefixSymbols>

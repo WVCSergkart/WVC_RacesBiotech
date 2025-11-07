@@ -50,13 +50,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool IsOneTime
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool IsOneTime => false;
 
 		public override TaggedString GizmoTootip => "WVC_XaG_ArchiverGizmoTip".Translate();
 

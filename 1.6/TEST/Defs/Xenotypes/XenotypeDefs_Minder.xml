@@ -3,15 +3,20 @@
 
   <!-- metalkin hivemind -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
-	<defName>WVC_Minder</defName>
+	<defName>WVC_Rustkind</defName>
 	<!-- minder, rustkind -->
-	<label>minder</label>
-	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream.
+	<label>rustkind</label>
+	<description>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.</description>
-	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Hivemind):&lt;/color&gt; Is a hivemind xenotype capable of copying the traits of other hivemind pawns.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Switcher):&lt;/color&gt; Can switch at any time to other xenotypes with the switcher gene.</description>
+	<descriptionShort>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
+	  <XenotypeDef>WVC_Ferrkind</XenotypeDef>
 	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
 	<displayPriority>-1057</displayPriority>
@@ -20,9 +25,12 @@
 	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
 	<genes>
 		<li>WVC_ExpEqualizer</li>
-		<li>WVC_Hivemind_SyncNode</li>
-		<li>WVC_Hivemind_IdeoSync</li>
-		<li>WVC_HiveMind_Skills</li>
+		<!-- <li>WVC_Hivemind_SyncNode</li> -->
+		<li>WVC_HiveMind_Drone</li>
+		<!-- <li>WVC_Hivemind_IdeoSync</li> -->
+		<!-- <li>WVC_HiveMind_Skills</li> -->
+		<li>WVC_Hivemind_Traits</li>
+		<li>WVC_Hivemind_DeathChain</li>
 		<li>WVC_WoundHealing_SelfRepair</li>
 		<li>WVC_NaturalAgeless</li>
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_BioferriteGrowths</li>

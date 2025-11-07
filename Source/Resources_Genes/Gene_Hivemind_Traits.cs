@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
+				RemoveTraits();
 				List<TraitDefHolder> allTraitDefs = new();
 				foreach (Pawn hiver in Hivemind)
 				{
@@ -34,10 +35,13 @@ namespace WVC_XenotypesAndGenes
 						TraitDefHolder holder = new();
 						holder.traitDef = trait.def;
 						holder.traitDegree = trait.Degree;
+						if (allTraitDefs.Any((tra) => tra.traitDef == holder.traitDef && tra.traitDegree == holder.traitDegree))
+						{
+							continue;
+						}
 						allTraitDefs.Add(holder);
 					}
 				}
-				RemoveTraits();
 				TraitsUtility.AddTraitsFromList(pawn, allTraitDefs, this);
 			}
 			catch (Exception arg)
