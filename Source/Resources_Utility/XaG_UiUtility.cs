@@ -209,9 +209,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					text += " " + "WVC_XaG_NewBack_GeneIsFurskin_HeadOverride".Translate().Colorize(ColoredText.TipSectionTitleColor);
 				}
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
+				//text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (def.selectionWeight <= 0 || !def.canGenerateInGeneSet)
+			if (def.selectionWeight <= 0 && !def.canGenerateInGeneSet)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}

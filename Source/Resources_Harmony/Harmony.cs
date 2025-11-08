@@ -5,6 +5,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -40,6 +41,8 @@ namespace WVC_XenotypesAndGenes
 				//Log.Error("2");
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
 				{
+					//harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneBasics"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_DrawGeneBasics))));
+					//harmony.Patch(AccessTools.Method(typeof(GeneDef), "GetDescriptionFull"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDef_GetDescriptionFull))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGene))));
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGeneDef))));
 				}
@@ -206,6 +209,28 @@ namespace WVC_XenotypesAndGenes
 			}
 
 			// Backgroud
+
+			//public static void Patch_GeneDef_GetDescriptionFull(ref string __result, GeneDef __instance)
+			//{
+			//	__result += XaG_UiUtility.AdditionalInfo_GeneDef(__instance);
+			//	if (Prefs.DevMode)
+			//	{
+			//		__result += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
+			//		__result += "\n - defName: " + __instance.defName.ToString();
+			//		__result += "\n - geneClass: " + __instance.geneClass.ToString();
+			//		__result += "\n - selectionWeight: " + __instance.selectionWeight.ToString();
+			//	}
+			//}
+
+			//public static bool Patch_DrawGeneBasics(GeneDef gene, Rect geneRect, GeneType geneType, bool doBackground, bool clickable, bool overridden)
+			//{
+			//	if (gene.IsXenoGenesDef())
+			//	{
+			//		XaG_UiUtility.DrawGeneBasics(gene, geneRect, geneType, doBackground, clickable, overridden);
+			//		return false;
+			//	}
+			//	return true;
+			//}
 
 			public static bool Xag_DrawGene(ref Gene gene, ref Rect geneRect, ref GeneType geneType, ref bool doBackground, ref bool clickable)
 			{

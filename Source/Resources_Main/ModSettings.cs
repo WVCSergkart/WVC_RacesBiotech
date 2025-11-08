@@ -616,6 +616,16 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enable_HideMechanitorButtonsPatch".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_HideMechanitorButtonsPatch, "WVC_ToolTip_enable_HideMechanitorButtonsPatch".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
+			//bool inDevMode = settings.enable_DevModeInfo;
+			//listingStandard.CheckboxLabeled("Dev mode gene info", ref settings.enable_DevModeInfo, "If enabled, genes will have additional DevMode information: class, defName, and spawn chance. Req background.");
+			//if (inDevMode != settings.enable_DevModeInfo)
+			//{
+			//	foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+			//	{
+			//		geneDef.cachedDescription = null;
+			//	}
+			//	Log.Warning("GeneDefs cachedDescription reset.");
+			//}
 			listingStandard.Gap();
 			// =============== Dev ===============
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.resetGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());

@@ -33,6 +33,7 @@
 	<enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch>
 	<chimera_defaultReqMetabolismRange>-5~5</chimera_defaultReqMetabolismRange>
 	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
+	<!-- <enable_DevModeInfo>True</enable_DevModeInfo> -->
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>

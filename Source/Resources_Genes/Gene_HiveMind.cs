@@ -207,6 +207,7 @@ namespace WVC_XenotypesAndGenes
 		private void UpdMet()
 		{
 			def.biostatMet = LastMetCount;
+			def.cachedDescription = null;
 		}
 
 		public override void ExposeData()
@@ -215,7 +216,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref savedMetCount, "savedMetCount", 0);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				savedMetCount = LastMetCount;
+				UpdMet();
 			}
 		}
 

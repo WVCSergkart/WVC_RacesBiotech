@@ -28,7 +28,7 @@
 	<label>hivemind metabolism</label>
 	<description>Carriers of this gene have archites that improve overall metabolism relative to hivemind size.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Metabolism</geneClass>
-	<!-- <iconPath>WVC/UI/Genes3/Gene_Hivemind_Metabolism</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Metabolism</iconPath>
 	<displayOrderInCategory>110</displayOrderInCategory>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>

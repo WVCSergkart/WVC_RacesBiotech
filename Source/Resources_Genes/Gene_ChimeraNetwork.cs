@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.Faction.IsPlayer)
+			if (pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}

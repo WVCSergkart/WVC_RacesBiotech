@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (dryadRef != null)
 			{
-				if (!dryadRef.Faction.IsPlayer)
+				if (dryadRef.Faction != Faction.OfPlayer)
 				{
 					dryadRef.SetFaction(Faction.OfPlayer);
 				}

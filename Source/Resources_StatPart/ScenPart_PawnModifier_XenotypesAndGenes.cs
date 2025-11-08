@@ -586,4 +586,25 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
+	//public class ScenPart_PawnModifier_ShamblerWorld : ScenPart_PawnModifier
+	//{
+
+	//	protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
+	//	{
+	//		if (pawn.Faction != null && pawn.Faction.HostileTo(Faction.OfPlayerSilentFail))
+	//		{
+	//			if (pawn.IsMutant || !pawn.IsHuman())
+	//			{
+	//				return;
+	//			}
+	//			pawn.equipment.DestroyAllEquipment();
+	//			MutantDef mutantDef = Rand.Chance(0.1f) ? MutantDefOf.Ghoul : MutantDefOf.Shambler;
+	//			MutantUtility.SetPawnAsMutantInstantly(pawn, mutantDef);
+	//			//pawn.SetFaction(Faction.OfEntities);
+	//			//pawn.lord 
+	//		}
+	//	}
+
+	//}
+
 }
