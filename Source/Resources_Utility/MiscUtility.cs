@@ -339,10 +339,12 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.AddHediff(hediff_Pregnant);
 		}
 
-		public static void MakeJobWithGeneDef(Pawn pawn, JobDef jobDef, GeneDef geneDef, Thing target)
+		public static void MakeCustomJob(Pawn pawn, Thing target, JobDef jobDef, GeneDef geneDef = null, bool allStack = false, float factor = 1f)
 		{
 			XaG_Job xaG_Job = new(JobMaker.MakeJob(jobDef, target));
 			xaG_Job.geneDef = geneDef;
+			xaG_Job.consumeStack = allStack;
+			xaG_Job.factor = factor;
 			pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
 		}
 

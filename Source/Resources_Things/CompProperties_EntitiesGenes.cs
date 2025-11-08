@@ -11,11 +11,11 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef geneDef;
 
-		public JobDef devourJob;
+		public JobDef jobDef;
 
 		public string warningText = "WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning";
 
-
+		public float factor = 1;
 
 		public CompProperties_CustomFloatMenu()
 		{
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (Props.geneDef == null || Props.devourJob == null)
+			if (Props.geneDef == null || Props.jobDef == null)
 			{
 				yield break;
 			}
@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Props.warningText.Translate(), delegate
 					{
-						MiscUtility.MakeJobWithGeneDef(selPawn, Props.devourJob, Props.geneDef, parent);
+						MiscUtility.MakeCustomJob(selPawn, parent, Props.jobDef, Props.geneDef);
 					});
 					Find.WindowStack.Add(window);
 				}
@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (Props.devourJob == null)
+			if (Props.jobDef == null)
 			{
 				yield break;
 			}
@@ -85,9 +85,16 @@ namespace WVC_XenotypesAndGenes
 			//Log.Error("01");
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_GeneChimera_ArchiteDevour".Translate(), delegate
 			{
-				MiscUtility.MakeJobWithGeneDef(selPawn, Props.devourJob, Props.geneDef, parent);
+				MiscUtility.MakeCustomJob(selPawn, parent, Props.jobDef, factor: Props.factor);
 			}), selPawn, parent);
-			//return Enumerable.Empty<FloatMenuOption>();
+			if (parent.stackCount <= 1)
+			{
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_GeneChimera_ArchiteDevour".Translate() + " x" + parent.stackCount, delegate
+			{
+				MiscUtility.MakeCustomJob(selPawn, parent, Props.jobDef, null, true, factor: Props.factor);
+			}), selPawn, parent);
 		}
 
 	}

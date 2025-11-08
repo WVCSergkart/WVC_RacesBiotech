@@ -21,7 +21,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef geneDef;
 
-		//public ChimeraDef chimeraDef;
+		public bool consumeStack;
+
+		public float factor;
 
 		//public new void ExposeData()
 		//{
@@ -36,7 +38,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef geneDef;
 
-		//public ChimeraDef chimeraDef;
+		public bool consumeStack;
+
+		public float factor;
 
 		public override void Notify_Starting()
 		{
@@ -44,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			if (geneDef == null && job is XaG_Job xaG_Job)
 			{
 				geneDef = xaG_Job.geneDef;
-				//chimeraDef = xaG_Job.chimeraDef;
+				consumeStack = xaG_Job.consumeStack;
 			}
 		}
 
@@ -52,7 +56,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref geneDef, "geneDef");
-			//Scribe_Defs.Look(ref chimeraDef, "chimeraDef");
+			Scribe_Values.Look(ref consumeStack, "consumeStack", false);
+			Scribe_Values.Look(ref factor, "factor", 1f);
 		}
 
 	}

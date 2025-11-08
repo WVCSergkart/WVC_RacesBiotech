@@ -11,7 +11,7 @@
 					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_FleshmassNucleus</geneDef>
-					  <devourJob>WVC_DevourEntitie</devourJob>
+					  <jobDef>WVC_DevourEntitie</jobDef>
 					</li>
 				  </value>
 				</li>
@@ -21,7 +21,7 @@
 					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_VoidMechlink</geneDef>
-					  <devourJob>WVC_DevourEntitie</devourJob>
+					  <jobDef>WVC_DevourEntitie</jobDef>
 					  <warningText>WVC_XaG_GeneChimeraDevourNociosphereWarning</warningText>
 					</li>
 				  </value>

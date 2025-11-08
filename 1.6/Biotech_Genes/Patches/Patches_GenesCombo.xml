@@ -449,7 +449,7 @@
 		  <value>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 			  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
-			  <devourJob>WVC_ConsumeArchiteCapsule</devourJob>
+			  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
 			</li>
 		  </value>
 		</caseTrue>

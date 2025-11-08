@@ -45,15 +45,23 @@ namespace WVC_XenotypesAndGenes
 
 		protected override List<GeneDef> SelectedGenes => selectedGenes;
 
+		private string cachedHeader = null;
 		protected override string Header
 		{
 			get
 			{
-				if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+				if (cachedHeader == null)
 				{
-					return gene.LabelCap;
+					if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+					{
+						cachedHeader = gene.LabelCap;
+					}
+					else
+					{
+						cachedHeader = "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ") | " + "WVC_Archites".Translate().CapitalizeFirst() + " (" + ConsumedLimit_Arc + "/" + ArchitesLimit.ToString() + ")";
+					}
 				}
-				return "WVC_XaG_SelectedXenoGeneSetHolder".Translate().CapitalizeFirst() + " (" + ConsumedLimit + "/" + XenogenesLimit.ToString() + ") | " + "WVC_Archites".Translate().CapitalizeFirst() + " (" + ConsumedLimit_Arc + "/" + ArchitesLimit.ToString() + ")";
+				return cachedHeader;
 			}
 		}
 
@@ -679,6 +687,8 @@ namespace WVC_XenotypesAndGenes
 			cachedXenogenesLimit = null;
 			cachedLimitConsumed = null;
 			cachedArchitesLimit = null;
+			cachedLimitConsumed_Arc = null;
+			cachedHeader = null;
 		}
 
 		public override void DoWindowContents(Rect rect)

@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 						Thing architeCapsule = GetBestArchiteStack(pawn, false);
 						if (architeCapsule != null)
 						{
-							MiscUtility.MakeJobWithGeneDef(pawn, gene.Giver.morpherTriggerChangeJob, geneDef, architeCapsule);
+							MiscUtility.MakeCustomJob(pawn, architeCapsule, gene.Giver.morpherTriggerChangeJob, geneDef);
 						}
 						else
 						{
