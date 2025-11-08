@@ -84,6 +84,8 @@
 	<!-- <WVC_XaG_ScenPart_ForcedGender>The gender of starting pawns is always: {0}.</WVC_XaG_ScenPart_ForcedGender> -->
 	<!-- <WVC_XaG_ScenPart_ForcedPregnancy>The gender of starting pawns is always {0}</WVC_XaG_ScenPart_ForcedPregnancy> -->
 
+	<!-- <WVC_XaG_ScenPart_Scarlands>The only possible biome on the surface is scarland.</WVC_XaG_ScenPart_Scarlands> -->
+
 	<WVC_XaG_GeneralWrongTarget>Inappropriate target.</WVC_XaG_GeneralWrongTarget>
 
 	<WVC_XaG_BirthQuality>Birth quality offset: {0}%</WVC_XaG_BirthQuality>

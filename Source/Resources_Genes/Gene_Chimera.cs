@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void NPC_RandomGeneSetSetup(bool forceSetup = false)
 		{
-			if (pawn.Faction == Faction.OfPlayer)
+			if (pawn.Faction == Faction.OfPlayerSilentFail)
 			{
 				return;
 			}

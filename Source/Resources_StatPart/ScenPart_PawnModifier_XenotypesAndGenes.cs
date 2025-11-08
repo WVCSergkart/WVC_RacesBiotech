@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -606,5 +607,79 @@ namespace WVC_XenotypesAndGenes
 	//	}
 
 	//}
+
+	public class ScenPart_PawnModifier_Scarlands : ScenPart_PawnModifier
+	{
+
+		public List<XenotypeDef> xenotypeDefs;
+		public BiomeDef biomeDef;
+
+		public override void PostWorldGenerate()
+		{
+			if (biomeDef == null)
+			{
+				return;
+			}
+			List<SurfaceTile> tiles = Find.World.grid.Tiles.ToList();
+			foreach (SurfaceTile surfaceTile in tiles)
+			{
+				if (surfaceTile.PrimaryBiome.isExtremeBiome || surfaceTile.PrimaryBiome == biomeDef || surfaceTile.PrimaryBiome.isBackgroundBiome || surfaceTile.PrimaryBiome.impassable || surfaceTile.PrimaryBiome.isWaterBiome)
+				{
+					continue;
+				}
+				surfaceTile.PrimaryBiome = biomeDef;
+				foreach (TileMutatorDef tileMutatorDef in surfaceTile.Mutators.ToList())
+				{
+					try
+					{
+						if (tileMutatorDef == TileMutatorDefOf.MixedBiome || !tileMutatorDef.Worker.IsValidTile(surfaceTile.tile, surfaceTile?.Layer))
+						{
+							surfaceTile.RemoveMutator(tileMutatorDef);
+						}
+					}
+					catch
+					{
+						// Silent fail
+						surfaceTile.RemoveMutator(tileMutatorDef);
+						//Log.Warning("Failed raplace biome on tile. Reason: " + arg.Message);
+					}
+				}
+			}
+		}
+
+		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
+		{
+			if (xenotypeDefs == null || !pawn.IsHuman())
+			{
+				return;
+			}
+			ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDefs.RandomElement());
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Defs.Look(ref biomeDef, "biomeDef");
+			Scribe_Collections.Look(ref xenotypeDefs, "xenotypeDefs", LookMode.Def);
+		}
+
+		//private string cachedDesc = null;
+		//public override string Summary(Scenario scen)
+		//{
+		//	if (cachedDesc == null)
+		//	{
+		//		StringBuilder stringBuilder = new();
+		//		stringBuilder.AppendLine("WVC_XaG_ScenPart_Scarlands".Translate());
+		//		//if (!xenotypeDefs.NullOrEmpty())
+		//		//{
+		//		//	stringBuilder.AppendLine();
+		//		//	stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeDefs.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+		//		//}
+		//		cachedDesc = stringBuilder.ToString();
+		//	}
+		//	return cachedDesc;
+		//}
+
+	}
 
 }
