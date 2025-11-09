@@ -44,7 +44,7 @@
 	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_HiveMaker</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
-	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_ThrallMaker</gizmoClass>
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_FloatMenu</gizmoClass>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>

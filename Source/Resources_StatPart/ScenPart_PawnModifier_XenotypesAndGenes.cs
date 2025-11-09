@@ -670,6 +670,14 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
 				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, oldXenotype);
 			}
+			//if (pawn.genes.GenesListForReading.Any((gene) => gene.def.IsGeneDefOfType<Gene_Ageless>()))
+			//{
+			//	AgelessUtility.Rejuvenation(pawn);
+			//}
+			//if (xenotypeDef.Archite)
+			//{
+			//	HealingUtility.RemoveAllRemovableBadHediffs(pawn);
+			//}
 		}
 
 		//public override void PreConfigure()

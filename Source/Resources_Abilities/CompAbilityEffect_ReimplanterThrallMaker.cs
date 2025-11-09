@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompAbilityEffect_ReimplanterThrallMaker : CompAbilityEffect
+	public class CompAbilityEffect_ReimplanterThrallMaker : CompAbilityEffect, IAbilityFloatMenu
 	{
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
@@ -25,6 +25,25 @@ namespace WVC_XenotypesAndGenes
 					cachedReimplanterGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_ThrallMaker>();
 				}
 				return cachedReimplanterGene;
+			}
+		}
+
+		public IEnumerable<FloatMenuOption> FloatMenuOptions
+		{
+			get
+			{
+				List<FloatMenuOption> list = new();
+				foreach (Gene gene in parent.pawn.genes.GenesListForReading)
+				{
+					if (gene is Gene_ThrallMaker maker)
+					{
+						list.Add(new FloatMenuOption("WVC_XaG_GeneThrallMaker_MenuLabel".Translate() + " (" + maker.LabelCap + ")", delegate
+						{
+							maker.ThrallMakerDialog();
+						}));
+					}
+				}
+				return list;
 			}
 		}
 

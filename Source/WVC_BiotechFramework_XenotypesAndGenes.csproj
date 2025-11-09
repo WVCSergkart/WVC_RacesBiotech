@@ -76,6 +76,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_Devourer.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_SwitchImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Duplicator.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Resources_Gizmo\Dialog_ChangeGraphic_Simple.cs" />
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
+    <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
     <Compile Include="Resources_Main\IJobs.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />

@@ -43,26 +43,37 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			Pawn pawn = target.Pawn;
-			if (pawn == null)
+			Pawn targetPawn = target.Pawn;
+			if (targetPawn != null)
 			{
-				return;
-			}
-			if (ReimplanterUtility.TryReimplant(parent.pawn, pawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
-			{
-				Notify_Reimplanted(pawn, parent.pawn);
-				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
+				ApplyOnPawn(targetPawn, parent.pawn, Props.reimplantEndogenes, Props.reimplantXenogenes);
 			}
 		}
 
-		public virtual void Notify_Reimplanted(Pawn target, Pawn caster)
+		public static void ApplyOnPawn(Pawn pawn, Pawn caster, bool implantEndogenes = true, bool implantXenogenes = true)
 		{
-			foreach (Gene gene in caster.genes.GenesListForReading)
+			if (ReimplanterUtility.TryReimplant(caster, pawn, implantEndogenes, implantXenogenes))
 			{
-				if (gene is Gene_ImplanterDependant postgene && gene.Active)
+				Notify_Reimplanted(pawn, caster);
+				ReimplanterUtility.FleckAndLetter(caster, pawn);
+			}
+		}
+
+		public static void Notify_Reimplanted(Pawn target, Pawn caster)
+		{
+			try
+			{
+				foreach (Gene gene in caster.genes.GenesListForReading)
 				{
-					postgene.Notify_PostReimplanted(target);
+					if (gene is Gene_ImplanterDependant postgene && gene.Active)
+					{
+						postgene.Notify_PostReimplanted(target);
+					}
 				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed Notify_Reimplanted (sub-genes trigger). Reason: " + arg.Message);
 			}
 		}
 
@@ -88,23 +99,23 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompAbilityEffect_ReimplanterRecruitAndConvert : CompAbilityEffect_Reimplanter
-	{
+	//public class CompAbilityEffect_ReimplanterRecruitAndConvert : CompAbilityEffect_Reimplanter
+	//{
 
-		public override void Notify_Reimplanted(Pawn target, Pawn caster)
-		{
-			if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
-			{
-				RecruitUtility.Recruit(target, Faction.OfPlayer, caster);
-				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
-				target.ideo?.SetIdeo(caster.ideo.Ideo);
-			}
-			if (target.ideo?.Ideo != null && caster.ideo?.Ideo != null && target.ideo.Ideo != caster.ideo.Ideo)
-			{
-				target.ideo.SetIdeo(caster.ideo.Ideo);
-			}
-		}
+	//	public override void Notify_Reimplanted(Pawn target, Pawn caster)
+	//	{
+	//		if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
+	//		{
+	//			RecruitUtility.Recruit(target, Faction.OfPlayer, caster);
+	//			Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
+	//			target.ideo?.SetIdeo(caster.ideo.Ideo);
+	//		}
+	//		if (target.ideo?.Ideo != null && caster.ideo?.Ideo != null && target.ideo.Ideo != caster.ideo.Ideo)
+	//		{
+	//			target.ideo.SetIdeo(caster.ideo.Ideo);
+	//		}
+	//	}
 
-	}
+	//}
 
 }

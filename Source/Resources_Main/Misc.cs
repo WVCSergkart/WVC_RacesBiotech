@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -112,7 +113,53 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Command_Ability_ThrallMaker : Command_Ability
+	public class Command_Ability_FloatMenu : Command_Ability
+	{
+
+		public Command_Ability_FloatMenu(Ability ability, Pawn pawn)
+			: base(ability, pawn)
+		{
+
+		}
+
+		private List<FloatMenuOption> cachedFloatMenuOptions;
+		public List<FloatMenuOption> FloatMenuOptions
+		{
+			get
+			{
+				if (cachedFloatMenuOptions == null)
+				{
+					List<FloatMenuOption> allOptions = new();
+					foreach (CompAbilityEffect compAbilityEffect in ability.EffectComps)
+					{
+						if (compAbilityEffect is IAbilityFloatMenu abilityFloatMenu)
+						{
+							allOptions.AddRange(abilityFloatMenu.FloatMenuOptions);
+						}
+					}
+					cachedFloatMenuOptions = allOptions;
+				}
+				return cachedFloatMenuOptions;
+			}
+		}
+
+		public void Recache()
+		{
+			cachedFloatMenuOptions = null;
+		}
+
+		public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
+		{
+			get
+			{
+				return FloatMenuOptions;
+			}
+		}
+
+	}
+
+	[Obsolete]
+	public class Command_Ability_ThrallMaker : Command_Ability_FloatMenu
 	{
 
 		public Command_Ability_ThrallMaker(Ability ability, Pawn pawn)

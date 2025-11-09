@@ -383,7 +383,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
 		{
-			Gene_PostShapeshift_Regeneration.RemoveAllRemovableBadHediffs(pawn);
+			HealingUtility.RemoveAllRemovableBadHediffs(pawn);
 			base.MorpherTrigger(geneSet);
 		}
 

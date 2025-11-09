@@ -324,5 +324,17 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
+		public static void RemoveAllRemovableBadHediffs(Pawn pawn)
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+			{
+				if (!hediff.def.isBad || !hediff.def.everCurableByItem)
+				{
+					continue;
+				}
+				pawn.health.RemoveHediff(hediff);
+			}
+		}
+
 	}
 }

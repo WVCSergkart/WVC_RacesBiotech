@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 					XenotypeHolder geneSet = xenotypes[i];
 					list.Add(new FloatMenuOption(geneSet.LabelCap, delegate
 					{
-						Switch(geneSet);
+						Switch(pawn, geneSet);
 						genesSettings.Close();
 					}, orderInPriority: 0 - (int)geneSet.xenotypeDef.displayPriority));
 				}
@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Switch(XenotypeHolder newHolder)
+		public void Switch(Pawn pawn, XenotypeHolder newHolder)
 		{
 			//cachedHolders = null;
 			try

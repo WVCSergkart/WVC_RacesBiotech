@@ -16,58 +16,65 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-			if (innerPawn == null)
+			if (innerPawn != null)
 			{
-				return;
-			}
-			GeneResourceUtility.ResurrectWithSickness(innerPawn);
-			//if (ModLister.IdeologyInstalled)
-			//{
-			//	Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
-			//}
-			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
-			MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
-			if (ReimplanterUtility.TryReimplant(parent.pawn, innerPawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
-			{
-				Notify_Reimplanted(innerPawn);
-				ReimplanterUtility.FleckAndLetter(parent.pawn, innerPawn);
+				ApplyOnCorpse(innerPawn, parent.pawn, Props.reimplantEndogenes, Props.reimplantXenogenes);
 			}
 		}
 
-		public virtual void Notify_Reimplanted(Pawn innerPawn)
+		public static void ApplyOnCorpse(Pawn innerPawn, Pawn caster, bool implantEndogenes = true, bool implantXenogenes = true)
 		{
-			foreach (Gene gene in parent.pawn.genes.GenesListForReading)
-			{
-				if (gene is Gene_ImplanterDependant postgene && gene.Active)
-				{
-					postgene.Notify_PostReimplanted(innerPawn);
-				}
-			}
+			GeneResourceUtility.ResurrectWithSickness(innerPawn);
+			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
+			MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
+			//if (ReimplanterUtility.TryReimplant(caster, innerPawn, implantEndogenes, implantXenogenes))
+			//{
+			//	CompAbilityEffect_Reimplanter.Notify_Reimplanted(innerPawn, caster);
+			//	ReimplanterUtility.FleckAndLetter(caster, innerPawn);
+			//}
+			CompAbilityEffect_Reimplanter.ApplyOnPawn(innerPawn, caster, implantEndogenes, implantXenogenes);
 		}
+
+		//public virtual void Notify_Reimplanted(Pawn innerPawn)
+		//{
+		//	foreach (Gene gene in parent.pawn.genes.GenesListForReading)
+		//	{
+		//		if (gene is Gene_ImplanterDependant postgene && gene.Active)
+		//		{
+		//			postgene.Notify_PostReimplanted(innerPawn);
+		//		}
+		//	}
+		//}
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
 			if (target.HasThing && target.Thing is Corpse corpse)
 			{
-				if (corpse.GetRotStage() == RotStage.Dessicated)
-				{
-					if (throwMessages)
-					{
-						Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
-				Pawn innerPawn = corpse.InnerPawn;
-				if (!innerPawn.IsHuman() || innerPawn.IsMutant || target.Thing.IsUnnaturalCorpse())
-				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
+				return ValidCorpseForImplant(target, throwMessages, corpse) && base.Valid(target, throwMessages);
 			}
-			return base.Valid(target, throwMessages);
+			return false;
+		}
+
+		public static bool ValidCorpseForImplant(LocalTargetInfo target, bool throwMessages, Corpse corpse)
+		{
+			if (corpse.GetRotStage() == RotStage.Dessicated)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			Pawn innerPawn = corpse.InnerPawn;
+			if (!innerPawn.IsHuman() || innerPawn.IsMutant || target.Thing.IsUnnaturalCorpse())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
 		}
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
