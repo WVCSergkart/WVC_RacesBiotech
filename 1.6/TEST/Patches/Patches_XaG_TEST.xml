@@ -68,15 +68,15 @@
 	</Operation>
 
 	<!-- Gravship start test -->
-	<Operation Class="PatchOperationReplace">
-	  <xpath>/Defs/SketchResolverDef[defName="Gravship"]/resolver</xpath>
-	  <value>
-		<resolver Class="WVC_XenotypesAndGenes.SketchResolver_Gravship">
-		  <prefabDef>WVC_AdvancedGravship</prefabDef>
-		  <engineVector>(-1, 0, 0)</engineVector>
-		</resolver>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/SketchResolverDef[defName="Gravship"]/resolver</xpath> -->
+	  <!-- <value> -->
+		<!-- <resolver Class="WVC_XenotypesAndGenes.SketchResolver_Gravship"> -->
+		  <!-- <prefabDef>WVC_AdvancedGravship</prefabDef> -->
+		  <!-- <engineVector>(-1, 0, 0)</engineVector> -->
+		<!-- </resolver> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="Deathrest"]</xpath> -->

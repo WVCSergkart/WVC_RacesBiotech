@@ -15,7 +15,7 @@
   <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_Metalkin</defName>
 	<label>Scarlands</label>
-	<description>All.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the metalkin xenotype or its sub-xenotypes.\n- All surface biomes will be replaced with scarlands, regardless of planetary conditions, with the exception of extreme biomes.</description>
+	<description>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;metalkin xenotype&lt;/color&gt; or its sub-xenotypes.\n- All surface biomes will be replaced with scarlands, regardless of planetary conditions, with the exception of extreme biomes.\n- &lt;color=#ffec85&gt;Metalkins need a charger, the charger is not available from the start.&lt;/color&gt;</description>
 	<scenario>
 	  <!-- <summary>One pawn with no supplies. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary> -->
 	  <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
@@ -89,7 +89,7 @@
 		<!-- Game start dialog -->
 		<li Class="ScenPart_GameStartDialog">
 		  <def>GameStartDialog</def>
-		  <text>TEST TEXT</text>
+		  <text>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..</text>
 		  <closeSound>GameStartSting</closeSound>
 		</li>
 

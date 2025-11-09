@@ -632,6 +632,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					try
 					{
+						//_ = tileMutatorDef.Worker.GetLabel(surfaceTile.tile);
 						if (tileMutatorDef == TileMutatorDefOf.MixedBiome || !tileMutatorDef.Worker.IsValidTile(surfaceTile.tile, surfaceTile?.Layer))
 						{
 							surfaceTile.RemoveMutator(tileMutatorDef);
@@ -653,8 +654,27 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDefs.RandomElement());
+			bool baseliner = pawn.genes.Xenotype == XenotypeDefOf.Baseliner;
+			if ((pawn.IsQuestReward() || pawn.IsQuestLodger()) && !baseliner)
+			{
+				return;
+			}
+			XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
+			if (baseliner || pawn.genes.Xenotype.inheritable || !xenotypeDef.inheritable)
+			{
+				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+			}
+			else
+			{
+				XenotypeDef oldXenotype = pawn.genes.Xenotype;
+				ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
+				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, oldXenotype);
+			}
 		}
+
+		//public override void PreConfigure()
+		//{
+		//}
 
 		public override void ExposeData()
 		{
