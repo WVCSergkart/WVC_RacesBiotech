@@ -373,7 +373,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
+				//xenotypeHolder.genes.Add(def);
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
+				//ReimplanterUtility.SetXenotype_Safe(pawn, xenotypeHolder, removeXenogenes);
 			}
 			if (GenesRegrow)
 			{

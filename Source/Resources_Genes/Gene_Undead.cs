@@ -292,18 +292,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			foreach (Gizmo item in base.GetGizmos())
-			{
-				yield return item;
-			}
+			//foreach (Gizmo item in base.GetGizmos())
+			//{
+			//	yield return item;
+			//}
 			if (!pawn.Downed)
 			{
 				yield break;
 			}
-			// if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-			// {
-			// yield break;
-			// }
 			yield return new Command_Action
 			{
 				defaultLabel = "WVC_XaG_CellularDestroyBody".Translate(),

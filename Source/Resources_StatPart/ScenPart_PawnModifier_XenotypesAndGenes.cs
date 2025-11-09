@@ -659,17 +659,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
-			if (baseliner || pawn.genes.Xenotype.inheritable || !xenotypeDef.inheritable)
-			{
-				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
-			}
-			else
-			{
-				XenotypeDef oldXenotype = pawn.genes.Xenotype;
-				ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
-				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, oldXenotype);
-			}
+			//XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
+			//if (baseliner || pawn.genes.Xenotype.inheritable || !xenotypeDef.inheritable)
+			//{
+			//	ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+			//}
+			//else
+			//{
+			//	XenotypeDef oldXenotype = pawn.genes.Xenotype;
+			//	ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
+			//	ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, oldXenotype);
+			//}
+			ReimplanterUtility.SetXenotype_Safe(pawn, new(xenotypeDefs.RandomElement()), new(), doPostDebug: true);
 			//if (pawn.genes.GenesListForReading.Any((gene) => gene.def.IsGeneDefOfType<Gene_Ageless>()))
 			//{
 			//	AgelessUtility.Rejuvenation(pawn);

@@ -513,6 +513,36 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
+		public static void SetXenotype_Safe(Pawn pawn, XenotypeHolder xenotypeHolder, bool removeXenogenes = false, bool doPostDebug = true)
+		{
+			Pawn_GeneTracker recipientGenes = pawn.genes;
+			if (recipientGenes.Xenogenes.NullOrEmpty() || removeXenogenes)
+			{
+				SetXenotypeDirect(pawn, xenotypeHolder);
+			}
+			if (removeXenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
+			{
+				recipientGenes.Xenogenes.RemoveAllGenes(!xenotypeHolder.inheritable ? xenotypeHolder.genes : null);
+			}
+			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
+			{
+				recipientGenes.Endogenes.RemoveAllGenes(xenotypeHolder.inheritable ? xenotypeHolder.genes : null);
+			}
+			foreach (GeneDef geneDef in xenotypeHolder.genes)
+			{
+				if (!xenotypeHolder.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeHolder.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
+				{
+					continue;
+				}
+				pawn.genes.AddGene(geneDef, !xenotypeHolder.inheritable);
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			if (doPostDebug)
+			{
+				ReimplanterUtility.PostImplantDebug(pawn);
+			}
+		}
+
 		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder)
 		{
 			if (xenotypeHolder.CustomXenotype)
@@ -525,14 +555,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, Gene_Shapeshifter shapeshiferGene, bool xenogenes = true, bool debug = false)
+		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, Gene_Shapeshifter shapeshiferGene, bool removeXenogenes = true, bool doPostDebug = false)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || xenogenes)
+			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || removeXenogenes)
 			{
 				SetXenotypeDirect(pawn, xenotypeHolder);
 			}
-			if (xenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
+			if (removeXenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
 				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
 				{
@@ -565,7 +595,7 @@ namespace WVC_XenotypesAndGenes
 				shapeshiferGene.AddGene(geneDef, xenotypeHolder.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-			if (debug)
+			if (doPostDebug)
 			{
 				ReimplanterUtility.PostImplantDebug(pawn);
 			}
