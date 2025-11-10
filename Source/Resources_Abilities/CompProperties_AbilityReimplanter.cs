@@ -10,12 +10,14 @@ namespace WVC_XenotypesAndGenes
 	public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
 	{
 
-		public ThoughtDef afterResurrectionThoughtDef;
-
-		public ThoughtDef resurrectorThoughtDef;
-		public ThoughtDef resurrectedThoughtDef;
-
-		public JobDef absorberJob;
+		[Obsolete]
+		public string afterResurrectionThoughtDef;
+		[Obsolete]
+		public string resurrectorThoughtDef;
+		[Obsolete]
+		public string resurrectedThoughtDef;
+		[Obsolete]
+		public string absorberJob;
 
 		public List<GeneDef> geneDefs;
 
@@ -30,92 +32,9 @@ namespace WVC_XenotypesAndGenes
 
 		public CompProperties_AbilityReimplanter()
 		{
-			compClass = typeof(CompAbilityEffect_Reimplanter);
+			compClass = typeof(CompAbilityEffect_NewImplanter);
 		}
 
 	}
-
-	public class CompAbilityEffect_Reimplanter : CompAbilityEffect
-	{
-
-		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
-
-		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-			Pawn targetPawn = target.Pawn;
-			if (targetPawn != null)
-			{
-				ApplyOnPawn(targetPawn, parent.pawn, Props.reimplantEndogenes, Props.reimplantXenogenes);
-			}
-		}
-
-		public static void ApplyOnPawn(Pawn pawn, Pawn caster, bool implantEndogenes = true, bool implantXenogenes = true)
-		{
-			if (ReimplanterUtility.TryReimplant(caster, pawn, implantEndogenes, implantXenogenes))
-			{
-				Notify_Reimplanted(pawn, caster);
-				ReimplanterUtility.FleckAndLetter(caster, pawn);
-			}
-		}
-
-		public static void Notify_Reimplanted(Pawn target, Pawn caster)
-		{
-			try
-			{
-				foreach (Gene gene in caster.genes.GenesListForReading)
-				{
-					if (gene is Gene_ImplanterDependant postgene && gene.Active)
-					{
-						postgene.Notify_PostReimplanted(target);
-					}
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed Notify_Reimplanted (sub-genes trigger). Reason: " + arg.Message);
-			}
-		}
-
-		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-		{
-			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
-		}
-
-		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
-		{
-			if (GeneUtility.PawnWouldDieFromReimplanting(parent.pawn))
-			{
-				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(parent.pawn.Named("PAWN")), confirmAction, destructive: true);
-			}
-			return null;
-		}
-
-		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
-		{
-			Pawn pawn = target.Pawn;
-			yield return MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
-		}
-
-	}
-
-	//public class CompAbilityEffect_ReimplanterRecruitAndConvert : CompAbilityEffect_Reimplanter
-	//{
-
-	//	public override void Notify_Reimplanted(Pawn target, Pawn caster)
-	//	{
-	//		if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
-	//		{
-	//			RecruitUtility.Recruit(target, Faction.OfPlayer, caster);
-	//			Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
-	//			target.ideo?.SetIdeo(caster.ideo.Ideo);
-	//		}
-	//		if (target.ideo?.Ideo != null && caster.ideo?.Ideo != null && target.ideo.Ideo != caster.ideo.Ideo)
-	//		{
-	//			target.ideo.SetIdeo(caster.ideo.Ideo);
-	//		}
-	//	}
-
-	//}
 
 }

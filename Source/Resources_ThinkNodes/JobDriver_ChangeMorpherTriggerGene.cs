@@ -25,6 +25,9 @@ namespace WVC_XenotypesAndGenes
 
 		public float factor;
 
+		public bool implantEndogenes;
+		public bool implantXenogenes;
+
 		//public new void ExposeData()
 		//{
 		//	base.ExposeData();
@@ -40,15 +43,24 @@ namespace WVC_XenotypesAndGenes
 
 		public bool consumeStack;
 
-		public float factor;
+		public float factor = 1f;
+
+		public bool implantEndogenes = false;
+		public bool implantXenogenes = false;
 
 		public override void Notify_Starting()
 		{
 			base.Notify_Starting();
-			if (geneDef == null && job is XaG_Job xaG_Job)
+			if (job is XaG_Job xaG_Job)
 			{
-				geneDef = xaG_Job.geneDef;
+				if (geneDef == null)
+				{
+					geneDef = xaG_Job.geneDef;
+				}
 				consumeStack = xaG_Job.consumeStack;
+				factor = xaG_Job.factor;
+				implantEndogenes = xaG_Job.implantEndogenes;
+				implantXenogenes = xaG_Job.implantXenogenes;
 			}
 		}
 
@@ -58,6 +70,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Defs.Look(ref geneDef, "geneDef");
 			Scribe_Values.Look(ref consumeStack, "consumeStack", false);
 			Scribe_Values.Look(ref factor, "factor", 1f);
+			Scribe_Values.Look(ref implantEndogenes, "implantEndogenes", false);
+			Scribe_Values.Look(ref implantXenogenes, "implantXenogenes", false);
 		}
 
 	}

@@ -97,18 +97,42 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Implanter : Gene, IGeneFloatMenuOptions
+	// InDev
+	public class Gene_PostImplanter : Gene
 	{
 
-		private CompAbilityEffect_Reimplanter cachedReimplanterComp;
+		//private CompAbilityEffect_PostImplanter cachedReimplanterComp;
 
-		public CompAbilityEffect_Reimplanter ReimplanterComp
+		//public CompAbilityEffect_PostImplanter ReimplanterComp
+		//{
+		//	get
+		//	{
+		//		if (cachedReimplanterComp == null && def.abilities != null)
+		//		{
+		//			cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_PostImplanter>();
+		//		}
+		//		return cachedReimplanterComp;
+		//	}
+		//}
+
+		public override void TickInterval(int delta)
+		{
+
+		}
+
+	}
+
+	public class Gene_Implanter : Gene_PostImplanter, IGeneFloatMenuOptions
+	{
+
+		private CompAbilityEffect_NewImplanter cachedReimplanterComp;
+		public CompAbilityEffect_NewImplanter ReimplanterComp
 		{
 			get
 			{
 				if (cachedReimplanterComp == null && def.abilities != null)
 				{
-					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_Reimplanter>();
+					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault())?.CompOfType<CompAbilityEffect_NewImplanter>();
 				}
 				return cachedReimplanterComp;
 			}
@@ -120,7 +144,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (ReimplanterComp?.Props?.absorberJob == null)
+			if (ReimplanterComp == null)
 			{
 				yield break;
 			}
@@ -150,12 +174,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(pawn.Named("PAWN")), delegate
 				{
-					ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.absorberJob);
+					ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.reimplantEndogenes, ReimplanterComp.Props.reimplantXenogenes);
 				}, destructive: true));
 			}
 			else
 			{
-				ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.absorberJob);
+				ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.reimplantEndogenes, ReimplanterComp.Props.reimplantXenogenes);
 			}
 		}
 
@@ -165,7 +189,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (ReimplanterComp?.Props?.absorberJob == null)
+			if (ReimplanterComp == null)
 			{
 				yield break;
 			}
@@ -216,26 +240,6 @@ namespace WVC_XenotypesAndGenes
 				command_Action.Disable("MessageTargetMustBeDownedToForceReimplant".Translate(myPawn.Named("PAWN")));
 			}
 			yield return command_Action;
-		}
-
-	}
-
-	// InDev
-	public class Gene_PostImplanter : Gene
-	{
-
-		private CompAbilityEffect_PostImplanter cachedReimplanterComp;
-
-		public CompAbilityEffect_PostImplanter ReimplanterComp
-		{
-			get
-			{
-				if (cachedReimplanterComp == null && def.abilities != null)
-				{
-					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_PostImplanter>();
-				}
-				return cachedReimplanterComp;
-			}
 		}
 
 	}

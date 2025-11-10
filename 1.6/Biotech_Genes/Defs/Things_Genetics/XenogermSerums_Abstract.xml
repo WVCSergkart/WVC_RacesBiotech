@@ -13,7 +13,8 @@
 	<descriptionHyperlinks>
 	  <!-- <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef> -->
 	</descriptionHyperlinks>
-	<thingClass>WVC_XenotypesAndGenes.ThingWithComps_XenotypeSerum</thingClass>
+	<!-- <thingClass>WVC_XenotypesAndGenes.ThingWithComps_XenotypeSerum</thingClass> -->
+	<thingClass>ThingWithComps</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>

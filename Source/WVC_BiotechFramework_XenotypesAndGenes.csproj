@@ -74,6 +74,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Devourer.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_NewImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_SwitchImplanter.cs" />
@@ -83,7 +84,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityMechfeed.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_PostImplanter.cs" />
+    <Compile Include="Obsolete_0\CompAbilityEffect_PostImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
@@ -307,15 +308,19 @@
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />
-    <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
+    <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompProperties_SkippableBuilding.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffect_XenogermSerum.cs" />
     <Compile Include="Resources_Things\CompProps_DestroyAndReturnResources.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_XenogermSerum.cs" />
+    <Compile Include="Obsolete_0\CompUseEffect_XenogermSerum.cs" />
+    <Compile Include="Obsolete_0\CompUseEffect_GeneShapeshifterChanger.cs" />
+    <Compile Include="Obsolete_0\CompUseEffect_GeneticStabilizer.cs" />
+    <Compile Include="Obsolete_0\CompUseEffect_XenotypeNullifier.cs" />
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
-    <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
+    <Compile Include="Obsolete_0\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
@@ -340,14 +345,14 @@
     <Compile Include="Resources_ThinkNodes\JobDriver_DestroyCellularBody.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_DevourEntitie.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_FeedTargetWithOwnBlood.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_RetuneSerum.cs" />
+    <Compile Include="Obsolete_0\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_StomachCharge.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_AIDefendConnectedPawn.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_AIFollowConnectedPawn.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
-    <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
+    <Compile Include="Obsolete_0\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_Humanlike.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
@@ -365,7 +370,7 @@
     <Compile Include="Resources_Utility\MiscUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
-    <Compile Include="Resources_Things\CompRecyclerSpawner.cs" />
+    <Compile Include="Obsolete_0\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
@@ -398,7 +403,7 @@
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources_Defs\DummyDryadTemplateDef.cs" />
-    <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
+    <Compile Include="Obsolete_0\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />
     <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
     <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
@@ -406,18 +411,16 @@
     <Compile Include="Resources_ThinkNodes\JobGiver_RescueConnectedPawn.cs" />
     <Compile Include="Resources_Main\SpecialTrees.cs" />
     <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
-    <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />
+    <Compile Include="Obsolete_0\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_ResurrectAndChangeXenotype.cs" />
+    <Compile Include="Obsolete_0\CompUseEffect_XenotypeForcer_Hybrid.cs" />
+    <Compile Include="Obsolete_0\JobDriver_ResurrectAndChangeXenotype.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderNearConnectedPawn.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalAllowWanderNearMaster.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalGestatedDryad.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalShouldFollowConnectedPawn.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Obsolete_0\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

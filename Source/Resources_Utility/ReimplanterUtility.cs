@@ -6,6 +6,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
+using static UnityEngine.GraphicsBuffer;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -155,9 +156,38 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void GiveReimplantJob(Pawn pawn, Pawn targPawn, JobDef absorbJob)
+		//private static JobDef cachedForcedReimplantJob;
+		//public static JobDef ForcedReimplantJob
+		//{
+		//	get
+		//	{
+		//		if (cachedForcedReimplantJob == null)
+		//		{
+		//			foreach (JobDef item in DefDatabase<JobDef>.AllDefsListForReading)
+		//			{
+		//				if (!item.defName.Contains("WVC_AbsorbTargetGenes"))
+		//				{
+		//					continue;
+		//				}
+		//				cachedForcedReimplantJob = item;
+		//				break;
+		//			}
+		//		}
+		//		return cachedForcedReimplantJob;
+		//	}
+		//}
+
+		public static void GiveReimplantJob(Pawn pawn, Pawn targPawn, bool implantEndogenes, bool implantXenogenes)
 		{
-			pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(absorbJob, targPawn), JobTag.Misc);
+			//if (ForcedReimplantJob == null)
+			//{
+			//	return;
+			//}
+			XaG_Job xaG_Job = new(JobMaker.MakeJob(MainDefOf.WVC_AbsorbTargetGenes, targPawn));
+			xaG_Job.implantEndogenes = implantEndogenes;
+			xaG_Job.implantXenogenes = implantXenogenes;
+			pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
+			//pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(absorbJob, targPawn), JobTag.Misc);
 			if (targPawn.HomeFaction != null && !targPawn.HomeFaction.Hidden && targPawn.HomeFaction != pawn.Faction && !targPawn.HomeFaction.HostileTo(Faction.OfPlayer))
 			{
 				Messages.Message("MessageAbsorbingXenogermWillAngerFaction".Translate(targPawn.HomeFaction, targPawn.Named("PAWN")), pawn, MessageTypeDefOf.CautionInput, historical: false);
@@ -522,11 +552,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (removeXenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
-				recipientGenes.Xenogenes.RemoveAllGenes(!xenotypeHolder.inheritable ? xenotypeHolder.genes : null);
+				recipientGenes.Xenogenes.RemoveAllGenes(!removeXenogenes ? xenotypeHolder.genes : null);
 			}
 			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
-				recipientGenes.Endogenes.RemoveAllGenes(xenotypeHolder.inheritable ? xenotypeHolder.genes : null);
+				recipientGenes.Endogenes.RemoveAllGenes(xenotypeHolder.genes);
 			}
 			foreach (GeneDef geneDef in xenotypeHolder.genes)
 			{
@@ -747,6 +777,28 @@ namespace WVC_XenotypesAndGenes
 				if (throwMessages)
 				{
 					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
+		}
+
+		public static bool ValidCorpseForImplant(LocalTargetInfo target, bool throwMessages, Corpse corpse)
+		{
+			if (corpse.GetRotStage() == RotStage.Dessicated)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			Pawn innerPawn = corpse.InnerPawn;
+			if (!innerPawn.IsHuman() || innerPawn.IsMutant || target.Thing.IsUnnaturalCorpse())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
 				return false;
 			}

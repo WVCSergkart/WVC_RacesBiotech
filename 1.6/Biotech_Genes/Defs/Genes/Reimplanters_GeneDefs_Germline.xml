@@ -58,7 +58,7 @@
 		<!-- </anyOfGenes> -->
 	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
 		<reimplantEndogenes>true</reimplantEndogenes>
 		<reimplantXenogenes>false</reimplantXenogenes>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbEndogerm</absorberJob>
@@ -133,7 +133,7 @@
 		<!-- </anyOfGenes> -->
 	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_PostImplanter</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
 		<!-- <afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef> -->
 		<!-- <resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef> -->
 		<!-- <resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef> -->

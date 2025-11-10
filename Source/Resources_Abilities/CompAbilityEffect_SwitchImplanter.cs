@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompAbilityEffect_SwitchImplanter : CompAbilityEffect, IAbilityFloatMenu
+	public class CompAbilityEffect_SwitchImplanter : CompAbilityEffect_NewImplanter, IAbilityFloatMenu
 	{
 
 		//private new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
@@ -79,8 +79,8 @@ namespace WVC_XenotypesAndGenes
 					xenotypeHolder = new(SwitcherGene.Xenotypes.RandomElement());
 				}
 				//RecacheGizmos();
-				phase = "base apply";
-				base.Apply(target, dest);
+				//phase = "base apply";
+				//base.Apply(target, dest);
 				Pawn caster = parent.pawn;
 				phase = "try corpse";
 				if (target.Thing is Corpse corpse && corpse.InnerPawn != null)
@@ -113,8 +113,19 @@ namespace WVC_XenotypesAndGenes
 		private void SetXenotype(Pawn target, Pawn caster)
 		{
 			ReimplanterUtility.SetXenotype(target, xenotypeHolder);
-			CompAbilityEffect_Reimplanter.Notify_Reimplanted(target, caster);
+			ReimplanterUtility.UpdateXenogermReplication_WithComa(target);
+			ReimplanterUtility.ExtractXenogerm(caster);
+			CompAbilityEffect_NewImplanter.Notify_Reimplanted(target, caster);
 			ReimplanterUtility.FleckAndLetter(caster, target);
+		}
+
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+		{
+			if (SwitcherGene == null)
+			{
+				return false;
+			}
+			return base.Valid(target, throwMessages);
 		}
 
 		//public void RecacheGizmos()
@@ -127,41 +138,6 @@ namespace WVC_XenotypesAndGenes
 		//		}
 		//	}
 		//}
-
-		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-		{
-			if (SwitcherGene == null)
-			{
-				return false;
-			}
-			if (!base.Valid(target, throwMessages))
-			{
-				return false;
-			}
-			if (target.HasThing && target.Thing is Corpse corpse)
-			{
-				return CompAbilityEffect_PostImplanter.ValidCorpseForImplant(target, throwMessages, corpse);
-			}
-			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages);
-		}
-
-		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
-		{
-			if (GeneUtility.PawnWouldDieFromReimplanting(parent.pawn))
-			{
-				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(parent.pawn.Named("PAWN")), confirmAction, destructive: true);
-			}
-			if (target.Thing is Corpse corpse && !corpse.InnerPawn.guest.Recruitable && (corpse.InnerPawn.Faction == null || corpse.InnerPawn.Faction != Faction.OfPlayer))
-			{
-				return Dialog_MessageBox.CreateConfirmation("WVC_XaG_ReimplantResurrectionRecruiting_FailWarning".Translate(corpse.InnerPawn.Named("PAWN"), corpse.InnerPawn.Faction.NameColored.ToString()), confirmAction);
-			}
-			return null;
-		}
-
-		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
-		{
-			yield return MoteMaker.MakeAttachedOverlay(target.Thing, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
-		}
 
 		public override void PostExposeData()
 		{

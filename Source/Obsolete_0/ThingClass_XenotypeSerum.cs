@@ -8,90 +8,93 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class ThingWithComps_XenotypeSerum : ThingWithComps
 	{
 
-		public Pawn targetPawn;
+		//public Pawn targetPawn;
 
-		public static readonly CachedTexture ImplantTex = new("UI/Gizmos/ImplantGenes");
+		//public static readonly CachedTexture ImplantTex = new("UI/Gizmos/ImplantGenes");
 
-		public static readonly CachedTexture CancelIcon = new("UI/Designators/Cancel");
+		//public static readonly CachedTexture CancelIcon = new("UI/Designators/Cancel");
 
-		public void SetTargetPawnForXenoChanger(Pawn newTarget)
-		{
-			int trueMax = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.TrueMax;
-			TaggedString text = "WVC_XaG_AdministerXenogermWarningDesc".Translate(newTarget.Named("PAWN"), trueMax.ToStringTicksToPeriod().Named("COMADURATION"));
-			text += "\n\n" + "WouldYouLikeToContinue".Translate();
-			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(text, delegate
-			{
-				Bill bill = targetPawn?.BillStack?.Bills?.FirstOrDefault((Bill x) => x is Bill_Medical bill_Medical && bill_Medical.uniqueRequiredIngredients != null && bill_Medical.uniqueRequiredIngredients.Contains(this));
-				if (bill != null)
-				{
-					targetPawn.BillStack.Delete(bill);
-				}
-				HealthCardUtility.CreateSurgeryBill(newTarget, MainDefOf.WVC_ImplantXenogermSerum, null, new() { this });
-				targetPawn = newTarget;
-			}, destructive: true));
-		}
+		//public void SetTargetPawnForXenoChanger(Pawn newTarget)
+		//{
+		//	int trueMax = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.TrueMax;
+		//	TaggedString text = "WVC_XaG_AdministerXenogermWarningDesc".Translate(newTarget.Named("PAWN"), trueMax.ToStringTicksToPeriod().Named("COMADURATION"));
+		//	text += "\n\n" + "WouldYouLikeToContinue".Translate();
+		//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(text, delegate
+		//	{
+		//		Bill bill = targetPawn?.BillStack?.Bills?.FirstOrDefault((Bill x) => x is Bill_Medical bill_Medical && bill_Medical.uniqueRequiredIngredients != null && bill_Medical.uniqueRequiredIngredients.Contains(this));
+		//		if (bill != null)
+		//		{
+		//			targetPawn.BillStack.Delete(bill);
+		//		}
+		//		HealthCardUtility.CreateSurgeryBill(newTarget, MainDefOf.WVC_ImplantXenogermSerum, null, new() { this });
+		//		targetPawn = newTarget;
+		//	}, destructive: true));
+		//}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			foreach (Gizmo gizmo in base.GetGizmos())
-			{
-				yield return gizmo;
-			}
-			if (targetPawn == null)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "WVC_ImplantXenogermSerum".Translate(),
-					defaultDesc = "WVC_ImplantXenogermSerumDesc".Translate(),
-					icon = ImplantTex.Texture,
-					action = delegate
-					{
-						List<FloatMenuOption> list = new();
-						foreach (Pawn item in base.Map.mapPawns.AllPawnsSpawned)
-						{
-							Pawn pawn = item;
-							if (!pawn.IsQuestLodger() && pawn.IsHuman() && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonySubhuman && pawn.IsGhoul)))
-							{
-								list.Add(new FloatMenuOption(pawn.LabelShortCap + ", " + pawn.genes.XenotypeLabelCap, delegate
-								{
-									SetTargetPawnForXenoChanger(pawn);
-								}, pawn, Color.white));
-							}
-						}
-						if (!list.Any())
-						{
-							list.Add(new FloatMenuOption("NoImplantablePawns".Translate(), null));
-						}
-						Find.WindowStack.Add(new FloatMenu(list));
-					}
-				};
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "CancelImplanting".Translate(),
-				defaultDesc = "CancelImplantingDesc".Translate(targetPawn.Named("PAWN")),
-				icon = CancelIcon.Texture,
-				action = delegate
-				{
-					Bill bill = targetPawn?.BillStack?.Bills?.FirstOrDefault((Bill x) => x is Bill_Medical bill_Medical && bill_Medical.uniqueRequiredIngredients != null && bill_Medical.uniqueRequiredIngredients.Contains(this));
-					if (bill != null)
-					{
-						targetPawn.BillStack.Delete(bill);
-					}
-					targetPawn = null;
-				}
-			};
-		}
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	foreach (Gizmo gizmo in base.GetGizmos())
+		//	{
+		//		yield return gizmo;
+		//	}
+		//	if (targetPawn != null)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "CancelImplanting".Translate(),
+		//			defaultDesc = "CancelImplantingDesc".Translate(targetPawn.Named("PAWN")),
+		//			icon = CancelIcon.Texture,
+		//			action = delegate
+		//			{
+		//				Bill bill = targetPawn?.BillStack?.Bills?.FirstOrDefault((Bill x) => x is Bill_Medical bill_Medical && bill_Medical.uniqueRequiredIngredients != null && bill_Medical.uniqueRequiredIngredients.Contains(this));
+		//				if (bill != null)
+		//				{
+		//					targetPawn.BillStack.Delete(bill);
+		//				}
+		//				targetPawn = null;
+		//			}
+		//		};
+		//	}
+		//	else
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "WVC_ImplantXenogermSerum".Translate(),
+		//			defaultDesc = "WVC_ImplantXenogermSerumDesc".Translate(),
+		//			icon = ImplantTex.Texture,
+		//			action = delegate
+		//			{
+		//				List<FloatMenuOption> list = new();
+		//				foreach (Pawn item in base.Map.mapPawns.AllPawnsSpawned)
+		//				{
+		//					Pawn pawn = item;
+		//					if (!pawn.IsQuestLodger() && pawn.IsHuman() && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonySubhuman && pawn.IsGhoul)))
+		//					{
+		//						list.Add(new FloatMenuOption(pawn.LabelShortCap + ", " + pawn.genes.XenotypeLabelCap, delegate
+		//						{
+		//							SetTargetPawnForXenoChanger(pawn);
+		//						}, pawn, Color.white));
+		//					}
+		//				}
+		//				if (!list.Any())
+		//				{
+		//					list.Add(new FloatMenuOption("NoImplantablePawns".Translate(), null));
+		//				}
+		//				Find.WindowStack.Add(new FloatMenu(list));
+		//			}
+		//		};
+		//	}
+		//}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_References.Look(ref targetPawn, "targetPawn");
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_References.Look(ref targetPawn, "targetPawn");
+		//}
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{

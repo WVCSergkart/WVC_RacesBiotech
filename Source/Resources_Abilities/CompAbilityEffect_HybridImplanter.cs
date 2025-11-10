@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(target.Pawn.Named("PAWN")) + "\n\n" + "WVC_XaG_HybridImplanter_Warning".Translate(parent.pawn).Colorize(ColorLibrary.Gold), confirmAction, destructive: true);
 			}
-			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_HybridImplanter_Warning".Translate(parent.pawn).Colorize(ColorLibrary.Gold), confirmAction, destructive: true);
+			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_HybridImplanter_Warning".Translate(parent.pawn), confirmAction, destructive: true);
 		}
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)

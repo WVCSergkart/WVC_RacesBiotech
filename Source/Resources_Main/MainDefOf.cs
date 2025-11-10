@@ -1,3 +1,4 @@
+using System;
 using RimWorld;
 using Verse;
 
@@ -34,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 		// Golems
 		public static StatDef WVC_GolemBond;
 		public static StatDef WVC_GolemBondCost;
+		public static JobDef WVC_AbsorbTargetGenes;
 		// public static StatDef MechFormingSpeed;
 		// Walking Corpses
 		// public static StatDef WVC_SporesBandwidth;
@@ -98,7 +100,8 @@ namespace WVC_XenotypesAndGenes
 		//public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
 		// public static JobDef WVC_XaG_FeedBloodeaterForced;
 		//
-		public static RecipeDef WVC_ImplantXenogermSerum;
+		//[Obsolete]
+		//public static RecipeDef WVC_ImplantXenogermSerum;
 		//
 		public static GeneCategoryDef WVC_Miscellaneous;
 		//
