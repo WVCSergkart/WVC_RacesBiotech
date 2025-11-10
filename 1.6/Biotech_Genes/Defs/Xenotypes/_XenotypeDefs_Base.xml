@@ -85,6 +85,10 @@
 	<displayPriority>-1055</displayPriority>
 	<factionlessGenerationWeight>0.04</factionlessGenerationWeight>
 	<genes>
+		<!-- new -->
+		<li>WVC_Switcher</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<!-- new -->
 		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
 		<li>WVC_ReimplanterArchite_Endogenes</li>
 		<li>WVC_MecaBodyParts_Ear</li>
@@ -97,7 +101,7 @@
 		<li>WVC_MechaAI_SoftwareMoving</li>
 		<li>WVC_MechaAI_PsychicDull</li>
 		<li>WVC_CyclicallySelfLearning</li>
-		<li Hook="RemoveMeInTest">WVC_MecaBodyParts_Stomach</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_MecaBodyParts_Stomach</li> -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_Metal</li>

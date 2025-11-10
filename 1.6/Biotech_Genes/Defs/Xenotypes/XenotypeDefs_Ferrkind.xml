@@ -26,7 +26,7 @@
 		<li>WVC_Chimera_BandwidthLimit</li>
 		<li>WVC_Chimera_GeneNetwork</li>
 		<li>WVC_Chimera_SelfCopy</li>
-		<li Hook="RemoveMeInTest">WVC_MechaPowerSource_Unstable</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_MechaPowerSource_Unstable</li> -->
 		<li>WVC_WoundHealing_Unnatural</li>
 		<li>WVC_Rejuvenator</li>
 		<li>FireResistant</li>
