@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetXenotype(Pawn target, Pawn caster)
 		{
-			ReimplanterUtility.SetXenotype(target, xenotypeHolder);
+			ReimplanterUtility.SetXenotype_Safe(target, xenotypeHolder);
 			ReimplanterUtility.UpdateXenogermReplication_WithComa(target);
 			ReimplanterUtility.ExtractXenogerm(caster);
 			CompAbilityEffect_NewImplanter.Notify_Reimplanted(target, caster);

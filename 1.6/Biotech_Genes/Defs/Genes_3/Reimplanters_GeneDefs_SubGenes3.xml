@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_PostImplanterInstantRegrow</defName>
+	<label>post-regrow</label>
+	<description>Carriers of this gene can regrow genes instantly after using the reimplanter by absorbing genes from the target, which increases the duration of gene regrowth in their victims.</description>
+	<iconPath>WVC/UI/Genes3/Gene_PostImplanter_GenesRegrow</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Implanter_InstantRegrow</geneClass>
+	<selectionWeight>0.0002</selectionWeight>
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Using a &lt;color=#8a8ae6&gt;post-implanter or implanter&lt;/color&gt; removes genes regrowing, but increases the target's genes regrowing for the same amount of time.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>regrow</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

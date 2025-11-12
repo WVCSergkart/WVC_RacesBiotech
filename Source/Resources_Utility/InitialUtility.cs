@@ -229,6 +229,10 @@ namespace WVC_XenotypesAndGenes
 					geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneHivemind_Dormant_Desc".Translate().ToString());
 				}
 			}
+			if (geneDef.IsGeneDefOfType<Gene_PostImplanter>())
+			{
+				geneDef.customEffectDescriptions.Add("WVC_CanUseImplanterSubGenes".Translate().ToString());
+			}
 			if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
 			{
 				if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())

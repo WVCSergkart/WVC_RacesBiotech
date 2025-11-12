@@ -339,18 +339,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				RecruitUtility.Recruit(target, Faction.OfPlayer, pawn);
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
-				target.ideo?.SetIdeo(pawn.ideo.Ideo);
+				//target.ideo?.SetIdeo(pawn.ideo.Ideo);
 			}
 		}
 
 	}
 
+	// To-Do: Remove in next year. Febrary
 	[Obsolete]
 	public class Gene_PostImplanter_Recruit : Gene_Implanter_Recruit
 	{
 
 	}
 
+	// To-Do: Remove in next year. Febrary
 	[Obsolete]
 	public class Gene_PostImplanter_Brainwash : Gene_PostImplanter_Recruit
 	{
@@ -370,9 +372,47 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// To-Do: Remove in next year. Febrary
 	[Obsolete]
 	public class Gene_PostImplanter_Convert : Gene_Implanter_Convert
 	{
+
+	}
+
+	public class Gene_Implanter_InstantRegrow : Gene_ImplanterDependant
+	{
+
+		public override void DoEffects(Pawn target)
+		{
+			Hediff genesRegrow = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (genesRegrow != null)
+			{
+				int disappearsAfterTicks = genesRegrow.TryGetComp<HediffComp_Disappears>() != null ? genesRegrow.TryGetComp<HediffComp_Disappears>().disappearsAfterTicks : 120 * 60000;
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(target, new(disappearsAfterTicks, disappearsAfterTicks));
+				pawn.health.RemoveHediff(genesRegrow);
+			}
+		}
+
+	}
+
+	public class Gene_Implanter_RandomMutation : Gene_ImplanterDependant
+	{
+
+		public override void DoEffects(Pawn target)
+		{
+			if (!ModLister.CheckAnomaly("FleshbeastMutations"))
+			{
+				return;
+			}
+			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation))
+			{
+				FleshbeastUtility.TryGiveMutation(pawn, mutation);
+			}
+			if (HediffUtility.TryGetBestMutation(target, out HediffDef mutation2))
+			{
+				FleshbeastUtility.TryGiveMutation(target, mutation2);
+			}
+		}
 
 	}
 

@@ -1160,6 +1160,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GenesSettingsDesc>Allows to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, mechs summon, etc. If the gene allows to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
 
 	<WVC_XaG_PostImplanterSubGeneDesc>Allows to enable/disable the gene effect.</WVC_XaG_PostImplanterSubGeneDesc>
+	<WVC_CanUseImplanterSubGenes>&lt;color=#8a8ae6&gt;Support post-implanter sub-genes.&lt;/color&gt;</WVC_CanUseImplanterSubGenes>
 
 	<!-- <WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists.</WVC_XaG_RemoteControlBloodeaterDesc> -->
 	<WVC_XaG_RemoteControlBloodeaterDesc>Allows to select a mode for the bloodeater, turn it off, and toggle the visibility of abilities.</WVC_XaG_RemoteControlBloodeaterDesc>

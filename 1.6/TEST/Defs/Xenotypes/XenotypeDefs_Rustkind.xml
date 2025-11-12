@@ -28,6 +28,7 @@
 		<li>WVC_Switcher_Implanter</li>
 		<li>WVC_PostImplanterBrainwash</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_PostImplanter_Convert</li>
+		<li>WVC_PostImplanterInstantRegrow</li>
 	</genes>
   </XenotypeDef>
 

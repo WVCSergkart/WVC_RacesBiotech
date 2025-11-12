@@ -44,6 +44,9 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
+	<statOffsets>
+	  <MaxNutrition>0.5</MaxNutrition>
+	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<foodPoisoningFromFood>false</foodPoisoningFromFood>
@@ -68,6 +71,9 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#ff8585&gt;Charging rate is lower than that of similar genes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.5</MaxNutrition>
+	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<foodPoisoningFromFood>false</foodPoisoningFromFood>
@@ -93,6 +99,9 @@
 		<li>&lt;color=#8a8ae6&gt;Downed&lt;/color&gt; carrier slowly replenishes nutrition to half.</li>
 		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any food sources.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>tox</symbol></li>

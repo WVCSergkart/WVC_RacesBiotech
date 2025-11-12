@@ -12,7 +12,7 @@
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
-		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_Endogenes</li>
@@ -87,7 +87,7 @@
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
-		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseEndogenes</li>

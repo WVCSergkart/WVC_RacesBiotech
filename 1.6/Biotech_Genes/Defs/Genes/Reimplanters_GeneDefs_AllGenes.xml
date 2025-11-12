@@ -9,7 +9,7 @@
 	<displayOrderInCategory>75</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
-		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_EndogermReimplanter</li>
@@ -53,7 +53,7 @@
 	<displayOrderInCategory>80</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
-		<li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_Reimplanter_RiseFromTheDead</li>

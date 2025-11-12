@@ -33,7 +33,7 @@
 	<selectionWeight>0.0022</selectionWeight>
 	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
 	<displayCategory>WVC_Reimplanters</displayCategory>
-	<displayOrderInCategory>121</displayOrderInCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
