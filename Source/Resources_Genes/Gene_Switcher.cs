@@ -102,7 +102,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (MiscUtility.GameStarted())
 			{
-				nextTick = 60000 * 15;
+				nextTick = (pawn.Faction == Faction.OfPlayer ? 60000 : new IntRange(0, 60000).RandomInRange) * 15;
 			}
 		}
 
@@ -227,10 +227,7 @@ namespace WVC_XenotypesAndGenes
 			if (nextTick > 0)
 			{
 				nextTick -= delta;
-				if (nextTick <= 0)
-				{
-					Find.LetterStack.ReceiveLetter("AbilityReadyLabel".Translate(def.LabelCap), "AbilityReadyText".Translate(pawn, def.label), LetterDefOf.NeutralEvent, new LookTargets(pawn));
-				}
+				MiscUtility.GeneAbilityReadyLetter(nextTick, this);
 			}
 		}
 

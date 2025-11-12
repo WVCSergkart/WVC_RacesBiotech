@@ -13,6 +13,14 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void GeneAbilityReadyLetter(int nextTick, Gene gene)
+		{
+			if (nextTick <= 0 && PawnUtility.ShouldSendNotificationAbout(gene.pawn))
+			{
+				Find.LetterStack.ReceiveLetter("AbilityReadyLabel".Translate(gene.def.LabelCap), "AbilityReadyText".Translate(gene.pawn, gene.def.label), LetterDefOf.NeutralEvent, new LookTargets(gene.pawn));
+			}
+		}
+
 		public static void AddRangeSafe<T>(this List<T> set, List<T> other)
 		{
 			foreach (T item in other)

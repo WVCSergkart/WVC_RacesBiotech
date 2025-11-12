@@ -87,6 +87,7 @@ namespace WVC_XenotypesAndGenes
 			if (cooldownTick > 0)
 			{
 				cooldownTick -= 59997;
+				MiscUtility.GeneAbilityReadyLetter(cooldownTick, this);
 			}
 			ResetCollection();
 		}

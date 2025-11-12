@@ -642,7 +642,6 @@ namespace WVC_XenotypesAndGenes
 					{
 						// Silent fail
 						surfaceTile.RemoveMutator(tileMutatorDef);
-						//Log.Warning("Failed raplace biome on tile. Reason: " + arg.Message);
 					}
 				}
 			}
@@ -654,12 +653,30 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
+			if (pawn.genes.Xenotype == xenotypeDef)
+			{
+				return;
+			}
+			if (MiscUtility.GameNotStarted())
+			{
+				SetXenotype(pawn, xenotypeDef);
+				return;
+			}
 			bool baseliner = pawn.genes.Xenotype == XenotypeDefOf.Baseliner;
 			if ((pawn.IsQuestReward() || pawn.IsQuestLodger()) && !baseliner)
 			{
 				return;
 			}
-			//XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
+			if (xenotypeDef.inheritable && !AnyFactionContains(pawn.genes.Xenotype))
+			{
+				return;
+			}
+			SetXenotype(pawn, xenotypeDef);
+		}
+
+		private static void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		{
 			//if (baseliner || pawn.genes.Xenotype.inheritable || !xenotypeDef.inheritable)
 			//{
 			//	ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
@@ -670,7 +687,7 @@ namespace WVC_XenotypesAndGenes
 			//	ReimplanterUtility.SetXenotype(pawn, xenotypeDef);
 			//	ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, oldXenotype);
 			//}
-			ReimplanterUtility.SetXenotype_Safe(pawn, new(xenotypeDefs.RandomElement()), new(), doPostDebug: true);
+			ReimplanterUtility.SetXenotype_Safe(pawn, new(xenotypeDef), doPostDebug: true);
 			//if (pawn.genes.GenesListForReading.Any((gene) => gene.def.IsGeneDefOfType<Gene_Ageless>()))
 			//{
 			//	AgelessUtility.Rejuvenation(pawn);
@@ -679,6 +696,18 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	HealingUtility.RemoveAllRemovableBadHediffs(pawn);
 			//}
+		}
+
+		private static bool AnyFactionContains(XenotypeDef xenotypeDef)
+		{
+			foreach (Faction faction in Find.World.factionManager.AllFactionsVisible)
+			{
+				if (faction.def.xenotypeSet?.Contains(xenotypeDef) == true)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		//public override void PreConfigure()

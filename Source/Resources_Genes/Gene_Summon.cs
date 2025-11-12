@@ -99,10 +99,7 @@ namespace WVC_XenotypesAndGenes
 			if (nextTick > 0)
 			{
 				nextTick -= delta;
-				if (nextTick <= 0)
-				{
-					Find.LetterStack.ReceiveLetter("AbilityReadyLabel".Translate(def.LabelCap), "AbilityReadyText".Translate(pawn, def.label), LetterDefOf.NeutralEvent, new LookTargets(pawn));
-				}
+				MiscUtility.GeneAbilityReadyLetter(nextTick, this);
 			}
 		}
 

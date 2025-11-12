@@ -9,4 +9,14 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
+	//public class Gene : Verse.Gene
+	//{
+
+	//	public override void Tick()
+	//	{
+	//		base.Tick();
+	//	}
+
+	//}
+
 }
