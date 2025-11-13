@@ -11,6 +11,14 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
+		public static List<Pawn> AllPlayerPawns_MapsOrCaravans_Alive
+		{
+			get
+			{
+				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayer)?.ToList() ?? new();
+			}
+		}
+
 		private static List<XenotypeDef> cachedChimerkinXenotypes;
 		public static List<XenotypeDef> ChimeraXenotypes
 		{

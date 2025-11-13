@@ -10,14 +10,6 @@ namespace WVC_XenotypesAndGenes
 	public static class HivemindUtility
 	{
 
-		//public static List<Pawn> AllPlayerPawns_MapsOrCaravans_Alive
-		//{
-		//	get
-		//	{
-		//		return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayer)?.ToList() ?? new();
-		//	}
-		//}
-
 		private static List<Pawn> cachedPawns;
 		public static List<Pawn> HivemindPawns
 		{
