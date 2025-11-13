@@ -27,20 +27,18 @@ namespace WVC_XenotypesAndGenes
 			compClass = typeof(CompHumanlike);
 		}
 
-		// public override void ResolveReferences(ThingDef parentDef)
-		// {
-		// if (shouldResurrect && parentDef.race?.corpseDef != null)
-		// {
-		// if (parentDef.race.corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
-		// {
-		// return;
-		// }
-		// CompProperties_UndeadCorpse undead_comp = new();
-		// undead_comp.resurrectionDelay = resurrectionDelay;
-		// undead_comp.uniqueTag = uniqueTag;
-		// parentDef.race.corpseDef.comps.Add(undead_comp);
-		// }
-		// }
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (shouldResurrect && parentDef.race?.corpseDef != null)
+			{
+				if (parentDef.race.corpseDef.GetCompProperties<CompProperties_Corpse>() != null)
+				{
+					return;
+				}
+				CompProperties_Corpse undead_comp = new();
+				parentDef.race.corpseDef.comps.Add(undead_comp);
+			}
+		}
 
 	}
 
@@ -266,6 +264,8 @@ namespace WVC_XenotypesAndGenes
 
 		private int resurrectionDelay = 0;
 		private bool shouldResurrect = false;
+		public bool ShouldResurrect => shouldResurrect;
+		public int ResurrectionDelay => resurrectionDelay;
 
 		public void SetUndead(bool resurrect, int delay, Pawn pawn)
 		{

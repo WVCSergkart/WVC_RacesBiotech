@@ -307,6 +307,7 @@
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
+    <Compile Include="Resources_Things\CompProperties_Corpse.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />
     <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
