@@ -5,7 +5,7 @@
 	<defName>WVC_MechaSkin</defName>
 	<label>mechaskin</label>
 	<description>Carriers of this gene have archites that completely transform the external appearance of the body, making it look like a mechanoid one.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Mechaskin</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Mechaskin</geneClass>
 	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -19,6 +19,9 @@
 	  <!-- <li>Female_AverageNormal</li> -->
 	  <!-- <li>Female_AveragePointy</li> -->
 	<!-- </forcedHeadTypes> -->
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Disables natural corpse rotting.&lt;/color&gt;</li>
+	</customEffectDescriptions>
 	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
 	<statOffsets>
 	  <ComfyTemperatureMax>14</ComfyTemperatureMax>

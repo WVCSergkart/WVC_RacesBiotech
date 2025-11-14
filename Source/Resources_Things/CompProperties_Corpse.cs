@@ -55,6 +55,22 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+
+		//public bool initialized;
+		//public override void CompTickRare()
+		//{
+		//	if (initialized)
+		//	{
+		//		return;
+		//	}
+		//	initialized = true;
+		//	CompRottable compRottable = Corpse.GetComp<CompRottable>();
+		//	if (compRottable != null &&)
+		//	{
+		//		compRottable.disabled = true;
+		//	}
+		//}
+
 	}
 
 }

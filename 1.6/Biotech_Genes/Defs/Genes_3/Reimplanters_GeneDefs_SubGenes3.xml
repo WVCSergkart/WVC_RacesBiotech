@@ -12,7 +12,7 @@
 	<displayOrderInCategory>130</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<biostatMet>-1</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 		<li>Using a &lt;color=#8a8ae6&gt;post-implanter or implanter&lt;/color&gt; removes genes regrowing, but increases the target's genes regrowing for the same amount of time.</li>
 	</customEffectDescriptions>

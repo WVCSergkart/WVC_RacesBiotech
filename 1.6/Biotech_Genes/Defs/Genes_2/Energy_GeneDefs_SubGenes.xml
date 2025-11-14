@@ -230,9 +230,10 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>When carrier infected with &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt;, it will &lt;color=#8a8ae6&gt;emerge&lt;/color&gt; after a while, preventing it from growing.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">When carrier infected with &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt;, it will &lt;color=#8a8ae6&gt;emerge&lt;/color&gt; after a while, preventing it from growing.</li>
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
 		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Disables corpse rotting.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<statFactors>
 	  <ImmunityGainSpeed>8</ImmunityGainSpeed>

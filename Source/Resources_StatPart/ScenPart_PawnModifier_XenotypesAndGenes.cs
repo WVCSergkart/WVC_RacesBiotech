@@ -719,6 +719,10 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Defs.Look(ref biomeDef, "biomeDef");
 			Scribe_Collections.Look(ref xenotypeDefs, "xenotypeDefs", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				SetPlants();
+			}
 		}
 
 		//private string cachedDesc = null;
@@ -737,6 +741,31 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//	return cachedDesc;
 		//}
+
+		public override void PostGameStart()
+		{
+			SetPlants();
+		}
+
+		public void SetPlants()
+		{
+			List<ThingDef> thingDefs = biomeDef?.AllWildPlants;
+			foreach (ThingDef thingDef in thingDefs)
+			{
+				if (thingDef.plant == null)
+				{
+					continue;
+				}
+				if (thingDef.plant.minGrowthTemperature > -55)
+				{
+					thingDef.plant.minGrowthTemperature = -55;
+				}
+				if (thingDef.plant.maxGrowthTemperature < 55)
+				{
+					thingDef.plant.maxGrowthTemperature = 55;
+				}
+			}
+		}
 
 	}
 

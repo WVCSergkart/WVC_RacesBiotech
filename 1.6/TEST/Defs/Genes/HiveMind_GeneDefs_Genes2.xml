@@ -36,6 +36,9 @@
 	<customEffectDescriptions>
 		<li>Gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; varies with &lt;color=#8a8ae6&gt;hivemind size&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SharedMetabolism</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->

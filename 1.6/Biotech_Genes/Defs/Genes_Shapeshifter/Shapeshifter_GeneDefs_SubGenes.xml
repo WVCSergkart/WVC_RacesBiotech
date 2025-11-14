@@ -188,6 +188,7 @@
 	<customEffectDescriptions>
 		<li>Carrier cannot be killed by &lt;color=#8a8ae6&gt;direct damage&lt;/color&gt;.</li>
 		<!-- <li>Carrier can only be killed by &lt;color=#8a8ae6&gt;extracting&lt;/color&gt; the archotech &lt;color=#8a8ae6&gt;shard&lt;/color&gt; from their body.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Disables corpse rotting.&lt;/color&gt;</li> -->
 		<li>Healing: 1 hp/day</li>
 	</customEffectDescriptions>
 	<!-- <statFactors> -->

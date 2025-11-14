@@ -205,6 +205,21 @@ namespace WVC_XenotypesAndGenes
 		//	Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(pawn, null);
 		//}
 
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			if (!Active)
+			{
+				return;
+			}
+			HealingUtility.SetRottable(pawn);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			HealingUtility.SetRottable(pawn, false);
+		}
+
 	}
 
 	//[Obsolete]

@@ -29,6 +29,7 @@
 		<li>WVC_PostImplanterBrainwash</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_PostImplanter_Convert</li>
 		<li>WVC_PostImplanterInstantRegrow</li>
+		<li>WVC_SharedMetabolism</li>
 	</genes>
   </XenotypeDef>
 

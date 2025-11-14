@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Hivemind_Metabolism : Gene_Hivemind_Drone
 	{
 
-		private int savedMetCount = 0;
+		private static int savedMetCount = 0;
 		public int LastMetCount
 		{
 			get
@@ -61,20 +61,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SharedMetabolism : Gene
+	public class Gene_SharedMetabolism : Gene, IGeneOverridden
 	{
 
-		private int savedMetCount = 0;
+		private static int? savedMetCount;
 		public int LastMetCount
 		{
 			get
 			{
 				if (MiscUtility.GameNotStarted())
 				{
-					return savedMetCount;
+					return 0;
 				}
-				savedMetCount = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive.Where((target) => target.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() != null).ToList().Count;
-				return savedMetCount;
+				if (savedMetCount == null)
+				{
+					savedMetCount = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive?.Where((target) => target.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() != null)?.ToList()?.Count;
+					if (savedMetCount == null)
+					{
+						savedMetCount = 0;
+					}
+				}
+				return savedMetCount.Value;
 			}
 		}
 
@@ -98,6 +105,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void UpdMet()
 		{
+			savedMetCount = null;
 			def.biostatMet = LastMetCount;
 			def.cachedDescription = null;
 		}
@@ -105,12 +113,28 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref savedMetCount, "savedMetCount", 0);
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			Scribe_Values.Look(ref savedMetCount, "savedMetCount");
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && savedMetCount.HasValue)
 			{
-				def.biostatMet = savedMetCount;
+				def.biostatMet = savedMetCount.Value;
 				def.cachedDescription = null;
 			}
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			UpdMet();
+		}
+
+		public void Notify_Override()
+		{
+			UpdMet();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			UpdMet();
 		}
 
 	}

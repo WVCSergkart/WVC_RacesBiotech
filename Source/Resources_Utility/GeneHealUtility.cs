@@ -336,5 +336,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SetRottable(Pawn pawn, bool disabled = true)
+		{
+			CompRottable compRottable = pawn.Corpse?.GetComp<CompRottable>();
+			if (compRottable != null)
+			{
+				compRottable.disabled = disabled;
+			}
+		}
+
 	}
 }
