@@ -20,35 +20,42 @@ namespace WVC_XenotypesAndGenes
 		public Pawn InnerPawn => Corpse?.InnerPawn;
 
 		private bool? shouldResurrect;
-		public bool ShouldResurrect
+		public bool ShowInfo
 		{
 			get
 			{
 				if (shouldResurrect == null)
 				{
-					CompHumanlike compHumanlike = InnerPawn?.HumanComponent();
-					if (compHumanlike == null)
+					if (InnerPawn.Faction != Faction.OfPlayer)
 					{
 						shouldResurrect = false;
 					}
 					else
 					{
-						shouldResurrect = compHumanlike.ShouldResurrect;
-					}
-					if (shouldResurrect.Value)
-					{
-						resurrectionDelay = compHumanlike.ResurrectionDelay;
+						CompHumanlike compHumanlike = InnerPawn?.HumanComponent();
+						if (compHumanlike == null)
+						{
+							shouldResurrect = false;
+						}
+						else
+						{
+							shouldResurrect = compHumanlike.ShouldResurrect;
+						}
+						if (shouldResurrect.Value)
+						{
+							resurrectionDelay = compHumanlike.ResurrectionDelay;
+						}
 					}
 				}
 				return shouldResurrect.Value;
 			}
 		}
 
-		private int resurrectionDelay = 0;
+		private int resurrectionDelay;
 
 		public override string CompInspectStringExtra()
 		{
-			if (ShouldResurrect)
+			if (ShowInfo)
 			{
 				return "WVC_XaG_Gene_UndeadResurrectionCorpse_Info".Translate().Resolve() + ": " + (resurrectionDelay - Find.TickManager.TicksGame).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}

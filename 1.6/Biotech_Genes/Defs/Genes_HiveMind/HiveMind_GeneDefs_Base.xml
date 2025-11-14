@@ -37,7 +37,7 @@
 	<geneClass>Gene</geneClass>
 	<marketValueFactor>1.6</marketValueFactor>
 	<displayOrderInCategory>0</displayOrderInCategory>
-	<displayCategory>WVC_DormantHivemind</displayCategory>
+	<!-- <displayCategory>WVC_DormantHivemind</displayCategory> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>

@@ -231,18 +231,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
-			if (parent is not Pawn pawn || pawn?.genes == null)
+			Pawn pawn = Pawn;
+			if (pawn?.genes == null)
 			{
 				return;
-			}
-			if (ModsConfig.IdeologyActive)
-			{
-				GeneshiftUtility.ResetXenotypesCollection();
-				StaticCollectionsClass.ResetStaticRecacheTick();
-			}
-			if (HivemindUtility.InHivemind_Safe(pawn))
-			{
-				HivemindUtility.ResetCollection();
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
@@ -257,6 +249,19 @@ namespace WVC_XenotypesAndGenes
 						Log.Error("Failed trigger Notify_PawnKilled for gene " + gene.def.defName);
 					}
 				}
+			}
+			if (pawn.Faction != Faction.OfPlayerSilentFail)
+			{
+				return;
+			}
+			if (ModsConfig.IdeologyActive)
+			{
+				GeneshiftUtility.ResetXenotypesCollection();
+				StaticCollectionsClass.ResetStaticCache_PerSave();
+			}
+			if (HivemindUtility.InHivemind_Safe(pawn))
+			{
+				HivemindUtility.ResetCollection();
 			}
 		}
 

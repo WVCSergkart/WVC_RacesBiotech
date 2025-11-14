@@ -747,7 +747,7 @@ namespace WVC_XenotypesAndGenes
 			SetPlants();
 		}
 
-		public void SetPlants()
+		private void SetPlants()
 		{
 			List<ThingDef> thingDefs = biomeDef?.AllWildPlants;
 			foreach (ThingDef thingDef in thingDefs)

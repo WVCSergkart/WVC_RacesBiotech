@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private List<XenotypeHolder> cachedHolders;
+		public static List<XenotypeHolder> cachedHolders;
 		public List<XenotypeHolder> Xenotypes
 		{
 			get

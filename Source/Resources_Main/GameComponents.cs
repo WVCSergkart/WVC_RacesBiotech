@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void LoadedGame()
 		{
-			StaticCollectionsClass.ResetStaticRecacheTick();
+			StaticCollectionsClass.ResetStaticCache_PerSave();
 			//HivemindUtility.ResetSafeCollection();
 			HivemindUtility.ResetCollection();
 			//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();

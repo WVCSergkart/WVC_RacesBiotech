@@ -8,7 +8,7 @@
 	<description>Carriers of this gene are dormant hivemind drones. If the hivemind calls them, they will respond.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DormantDrone</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Dormant_Drone</iconPath>
-	<displayOrderInCategory>0</displayOrderInCategory>
+	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<exclusionTags>
@@ -18,15 +18,15 @@
 
   <!-- ========================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_NonArchite">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_Resyncer</defName>
 	<label>hivemind resyncer</label>
 	<description>Carriers of this gene are able to awaken the dormant genes of potential hivemind drones.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Resyncer</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Dormant_Resyncer</iconPath>
-	<displayOrderInCategory>10</displayOrderInCategory>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-4</biostatMet>
+	<displayOrderInCategory>-90</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>After &lt;color=#8a8ae6&gt;hivemind synchronization&lt;/color&gt;, it awakens &lt;color=#8a8ae6&gt;dormant&lt;/color&gt; drones, connecting them to the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
@@ -41,7 +41,7 @@
 	<description>Carriers of this gene have an immune system that draws information about diseases from other hivemind drones. The larger the hivemind, the more effective the immune system.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
 	<!-- <iconPath>WVC/UI/Genes3/Gene_Dormant_Immunity</iconPath> -->
-	<displayOrderInCategory>20</displayOrderInCategory>
+	<displayOrderInCategory>-80</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-2</biostatMet>
 	<conditionalStatAffecters>
@@ -77,7 +77,7 @@
 	<description>Carriers of this gene heal from wounds faster the larger their hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Dependant</geneClass>
 	<!-- <iconPath>WVC/UI/Genes3/Gene_Dormant_Heal</iconPath> -->
-	<displayOrderInCategory>25</displayOrderInCategory>
+	<displayOrderInCategory>-75</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-2</biostatMet>
 	<conditionalStatAffecters>
@@ -113,8 +113,8 @@
 	<description>Carriers of this gene are dependent on the hivemind; without the hive, their genetics slowly self-destruct, leading to a coma from time to time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindDependency</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HivemindDependant</iconPath>
-	<displayOrderInCategory>100</displayOrderInCategory>
-	<biostatCpx>-4</biostatCpx>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<customEffectDescriptions>
 		<li>Carrier falls into a &lt;color=#8a8ae6&gt;coma&lt;/color&gt; every (*DateTime)9-15 days(/DateTime) if not part of the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>

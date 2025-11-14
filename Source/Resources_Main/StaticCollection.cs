@@ -66,15 +66,16 @@ namespace WVC_XenotypesAndGenes
 			HealingUtility.UpdRegenCollection();
 			GeneResourceUtility.UpdUndeads();
 			HivemindUtility.ResetCollection();
-			ResetStaticRecacheTick();
+			ResetStaticCache_PerSave();
 		}
 
-		public static void ResetStaticRecacheTick()
+		public static void ResetStaticCache_PerSave()
 		{
 			ThoughtWorker_Precept_HasAnyXenotypesAndCount.lastRecacheTick = -1;
 			ThoughtWorker_Precept_WithCollectionCheck.lastRecacheTick = -1;
 			ThoughtWorker_Precept_Family.lastRecacheTick = -1;
 			GeneshiftUtility.lastRecacheTick = -1;
+			Gene_Switcher.cachedHolders = null;
 		}
 
 		public static void AddHideMechanitors(Pawn pawn)

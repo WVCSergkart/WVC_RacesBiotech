@@ -61,6 +61,7 @@
 		<!-- <li>&lt;color=#ff8585&gt;If the carrier does not find meat, it will try to bite one of the colonists.&lt;/color&gt;</li> -->
 		<li>Hunger is synchronized with &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; in percentage terms.</li>
 		<li>&lt;color=#8a8ae6&gt;Raw meat&lt;/color&gt; replenishes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; relative to nutrition.</li>
+		<li>Gene &lt;color=#8a8ae6&gt;hemogen drain&lt;/color&gt; depends on the total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <RawNutritionFactor>3.0</RawNutritionFactor>
