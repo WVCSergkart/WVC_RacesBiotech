@@ -84,6 +84,7 @@
 	<inheritable>true</inheritable>
 	<displayPriority>-1055</displayPriority>
 	<factionlessGenerationWeight>0.04</factionlessGenerationWeight>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin2c</iconPath>	<!-- basic metalkin icon -->
 	<genes>
 		<!-- new -->
 		<li>WVC_Switcher</li>

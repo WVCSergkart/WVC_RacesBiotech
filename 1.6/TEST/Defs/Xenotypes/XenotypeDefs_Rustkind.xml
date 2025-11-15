@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- metalkin hivemind -->
+  <!-- metalkin implanter focus -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_Rustkind</defName>
 	<!-- minder, rustkind -->
@@ -10,26 +10,30 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
 
+&lt;color=#f5ffa2&gt;Gameplay Effect (Implanter):&lt;/color&gt; Can implant its genes with almost no CD.
+
 &lt;color=#f5ffa2&gt;Gameplay Effect (Switcher):&lt;/color&gt; Can switch at any time to other xenotypes with the switcher gene.</description>
 	<descriptionShort>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
 	  <XenotypeDef>WVC_Ferrkind</XenotypeDef>
 	</descriptionHyperlinks>
-	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Icons3/Xeno_Metalkin2c</iconPath> -->
 	<displayPriority>-1057</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
 	<genes>
-		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_ReimplanterArchite_Xenogenes</li>
+		<li>WVC_ReimplanterArchite_RiseXenogenes</li>
+		<!-- <li>WVC_Hivemind_DeafDrone</li> -->
 		<li>WVC_WoundHealing_SelfRepair</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Switcher_Implanter</li>
 		<li>WVC_PostImplanterBrainwash</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_PostImplanter_Convert</li>
 		<li>WVC_PostImplanterInstantRegrow</li>
-		<li>WVC_SharedMetabolism</li>
+		<!-- <li>WVC_SharedMetabolism</li> -->
 	</genes>
   </XenotypeDef>
 

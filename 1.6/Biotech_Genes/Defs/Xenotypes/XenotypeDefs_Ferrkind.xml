@@ -10,7 +10,9 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Chimera):&lt;/color&gt; This xenotype can copy the genes of other pawns with similar genes, and then convert unwanted genes into tools that will allow this ability to be spread.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Chimera):&lt;/color&gt; This xenotype can copy the genes of other pawns with similar genes, and then convert unwanted genes into tools that will allow this ability to be spread.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Switcher):&lt;/color&gt; Can switch at any time to other xenotypes with the switcher gene.</description>
 	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.</descriptionShort>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
