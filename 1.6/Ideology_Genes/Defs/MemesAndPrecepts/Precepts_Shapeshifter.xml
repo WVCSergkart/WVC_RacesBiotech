@@ -13,7 +13,7 @@
 	<issue>WVC_Shapeshifters</issue>
 	<label>community</label>
 	<displayOrderInIssue>10</displayOrderInIssue>
-	<description>We don't need many people to survive; we are strong not in numbers, but in form.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Several genes are suitable for shapeshifter conditions: Shapeshifter, chimera, morpher and archiver.</description>
+	<description>We don't need many people to survive; we are strong not in numbers, but in form.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Several genes are suitable for shapeshifter conditions: Shapeshifter, chimera, morpher, switcher and archiver.</description>
 	<!-- &lt;color=#f5ffa2&gt;Gameplay Effect (Mood):&lt;/color&gt; Quest pawns and anomaly duplicates are ignored. -->
 	<impact>High</impact>
 	<requiredMemes>
@@ -67,7 +67,7 @@
 	<issue>WVC_Shapeshifters</issue>
 	<label>required</label>
 	<displayOrderInIssue>0</displayOrderInIssue>
-	<description>Shapeshifters should be worshipped. Believers will be happy if there is a shapeshifter in the colony.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Several genes are suitable for shapeshifter conditions: Shapeshifter, chimera, morpher and archiver.</description>
+	<description>Shapeshifters should be worshipped. Believers will be happy if there is a shapeshifter in the colony.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Several genes are suitable for shapeshifter conditions: Shapeshifter, chimera, morpher, switcher and archiver.</description>
 	<impact>Medium</impact>
 	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<requiredMemes>

@@ -61,6 +61,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override bool IgnoreIdeo => true;
+
 		public SaveableXenotypeHolder xenotypeHolder;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)

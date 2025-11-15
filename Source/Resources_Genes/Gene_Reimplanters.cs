@@ -244,6 +244,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class Gene_HivemindAssimilator : Gene_PostImplanter, IGeneHivemind, IGeneNonSync
+	//{
+
+
+
+	//}
+
 	public class Gene_ImplanterDependant : Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(activateSubGeneEffect);

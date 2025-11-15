@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
+		public virtual bool IgnoreIdeo => false;
+
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			string phase = "";
@@ -89,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ReimplanterUtility.ValidCorpseForImplant(target, throwMessages, corpse);
 			}
-			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages);
+			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, !IgnoreIdeo);
 		}
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)

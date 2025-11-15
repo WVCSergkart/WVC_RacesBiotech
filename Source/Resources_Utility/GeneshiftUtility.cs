@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 			anyShapeshiftersInFaction = null;
 			chimerkins = new();
 			nonChimerkins = new();
-			ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
+			PreferredXenotypesUtility.UpdCollection();
 		}
 		public static void UpdLeader()
 		{

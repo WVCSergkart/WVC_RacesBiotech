@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private static bool IsHivemindGene(Gene gene)
+		public static bool IsHivemindGene(Gene gene)
 		{
 			if (gene is IGeneHivemind)
 			{

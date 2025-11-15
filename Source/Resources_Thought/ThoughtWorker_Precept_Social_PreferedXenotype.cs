@@ -9,111 +9,6 @@ namespace WVC_XenotypesAndGenes
 	public class ThoughtWorker_Precept_PreferredXenotype_Social : RimWorld.ThoughtWorker_Precept_PreferredXenotype_Social
 	{
 
-		//private static Dictionary<Pawn, Ideo> notPreferredPawns = new();
-		//private static Dictionary<Pawn, Ideo> preferredPawns = new();
-
-		public static float ReqMatch => WVC_Biotech.settings.preferredXenotypes_RequiredMinMatch;
-
-		private static List<PawnIdeo> notPreferredPawns = new();
-		private static List<PawnIdeo> preferredPawns = new();
-
-		public class PawnIdeo
-		{
-
-			public Ideo ideo;
-			public List<Pawn> pawns = new();
-
-			public void Add(Pawn pawn)
-			{
-				if (!Contains(pawn))
-				{
-					pawns.Add(pawn);
-				}
-			}
-
-			public bool Contains(Pawn pawn)
-			{
-				return pawns.Contains(pawn);
-			}
-
-		}
-
-		public static bool IsPreferredXenotype(Pawn caller, Ideo ideo)
-		{
-			if (InList(notPreferredPawns, caller, ideo))
-			{
-				return false;
-			}
-			if (InList(preferredPawns, caller, ideo))
-			{
-				return true;
-			}
-			List<Gene> genesListForReading = caller.genes.GenesListForReading;
-			foreach (XenotypeDef xenotypeDef in ideo.PreferredXenotypes)
-			{
-				//if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, xenotypeDef.genes, ReqMatch))
-				//{
-				//	notPreferredPawns.Add(caller, ideo);
-				//}
-				//else
-				//{
-				//	preferredPawns.Add(caller, ideo);
-				//}
-				UpdLists(caller, ideo, genesListForReading, xenotypeDef.genes);
-			}
-			foreach (CustomXenotype xenotypeDef in ideo.PreferredCustomXenotypes)
-			{
-				UpdLists(caller, ideo, genesListForReading, xenotypeDef.genes);
-			}
-			return true;
-		}
-
-		public static void UpdLists(Pawn caller, Ideo ideo, List<Gene> genesListForReading, List<GeneDef> genes)
-		{
-			if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, genes, ReqMatch))
-			{
-				Add(notPreferredPawns, caller, ideo);
-			}
-			else
-			{
-				Add(preferredPawns, caller, ideo);
-			}
-
-			static void Add(List<PawnIdeo> list, Pawn caller, Ideo ideo)
-			{
-				foreach (PawnIdeo item in list)
-				{
-					if (item.ideo == ideo)
-					{
-						item.Add(caller);
-						return;
-					}
-				}
-				PawnIdeo pawnIdeo = new();
-				pawnIdeo.ideo = ideo;
-				pawnIdeo.Add(caller);
-				list.Add(pawnIdeo);
-			}
-		}
-
-		private static bool InList(List<PawnIdeo> list, Pawn caller, Ideo ideo)
-		{
-			foreach (PawnIdeo item in list)
-			{
-				if (item.ideo == ideo && item.Contains(caller))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		public static void UpdCollection()
-		{
-			preferredPawns = new();
-			notPreferredPawns = new();
-		}
-
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
 		{
 			if (otherPawn.genes == null)
@@ -128,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ThoughtState.Inactive;
 			}
-			if (IsPreferredXenotype(otherPawn, p.Ideo))
+			if (PreferredXenotypesUtility.IsPreferredXenotype(otherPawn, p.Ideo))
 			{
 				return ThoughtState.ActiveAtStage(0);
 			}
@@ -160,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 				if (item.genes != null && flag == flag2)
 				{
 					num++;
-					if (!ThoughtWorker_Precept_PreferredXenotype_Social.IsPreferredXenotype(item, p.Ideo))
+					if (!PreferredXenotypesUtility.IsPreferredXenotype(item, p.Ideo))
 					{
 						num2++;
 					}
@@ -198,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ThoughtState.Inactive;
 			}
-			return !ThoughtWorker_Precept_PreferredXenotype_Social.IsPreferredXenotype(p, p.Ideo);
+			return !PreferredXenotypesUtility.IsPreferredXenotype(p, p.Ideo);
 		}
 
 	}

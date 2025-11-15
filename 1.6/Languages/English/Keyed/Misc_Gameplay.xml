@@ -228,6 +228,8 @@
 
 	<WVC_XaG_IGeneHivemind_Dormant_Desc>&lt;color=#f46d6b&gt;Does not trigger hivemind synchronization.&lt;/color&gt;</WVC_XaG_IGeneHivemind_Dormant_Desc>
 
+	<WVC_XaG_HivemindAssimilator_PawnIsDrone>The target is already a hivemind drone.</WVC_XaG_HivemindAssimilator_PawnIsDrone>
+
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
 	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>
