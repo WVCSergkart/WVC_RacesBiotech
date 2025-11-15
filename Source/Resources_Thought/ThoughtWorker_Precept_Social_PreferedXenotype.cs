@@ -9,10 +9,34 @@ namespace WVC_XenotypesAndGenes
 	public class ThoughtWorker_Precept_PreferredXenotype_Social : RimWorld.ThoughtWorker_Precept_PreferredXenotype_Social
 	{
 
-		private static Dictionary<Pawn, Ideo> notPreferredPawns = new();
-		private static Dictionary<Pawn, Ideo> preferredPawns = new();
+		//private static Dictionary<Pawn, Ideo> notPreferredPawns = new();
+		//private static Dictionary<Pawn, Ideo> preferredPawns = new();
 
 		public static float ReqMatch => WVC_Biotech.settings.preferredXenotypes_RequiredMinMatch;
+
+		private static List<PawnIdeo> notPreferredPawns = new();
+		private static List<PawnIdeo> preferredPawns = new();
+
+		public class PawnIdeo
+		{
+
+			public Ideo ideo;
+			public List<Pawn> pawns = new();
+
+			public void Add(Pawn pawn)
+			{
+				if (!Contains(pawn))
+				{
+					pawns.Add(pawn);
+				}
+			}
+
+			public bool Contains(Pawn pawn)
+			{
+				return pawns.Contains(pawn);
+			}
+
+		}
 
 		public static bool IsPreferredXenotype(Pawn caller, Ideo ideo)
 		{
@@ -27,34 +51,56 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genesListForReading = caller.genes.GenesListForReading;
 			foreach (XenotypeDef xenotypeDef in ideo.PreferredXenotypes)
 			{
-				if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, xenotypeDef.genes, ReqMatch))
-				{
-					notPreferredPawns.Add(caller, ideo);
-				}
-				else
-				{
-					preferredPawns.Add(caller, ideo);
-				}
+				//if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, xenotypeDef.genes, ReqMatch))
+				//{
+				//	notPreferredPawns.Add(caller, ideo);
+				//}
+				//else
+				//{
+				//	preferredPawns.Add(caller, ideo);
+				//}
+				UpdLists(caller, ideo, genesListForReading, xenotypeDef.genes);
 			}
 			foreach (CustomXenotype xenotypeDef in ideo.PreferredCustomXenotypes)
 			{
-				if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, xenotypeDef.genes, ReqMatch))
-				{
-					notPreferredPawns.Add(caller, ideo);
-				}
-				else
-				{
-					preferredPawns.Add(caller, ideo);
-				}
+				UpdLists(caller, ideo, genesListForReading, xenotypeDef.genes);
 			}
 			return true;
 		}
 
-		private static bool InList(Dictionary<Pawn, Ideo> list, Pawn caller, Ideo ideo)
+		public static void UpdLists(Pawn caller, Ideo ideo, List<Gene> genesListForReading, List<GeneDef> genes)
 		{
-			foreach (var item in list)
+			if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, genes, ReqMatch))
 			{
-				if (item.Key == caller && item.Value == ideo)
+				Add(notPreferredPawns, caller, ideo);
+			}
+			else
+			{
+				Add(preferredPawns, caller, ideo);
+			}
+
+			static void Add(List<PawnIdeo> list, Pawn caller, Ideo ideo)
+			{
+				foreach (PawnIdeo item in list)
+				{
+					if (item.ideo == ideo)
+					{
+						item.Add(caller);
+						return;
+					}
+				}
+				PawnIdeo pawnIdeo = new();
+				pawnIdeo.ideo = ideo;
+				pawnIdeo.Add(caller);
+				list.Add(pawnIdeo);
+			}
+		}
+
+		private static bool InList(List<PawnIdeo> list, Pawn caller, Ideo ideo)
+		{
+			foreach (PawnIdeo item in list)
+			{
+				if (item.ideo == ideo && item.Contains(caller))
 				{
 					return true;
 				}
