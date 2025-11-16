@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 			//Log.Error("SuitableForHivemind");
 			// Deaf hivemind drones
-			if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.2f)
+			if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.05f)
 			{
 				return false;
 			}
