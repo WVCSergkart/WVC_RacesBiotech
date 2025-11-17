@@ -24,6 +24,15 @@
 
 	<!-- ============================================================ -->
 
+	<!-- health affects genes regrowing -->
+	<!-- To-Do: do more tests -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_XenogermReplicating"/>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationRemove"> -->
 	  <!-- <xpath>/Defs/RecipeDef[@WVC_XaG_Tag_ForMassiveRemove="ThingDefs" or @WVC_XaG_Tag_ForMassiveRemove="SerumRecipesDefs"]</xpath> -->
 	<!-- </Operation> -->
