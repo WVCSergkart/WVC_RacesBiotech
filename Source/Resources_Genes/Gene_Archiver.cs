@@ -34,6 +34,10 @@ namespace WVC_XenotypesAndGenes
 						archivedPawns.Add(container.holded);
 					}
 				}
+				//if (!archivedPawns.Contains(pawn))
+				//{
+				//	archivedPawns.Add(pawn);
+				//}
 				return archivedPawns;
 			}
 		}

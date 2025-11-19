@@ -1,4 +1,6 @@
-﻿using Verse;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -39,7 +41,12 @@ namespace WVC_XenotypesAndGenes
 		}
 		public void SyncSkills()
 		{
-			Gene_HiveMind_Skills.SyncSkills(Archiver?.ArchivedPawns);
+			List<Pawn> archivedPawns = Archiver?.ArchivedPawns.ToList();
+			if (!archivedPawns.Contains(pawn))
+			{
+				archivedPawns.Add(pawn);
+			}
+			Gene_HiveMind_Skills.SyncSkills(archivedPawns);
 		}
 
 	}
