@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			ThoughtWorker_Precept_HasAnyXenotypesAndCount.lastRecacheTick = -1;
 			ThoughtWorker_Precept_WithCollectionCheck.lastRecacheTick = -1;
-			ThoughtWorker_Precept_Family.lastRecacheTick = -1;
+			FamilyUtility.lastRecacheTick = -1;
 			GeneshiftUtility.lastRecacheTick = -1;
 			Gene_Switcher.cachedHolders = null;
 		}

@@ -328,6 +328,7 @@
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
+    <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_Hivemind.cs" />
