@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
@@ -35,7 +36,27 @@ namespace WVC_XenotypesAndGenes
 				efficiency += (StaticCollectionsClass.cachedDuplicatesCount / hivemindPawns.Count) * 100f;
 				efficiency += SubSetEfficiency(hiver);
 			}
-			Gene_Hivemind_EfficiencyNode.cachedEfficiencyOffset = (int)(efficiency * -1f);
+			// Colony size buff
+			SimpleCurve colonyCurve = new()
+			{
+				new CurvePoint(1, 50000),
+				new CurvePoint(3, 30000),
+				new CurvePoint(5, 15000),
+				new CurvePoint(10, 0)
+			};
+			efficiency += colonyCurve.Evaluate(StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount);
+			if (pawn.Spawned)
+			{
+				// Performance check
+				SimpleCurve pawnUpdateRateTicks = new()
+				{
+					new CurvePoint(500, 30000),
+					new CurvePoint(60, 5000),
+					new CurvePoint(0, 0)
+				};
+				efficiency += pawnUpdateRateTicks.Evaluate(pawn.UpdateRateTicks);
+			}
+			Gene_Hivemind_EfficiencyNode.cachedEfficiencyOffset = (int)(efficiency);
 		}
 
 
@@ -58,7 +79,14 @@ namespace WVC_XenotypesAndGenes
 		/// </summary>
 		public override void UpdGeneSync()
 		{
-			SetEfficiency();
+			try
+			{
+				SetEfficiency();
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed SetEfficiency(). Reason: " + arg.Message);
+			}
 		}
 
 		public override void Notify_OverriddenBy(Gene overriddenBy)

@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen : Gene, IGeneInspectInfo, IGeneOverridden
+	public class Gene_DryadQueen : Gene, IGeneInspectInfo, IGeneOverridden, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			Local_AddOrRemoveHediff();
 			ResetInterval();
 		}
 
@@ -157,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+				Local_AddOrRemoveHediff();
 			}
 			//HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 			//HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
@@ -367,18 +367,35 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			KillConnectedDryads();
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			Local_RemoveHediff();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			KillConnectedDryads();
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			Local_RemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			Local_AddOrRemoveHediff();
+		}
+
+		public void Local_AddOrRemoveHediff()
+		{
+			try
+			{
+				HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Error in Gene_DryadQueen in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+			}
+		}
+
+		public void Local_RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
 		public void KillConnectedDryads()

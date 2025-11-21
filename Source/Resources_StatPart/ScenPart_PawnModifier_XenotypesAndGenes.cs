@@ -482,6 +482,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotypeChances.TryRandomElementByWeight((XenotypeChance xenoChance) => xenoChance.chance, out XenotypeChance xenotypeChance))
 			{
+				//int index = StartingPawnUtility.PawnIndex(p);
+				//PawnGenerationRequest request = StartingPawnUtility.GetGenerationRequest(index);
+				//request.ForcedXenotype = xenotypeChance.xenotype;
+				//if (gender != Gender.None)
+				//{
+				//	request.FixedGender = gender;
+				//}
+				//StartingPawnUtility.SetGenerationRequest(index, request);
 				ReimplanterUtility.SetXenotype_DoubleXenotype(p, xenotypeChance.xenotype);
 			}
 		}

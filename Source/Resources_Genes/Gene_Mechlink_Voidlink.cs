@@ -8,14 +8,14 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged
+	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
 	{
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
-			if (!MiscUtility.GameNotStarted())
+			Local_AddOrRemoveHediff();
+			if (MiscUtility.GameStarted())
 			{
 				return;
 			}
@@ -23,18 +23,35 @@ namespace WVC_XenotypesAndGenes
 			OffsetResource(range.RandomInRange);
 		}
 
+		public void Local_AddOrRemoveHediff()
+		{
+			try
+			{
+				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Error in Gene_Voidlink in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
+			}
+		}
+
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			//base.Notify_OverriddenBy(overriddenBy);
 			KillMechs();
-			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+			Local_RemoveHediff();
 			CacheReset(true);
+		}
+
+		public void Local_RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
 		}
 
 		public void Notify_Override()
 		{
 			//base.Notify_Override();
-			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+			Local_AddOrRemoveHediff();
 			CacheReset();
 		}
 
@@ -42,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			KillMechs();
-			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+			Local_RemoveHediff();
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
@@ -502,7 +519,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+				Local_AddOrRemoveHediff();
 			}
 		}
 	}

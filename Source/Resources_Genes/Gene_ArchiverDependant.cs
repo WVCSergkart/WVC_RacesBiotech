@@ -41,7 +41,11 @@ namespace WVC_XenotypesAndGenes
 		}
 		public void SyncSkills()
 		{
-			List<Pawn> archivedPawns = Archiver?.ArchivedPawns.ToList();
+			if (Archiver == null)
+			{
+				return;
+			}
+			List<Pawn> archivedPawns = Archiver.ArchivedPawns.ToList();
 			if (!archivedPawns.Contains(pawn))
 			{
 				archivedPawns.Add(pawn);
