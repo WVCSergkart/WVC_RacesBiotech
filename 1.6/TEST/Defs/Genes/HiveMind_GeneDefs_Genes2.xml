@@ -5,12 +5,12 @@
 
   <!-- ============================ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_EfficiencyNode</defName>
 	<label>efficiency node</label>
 	<description>Carriers of this gene have a special organ that influences the efficiency of hivemind synchronization, optimizing it.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_EfficiencyNode</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_HiveMind_SyncNode</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_EfficiencyNode</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>2</biostatArc>

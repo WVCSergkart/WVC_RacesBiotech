@@ -450,6 +450,7 @@
 			<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 			  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
 			  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+			  <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description>
 			</li>
 		  </value>
 		</caseTrue>

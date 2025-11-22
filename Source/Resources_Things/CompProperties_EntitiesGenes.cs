@@ -13,7 +13,11 @@ namespace WVC_XenotypesAndGenes
 
 		public JobDef jobDef;
 
+		[NoTranslate]
 		public string warningText = "WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning";
+
+		[MustTranslate]
+		public string description = null;
 
 		public float factor = 1;
 
@@ -21,6 +25,16 @@ namespace WVC_XenotypesAndGenes
 		{
 			compClass = typeof(CompEntitiesGenes);
 		}
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (description.NullOrEmpty())
+			{
+				return;
+			}
+			parentDef.description += "\n\n" + description;
+		}
+
 	}
 
 	[Obsolete]
