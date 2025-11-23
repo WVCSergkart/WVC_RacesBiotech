@@ -819,7 +819,7 @@ namespace WVC_XenotypesAndGenes
 			selectedGenes = new();
 			foreach (GeneDef geneDef in geneSetPresets.geneDefs)
 			{
-				if (gene.CollectedGenes.Contains(geneDef))
+				if (GenesInOrder.Contains(geneDef))
 				{
 					selectedGenes.Add(geneDef);
 				}

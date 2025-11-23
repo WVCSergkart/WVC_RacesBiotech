@@ -17,7 +17,7 @@
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 		<li>Offsets the &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization frequency of some &lt;color=#8a8ae6&gt;hivemind genes&lt;/color&gt;, decreasing or increasing it.</li>
-		<!-- <li>The update frequency of this gene also depends on the efficiency of synchronization.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Affects all hivemind pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

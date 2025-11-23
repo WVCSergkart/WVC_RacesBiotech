@@ -611,6 +611,13 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdSubHediffs()
 		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is Gene_ChimeraHediff hediffGene)
+				{
+					hediffGene.Local_AddOrRemoveHediff();
+				}
+			}
 			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 			{
 				if (hediff is HediffWithComps_ChimeraDependant chimeraHediff)

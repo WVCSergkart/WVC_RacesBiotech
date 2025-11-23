@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -102,6 +103,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			cachedEfficiencyOffset = 0;
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindTick_Label".Translate(), HivemindUtility.TickRefresh.ToStringTicksToDays(), "WVC_XaG_HivemindTick_Desc".Translate(), 120);
 		}
 
 		public override void ExposeData()

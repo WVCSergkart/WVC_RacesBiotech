@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Pawn.IsHashIntervalTick(55555, delta))
 			{
-				if (Rand.Chance(0.02f) && !Pawn.health.hediffSet.AnyHediffMakesSickThought)
+				if (Rand.Chance(0.1f) && !Pawn.health.hediffSet.AnyHediffMakesSickThought)
 				{
 					ReimplanterUtility.XenogermReplicating_WithCustomDuration(Pawn, new IntRange(-60000 * 30, -60000 * 15), parent);
 				}

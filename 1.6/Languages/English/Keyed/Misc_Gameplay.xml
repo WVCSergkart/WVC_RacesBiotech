@@ -230,6 +230,9 @@
 
 	<WVC_XaG_HivemindAssimilator_PawnIsDrone>The target is already a hivemind drone.</WVC_XaG_HivemindAssimilator_PawnIsDrone>
 
+	<WVC_XaG_HivemindTick_Label>Hivemind trigger</WVC_XaG_HivemindTick_Label>
+	<WVC_XaG_HivemindTick_Desc>The average trigger frequency for genes such as shared needs or shared skills. This value can double, but cannot be less than 2 hours.\n\nIt is affected by colony size, the number of pawns in the hivemind, and the psy sensitivity of the hivemind pawns.</WVC_XaG_HivemindTick_Desc>
+
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
 	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>
