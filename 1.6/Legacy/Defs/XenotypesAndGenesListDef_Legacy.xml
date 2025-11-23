@@ -7,7 +7,7 @@
 		<li>WVC_FemaleOnly</li>
 		<li>WVC_MaleOnly</li>
 		<li>WVC_Monogender_Disabled</li>
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
 	</blackListedGenes>
   </AlphaGenes.WretchBlacklistDef>
 
