@@ -149,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart && (hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbCore) || hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbSegment))).ToList();
+			List<Hediff_MissingPart> hediffs = pawn.health.hediffSet.GetMissingPartsCommonAncestors().Where((hediff) => hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbCore) || hediff.Part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbSegment)).ToList();
 			foreach (Hediff hediff in hediffs)
 			{
 				HealingUtility.Regenerate(pawn, hediff);
