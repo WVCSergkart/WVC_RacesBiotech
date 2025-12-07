@@ -4,10 +4,10 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty" WVC_XaG_XenotypeRemoveTag="Psycasters">
 	<defName>WVC_CatDeity</defName>
 	<label>deadcat</label>
-	<description>Deadcats are ageless, partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and due to genetic instability, they can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.
+	<description>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Deadcats have no immunity, and their wounds cannot heal. They are very weak, and any damage to them can be fatal, and they cannot learn skills on their own, they copy them from other pawns. But their psionic potential is limitless, as they passively restore psyfocus.</description>
-	<descriptionShort>Deadcats are ageless, partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and due to genetic instability, they can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.</descriptionShort>
+	<descriptionShort>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</iconPath>
 	<displayPriority>-1045</displayPriority>
@@ -15,8 +15,8 @@
 	<genes>
 		<li>WVC_ArchitePsylink</li>
 		<li>WVC_NeverDead</li>
-		<li Hook="RemoveMeInTest">WVC_NaturalAgeless</li>
-		<li Hook="RemoveMeInTest">WVC_DeadlyGeneticInstability</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_NaturalAgeless</li> -->
+		<!-- <li Hook="RemoveMeInTest">WVC_DeadlyGeneticInstability</li> -->
 		<li>WVC_PsychicAbility_Archite</li>
 		<li>WVC_NaturalTelepathy</li>
 		<li>WVC_MinMaxTemp_Archite</li>
@@ -37,7 +37,7 @@
 		<li>WVC_DeadStomach</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_Immunity_Non</li>
-		<li Hook="RemoveMeInTest">WVC_Glass</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_Glass</li> -->
 		<li>WVC_XenotypeGestator</li>
 		<li>WVC_Invisibility</li>
 	</genes>
