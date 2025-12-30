@@ -267,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
+			if (!WVC_Biotech.settings.enable_pregnancyForAllGenders && giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
 			{
 				if (throwMessage)
 				{

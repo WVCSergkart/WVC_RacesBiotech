@@ -138,10 +138,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
+			//if (!Active)
+			//{
+			//	return;
+			//}
 			TryLearning();
 			ResetInterval();
 		}
