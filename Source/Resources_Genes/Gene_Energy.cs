@@ -242,6 +242,10 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	GeneResourceUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
 			//}
+			if (thing.def.ingestible?.foodType == FoodTypeFlags.Fluid)
+			{
+				return;
+			}
 			if (!thing.def.IsDrug)
 			{
 				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
