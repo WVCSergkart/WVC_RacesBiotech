@@ -4,7 +4,8 @@
   <!-- ========================================================== -->
 
   <ThoughtDef Name="WVC_XenotypesAndGenes_Thought_MemorySocial_Base" Abstract="True">
-	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<!-- <thoughtClass>Thought_MemorySocial</thoughtClass> -->
+	<thoughtClass>Thought_MemorySocialCumulative</thoughtClass>
 	<durationDays>5</durationDays>
 	<stackLimit>800</stackLimit>
 	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
