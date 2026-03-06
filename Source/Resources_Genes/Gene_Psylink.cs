@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
+			GeneResourceUtility.OffsetPsyfocusDirectly(pawn, recoveryRate);
 			if (!pawn.IsHashIntervalTick(7500, delta))
 			{
 				return;
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Hemogen.Value += 0.01f;
 			}
-			pawn.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
+			GeneResourceUtility.OffsetPsyfocusDirectly(pawn, recoveryRate);
 			if (!GeneResourceUtility.CanTick(ref nextSecondTick, 2, 1))
 			{
 				return;
@@ -162,7 +162,8 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(0.2f);
+			//pawn?.psychicEntropy?.OffsetPsyfocusDirectly(0.2f);
+			GeneResourceUtility.OffsetPsyfocusDirectly(pawn, 0.2f);
 		}
 
 	}

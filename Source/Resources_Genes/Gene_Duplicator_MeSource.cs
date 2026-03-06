@@ -285,7 +285,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(RecoveryRate);
+			GeneResourceUtility.OffsetPsyfocusDirectly(pawn, RecoveryRate);
 			if (pawn.IsNestedHashIntervalTick(750, 2500))
 			{
 				cachedRecoveryRate = null;

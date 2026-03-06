@@ -118,6 +118,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Psylinks
+		public static void OffsetPsyfocusDirectly(Pawn pawn, float offset)
+		{
+			pawn.psychicEntropy?.currentPsyfocus = Mathf.Clamp(pawn.psychicEntropy.currentPsyfocus + offset, 0f, 1f);
+		}
 
 		public static void TryAddPsylinkRandomly(Pawn pawn, int delta, float chance = 0.02f)
 		{
