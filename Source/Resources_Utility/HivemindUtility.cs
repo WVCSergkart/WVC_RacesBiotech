@@ -34,10 +34,10 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	return false;
 			//}
-			if (!target.IsPsychicSensitive()) // Provoke crashes. Loop in gene activity check. Hm..
-			{
-				return false;
-			}
+			//if (!target.IsPsychicSensitive()) // Provoke crashes. Loop in gene activity check. Hm..
+			//{
+			//	return false;
+			//}
 			if (target.genes != null)
 			{
 				if (target.genes.GenesListForReading.Any((gene) => IsHivemindGene(gene) && gene.Active))
@@ -213,16 +213,16 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			// Basic vanilla check with cache
-			//if (!pawn.IsPsychicSensitive())
-			//{
-			//    return false;
-			//}
-			//Log.Error("SuitableForHivemind");
-			// Deaf hivemind drones
-			if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.05f)
+			if (!pawn.IsPsychicSensitive())
 			{
 				return false;
 			}
+			//Log.Error("SuitableForHivemind");
+			// Deaf hivemind drones
+			//if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) < 0.05f)
+			//{
+			//	return false;
+			//}
 			return true;
 		}
 
