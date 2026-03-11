@@ -41,14 +41,13 @@
 	<!-- </Operation> -->
 
 	<!-- Blankind rework -->
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/XenotypeDef[defName="WVC_Blank"]/genes</xpath>
-	  <value>
-		<li>WVC_Hivemind_DormantDrone</li>
-		<li>WVC_HivemindDependency</li>
-		<!-- <li>WVC_Hivemind_DormantImmunity</li> -->
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Blank"]/genes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_Hivemind_DormantDrone</li> -->
+		<!-- <li>WVC_HivemindDependency</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- Metalkin update -->
 	<!-- <Operation Class="PatchOperationAdd"> -->

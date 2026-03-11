@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						victim.needs?.mood?.thoughts?.memories?.TryGainMemory(Props.thoughtDefToGiveTarget);
 					}
-					if (result.passOnDirectly && !XaG_GeneUtility.ConflictWith(result, parent.pawn.genes.GenesListForReading))
+					if (!XaG_GeneUtility.ConflictWith(result, parent.pawn.genes.GenesListForReading))
 					{
 						parent.pawn.genes.AddGene(result, true);
 						ReimplanterUtility.PostImplantDebug(parent.pawn);

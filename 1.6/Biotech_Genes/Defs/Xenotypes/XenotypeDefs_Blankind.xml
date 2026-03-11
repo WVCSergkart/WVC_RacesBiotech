@@ -12,17 +12,19 @@
 	<descriptionShort>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</descriptionShort>
 	<!-- <iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath> -->
 	<iconPath>UI/Icons/Xenotypes/Other</iconPath>
-	<generateWithXenogermReplicatingHediffChance>0.35</generateWithXenogermReplicatingHediffChance>
-	<xenogermReplicatingDurationLeftDaysRange>0.1~24</xenogermReplicatingDurationLeftDaysRange>
+	<!-- <generateWithXenogermReplicatingHediffChance>0.35</generateWithXenogermReplicatingHediffChance> -->
+	<!-- <xenogermReplicatingDurationLeftDaysRange>0.1~24</xenogermReplicatingDurationLeftDaysRange> -->
 	<displayPriority>100</displayPriority>
 	<genes>
 		<li>WVC_WoundHealing_ExtremeFast</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_NaturalFastGrowing</li>
-		<li Hook="RemoveMeInTest">WVC_ExtremeGeneticInstability</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_ExtremeGeneticInstability</li> -->
+		<li>WVC_Hivemind_DormantDrone</li>
+		<li>WVC_HivemindDependency</li>
 		<li>PsychicAbility_Extreme</li>
 		<li>WVC_Emotionless</li>
-		<li Hook="RemoveMeInTest">WVC_DisabledAllWork_Blank</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_DisabledAllWork_Blank</li> -->
 		<li>WVC_SleepyStomach</li>
 		<li>Libido_Low</li>
 		<li>WVC_Hair_PunkOnly</li>
