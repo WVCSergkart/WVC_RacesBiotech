@@ -28,6 +28,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static float? cachedHivemindPsychicFactor;
+		public static float PsychicFactor
+		{
+			get
+			{
+				if (cachedHivemindPsychicFactor == null)
+				{
+					float factor = 1f;
+					foreach (Pawn pawn in HivemindPawns)
+					{
+						factor *= pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+					}
+					cachedHivemindPsychicFactor = Mathf.Clamp(factor, 0.01f, 5f);
+				}
+				return cachedHivemindPsychicFactor.Value;
+			}
+		}
+
 		public static bool CanBeInHivemind(Pawn target)
 		{
 			//if (Gene_Hivemind_Blacklist.BlacklistedPawns.Contains(target))
@@ -123,6 +141,7 @@ namespace WVC_XenotypesAndGenes
 			//cachedActivePawns = null;
 			cachedPawns = null;
 			cachedRefreshRate = null;
+			cachedHivemindPsychicFactor = null;
 			Gene_Chimera_HiveGeneline.cachedGenelineGenes = null;
 			Gene_Hivemind_Regeneration.cachedRegenRate = null;
 			//Gene_Hivemind_Dependant.activePawns = null;

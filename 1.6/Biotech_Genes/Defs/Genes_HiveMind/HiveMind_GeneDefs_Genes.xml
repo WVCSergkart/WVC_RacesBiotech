@@ -29,8 +29,9 @@
 	<biostatArc>3</biostatArc>
 	<biostatMet>-4</biostatMet>
 	<customEffectDescriptions>
-		<li>From time to time, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt;.</li>
-		<li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li>
+		<li>From time to time, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt; levels.</li>
+		<!-- <li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li> -->
+		<li>If the skill &lt;color=#8a8ae6&gt;level&lt;/color&gt; increases, the experience is reset.</li>
 		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -49,16 +50,21 @@
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood (* psy-sens% / 2)&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
-		<li>&lt;color=#8a8ae6&gt;Low psy-sensitivity&lt;/color&gt; will result in loss of nutrients.</li>
+		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>Mood offset and duration depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Low psy-sensitivity&lt;/color&gt; will result in loss of nutrients.</li> -->
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
 			<thoughtDef>WVC_Hivemind_Thoughts</thoughtDef>
 		</li>
 	</modExtensions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Thoughts</li>
+	  <li>BGM_FungalParasitism</li>
+	</exclusionTags>
   </GeneDef>
 
   <ThoughtDef>
@@ -122,7 +128,8 @@
 	<customEffectDescriptions>
 		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; drones.</li>
 		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
-		<li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li> -->
+		<li>Final nutrients depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -177,6 +184,7 @@
 		<li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
+	  <li>WVC_Hivemind_Thoughts</li>
 	  <li>Mood</li>
 	</exclusionTags>
 	<modExtensions>
@@ -219,6 +227,9 @@
 		<!-- <li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li> -->
 		<li>Displays the number of pawns in the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; in &lt;color=#8a8ae6&gt;stats&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SyncNode</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->
@@ -312,7 +323,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>Carrier can enter into social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
+		<li>Carrier can enter into random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Telepathy</li>

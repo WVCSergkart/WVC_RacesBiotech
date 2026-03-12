@@ -12,8 +12,9 @@
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day it synchronizes the archived pawns skills.</li>
-		<li>Only the level is synchronized, experience is not affected.</li>
+		<li>Every day it synchronizes the &lt;color=#8a8ae6&gt;archived&lt;/color&gt; pawns skills levels.</li>
+		<!-- <li>Only the level is synchronized, experience is not affected.</li> -->
+		<li>If the skill &lt;color=#8a8ae6&gt;level&lt;/color&gt; increases, the experience is reset.</li>
 		<li>Synchronizes to the higher value.</li>
 	</customEffectDescriptions>
 	<exclusionTags>

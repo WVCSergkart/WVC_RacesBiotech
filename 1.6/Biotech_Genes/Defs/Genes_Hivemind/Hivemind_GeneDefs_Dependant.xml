@@ -31,6 +31,9 @@
 	<customEffectDescriptions>
 		<li>After &lt;color=#8a8ae6&gt;hivemind synchronization&lt;/color&gt;, it awakens &lt;color=#8a8ae6&gt;dormant&lt;/color&gt; drones, connecting them to the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SyncNode</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ========================= -->

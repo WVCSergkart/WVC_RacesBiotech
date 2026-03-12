@@ -106,6 +106,7 @@ namespace WVC_XenotypesAndGenes
 					if (skillRecord.levelInt < value)
 					{
 						skillRecord.Level = value;
+						skillRecord.xpSinceLastLevel = skillRecord.XpRequiredForLevelUp * 0.01f;
 						//skillRecord.Learn(0.01f, true, true);
 					}
 				}

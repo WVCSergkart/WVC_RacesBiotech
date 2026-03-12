@@ -54,7 +54,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 2000;
 
-		public float PsyFactor => pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+		//public float PsyFactor => pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+		public float PsyFactor => HivemindUtility.PsychicFactor;
 
 		public override void PostAdd()
 		{

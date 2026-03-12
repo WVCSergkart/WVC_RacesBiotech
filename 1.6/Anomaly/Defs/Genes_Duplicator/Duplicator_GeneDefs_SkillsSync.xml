@@ -13,6 +13,7 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Affects&lt;/color&gt; only reachable &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt; of the pawn.</li>
 		<li>Synchronizes the &lt;color=#8a8ae6&gt;skill level&lt;/color&gt; of duplicates and the original.</li>
+		<li>If the skill &lt;color=#8a8ae6&gt;level&lt;/color&gt; increases, the experience is reset.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_SkillsSync</li>

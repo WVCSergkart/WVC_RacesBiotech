@@ -215,26 +215,42 @@ namespace WVC_XenotypesAndGenes
 				float totalHivemindMood = 0f;
 				float psyFactor = PsyFactor;
 				//Dictionary<Pawn, float> opinionAbout = new();
+				//foreach (Pawn pawn in Hivemind)
+				//{
+				//	pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+				//}
 				foreach (Pawn pawn in Hivemind)
 				{
 					pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
-					//pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Opinion.myOpinionDef);
-				}
-				foreach (Pawn pawn in Hivemind)
-				{
 					totalHivemindMood = GetMood(totalHivemindMood, pawn);
-					//GetOpinion(opinionAbout, pawn);
 				}
+				SimpleCurve colonyCurve = new()
+				{
+					new CurvePoint(-70, -20),
+					new CurvePoint(-40, -10),
+					new CurvePoint(-20, -7),
+					new CurvePoint(-10, -4),
+					new CurvePoint(-2, -1),
+					new CurvePoint(0, 0),
+					new CurvePoint(2, 1),
+					new CurvePoint(10, 4),
+					new CurvePoint(20, 7),
+					new CurvePoint(40, 10)
+				};
+				//Log.Error("Total:" + totalHivemindMood.ToString());
+				totalHivemindMood = colonyCurve.Evaluate(totalHivemindMood / Hivemind.Count);
+				//Log.Error("Curve:" + totalHivemindMood.ToString());
 				foreach (Pawn pawn in Hivemind)
 				{
 					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef);
 					Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Props.thoughtDef);
 					if (memory != null)
 					{
-						float psychicSens = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
-						int totalHivemindMood1 = (int)((totalHivemindMood - GetMood(0f, pawn)) * Mathf.Clamp(psyFactor >= 1f ? psyFactor * 0.88f : psyFactor, psyFactor >= 1f ? 1f : 0f, 3f));
-						memory.moodOffset = (int)(totalHivemindMood1 / (2 / psychicSens));
-						memory.durationTicksOverride = (int)(memory.DurationTicks * (pawn == base.pawn ? psyFactor : psychicSens * psyFactor));
+						//float psychicSens = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+						//int totalHivemindMood1 = (int)((totalHivemindMood) * Mathf.Clamp(psyFactor >= 1f ? psyFactor * 0.88f : psyFactor, psyFactor >= 1f ? 1f : 0f, 3f));
+						//memory.moodOffset = (int)(totalHivemindMood1 / (2 / psychicSens));
+						memory.moodOffset = (int)(totalHivemindMood * psyFactor);
+						memory.durationTicksOverride = (int)(memory.DurationTicks * psyFactor);
 					}
 					//SetOpinion(opinionAbout, pawn);
 				}
