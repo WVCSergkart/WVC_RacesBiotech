@@ -6,10 +6,11 @@
 	<label>hivemind trigger</label>
 	<description>Carriers of this gene can morph if they are part of a hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HivemindMorph</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_MorpherSubGene_Hivemind</iconPath>
 	<displayOrderInCategory>-70</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Allows morph if &lt;color=#8a8ae6&gt;in hivemind&lt;/color&gt;.</li>
+		<!-- <li>Allows morph if pawn &lt;color=#8a8ae6&gt;in hivemind&lt;/color&gt;.</li> -->
+		<li>Allows morph if the pawn is &lt;color=#8a8ae6&gt;in a hivemind&lt;/color&gt; and the hivemind is &lt;color=#8a8ae6&gt;synchronized&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
@@ -25,7 +26,7 @@
 	<label>targeted morph (hivemind)</label>
 	<description>Carriers of this gene can only morph into xenotypes that are present in the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_MorpherXenotypeTargeter_Hivemind</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_MorpherSubGene_TargetXenotype_Hivemind</iconPath>
 	<displayOrderInCategory>-50.045</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to current &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; xenotypes.</li>

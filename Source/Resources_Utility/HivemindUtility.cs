@@ -272,8 +272,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		/// <summary>
-		/// Checks a separate list, which is updated after the main one is generated.
-		/// This allows to bypass the loop that occurs due to the basic InHivemind check and psi-stats.
 		/// Recache must be called manually.
 		/// </summary>
 		/// <param name="pawn"></param>
@@ -289,7 +287,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		//private static List<Pawn> cachedActivePawns;
-		public static int SafePawnsCount => cachedPawns.Count;
+		public static int SafePawnsCount => cachedPawns == null ? 0 : cachedPawns.Count;
 
 		//public static void ResetSafeCollection()
 		//{

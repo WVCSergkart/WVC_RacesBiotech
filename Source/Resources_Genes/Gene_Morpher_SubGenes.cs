@@ -546,7 +546,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanMorph()
 		{
-			return pawn.InHivemind();
+			return HivemindUtility.InHivemind_Safe(pawn);
 		}
 
 		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
