@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -63,12 +64,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedXenotypeDefs == null)
 				{
-					List<XenotypeDef> list = new();
-					foreach (XenotypeDef def in XaG_GeneUtility.GetAllMatchedXenotypes(pawn, DefDatabase<XenotypeDef>.AllDefsListForReading, percent: Giver.match))
-					{
-						list.Add(def);
-					}
-					cachedXenotypeDefs = list;
+					//List<XenotypeDef> list = new();
+					//foreach (XenotypeDef def in XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent: Giver.match))
+					//{
+					//	list.Add(def);
+					//}
+					cachedXenotypeDefs = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent: Giver.match);
 				}
 				return cachedXenotypeDefs;
 			}

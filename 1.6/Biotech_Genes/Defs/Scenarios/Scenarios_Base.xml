@@ -168,7 +168,8 @@
 	<label>Tribal Mechanitor</label>
 	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
 	<scenario>
-	  <summary>One pawn with two golems. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
+	  <!-- <summary>One pawn with two golems. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary> -->
+	  <summary>One pawn with two golems. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerTribe</factionDef>
