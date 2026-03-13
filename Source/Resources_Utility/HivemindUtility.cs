@@ -29,18 +29,29 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static float? cachedHivemindPsychicFactor;
-		public static float PsychicFactor
+		public static float HivemindPsychicSensitivity
 		{
 			get
 			{
 				if (cachedHivemindPsychicFactor == null)
 				{
 					float factor = 1f;
+					SimpleCurve curve = new()
+					{
+						new CurvePoint(0f, 0.5f),
+						new CurvePoint(0.2f, 0.8f),
+						new CurvePoint(0.5f, 0.9f),
+						new CurvePoint(1f, 1f),
+						new CurvePoint(1.5f, 1.2f),
+						new CurvePoint(2f, 1.5f),
+						new CurvePoint(3f, 2f),
+						new CurvePoint(6f, 3f)
+					};
 					foreach (Pawn pawn in HivemindPawns)
 					{
-						factor *= pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+						factor *= curve.Evaluate(pawn.GetStatValue(StatDefOf.PsychicSensitivity));
 					}
-					cachedHivemindPsychicFactor = Mathf.Clamp(factor, 0.01f, 5f);
+					cachedHivemindPsychicFactor = Mathf.Clamp(factor, 0.2f, 5f);
 				}
 				return cachedHivemindPsychicFactor.Value;
 			}

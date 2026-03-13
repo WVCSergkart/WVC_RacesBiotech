@@ -68,7 +68,7 @@
 	<label>skillsync</label>
 	<genes>
 		<li>WVC_HiveMind_Skills</li>
-		<li>WVC_ExtremeGeneticInstability</li>
+		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
 		<li>VerySleepy</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
@@ -94,7 +94,7 @@
 	<defName>WVC_Memoshare</defName>
 	<label>memoshare</label>
 	<genes>
-		<li>WVC_Hivemind_Mood</li>
+		<!-- <li>WVC_Hivemind_Mood</li> -->
 		<li>WVC_Hivemind_DeathChain</li>
 		<li>WVC_Hivemind_Thoughts</li>
 		<li>WVC_NoLearning</li>

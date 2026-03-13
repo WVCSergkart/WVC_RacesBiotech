@@ -23,9 +23,10 @@ namespace WVC_XenotypesAndGenes
 				hivemindPawns = Hivemind;
 				Log.Warning("Hivemind pawns count is 0, but the efficiency node was triggered. Trying recache hivemind.");
 			}
+			efficiency += (HivemindUtility.HivemindPsychicSensitivity - 1f) * 100f;
 			foreach (Pawn hiver in hivemindPawns)
 			{
-				efficiency += (hiver.GetStatValue(StatDefOf.PsychicSensitivity) - 1f) * 100f;
+				//efficiency += (hiver.GetStatValue(StatDefOf.PsychicSensitivity) - 1f) * 100f;
 				if (StaticCollectionsClass.cachedPlayerPawnsCount == hivemindPawns.Count)
 				{
 					efficiency += 10000;
