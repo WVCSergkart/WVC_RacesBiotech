@@ -23,21 +23,21 @@ namespace WVC_XenotypesAndGenes
 				hivemindPawns = Hivemind;
 				Log.Warning("Hivemind pawns count is 0, but the efficiency node was triggered. Trying recache hivemind.");
 			}
-			efficiency += (HivemindUtility.HivemindPsychicSensitivity - 1f) * 100f;
+			efficiency += (HivemindUtility.HivemindPsychicSensitivity - 1f) * 1000f * hivemindPawns.Count;
 			foreach (Pawn hiver in hivemindPawns)
 			{
 				//efficiency += (hiver.GetStatValue(StatDefOf.PsychicSensitivity) - 1f) * 100f;
-				if (StaticCollectionsClass.cachedPlayerPawnsCount == hivemindPawns.Count)
-				{
-					efficiency += 10000;
-				}
-				else
-				{
-					efficiency += (hivemindPawns.Count - StaticCollectionsClass.cachedPlayerPawnsCount) * 100f;
-				}
-				efficiency += (StaticCollectionsClass.cachedDuplicatesCount / hivemindPawns.Count) * 100f;
 				efficiency += SubSetEfficiency(hiver);
 			}
+			if (StaticCollectionsClass.cachedPlayerPawnsCount == hivemindPawns.Count)
+			{
+				efficiency += 10000;
+			}
+			else
+			{
+				efficiency += (hivemindPawns.Count - StaticCollectionsClass.cachedPlayerPawnsCount) * 1000f;
+			}
+			efficiency += (StaticCollectionsClass.cachedDuplicatesCount / hivemindPawns.Count) * 1000f;
 			// Colony size buff
 			SimpleCurve colonyCurve = new()
 			{
