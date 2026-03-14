@@ -8,7 +8,9 @@
 	<!-- <label>throwex</label> -->
 	<!-- metalkin, ferrikind, horrors -->
 	<!-- Mystery, anomaly, metal and horror, machine world, scavenge -->
+	<!-- Cutted: Metalkins were created in a world mired in an endless war with mechanoids -->
 	<!-- Mechanized, covered in creepy metal growths, with a repulsive appearance, metalkins are a product of artificial evolution.\n\nMetalkins were created in a glitter world engulfed in war with the mechanoids, when the atmosphere was poisoned by toxins, and colossal buildings turned into ruins. Scientists, trying to adapt humans to the new world, conducted many inhumane experiments. The surviving technological achievements and many trophies collected in the ruins helped create the first prototypes capable of comfortably existing in the new world. A dying world, where the basis of survival was to become like its destroyers, caused a split in societies and ideologies, including the creation of a cult worshiping a machine god. It was the mad leader of the cult, claiming that the machine god sent him revelations about survival, who led the last experiment as a result of which the metalkins were created. -->
+	<!-- Bullshit.. -->
 	<description>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
@@ -18,7 +20,7 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Switcher):&lt;/color&gt; Can switch at any time to other xenotypes with the switcher gene.</description>
 	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream. They can heal any injury, including lost organs, and almost never suffer from disease or poison. They can transform both the living and the dead into their own kind, communicate and exchange via telepathic skills, and draw experience from the psychic field. But they are hideously deformed, cannot learn skills the normal way, and their bodies are natural habitats for metalhorrors.</descriptionShort>
 	<descriptionHyperlinks>
-	  <!-- <XenotypeDef>WVC_Rustkind</XenotypeDef> -->
+	  <XenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Rustkind</XenotypeDef>
 	  <XenotypeDef>WVC_Ferrkind</XenotypeDef>
 	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>

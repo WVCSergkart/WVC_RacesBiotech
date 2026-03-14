@@ -8,6 +8,19 @@ namespace WVC_XenotypesAndGenes
 	public static class InitialUtility
 	{
 
+		//private static WVC_Biotech cachedThisMod;
+		//public static WVC_Biotech GetMod
+		//{
+		//	get
+		//	{
+		//		if (cachedThisMod == null)
+		//		{
+		//			cachedThisMod = LoadedModManager.GetMod<WVC_Biotech>();
+		//		}
+		//		return cachedThisMod;
+		//	}
+		//}
+
 
 		// public static void Hediffs()
 		// {

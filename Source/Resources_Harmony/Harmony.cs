@@ -196,7 +196,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedGeneDefsInOrder == null)
 				{
 					List<GeneDef> newList = new();
-					foreach (GeneDef geneDef in __result.ToList())
+					foreach (GeneDef geneDef in __result)
 					{
 						if (!geneDef.IsXenoGenesDef())
 						{

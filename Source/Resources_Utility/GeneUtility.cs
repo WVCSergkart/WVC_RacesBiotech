@@ -1344,6 +1344,7 @@ namespace WVC_XenotypesAndGenes
 		public static bool IsXenoGenesDef(this Def def)
 		{
 			return def?.modContentPack != null && def.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
+			//return def?.modContentPack != null && def.modContentPack == InitialUtility.GetMod.Content;
 		}
 
 		public static bool IsVanillaDef(this Def def)
