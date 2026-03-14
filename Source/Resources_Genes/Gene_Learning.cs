@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -29,15 +30,15 @@ namespace WVC_XenotypesAndGenes
 
 		public static void BackstoryChanger(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null)
 		{
-			if ((pawn?.story) == null)
+			if (MiscUtility.GameStarted())
 			{
 				return;
 			}
-			if (pawn.story.Childhood == null)
-			{
-				return;
-			}
-			if (pawn.Spawned)
+			//if ((pawn?.story) == null)
+			//{
+			//	return;
+			//}
+			if (pawn.story?.Childhood == null)
 			{
 				return;
 			}
@@ -54,6 +55,39 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class Gene_PerfectMemory : Gene_BackstoryChanger, IGeneOverridden
+	//{
+
+	//	public override void PostAdd()
+	//	{
+	//		base.PostAdd();
+	//		ResetCollection();
+	//	}
+
+	//	public void Notify_OverriddenBy(Gene overriddenBy)
+	//	{
+	//		ResetCollection();
+	//	}
+
+	//	public void Notify_Override()
+	//	{
+	//		ResetCollection();
+	//	}
+
+	//	private void ResetCollection()
+	//	{
+	//		HarmonyPatches.HarmonyUtility.ResetMemoryCollection();
+	//	}
+
+	//	public override void PostRemove()
+	//	{
+	//		base.PostRemove();
+	//		ResetCollection();
+	//	}
+
+	//}
+
+	//[Obsolete]
 	public class Gene_Learning : Gene_BackstoryChanger
 	{
 
@@ -92,10 +126,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
-				// {
-				// continue;
-				// }
 				int reservedExp = reserve * skill.GetLevel(false);
 				if (skill.xpSinceLastLevel - reservedExp > minExp)
 				{
@@ -109,10 +139,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
-				// {
-				// continue;
-				// }
 				skill.xpSinceLastLevel = 0f;
 			}
 		}

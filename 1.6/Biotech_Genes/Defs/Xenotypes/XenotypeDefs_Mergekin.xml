@@ -25,7 +25,7 @@
 	<!-- If game not started -->
 	<!-- any geneDefs -->
 	<exceptedGenes>
-	  <li>WVC_DeadlyGeneticInstability</li>
+	  <!-- <li>WVC_DeadlyGeneticInstability</li> -->
 	  <li>WVC_NoLearning</li>
 	  <li>WVC_WoundHealing_NoHealing</li>
 	  <li>WVC_Immunity_Non</li>

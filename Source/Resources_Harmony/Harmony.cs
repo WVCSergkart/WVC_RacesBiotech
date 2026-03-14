@@ -114,6 +114,12 @@ namespace WVC_XenotypesAndGenes
 						harmony.Patch(AccessTools.Method(typeof(Ideo), "RecachePrecepts"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
 					}
 				}
+				// Dev
+				//if (true)
+				//{
+				//	harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_SkillRecord))));
+				//	//harmony.Patch(AccessTools.Method(typeof(GenHostility), "HostileTo", [typeof(Thing), typeof(Thing)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_FleshmassEntity))));
+				//}
 				if (!ModsConfig.AnomalyActive)
 				{
 					return;
@@ -175,6 +181,81 @@ namespace WVC_XenotypesAndGenes
 			//	if (__result)
 			//	{
 			//		__result = __instance.pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null;
+			//	}
+			//}
+
+			// PerfectMemory Gene
+
+			//private static bool enablePerfectMemory = true;
+			//private static List<Pawn> perfectMemoryPawns;
+
+			//public static void ResetMemoryCollection()
+			//{
+			//	enablePerfectMemory = true;
+			//	perfectMemoryPawns = null;
+			//}
+
+			//public static List<Pawn> PerfectMemoryPawns
+			//{
+			//	get
+			//	{
+			//		if (perfectMemoryPawns == null)
+			//		{
+			//			perfectMemoryPawns = PawnsFinder.AllMapsAndWorld_Alive.Where((p) => p.genes?.GetFirstGeneOfType<Gene_PerfectMemory>() != null).ToList();
+			//			if (perfectMemoryPawns.NullOrEmpty())
+			//			{
+			//				enablePerfectMemory = false;
+			//			}
+			//		}
+			//		return perfectMemoryPawns;
+			//	}
+			//}
+
+			////RimWorld.SkillRecord.Interval()
+			////Prefix
+			//public static bool Patch_SkillRecord(Pawn ___pawn)
+			//{
+			//	if (enablePerfectMemory && PerfectMemoryPawns.Contains(___pawn))
+			//	{
+			//		return false;
+			//	}
+			//	return true;
+			//}
+
+			//// Entity Gene
+
+			//private static bool enableFleshBeastGene = true;
+			//private static List<Pawn> fleshBeastPawns;
+
+			//public static void ResetFleshbeastCollection()
+			//{
+			//	enableFleshBeastGene = true;
+			//	perfectMemoryPawns = null;
+			//}
+
+			//public static List<Pawn> FleshBeastPawns
+			//{
+			//	get
+			//	{
+			//		if (fleshBeastPawns == null)
+			//		{
+			//			fleshBeastPawns = PawnsFinder.AllMapsAndWorld_Alive.Where((p) => p.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>() != null).ToList();
+			//			if (fleshBeastPawns.NullOrEmpty())
+			//			{
+			//				enableFleshBeastGene = false;
+			//			}
+			//		}
+			//		return fleshBeastPawns;
+			//	}
+			//}
+
+			//// RimWorld.GenHostility.HostileTo(this Thing a, Thing b)
+			//// Postfix
+			//public static void Patch_FleshmassEntity(bool __result, Thing a, Thing b)
+			//{
+			//	if (__result && enableFleshBeastGene && a is Pawn beast && beast.kindDef.IsFleshBeast() && FleshBeastPawns.Contains(b))
+			//	{
+			//		__result = false;
 			//	}
 			//}
 
@@ -327,7 +408,16 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 
-			// Body graphic
+			// Body size
+
+			//public static float? cachedBodySize;
+			//public static void Patch_BodySize(ref Pawn __instance, ref float __result)
+			//{
+			//	if (cachedBodySize == null)
+			//	{
+			//		cachedBodySize = __result;
+			//	}
+			//}
 
 			// public static void GraphicSize(ref Vector3 __result, PawnRenderNode node)
 			// {
