@@ -57,14 +57,4 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Hivemind_Mood : Gene_HiveMind_Opinion
-	{
-
-		public override void SyncHive()
-		{
-			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.thoughtDef);
-		}
-
-	}
-
 }

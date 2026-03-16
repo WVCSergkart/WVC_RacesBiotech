@@ -69,6 +69,7 @@
 
   <ThoughtDef>
 	<defName>WVC_Hivemind_Thoughts</defName>
+	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSharedThoghts</thoughtClass> -->
 	<thoughtClass>Thought_Memory</thoughtClass>
 	<durationDays>1</durationDays>
 	<stackLimit>800</stackLimit>
@@ -181,7 +182,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li>
+		<!-- <li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Mood&lt;/color&gt; depends on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Hivemind_Thoughts</li>
@@ -197,7 +199,7 @@
   <ThoughtDef>
 	<defName>WVC_Hivemind_Mood</defName>
 	<thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSize</thoughtClass>
-	<durationDays>1</durationDays>
+	<!-- <durationDays>1</durationDays> -->
 	<stackLimit>800</stackLimit>
 	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
 	<validWhileDespawned>true</validWhileDespawned>

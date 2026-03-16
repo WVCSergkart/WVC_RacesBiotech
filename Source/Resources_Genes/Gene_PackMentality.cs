@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -50,26 +51,32 @@ namespace WVC_XenotypesAndGenes
 			UpdThoughts();
 		}
 
-		private static int? cachedRefreshRate;
-		public static int TickRefresh
-		{
-			get
-			{
-				if (!cachedRefreshRate.HasValue)
-				{
-					cachedRefreshRate = (int)(57835 * ((ThePack.Count > 1 ? ThePack.Count : 1) * 0.5f));
-				}
-				return cachedRefreshRate.Value;
-			}
-		}
+		//private static int? cachedRefreshRate;
+		//public static int TickRefresh
+		//{
+		//	get
+		//	{
+		//		if (!cachedRefreshRate.HasValue)
+		//		{
+		//			cachedRefreshRate = (int)(57835 * ((ThePack.Count > 1 ? ThePack.Count : 1) * 0.5f));
+		//		}
+		//		return cachedRefreshRate.Value;
+		//	}
+		//}
+
+		public static int lastRecacheTick = -1;
+		public static bool ShouldUpdate => Find.TickManager.TicksGame > lastRecacheTick;
 
 		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(TickRefresh, delta))
+			//if (!pawn.IsHashIntervalTick(TickRefresh, delta))
+			//{
+			//	return;
+			//}
+			if (ShouldUpdate)
 			{
-				return;
+				UpdThoughts();
 			}
-			UpdThoughts();
 		}
 
 		public void UpdThoughts()
@@ -83,18 +90,26 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	Notify_GenesChanged(null);
 			//}
-			foreach (Pawn pawn in ThePack)
+			try
 			{
-				foreach (Pawn member in ThePack)
+				foreach (Pawn pawn in ThePack)
 				{
-					if (member != pawn)
+					foreach (Pawn member in ThePack)
 					{
-						pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, member);
-						member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+						if (member != pawn)
+						{
+							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, member);
+							member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+						}
 					}
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
 				}
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
 			}
+			catch (Exception arg)
+			{
+				Log.Warning("Failed update pack thoughts. Reason: " + arg.Message);
+			}
+			lastRecacheTick = Find.TickManager.TicksGame + 57835;
 		}
 
 		public override void PostRemove()

@@ -13,6 +13,18 @@ namespace WVC_XenotypesAndGenes
 	public static class ThoughtUtility
 	{
 
+		public static void AddPermanentMemory(Pawn pawn, ThoughtDef thoughtDef)
+		{
+			Thought_Memory thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef);
+			thought.permanent = true;
+			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(thought);
+		}
+
+		public static void RemoveMemory(Pawn pawn, ThoughtDef thoughtDef)
+		{
+			pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDef(thoughtDef);
+		}
+
 		// ==================
 
 		[Obsolete]

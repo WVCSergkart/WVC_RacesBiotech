@@ -10,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
+		public float PsyFactor => HivemindUtility.HivemindPsychicSensitivity;
 
 		public override void PostAdd()
 		{
@@ -55,7 +56,6 @@ namespace WVC_XenotypesAndGenes
 		public int nextTick = 2000;
 
 		//public float PsyFactor => pawn.GetStatValue(StatDefOf.PsychicSensitivity);
-		public float PsyFactor => HivemindUtility.HivemindPsychicSensitivity;
 
 		public override void PostAdd()
 		{

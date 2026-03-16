@@ -790,6 +790,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
 					}
+					//if (MiscUtility.GameStarted() && __instance?.def != null)
+					//{
+					//	CompHumanlike?.SetLastNewGenes(__instance.def);
+					//}
 				}
 				catch (Exception arg)
 				{

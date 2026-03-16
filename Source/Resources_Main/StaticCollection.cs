@@ -76,6 +76,7 @@ namespace WVC_XenotypesAndGenes
 			FamilyUtility.lastRecacheTick = -1;
 			GeneshiftUtility.lastRecacheTick = -1;
 			Gene_Switcher.cachedHolders = null;
+			Gene_PackMentality.lastRecacheTick = -1;
 		}
 
 		public static void AddHideMechanitors(Pawn pawn)

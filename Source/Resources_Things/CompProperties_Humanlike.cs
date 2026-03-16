@@ -227,6 +227,35 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		// Better Genes Regrowing Hediff
+
+		//public static int newGenesCount = 0;
+		//private static int currentGameTick = -1;
+		//private static List<GeneDef> newAddedGeneDefs = new();
+
+		//public void SetLastNewGenes(GeneDef geneDef, int newGenes = 1)
+		//{
+		//	if (currentGameTick != Find.TickManager.TicksGame)
+		//	{
+		//		currentGameTick = Find.TickManager.TicksGame;
+		//		newGenesCount = 0;
+		//		newAddedGeneDefs = new();
+		//	}
+		//	if (!newAddedGeneDefs.Contains(geneDef))
+		//	{
+		//		//Log.Error(geneDef.defName);
+		//		newAddedGeneDefs.Add(geneDef);
+		//		newGenesCount += newGenes;
+		//	}
+		//}
+
+		//public void ResetLastNewGenes()
+		//{
+		//	currentGameTick = -1;
+		//	newGenesCount = 0;
+		//	newAddedGeneDefs = new();
+		//}
+
 		// =====================
 
 		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)

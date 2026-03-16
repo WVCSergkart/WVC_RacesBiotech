@@ -148,7 +148,7 @@
 		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Mergekin</li> -->
 		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mergekin</li> -->
 	</devXenotypeDefs>
-	<!-- Required any GeneDefs -->
+	<!-- Required any GeneDefs. Used by Chimera gene for basic human genes lists. -->
 	<humanGeneDefs>
 	  <li>WVC_Mecha_NoTail</li>
 	  <li>Ears_Human</li>

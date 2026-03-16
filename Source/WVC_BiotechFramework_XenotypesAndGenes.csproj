@@ -93,6 +93,7 @@
     <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Gestator.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Metabolism.cs" />
+    <Compile Include="Resources_Genes\Gene_Hivemind_Mood.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Traits.cs" />
