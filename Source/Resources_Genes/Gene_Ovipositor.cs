@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using static UnityEngine.Scripting.GarbageCollector;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -37,13 +38,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Gene_Rechargeable.PawnHaveThisJob(pawn, Props.jobDef))
+			if (pawn.Drafted)
 			{
-				return;
-			}
-			if (!pawn.health.hediffSet.HasHediff<Hediff_Pregnant>() || pawn.Faction != Faction.OfPlayer)
-			{
-				shouldLayEgg = false;
 				return;
 			}
 			if (pawn.Map == null)
@@ -51,14 +47,50 @@ namespace WVC_XenotypesAndGenes
 				//Caravan();
 				return;
 			}
-			LocalTargetInfo targetInfo = RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 9, (Pawn pawn, IntVec3 loc, IntVec3 root) => WanderRoomUtility.IsValidWanderDest(pawn, loc, root) && !loc.IsForbidden(pawn) && pawn.CanReach(loc, PathEndMode.OnCell, Danger.Some), PawnUtility.ResolveMaxDanger(pawn, Danger.Some), false);
-			XaG_Job job = new(Props.jobDef, targetInfo);
-			job.gene = this;
-			pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
+			if (Gene_Rechargeable.PawnHaveThisJob(pawn, Props.jobDef))
+			{
+				return;
+			}
+			if (!pawn.health.hediffSet.HasHediff<Hediff_Pregnant>() || pawn.Faction != Faction.OfPlayer)
+			{
+				StopLayEgg();
+				return;
+			}
+			LayEgg_Job();
 			if (Find.TickManager.TicksGame > startTick + (60000 * 5))
 			{
-				shouldLayEgg = false;
+				StopLayEgg();
 			}
+		}
+
+		private void LayEgg_Job()
+		{
+			PathEndMode peMode = PathEndMode.OnCell;
+			TraverseParms traverseParms = TraverseParms.For(pawn, Danger.Some);
+			XaG_Job job = null;
+			if (pawn.Faction == Faction.OfPlayer)
+			{
+				Thing bestEggBox = GestationUtility.GetBestEggBox(pawn, Props.thingDefToSpawn, peMode, traverseParms);
+				if (bestEggBox != null)
+				{
+					job = new(Props.jobDef, bestEggBox)
+					{
+						gene = this
+					};
+					pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
+					return;
+				}
+			}
+			//LocalTargetInfo targetInfo = RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 9, (Pawn pawn, IntVec3 loc, IntVec3 root) => WanderRoomUtility.IsValidWanderDest(pawn, loc, root) && !loc.IsForbidden(pawn) && pawn.CanReach(loc, PathEndMode.OnCell, Danger.Some), PawnUtility.ResolveMaxDanger(pawn, Danger.Some), false);
+			//XaG_Job job = new(Props.jobDef, targetInfo);
+			//job.gene = this;
+			//pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
+			Thing thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(Props.thingDefToSpawn), peMode, traverseParms, 30f, (Thing x) => pawn.GetRoom() == null || x.GetRoom() == pawn.GetRoom());
+			job = new(Props.jobDef, thing?.Position ?? RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 5f, null, Danger.Some))
+			{
+				gene = this
+			};
+			pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
 		}
 
 		//private void Caravan()
@@ -110,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Failed create human egg. Reason: " + arg);
-				shouldLayEgg = false;
+				StopLayEgg();
 			}
 		}
 
@@ -150,6 +182,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			shouldLayEgg = true;
 			startTick = Find.TickManager.TicksGame;
+		}
+
+		private void StopLayEgg()
+		{
+			shouldLayEgg = false;
 		}
 
 		public override void ExposeData()

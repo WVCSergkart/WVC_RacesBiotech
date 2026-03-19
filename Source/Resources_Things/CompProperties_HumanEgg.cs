@@ -77,29 +77,73 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				Pawn pawn = hatcheeParent ?? otherParent;
-				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeHolder: xenotypeHolder, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
-				if (PawnUtility.ShouldSendNotificationAbout(child))
+				bool shouldNotify = true;
+				for (int i = 0; i < parent.stackCount; i++)
 				{
-					Find.LetterStack.ReceiveLetter("WVC_XaG_HumanEggHatchLabel".Translate(), "WVC_XaG_HumanEggHatchDesc".Translate(child.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
+					GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeHolder: xenotypeHolder, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
+					//AgelessUtility.SetAge();
+					if (ShouldUpdateChild(child))
+					{
+						ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, child.genes.iconDef, child.genes.xenotypeName, true);
+						ReimplanterUtility.TryFixPawnXenotype_Beta(child);
+					}
+					if (PawnUtility.ShouldSendNotificationAbout(child) && shouldNotify)
+					{
+						shouldNotify = false;
+						Find.LetterStack.ReceiveLetter("WVC_XaG_HumanEggHatchLabel".Translate(), "WVC_XaG_HumanEggHatchDesc".Translate(child.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
+					}
 				}
 			}
 			catch (Exception arg)
 			{
 				Log.Error("Failed hatch child from human egg. Reason: " + arg);
 			}
-			parent.Destroy();
+			parent.Destroy(DestroyMode.QuestLogic);
 		}
 
-		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+		public bool ShouldUpdateChild(Pawn child)
 		{
-			base.Notify_Killed(prevMap, dinfo);
-			if (hatcheeParent != null)
+			List<GeneDef> genesListForReading = child.genes.GenesListForReading.ConvertToDefs();
+			foreach (GeneDef geneDef in xenotypeHolder.genes)
 			{
-				hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent);
+				if (!genesListForReading.Contains(geneDef))
+				{
+					return true;
+				}
 			}
-			if (otherParent != null)
+			return false;
+		}
+
+		//public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+		//{
+		//	base.Notify_Killed(prevMap, dinfo);
+		//	EggKilled();
+		//	//if (hatcheeParent != null)
+		//	//{
+		//	//}
+		//	//if (otherParent != null)
+		//	//{
+		//	//}
+		//}
+
+		private void EggKilled()
+		{
+			hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent);
+			otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent ?? otherParent);
+		}
+
+		public override void Notify_AbandonedAtTile(PlanetTile tile)
+		{
+			base.Notify_AbandonedAtTile(tile);
+			EggKilled();
+		}
+
+		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		{
+			base.PostDestroy(mode, previousMap);
+			if (mode != DestroyMode.QuestLogic)
 			{
-				otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent ?? otherParent);
+				EggKilled();
 			}
 		}
 

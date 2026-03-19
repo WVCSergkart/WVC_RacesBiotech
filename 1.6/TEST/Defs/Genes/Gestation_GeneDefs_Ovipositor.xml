@@ -6,9 +6,10 @@
 	<label>ovipositor</label>
 	<description>Carriers of this gene lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Ovipositor</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_StasisLearning</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Ovipositor</iconPath>
 	<displayCategory>Reproduction</displayCategory>
 	<displayOrderInCategory>105</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
@@ -83,14 +84,25 @@
 	<label>human egg (fert.)</label>
 	<description>A fertilized human egg. If all goes well, it should hatch into a human.</description>
 	<possessionCount>1</possessionCount>
+	<ingestible>
+	  <!-- very rare -->
+	  <optimalityOffsetHumanlikes>-999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	</ingestible>
 	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/HumanEgg</texPath>
 	  <color>(245,245,245)</color>
+	  <drawSize>1.0</drawSize>
 	</graphicData>
 	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
 	  <MarketValue>30.0</MarketValue>
+	  <Nutrition>1</Nutrition>
+	  <FoodPoisonChanceFixedHuman>0.05</FoodPoisonChanceFixedHuman>
 	</statBases>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_HumanEgg">
+		<!-- auto hatch time -->
 		<hatcherDaystoHatch>-1</hatcherDaystoHatch>
 		<!-- <hatcherPawn>Chicken</hatcherPawn> -->
 	  </li>

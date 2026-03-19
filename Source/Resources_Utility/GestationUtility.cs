@@ -2,6 +2,7 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.AI.Group;
 using Verse.Sound;
 
@@ -187,6 +188,39 @@ namespace WVC_XenotypesAndGenes
 				litterSize = 1;
 			}
 			return litterSize;
+		}
+
+		// Raw copy from RimWorld.JobGiver_LayEgg
+		public static Thing GetBestEggBox(Pawn pawn, ThingDef eggDef, PathEndMode peMode, TraverseParms tp)
+		{
+			//ThingDef eggDef = pawn.TryGetComp<CompEggLayer>().NextEggType();
+			return GenClosest.ClosestThing_Regionwise_ReachablePrioritized(pawn.Position, pawn.Map, ThingRequest.ForDef(ThingDefOf.EggBox), peMode, tp, 30f, IsUsableBox, GetScore, 10);
+			static float GetScore(Thing thing)
+			{
+				CompEggContainer compEggContainer = thing.TryGetComp<CompEggContainer>();
+				if (compEggContainer == null || compEggContainer.Full)
+				{
+					return 0f;
+				}
+				return ((float?)compEggContainer.ContainedThing?.stackCount * 5f) ?? 0.5f;
+			}
+			bool IsUsableBox(Thing thing)
+			{
+				if (!thing.Spawned)
+				{
+					return false;
+				}
+				if (thing.IsForbidden(pawn) || !pawn.CanReserve(thing) || !pawn.Position.InHorDistOf(thing.Position, 30f))
+				{
+					return false;
+				}
+				CompEggContainer compEggContainer = thing.TryGetComp<CompEggContainer>();
+				if (compEggContainer == null || !compEggContainer.Accepts(eggDef))
+				{
+					return false;
+				}
+				return true;
+			}
 		}
 
 	}
