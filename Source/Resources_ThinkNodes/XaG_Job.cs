@@ -31,11 +31,13 @@ namespace WVC_XenotypesAndGenes
 		public bool implantEndogenes;
 		public bool implantXenogenes;
 
-		//public new void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Defs.Look(ref geneDef, "geneDef");
-		//}
+		public Gene gene;
+
+		public new void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_References.Look(ref gene, "gene");
+		}
 
 	}
 

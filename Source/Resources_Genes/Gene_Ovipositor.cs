@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool shouldLayEgg = false;
+		private int startTick = -1;
 
 		public override void TickInterval(int delta)
 		{
@@ -40,24 +41,44 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.health.hediffSet.HasHediff<Hediff_Pregnant>())
+			if (!pawn.health.hediffSet.HasHediff<Hediff_Pregnant>() || pawn.Faction != Faction.OfPlayer)
 			{
 				shouldLayEgg = false;
 				return;
 			}
-			LocalTargetInfo targetInfo = RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 99, (Pawn pawn, IntVec3 loc, IntVec3 root) => WanderRoomUtility.IsValidWanderDest(pawn, loc, root) && !loc.IsForbidden(pawn) && pawn.CanReach(loc, PathEndMode.OnCell, Danger.Some), PawnUtility.ResolveMaxDanger(pawn, Danger.Some), false);
+			if (pawn.Map == null)
+			{
+				//Caravan();
+				return;
+			}
+			LocalTargetInfo targetInfo = RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 9, (Pawn pawn, IntVec3 loc, IntVec3 root) => WanderRoomUtility.IsValidWanderDest(pawn, loc, root) && !loc.IsForbidden(pawn) && pawn.CanReach(loc, PathEndMode.OnCell, Danger.Some), PawnUtility.ResolveMaxDanger(pawn, Danger.Some), false);
 			XaG_Job job = new(Props.jobDef, targetInfo);
+			job.gene = this;
 			pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
+			if (Find.TickManager.TicksGame > startTick + (60000 * 5))
+			{
+				shouldLayEgg = false;
+			}
 		}
+
+		//private void Caravan()
+		//{
+
+		//}
 
 		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
-			LayEgg(pregnancy);
+			//LayEgg(pregnancy);
+			ShouldLayEgg();
 			return true;
 		}
 
 		public void LayEgg(Hediff_Pregnant pregnancy)
 		{
+			if (pregnancy == null)
+			{
+				return;
+			}
 			try
 			{
 				Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
@@ -76,7 +97,15 @@ namespace WVC_XenotypesAndGenes
 					pawn.health.RemoveHediff(firstHediffOfDef2);
 				}
 				pawn.health.RemoveHediff(pregnancy);
-				shouldLayEgg = pawn.health.hediffSet.HasHediff<Hediff_Pregnant>();
+				// Multy preg support
+				if (pawn.health.hediffSet.HasHediff<Hediff_Pregnant>())
+				{
+					ShouldLayEgg();
+				}
+				else
+				{
+					startTick = -1;
+				}
 			}
 			catch (Exception arg)
 			{
@@ -87,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
 		{
-
+			//Skip
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -103,16 +132,31 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: ShouldLayEggs",
 					action = delegate
 					{
-						shouldLayEgg = true;
+						ShouldLayEgg();
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: LayEgg",
+					action = delegate
+					{
+						LayEgg(pawn.health.hediffSet.GetFirstHediff<Hediff_Pregnant>());
 					}
 				};
 			}
+		}
+
+		private void ShouldLayEgg()
+		{
+			shouldLayEgg = true;
+			startTick = Find.TickManager.TicksGame;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref shouldLayEgg, "shouldLayEgg", false);
+			Scribe_Values.Look(ref startTick, "startTick", -1);
 		}
 
 	}

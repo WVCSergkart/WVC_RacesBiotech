@@ -1,16 +1,17 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_HumanEgg : CompProperties
+	public class CompProperties_HumanEgg : CompProperties_Hatcher
 	{
 
-		public float hatcherDaystoHatch = -1f;
+		//public float hatcherDaystoHatch = -1f;
 
 		public string uniqueTag = "XaG_Egg";
 
@@ -30,15 +31,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompHumanEgg : ThingComp
+	public class CompHumanEgg : CompHatcher
 	{
 
-		public CompProperties_HumanEgg Props => (CompProperties_HumanEgg)props;
+		public new CompProperties_HumanEgg Props => (CompProperties_HumanEgg)props;
 
-		public Pawn father;
-		public Pawn mother;
+		//public Pawn otherParent;
+		//public Pawn hatcheeParent;
 
-		private float gestateProgress;
+		//private float gestateProgress;
 
 		public SaveableXenotypeHolder xenotypeHolder;
 
@@ -46,13 +47,18 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (hediff is Hediff_Pregnant pregnancy)
 			{
-				father = pregnancy.Father;
-				mother = pregnancy.Mother;
-				xenotypeHolder = new(father, mother, pregnancy.geneSet.GenesListForReading);
+				otherParent = pregnancy.Father;
+				hatcheeParent = pregnancy.Mother;
+				xenotypeHolder = new(otherParent, hatcheeParent, pregnancy.geneSet.GenesListForReading);
 			}
 		}
 
-		private CompTemperatureRuinable FreezerComp => parent.GetComp<CompTemperatureRuinable>();
+		public override void CompTick()
+		{
+
+		}
+
+		//private CompTemperatureRuinable FreezerComp => parent.GetComp<CompTemperatureRuinable>();
 		public override void CompTickInterval(int delta)
 		{
 			if (!TemperatureDamaged)
@@ -66,12 +72,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void Hatch()
+		public new void Hatch()
 		{
 			try
 			{
-				Pawn pawn = mother ?? father;
-				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out _, xenotypeHolder: xenotypeHolder, parent2: father != null && father != pawn ? father : null);
+				Pawn pawn = hatcheeParent ?? otherParent;
+				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeHolder: xenotypeHolder, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
+				if (PawnUtility.ShouldSendNotificationAbout(child))
+				{
+					Find.LetterStack.ReceiveLetter("WVC_XaG_HumanEggHatchLabel".Translate(), "WVC_XaG_HumanEggHatchDesc".Translate(child.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
+				}
 			}
 			catch (Exception arg)
 			{
@@ -80,17 +90,30 @@ namespace WVC_XenotypesAndGenes
 			parent.Destroy();
 		}
 
-		public bool TemperatureDamaged
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
-			get
+			base.Notify_Killed(prevMap, dinfo);
+			if (hatcheeParent != null)
 			{
-				if (FreezerComp != null)
-				{
-					return FreezerComp.Ruined;
-				}
-				return false;
+				hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent);
+			}
+			if (otherParent != null)
+			{
+				otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent ?? otherParent);
 			}
 		}
+
+		//public bool TemperatureDamaged
+		//{
+		//	get
+		//	{
+		//		if (FreezerComp != null)
+		//		{
+		//			return FreezerComp.Ruined;
+		//		}
+		//		return false;
+		//	}
+		//}
 
 		public override void PreAbsorbStack(Thing otherStack, int count)
 		{
@@ -106,38 +129,62 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (otherCompHumanEgg.father != father || otherCompHumanEgg.mother != mother || otherCompHumanEgg.xenotypeHolder != xenotypeHolder)
+			if (otherCompHumanEgg.otherParent != otherParent || otherCompHumanEgg.hatcheeParent != hatcheeParent || otherCompHumanEgg.xenotypeHolder != xenotypeHolder)
 			{
 				return false;
 			}
 			return base.AllowStackWith(other);
 		}
 
-		public override string CompInspectStringExtra()
+		//public override string CompInspectStringExtra()
+		//{
+		//	if (!TemperatureDamaged)
+		//	{
+		//		return "EggProgress".Translate() + ": " + gestateProgress.ToStringPercent() + "\n" + "HatchesIn".Translate() + ": " + "PeriodDays".Translate((Props.hatcherDaystoHatch * (1f - gestateProgress)).ToString("F1"));
+		//	}
+		//	return null;
+		//}
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			if (!TemperatureDamaged)
+			if (DebugSettings.ShowDevGizmos)
 			{
-				return "EggProgress".Translate() + ": " + gestateProgress.ToStringPercent() + "\n" + "HatchesIn".Translate() + ": " + "PeriodDays".Translate((Props.hatcherDaystoHatch * (1f - gestateProgress)).ToString("F1"));
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: +10%",
+					action = delegate
+					{
+						gestateProgress += 0.1f;
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: -10%",
+					action = delegate
+					{
+						gestateProgress -= 0.1f;
+					}
+				};
 			}
-			return null;
 		}
 
 		public override void PostSplitOff(Thing piece)
 		{
 			CompHumanEgg comp = ((ThingWithComps)piece).GetComp<CompHumanEgg>();
-			comp.gestateProgress = gestateProgress;
-			comp.father = father;
-			comp.mother = mother;
+			//comp.gestateProgress = gestateProgress;
+			//comp.otherParent = otherParent;
+			//comp.hatcheeParent = hatcheeParent;
 			comp.xenotypeHolder = xenotypeHolder;
+			base.PostSplitOff(piece);
 		}
 
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_References.Look(ref father, "father_" + Props.uniqueTag, saveDestroyedThings: true);
-			Scribe_References.Look(ref mother, "mother_" + Props.uniqueTag, saveDestroyedThings: true);
+			//Scribe_References.Look(ref otherParent, "father_" + Props.uniqueTag, saveDestroyedThings: true);
+			//Scribe_References.Look(ref hatcheeParent, "mother_" + Props.uniqueTag, saveDestroyedThings: true);
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
-			Scribe_Values.Look(ref gestateProgress, "gestateProgress_" + Props.uniqueTag, 0f);
+			//Scribe_Values.Look(ref gestateProgress, "gestateProgress_" + Props.uniqueTag, 0f);
 		}
 
 	}

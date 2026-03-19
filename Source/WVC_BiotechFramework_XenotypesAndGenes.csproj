@@ -325,6 +325,7 @@
     <Compile Include="Obsolete_0\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_LayHumanEgg.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_XaGJob_General.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
@@ -441,6 +442,7 @@
   <ItemGroup>
     <Publicize Include="Assembly-CSharp:Verse.GeneDef.cachedDescription" />
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_PsychicEntropyTracker.currentPsyfocus" />
+    <Publicize Include="Assembly-CSharp:RimWorld.CompHatcher.gestateProgress" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

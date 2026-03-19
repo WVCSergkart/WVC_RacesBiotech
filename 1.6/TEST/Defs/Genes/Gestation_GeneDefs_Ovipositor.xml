@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Ovipositor</defName>
+	<label>ovipositor</label>
+	<description>Carriers of this gene lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Ovipositor</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StasisLearning</iconPath>
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; varies with &lt;color=#8a8ae6&gt;hivemind size&lt;/color&gt;.</li> -->
+		<!-- <li>Lays eggs instead of pregnancy and live birth.</li> -->
+		<!-- <li>Laying eggs makes the pawn temporarily infertile.</li> -->
+		<li>Allows the pawn to &lt;color=#8a8ae6&gt;lay eggs&lt;/color&gt; instead of a live birth.</li>
+		<li>An egg can be laid 3 days after the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; begins.</li>
+		<li>If the pawn does not &lt;color=#8a8ae6&gt;lay&lt;/color&gt; an egg within 5 days, the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; will proceed as normal.</li>
+		<li>Destroying the egg counts as &lt;color=#8a8ae6&gt;miscarriage&lt;/color&gt;.</li>
+		<li>The pawn will attempt to lay the egg in a safe location.</li>
+		<!-- later -->
+		<!-- <li>Eating the egg does not count as cannibalism until 60% progress has been reached.</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+		<wholeNameSymbols>
+			<li>
+				<symbol>egglayer</symbol>
+			</li>
+			<li>
+				<symbol>oviparous</symbol>
+			</li>
+			<li>
+				<symbol>ovipositor</symbol>
+			</li>
+			<li>
+				<symbol>egger</symbol>
+			</li>
+			<li>
+				<symbol>hatcher</symbol>
+			</li>
+		</wholeNameSymbols>
+		<prefixSymbols>
+			<li>
+				<symbol>egg</symbol>
+			</li>
+			<li>
+				<symbol>bud</symbol>
+			</li>
+			<li>
+				<symbol>roe</symbol>
+			</li>
+		</prefixSymbols>
+		<suffixSymbols>
+			<li>
+				<symbol>layer</symbol>
+			</li>
+			<li>
+				<symbol>parous</symbol>
+			</li>
+			<li>
+				<symbol>positor</symbol>
+			</li>
+		</suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Egglaying</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_EggHumanFertilized</thingDefToSpawn>
+			<jobDef>WVC_LayHumanEgg</jobDef>
+			<showMessageIfOwned>true</showMessageIfOwned>
+			<spawnMessage>WVC_HumanEggLay</spawnMessage>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- test egg -->
+  <ThingDef ParentName="EggFertBase">
+	<defName>WVC_EggHumanFertilized</defName>
+	<label>human egg (fert.)</label>
+	<description>A fertilized human egg. If all goes well, it should hatch into a human.</description>
+	<possessionCount>1</possessionCount>
+	<graphicData>
+	  <color>(245,245,245)</color>
+	</graphicData>
+	<statBases>
+	  <MarketValue>30.0</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_HumanEgg">
+		<hatcherDaystoHatch>-1</hatcherDaystoHatch>
+		<!-- <hatcherPawn>Chicken</hatcherPawn> -->
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <JobDef>
+	<defName>WVC_LayHumanEgg</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_LayHumanEgg</driverClass>
+	<reportString>laying egg.</reportString>
+	<casualInterruptible>false</casualInterruptible>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>
