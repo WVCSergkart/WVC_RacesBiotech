@@ -205,11 +205,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
-			if (litterSize < 1)
-			{
-				litterSize = 1;
-			}
+			int litterSize = GestationUtility.BabiesCount(pawn);
 			for (int i = 0; i < litterSize; i++)
 			{
 				ReincarnationQuest(pawn, summonQuest);

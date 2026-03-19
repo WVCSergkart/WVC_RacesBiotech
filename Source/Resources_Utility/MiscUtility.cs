@@ -622,6 +622,11 @@ namespace WVC_XenotypesAndGenes
 		public static void SpawnItems(Pawn pawn, ThingDef thingDef, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")
 		{
 			Thing thing = ThingMaker.MakeThing(thingDef);
+			SpawnItems(pawn, thing, stack, showMessage, message);
+		}
+
+		public static void SpawnItems(Pawn pawn, Thing thing, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")
+		{
 			thing.stackCount = stack;
 			if (pawn.Map == null && pawn.Corpse != null)
 			{

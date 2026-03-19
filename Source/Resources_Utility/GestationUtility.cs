@@ -42,11 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SpawnChild(Pawn parent, Thing motherOrEgg, out Pawn child, bool endogenes = true, bool xenogenes = true)
 		{
-			int litterSize = ((parent.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(parent.RaceProps.litterSizeCurve)));
-			if (litterSize < 1)
-			{
-				litterSize = 1;
-			}
+			int litterSize = GestationUtility.BabiesCount(parent);
 			PawnGenerationRequest generateNewBornPawn = NewBornRequest(parent.kindDef, parent.Faction);
 			child = null;
 			for (int i = 0; i < litterSize; i++)
@@ -58,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				FilthMaker.TryMakeFilth(motherOrEgg.Position, motherOrEgg.Map, ThingDefOf.Filth_Slime, 5);
 				MainDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(motherOrEgg));
-				if (parent.caller != null)
+				if (parent.caller != null && motherOrEgg == parent)
 				{
 					parent.caller.DoCall();
 				}
@@ -71,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 			return new(pawnKind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 		}
 
-		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null, XenotypeHolder xenotypeHolder = null)
+		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null, XenotypeHolder xenotypeHolder = null, Pawn parent2 = null)
 		{
 			newBorn = PawnGenerator.GeneratePawn(generateNewBornPawn);
 			if (xenotypeHolder != null)
@@ -111,6 +107,13 @@ namespace WVC_XenotypesAndGenes
 						ReimplanterUtility.GeneralReimplant(parent, newBorn, endogene, xenogene, false);
 					}
 					TaleRecorder.RecordTale(TaleDefOf.GaveBirth, parent, newBorn);
+				}
+				if (parent2 != null)
+				{
+					if (newBorn.RaceProps.IsFlesh)
+					{
+						newBorn.relations.AddDirectRelation(PawnRelationDefOf.Parent, parent);
+					}
 				}
 				SetName(newBorn, parent);
 			}
@@ -174,6 +177,16 @@ namespace WVC_XenotypesAndGenes
 				return parentNameTriple.Last;
 			}
 			return null;
+		}
+
+		public static int BabiesCount(Pawn pawn)
+		{
+			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
+			if (litterSize < 1)
+			{
+				litterSize = 1;
+			}
+			return litterSize;
 		}
 
 	}

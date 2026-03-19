@@ -97,6 +97,7 @@
     <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Traits.cs" />
+    <Compile Include="Resources_Genes\Gene_Ovipositor.cs" />
     <Compile Include="Resources_Genes\Gene_RestStomach.cs" />
     <Compile Include="Resources_Genes\Gene_Animalfeeder.cs" />
     <Compile Include="Resources_Genes\Gene_ArchiverDependant.cs" />
@@ -311,6 +312,7 @@
     <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
+    <Compile Include="Resources_Things\CompProperties_HumanEgg.cs" />
     <Compile Include="Resources_Things\CompProperties_SkippableBuilding.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_XenogermSerum.cs" />
     <Compile Include="Resources_Things\CompProps_DestroyAndReturnResources.cs" />
@@ -323,8 +325,10 @@
     <Compile Include="Obsolete_0\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_XaGJob_General.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
+    <Compile Include="Resources_ThinkNodes\XaG_Job.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />

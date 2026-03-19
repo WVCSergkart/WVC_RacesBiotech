@@ -149,6 +149,8 @@ namespace WVC_XenotypesAndGenes
 		public StatDef voidMaxResource_StatDef;
 		// Mechs
 		public List<MechWeightClassDef> allowedMechWeightClasses;
+		// Human egg
+		public JobDef jobDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

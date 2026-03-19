@@ -81,6 +81,24 @@ namespace WVC_XenotypesAndGenes
 			//xenotypeHolder = newHolder;
 		}
 
+		public SaveableXenotypeHolder(Pawn parent1, Pawn parent2, List<GeneDef> genes)
+		{
+			if (parent1 == null && parent2 != null || parent2 == null && parent1 != null)
+			{
+				XenotypeDef parentXenotype = parent1 != null ? parent1.genes.Xenotype : parent2.genes.Xenotype;
+				if (parentXenotype.inheritable)
+				{
+					this.xenotypeDef = parentXenotype;
+				}
+				else
+				{
+					this.xenotypeDef = XenotypeDefOf.Baseliner;
+				}
+			}
+			this.genes = genes;
+			this.inheritable = true;
+		}
+
 	}
 
 	public class ReferencableXenotypeHolder : XenotypeHolder, IExposable

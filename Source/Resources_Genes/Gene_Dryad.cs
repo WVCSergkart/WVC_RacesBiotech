@@ -109,11 +109,7 @@ namespace WVC_XenotypesAndGenes
 					spawnDryads = false;
 				}
 				phase = "get count";
-				int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
-				if (litterSize < 1)
-				{
-					litterSize = 1;
-				}
+				int litterSize = GestationUtility.BabiesCount(pawn);
 				phase = "spawn dryad sequence";
 				for (int i = 0; i < litterSize; i++)
 				{
