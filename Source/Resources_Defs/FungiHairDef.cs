@@ -32,4 +32,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	////Dev
+	//public class EyesDef : StyleGeneDef
+	//{
+
+	//}
+
+	////Dev
+	//public class HoloeyesDef : StyleGeneDef
+	//{
+
+	//}
+
 }

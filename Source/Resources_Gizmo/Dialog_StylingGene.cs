@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 
 		// private List<Color> allColors;
 
-		private List<Color> allHairColors;
+		public List<Color> allHairColors;
 
 		public float colorsHeight;
 
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		public List<Color> AllHairColors
+		public virtual List<Color> AllHairColors
 		{
 			get
 			{

@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -11,6 +12,47 @@ namespace WVC_XenotypesAndGenes
 		public Gene_FungoidHair gene_FungoidHair;
 		public StyleGeneDef initialFungiHair;
 		public Color initialColor;
+
+		public override List<Color> AllHairColors
+		{
+			get
+			{
+				if (allHairColors == null)
+				{
+					allHairColors = new List<Color>();
+					foreach (GeneralHolder colorHolder in gene_FungoidHair.ColorHolder)
+					{
+						if (allHairColors.Contains(colorHolder.color))
+						{
+							continue;
+						}
+						allHairColors.Add(colorHolder.color);
+					}
+					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefsListForReading)
+					{
+						Color color = allDef.color;
+						if (allDef.displayInStylingStationUI && !allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+						{
+							allHairColors.Add(color);
+						}
+					}
+					foreach (GeneDef allDef in DefDatabase<GeneDef>.AllDefsListForReading)
+					{
+						if (!allDef.hairColorOverride.HasValue)
+						{
+							continue;
+						}
+						Color color = allDef.hairColorOverride.Value;
+						if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+						{
+							allHairColors.Add(color);
+						}
+					}
+					allHairColors.SortByColor((Color x) => x);
+				}
+				return allHairColors;
+			}
+		}
 
 		public Dialog_StylingFungiHairGene(Pawn pawn, Gene gene, bool unlockTattoos) : base(pawn, gene, unlockTattoos)
 		{
