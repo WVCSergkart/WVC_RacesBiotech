@@ -78,6 +78,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_Switcher.cachedHolders = null;
 			Gene_PackMentality.lastRecacheTick = -1;
 			Gene_Recluse.lastRecacheTick = -1;
+			CompStylingStation.cachedPawns = null;
 		}
 
 		public static void AddHideMechanitors(Pawn pawn)

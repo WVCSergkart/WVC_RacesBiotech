@@ -68,20 +68,20 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>bloodeater_SafeBloodfeed</settingName>
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath>
-				  <order>Prepend</order>
-				  <value>
-					  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySafeBloodfeed"/>
-				  </value>
-				</li>
-			</operations>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>bloodeater_SafeBloodfeed</settingName> -->
+		<!-- <caseTrue Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath> -->
+				  <!-- <order>Prepend</order> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySafeBloodfeed"/> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>bloodfeeder_AutoBloodfeed</settingName>

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_CustomHair : Gene, IGeneCustomGraphic
+	public class Gene_CustomHair : Gene, IGeneCustomGraphic, IGeneOverridden
 	{
 
 		public virtual Color CurrentColor => Color.white;
@@ -49,6 +49,41 @@ namespace WVC_XenotypesAndGenes
 		{
 
 		}
+
+		//================RECACHE===================
+		//================RECACHE===================
+		//================RECACHE===================
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetCache();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			ResetCache();
+		}
+
+		public void Notify_Override()
+		{
+			ResetCache();
+		}
+
+		private static void ResetCache()
+		{
+			CompStylingStation.cachedPawns = null;
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			ResetCache();
+		}
+
+		//================RECACHE===================
+		//================RECACHE===================
+		//================RECACHE===================
 
 	}
 

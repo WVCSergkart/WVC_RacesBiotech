@@ -1,9 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_AbilitySafeBloodfeed : CompProperties_AbilityEffect
 	{
 
@@ -14,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_SafeBloodfeed : CompAbilityEffect
 	{
 

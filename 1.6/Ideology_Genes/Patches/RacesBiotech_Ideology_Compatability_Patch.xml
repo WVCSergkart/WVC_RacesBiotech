@@ -90,6 +90,18 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[defName="StylingStation"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_StylingStation">
+			<jobDef>WVC_OpenStylingStationDialog</jobDef>
+		  </li>
+		</comps>
+	  </value>
+	</Operation>
+
 	<!-- ========================= -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">

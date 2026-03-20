@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_OpenStylingStationDialog</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_OpenStylingStationDialog</driverClass>
+	<reportString>changing genetic style at TargetA.</reportString>
+  </JobDef>
+
+</Defs>
