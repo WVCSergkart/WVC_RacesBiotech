@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
+	public class Gene_Voidlink : Gene_Mechlink, IGeneOverriddenBy, IGeneNotifyOnKilled, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
 	{
 
 		public override void PostAdd()

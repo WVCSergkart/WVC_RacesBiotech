@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DarknessExposure : Gene, IGeneOverridden
+	public class Gene_DarknessExposure : Gene, IGeneOverriddenBy
 	{
 		//private int updTry = 0;
 

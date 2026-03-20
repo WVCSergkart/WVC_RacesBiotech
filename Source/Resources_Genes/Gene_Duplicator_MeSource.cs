@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Duplicator_MeSource : Gene_DuplicatorSubGene, IGeneOverridden
+	public class Gene_Duplicator_MeSource : Gene_DuplicatorSubGene, IGeneOverriddenBy
 	{
 
 		public override bool Active
@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Duplicator_HediffGiver : Gene_Duplicator_MeSource, IGeneOverridden
+	public class Gene_Duplicator_HediffGiver : Gene_Duplicator_MeSource, IGeneOverriddenBy
 	{
 
 		public override void PostAdd()

@@ -67,11 +67,11 @@ namespace WVC_XenotypesAndGenes
 		public virtual float Alpha => 1f;
 
 		//Skip
-		public int CurrentTextID
+		public StyleGeneDef CurrentTextID
 		{
 			get
 			{
-				return 1;
+				return null;
 			}
 			set
 			{

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Hivemind_Drone : Gene, IGeneOverridden, IGeneHivemind
+	public class Gene_Hivemind_Drone : Gene, IGeneOverriddenBy, IGeneHivemind
 	{
 
 		public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;

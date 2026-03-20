@@ -726,6 +726,10 @@ namespace WVC_XenotypesAndGenes
 					// }
 					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Log Gene_CustomHair"))
+				{
+					Log.Error("Custom hair genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((g) => g.IsGeneDefOfType<Gene_CustomHair>()).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
+				}
 				if (listingStandard.ButtonText("DEV: Count unused in xenotypes genes"))
 				{
 					List<GeneDef> genes = new();

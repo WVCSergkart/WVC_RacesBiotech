@@ -276,7 +276,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DeadlifeBuilder : Gene, IGeneOverridden, IGeneNotifyGenesChanged
+	public class Gene_DeadlifeBuilder : Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
 	{
 
 		public int nextTick = 6000;
@@ -703,7 +703,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman, IGeneOverridden
+	public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman, IGeneOverriddenBy
 	{
 
 		public override bool Active

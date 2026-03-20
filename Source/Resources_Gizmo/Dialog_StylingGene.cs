@@ -32,11 +32,11 @@ namespace WVC_XenotypesAndGenes
 
 		public TattooDef initialBodyTattoo;
 
-		private Color desiredHairColor;
+		public Color desiredHairColor;
 
-		private StylingTab curTab;
+		public StylingTab curTab;
 
-		private Vector2 hairScrollPosition;
+		public Vector2 hairScrollPosition;
 
 		private Vector2 beardScrollPosition;
 
@@ -56,13 +56,13 @@ namespace WVC_XenotypesAndGenes
 
 		private bool showClothes;
 
-		private bool devEditMode;
+		public bool devEditMode;
 
 		// private List<Color> allColors;
 
 		private List<Color> allHairColors;
 
-		private float colorsHeight;
+		public float colorsHeight;
 
 		private static readonly Vector2 ButSize = new(200f, 40f);
 
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		private List<Color> AllHairColors
+		public List<Color> AllHairColors
 		{
 			get
 			{
@@ -240,7 +240,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void DrawTabs(Rect rect)
+		public virtual void DrawTabs(Rect rect)
 		{
 			tabs.Clear();
 			tabs.Add(new TabRecord("Hair".Translate().CapitalizeFirst(), delegate
@@ -364,7 +364,7 @@ namespace WVC_XenotypesAndGenes
 		// curY += Text.LineHeight;
 		// }
 
-		private void DrawHairColors(Rect rect)
+		public virtual void DrawHairColors(Rect rect)
 		{
 			float y = rect.y;
 			Widgets.ColorSelector(new Rect(rect.x, y, rect.width, colorsHeight), ref desiredHairColor, AllHairColors, out colorsHeight);
@@ -501,7 +501,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		private void DrawStylingItemType<T>(Rect rect, ref Vector2 scrollPosition, Action<Rect, T> drawAction, Action<T> selectAction, Func<StyleItemDef, bool> hasStyleItem, Func<StyleItemDef, bool> hadStyleItem, Func<StyleItemDef, bool> extraValidator = null, bool doColors = false) where T : StyleItemDef
+		public void DrawStylingItemType<T>(Rect rect, ref Vector2 scrollPosition, Action<Rect, T> drawAction, Action<T> selectAction, Func<StyleItemDef, bool> hasStyleItem, Func<StyleItemDef, bool> hadStyleItem, Func<StyleItemDef, bool> extraValidator = null, bool doColors = false) where T : StyleItemDef
 		{
 			Rect viewRect = new(rect.x, rect.y, rect.width - 16f, viewRectHeight);
 			int num = Mathf.FloorToInt(viewRect.width / 60f) - 1;
@@ -510,7 +510,7 @@ namespace WVC_XenotypesAndGenes
 			int num4 = 0;
 			int num5 = 0;
 			tmpStyleItems.Clear();
-			tmpStyleItems.AddRange(DefDatabase<T>.AllDefs.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x))));
+			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x))));
 			tmpStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
 			if (tmpStyleItems.NullOrEmpty())
 			{
@@ -574,10 +574,14 @@ namespace WVC_XenotypesAndGenes
 				Reset();
 				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
 			}
-			if (!Widgets.ButtonText(new Rect(inRect.xMax - ButSize.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Accept".Translate()))
+			if (Widgets.ButtonText(new Rect(inRect.xMax - ButSize.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Accept".Translate()))
 			{
-				return;
+				Accept();
 			}
+		}
+
+		public virtual void Accept()
+		{
 			if (pawn.story.hairDef != initialHairDef || pawn.style.beardDef != initialBeardDef || pawn.style.FaceTattoo != initialFaceTattoo || pawn.style.BodyTattoo != initialBodyTattoo || pawn.story.HairColor != desiredHairColor)
 			{
 				// if (!DevMode)
@@ -625,7 +629,7 @@ namespace WVC_XenotypesAndGenes
 		// pawn.mindState.Notify_OutfitChanged();
 		// }
 
-		private void Reset(bool resetColors = true)
+		public virtual void Reset(bool resetColors = true)
 		{
 			if (resetColors)
 			{

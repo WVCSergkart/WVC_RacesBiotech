@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_MorpherXenotypeTargeter_WithMatch : Gene_MorpherXenotypeTargeter, IGeneOverridden
+	public class Gene_MorpherXenotypeTargeter_WithMatch : Gene_MorpherXenotypeTargeter, IGeneOverriddenBy
 	{
 
 		public override XenotypeHolder TargetedXenotype
@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_MorpherXenotypeTargeter_Hivemind : Gene_MorpherXenotypeTargeter, IGeneOverridden
+	public class Gene_MorpherXenotypeTargeter_Hivemind : Gene_MorpherXenotypeTargeter, IGeneOverriddenBy
 	{
 
 		public override XenotypeHolder TargetedXenotype

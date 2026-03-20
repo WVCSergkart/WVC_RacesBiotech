@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverridden, IGeneChargeable, IGeneNotifyGenesChanged, IGeneRemoteControl
+	public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverriddenBy, IGeneChargeable, IGeneNotifyGenesChanged, IGeneRemoteControl
 	{
 		public string RemoteActionName => addPsychicSensitivity ? "WVC_XaG_Increase".Translate() : "WVC_XaG_Decrease".Translate();
 

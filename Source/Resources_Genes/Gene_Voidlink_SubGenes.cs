@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_VoidlinkDependant : Gene, IGeneOverridden
+	public class Gene_VoidlinkDependant : Gene, IGeneOverriddenBy
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();

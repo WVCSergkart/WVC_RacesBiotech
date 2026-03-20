@@ -355,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Recluse : Gene, IGeneOverridden
+	public class Gene_Recluse : Gene, IGeneOverriddenBy
 	{
 
 		private GeneExtension_Opinion cachedExtension;

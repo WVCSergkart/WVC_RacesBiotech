@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_PackMentality : Gene, IGeneOverridden, IGeneNotifyGenesChanged
+	public class Gene_PackMentality : Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
 	{
 
 		private GeneExtension_Opinion cachedExtension;

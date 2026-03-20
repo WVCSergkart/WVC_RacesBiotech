@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl, IGeneOverridden
+	public class Gene_Bloodeater : Gene_HemogenOffset, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl, IGeneOverriddenBy
 	{
 
 		public string RemoteActionName

@@ -3,7 +3,7 @@
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_OverOverridable : Gene, IGeneOverridden, IGeneOverOverridable
+	public class Gene_OverOverridable : Gene, IGeneOverriddenBy, IGeneUnoverridable
 	{
 
 		public override void TickInterval(int delta)
@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (overriddenBy is not IGeneOverOverridable && overrideTries < 100 && overriddenBy.def.ConflictsWith(def))
+			if (overriddenBy is not IGeneUnoverridable && overrideTries < 100 && overriddenBy.def.ConflictsWith(def))
 			{
 				this.OverrideBy(null);
 				overriddenBy.OverrideBy(this);

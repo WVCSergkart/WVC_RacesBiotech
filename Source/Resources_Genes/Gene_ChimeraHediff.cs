@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverridden, IGeneAddOrRemoveHediff
+	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();

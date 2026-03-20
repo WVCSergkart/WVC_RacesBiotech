@@ -248,7 +248,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
 			{
-				if (!geneDef.IsGeneDefOfType<IGeneOverOverridable>())
+				if (!geneDef.IsGeneDefOfType<IGeneUnoverridable>())
 				{
 					return;
 				}

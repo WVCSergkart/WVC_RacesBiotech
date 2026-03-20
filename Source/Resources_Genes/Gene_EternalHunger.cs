@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverridden, IGeneBloodfeeder, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
+	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();

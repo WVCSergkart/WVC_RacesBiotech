@@ -775,7 +775,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				try
 				{
-					if (__instance is IGeneOverridden geneOverridden)
+					if (__instance is IGeneOverriddenBy geneOverridden)
 					{
 						if (overriddenBy != null)
 						{

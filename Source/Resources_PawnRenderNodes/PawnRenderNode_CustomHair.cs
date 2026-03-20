@@ -14,9 +14,9 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string TexPathFor(Pawn pawn)
 		{
-			if (gene is Gene_CustomHair geneHair && geneHair.CurrentTextID > 0)
+			if (gene is Gene_CustomHair geneHair && geneHair.CurrentTextID != null)
 			{
-				return props.texPaths[geneHair.CurrentTextID - 1];
+				return geneHair.CurrentTextID.texPath;
 			}
 			return base.TexPathFor(pawn);
 		}

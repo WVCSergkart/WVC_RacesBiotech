@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_VoidHunger : Gene_HemogenOffset, IGeneOverridden
+	public class Gene_VoidHunger : Gene_HemogenOffset, IGeneOverriddenBy
 	{
 
 		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();

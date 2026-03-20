@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Overridden by trigger. Typically used to reset the cache when genes are changed, often in conjunction with IGeneNotifyGenesChanged.
 	/// </summary>
-	public interface IGeneOverridden
+	public interface IGeneOverriddenBy
 	{
 
 		void Notify_OverriddenBy(Gene overriddenBy);
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Over override mechanics. For override xenogenes by endogens.
 	/// </summary>
-	public interface IGeneOverOverridable
+	public interface IGeneUnoverridable
 	{
 
 		void Notify_OverriddenBy(Gene overriddenBy);
@@ -244,7 +244,7 @@ namespace WVC_XenotypesAndGenes
 
 		//string Label { get; }
 
-		int CurrentTextID { get; set; }
+		StyleGeneDef CurrentTextID { get; set; }
 
 		void DoAction();
 

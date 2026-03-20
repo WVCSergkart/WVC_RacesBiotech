@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AddOrRemoveHediff : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
+	public class Gene_AddOrRemoveHediff : Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_SeverityHediff : Gene, IGeneOverridden, IGeneAddOrRemoveHediff
+	public class Gene_SeverityHediff : Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		private HediffDef cachedHediffDef;
@@ -261,7 +261,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverridden, IGeneAddOrRemoveHediff
+	public class Gene_ResurgentHediff : Gene_ResurgentDependent, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		//public HediffDef HediffDef => def.GetModExtension<GeneExtension_Giver>().hediffDefName;

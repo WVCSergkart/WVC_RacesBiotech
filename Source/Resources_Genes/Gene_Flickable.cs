@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Flickable : Gene, IGeneOverridden
+	public class Gene_Flickable : Gene, IGeneOverriddenBy
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();

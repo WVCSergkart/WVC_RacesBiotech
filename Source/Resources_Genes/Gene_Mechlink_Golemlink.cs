@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverridden
+	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverriddenBy
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();

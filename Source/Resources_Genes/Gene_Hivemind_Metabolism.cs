@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SharedMetabolism : Gene, IGeneOverridden
+	public class Gene_SharedMetabolism : Gene, IGeneOverriddenBy
 	{
 
 		private static int? savedMetCount;

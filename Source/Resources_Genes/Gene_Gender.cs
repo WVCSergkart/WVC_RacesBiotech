@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gender : Gene, IGeneOverridden
+	public class Gene_Gender : Gene, IGeneOverriddenBy
 	{
 
 		private GeneExtension_Giver cachedGeneExtensionGiver;
