@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -354,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Recluse : Gene
+	public class Gene_Recluse : Gene, IGeneOverridden
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -370,83 +371,119 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int nextTick = 841;
+		//private int nextTick = 841;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameStarted())
-			{
-				MiscUtility.UpdateStaticCollection();
-			}
+			Update();
 		}
 
 		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 11618, delta))
+			//if (!GeneResourceUtility.CanTick(ref nextTick, 2501, delta))
+			//{
+			//	return;
+			//}
+			if (!pawn.IsHashIntervalTick(2501, delta))
 			{
 				return;
 			}
-			TryInteract();
+			Update();
 		}
 
-		public void TryInteract()
+		public static int lastRecacheTick = -1;
+		public void Update()
 		{
-			ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
-			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > Props.colonistsLimit)
+			if (MiscUtility.GameStarted() && lastRecacheTick < Find.TickManager.TicksGame)
 			{
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+				MiscUtility.UpdateStaticCollection();
+				lastRecacheTick = Find.TickManager.TicksGame + 2500;
 			}
+			Thought_RecluseMemory.baseMoodOffset = null;
+			Thought_HumanCentricMemory.baseMoodOffset = null;
+			ThoughtUtility.AddPermanentMemory(pawn, Props.thoughtDef);
 		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			RemoveMemory();
+		}
+
+		public void Notify_Override()
+		{
+			Update();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			RemoveMemory();
+		}
+
+		public void RemoveMemory()
+		{
+			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+		}
+
+		//public void TryInteract()
+		//{
+		//	ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+		//	pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+		//	if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > Props.colonistsLimit)
+		//	{
+		//		pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+		//	}
+		//}
 
 	}
 
-	public class Gene_HumanCentric : Gene
+	[Obsolete]
+	public class Gene_HumanCentric : Gene_Recluse
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Props
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
-		private int nextTick = 842;
+		//private int nextTick = 842;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (MiscUtility.GameStarted())
-			{
-				MiscUtility.UpdateStaticCollection();
-			}
-		}
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	if (MiscUtility.GameStarted())
+		//	{
+		//		MiscUtility.UpdateStaticCollection();
+		//	}
+		//}
 
-		public override void TickInterval(int delta)
-		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 11619, delta))
-			{
-				return;
-			}
-			TryInteract();
-		}
+		//public override void TickInterval(int delta)
+		//{
+		//	if (!GeneResourceUtility.CanTick(ref nextTick, 11619, delta))
+		//	{
+		//		return;
+		//	}
+		//	TryInteract();
+		//}
 
-		public void TryInteract()
-		{
-			ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
-			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
-			if (StaticCollectionsClass.cachedNonHumansCount > 0)
-			{
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
-			}
-		}
+		//public void TryInteract()
+		//{
+		//	ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
+		//	pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+		//	if (StaticCollectionsClass.cachedNonHumansCount > 0)
+		//	{
+		//		pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+		//	}
+		//}
 
 	}
 

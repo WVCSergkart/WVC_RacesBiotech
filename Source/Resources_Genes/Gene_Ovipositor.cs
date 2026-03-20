@@ -136,6 +136,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
+					StopLayEgg();
 					startTick = -1;
 				}
 			}
@@ -182,11 +183,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			shouldLayEgg = true;
 			startTick = Find.TickManager.TicksGame;
+			//Alert_CanLayEgg.Disabled = false;
 		}
 
 		private void StopLayEgg()
 		{
 			shouldLayEgg = false;
+			//Alert_CanLayEgg.Disabled = true;
 		}
 
 		public override void ExposeData()
@@ -195,6 +198,22 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shouldLayEgg, "shouldLayEgg", false);
 			Scribe_Values.Look(ref startTick, "startTick", -1);
 		}
+
+		//public void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	StopLayEgg();
+		//}
+
+		//public void Notify_Override()
+		//{
+
+		//}
+
+		//public override void PostRemove()
+		//{
+		//	base.PostRemove();
+		//	StopLayEgg();
+		//}
 
 	}
 

@@ -171,7 +171,7 @@
 
   <ThoughtDef>
 	<defName>WVC_Recluse</defName>
-	<durationDays>1</durationDays>
+	<!-- <durationDays>1</durationDays> -->
 	<thoughtClass>WVC_XenotypesAndGenes.Thought_RecluseMemory</thoughtClass>
 	<nullifyingPrecepts>
 	  <li MayRequire="Ludeon.RimWorld.Ideology,ludeon.rimworld.anomaly">WVC_Shapeshifters_Duplicates</li>
@@ -189,7 +189,7 @@
 
   <ThoughtDef>
 	<defName>WVC_HumanCentric</defName>
-	<durationDays>1</durationDays>
+	<!-- <durationDays>1</durationDays> -->
 	<thoughtClass>WVC_XenotypesAndGenes.Thought_HumanCentricMemory</thoughtClass>
 	<stages>
 	  <li>

@@ -1,10 +1,13 @@
+using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
-using RimWorld;
 using Verse;
+using Verse.Noise;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -202,5 +205,56 @@ namespace WVC_XenotypesAndGenes
 		//public override bool Visible => false;
 
 	}
+
+	//public class Alert_CanLayEgg : Alert
+	//{
+
+	//	public static bool disabled = true;
+
+	//	public Alert_CanLayEgg()
+	//	{
+	//		defaultLabel = "WVC_AlertCanLayEgg".Translate();
+	//		defaultExplanation = "WVC_AlertCanLayEggDesc".Translate();
+	//		defaultPriority = AlertPriority.High;
+	//	}
+
+	//	public static bool Disabled
+	//	{
+	//		get
+	//		{
+	//			return disabled;
+	//		}
+	//		set
+	//		{
+	//			cachedOvipPawns = null;
+	//			if (value == true && (OvipositorPawns.NullOrEmpty() || OvipositorPawns.All((p) => p.genes?.GetFirstGeneOfType<Gene_Ovipositor>()?.shouldLayEgg == false)))
+	//			{
+	//				disabled = value;
+	//			}
+	//		}
+	//	}
+
+	//	public static List<Pawn> cachedOvipPawns;
+	//	public static List<Pawn> OvipositorPawns
+	//	{
+	//		get
+	//		{
+	//			if (cachedOvipPawns == null)
+	//			{
+	//				cachedOvipPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive.Where((p) => p.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null).ToList();
+	//			}
+	//			return cachedOvipPawns;
+	//		}
+	//	}
+
+	//	public override AlertReport GetReport()
+	//	{
+	//		if (Disabled)
+	//		{
+	//			return false;
+	//		}
+	//		return AlertReport.CulpritsAre(OvipositorPawns.Where((p) => p.Map != null).Select((p) => new GlobalTargetInfo(p.Position, p.Map)).ToList());
+	//	}
+	//}
 
 }

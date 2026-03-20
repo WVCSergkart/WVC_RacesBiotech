@@ -5,7 +5,7 @@
 
   <GeneDef>
 	<defName>WVC_OneManArmy</defName>
-	<label>one man army</label>
+	<label>one-man army</label>
 	<description>Carriers of this gene are natural recluse. They have a hard time fitting into society and cope much better when they are completely alone.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Recluse</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Recluse_OneManArmy_v0</iconPath>
@@ -17,7 +17,9 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
-		<li>If there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony, then the carrier receive a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;. The memory lasts for about a day.</li>
+		<!-- <li>If there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony, then the carrier receive a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;.</li> -->
+		<li>Decreases mood if there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony.</li>
+		 <!-- The memory lasts for about a day. -->
 		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant and deathresting pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<!-- <conditionalStatAffecters> -->
@@ -46,7 +48,8 @@
 	<defName>WVC_HumanCentric</defName>
 	<label>human-centric</label>
 	<description>Carriers of this gene cannot get along with non-intelligent creatures; they feel disgust for everything that is not a tool or a person.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_HumanCentric</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HumanCentric</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Recluse</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Recluse_HumanCentric_v0</iconPath>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<selectionWeight>0.00022</selectionWeight>
@@ -56,7 +59,9 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
-		<li>If there are &lt;color=#8a8ae6&gt;any non-humans (ex: animals, mutants, mechs) present&lt;/color&gt; in the colony, the carrier receives a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;. The memory lasts for about a day.</li>
+		<!-- <li>If there are &lt;color=#8a8ae6&gt;any non-humans (ex: animals, mutants, mechs) present&lt;/color&gt; in the colony, the carrier receives a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;.</li> -->
+		<li>Decreases mood if there is &lt;color=#8a8ae6&gt;any non-humans&lt;/color&gt; (ex: animals, mutants, mechs) in the colony.</li>
+		 <!-- The memory lasts for about a day. -->
 		<li>&lt;color=#ffec85&gt;Ignores quest pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
