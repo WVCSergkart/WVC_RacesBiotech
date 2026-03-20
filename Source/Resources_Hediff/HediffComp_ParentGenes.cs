@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -109,6 +110,21 @@ namespace WVC_XenotypesAndGenes
 						Log.Error("Failed Notify_CustomPregnancy for gene: " + gene.def.defName + ". For pawn: " + Pawn.NameFullColored + ". Reason: " + arg);
 					}
 				}
+			}
+		}
+
+		public override IEnumerable<Gizmo> CompGetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: +1 day age tick",
+					action = delegate
+					{
+						parent.ageTicks += 60000;
+					}
+				};
 			}
 		}
 

@@ -219,6 +219,7 @@
     <Compile Include="Resources_Holders\MechanoidHolder.cs" />
     <Compile Include="Resources_Defs\SkillsGeneTemplateDef.cs" />
     <Compile Include="Resources_Defs\ThrallDef.cs" />
+    <Compile Include="Resources_Main\IngestionOutcomeDoer_OffsetHemogen.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_Defs\XenotypeForcerGeneTemplateDef.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />

@@ -102,6 +102,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			//LayEgg(pregnancy);
 			ShouldLayEgg();
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_XaG_CanLayEggLabel".Translate(), "WVC_XaG_CanLayEggDesc".Translate(pawn), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(pawn));
+			}
 			return true;
 		}
 
@@ -129,6 +133,10 @@ namespace WVC_XenotypesAndGenes
 					pawn.health.RemoveHediff(firstHediffOfDef2);
 				}
 				pawn.health.RemoveHediff(pregnancy);
+				if (Props.cooldownHediffDef != null)
+				{
+					pawn.health.AddHediff(Props.cooldownHediffDef);
+				}
 				// Multy preg support
 				if (pawn.health.hediffSet.HasHediff<Hediff_Pregnant>())
 				{

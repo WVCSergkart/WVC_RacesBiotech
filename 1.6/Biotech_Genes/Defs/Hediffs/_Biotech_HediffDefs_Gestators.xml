@@ -88,11 +88,13 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_XenotypesAndGenes_PostGestationRecovery</defName>
 	<label>post gestation recovery</label>
-	<description>The body of the carrier is restored after the end of the gestation process.</description>
+	<!-- <description>The body of the carrier is restored after the end of the gestation process.</description> -->
+	<description>The carrier's body recovers from the gestation process. This will take a relatively short time.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<preventsPregnancy>true</preventsPregnancy>
 	<stages>
 	  <li>
+		<painOffset>0.02</painOffset>
 		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
 		<capMods>
 		  <li>

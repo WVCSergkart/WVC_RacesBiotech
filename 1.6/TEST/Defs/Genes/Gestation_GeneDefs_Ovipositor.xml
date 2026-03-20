@@ -74,20 +74,53 @@
 			<jobDef>WVC_LayHumanEgg</jobDef>
 			<showMessageIfOwned>true</showMessageIfOwned>
 			<spawnMessage>WVC_HumanEggLay</spawnMessage>
+			<cooldownHediffDef>WVC_Ovipositor_LayedEgg</cooldownHediffDef>
 		</li>
 	</modExtensions>
   </GeneDef>
 
-  <!-- test egg -->
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Ovipositor_LayedEgg</defName>
+	<label>post lay recovery</label>
+	<description>The carrier's body recovers after the egg is laid. This will take some time and will be accompanied by pain.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
+	<stages>
+	  <li>
+		<painOffset>0.12</painOffset>
+		<!-- <hungerRateFactorOffset>0.2</hungerRateFactorOffset> -->
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.1</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>60000~62000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
   <ThingDef ParentName="EggFertBase">
 	<defName>WVC_EggHumanFertilized</defName>
 	<label>human egg (fert.)</label>
-	<description>A fertilized human egg. If all goes well, it should hatch into a human.</description>
-	<possessionCount>1</possessionCount>
+	<description>A fertilized human egg. If all goes well, it should hatch into a human. It can be eaten raw, but it's much, much better cooked. For the first 9 days, this doesn't count as murder, but it will upset the owners.</description>
+	 <!-- For the first 9 days, this isn't considered cannibalism, but it will upset the egg's owners. -->
+	<!-- <possessionCount>1</possessionCount> -->
 	<ingestible>
+	  <!-- <ateEvent>AteHumanMeat</ateEvent> -->
 	  <!-- very rare -->
-	  <optimalityOffsetHumanlikes>-999</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	  <optimalityOffsetHumanlikes>-99999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-999</optimalityOffsetFeedingAnimals>
+	  <outcomeDoers>
+		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_HumanEgg" >
+		  <thoughtDef>WVC_AteMyEgg</thoughtDef>
+		</li>
+	  </outcomeDoers>
 	</ingestible>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/HumanEgg</texPath>
@@ -106,6 +139,7 @@
 		<hatcherDaystoHatch>-1</hatcherDaystoHatch>
 		<!-- <hatcherPawn>Chicken</hatcherPawn> -->
 	  </li>
+	  <!-- <li Class="CompProperties_Ingredients" /> -->
 	</comps>
   </ThingDef>
 
@@ -116,5 +150,18 @@
 	<casualInterruptible>false</casualInterruptible>
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
+
+  <ThoughtDef>
+	<defName>WVC_AteMyEgg</defName>
+	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<durationDays>5</durationDays>
+	<stages>
+	  <li>
+		<label>ate my egg</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
 </Defs>

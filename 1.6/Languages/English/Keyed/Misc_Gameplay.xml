@@ -47,6 +47,8 @@
 	<WVC_HumanEggLay>Human egg layed!</WVC_HumanEggLay>
 	<WVC_XaG_HumanEggHatchLabel>Hatch</WVC_XaG_HumanEggHatchLabel>
 	<WVC_XaG_HumanEggHatchDesc>Human egg hatched!</WVC_XaG_HumanEggHatchDesc>
+	<WVC_XaG_CanLayEggLabel>Human egg</WVC_XaG_CanLayEggLabel>
+	<WVC_XaG_CanLayEggDesc>{0_nameDef} is ready to lay an egg. {0_nameDef} will do it on {0_possessive} own if nothing interferes. {0_pronoun} will choose any empty spot or any empty egg box for the egg.</WVC_XaG_CanLayEggDesc>
 
 	<!-- <WVC_RB_Gene_MechaGestator_PawnReady>{0} pawn ready for gestation.</WVC_RB_Gene_MechaGestator_PawnReady> -->
 	<!-- <WVC_RB_Gene_MechaGestator_PawnNotReady>The gestator is still charging.</WVC_RB_Gene_MechaGestator_PawnNotReady> -->

@@ -59,6 +59,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		//private CompTemperatureRuinable FreezerComp => parent.GetComp<CompTemperatureRuinable>();
+
+		private CompIngredients Ingredients => parent.GetComp<CompIngredients>();
+
+		//public override void PostSpawnSetup(bool respawningAfterLoad)
+		//{
+		//	base.PostSpawnSetup(respawningAfterLoad);
+		//	if (Ingredients != null)
+		//	{
+		//		Ingredients.ingredients = new();
+		//		Ingredients.ingredients.Add(ThingDefOf.Meat_Human);
+		//	}
+		//}
+
 		public override void CompTickInterval(int delta)
 		{
 			if (!TemperatureDamaged)
@@ -80,13 +93,13 @@ namespace WVC_XenotypesAndGenes
 				bool shouldNotify = true;
 				for (int i = 0; i < parent.stackCount; i++)
 				{
-					GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeHolder: xenotypeHolder, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
+					GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeDef: XenotypeDefOf.Baseliner, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
 					//AgelessUtility.SetAge();
-					if (ShouldUpdateChild(child))
-					{
-						ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, child.genes.iconDef, child.genes.xenotypeName, true);
-						ReimplanterUtility.TryFixPawnXenotype_Beta(child);
-					}
+					ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
+					ReimplanterUtility.TryFixPawnXenotype_Beta(child);
+					//if (ShouldUpdateChild(child))
+					//{
+					//}
 					if (PawnUtility.ShouldSendNotificationAbout(child) && shouldNotify)
 					{
 						shouldNotify = false;
