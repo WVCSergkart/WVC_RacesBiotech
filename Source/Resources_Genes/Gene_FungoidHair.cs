@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void DoAction()
 		{
 			//Find.WindowStack.Add(new Dialog_ChangeGraphic_Simple(this));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, false));
 		}
 
 		//public virtual void SetColor(Color color, bool visible)

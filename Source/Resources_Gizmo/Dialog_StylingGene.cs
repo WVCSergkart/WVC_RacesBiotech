@@ -347,7 +347,7 @@ namespace WVC_XenotypesAndGenes
 			//	}));
 			//}
 			//Find.WindowStack.Add(new FloatMenu(list));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, gene, unlockTattoos, true));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, gene, unlockTattoos, true, true));
 		}
 
 		// private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
@@ -565,7 +565,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void DrawBottomButtons(Rect inRect)
 		{
-			if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Cancel".Translate()))
+			if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), CloseButtonText))
 			{
 				Reset();
 				Close();

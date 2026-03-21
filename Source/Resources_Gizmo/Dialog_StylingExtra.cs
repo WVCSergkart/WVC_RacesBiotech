@@ -33,6 +33,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private bool returnable;
+		public override string CloseButtonText
+		{
+			get
+			{
+				if (returnable)
+				{
+					return "Back".Translate();
+				}
+				return "CloseButton".Translate();
+			}
+		}
+
 		public List<ResetCache> savedBackup;
 		public class ResetCache
 		{
@@ -41,11 +54,12 @@ namespace WVC_XenotypesAndGenes
 			public Color initialColor;
 		}
 
-		public Dialog_StylingExtra(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockAll) : base(pawn, gene, unlockTattoos)
+		public Dialog_StylingExtra(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockAll, bool newTab) : base(pawn, gene, unlockTattoos)
 		{
-			//graphicGene = gene as IGeneCustomGraphic;
+			//graphicGene = gene as IGeneCustomGraphic;,
 			//initialHoloface = graphicGene.CurrentTextID;
 			//initialColor = graphicGene.CurrentColor;
+			this.returnable = newTab;
 			this.unlockAll = unlockAll;
 			if (gene is IGeneCustomGraphic geneCustom)
 			{
