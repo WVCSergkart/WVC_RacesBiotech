@@ -15,6 +15,9 @@ namespace WVC_XenotypesAndGenes
 
 		public string uniqueTag = "XaG_Egg";
 
+		public float eggStyleChance = 0.2f;
+		public List<ThingStyleDef> possibleEggStyles;
+
 		public CompProperties_HumanEgg()
 		{
 			compClass = typeof(CompHumanEgg);
@@ -60,15 +63,17 @@ namespace WVC_XenotypesAndGenes
 
 		//private CompTemperatureRuinable FreezerComp => parent.GetComp<CompTemperatureRuinable>();
 
-		private CompIngredients Ingredients => parent.GetComp<CompIngredients>();
+		//private CompIngredients Ingredients => parent.GetComp<CompIngredients>();
 
 		//public override void PostSpawnSetup(bool respawningAfterLoad)
 		//{
 		//	base.PostSpawnSetup(respawningAfterLoad);
-		//	if (Ingredients != null)
+		//	if (respawningAfterLoad)
 		//	{
-		//		Ingredients.ingredients = new();
-		//		Ingredients.ingredients.Add(ThingDefOf.Meat_Human);
+		//		if (Rand.Chance(Props.eggStyleChance) && !Props.possibleEggStyles.NullOrEmpty())
+		//		{
+		//			parent.SetStyleDef(Props.possibleEggStyles.RandomElement());
+		//		}
 		//	}
 		//}
 

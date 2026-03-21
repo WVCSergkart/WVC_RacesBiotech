@@ -4,7 +4,7 @@
   <GeneDef>
 	<defName>WVC_Ovipositor</defName>
 	<label>ovipositor</label>
-	<description>Carriers of this gene lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
+	<description>Carriers of this gene can lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Ovipositor</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Ovipositor</iconPath>
 	<displayCategory>Reproduction</displayCategory>
@@ -20,7 +20,7 @@
 		<li>An egg can be laid 3 days after the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; begins.</li>
 		<li>If the pawn does not &lt;color=#8a8ae6&gt;lay&lt;/color&gt; an egg within 5 days, the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; will proceed as normal.</li>
 		<li>Destroying the egg counts as &lt;color=#8a8ae6&gt;miscarriage&lt;/color&gt;.</li>
-		<li>The pawn will attempt to lay the egg in a safe location.</li>
+		<li>The pawn will attempt to lay the egg in a egg box.</li>
 		<!-- later -->
 		<!-- <li>Eating the egg does not count as cannibalism until 60% progress has been reached.</li> -->
 	</customEffectDescriptions>
@@ -79,6 +79,8 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ================================== -->
+
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Ovipositor_LayedEgg</defName>
 	<label>post lay recovery</label>
@@ -105,21 +107,24 @@
 	</comps>
   </HediffDef>
 
+  <!-- ================================== -->
+
   <ThingDef ParentName="EggFertBase">
 	<defName>WVC_EggHumanFertilized</defName>
 	<label>human egg (fert.)</label>
-	<description>A fertilized human egg. If all goes well, it should hatch into a human. It can be eaten raw, but it's much, much better cooked. For the first 9 days, this doesn't count as murder, but it will upset the owners.</description>
+	<description>A fertilized human egg. If all goes well, it should hatch into a human baby. It definitely shouldn’t but can be eaten raw. Eating it is treated the same way as killing a baby.</description>
 	 <!-- For the first 9 days, this isn't considered cannibalism, but it will upset the egg's owners. -->
 	<!-- <possessionCount>1</possessionCount> -->
 	<ingestible>
 	  <sourceDef>Human</sourceDef>
 	  <ateEvent>AteHumanMeat</ateEvent>
-	  <!-- very rare -->
-	  <optimalityOffsetHumanlikes>-99999</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-999</optimalityOffsetFeedingAnimals>
+	  <!-- rare -->
+	  <optimalityOffsetHumanlikes>-20</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
 	  <outcomeDoers>
 		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_HumanEgg" >
-		  <thoughtDef>WVC_AteMyEgg</thoughtDef>
+		  <thoughtDef>WVC_KilledEggChildThought</thoughtDef>
+		  <taleDef>WVC_KilledEggChild</taleDef>
 		</li>
 	  </outcomeDoers>
 	</ingestible>
@@ -135,14 +140,20 @@
 	  <FoodPoisonChanceFixedHuman>0.05</FoodPoisonChanceFixedHuman>
 	</statBases>
 	<comps>
+	  <li Class="CompProperties_Styleable" />
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_HumanEgg">
-		<!-- auto hatch time -->
-		<hatcherDaystoHatch>-1</hatcherDaystoHatch>
+		<hatcherDaystoHatch>13</hatcherDaystoHatch>
 		<!-- <hatcherPawn>Chicken</hatcherPawn> -->
+		<!-- <eggStyleChance>0.15</eggStyleChance> -->
+		<!-- <possibleEggStyles> -->
+		  <!-- <li>WVC_SauridEgg</li> -->
+		<!-- </possibleEggStyles> -->
 	  </li>
 	  <!-- <li Class="CompProperties_Ingredients" /> -->
 	</comps>
   </ThingDef>
+
+  <!-- ================================== -->
 
   <JobDef>
 	<defName>WVC_LayHumanEgg</defName>
@@ -152,17 +163,59 @@
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
+  <!-- ================================== -->
+
+  <TaleDef>
+	<defName>WVC_KilledEggChild</defName>
+	<label>human egg eaten</label>
+	<taleClass>Tale_SinglePawn</taleClass>
+	<type>Expirable</type>
+	<firstPawnSymbol>KILLER</firstPawnSymbol>
+	<secondPawnSymbol>CHILD</secondPawnSymbol>
+	<usableForArt>false</usableForArt>
+	<maxPerPawn>1</maxPerPawn>
+	<expireDays>50</expireDays>
+  </TaleDef>
+
+  <!-- ================================== -->
+
   <ThoughtDef>
-	<defName>WVC_AteMyEgg</defName>
-	<thoughtClass>Thought_MemorySocial</thoughtClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<durationDays>25</durationDays>
+	<defName>WVC_KilledEggChildThought</defName>
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>5</durationDays>
+	<stackedEffectMultiplier>0.8</stackedEffectMultiplier>
+	<stackLimit>5</stackLimit>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	  <li>Cannibal</li>
+	</nullifyingTraits>
 	<stages>
 	  <li>
-		<label>ate my egg</label>
-		<baseOpinionOffset>-15</baseOpinionOffset>
+		<label>ate human egg</label>
+		<description>Killing one so young feels wrong, there's no situation where this feels right.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
 	  </li>
 	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_KilledEggChild_Opinion</defName>
+	<thoughtClass>Thought_Tale</thoughtClass>
+	<workerClass>ThoughtWorker_Tale</workerClass>
+	<taleDef>WVC_KilledEggChild</taleDef>
+	<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>ate human egg</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	</stages>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	  <li>Bloodlust</li>
+	  <li>Cannibal</li>
+	</nullifyingTraits>
   </ThoughtDef>
 
 </Defs>

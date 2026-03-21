@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 				}, delegate (StyleGeneDef h)
 				{
 					graphicGene.StyleGeneDef = h;
-				}, (StyleItemDef h) => graphicGene.StyleGeneDef == h, (StyleItemDef h) => initialGeneGraphic == h, null, doColors: true, currentStyleId: graphicGene.StyleId);
+				}, (StyleItemDef h) => graphicGene.StyleGeneDef == h, (StyleItemDef h) => initialGeneGraphic == h, null, doColors: !AllHairColors.Empty(), currentStyleId: graphicGene.StyleId);
 			}
 			else
 			{

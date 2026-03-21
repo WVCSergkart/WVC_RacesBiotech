@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public ThoughtDef thoughtDef;
+		public TaleDef taleDef;
 
 		protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
 		{
@@ -19,13 +20,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				//TaleRecorder.RecordTale(TaleDefOf.KilledChild, pawn, ingested);
 				//Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.MemberKilled, pawn.Named(HistoryEventArgsNames.Doer)), canApplySelfTookThoughts: false);
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.AteHumanMeat, pawn.Named(HistoryEventArgsNames.Doer)), canApplySelfTookThoughts: false);
-				CompHumanEgg compHumanEgg = ingested.TryGetComp<CompHumanEgg>();
-				if (compHumanEgg != null)
-				{
-					compHumanEgg.hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef, pawn);
-					compHumanEgg.otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef, pawn);
-				}
+				//Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.AteHumanMeat, pawn.Named(HistoryEventArgsNames.Doer)), canApplySelfTookThoughts: false);
+				//CompHumanEgg compHumanEgg = ingested.TryGetComp<CompHumanEgg>();
+				//if (compHumanEgg != null)
+				//{
+				//	compHumanEgg.hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef, pawn);
+				//	compHumanEgg.otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef, pawn);
+				//}
+				TaleRecorder.RecordTale(taleDef, pawn);
+				pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef);
 			}
 			catch (Exception arg)
 			{

@@ -34,4 +34,20 @@
 	<!-- </graphicData> -->
   <!-- </ThingStyleDef> -->
 
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_YellowHumanEgg</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/HumanEgg</texPath> -->
+	  <!-- <color>(231,178,115)</color> -->
+	  <!-- <drawSize>1.0</drawSize> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_SauridEgg</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>Item/EggFertilized_Human</texPath> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
 </Defs>
