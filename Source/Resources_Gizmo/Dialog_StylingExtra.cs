@@ -33,6 +33,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public List<ResetCache> savedBackup;
+		public class ResetCache
+		{
+			public IGeneCustomGraphic graphicGene;
+			public StyleGeneDef initialGeneGraphic;
+			public Color initialColor;
+		}
+
 		public Dialog_StylingExtra(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockAll) : base(pawn, gene, unlockTattoos)
 		{
 			//graphicGene = gene as IGeneCustomGraphic;
@@ -46,6 +54,17 @@ namespace WVC_XenotypesAndGenes
 			else if (unlockAll && !GraphicGenes.Empty())
 			{
 				SetCurrentGene(GraphicGenes.First());
+			}
+			savedBackup = new();
+			foreach (IGeneCustomGraphic item in GraphicGenes)
+			{
+				ResetCache backup = new()
+				{
+					graphicGene = item,
+					initialGeneGraphic = item.StyleGeneDef,
+					initialColor = item.CurrentColor
+				};
+				savedBackup.Add(backup);
 			}
 		}
 
@@ -116,19 +135,51 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Reset(bool resetColors = true)
 		{
-			if (graphicGene == null)
+			if (savedBackup != null)
 			{
-				return;
+				foreach (ResetCache item in savedBackup)
+				{
+					foreach (IGeneCustomGraphic gene in GraphicGenes)
+					{
+						if (gene == item.graphicGene)
+						{
+							gene.CurrentColor = item.initialColor;
+							gene.StyleGeneDef = item.initialGeneGraphic;
+						}
+					}
+				}
 			}
-			graphicGene.CurrentColor = initialColor;
-			graphicGene.StyleGeneDef = initialGeneGraphic;
+			else if (graphicGene != null)
+			{
+				graphicGene.CurrentColor = initialColor;
+				graphicGene.StyleGeneDef = initialGeneGraphic;
+			}
 			//Close();
 			pawn.Drawer.renderer.SetAllGraphicsDirty();
+		}
+
+		private bool AnyChanges()
+		{
+			foreach (ResetCache item in savedBackup)
+			{
+				foreach (IGeneCustomGraphic gene in GraphicGenes)
+				{
+					if (gene == item.graphicGene && (gene.CurrentColor != item.initialColor || gene.StyleGeneDef != item.initialGeneGraphic))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		public override void Accept()
 		{
 			//gene_FungoidHair.color = desiredHairColor;
+			if (gene is IGeneWithEffects effecter && AnyChanges())
+			{
+				effecter.DoEffects();
+			}
 			pawn.Drawer.renderer.SetAllGraphicsDirty();
 			Close();
 		}

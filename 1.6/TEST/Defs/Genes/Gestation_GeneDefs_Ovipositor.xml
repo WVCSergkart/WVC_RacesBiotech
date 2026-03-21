@@ -115,6 +115,10 @@
 	<description>A fertilized human egg. If all goes well, it should hatch into a human baby. It definitely shouldn’t but can be eaten raw. Eating it is treated the same way as killing a baby.</description>
 	 <!-- For the first 9 days, this isn't considered cannibalism, but it will upset the egg's owners. -->
 	<!-- <possessionCount>1</possessionCount> -->
+	<tradeability>None</tradeability>
+	<!-- <inspectorTabs> -->
+	  <!-- <li>WVC_XenotypesAndGenes.ITab_EggGenes</li> -->
+	<!-- </inspectorTabs> -->
 	<ingestible>
 	  <sourceDef>Human</sourceDef>
 	  <ateEvent>AteHumanMeat</ateEvent>
@@ -131,12 +135,12 @@
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/HumanEgg</texPath>
 	  <color>(245,245,245)</color>
-	  <drawSize>1.0</drawSize>
+	  <drawSize>1.2</drawSize>
 	</graphicData>
 	<statBases>
-	  <MaxHitPoints>50</MaxHitPoints>
-	  <MarketValue>30.0</MarketValue>
-	  <Nutrition>1</Nutrition>
+	  <MaxHitPoints>25</MaxHitPoints>
+	  <MarketValue>75.0</MarketValue>
+	  <Nutrition>0.3</Nutrition>
 	  <FoodPoisonChanceFixedHuman>0.05</FoodPoisonChanceFixedHuman>
 	</statBases>
 	<comps>

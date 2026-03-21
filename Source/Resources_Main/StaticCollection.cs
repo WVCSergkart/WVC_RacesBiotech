@@ -1,4 +1,6 @@
+using RimWorld;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -141,5 +143,27 @@ namespace WVC_XenotypesAndGenes
 		//}
 
 	}
+
+	//public class ITab_EggGenes : ITab_Genes
+	//{
+
+	//	public override bool IsVisible => true;
+
+	//	public GeneSet UnbornBabyHediffGeneset()
+	//	{
+	//		CompHumanEgg compHumanEgg = base.SelThing.TryGetComp<CompHumanEgg>();
+	//		if (compHumanEgg != null)
+	//		{
+	//			return compHumanEgg.geneSet;
+	//		}
+	//		return null;
+	//	}
+
+	//	protected override void FillTab()
+	//	{
+	//		GeneUIUtility.DrawGenesInfo(new Rect(0f, 20f, size.x, size.y - 20f), null, 550f, ref size, ref scrollPosition, UnbornBabyHediffGeneset());
+	//	}
+
+	//}
 
 }

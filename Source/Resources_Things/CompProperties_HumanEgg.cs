@@ -45,6 +45,7 @@ namespace WVC_XenotypesAndGenes
 		//private float gestateProgress;
 
 		public SaveableXenotypeHolder xenotypeHolder;
+		public GeneSet geneSet;
 
 		public void SetupEgg(Hediff hediff)
 		{
@@ -52,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				otherParent = pregnancy.Father;
 				hatcheeParent = pregnancy.Mother;
+				geneSet = pregnancy.geneSet;
 				xenotypeHolder = new(otherParent, hatcheeParent, pregnancy.geneSet.GenesListForReading);
 			}
 		}
@@ -102,6 +104,10 @@ namespace WVC_XenotypesAndGenes
 					//AgelessUtility.SetAge();
 					ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
 					ReimplanterUtility.TryFixPawnXenotype_Beta(child);
+					if (hatcheeParent != null && otherParent != null)
+					{
+						child.genes.hybrid = hatcheeParent.genes?.Xenotype != otherParent.genes?.Xenotype;
+					}
 					//if (ShouldUpdateChild(child))
 					//{
 					//}
@@ -207,8 +213,34 @@ namespace WVC_XenotypesAndGenes
 		//	return null;
 		//}
 
+		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		//{
+		//	foreach (StatDrawEntry item in base.SpecialDisplayStats())
+		//	{
+		//		yield return item;
+		//	}
+		//	if (geneSet == null)
+		//	{
+		//		yield break;
+		//	}
+		//	foreach (StatDrawEntry item2 in geneSet.SpecialDisplayStats())
+		//	{
+		//		yield return item2;
+		//	}
+		//}
+
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = "InspectBabyGenes".Translate() + "...",
+			//	defaultDesc = "InspectGenesHediffDesc".Translate(),
+			//	icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+			//	action = delegate
+			//	{
+			//		InspectPaneUtility.OpenTab(typeof(ITab_EggGenes));
+			//	}
+			//};
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -246,6 +278,7 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_References.Look(ref otherParent, "father_" + Props.uniqueTag, saveDestroyedThings: true);
 			//Scribe_References.Look(ref hatcheeParent, "mother_" + Props.uniqueTag, saveDestroyedThings: true);
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
+			Scribe_Deep.Look(ref geneSet, "geneSet_" + Props.uniqueTag);
 			//Scribe_Values.Look(ref gestateProgress, "gestateProgress_" + Props.uniqueTag, 0f);
 		}
 
