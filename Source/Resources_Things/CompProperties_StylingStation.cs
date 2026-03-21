@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_CustomHairGene_FloatOption".Translate().CapitalizeFirst(), delegate
 			{
 				selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Props.jobDef, parent), JobTag.Misc);
 			}), selPawn, parent);

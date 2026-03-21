@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -9,11 +10,26 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_CustomHair : Gene, IGeneCustomGraphic, IGeneOverriddenBy
 	{
 
-		public virtual Color CurrentColor => Color.white;
+		public virtual Color CurrentColor
+		{
+			get
+			{
+				return Color.white;
+			}
+			set
+			{
+
+			}
+		}
+
+		public virtual int StyleId => -1;
+
 		public virtual Color? DefaultColor => Color.white;
 		public virtual List<GeneralHolder> ColorHolder => new();
 
 		public StyleGeneDef currentTextID;
+
+		//public virtual bool IsStylable => true;
 
 		public virtual StyleGeneDef CurrentTextID
 		{
@@ -34,6 +50,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual List<Color> AllColors => new();
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -43,6 +61,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void DoAction()
 		{
 			//Find.WindowStack.Add(new Dialog_ChangeGraphic_Simple(this));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false));
 		}
 
 		public virtual void SetColor(Color color, bool visible)
@@ -92,11 +111,62 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		public override Color CurrentColor => color;
+		public override Color CurrentColor
+		{
+			get
+			{
+				return color;
+			}
+			set
+			{
+				color = value;
+			}
+		}
+
 		public override Color? DefaultColor => color;
 		public override List<GeneralHolder> ColorHolder => Props.holofaces;
 
 		public Color color;
+
+		public override int StyleId => 1000001;
+
+		public override List<Color> AllColors
+		{
+			get
+			{
+				List<Color>  allHairColors = new();
+				foreach (GeneralHolder colorHolder in ColorHolder)
+				{
+					if (allHairColors.Contains(colorHolder.color))
+					{
+						continue;
+					}
+					allHairColors.Add(colorHolder.color);
+				}
+				foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefsListForReading)
+				{
+					Color color = allDef.color;
+					if (allDef.displayInStylingStationUI && !allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+					{
+						allHairColors.Add(color);
+					}
+				}
+				foreach (GeneDef allDef in DefDatabase<GeneDef>.AllDefsListForReading)
+				{
+					if (!allDef.hairColorOverride.HasValue)
+					{
+						continue;
+					}
+					Color color = allDef.hairColorOverride.Value;
+					if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+					{
+						allHairColors.Add(color);
+					}
+				}
+				allHairColors.SortByColor((Color x) => x);
+				return allHairColors;
+			}
+		}
 
 		//private static List<FungiHairDef> cachedFungiHairs;
 		//public List<FungiHairDef> FungiHairs
@@ -147,20 +217,20 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref color, "color");
 		}
 
-		public override void DoAction()
-		{
-			//List<FloatMenuOption> list = new();
-			//list.Add(new FloatMenuOption("WVC_Color".Translate(), delegate
-			//{
-			//	Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, false));
-			//}));
-			//list.Add(new FloatMenuOption("Hair".Translate().CapitalizeFirst(), delegate
-			//{
-			//	base.DoAction();
-			//}));
-			//Find.WindowStack.Add(new FloatMenu(list));
-			Find.WindowStack.Add(new Dialog_StylingFungiHairGene(pawn, this, true));
-		}
+		//public override void DoAction()
+		//{
+		//	//List<FloatMenuOption> list = new();
+		//	//list.Add(new FloatMenuOption("WVC_Color".Translate(), delegate
+		//	//{
+		//	//	Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, false));
+		//	//}));
+		//	//list.Add(new FloatMenuOption("Hair".Translate().CapitalizeFirst(), delegate
+		//	//{
+		//	//	base.DoAction();
+		//	//}));
+		//	//Find.WindowStack.Add(new FloatMenu(list));
+		//	Find.WindowStack.Add(new Dialog_StylingFungiHairGene(pawn, this, true));
+		//}
 
 	}
 

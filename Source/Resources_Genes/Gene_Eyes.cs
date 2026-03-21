@@ -58,7 +58,17 @@ namespace WVC_XenotypesAndGenes
 		public Color color = Color.white;
 		public bool visible = true;
 
-		public Color CurrentColor => color;
+		public Color CurrentColor
+		{
+			get
+			{
+				return color;
+			}
+			set
+			{
+				color = value;
+			}
+		}
 
 		public Color? DefaultColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
 
@@ -76,6 +86,36 @@ namespace WVC_XenotypesAndGenes
 			set
 			{
 
+			}
+		}
+
+		//public bool IsStylable => false;
+
+		public int StyleId => -1;
+
+		public List<Color> AllColors
+		{
+			get
+			{
+				List<Color>  allHairColors = new();
+				foreach (GeneralHolder colorHolder in ColorHolder)
+				{
+					if (allHairColors.Contains(colorHolder.color))
+					{
+						continue;
+					}
+					allHairColors.Add(colorHolder.color);
+				}
+				foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefsListForReading)
+				{
+					if (allHairColors.Contains(allDef.color))
+					{
+						continue;
+					}
+					allHairColors.Add(allDef.color);
+				}
+				allHairColors.SortByColor((Color x) => x);
+				return allHairColors;
 			}
 		}
 
@@ -118,7 +158,8 @@ namespace WVC_XenotypesAndGenes
 		public virtual void ChangeColor(bool closeOnAccept = true)
 		{
 			//Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, closeOnAccept));
-			Find.WindowStack.Add(new Dialog_StylingEyesGene(pawn, this, true));
+			//Find.WindowStack.Add(new Dialog_StylingEyesGene(pawn, this, true));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false));
 			//        List<FloatMenuOption> list = new();
 			//        List<XaG_CountWithChance> list2 = Props.holofaces;
 			//        for (int i = 0; i < list2.Count; i++)

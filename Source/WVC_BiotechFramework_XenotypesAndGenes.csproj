@@ -85,7 +85,7 @@
     <Compile Include="Obsolete_0\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
-    <Compile Include="Resources_Defs\FungiHairDef.cs" />
+    <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
@@ -157,8 +157,7 @@
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_StylingEyesGene.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_StylingFungiHairGene.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />

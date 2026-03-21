@@ -267,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			tabs.Add(new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
 			{
-				OpenFloatList();
+				OpenExtra();
 			}, curTab == StylingTab.Other));
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
@@ -325,28 +325,29 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void OpenFloatList()
+		private void OpenExtra()
 		{
-			List<FloatMenuOption> list = new();
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene is not IGeneCustomGraphic customGraphic || !gene.Active)
-				{
-					continue;
-				}
-				list.Add(new FloatMenuOption(gene.LabelCap, delegate
-				{
-					customGraphic.DoAction();
-				}));
-			}
-			if (!list.Any())
-			{
-				list.Add(new FloatMenuOption("WVC_None".Translate(), delegate
-				{
+			//List<FloatMenuOption> list = new();
+			//foreach (Gene gene in pawn.genes.GenesListForReading)
+			//{
+			//	if (gene is not IGeneCustomGraphic customGraphic || !gene.Active)
+			//	{
+			//		continue;
+			//	}
+			//	list.Add(new FloatMenuOption(gene.LabelCap, delegate
+			//	{
+			//		customGraphic.DoAction();
+			//	}));
+			//}
+			//if (!list.Any())
+			//{
+			//	list.Add(new FloatMenuOption("WVC_None".Translate(), delegate
+			//	{
 
-				}));
-			}
-			Find.WindowStack.Add(new FloatMenu(list));
+			//	}));
+			//}
+			//Find.WindowStack.Add(new FloatMenu(list));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, gene, unlockTattoos, true));
 		}
 
 		// private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
@@ -501,7 +502,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		public void DrawStylingItemType<T>(Rect rect, ref Vector2 scrollPosition, Action<Rect, T> drawAction, Action<T> selectAction, Func<StyleItemDef, bool> hasStyleItem, Func<StyleItemDef, bool> hadStyleItem, Func<StyleItemDef, bool> extraValidator = null, bool doColors = false) where T : StyleItemDef
+		public void DrawStylingItemType<T>(Rect rect, ref Vector2 scrollPosition, Action<Rect, T> drawAction, Action<T> selectAction, Func<StyleItemDef, bool> hasStyleItem, Func<StyleItemDef, bool> hadStyleItem, Func<StyleItemDef, bool> extraValidator = null, bool doColors = false, int currentStyleId = -1) where T : StyleItemDef
 		{
 			Rect viewRect = new(rect.x, rect.y, rect.width - 16f, viewRectHeight);
 			int num = Mathf.FloorToInt(viewRect.width / 60f) - 1;
@@ -510,7 +511,7 @@ namespace WVC_XenotypesAndGenes
 			int num4 = 0;
 			int num5 = 0;
 			tmpStyleItems.Clear();
-			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x))));
+			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.uniqueStyleId == currentStyleId)));
 			tmpStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
 			if (tmpStyleItems.NullOrEmpty())
 			{

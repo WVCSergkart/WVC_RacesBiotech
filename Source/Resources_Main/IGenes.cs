@@ -242,18 +242,24 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneCustomGraphic
 	{
 
-		//string Label { get; }
+		string Label { get; }
+
+		int StyleId { get; }
 
 		StyleGeneDef CurrentTextID { get; set; }
 
 		void DoAction();
 
-		Color CurrentColor { get; }
+		Color CurrentColor { get; set; }
 		Color? DefaultColor { get; }
 
 		void SetColor(Color color, bool visible);
 
+		//bool IsStylable { get; }
+
 		List<GeneralHolder> ColorHolder { get; }
+
+		List<Color> AllColors { get; }
 
 	}
 

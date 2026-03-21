@@ -17,7 +17,9 @@
 
 	<WVC_None>None</WVC_None>
 
-	<WVC_FungalHair>Fungus</WVC_FungalHair>
+	<!-- <WVC_FungalHair>Fungus</WVC_FungalHair> -->
+
+	<WVC_CustomHairGene_FloatOption>Genetic hair style</WVC_CustomHairGene_FloatOption>
 
 	<WVC_Archites>Archites</WVC_Archites>
 
