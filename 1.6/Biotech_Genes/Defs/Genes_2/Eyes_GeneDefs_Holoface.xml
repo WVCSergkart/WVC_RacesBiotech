@@ -101,6 +101,11 @@
 		<!-- </visibleFacing> -->
 	  <!-- </li> -->
 	</renderNodeProperties>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>5010</styleId>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

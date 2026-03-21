@@ -14,9 +14,9 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string TexPathFor(Pawn pawn)
 		{
-			if (gene is Gene_CustomHair geneHair && geneHair.CurrentTextID != null)
+			if (gene is Gene_CustomHair geneHair && geneHair.StyleGeneDef != null)
 			{
-				return geneHair.CurrentTextID.texPath;
+				return geneHair.StyleGeneDef.texPath;
 			}
 			return base.TexPathFor(pawn);
 		}
@@ -33,9 +33,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override Color ColorFor(Pawn pawn)
 		{
-			if (gene is Gene_FungoidHair geneHair && geneHair.color != null)
+			if (gene is Gene_FungoidHair geneHair && geneHair.CurrentColor != null)
 			{
-				return geneHair.color;
+				return geneHair.CurrentColor;
 			}
 			return base.ColorFor(pawn);
 		}

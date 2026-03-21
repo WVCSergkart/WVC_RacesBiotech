@@ -14,11 +14,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return Color.white;
+				return color;
 			}
 			set
 			{
-
+				color = value;
 			}
 		}
 
@@ -27,19 +27,20 @@ namespace WVC_XenotypesAndGenes
 		public virtual Color? DefaultColor => Color.white;
 		public virtual List<GeneralHolder> ColorHolder => new();
 
-		public StyleGeneDef currentTextID;
+		private StyleGeneDef styleGeneDef;
+		private Color color;
 
 		//public virtual bool IsStylable => true;
 
-		public virtual StyleGeneDef CurrentTextID
+		public virtual StyleGeneDef StyleGeneDef
 		{
 			get
 			{
-				return currentTextID;
+				return styleGeneDef;
 			}
 			set
 			{
-				currentTextID = value;
+				styleGeneDef = value;
 				//int count = def.RenderNodeProperties.First((node) => node.nodeClass.SameOrSubclassOf<PawnRenderNode_CustomHair>()).texPaths.Count;
 				//if (currentTextID > count)
 				//{
@@ -55,7 +56,8 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Defs.Look(ref currentTextID, "currentTextID");
+			Scribe_Values.Look(ref color, "color");
+			Scribe_Defs.Look(ref styleGeneDef, "currentTextID");
 		}
 
 		public virtual void DoAction()
@@ -64,10 +66,10 @@ namespace WVC_XenotypesAndGenes
 			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false));
 		}
 
-		public virtual void SetColor(Color color, bool visible)
-		{
+		//public virtual void SetColor(Color color, bool visible)
+		//{
 
-		}
+		//}
 
 		//================RECACHE===================
 		//================RECACHE===================
@@ -109,24 +111,32 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FungoidHair : Gene_CustomHair
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
-
-		public override Color CurrentColor
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
 		{
 			get
 			{
-				return color;
-			}
-			set
-			{
-				color = value;
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
 			}
 		}
 
-		public override Color? DefaultColor => color;
-		public override List<GeneralHolder> ColorHolder => Props.holofaces;
+		public override Color? DefaultColor
+		{
+			get
+			{
+				if (Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+				{
+					return countWithChance.color;
+				}
+				return null;
+			}
+		}
 
-		public Color color;
+		public override List<GeneralHolder> ColorHolder => Props.holofaces;
 
 		public override int StyleId => 1000001;
 
@@ -168,69 +178,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		//private static List<FungiHairDef> cachedFungiHairs;
-		//public List<FungiHairDef> FungiHairs
-		//{
-		//	get
-		//	{
-		//		if (cachedFungiHairs == null)
-		//		{
-		//			List<FungiHairDef> list = new();
-		//			List<string> textPaths = def.RenderNodeProperties.First((node) => node.nodeClass.SameOrSubclassOf<PawnRenderNode_CustomHair>()).texPaths;
-		//			for (int i = 0; i < textPaths.Count; i++)
-		//			{
-		//				FungiHairDef newDef = new FungiHairDef();
-		//				newDef.defName = "FungiHair_" + i.ToString();
-		//				newDef.textId = i;
-		//				list.Add(newDef);
-		//			}
-		//			//foreach (string textPath in def.RenderNodeProperties.First((node) => node.nodeClass.SameOrSubclassOf<PawnRenderNode_CustomHair>()).texPaths)
-		//			//{
-		//			//	FungiHairDef newDef = new FungiHairDef();
-		//			//	newDef.defName = currentId.ToString();
-		//			//	currentId++;
-		//			//}
-		//			cachedFungiHairs = list;
-		//		}
-		//		return cachedFungiHairs;
-		//	}
-		//}
-
 		public override void PostAdd()
 		{
 			base.PostAdd();
 			if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
-				SetColor(countWithChance.color, true);
+				SetColor(countWithChance.color);
 			}
 		}
 
-		public override void SetColor(Color color, bool visible)
+		public void SetColor(Color color)
 		{
-			this.color = color;
+			this.CurrentColor = color;
 			pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref color, "color");
-		}
-
-		//public override void DoAction()
-		//{
-		//	//List<FloatMenuOption> list = new();
-		//	//list.Add(new FloatMenuOption("WVC_Color".Translate(), delegate
-		//	//{
-		//	//	Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, false));
-		//	//}));
-		//	//list.Add(new FloatMenuOption("Hair".Translate().CapitalizeFirst(), delegate
-		//	//{
-		//	//	base.DoAction();
-		//	//}));
-		//	//Find.WindowStack.Add(new FloatMenu(list));
-		//	Find.WindowStack.Add(new Dialog_StylingFungiHairGene(pawn, this, true));
-		//}
 
 	}
 

@@ -20,20 +20,29 @@ namespace WVC_XenotypesAndGenes
 
 		public override Graphic GraphicFor(Pawn pawn)
 		{
-			if (gene is not Gene_Eyes holoface || holoface.visible != true)
+			if (gene is not Gene_Eyes holoface || holoface.StyleGeneDef?.noGraphic == true)
 			{
 				return null;
 			}
 			return base.GraphicFor(pawn);
 		}
 
+		protected override string TexPathFor(Pawn pawn)
+		{
+			if (gene is Gene_Eyes eyes && eyes.StyleGeneDef != null)
+			{
+				return eyes.StyleGeneDef.TexPathByGender(pawn.gender);
+			}
+			return base.TexPathFor(pawn);
+		}
+
 		public override Color ColorFor(Pawn pawn)
 		{
-			if (gene is not Gene_Eyes holoface || holoface?.color == null)
+			if (gene is not Gene_Eyes holoface || holoface?.CurrentColor == null)
 			{
 				return Color.white;
 			}
-			Color newColor = holoface.color;
+			Color newColor = holoface.CurrentColor;
 			newColor.a = holoface.Alpha;
 			return newColor;
 		}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Eyes" Abstract="True" >
+	<uniqueStyleId>5005</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
+	<defName>WVC_Eye0c</defName>
+	<iconPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</iconPath>
+	<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+	<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
+	<defName>WVC_InvisibleEyes</defName>
+	<!-- used for ui -->
+	<!-- <iconPath>WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel</iconPath> -->
+	<noGraphic>true</noGraphic>
+	<!-- <texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath> -->
+	<!-- <texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale> -->
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Holoeyes" Abstract="True" >
+	<uniqueStyleId>5010</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeTriple</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeOrbital</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeMeca</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeDouble</li> -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye0c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeTriple</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeTriple</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye1c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeOrbital</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeOrbital</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye2c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeMeca</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeMeca</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye3c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeDouble</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeDouble</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_InvisibleHoloeyes</defName>
+	<!-- <iconPath>WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel</iconPath> -->
+	<noGraphic>true</noGraphic>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+</Defs>

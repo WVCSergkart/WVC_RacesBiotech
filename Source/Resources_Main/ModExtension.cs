@@ -295,6 +295,8 @@ namespace WVC_XenotypesAndGenes
 		public float bodyScaleFactor = 1f;
 		[Obsolete]
 		public float headScaleFactor = 1f;
+		// Style Extra
+		public int styleId = -1;
 	}
 
 	public class GeneExtension_Giver : DefModExtension

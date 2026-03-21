@@ -84,8 +84,8 @@ namespace WVC_XenotypesAndGenes
 					GUI.color = Color.white;
 				}, delegate (StyleGeneDef h)
 				{
-					graphicGene.CurrentTextID = h;
-				}, (StyleItemDef h) => graphicGene.CurrentTextID == h, (StyleItemDef h) => initialGeneGraphic == h, null, doColors: true, currentStyleId: graphicGene.StyleId);
+					graphicGene.StyleGeneDef = h;
+				}, (StyleItemDef h) => graphicGene.StyleGeneDef == h, (StyleItemDef h) => initialGeneGraphic == h, null, doColors: true, currentStyleId: graphicGene.StyleId);
 			}
 			else
 			{
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 			graphicGene = gene;
 			if (gene != null)
 			{
-				initialGeneGraphic = gene.CurrentTextID;
+				initialGeneGraphic = gene.StyleGeneDef;
 				initialColor = gene.CurrentColor;
 				allHairColors = gene.AllColors;
 			}
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			graphicGene.CurrentColor = initialColor;
-			graphicGene.CurrentTextID = initialGeneGraphic;
+			graphicGene.StyleGeneDef = initialGeneGraphic;
 			//Close();
 			pawn.Drawer.renderer.SetAllGraphicsDirty();
 		}

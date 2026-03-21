@@ -11,6 +11,19 @@ namespace WVC_XenotypesAndGenes
 
 		public int uniqueStyleId = 0;
 
+		[NoTranslate]
+		public string texPathFemale;
+
+		public string TexPathByGender(Gender gender)
+		{
+			if (!texPathFemale.NullOrEmpty() && gender == Gender.Female)
+			{
+				return texPathFemale;
+			}
+			return texPath;
+		}
+
+		// Dummy
 		public override Graphic GraphicFor(Pawn pawn, Color color)
 		{
 			if (noGraphic)

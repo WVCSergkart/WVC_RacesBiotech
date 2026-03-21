@@ -171,6 +171,9 @@
 			<overrideGeneCategory>Cosmetic</overrideGeneCategory>
 			<reqGeneMat>2</reqGeneMat>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>5005</styleId>
+		</li>
 	</modExtensions>
   </GeneDef>
 

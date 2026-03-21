@@ -246,18 +246,18 @@ namespace WVC_XenotypesAndGenes
 
 		int StyleId { get; }
 
-		StyleGeneDef CurrentTextID { get; set; }
+		StyleGeneDef StyleGeneDef { get; set; }
 
-		void DoAction();
+		//void DoAction();
 
 		Color CurrentColor { get; set; }
 		Color? DefaultColor { get; }
 
-		void SetColor(Color color, bool visible);
+		//void SetColor(Color color, bool visible);
 
 		//bool IsStylable { get; }
 
-		List<GeneralHolder> ColorHolder { get; }
+		//List<GeneralHolder> ColorHolder { get; }
 
 		List<Color> AllColors { get; }
 
