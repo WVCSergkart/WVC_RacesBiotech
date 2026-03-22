@@ -106,7 +106,7 @@
 		  <xenotypeDefs>
 			<li>WVC_GeneThrower</li>
 			<li>WVC_Ferrkind</li>
-			<li MayRequire="wvc.sergkart.test.tools">WVC_Rustkind</li>
+			<li>WVC_Rustkind</li>
 		  </xenotypeDefs>
 		</li>
 

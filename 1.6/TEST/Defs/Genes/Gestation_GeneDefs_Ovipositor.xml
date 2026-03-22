@@ -5,6 +5,9 @@
 	<defName>WVC_Ovipositor</defName>
 	<label>ovipositor</label>
 	<description>Carriers of this gene can lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_EggHumanFertilized</ThingDef>
+	</descriptionHyperlinks>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Ovipositor</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Ovipositor</iconPath>
 	<displayCategory>Reproduction</displayCategory>
@@ -20,7 +23,7 @@
 		<li>An egg can be laid 3 days after the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; begins.</li>
 		<li>If the pawn does not &lt;color=#8a8ae6&gt;lay&lt;/color&gt; an egg within 5 days, the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; will proceed as normal.</li>
 		<li>Destroying the egg counts as &lt;color=#8a8ae6&gt;miscarriage&lt;/color&gt;.</li>
-		<li>The pawn will attempt to lay the egg in a egg box.</li>
+		<li>The pawn will attempt to lay the egg in a &lt;color=#8a8ae6&gt;egg box&lt;/color&gt;.</li>
 		<!-- later -->
 		<!-- <li>Eating the egg does not count as cannibalism until 60% progress has been reached.</li> -->
 	</customEffectDescriptions>
@@ -113,6 +116,9 @@
 	<defName>WVC_EggHumanFertilized</defName>
 	<label>human egg (fert.)</label>
 	<description>A fertilized human egg. If all goes well, it should hatch into a human baby. It definitely shouldn’t but can be eaten raw. Eating it is treated the same way as killing a baby.</description>
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Ovipositor</GeneDef>
+	</descriptionHyperlinks>
 	 <!-- For the first 9 days, this isn't considered cannibalism, but it will upset the egg's owners. -->
 	<!-- <possessionCount>1</possessionCount> -->
 	<tradeability>None</tradeability>
