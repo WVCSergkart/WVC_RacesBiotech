@@ -1,9 +1,10 @@
 // RimWorld.StatPart_Age
+using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
-using RimWorld.Planet;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -50,6 +51,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostWorldGenerate()
 		{
+			SetResources();
+			SetTraders();
 			if (biomeDef == null)
 			{
 				return;
@@ -61,6 +64,80 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Failed set biomes. Reason: " + arg);
+			}
+		}
+
+		private void SetTraders()
+		{
+			try
+			{
+				foreach (TraderKindDef item in DefDatabase<TraderKindDef>.AllDefsListForReading)
+				{
+					if (item.tradeCurrency != TradeCurrency.Silver)
+					{
+						continue;
+					}
+					if (!item.orbital)
+					{
+						//item.commonality = 0.01f;
+						//foreach (StockGenerator stock in item.stockGenerators.ToList())
+						//{
+						//	if (!item.orbital)
+						//	{
+						//		item.commonality = 0.01f;
+
+						//	}
+						//}
+						item.stockGenerators = new();
+						StockGenerator_SingleDef newStock = new();
+						newStock.thingDef = ThingDefOf.Silver;
+						newStock.countRange = new(300, 3000);
+						StockGenerator_BuyAllSellable newStock2 = new();
+						item.stockGenerators.Add(newStock);
+						item.stockGenerators.Add(newStock2);
+					}
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed set traders. Reason: " + arg);
+			}
+		}
+
+		// per game
+		public static bool setupResources = true;
+		private void SetResources()
+		{
+			if (!setupResources)
+			{
+				return;
+			}
+			try
+			{
+				foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
+				{
+					if (thingDef.deepLumpSizeRange.TrueMax > 0f)
+					{
+						thingDef.deepCountPerCell /= 5;
+						thingDef.deepCountPerPortion /= 4;
+						thingDef.deepCommonality /= 3;
+						thingDef.deepLumpSizeRange = new(Mathf.Clamp(thingDef.deepLumpSizeRange.TrueMin / 3, 1, thingDef.deepLumpSizeRange.TrueMax), thingDef.deepLumpSizeRange.TrueMax / 3);
+					}
+					if (thingDef.building?.isResourceRock == true)
+					{
+						//thingDef.building.mineableYield = Mathf.Clamp(thingDef.building.mineableYield / 5, 1, thingDef.building.mineableYield);
+						//thingDef.building.mineableScatterCommonality /= 5;
+						//thingDef.building.mineableScatterLumpSizeRange = new(Mathf.Clamp(thingDef.building.mineableScatterLumpSizeRange.TrueMin / 5, 1, thingDef.building.mineableScatterLumpSizeRange.TrueMax), thingDef.building.mineableScatterLumpSizeRange.TrueMax / 5);
+						thingDef.building.mineableYield = Mathf.Clamp(thingDef.building.mineableYield / 10, 1, thingDef.building.mineableYield);
+						thingDef.building.mineableScatterCommonality /= 10;
+						thingDef.building.mineableScatterLumpSizeRange = new(Mathf.Clamp(thingDef.building.mineableScatterLumpSizeRange.TrueMin / 10, 1, thingDef.building.mineableScatterLumpSizeRange.TrueMax), thingDef.building.mineableScatterLumpSizeRange.TrueMax / 5);
+					}
+				}
+				setupResources = false;
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed set resources. Reason: " + arg);
 			}
 		}
 
@@ -175,6 +252,7 @@ namespace WVC_XenotypesAndGenes
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetPlants();
+				SetResources();
 			}
 		}
 

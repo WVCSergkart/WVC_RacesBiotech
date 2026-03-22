@@ -304,6 +304,7 @@
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_StatPart\StatPart_SourceFactor.cs" />
     <Compile Include="Resources_StatPart\StatPart_MaxVoidsenceFactorFromMechs.cs" />
+    <Compile Include="Resources_StatPart\StockGenerator_BuyAllSellable.cs" />
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
@@ -446,6 +447,7 @@
     <Publicize Include="Assembly-CSharp:Verse.GeneDef.cachedDescription" />
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_PsychicEntropyTracker.currentPsyfocus" />
     <Publicize Include="Assembly-CSharp:RimWorld.CompHatcher.gestateProgress" />
+    <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
