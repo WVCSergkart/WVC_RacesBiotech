@@ -23,6 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static XenotypeDef GetXenotype()
 		{
+			//ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
 			if (StaticCollectionsClass.cachedPlayerPawnsCount > 15)
 			{
 				return null;

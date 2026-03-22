@@ -376,7 +376,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Update();
+			Update(60000);
 		}
 
 		public override void TickInterval(int delta)
@@ -389,11 +389,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Update();
+			Update(2501);
 		}
 
 		public static int lastRecacheTick = -1;
-		public void Update()
+		private int thoughtUpdateTick = 160;
+
+		public void Update(int tick)
 		{
 			if (MiscUtility.GameStarted() && lastRecacheTick < Find.TickManager.TicksGame)
 			{
@@ -402,7 +404,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			Thought_RecluseMemory.baseMoodOffset = null;
 			Thought_HumanCentricMemory.baseMoodOffset = null;
-			ThoughtUtility.AddPermanentMemory(pawn, Props.thoughtDef);
+			thoughtUpdateTick -= tick;
+			if (thoughtUpdateTick <= 0)
+			{
+				ThoughtUtility.AddPermanentMemory(pawn, Props.thoughtDef);
+				thoughtUpdateTick = 60000;
+			}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -412,7 +419,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
-			Update();
+			Update(60000);
 		}
 
 		public override void PostRemove()
