@@ -334,6 +334,10 @@
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
     <Compile Include="Resources_ThinkNodes\XaG_Job.cs" />
+    <Compile Include="Resources_Thought\Thought_HivemindSize.cs" />
+    <Compile Include="Resources_Thought\Thought_HumanCentricMemory.cs" />
+    <Compile Include="Resources_Thought\Thought_MemorySocial_NoFade.cs" />
+    <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
@@ -342,7 +346,7 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Duplicate.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
-    <Compile Include="Resources_Thought\Thought_Memory.cs" />
+    <Compile Include="Resources_Thought\Thought_PackMentality.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Utility\InitialUtility.cs" />

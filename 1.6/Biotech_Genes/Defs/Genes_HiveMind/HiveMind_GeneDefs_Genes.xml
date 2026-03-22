@@ -186,6 +186,7 @@
 		<li>&lt;color=#8a8ae6&gt;Mood&lt;/color&gt; depends on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
+	  <li>WVC_Hivemind_Depression</li>
 	  <li>WVC_Hivemind_Thoughts</li>
 	  <li>Mood</li>
 	</exclusionTags>

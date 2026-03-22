@@ -25,21 +25,66 @@
 
   <!-- ============================ -->
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base"> -->
+	<!-- <defName>WVC_Hivemind_Blacklist</defName> -->
+	<!-- <label>hivemind blacklist</label> -->
+	<!-- <description>Carriers of this gene may exclude others from the hivemind.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Blacklist</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes3/Gene_HiveMind_IdeoSync</iconPath> -->
+	<!-- <displayOrderInCategory>115</displayOrderInCategory> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows to &lt;color=#8a8ae6&gt;blacklist&lt;/color&gt; other pawns for &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li> -->
+		<!-- <li>Removing the gene will &lt;color=#8a8ae6&gt;reset the list&lt;/color&gt;, regardless of whether other pawns have it.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Hivemind sync&lt;/color&gt; is required for the changes to apply.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
+  <!-- ============================ -->
+
+  
+
+  <!-- ============================ -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
-	<defName>WVC_Hivemind_Blacklist</defName>
-	<label>hivemind blacklist</label>
-	<description>Carriers of this gene may exclude others from the hivemind.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Blacklist</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_HiveMind_IdeoSync</iconPath>
-	<displayOrderInCategory>115</displayOrderInCategory>
+	<defName>WVC_Hivemind_Depression</defName>
+	<label>hivemind depression</label>
+	<description>Carriers of this gene experience the negative emotions of the hivemind; the more drones there are, the worse their mood.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Mood</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Mood</iconPath>
+	<displayOrderInCategory>56</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
 	<customEffectDescriptions>
-		<li>Allows to &lt;color=#8a8ae6&gt;blacklist&lt;/color&gt; other pawns for &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
-		<li>Removing the gene will &lt;color=#8a8ae6&gt;reset the list&lt;/color&gt;, regardless of whether other pawns have it.</li>
-		<li>&lt;color=#8a8ae6&gt;Hivemind resync&lt;/color&gt; is required for the changes to apply.</li>
+		<li>&lt;color=#8a8ae6&gt;Mood&lt;/color&gt; depends on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size (-3 * size).</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Depression</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Depression</thoughtDef>
+		</li>
+	</modExtensions>
   </GeneDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Depression</defName>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSize</thoughtClass>
+	<!-- <durationDays>1</durationDays> -->
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>hivemind depression</label>
+		<description>It's like all the pain of the hivemind is on my shoulders.</description>
+		<baseMoodEffect>-3</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
 </Defs>
