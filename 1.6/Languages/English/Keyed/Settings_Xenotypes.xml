@@ -53,7 +53,7 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<!-- <WVC_ToolTip_disableXenotypes_MutantMakers>Ripperkind, Reaperkind, Overrider.</WVC_ToolTip_disableXenotypes_MutantMakers> -->
 
 	<WVC_Label_disableXenotypes_Hivemind>|- Disable hivemind</WVC_Label_disableXenotypes_Hivemind>
-	<WVC_ToolTip_disableXenotypes_Hivemind>Overrider, Hivemind*.</WVC_ToolTip_disableXenotypes_Hivemind>
+	<WVC_ToolTip_disableXenotypes_Hivemind>Overrider, Fleshkind.</WVC_ToolTip_disableXenotypes_Hivemind>
 
 	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
 	<WVC_ToolTip_disableXenotypes_Misc>Ripperkind, Reaperkind, Mergekin.</WVC_ToolTip_disableXenotypes_Misc>

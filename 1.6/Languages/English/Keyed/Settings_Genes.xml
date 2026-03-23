@@ -50,8 +50,8 @@ A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
 	<WVC_Label_enable_StartingFoodPolicies>Enable starting food and outfit policies</WVC_Label_enable_StartingFoodPolicies>
 	<WVC_ToolTip_enable_StartingFoodPolicies>If enabled, food policies will be generated for genes that require a certain diet. Affects only the start of a new game.</WVC_ToolTip_enable_StartingFoodPolicies>
 
-	<WVC_Label_enable_OverOverridableGenesMechanic>Enable over-overriadable mechanics</WVC_Label_enable_OverOverridableGenesMechanic>
-	<WVC_ToolTip_enable_OverOverridableGenesMechanic>Some genes cannot be overridden regardless of their type (endogene\xenogene), they always override conflicting genes.
+	<WVC_Label_enable_OverOverridableGenesMechanic>Enable unoverrideable mechanic</WVC_Label_enable_OverOverridableGenesMechanic>
+	<WVC_ToolTip_enable_OverOverridableGenesMechanic>Some genes cannot be overridden regardless of their type (endogene/xenogene), they always override conflicting genes.
 
 This does not affect overriding genes with which these genes are not mutually exclusive.
 
@@ -93,10 +93,10 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
 	<!-- ================================== -->
 
-	<WVC_Label_enableInstabilityLastChanceMechanic>Enbale instability last chance</WVC_Label_enableInstabilityLastChanceMechanic>
-	<WVC_ToolTip_enableInstabilityLastChanceMechanic>If enabled, then instabilization, having reached a critical point, will give a small head start to the pawn, provided that the pawn is not able to take care of itself.
+	<!-- <WVC_Label_enableInstabilityLastChanceMechanic>Enbale instability last chance</WVC_Label_enableInstabilityLastChanceMechanic> -->
+	<!-- <WVC_ToolTip_enableInstabilityLastChanceMechanic>If enabled, then instabilization, having reached a critical point, will give a small head start to the pawn, provided that the pawn is not able to take care of itself. -->
 
-It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLastChanceMechanic>
+<!-- It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLastChanceMechanic> -->
 
 	<!-- ================================== -->
 
@@ -108,10 +108,10 @@ It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLa
 
 A new game and restart is required.</WVC_ToolTip_bloodfeeder_AutoBloodfeed>
 
-	<WVC_Label_bloodeater_SafeBloodfeed>Safe bloodfeed</WVC_Label_bloodeater_SafeBloodfeed>
-	<WVC_ToolTip_bloodeater_SafeBloodfeed>If enabled, using the bloodfeed ability will not kill pawns if there is not enough blood. Instead, the blood loss value will drop to the minimum non-fatal level.
+	<!-- <WVC_Label_bloodeater_SafeBloodfeed>Safe bloodfeed</WVC_Label_bloodeater_SafeBloodfeed> -->
+	<!-- <WVC_ToolTip_bloodeater_SafeBloodfeed>If enabled, using the bloodfeed ability will not kill pawns if there is not enough blood. Instead, the blood loss value will drop to the minimum non-fatal level. -->
 
-A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
+<!-- A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed> -->
 
 	<!-- ================================== -->
 
@@ -135,10 +135,10 @@ A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
 
 	<WVC_Label_golemnoids_ShutdownRechargePerTick>Golems recharge per hour {0}</WVC_Label_golemnoids_ShutdownRechargePerTick>
 
-	<WVC_Label_golembond_ShrinesStatPartOffset>Enable golembond shrines offset</WVC_Label_golembond_ShrinesStatPartOffset>
-	<WVC_ToolTip_golembond_ShrinesStatPartOffset>If enabled, shrines from the Royalty DLC will increase golembond.
+	<!-- <WVC_Label_golembond_ShrinesStatPartOffset>Enable golembond shrines offset</WVC_Label_golembond_ShrinesStatPartOffset> -->
+	<!-- <WVC_ToolTip_golembond_ShrinesStatPartOffset>If enabled, shrines from the Royalty DLC will increase golembond. -->
 
-A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
+<!-- A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset> -->
 
 	<WVC_Label_golemlink_spawnIntervalRange>Golemlink interval range {0} days</WVC_Label_golemlink_spawnIntervalRange>
 	<WVC_Label_golemlink_golemsToSpawnRange>Golemlink spawn count {0}</WVC_Label_golemlink_golemsToSpawnRange>
@@ -146,9 +146,9 @@ A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
 	<WVC_Label_falselink_mechsToSpawnRange>Falselink spawn count {0}</WVC_Label_falselink_mechsToSpawnRange>
 
 	<WVC_Label_voidlink_mechCostFactor>Voidlink mechs cost x{0}</WVC_Label_voidlink_mechCostFactor>
-	<WVC_ToolTip_voidlink_mechCostFactor>Multiplies the cost of mechs by the specified value. The higher the value, the more &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; is needed to summon. Default is 2.</WVC_ToolTip_voidlink_mechCostFactor>
+	<WVC_ToolTip_voidlink_mechCostFactor>Multiplies the cost of mechs by the specified value. The higher the value, the more &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; is needed to summon. Default is 3.</WVC_ToolTip_voidlink_mechCostFactor>
 	<WVC_Label_voidlink_mechCostLimit>Voidlink mechs max cost {0}</WVC_Label_voidlink_mechCostLimit>
-	<WVC_ToolTip_voidlink_mechCostLimit>Determines the maximum possible cost of summoning a mechanoid. Values ​​above 99 are not displayed in the interface.</WVC_ToolTip_voidlink_mechCostLimit>
+	<WVC_ToolTip_voidlink_mechCostLimit>Determines the maximum possible cost of summoning a mechanoid. Values ​​above 99 are not displayed on icon UI.</WVC_ToolTip_voidlink_mechCostLimit>
 
 	<WVC_Label_voidlink_resourceGainFromMechsFactor>Voidlink resource gain x{0}</WVC_Label_voidlink_resourceGainFromMechsFactor>
 	<WVC_ToolTip_voidlink_resourceGainFromMechsFactor>Affects the resource gain factor from void mechanoids, the gain directly depends on the cost of the mechanoid. 0 no gain, 1 full gain.</WVC_ToolTip_voidlink_resourceGainFromMechsFactor>
