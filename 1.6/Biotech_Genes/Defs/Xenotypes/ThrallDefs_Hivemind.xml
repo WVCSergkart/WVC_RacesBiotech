@@ -68,6 +68,7 @@
 	<label>skillsync</label>
 	<genes>
 		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_Hivemind_DeathChain</li>
 		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
 		<li>VerySleepy</li>
 		<li>Body_Standard</li>

@@ -112,6 +112,9 @@
 			</needDefs>
 		</li>
 	</modExtensions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SharedNeeds</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->
@@ -132,6 +135,9 @@
 		<!-- <li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li> -->
 		<li>Final nutrients depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SharedNeeds</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================ -->

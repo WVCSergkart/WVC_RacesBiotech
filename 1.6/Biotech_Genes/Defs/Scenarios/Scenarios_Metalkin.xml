@@ -18,7 +18,7 @@
 	<description>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;metalkin xenotype&lt;/color&gt; or its sub-xenotypes. Some reward pawns are an exception.\n- All surface biomes will be replaced with scarlands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55 to +55 Celsius.\n- All resources will be much rarer, and the mine yield will be much lower.\n- Trade caravans stop selling goods and only buy them. The exception is orbital traders.\n- &lt;color=#ffec85&gt;Metalkins need a charger, the charger is not available from the start.&lt;/color&gt;\n- &lt;color=#f46d6b&gt;For the scenario, it is recommended to disable all mods that add biomes and/or change world generation.&lt;/color&gt;\n- After starting a scenario, it is strongly recommended not to start another game without restarting. The settings made by the scenario are permanent for the current session.</description>
 	<scenario>
 	  <!-- <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
-	  <summary>Two metalkins with gravship. No supplies. &lt;color=#ff9595&gt;Hard&lt;/color&gt; difficulty.</summary>
+	  <summary>Two metalkins with gravship. No supplies. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
