@@ -243,9 +243,9 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref golemlink_golemsToSpawnRange, "golemlink_golemsToSpawnRange", defaultValue: new(1, 3));
 			Scribe_Values.Look(ref falselink_spawnIntervalRange, "falselink_spawnIntervalRange", defaultValue: new(480000, 960000));
 			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
-			Scribe_Values.Look(ref voidlink_mechCostFactor, "voidlink_mechCostFactor", defaultValue: 2f);
+			Scribe_Values.Look(ref voidlink_mechCostFactor, "voidlink_mechCostFactor", defaultValue: 3f);
 			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
-			Scribe_Values.Look(ref voidlink_resourceGainFromMechsFactor, "voidlink_resourceGainFromMechsFactor", defaultValue: 0.05f);
+			Scribe_Values.Look(ref voidlink_resourceGainFromMechsFactor, "voidlink_resourceGainFromMechsFactor", defaultValue: 0.01f);
 			Scribe_Values.Look(ref voidlink_dynamicResourceLimit, "voidlink_dynamicResourceLimit", defaultValue: true);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);

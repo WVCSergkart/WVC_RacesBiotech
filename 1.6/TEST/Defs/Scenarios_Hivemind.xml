@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <ScenPartDef> -->
+	<!-- <defName>WVC_XaG_Scarlands</defName> -->
+	<!-- <label>scarlands</label> -->
+	<!-- <category>Fixed</category> -->
+	<!-- <scenPartClass>WVC_XenotypesAndGenes.ScenPart_PawnModifier_Scarlands</scenPartClass> -->
+	<!-- <selectionWeight>0</selectionWeight> -->
+	<!-- <summaryPriority>900</summaryPriority> -->
+  <!-- </ScenPartDef> -->
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_Hivemind</defName>
+	<label>The Hivelands (Beta)</label>
+	<description>TEXT\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.
+
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype. Some reward pawns are an exception.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; TEXT</description>
+	<scenario>
+	  <!-- <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
+	  <summary>One fleshkind with armor, gun and duplicate. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one fleshkind.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Fleshkind</xenotype>
+			  <pawnKind>Mercenary_Gunner</pawnKind>
+			</li>
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Fleshkind</xenotype> -->
+			  <!-- <pawnKind>Mercenary_Gunner</pawnKind> -->
+			<!-- </li> -->
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Fleshkind</xenotype>
+			  <count>1</count>
+			  <description>non-baby fleshkind</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <method>Standing</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>TEXT</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <startingDuplicates>1</startingDuplicates>
+		  <additionalChronoAge>70~120</additionalChronoAge>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Forced world and xenotypes -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_HivemindWorld">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		  <biomeDef>Grasslands</biomeDef>
+		  <!-- <memeDef>WVC_Hivemind</memeDef> -->
+		  <hivemindHatred>WVC_HivemindHatred</hivemindHatred>
+		  <hivemindPresets>
+			<li>
+			  <selectionWeight>0.8</selectionWeight>
+			  <geneDefs>
+				<!-- <li>WVC_Fleshkind</li> -->
+			  </geneDefs>
+			</li>
+		  </hivemindPresets>
+		  <xenotypeDefs>
+			<li>WVC_Fleshkind</li>
+			<li MayRequire="ludeon.rimworld.anomaly">WVC_Overrider</li>
+		  </xenotypeDefs>
+		</li>
+
+		<!-- <li Class="ScenPart_StartingThing_Defined"> -->
+		  <!-- <def>StartingThing_Defined</def> -->
+		  <!-- <thingDef>Wastepack</thingDef> -->
+		  <!-- <count>45</count> -->
+		  <!-- <visible>false</visible> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_ScatterThingsAnywhere"> -->
+		  <!-- <def>ScatterThingsAnywhere</def> -->
+		  <!-- <thingDef>Wastepack</thingDef> -->
+		  <!-- <count>250</count> -->
+		  <!-- <visible>false</visible> -->
+		<!-- </li> -->
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

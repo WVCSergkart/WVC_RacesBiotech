@@ -225,7 +225,8 @@ namespace WVC_XenotypesAndGenes
 				if (CellFinder.TryFindRandomCellNear(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map, Mathf.FloorToInt(4.9f), IsValidSpawnCell, out var spawnCell, 100))
 				{
 					DuplicateUtility.TryDuplicatePawn(startingAndOptionalPawn, spawnCell, out Pawn duplicate);
-					duplicate.ageTracker.AgeChronologicalTicks += new IntRange(additionalChronoAge.TrueMin, startingAndOptionalPawn.ageTracker.AgeChronologicalYears).RandomInRange * 3600000L;
+					duplicate.ageTracker.AgeChronologicalTicks = new IntRange(additionalChronoAge.TrueMin, startingAndOptionalPawn.ageTracker.AgeChronologicalYears).RandomInRange * 3600000L;
+					//duplicate.apparel.A
 				}
 
 				bool IsValidSpawnCell(IntVec3 pos)

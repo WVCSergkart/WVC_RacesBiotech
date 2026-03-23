@@ -10,10 +10,12 @@ namespace WVC_XenotypesAndGenes
 		public string name;
 
 		public List<GeneDef> geneDefs = new();
+		public float selectionWeight = 1f;
 
 		public void ExposeData()
 		{
 			Scribe_Values.Look(ref name, "name");
+			Scribe_Values.Look(ref selectionWeight, "selectionWeight", 1f);
 			Scribe_Collections.Look(ref geneDefs, "geneDefs", LookMode.Def);
 			if (Scribe.mode == LoadSaveMode.LoadingVars && geneDefs != null && geneDefs.RemoveAll((GeneDef x) => x == null) > 0)
 			{
