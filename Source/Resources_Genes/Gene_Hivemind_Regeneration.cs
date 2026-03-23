@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -12,7 +13,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedRegenRate.HasValue)
 				{
-					if (pawn.InHivemind())
+					if (pawn.Faction != Faction.OfPlayer)
+					{
+						cachedRegenRate = HivemindUtility.nonPlayerHivemindSize;
+					}
+					else if (pawn.InHivemind())
 					{
 						cachedRegenRate = Hivemind.Count * 4;
 					}

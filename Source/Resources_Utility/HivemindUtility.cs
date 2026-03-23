@@ -10,6 +10,8 @@ namespace WVC_XenotypesAndGenes
 	public static class HivemindUtility
 	{
 
+		public static int nonPlayerHivemindSize = 5;
+
 		private static List<Pawn> cachedPawns;
 		public static List<Pawn> HivemindPawns
 		{

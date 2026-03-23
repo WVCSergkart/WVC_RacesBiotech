@@ -146,7 +146,22 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
-			if (!Active || !pawn.InHivemind())
+			if (!Active)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer && pawn.Corpse?.Map != null)
+			{
+				foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.Faction == pawn.Faction).ToList())
+				{
+					if (!hiveMember.Dead)
+					{
+						hiveMember.Kill(null);
+					}
+				}
+				return;
+			}
+			if (!pawn.InHivemind())
 			{
 				return;
 			}

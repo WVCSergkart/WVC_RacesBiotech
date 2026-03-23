@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void DoAction()
 		{
-			if (!InHivemind)
+			if (!InHivemind || pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}

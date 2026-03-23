@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public class ScenPart_HivemindWorld : ScenPart_PawnModifier_CustomWorld
 	{
 
+		public HediffDef hediffDef;
+		public int nonPlayerHivemindSize = 50;
 		public GoodwillSituationDef hivemindHatred;
 		//public MemeDef memeDef;
 		public List<GeneSetPresets> hivemindPresets;
@@ -32,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 					item.xpSinceLastLevel = item.XpRequiredForLevelUp * 0.2f;
 				}
 			}
-			if (hivemindPresets.TryRandomElementByWeight((item) => item.selectionWeight, out GeneSetPresets genesSet))
+			if (hivemindPresets.TryRandomElementByWeight((item) => item.selectionWeight, out GeneSetPresets genesSet) && Rand.Chance(genesSet.selectionWeight))
 			{
 				XaG_GeneUtility.AddGenesToChimera(pawn, genesSet.geneDefs, true);
 			}
@@ -48,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostGameStart();
 			SetGoodwill();
 			SetFactions();
+			SetNonPlayerHivemind();
 		}
 
 		//private void SetFactions()
@@ -86,6 +89,33 @@ namespace WVC_XenotypesAndGenes
 		//	SetFactions();
 		//}
 
+		//private int nextTick = 720;
+		//public override void Tick()
+		//{
+		//	if (nextTick > 0)
+		//	{
+		//		nextTick--;
+		//		return;
+		//	}
+		//	nextTick = 2500;
+		//	UpdHivemind();
+		//}
+
+		//private void UpdHivemind()
+		//{
+		//	if (hediffDef == null)
+		//	{
+		//		return;
+		//	}
+		//	foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+		//	{
+		//		if (hiver.health.hediffSet.HasHediff<Hediff_HivemindHatred>())
+		//		{
+		//			continue;
+		//		}
+		//	}
+		//}
+
 		private void SetFactions()
 		{
 			//if (memeDef == null)
@@ -121,16 +151,25 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref nonPlayerHivemindSize, "nonPlayerHivemindSize", 50);
+			Scribe_Defs.Look(ref hivemindHatred, "hivemindHatred");
+			Scribe_Defs.Look(ref hediffDef, "hediffDef");
 			Scribe_Collections.Look(ref hivemindPresets, "hivemindPresets", LookMode.Deep);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGoodwill();
+				SetNonPlayerHivemind();
 			}
 		}
 
 		private void SetGoodwill()
 		{
 			hivemindHatred?.naturalGoodwillOffset = -999;
+		}
+
+		private void SetNonPlayerHivemind()
+		{
+			HivemindUtility.nonPlayerHivemindSize = nonPlayerHivemindSize;
 		}
 
 

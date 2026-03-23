@@ -12,17 +12,17 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef MayRequire="ludeon.rimworld.odyssey,ludeon.rimworld.ideology,ludeon.rimworld.anomaly" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_Hivemind</defName>
-	<label>The Hivelands (Beta)</label>
+	<label>The Mindlands (Beta)</label>
 	<description>TEXT\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype. Some reward pawns are an exception.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype. Some reward pawns are an exception.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.\n- All starting factions will have the &lt;color=#8a8ae6&gt;player's ideology&lt;/color&gt;.\n- A player's starting ideology will always be &lt;color=#8a8ae6&gt;fluid&lt;/color&gt;.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All hivemind player pawns will receive a &lt;color=#8a8ae6&gt;permanent&lt;/color&gt; hediff with -8 to all skills. Each destroyed faction will add +1.\n- All non-player pawns will receive random sets of hivemind genes.\n- The non-player hivemind size will always be considered 50.
 
 &lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; TEXT</description>
 	<scenario>
 	  <!-- <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
-	  <summary>One fleshkind with armor, gun and duplicate. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
+	  <summary>One fleshkind with 2 duplicates. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
@@ -75,9 +75,12 @@
 		<!-- Player pawns modifiers -->
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
-		  <startingDuplicates>1</startingDuplicates>
+		  <startingDuplicates>2</startingDuplicates>
 		  <additionalChronoAge>70~120</additionalChronoAge>
 		  <context>PlayerStarter</context>
+		  <geneDefs>
+			<li>WVC_Duplicator_ZeroOutChance</li>
+		  </geneDefs>
 		</li>
 
 		<!-- Forced world and xenotypes -->
@@ -89,9 +92,78 @@
 		  <hivemindHatred>WVC_HivemindHatred</hivemindHatred>
 		  <hivemindPresets>
 			<li>
-			  <selectionWeight>0.8</selectionWeight>
+			  <selectionWeight>0.95</selectionWeight>
 			  <geneDefs>
-				<!-- <li>WVC_Fleshkind</li> -->
+				<li>WVC_Tough</li>
+				<li>WVC_MechaPowerSource_Vanometric</li>
+				<!-- <li>ArchiteMetabolism</li> -->
+				<!-- <li>WVC_Hivemind_DeathChain</li> -->
+				<!-- <li>Deathless</li> -->
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.44</selectionWeight>
+			  <geneDefs>
+				<li>WVC_Tough</li>
+				<li>WVC_MechaPowerSource_Vanometric</li>
+				<li>ArchiteMetabolism</li>
+				<li>WVC_Hivemind_Regeneration</li>
+				<!-- <li>Deathless</li> -->
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.66</selectionWeight>
+			  <geneDefs>
+				<li>WVC_Tough</li>
+				<!-- <li>WVC_MechaPowerSource_Vanometric</li> -->
+				<!-- <li>ArchiteMetabolism</li> -->
+				<li>WVC_Hivemind_Regeneration</li>
+				<!-- <li>Deathless</li> -->
+				<li>WVC_NoLearning</li>
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.38</selectionWeight>
+			  <geneDefs>
+				<li>WVC_Unbreakable</li>
+				<!-- <li>WVC_MechaPowerSource_Vanometric</li> -->
+				<li>ArchiteMetabolism</li>
+				<!-- <li>WVC_Hivemind_DeathChain</li> -->
+				<!-- <li>Deathless</li> -->
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.05</selectionWeight>
+			  <geneDefs>
+				<li>WVC_GrayGooSkin</li>
+				<li>WVC_MechaPowerSource_Vanometric</li>
+				<li>ArchiteMetabolism</li>
+				<li>WVC_Hivemind_DeathChain</li>
+				<li>Deathless</li>
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.2</selectionWeight>
+			  <geneDefs>
+				<li>WVC_Hivemind_Mood</li>
+				<li>WVC_PsychicAbility_Hivemind</li>
+				<li>WVC_Hivemind_SyncNode</li>
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.2</selectionWeight>
+			  <geneDefs>
+				<li>WVC_Hivemind_Telepathy</li>
+				<li MayRequire="ludeon.rimworld.ideology">WVC_Hivemind_IdeoSync</li>
+			  </geneDefs>
+			</li>
+			<li>
+			  <selectionWeight>0.3</selectionWeight>
+			  <geneDefs>
+				<li>WVC_HiveMind_Needs</li>
+				<li>WVC_HiveMind_Skills</li>
+				<li>WVC_Hivemind_DeathChain</li>
+				<li>Deathless</li>
 			  </geneDefs>
 			</li>
 		  </hivemindPresets>

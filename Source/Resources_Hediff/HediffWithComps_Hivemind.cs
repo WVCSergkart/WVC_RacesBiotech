@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -106,4 +107,27 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
+	//public class Hediff_HivemindHatred : Hediff
+	//{
+
+	//	public override bool Visible =>  false;
+
+	//	public override string LabelBase => "WVC_XaG_HivemindHatred".Translate();
+
+	//	public static HediffStage curStage;
+	//	public override HediffStage CurStage
+	//	{
+	//		get
+	//		{
+	//			if (curStage == null)
+	//			{
+	//				curStage = new();
+	//				float newLimit = Find.FactionManager.AllFactions.Where((faction) => faction.defeated).Count();
+	//				aptitudes;
+	//			}
+	//			return curStage;
+	//		}
+	//	}
+
+	//}
 }

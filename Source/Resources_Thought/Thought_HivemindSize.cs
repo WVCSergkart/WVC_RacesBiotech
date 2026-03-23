@@ -7,7 +7,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodOffset()
 		{
-			return base.MoodOffset() * (HivemindUtility.HivemindPawns.Count - 1);
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return base.BaseMoodOffset * HivemindUtility.nonPlayerHivemindSize;
+			}
+			return base.BaseMoodOffset * (HivemindUtility.HivemindPawns.Count - 1);
 		}
 
 	}
