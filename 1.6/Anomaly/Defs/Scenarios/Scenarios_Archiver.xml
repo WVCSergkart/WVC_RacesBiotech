@@ -4,10 +4,12 @@
   <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_SoulReaper</defName>
 	<label>The Soulreaper</label>
-	<description>You've always wanted to be a hero, saving the weak, protecting them from certain death at the last moment. And fate gave you that chance: you came across a plundered caravan. The raiders left them no chance, leaving many dead and only two survivors, gravely wounded but still alive. You saved them, giving them a chance to survive as "part" of you.</description>
+	<description>You've always wanted to be a hero, saving the weak, protecting them from certain death at the last moment. And fate gave you that chance: you came across a plundered caravan. The raiders left them no chance, leaving many dead and only two survivors, gravely wounded but still alive. You saved them, giving them a chance to survive as "part" of you.
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a very easy difficulty scenario that requires the ability and desire to read.</description>
 	<scenario>
 	  <!-- <summary>One reaperkind with no supplies and with 2 archiver forms. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary> -->
-	  <summary>One reaperkind with no supplies and with 2 archiver forms. &lt;color=#ff9595&gt;Vetaran&lt;/color&gt; scenario.</summary>
+	  <summary>One reaperkind with no supplies and with 2 archiver forms. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>

@@ -25,7 +25,9 @@
 	<defName>WVC_XenotypesAndGenes_Meca</defName>
 	<!-- <label>The Mechalike</label> -->
 	<label>Long running joke</label>
-	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; The difficulty directly depends on the chosen xenotype.</description>
 	<scenario>
 	  <!-- <summary>One pawn with no supplies. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary> -->
 	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary>
@@ -166,7 +168,9 @@
   <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_RuneDryad</defName>
 	<label>Tribal Mechanitor</label>
-	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
+	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; Easy difficulty start. Requires ability to read gene descriptions.</description>
 	<scenario>
 	  <!-- <summary>One pawn with two golems. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary> -->
 	  <summary>One pawn with two golems. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary>
@@ -282,7 +286,9 @@
   <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Undead</defName>
 	<label>Raised from the Dead</label>
-	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</description>
+	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; A naked brutality scenario with a second chance and additional modifiers that make the start easier or harder. To increase the difficulty, enable the "Hide hediffs" option in the settings (WVC - Xenotypes and Genes).</description>
 	<scenario>
 	  <!-- <summary>One pawn with no supplies. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary> -->
 	  <summary>One pawn with no supplies. &lt;color=#a1ff95&gt;Novice&lt;/color&gt; scenario.</summary>
