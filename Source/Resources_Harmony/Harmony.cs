@@ -978,13 +978,25 @@ namespace WVC_XenotypesAndGenes
 
 			// Dev TESTS
 
-			public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+			//public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+			//{
+			//	if (__instance.pawn.Map == null)
+			//	{
+			//		return false;
+			//	}
+			//	return true;
+			//}
+
+			public static bool NoSkillLossPatch()
 			{
-				if (__instance.pawn.Map == null)
+				return false;
+			}
+			public static void HivemindHatredAptitude(int __result, Pawn ___pawn)
+			{
+				if (HivemindUtility.InHivemind(___pawn))
 				{
-					return false;
+					__result += ScenPart_HivemindWorld.hivemindHatredAptitude;
 				}
-				return true;
 			}
 
 		}

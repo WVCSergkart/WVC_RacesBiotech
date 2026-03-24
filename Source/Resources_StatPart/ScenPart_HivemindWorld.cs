@@ -1,8 +1,10 @@
 // RimWorld.StatPart_Age
+using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
 using Verse;
+using WVC_XenotypesAndGenes.HarmonyPatches;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -51,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 			SetGoodwill();
 			SetFactions();
 			SetNonPlayerHivemind();
+			HarmonyPatch();
 		}
 
 		//private void SetFactions()
@@ -159,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				SetGoodwill();
 				SetNonPlayerHivemind();
+				HarmonyPatch();
 			}
 		}
 
@@ -171,6 +175,29 @@ namespace WVC_XenotypesAndGenes
 		{
 			HivemindUtility.nonPlayerHivemindSize = nonPlayerHivemindSize;
 		}
+
+
+		private static bool gamePatched = false;
+		private static void HarmonyPatch()
+		{
+			if (gamePatched)
+			{
+				return;
+			}
+			try
+			{
+				var harmony = new Harmony("wvc.sergkart.races.biotech.hivemindhatred");
+				harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoSkillLossPatch))));
+				harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(SkillRecord), "Aptitude"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed apply hatred patch. Reason: " + arg.Message);
+			}
+			gamePatched = true;
+		}
+
+		public static int hivemindHatredAptitude = -8;
 
 
 	}
