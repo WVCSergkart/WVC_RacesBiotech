@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Inhumanized : Gene, IGeneOverriddenBy
+	public class Gene_Inhumanized : XaG_Gene, IGeneOverriddenBy
 	{
 
 		private int nextTick = 45679;

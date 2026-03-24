@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverriddenBy, IGeneShapeshifter
+	public class Gene_Morpher : XaG_Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverriddenBy, IGeneShapeshifter
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();

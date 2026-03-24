@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 
 	// Harvester
 
-	public class Gene_BloodHarvester : Gene
+	public class Gene_BloodHarvester : XaG_Gene
 	{
 
 		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();

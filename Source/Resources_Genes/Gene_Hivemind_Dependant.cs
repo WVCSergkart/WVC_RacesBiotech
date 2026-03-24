@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	/// Depends on hivemind, but is not included in it.
 	/// In Dev
 	/// </summary>
-	public class Gene_Hivemind_Dependant : Gene
+	public class Gene_Hivemind_Dependant : XaG_Gene
 	{
 
 		public override bool Active
@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Synchronizes dormant drones. Serves as a trigger for safe synchronization, which must be loop-proof.
 	/// </summary>
-	public class Gene_Hivemind_Resyncer : Gene, IGeneHivemind, IGeneNonSync
+	public class Gene_Hivemind_Resyncer : XaG_Gene, IGeneHivemind, IGeneNonSync
 	{
 
 		private static bool syncUpdated = false;
@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Simple drone. If gene removed can call hivemind recache.
 	/// </summary>
-	public class Gene_DormantDrone : Gene, IGeneHivemind, IGeneNonSync
+	public class Gene_DormantDrone : XaG_Gene, IGeneHivemind, IGeneNonSync
 	{
 
 		public override void PostRemove()

@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ChimeraDependant : Gene
+	public class Gene_ChimeraDependant : XaG_Gene
 	{
 
 		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();

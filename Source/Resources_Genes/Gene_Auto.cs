@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AutoResearch : Gene, IGeneNotifyGenesChanged
+	public class Gene_AutoResearch : XaG_Gene, IGeneNotifyGenesChanged
 	{
 
 		//public override void Tick()

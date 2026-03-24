@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : Gene, IGeneInspectInfo
+	public class Gene_FleshmassNucleus : XaG_Gene, IGeneInspectInfo
 	{
 
 		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
@@ -253,7 +253,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassArmor : Gene
+	public class Gene_FleshmassArmor : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)
@@ -276,7 +276,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DeadlifeBuilder : Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_DeadlifeBuilder : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
 	{
 
 		public int nextTick = 6000;
@@ -537,7 +537,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfDevourStomach : Gene
+	public class Gene_SelfDevourStomach : XaG_Gene
 	{
 
 		private int nextTick = 7539;
@@ -703,7 +703,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassReproduction : Gene, IGenePregnantHuman, IGeneOverriddenBy
+	public class Gene_FleshmassReproduction : XaG_Gene, IGenePregnantHuman, IGeneOverriddenBy
 	{
 
 		public override bool Active

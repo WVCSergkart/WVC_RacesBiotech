@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_EatAndDes".Translate(gene.EatedGenes.Count, gene.DestroyedGenes.Count));
 					}
-					if (WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+					if (Gene_Chimera.ChimeraGenesLimit)
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.XenogenesLimit, gene.ArchiteLimit));
 					}

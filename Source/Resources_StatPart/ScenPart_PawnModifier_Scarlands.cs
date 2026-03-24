@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
 		{
-			TrySetupCustomWorldXenotype(pawn, xenotypeDefs);
+			TrySetupCustomWorldXenotype(pawn, Xenotypes);
 		}
 
 		//public override void PreConfigure()

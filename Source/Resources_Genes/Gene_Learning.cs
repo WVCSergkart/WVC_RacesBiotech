@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_BackstoryChanger : Gene
+	public class Gene_BackstoryChanger : XaG_Gene
 	{
 
 		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>().childBackstoryDef;
@@ -206,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Blank : Gene
+	public class Gene_Blank : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)
@@ -336,7 +336,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_CyclicallySelfLearning : Gene
+	public class Gene_CyclicallySelfLearning : XaG_Gene
 	{
 
 		// private int hashIntervalTick = 120000;

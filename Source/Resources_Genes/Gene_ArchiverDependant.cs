@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_ArchiverDependant : Gene
+	public class Gene_ArchiverDependant : XaG_Gene
 	{
 
 		[Unsaved(false)]

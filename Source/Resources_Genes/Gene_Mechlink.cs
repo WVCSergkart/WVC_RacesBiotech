@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene
+	public class Gene_Mechlink : XaG_Gene
 	{
 
 		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();

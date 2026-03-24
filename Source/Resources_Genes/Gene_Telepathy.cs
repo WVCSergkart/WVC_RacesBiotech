@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Psyfeeder : Gene
+	public class Gene_Psyfeeder : XaG_Gene
 	{
 
 		private Gene_Hemogen cachedHemogenGene = null;

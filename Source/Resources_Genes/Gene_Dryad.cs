@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen : Gene, IGeneInspectInfo, IGeneOverriddenBy, IGeneAddOrRemoveHediff
+	public class Gene_DryadQueen : XaG_Gene, IGeneInspectInfo, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();

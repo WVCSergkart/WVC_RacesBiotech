@@ -7,7 +7,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_HorrorPlating : Gene
+	public class Gene_HorrorPlating : XaG_Gene
 	{
 
 		public bool horrorSpawned = false;
@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Deadlife : Gene
+	public class Gene_Deadlife : XaG_Gene
 	{
 
 		public int nextTick = 6000;
@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DarknessExposure : Gene, IGeneOverriddenBy
+	public class Gene_DarknessExposure : XaG_Gene, IGeneOverriddenBy
 	{
 		//private int updTry = 0;
 
@@ -300,7 +300,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DeathRefusal : Gene
+	public class Gene_DeathRefusal : XaG_Gene
 	{
 
 		public int nextDeathRefusal = -1;

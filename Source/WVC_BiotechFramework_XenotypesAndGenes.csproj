@@ -156,6 +156,7 @@
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
+    <Compile Include="Resources_Genes\XaG_Gene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />

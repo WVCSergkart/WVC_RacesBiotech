@@ -991,13 +991,23 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			public static void HivemindHatredAptitude(int __result, Pawn ___pawn)
-			{
-				if (HivemindUtility.InHivemind(___pawn))
-				{
-					__result += ScenPart_HivemindWorld.hivemindHatredAptitude;
-				}
-			}
+			//public static void HivemindHatredAptitude(int __result, Pawn ___pawn)
+			//{
+			//	if (HivemindUtility.InHivemind(___pawn))
+			//	{
+			//		Log.Error("0");
+			//		__result += ScenPart_HivemindWorld.hivemindHatredAptitude;
+			//	}
+			//}
+			//public static void HivemindHatredAptitude(int? ___aptitudeCached, Pawn ___pawn, SkillRecord __instance)
+			//{
+			//	if (HivemindUtility.InHivemind(___pawn))
+			//	{
+			//		Log.Error("0");
+			//		_ = __instance.Aptitude;
+			//		___aptitudeCached += ScenPart_HivemindWorld.hivemindHatredAptitude;
+			//	}
+			//}
 
 		}
 

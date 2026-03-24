@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GhoulMetabolism : Gene
+	public class Gene_GhoulMetabolism : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GeneticStability : Gene
+	public class Gene_GeneticStability : XaG_Gene
 	{
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
@@ -245,7 +245,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	[Obsolete]
-	public class Gene_GeneticInstability : Gene, IGeneInspectInfo, IGeneRemoteControl
+	public class Gene_GeneticInstability : XaG_Gene, IGeneInspectInfo, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(useStabilizerAuto);
 

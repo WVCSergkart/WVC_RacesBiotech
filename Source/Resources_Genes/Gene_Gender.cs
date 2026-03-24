@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gender : Gene, IGeneOverriddenBy
+	public class Gene_Gender : XaG_Gene, IGeneOverriddenBy
 	{
 
 		private GeneExtension_Giver cachedGeneExtensionGiver;
@@ -152,7 +152,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GenderMorph : Gene, IGeneRemoteControl
+	public class Gene_GenderMorph : XaG_Gene, IGeneRemoteControl
 	{
 
 		public string RemoteActionName => choosenGender.ToStringHuman().CapitalizeFirst();

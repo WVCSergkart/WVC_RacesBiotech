@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FoodEfficiency : Gene
+	public class Gene_FoodEfficiency : XaG_Gene
 	{
 
 		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SuperMetabolism : Gene
+	public class Gene_SuperMetabolism : XaG_Gene
 	{
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)

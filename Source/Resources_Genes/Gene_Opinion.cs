@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Opinion : Gene
+	public class Gene_Opinion : XaG_Gene
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -119,13 +119,13 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// WIP
-	public class Gene_IncestLover : Gene
+	public class Gene_IncestLover : XaG_Gene
 	{
 
 
 	}
 
-	public class Gene_DemonBeauty : Gene
+	public class Gene_DemonBeauty : XaG_Gene
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_BloodfeederBeauty : Gene, IGeneBloodfeeder
+	public class Gene_BloodfeederBeauty : XaG_Gene, IGeneBloodfeeder
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -214,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Speaker : Gene
+	public class Gene_Speaker : XaG_Gene
 	{
 
 		private int nextTick = 7200;
@@ -355,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Recluse : Gene, IGeneOverriddenBy
+	public class Gene_Recluse : XaG_Gene, IGeneOverriddenBy
 	{
 
 		private GeneExtension_Opinion cachedExtension;

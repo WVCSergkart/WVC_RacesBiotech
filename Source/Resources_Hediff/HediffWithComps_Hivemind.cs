@@ -107,27 +107,44 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	//public class Hediff_HivemindHatred : Hediff
-	//{
+	public class Hediff_HivemindHatred : Hediff
+	{
 
-	//	public override bool Visible =>  false;
+		public override bool Visible => false;
 
-	//	public override string LabelBase => "WVC_XaG_HivemindHatred".Translate();
+		public override bool ShouldRemove => !HivemindUtility.InHivemind(pawn);
 
-	//	public static HediffStage curStage;
-	//	public override HediffStage CurStage
-	//	{
-	//		get
-	//		{
-	//			if (curStage == null)
-	//			{
-	//				curStage = new();
-	//				float newLimit = Find.FactionManager.AllFactions.Where((faction) => faction.defeated).Count();
-	//				aptitudes;
-	//			}
-	//			return curStage;
-	//		}
-	//	}
+		public override string LabelBase => "WVC_XaG_HivemindHatred".Translate();
 
-	//}
+		public static HediffStage curStage;
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (curStage == null)
+				{
+					curStage = new();
+					//curStage.blocksInspirations = true;
+					def.aptitudes = new();
+					int offset = 0;
+					foreach (Faction faction in Find.FactionManager.AllFactions)
+					{
+						if (faction.defeated)
+						{
+							offset++;
+						}
+					}
+					foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefsListForReading)
+					{
+						Aptitude aptitude = new();
+						aptitude.skill = skillDef;
+						aptitude.level = ScenPart_HivemindWorld.hivemindHatredAptitude + offset;
+						def.aptitudes.Add(aptitude);
+					}
+				}
+				return curStage;
+			}
+		}
+
+	}
 }

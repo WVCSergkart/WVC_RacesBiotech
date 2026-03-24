@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen_Dependant : Gene, IGeneDryadQueen
+	public class Gene_DryadQueen_Dependant : XaG_Gene, IGeneDryadQueen
 	{
 
 		[Unsaved(false)]
@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GauranlenConnection : Gene
+	public class Gene_GauranlenConnection : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)

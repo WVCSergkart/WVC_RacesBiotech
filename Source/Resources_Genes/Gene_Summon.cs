@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_MechsSummon : Gene, IGeneRemoteControl
+	public class Gene_MechsSummon : XaG_Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName
 		{

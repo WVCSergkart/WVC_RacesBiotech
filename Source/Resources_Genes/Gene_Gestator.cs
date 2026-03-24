@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SimpleGestator : Gene, IGeneOverriddenBy, IGeneRemoteControl
+	public class Gene_SimpleGestator : XaG_Gene, IGeneOverriddenBy, IGeneRemoteControl
 	{
 		public virtual string RemoteActionName => "WVC_Start".Translate();
 

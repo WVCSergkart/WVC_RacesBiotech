@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ThrallMaker : Gene
+	public class Gene_ThrallMaker : XaG_Gene
 	{
 		//public string RemoteActionName => "WVC_HideShow".Translate();
 

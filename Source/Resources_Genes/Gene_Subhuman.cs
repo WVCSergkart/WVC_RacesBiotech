@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Subhuman : Gene, IGeneOverriddenBy
+	public class Gene_Subhuman : XaG_Gene, IGeneOverriddenBy
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();

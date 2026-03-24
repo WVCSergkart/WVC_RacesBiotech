@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Hivemind_Drone : Gene, IGeneOverriddenBy, IGeneHivemind
+	public class Gene_Hivemind_Drone : XaG_Gene, IGeneOverriddenBy, IGeneHivemind
 	{
 
 		public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
@@ -152,7 +152,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Faction != Faction.OfPlayer && pawn.Corpse?.Map != null)
 			{
-				foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.Faction == pawn.Faction).ToList())
+				foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.genes != null && p.Faction == pawn.Faction && p.genes.GenesListForReading.Any((g) => HivemindUtility.IsHivemindGene(g))).ToList())
 				{
 					if (!hiveMember.Dead)
 					{

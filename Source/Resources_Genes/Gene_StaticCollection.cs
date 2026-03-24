@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_StaticCollection : Gene, IGeneOverridden
+    public class Gene_StaticCollection : XaG_Gene, IGeneOverridden
     {
 
         public override void PostAdd()

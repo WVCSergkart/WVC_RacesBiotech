@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Ageless : Gene
+	public class Gene_Ageless : XaG_Gene
 	{
 
 		public override void PostAdd()
@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassAging : Gene, IGeneLifeStageStarted
+	public class Gene_FleshmassAging : XaG_Gene, IGeneLifeStageStarted
 	{
 
 		public void Notify_LifeStageStarted()

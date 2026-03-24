@@ -9,13 +9,13 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[Obsolete]
-	public class Gene_Faceless : Gene
+	public class Gene_Faceless : XaG_Gene
 	{
 
 	}
 
 	//InDev
-	public class Gene_Eyeless : Gene
+	public class Gene_Eyeless : XaG_Gene
 	{
 
 		//public void Notify_OverriddenBy(Gene overriddenBy)
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Eyes : Gene, IGeneCustomGraphic
+	public class Gene_Eyes : XaG_Gene, IGeneCustomGraphic
 	{
 
 		private GeneExtension_Giver cachedGeneExtension;

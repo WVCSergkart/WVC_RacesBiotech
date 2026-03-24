@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentDependent : Gene
+	public class Gene_ResurgentDependent : XaG_Gene
 	{
 
 		[Unsaved(false)]

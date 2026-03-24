@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_Dustogenic : Gene, IGeneRemoteControl
+	public class Gene_Dustogenic : XaG_Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 

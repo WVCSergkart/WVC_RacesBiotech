@@ -10,7 +10,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene, IGeneNotifyOnKilled
+	public class Gene_Undead : XaG_Gene, IGeneNotifyOnKilled
 	{
 
 		private Dictionary<WorkTypeDef, int> workSettings;
@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Reincarnation : Gene
+	public class Gene_Reincarnation : XaG_Gene
 	{
 
 		public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();

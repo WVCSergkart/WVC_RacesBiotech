@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 	// Rare Hemogen Drain
-	public class Gene_HemogenDependant : Gene
+	public class Gene_HemogenDependant : XaG_Gene
 	{
 
 		[Unsaved(false)]

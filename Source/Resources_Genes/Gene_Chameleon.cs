@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Chameleon : Gene, IGeneRemoteControl
+	public class Gene_Chameleon : XaG_Gene, IGeneRemoteControl
 	{
 		public virtual string RemoteActionName => "WVC_Style".Translate();
 

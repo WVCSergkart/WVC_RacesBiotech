@@ -9,7 +9,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_XenotypeForcer : Gene
+	public class Gene_XenotypeForcer : XaG_Gene
 	{
 
 		public XenotypeDef Xenotype => def.GetModExtension<GeneExtension_Giver>()?.xenotypeForcerDef;
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// InDev
-	public class Gene_PostImplanter : Gene
+	public class Gene_PostImplanter : XaG_Gene
 	{
 
 		//private CompAbilityEffect_PostImplanter cachedReimplanterComp;
@@ -251,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_ImplanterDependant : Gene, IGeneRemoteControl
+	public class Gene_ImplanterDependant : XaG_Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(activateSubGeneEffect);
 

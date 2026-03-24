@@ -3,6 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using WVC_XenotypesAndGenes.HarmonyPatches;
 
@@ -17,13 +18,25 @@ namespace WVC_XenotypesAndGenes
 		//public MemeDef memeDef;
 		public List<GeneSetPresets> hivemindPresets;
 
+		public override List<XenotypeHolder> Xenotypes
+		{
+			get
+			{
+				if (cachedHolder == null)
+				{
+					cachedHolder = ListsUtility.GetAllXenotypesHolders().Where((xeno) => xeno.genes.Any((gene) => HivemindUtility.IsHivemindGeneDef(gene) && !gene.IsGeneDefOfType<IGeneNonSync>())).ToList();
+				}
+				return cachedHolder;
+			}
+		}
+
 		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
 		{
 			if (pawn.Faction == Faction.OfPlayerSilentFail)
 			{
 				return;
 			}
-			TrySetupCustomWorldXenotype(pawn, xenotypeDefs);
+			TrySetupCustomWorldXenotype(pawn, Xenotypes);
 			if (pawn.skills == null)
 			{
 				return;
@@ -50,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostGameStart()
 		{
 			base.PostGameStart();
-			SetGoodwill();
+			SetGeneral();
 			SetFactions();
 			SetNonPlayerHivemind();
 			HarmonyPatch();
@@ -92,32 +105,42 @@ namespace WVC_XenotypesAndGenes
 		//	SetFactions();
 		//}
 
-		//private int nextTick = 720;
-		//public override void Tick()
-		//{
-		//	if (nextTick > 0)
-		//	{
-		//		nextTick--;
-		//		return;
-		//	}
-		//	nextTick = 2500;
-		//	UpdHivemind();
-		//}
+		private int nextTick = 720;
+		public override void Tick()
+		{
+			if (nextTick > 0)
+			{
+				nextTick--;
+				return;
+			}
+			nextTick = 2500;
+			UpdHivemind();
+		}
 
-		//private void UpdHivemind()
-		//{
-		//	if (hediffDef == null)
-		//	{
-		//		return;
-		//	}
-		//	foreach (Pawn hiver in HivemindUtility.HivemindPawns)
-		//	{
-		//		if (hiver.health.hediffSet.HasHediff<Hediff_HivemindHatred>())
-		//		{
-		//			continue;
-		//		}
-		//	}
-		//}
+		private void UpdHivemind()
+		{
+			if (hediffDef == null)
+			{
+				return;
+			}
+			foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+			{
+				if (hiver.health.hediffSet.HasHediff<Hediff_HivemindHatred>())
+				{
+					continue;
+				}
+				AddHediff(hiver);
+			}
+		}
+
+		private void AddHediff(Pawn pawn)
+		{
+			Type backup = hediffDef.hediffClass;
+			hediffDef.hediffClass = typeof(Hediff_HivemindHatred);
+			//Hediff_HivemindHatred hediff = (Hediff_HivemindHatred)HediffMaker.MakeHediff(hediffDef, pawn);
+			pawn.health.AddHediff(hediffDef);
+			hediffDef.hediffClass = backup;
+		}
 
 		private void SetFactions()
 		{
@@ -160,14 +183,15 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Collections.Look(ref hivemindPresets, "hivemindPresets", LookMode.Deep);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				SetGoodwill();
+				SetGeneral();
 				SetNonPlayerHivemind();
 				HarmonyPatch();
 			}
 		}
 
-		private void SetGoodwill()
+		private void SetGeneral()
 		{
+			Gene_Chimera.forcedDisableChimeraLimit = true;
 			hivemindHatred?.naturalGoodwillOffset = -999;
 		}
 
@@ -188,7 +212,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				var harmony = new Harmony("wvc.sergkart.races.biotech.hivemindhatred");
 				harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoSkillLossPatch))));
-				harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(SkillRecord), "Aptitude"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
+				//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(SkillRecord), "Aptitude"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
+				//harmony.Patch(AccessTools.Method(typeof(SkillRecord), "DirtyAptitudes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
 			}
 			catch (Exception arg)
 			{

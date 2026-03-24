@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_DustClotting : Gene
+	public class Gene_DustClotting : XaG_Gene
 	{
 
 		private static readonly FloatRange TendingQualityRange = new(0.8f, 1.0f);
@@ -100,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class Gene_ScarifierClotting : Gene, IGeneNotifyGenesChanged
+	public class Gene_ScarifierClotting : XaG_Gene, IGeneNotifyGenesChanged
 	{
 
 		[Unsaved(false)]
@@ -192,7 +192,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Health
-	public class Gene_ArchiteSkin : Gene
+	public class Gene_ArchiteSkin : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)
@@ -246,7 +246,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_BleedStopper : Gene
+	public class Gene_BleedStopper : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)

@@ -112,6 +112,20 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeDef> xenotypeDefs;
 		public BiomeDef biomeDef;
 
+
+		public List<XenotypeHolder> cachedHolder;
+		public virtual List<XenotypeHolder> Xenotypes
+		{
+			get
+			{
+				if (cachedHolder == null)
+				{
+					cachedHolder = xenotypeDefs.ConvertToHolder();
+				}
+				return cachedHolder;
+			}
+		}
+
 		public override void PostWorldGenerate()
 		{
 			if (biomeDef == null)
@@ -200,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TrySetupCustomWorldXenotype(Pawn pawn, List<XenotypeDef> xenotypeDefs)
+		public static bool TrySetupCustomWorldXenotype(Pawn pawn, List<XenotypeHolder> xenotypeDefs)
 		{
 			try
 			{
@@ -208,14 +222,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				XenotypeDef xenotypeDef = xenotypeDefs.RandomElement();
-				if (pawn.genes.Xenotype == xenotypeDef)
+				XenotypeHolder xenotype = xenotypeDefs.RandomElement();
+				if (!xenotype.CustomXenotype && pawn.genes.Xenotype == xenotype.xenotypeDef)
 				{
 					return false;
 				}
 				if (MiscUtility.GameNotStarted())
 				{
-					SetXenotype(pawn, xenotypeDef);
+					SetXenotype(pawn, xenotype);
 					return false;
 				}
 				bool baseliner = pawn.genes.Xenotype == XenotypeDefOf.Baseliner;
@@ -223,11 +237,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				if (xenotypeDef.inheritable && !AnyFactionContains(pawn.genes.Xenotype))
+				if (xenotype.inheritable && !AnyFactionContains(pawn.genes.Xenotype))
 				{
 					return false;
 				}
-				SetXenotype(pawn, xenotypeDef);
+				SetXenotype(pawn, xenotype);
 			}
 			catch (Exception arg)
 			{
@@ -249,9 +263,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private static void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		private static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeDef)
 		{
-			ReimplanterUtility.SetXenotype_Safe(pawn, new(xenotypeDef), doPostDebug: true);
+			ReimplanterUtility.SetXenotype_Safe(pawn, xenotypeDef, doPostDebug: true);
 		}
 
 	}

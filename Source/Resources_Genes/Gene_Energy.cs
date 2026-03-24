@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Rechargeable : Gene, IGeneRemoteControl
+	public class Gene_Rechargeable : XaG_Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
@@ -261,7 +261,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SegmentedTail : Gene
+	public class Gene_SegmentedTail : XaG_Gene
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();

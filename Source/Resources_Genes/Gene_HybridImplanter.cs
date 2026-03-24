@@ -2,7 +2,7 @@
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_HybridImplanter : Gene
+	public class Gene_HybridImplanter : XaG_Gene
 	{
 
 		private bool? cachedInheritability;

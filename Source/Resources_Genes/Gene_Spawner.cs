@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Spawner : Gene, IGeneInspectInfo
+	public class Gene_Spawner : XaG_Gene, IGeneInspectInfo
 	{
 		// public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
 

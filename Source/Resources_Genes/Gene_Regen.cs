@@ -182,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Health
-	public class Gene_HealingStomach : Gene
+	public class Gene_HealingStomach : XaG_Gene
 	{
 
 		public override void TickInterval(int delta)
@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassRegeneration : Gene
+	public class Gene_FleshmassRegeneration : XaG_Gene
 	{
 
 		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Duplicator : Gene, IGeneNotifyGenesChanged
+	public class Gene_Duplicator : XaG_Gene, IGeneNotifyGenesChanged
 	{
 
 		private GeneExtension_Giver cachedGeneExtension;

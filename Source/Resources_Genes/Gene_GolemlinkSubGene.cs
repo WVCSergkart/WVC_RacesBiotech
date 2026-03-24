@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_GolemlinkSubGene : Gene
+	public class Gene_GolemlinkSubGene : XaG_Gene
 	{
 
 		private GeneExtension_Spawner cachedGeneExtension_Spawner;

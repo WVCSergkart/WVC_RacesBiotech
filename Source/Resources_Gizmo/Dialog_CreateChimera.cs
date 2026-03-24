@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHeader == null)
 				{
-					if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+					if (!Gene_Chimera.ChimeraGenesLimit)
 					{
 						cachedHeader = gene.LabelCap;
 					}
@@ -643,7 +643,7 @@ namespace WVC_XenotypesAndGenes
 			cachedArchitesLimit = gene.ArchiteLimit;
 			cachedLimitConsumed_Arc = arcLimitCost;
 			//
-			if (!WVC_Biotech.settings.enable_chimeraXenogenesLimit)
+			if (!Gene_Chimera.ChimeraGenesLimit)
 			{
 				cachedXenogenesLimit = 999;
 				cachedArchitesLimit = 999;

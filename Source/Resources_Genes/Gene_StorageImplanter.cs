@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_StorageImplanter : Gene
+	public class Gene_StorageImplanter : XaG_Gene
 	{
 
 		//      private List<GeneDef> genes = new();

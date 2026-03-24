@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Genemaker : Gene, IGeneInspectInfo, IGeneRemoteControl
+	public class Gene_Genemaker : XaG_Gene, IGeneInspectInfo, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(spawnGenepack);
 

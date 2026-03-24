@@ -3,7 +3,7 @@
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_OverOverridable : Gene, IGeneOverriddenBy, IGeneUnoverridable
+	public class Gene_OverOverridable : XaG_Gene, IGeneOverriddenBy, IGeneUnoverridable
 	{
 
 		public override void TickInterval(int delta)

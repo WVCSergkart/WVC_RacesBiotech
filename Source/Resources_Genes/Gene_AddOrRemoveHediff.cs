@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AddOrRemoveHediff : Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
+	public class Gene_AddOrRemoveHediff : XaG_Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class Gene_HediffGiver : Gene
+	// public class Gene_HediffGiver : XaG_Gene
 	// {
 
 	// public List<HediffDef> HediffDefs => def.GetModExtension<GeneExtension_Giver>().hediffDefs;
@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 	// }
 
 	//[Obsolete]
-	//public class Gene_PermanentHediff : Gene
+	//public class Gene_PermanentHediff : XaG_Gene
 	//{
 
 	//	public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_SeverityHediff : Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
+	public class Gene_SeverityHediff : XaG_Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
 		private HediffDef cachedHediffDef;
@@ -372,7 +372,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_BloodfeedHediffGiver : Gene, IGeneBloodfeeder
+	public class Gene_BloodfeedHediffGiver : XaG_Gene, IGeneBloodfeeder
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();

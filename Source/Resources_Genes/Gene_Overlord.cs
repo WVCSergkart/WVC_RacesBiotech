@@ -9,7 +9,7 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class Gene_Overlord : Gene, IGeneOverridden
+    public class Gene_Overlord : XaG_Gene, IGeneOverridden
 	{
 
 		//public OverlordMode overlordMode;

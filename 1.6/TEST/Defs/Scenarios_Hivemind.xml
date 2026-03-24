@@ -17,7 +17,7 @@
 	<label>The Mindlands (Beta)</label>
 	<description>TEXT\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype. Some reward pawns are an exception.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.\n- All starting factions will have the &lt;color=#8a8ae6&gt;player's ideology&lt;/color&gt;.\n- A player's starting ideology will always be &lt;color=#8a8ae6&gt;fluid&lt;/color&gt;.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All hivemind player pawns will receive a &lt;color=#8a8ae6&gt;permanent&lt;/color&gt; hediff with -8 to all skills. Each destroyed faction will add +1.\n- All non-player pawns will receive random sets of hivemind genes.\n- The non-player hivemind size will always be considered 50.\n- Skills do not degrade for all pawns, regardless of faction.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype (including custom ones). Some reward pawns are an exception.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.\n- All starting factions will have the &lt;color=#8a8ae6&gt;player's ideology&lt;/color&gt;.\n- A player's starting ideology will always be &lt;color=#8a8ae6&gt;fluid&lt;/color&gt;.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All hivemind player pawns will receive a &lt;color=#8a8ae6&gt;permanent&lt;/color&gt; hediff with -8 to all skills. Each destroyed faction will add +1.\n- All non-player pawns will receive random sets of bonus genes.\n- The non-player hivemind size will always be considered 50.\n- Skills do not degrade for all pawns, regardless of faction.\n- Synchronization of the hivemind and awakening of the drones occurs almost immediately.\n- Chimera gene limit is disabled, regardless of settings.
 
 &lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; TEXT
 
@@ -90,7 +90,8 @@
 		  <def>WVC_XaG_Starting</def>
 		  <context>NonPlayer</context>
 		  <biomeDef>Grasslands</biomeDef>
-		  <!-- <memeDef>WVC_Hivemind</memeDef> -->
+		  <!-- any hediffDef -->
+		  <hediffDef>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffDef>
 		  <hivemindHatred>WVC_HivemindHatred</hivemindHatred>
 		  <hivemindPresets>
 			<li>

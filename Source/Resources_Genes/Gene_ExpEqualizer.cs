@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_ExpEqualizer : Gene
+	public class Gene_ExpEqualizer : XaG_Gene
 	{
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();

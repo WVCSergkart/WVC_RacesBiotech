@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SelfOverrider : Gene, IGeneRemoteControl, IGeneOverriddenBy
+	public class Gene_SelfOverrider : XaG_Gene, IGeneRemoteControl, IGeneOverriddenBy
 	{
 
 		public int lastTick = -1;

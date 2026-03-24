@@ -6,7 +6,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 
-	public class Gene_DeathrestDependant : Gene
+	public class Gene_DeathrestDependant : XaG_Gene
 	{
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();

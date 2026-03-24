@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SimplePsylink : Gene
+	public class Gene_SimplePsylink : XaG_Gene
 	{
 
 		// private bool pawnHadPsylinkBefore = false;

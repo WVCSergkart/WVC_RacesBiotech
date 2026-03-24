@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_CustomHair : Gene, IGeneCustomGraphic, IGeneOverriddenBy
+	public class Gene_CustomHair : XaG_Gene, IGeneCustomGraphic, IGeneOverriddenBy
 	{
 
 		public virtual Color CurrentColor

@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DeadlyUVSensitivity : Gene
+	public class Gene_DeadlyUVSensitivity : XaG_Gene
 	{
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();

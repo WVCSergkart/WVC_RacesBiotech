@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
+	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
 	{
 		//public string RemoteActionName => "WVC_HideShow".Translate();
 

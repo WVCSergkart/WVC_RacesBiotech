@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_MorpherDependant : Gene
+	public class Gene_MorpherDependant : XaG_Gene
 	{
 
 		[Unsaved(false)]

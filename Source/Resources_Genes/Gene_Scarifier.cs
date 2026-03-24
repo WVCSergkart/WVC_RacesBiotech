@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Scarifier : Gene
+	public class Gene_Scarifier : XaG_Gene
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class Gene_Scarifier_AdditionalScars : Gene
+	// public class Gene_Scarifier_AdditionalScars : XaG_Gene
 	// {
 
 	// }

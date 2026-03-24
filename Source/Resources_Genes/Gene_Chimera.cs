@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
+	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -736,6 +736,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// =================
+
+		public static bool forcedDisableChimeraLimit = false;
+		public static bool ChimeraGenesLimit
+		{
+			get
+			{
+				if (forcedDisableChimeraLimit)
+				{
+					return false;
+				}
+				return WVC_Biotech.settings.enable_chimeraXenogenesLimit;
+			}
+		}
 
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 

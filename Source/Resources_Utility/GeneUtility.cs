@@ -409,6 +409,20 @@ namespace WVC_XenotypesAndGenes
 			return geneDefs;
 		}
 
+		public static List<XenotypeHolder> ConvertToHolder(this List<XenotypeDef> genes)
+		{
+			List<XenotypeHolder> geneDefs = new();
+			if (genes.NullOrEmpty())
+			{
+				return geneDefs;
+			}
+			foreach (XenotypeDef item in genes)
+			{
+				geneDefs.Add(new(item));
+			}
+			return geneDefs;
+		}
+
 		public static bool AbilityIsGeneAbility(Ability ability)
 		{
 			List<GeneDef> genes = DefDatabase<GeneDef>.AllDefsListForReading;

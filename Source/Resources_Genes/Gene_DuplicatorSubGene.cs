@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DuplicatorSubGene : Gene
+	public class Gene_DuplicatorSubGene : XaG_Gene
 	{
 
 		private bool? cachedIsDuplicate;

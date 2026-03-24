@@ -8,7 +8,7 @@ using static UnityEngine.Scripting.GarbageCollector;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Ovipositor : Gene, IGenePregnantHuman
+	public class Gene_Ovipositor : XaG_Gene, IGenePregnantHuman
 	{
 
 

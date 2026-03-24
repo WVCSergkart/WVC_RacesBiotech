@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ShapeshifterDependant : Gene, IGeneShapeshift
+	public class Gene_ShapeshifterDependant : XaG_Gene, IGeneShapeshift
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();

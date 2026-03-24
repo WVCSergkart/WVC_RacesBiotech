@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_FlycatcherSkin : Gene, IGeneRemoteControl
+	public class Gene_FlycatcherSkin : XaG_Gene, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(eatPawnApparel);
 
