@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string LabelBase => "WVC_XaG_HivemindHatred".Translate();
 
-		public static HediffStage curStage;
+		public HediffStage curStage;
 		public override HediffStage CurStage
 		{
 			get
@@ -141,6 +141,7 @@ namespace WVC_XenotypesAndGenes
 						aptitude.level = ScenPart_HivemindWorld.hivemindHatredAptitude + offset;
 						def.aptitudes.Add(aptitude);
 					}
+					pawn.skills?.DirtyAptitudes();
 				}
 				return curStage;
 			}

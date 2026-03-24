@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
 		{
-			if (pawn.Faction == Faction.OfPlayerSilentFail)
+			if (pawn.Faction == Faction.OfPlayerSilentFail || pawn.Faction == Faction.OfEmpire)
 			{
 				return;
 			}
@@ -123,23 +123,21 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			foreach (Pawn hiver in HivemindUtility.HivemindPawns)
+			try
 			{
-				if (hiver.health.hediffSet.HasHediff<Hediff_HivemindHatred>())
+				foreach (Pawn hiver in HivemindUtility.HivemindPawns)
 				{
-					continue;
+					if (hiver.health.hediffSet.HasHediff(hediffDef))
+					{
+						continue;
+					}
+					hiver.health.AddHediff(hediffDef);
 				}
-				AddHediff(hiver);
 			}
-		}
-
-		private void AddHediff(Pawn pawn)
-		{
-			Type backup = hediffDef.hediffClass;
-			hediffDef.hediffClass = typeof(Hediff_HivemindHatred);
-			//Hediff_HivemindHatred hediff = (Hediff_HivemindHatred)HediffMaker.MakeHediff(hediffDef, pawn);
-			pawn.health.AddHediff(hediffDef);
-			hediffDef.hediffClass = backup;
+			catch (Exception ex)
+			{
+				Log.Error("Failed update hediffs. Reason: " + ex.Message);
+			}
 		}
 
 		private void SetFactions()
@@ -154,7 +152,7 @@ namespace WVC_XenotypesAndGenes
 				//relation.baseGoodwill = -75;
 				foreach (Faction item in Find.FactionManager.AllFactionsListForReading)
 				{
-					if (item == Faction.OfPlayer || item.ideos == null)
+					if (item == Faction.OfPlayer || item.ideos == null || item == Faction.OfEmpire)
 					{
 						continue;
 					}

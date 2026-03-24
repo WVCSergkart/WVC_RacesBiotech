@@ -15,13 +15,18 @@
   <ScenarioDef MayRequire="ludeon.rimworld.odyssey,ludeon.rimworld.ideology,ludeon.rimworld.anomaly" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_Hivemind</defName>
 	<label>The Mindlands (Beta)</label>
-	<description>TEXT\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.
+	<description>Since birth, you've heard the thoughts of others, and your thoughts have been heard by others. But now the mind is divided, and you are just one of its fragments; now you are free to decide for yourself.\n\n&lt;color=#f46d6b&gt;Beta:&lt;/color&gt; This scenario is in beta, unexpected conflicts and bugs are possible.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype (including custom ones). Some reward pawns are an exception.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.\n- All starting factions will have the &lt;color=#8a8ae6&gt;player's ideology&lt;/color&gt;.\n- A player's starting ideology will always be &lt;color=#8a8ae6&gt;fluid&lt;/color&gt;.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All hivemind player pawns will receive a &lt;color=#8a8ae6&gt;permanent&lt;/color&gt; hediff with -8 to all skills. Each destroyed faction will add +1.\n- All non-player pawns will receive random sets of bonus genes.\n- The non-player hivemind size will always be considered 50.\n- Skills do not degrade for all pawns, regardless of faction.\n- Synchronization of the hivemind and awakening of the drones occurs almost immediately.\n- Chimera gene limit is disabled, regardless of settings.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;random hivemind&lt;/color&gt; xenotype (including custom ones). Some reward pawns are an exception, as is the Empire faction.\n- All surface biomes will be replaced with grasslands, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All non-player pawns will have 20 skill level.\n- All starting factions will have the &lt;color=#8a8ae6&gt;player's ideology&lt;/color&gt;.\n- A player's starting ideology will always be &lt;color=#8a8ae6&gt;fluid&lt;/color&gt;.\n- &lt;color=#8a8ae6&gt;Hivemind hatred&lt;/color&gt; offset changes from -10 to -999.\n- All hivemind player pawns will receive a &lt;color=#8a8ae6&gt;permanent&lt;/color&gt; hediff with -8 to all skills. Each destroyed faction will add +1.\n- All non-player pawns will receive random sets of bonus genes.\n- The non-player hivemind size will always be considered 50.\n- Skills do not degrade for all pawns, regardless of faction.\n- Synchronization of the hivemind and awakening of the drones occurs almost immediately.\n- Chimera gene limit is disabled, regardless of settings.
 
-&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; TEXT
+&lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 
-&lt;color=#f46d6b&gt;Warning:&lt;/color&gt; This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.</description>
+&lt;color=#f5ffa2&gt;Unimposed rules:&lt;/color&gt;\n- The starting ideology must have a hivemind meme.\n- Non-hivemind pawns must be either enslaved or exiled.\n- The scenario is only considered completed once the debuff reaches 0.\n- The starting ideology must not disappear until the end of the campaign.
+
+&lt;color=#999999&gt;All of the above conditions are not imposed by the scenario, and you are free to disregard them.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This scenario is considered a hard difficulty, the starting conditions have increased requirements for the player's skill.</description>
+	<!-- &lt;color=#f46d6b&gt;Warning:&lt;/color&gt; This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched. -->
 	<scenario>
 	  <!-- <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
 	  <summary>One fleshkind with 2 duplicates. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
@@ -91,7 +96,7 @@
 		  <context>NonPlayer</context>
 		  <biomeDef>Grasslands</biomeDef>
 		  <!-- any hediffDef -->
-		  <hediffDef>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffDef>
+		  <hediffDef>WVC_HivemindHatred</hediffDef>
 		  <hivemindHatred>WVC_HivemindHatred</hivemindHatred>
 		  <hivemindPresets>
 			<li>
@@ -192,5 +197,28 @@
 	  </parts>
 	</scenario>
   </ScenarioDef>
+
+  <!--============-->
+
+  <HediffDef MayRequire="ludeon.rimworld.odyssey,ludeon.rimworld.ideology,ludeon.rimworld.anomaly" ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_HivemindHatred</defName>
+	<label>hivemind hatred</label>
+	<description>The psychic influence of a more powerful hivemind suppresses the owner's abilities.</description>
+	<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+	<aptitudes>
+	  <Intellectual>-8</Intellectual>
+	  <Social>-8</Social>
+	  <Medicine>-8</Medicine>
+	  <Artistic>-8</Artistic>
+	  <Crafting>-8</Crafting>
+	  <Animals>-8</Animals>
+	  <Plants>-8</Plants>
+	  <Cooking>-8</Cooking>
+	  <Mining>-8</Mining>
+	  <Construction>-8</Construction>
+	  <Melee>-8</Melee>
+	  <Shooting>-8</Shooting>
+	</aptitudes>
+  </HediffDef>
 
 </Defs>
