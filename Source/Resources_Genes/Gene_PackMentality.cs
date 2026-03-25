@@ -163,4 +163,110 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_ColdBlooded : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	{
+
+		private static List<Pawn> cachedColdBloodedPawns;
+		public static List<Pawn> ColdBloodedPawns
+		{
+			get
+			{
+				if (cachedColdBloodedPawns == null)
+				{
+					List<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+					{
+						if (pawn?.genes?.GetFirstGeneOfType<Gene_ColdBlooded>() != null)
+						{
+							list.Add(pawn);
+						}
+					}
+					cachedColdBloodedPawns = list;
+				}
+				return cachedColdBloodedPawns;
+			}
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Notify_GenesChanged(null);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Notify_GenesChanged(null);
+		}
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedColdBloodedPawns = null;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Notify_GenesChanged(null);
+		}
+
+		public void Notify_Override()
+		{
+			Notify_GenesChanged(null);
+		}
+
+	}
+
+	public class Gene_Pheromones : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	{
+
+		private static List<Pawn> cachedPheromonesPawns;
+		public static List<Pawn> PheromonesPawns
+		{
+			get
+			{
+				if (cachedPheromonesPawns == null)
+				{
+					List<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+					{
+						if (pawn?.genes?.GetFirstGeneOfType<Gene_Pheromones>() != null)
+						{
+							list.Add(pawn);
+						}
+					}
+					cachedPheromonesPawns = list;
+				}
+				return cachedPheromonesPawns;
+			}
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Notify_GenesChanged(null);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Notify_GenesChanged(null);
+		}
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedPheromonesPawns = null;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Notify_GenesChanged(null);
+		}
+
+		public void Notify_Override()
+		{
+			Notify_GenesChanged(null);
+		}
+
+	}
+
 }

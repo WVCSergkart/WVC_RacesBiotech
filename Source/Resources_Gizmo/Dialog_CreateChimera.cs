@@ -456,7 +456,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			bool selected = !selectedSection && selectedGenes.Contains(geneDef);
-			bool overridden = overridenGenes.Contains(geneDef) || pawnEndoGenes.Contains(geneDef) || geneDef.endogeneCategory == EndogeneCategory.Melanin;
+			bool overridden = GetOverridden(geneDef);
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
@@ -491,6 +491,23 @@ namespace WVC_XenotypesAndGenes
 			}
 			curX = Mathf.Max(curX, rect.xMax + 4f);
 			return result;
+		}
+
+		private bool GetOverridden(GeneDef geneDef)
+		{
+			if (geneDef.endogeneCategory == EndogeneCategory.Melanin)
+			{
+				return true;
+			}
+			if (pawnEndoGenes.Contains(geneDef))
+			{
+				return true;
+			}
+			//if (lockedGenes.Contains(geneDef))
+			//{
+			//	return true;
+			//}
+			return overridenGenes.Contains(geneDef);
 		}
 
 		private string GeneTip(GeneDef geneDef, bool selectedSection)
@@ -650,6 +667,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+
+		//private List<GeneDef> lockedGenes;
+		//private void UpdLockedGenes()
+		//{
+		//	lockedGenes = new();
+		//	//foreach (GeneDef item in gene.EatedGenes)
+		//	//{
+		//	//	lockedGenes.Add(item);
+		//	//}
+		//	foreach (GeneDef item in gene.DestroyedGenes)
+		//	{
+		//		lockedGenes.Add(item);
+		//	}
+		//}
+
 		protected override void OnGenesChanged()
 		{
 			overridenGenes = new();
@@ -673,6 +705,7 @@ namespace WVC_XenotypesAndGenes
 				arc += geneDef.biostatArc;
 			}
 			selectedGenes.SortGeneDefs();
+			//UpdLockedGenes();
 			//base.OnGenesChanged();
 			foreach (GeneDef item in pawnEndoGenes)
 			{

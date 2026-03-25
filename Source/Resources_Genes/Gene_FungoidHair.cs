@@ -195,4 +195,23 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_CenterFrill : Gene_CustomHair
+	{
+
+		public override Color CurrentColor
+		{
+			get
+			{
+				return pawn.story.SkinColor;
+			}
+			set
+			{
+
+			}
+		}
+
+		public override int StyleId => 1000011;
+
+	}
+
 }

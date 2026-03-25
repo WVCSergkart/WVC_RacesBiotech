@@ -272,25 +272,28 @@ namespace WVC_XenotypesAndGenes
 		}
 		public void RemoveCollectedGene(GeneDef geneDef)
 		{
-			if (collectedGenes.Contains(geneDef))
-			{
-				collectedGenes.Remove(geneDef);
-			}
+			//if (collectedGenes.Contains(geneDef))
+			//{
+			//	collectedGenes.Remove(geneDef);
+			//}
+			collectedGenes.RemoveAll(gene => gene == geneDef);
 		}
 		public void DestroyGene(GeneDef geneDef)
 		{
 			if (consumedGenes.Contains(geneDef))
 			{
 				destroyedGenes.Add(geneDef);
-				consumedGenes.Remove(geneDef);
+				//consumedGenes.Remove(geneDef);
 			}
+			consumedGenes.RemoveAll(gene => gene == geneDef);
 		}
 		public void RemoveDestroyedGene(GeneDef geneDef)
 		{
-			if (destroyedGenes.Contains(geneDef))
-			{
-				destroyedGenes.Remove(geneDef);
-			}
+			//if (destroyedGenes.Contains(geneDef))
+			//{
+			//	destroyedGenes.Remove(geneDef);
+			//}
+			destroyedGenes.RemoveAll(gene => gene == geneDef);
 		}
 
 		public override void TickInterval(int delta)
