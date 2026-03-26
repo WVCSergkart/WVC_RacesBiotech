@@ -1020,6 +1020,35 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		//public static bool GenesIsMatch(List<Gene> pawnGenes, List<Gene> otherGenes, float percent)
+		//{
+		//	if (otherGenes.NullOrEmpty() || percent <= 0f)
+		//	{
+		//		return true;
+		//	}
+		//	if (pawnGenes.NullOrEmpty())
+		//	{
+		//		return false;
+		//	}
+		//	int matchingGenes = 0;
+		//	foreach (Gene gene in pawnGenes)
+		//	{
+		//		foreach (Gene otherGene in otherGenes)
+		//		{
+		//			if (gene.def == otherGene.def)
+		//			{
+		//				matchingGenes++;
+		//				break;
+		//			}
+		//		}
+		//	}
+		//	if (matchingGenes >= otherGenes.Count * percent)
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
 		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
 		{
 			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)

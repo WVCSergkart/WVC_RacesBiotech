@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
@@ -111,7 +112,83 @@ namespace WVC_XenotypesAndGenes
 		{
 			preferredPawns = new();
 			notPreferredPawns = new();
+			//cachedSameXenotypes = null;
 		}
+
+		//private static List<SameXenotype> cachedSameXenotypes = new();
+
+		//public static bool IsSameXenotype(Pawn caller, Pawn other)
+		//{
+		//	if (cachedSameXenotypes == null)
+		//	{
+		//		InitSameXenotypes();
+		//	}
+		//	if (IsSameXenotype(cachedSameXenotypes, caller, other))
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
+		//private static void InitSameXenotypes()
+		//{
+		//	cachedSameXenotypes = new();
+		//	foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders())
+		//	{
+		//		SameXenotype sameXenotype = new();
+		//		sameXenotype.xenotypeHolder = xenotypeHolder;
+		//		sameXenotype.pawns = new();
+		//		cachedSameXenotypes.Add(sameXenotype);
+		//	}
+		//}
+
+		//private static bool IsSameXenotype(List<SameXenotype> list, Pawn caller, Pawn other)
+		//{
+		//	foreach (SameXenotype item in list)
+		//	{
+		//		if (item.TryAdd(caller) && item.Contains(other))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		//public class SameXenotype
+		//{
+
+		//	public XenotypeHolder xenotypeHolder;
+		//	public List<Pawn> pawns;
+
+		//	public bool Contains(Pawn pawn)
+		//	{
+		//		if (pawns != null)
+		//		{
+		//			return pawns.Contains(pawn);
+		//		}
+		//		return false;
+		//	}
+
+		//	public bool TryAdd(Pawn pawn)
+		//	{
+		//		if (Contains(pawn))
+		//		{
+		//			return true;
+		//		}
+		//		if (!pawn.genes.UniqueXenotype && xenotypeHolder.xenotypeDef == pawn.genes.Xenotype)
+		//		{
+		//			pawns.Add(pawn);
+		//			return true;
+		//		}
+		//		if (XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, xenotypeHolder.genes, 1f))
+		//		{
+		//			pawns.Add(pawn);
+		//			return true;
+		//		}
+		//		return false;
+		//	}
+
+		//}
 
 	}
 

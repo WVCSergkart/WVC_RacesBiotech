@@ -1,11 +1,12 @@
 // RimWorld.StatPart_Age
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using RimWorld;
 using UnityEngine;
 using Verse;
+using static HarmonyLib.Code;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -31,6 +32,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange additionalChronoAge = new(0, 0);
 		public Gender gender = Gender.None;
 		public bool startingPawnsIsPregnant = false;
+		public ThingDef humanEggDef;
+		public IntRange humanEggsCount = new(3, 5);
 		//public bool scatterCorpses = false;
 		//public bool newGamePlus = false;
 		//public QuestScriptDef questScriptDef = null;
@@ -131,12 +134,42 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetPregnant(Pawn pawn)
 		{
+			//if (humanEggDef != null && pawn.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null)
+			//{
+			//	//Pawn pawn = Find.GameInitData.startingAndOptionalPawns.Take(Find.GameInitData.startingPawnCount).First();
+			//	Thing thing = ThingMaker.MakeThing(humanEggDef);
+			//	thing.stackCount = humanEggsCount.RandomInRange;
+			//	CompHumanEgg egg = thing.TryGetComp<CompHumanEgg>();
+			//	if (egg != null)
+			//	{
+			//		egg.SetupEgg(pawn);
+			//	}
+			//	//pawn.inventory.TryAddAndUnforbid(thing);
+			//	//Find.GameInitData.startingPossessions[pawn].Add(new ThingDefCount(possession.key, Mathf.Clamp(possession.value.RandomInRange, 1, possession.key.stackLimit)))
+			//	return;
+			//}
 			if (!startingPawnsIsPregnant)
 			{
 				MiscUtility.TryUpdChildGenes(pawn);
 				return;
 			}
 			MiscUtility.TryImpregnateOrUpdChildGenes(pawn);
+		}
+
+		public override IEnumerable<Thing> PlayerStartingThings()
+		{
+			Pawn pawn = Find.GameInitData.startingAndOptionalPawns.Take(Find.GameInitData.startingPawnCount).First();
+			if (humanEggDef != null && pawn.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null)
+			{
+				Thing thing = ThingMaker.MakeThing(humanEggDef);
+				thing.stackCount = humanEggsCount.RandomInRange;
+				CompHumanEgg egg = thing.TryGetComp<CompHumanEgg>(); 
+				if (egg != null)
+				{
+					egg.SetupEgg(pawn);
+				}
+				yield return thing;
+			}
 		}
 
 		//private void Void(Pawn p)

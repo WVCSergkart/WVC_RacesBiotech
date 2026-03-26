@@ -58,6 +58,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void SetupEgg(Pawn pawn, float progress = 0.1f)
+		{
+			if (pawn.gender == Gender.Female)
+			{
+				hatcheeParent = pawn;
+			}
+			else
+			{
+				otherParent = pawn;
+			}
+			GeneSet geneSet = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				geneSet.AddGene(gene.def);
+			}
+			this.geneSet = geneSet;
+			gestateProgress = progress;
+			xenotypeHolder = new(otherParent, hatcheeParent, geneSet.GenesListForReading);
+		}
+
 		public override void CompTick()
 		{
 
@@ -275,8 +295,8 @@ namespace WVC_XenotypesAndGenes
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			//Scribe_References.Look(ref otherParent, "father_" + Props.uniqueTag, saveDestroyedThings: true);
-			//Scribe_References.Look(ref hatcheeParent, "mother_" + Props.uniqueTag, saveDestroyedThings: true);
+			Scribe_References.Look(ref otherParent, "father_" + Props.uniqueTag, saveDestroyedThings: true);
+			Scribe_References.Look(ref hatcheeParent, "mother_" + Props.uniqueTag, saveDestroyedThings: true);
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
 			Scribe_Deep.Look(ref geneSet, "geneSet_" + Props.uniqueTag);
 			//Scribe_Values.Look(ref gestateProgress, "gestateProgress_" + Props.uniqueTag, 0f);
