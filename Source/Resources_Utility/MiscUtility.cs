@@ -1008,7 +1008,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ForeverAloneDevelopmentPoints()
 		{
-			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 || !ModLister.IdeologyInstalled)
+			if (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1)
 			{
 				return;
 			}

@@ -65,7 +65,6 @@ namespace WVC_XenotypesAndGenes
 			base.PostGameStart();
 			SetGeneral();
 			SetFactions();
-			SetNonPlayerHivemind();
 			HarmonyPatch();
 		}
 
@@ -182,7 +181,6 @@ namespace WVC_XenotypesAndGenes
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();
-				SetNonPlayerHivemind();
 				HarmonyPatch();
 			}
 		}
@@ -191,10 +189,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			Gene_Chimera.forcedDisableChimeraLimit = true;
 			hivemindHatred?.naturalGoodwillOffset = -999;
-		}
-
-		private void SetNonPlayerHivemind()
-		{
 			HivemindUtility.nonPlayerHivemindSize = nonPlayerHivemindSize;
 		}
 
@@ -220,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 			gamePatched = true;
 		}
 
-		public static int hivemindHatredAptitude = -8;
+		//public static int hivemindHatredAptitude = -8;
 
 
 	}

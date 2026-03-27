@@ -87,6 +87,7 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
+    <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Blacklist.cs" />

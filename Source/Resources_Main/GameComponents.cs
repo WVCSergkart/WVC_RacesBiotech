@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private int nextRecache = 33;
-		private int nextSecondRecache = 0;
+		//private int nextSecondRecache = 0;
 
 		public void XaG_General()
 		{
@@ -150,22 +150,22 @@ namespace WVC_XenotypesAndGenes
 			//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
 			//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
 			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
-			nextSecondRecache++;
-			if (nextSecondRecache >= 2)
-			{
-				MiscUtility.ForeverAloneDevelopmentPoints();
-				nextSecondRecache = 1;
-			}
+			//nextSecondRecache++;
+			//if (nextSecondRecache >= 2)
+			//{
+			//	MiscUtility.ForeverAloneDevelopmentPoints();
+			//	nextSecondRecache = 1;
+			//}
 			//HealingUtility.UpdRegenCollection();
 		}
 
 		public void DelayRecache(int delay = 1500)
 		{
 			nextRecache += delay;
-			if (delay > 26666)
-			{
-				nextSecondRecache++;
-			}
+			//if (delay > 26666)
+			//{
+			//	nextSecondRecache++;
+			//}
 		}
 
 		//private string savedModVersion = null;

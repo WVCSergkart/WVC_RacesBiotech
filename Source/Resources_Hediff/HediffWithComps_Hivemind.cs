@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Linq;
 using Verse;
 
@@ -125,25 +126,37 @@ namespace WVC_XenotypesAndGenes
 				{
 					curStage = new();
 					//curStage.blocksInspirations = true;
-					def.aptitudes = new();
-					int offset = 0;
-					foreach (Faction faction in Find.FactionManager.AllFactions)
-					{
-						if (faction.defeated)
-						{
-							offset++;
-						}
-					}
-					foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefsListForReading)
-					{
-						Aptitude aptitude = new();
-						aptitude.skill = skillDef;
-						aptitude.level = ScenPart_HivemindWorld.hivemindHatredAptitude + offset;
-						def.aptitudes.Add(aptitude);
-					}
-					pawn.skills?.DirtyAptitudes();
+					Upd();
 				}
 				return curStage;
+			}
+		}
+
+		private void Upd()
+		{
+			try
+			{
+				def.aptitudes = new();
+				int offset = -8;
+				foreach (Faction faction in Find.FactionManager.AllFactions)
+				{
+					if (faction.defeated)
+					{
+						offset++;
+					}
+				}
+				foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefsListForReading)
+				{
+					Aptitude aptitude = new();
+					aptitude.skill = skillDef;
+					aptitude.level = offset;
+					def.aptitudes.Add(aptitude);
+				}
+				pawn.skills?.DirtyAptitudes();
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed set aptitudes. For pawn: " + pawn.Name + ". Reason: " + arg.Message);
 			}
 		}
 
