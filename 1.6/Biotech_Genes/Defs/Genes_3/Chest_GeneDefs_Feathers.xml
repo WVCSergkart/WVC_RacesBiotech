@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_FeatherSkin</defName>
+	<label>feathers</label>
+	<description>Carriers of this gene grow feathers on some parts of the body.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<selectionWeight>0.00185</selectionWeight>
+	<displayOrderInCategory>131</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<missingGeneRomanceChanceFactor>0.95</missingGeneRomanceChanceFactor>
+	<statOffsets>
+	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
+	</statOffsets>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Body</workerClass>
+		<baseLayer>6</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Hair</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<overlayOverApparel>false</overlayOverApparel>
+		<useSkinShader>true</useSkinShader>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
+		  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
+		  <Hulk>WVC/Bodies/Feathered_Body/Naked_Hulk</Hulk>
+		  <Fat>WVC/Bodies/Feathered_Body/Naked_Fat</Fat>
+		  <Thin>WVC/Bodies/Feathered_Body/Naked_Thin</Thin>
+		</bodyTypeGraphicPaths>
+	  </li>
+	</renderNodeProperties>
+	<exclusionTags>
+	  <li>WVC_ChestBodyParts_Tentacles</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Feathered -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_FeatherSkin</defName> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <fur>WVC_FeatheredSkin</fur> -->
+  <!-- </GeneDef> -->
+
+</Defs>

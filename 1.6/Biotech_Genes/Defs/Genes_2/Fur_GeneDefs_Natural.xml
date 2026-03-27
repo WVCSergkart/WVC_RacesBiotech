@@ -139,38 +139,33 @@
   </GeneDef>
 
   <!-- Feathered -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_FeatherSkin</defName>
-	<label>featherskin</label>
-	<description>Carriers of this gene grow feathers on some parts of the body.</description>
-	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
-	<forcedHeadTypes>
-	  <li>Male_AverageNormal</li>
-	  <li>Male_AveragePointy</li>
-	  <li>Female_AverageNormal</li>
-	  <li>Female_AveragePointy</li>
-	</forcedHeadTypes>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<statOffsets>
-	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
-	</statOffsets>
-	<fur>WVC_FeatheredSkin</fur>
-	<missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>bird</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>bird</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<!-- <exclusionTags Inherit="False"> -->
-	  <!-- <li>AG_Bodies</li> -->
-	  <!-- <li>Bodies</li> -->
-	  <!-- <li>Fur</li> -->
-	<!-- </exclusionTags> -->
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_FeatherSkin</defName> -->
+	<!-- <label>featherskin</label> -->
+	<!-- <description>Carriers of this gene grow feathers on some parts of the body.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <statOffsets> -->
+	  <!-- <ComfyTemperatureMin>-4</ComfyTemperatureMin> -->
+	<!-- </statOffsets> -->
+	<!-- <fur>WVC_FeatheredSkin</fur> -->
+	<!-- <missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>bird</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	  <!-- <suffixSymbols> -->
+		<!-- <li><symbol>bird</symbol></li> -->
+	  <!-- </suffixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
 
   <!-- Shift -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
