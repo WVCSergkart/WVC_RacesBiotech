@@ -97,7 +97,8 @@
 		<li>WVC_MecaBodyParts_Leg</li>
 		<li>WVC_MecaBodyParts_Liver</li>
 		<li>WVC_MecaBodyParts_Lung</li>
-		<li>WVC_CyberSkin</li>
+		<!-- <li>WVC_CyberSkin</li> -->
+		<li>WVC_MechaSkin</li>
 		<li>WVC_VoiceMechaScorcher</li>
 		<li>WVC_MechaAI_SoftwareMoving</li>
 		<li>WVC_MechaAI_PsychicDull</li>

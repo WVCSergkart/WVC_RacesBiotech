@@ -58,4 +58,35 @@
 	<noGraphic>true</noGraphic>
   </WVC_XenotypesAndGenes.StyleGeneDef>
 
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Mechaskin" Abstract="True" >
+	<uniqueStyleId>125</uniqueStyleId>
+	<texPath>WVC/Bodies/NodeGene_Body/Naked_Male</texPath>
+	<!-- <noGraphic>true</noGraphic> -->
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Mechaskin">
+	<defName>WVC_Mechaskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/MecaGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/MecaGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Mechaskin">
+	<defName>WVC_Cyberskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Cyberskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Cyberskin_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Cyberskin_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Cyberskin_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Cyberskin_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
 </Defs>

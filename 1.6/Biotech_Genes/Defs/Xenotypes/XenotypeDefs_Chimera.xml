@@ -50,7 +50,7 @@
 			  <li>
 				<chance>1.0</chance>
 				<genes>
-					<li>WVC_CyberSkin</li>
+					<li>WVC_MechaSkin</li>
 					<li>WVC_MechaPowerSource_Unstable</li>
 					<li>WVC_HairColor_Slate</li>
 					<li>Skin_SheerWhite</li>

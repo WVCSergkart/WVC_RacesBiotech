@@ -106,4 +106,34 @@
 	<!-- Remove this in legacy upd -->
   </GeneDef>
 
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaskinBasic"> -->
+	<!-- <defName>WVC_MechaSkin</defName> -->
+	<!-- <label>mechaskin</label> -->
+	<!-- <selectionWeight>0</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaskinBasic">
+	<defName>WVC_CyberSkin</defName>
+	<label>cyberskin</label>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

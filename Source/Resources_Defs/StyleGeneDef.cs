@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public class StyleGeneDef : StyleItemDef
 	{
 
+		public List<BodyTypeGraphicData> bodyTypeGraphicPaths;
+
 		public int uniqueStyleId = 0;
 
 		[NoTranslate]

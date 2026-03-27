@@ -159,69 +159,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Mechaskin : Gene_Exoskin
-	{
-
-		//public bool Enabled => Giver?.mutantDef != null;
-
-		//public override void PostAdd()
-		//{
-		//	base.PostAdd();
-		//	if (!Enabled)
-		//	{
-		//		return;
-		//	}
-		//	Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(pawn, Giver?.mutantDef);
-		//}
-
-		//public void Notify_OverriddenBy(Gene overriddenBy)
-		//{
-		//	if (!Enabled)
-		//	{
-		//		return;
-		//	}
-		//	if (overriddenBy != null)
-		//	{
-		//		Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(pawn, null);
-		//	}
-		//}
-
-		//public void Notify_Override()
-		//{
-		//	if (!Enabled)
-		//	{
-		//		return;
-		//	}
-		//	Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(pawn, Giver?.mutantDef);
-		//}
-
-		//public override void PostRemove()
-		//{
-		//	base.PostRemove();
-		//	if (!Enabled)
-		//	{
-		//		return;
-		//	}
-		//	Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(pawn, null);
-		//}
-
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		{
-			if (!Active)
-			{
-				return;
-			}
-			HealingUtility.SetRottable(pawn);
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			HealingUtility.SetRottable(pawn, false);
-		}
-
-	}
-
 	//[Obsolete]
 	//public class Gene_FleshmassSkin : Gene_FleshEyesSkin
 	//{

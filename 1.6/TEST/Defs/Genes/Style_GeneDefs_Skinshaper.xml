@@ -126,7 +126,7 @@
 			  <li>
 				<name>scavenge machine</name>
 				<geneDefs>
-					<li>WVC_CyberSkin</li>
+					<li>WVC_MechaSkin</li>
 					<li>WVC_HairColor_Slate</li>
 					<li>WVC_SkinColor_Metal</li>
 				</geneDefs>

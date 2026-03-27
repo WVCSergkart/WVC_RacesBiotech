@@ -26,7 +26,7 @@
 		<colorType>Hair</colorType>
 		<parentTagDef>Body</parentTagDef>
 		<overlayOverApparel>false</overlayOverApparel>
-		<useSkinShader>true</useSkinShader>
+		<useSkinShader>false</useSkinShader>
 		<bodyTypeGraphicPaths>
 		  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
 		  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
@@ -37,6 +37,7 @@
 	  </li>
 	</renderNodeProperties>
 	<exclusionTags>
+	  <li>WVC_ChestBodyParts_Mechaskin</li>
 	  <li>WVC_ChestBodyParts_Tentacles</li>
 	</exclusionTags>
 	<symbolPack>
