@@ -158,6 +158,7 @@
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
+    <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
@@ -281,7 +282,7 @@
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
     <Compile Include="Resources_Genes\Gene_Flickable.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
+    <Compile Include="Obsolete_0\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
     <Compile Include="Resources_Hediff\HediffComp_GeneHediff.cs" />

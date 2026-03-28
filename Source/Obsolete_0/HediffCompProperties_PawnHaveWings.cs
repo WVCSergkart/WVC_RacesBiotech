@@ -1,8 +1,10 @@
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class HediffCompProperties_PawnHaveWings : HediffCompProperties
 	{
 
@@ -13,12 +15,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffComp_PawnHaveWings : HediffComp
 	{
 
 		public HediffCompProperties_PawnHaveWings Props => (HediffCompProperties_PawnHaveWings)props;
 
-		public override bool CompShouldRemove => false;
+		public override bool CompShouldRemove
+		{
+			get
+			{
+				Wings?.ignoreMovementCost = true;
+				Gene_Wings.RecacheCollection();
+				return true;
+			}
+		}
 
 		[Unsaved(false)]
 		private Gene_Wings cachedWingsGene;
@@ -51,18 +62,17 @@ namespace WVC_XenotypesAndGenes
 		//    }
 		//}
 
-		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
-		{
-			//base.CompPostTickInterval(ref severityAdjustment, delta);
-			if (!Pawn.IsHashIntervalTick(9999, delta))
-			{
-				return;
-			}
-			if (Wings == null)
-			{
-				Pawn.health.RemoveHediff(parent);
-			}
-		}
+		//public override void CompPostTickInterval(ref float severityAdjustment, int delta)
+		//{
+		//	if (!Pawn.IsHashIntervalTick(9999, delta))
+		//	{
+		//		return;
+		//	}
+		//	if (Wings == null)
+		//	{
+		//		Pawn.health.RemoveHediff(parent);
+		//	}
+		//}
 
 	}
 

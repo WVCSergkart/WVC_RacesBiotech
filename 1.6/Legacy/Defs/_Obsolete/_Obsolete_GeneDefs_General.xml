@@ -136,4 +136,29 @@
 	</modExtensions>
   </GeneDef>
 
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Wings_FeatheredWings</defName>
+	<label>flying</label>
+	<description>The pawn completely ignores terrain cost, making movement much easier.</description>
+	<stages>
+	  <li>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="VEF.AnimalBehaviours.HediffCompProperties_Floating" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+		<checkingInterval>1500</checkingInterval>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+	<modExtensions>
+	  <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+		<movementDef>PF_Movement_Flying</movementDef>
+	  </li>
+	</modExtensions>
+  </HediffDef>
+
 </Defs>
