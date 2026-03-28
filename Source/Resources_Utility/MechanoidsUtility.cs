@@ -1,15 +1,77 @@
+using HarmonyLib;
+using RimWorld;
+using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
-using RimWorld.QuestGen;
 using Verse;
+using Verse.AI;
+using WVC_XenotypesAndGenes.HarmonyPatches;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public static class MechanoidsUtility
 	{
+
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+
+		private static HashSet<Pawn> hideMechanitorButton;
+		public static HashSet<Pawn> NonMechanitorGUIPawns
+		{
+			get
+			{
+				if (hideMechanitorButton == null)
+				{
+					HashSet<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive)
+					{
+						if (pawn.genes == null)
+						{
+							continue;
+						}
+						if (pawn.genes.GenesListForReading.Any(gene => gene is IGeneMechanitorUI geneMechanitorUI && gene.Active && geneMechanitorUI.HideMechanitorGUI))
+						{
+							list.Add(pawn);
+						}
+					}
+					hideMechanitorButton = list;
+				}
+				return hideMechanitorButton;
+			}
+		}
+
+		public static void ResetCollection()
+		{
+			hideMechanitorButton = null;
+		}
+
+
+		private static bool gamePatched = false;
+		public static void HarmonyPatch()
+		{
+			if (gamePatched)
+			{
+				return;
+			}
+			try
+			{
+				//var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
+				//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
+				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_MechanitorTracker), "GetGizmos"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.MechanitorHideWithGene))));
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed apply mechanitor UI patch. Reason: " + arg.Message);
+			}
+			gamePatched = true;
+		}
+
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
 
 		public static void SetOverseer(Pawn newOverseer, Pawn mech)
 		{

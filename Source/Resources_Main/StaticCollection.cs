@@ -36,10 +36,9 @@ namespace WVC_XenotypesAndGenes
 
 		//public static XaG_GameComponent currentGameComponent;
 
-		private static List<Pawn> hideMechanitorButton = new();
 		public static bool HideMechanitor(Pawn pawn)
 		{
-			return StaticCollectionsClass.hideMechanitorButton.Contains(pawn);
+			return MechanoidsUtility.NonMechanitorGUIPawns.Contains(pawn);
 		}
 
 		//public static List<DuplicateSet> duplicatesSets = new();
@@ -57,7 +56,8 @@ namespace WVC_XenotypesAndGenes
 			cachedDownedColonists = 0;
 			haveAssignedWork = false;
 			oneManArmyMode = false;
-			hideMechanitorButton = new();
+			MechanoidsUtility.ResetCollection();
+			Gene_Wings.ResetCollection();
 			//duplicates = new();
 			ThoughtWorker_Precept_Social_Duplicates.duplicatePawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();
@@ -83,33 +83,33 @@ namespace WVC_XenotypesAndGenes
 			CompStylingStation.cachedPawns = null;
 		}
 
-		public static void AddHideMechanitors(Pawn pawn)
-		{
-			if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-			{
-				StaticCollectionsClass.hideMechanitorButton.Add(pawn);
-			}
-		}
+		//public static void AddHideMechanitors(Pawn pawn)
+		//{
+		//	if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+		//	{
+		//		StaticCollectionsClass.hideMechanitorButton.Add(pawn);
+		//	}
+		//}
 
-		public static void AddOrRemoveHideMechanitors(Pawn pawn)
-		{
-			if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-			{
-				StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
-			}
-			else
-			{
-				StaticCollectionsClass.hideMechanitorButton.Add(pawn);
-			}
-		}
+		//public static void AddOrRemoveHideMechanitors(Pawn pawn)
+		//{
+		//	if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+		//	{
+		//		StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
+		//	}
+		//	else
+		//	{
+		//		StaticCollectionsClass.hideMechanitorButton.Add(pawn);
+		//	}
+		//}
 
-		public static void RemoveHideMechanitors(Pawn pawn)
-		{
-			if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-			{
-				StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
-			}
-		}
+		//public static void RemoveHideMechanitors(Pawn pawn)
+		//{
+		//	if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
+		//	{
+		//		StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
+		//	}
+		//}
 
 		//private static List<Pawn> mechanitors = new();
 

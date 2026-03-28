@@ -543,7 +543,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, Pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			Gene_Wings.RecacheCollection();
+			Gene_Wings.ResetCollection();
 		}
 
 		public void SetResurrected()

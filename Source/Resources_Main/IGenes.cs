@@ -280,4 +280,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneMechanitorUI
+	{
+
+		// Gizmo User Interface =D
+		bool HideMechanitorGUI {  get; }
+
+		//void MechanitorUIPatch();
+
+	}
+
 }

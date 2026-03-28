@@ -202,8 +202,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				var harmony = new Harmony("wvc.sergkart.races.biotech.hivemindhatred");
-				harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoSkillLossPatch))));
+				//var harmony = new Harmony("wvc.sergkart.races.biotech.hivemindhatred");
+				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoSkillLossPatch))));
 				//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(SkillRecord), "Aptitude"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
 				//harmony.Patch(AccessTools.Method(typeof(SkillRecord), "DirtyAptitudes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
 			}

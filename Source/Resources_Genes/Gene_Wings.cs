@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void RecacheCollection()
+		public static void ResetCollection()
 		{
 			cachedWingedPawns = null;
 		}
@@ -108,7 +108,7 @@ namespace WVC_XenotypesAndGenes
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			ignoreMovementCost = !ignoreMovementCost;
-			RecacheCollection();
+			ResetCollection();
 		}
 
 		public bool RemoteControl_Hide => !Active;
@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-			RecacheCollection();
+			ResetCollection();
 		}
 
 		public bool enabled = true;
@@ -146,18 +146,18 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			RecacheCollection();
+			ResetCollection();
 			HarmonyPatch();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			RecacheCollection();
+			ResetCollection();
 		}
 
 		public void Notify_Override()
 		{
-			RecacheCollection();
+			ResetCollection();
 			HarmonyPatch();
 		}
 
@@ -214,8 +214,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
-				harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
+				//var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
+				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
 			}
 			catch (Exception arg)
 			{

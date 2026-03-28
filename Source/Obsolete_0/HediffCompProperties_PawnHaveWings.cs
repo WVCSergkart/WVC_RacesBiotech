@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				Wings?.ignoreMovementCost = true;
-				Gene_Wings.RecacheCollection();
+				Gene_Wings.ResetCollection();
 				return true;
 			}
 		}

@@ -99,6 +99,7 @@
     <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Traits.cs" />
+    <Compile Include="Resources_Genes\Gene_IncestLover.cs" />
     <Compile Include="Resources_Genes\Gene_Mechaskin.cs" />
     <Compile Include="Resources_Genes\Gene_Ovipositor.cs" />
     <Compile Include="Resources_Genes\Gene_RestStomach.cs" />

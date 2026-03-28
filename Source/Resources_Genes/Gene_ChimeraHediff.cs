@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ChimeraBandwidth : Gene_ChimeraHediff, IGeneRemoteControl
+	public class Gene_ChimeraBandwidth : Gene_ChimeraHediff, IGeneRemoteControl, IGeneMechanitorUI
 	{
 
 		public string RemoteActionName => "WVC_HideShow".Translate();
@@ -81,11 +81,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			HideOrUnhideUI();
-			//genesSettings.Close();
+			shouldHideMechanitorUI = !shouldHideMechanitorUI;
+			RecacheCollection();
 		}
 
-		public bool RemoteControl_Hide => !WVC_Biotech.settings.enable_HideMechanitorButtonsPatch || !Active;
+		public bool RemoteControl_Hide => !Active;
 
 		public bool RemoteControl_Enabled
 		{
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-			UnhideUI();
+			RecacheCollection();
 		}
 
 		public bool enabled = true;
@@ -123,55 +123,48 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool shouldHideMechanitorUI = true;
+		// =======================================
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			RecacheCollection();
+			InitPatch();
+		}
+
+		private bool shouldHideMechanitorUI;
 
 		public override void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			base.Notify_OverriddenBy(overriddenBy);
-			UnhideUI();
+			RecacheCollection();
 		}
 
 		public override void Notify_Override()
 		{
 			base.Notify_Override();
-			Load();
+			RecacheCollection();
 		}
 
-		private void Load()
+		public static void RecacheCollection()
 		{
-			if (!shouldHideMechanitorUI)
-			{
-				StaticCollectionsClass.AddHideMechanitors(pawn);
-			}
+			MechanoidsUtility.ResetCollection();
 		}
 
-		private void HideOrUnhideUI()
+		private void InitPatch()
 		{
-			shouldHideMechanitorUI = !shouldHideMechanitorUI;
-			if (shouldHideMechanitorUI)
-			{
-				StaticCollectionsClass.RemoveHideMechanitors(pawn);
-			}
-			else
-			{
-				StaticCollectionsClass.AddHideMechanitors(pawn);
-			}
-			//StaticCollectionsClass.AddOrRemoveHideMechanitors(pawn);
+			MechanoidsUtility.HarmonyPatch();
 		}
 
-		private void UnhideUI()
-		{
-			shouldHideMechanitorUI = true;
-			StaticCollectionsClass.RemoveHideMechanitors(pawn);
-		}
+		public bool HideMechanitorGUI => shouldHideMechanitorUI;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref shouldHideMechanitorUI, "shouldHideMechanitorUI", defaultValue: true);
+			Scribe_Values.Look(ref shouldHideMechanitorUI, "shouldHideMechanitorUI", defaultValue: false);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				Load();
+				InitPatch();
 			}
 		}
 
