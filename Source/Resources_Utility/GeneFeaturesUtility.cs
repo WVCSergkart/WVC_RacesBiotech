@@ -376,10 +376,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsNotAcceptablePrey(Pawn pawn)
 		{
-			if (pawn?.genes == null)
+			if (Gene_PredatorRepellent.NonPreyPawns.Contains(pawn))
 			{
-				return false;
+				return true;
 			}
+			// Legacy support.
+			// To-Do: Remove after 1-2 steam updates.
 			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
@@ -395,6 +397,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Legacy support.
 			return false;
 		}
 

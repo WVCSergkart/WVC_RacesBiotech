@@ -26,6 +26,7 @@
 	<defName>WVC_PredatorPrey_NotTasty</defName>
 	<label>not tasty</label>
 	<description>Carriers of this gene have very unnutritious and tasteless flesh, and the almost imperceptible smell repels most predators.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PredatorRepellent</geneClass>
 	<iconPath>WVC/UI/Genes/Prey_B</iconPath>
 	<displayOrderInCategory>-120</displayOrderInCategory>
 	<customEffectDescriptions>

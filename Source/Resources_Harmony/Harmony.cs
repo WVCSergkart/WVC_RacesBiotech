@@ -5,7 +5,6 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -97,9 +96,10 @@ namespace WVC_XenotypesAndGenes
 				// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeBodyWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BodyGraphicSize")));
 				// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
 				// }
+				// Legacy. To-Do: Remove after 1-2 steam updates.
 				if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
 				{
-					cachedHarmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IsNotAcceptablePrey))));
+					Gene_PredatorRepellent.HarmonyPatch();
 				}
 				//Log.Error("7");
 				if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
@@ -853,7 +853,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
 			{
-				if (prey.RaceProps.Humanlike && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
+				if (prey.genes != null && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
 				{
 					__result = false;
 					return false;

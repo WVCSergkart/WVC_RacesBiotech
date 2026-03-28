@@ -58,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 			oneManArmyMode = false;
 			MechanoidsUtility.ResetCollection();
 			Gene_Wings.ResetCollection();
+			Gene_PredatorRepellent.ResetCollection();
 			//duplicates = new();
 			ThoughtWorker_Precept_Social_Duplicates.duplicatePawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();

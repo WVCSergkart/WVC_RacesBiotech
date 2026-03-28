@@ -223,6 +223,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public PawnKindDef pawnKindDef;
 		public float recruitChance = 0.5f;
+		[Obsolete]
 		public bool canBePredatorPrey = true;
 		public List<GeneDef> inheritableGeneDefs;
 		public List<GeneralHolder> copyFromGeneDefs;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -43,6 +44,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
+		[Obsolete]
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enable_OverOverridableGenesMechanic = true;
 		public bool disableUniqueXenotypeScenarios = false;
