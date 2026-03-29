@@ -4,9 +4,12 @@
   <!-- resurgent -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Resurgent</defName>
+	<!-- To-Do: Choose new name: lichkin, ??? -->
 	<label>resurgent</label>
-	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
-	<descriptionShort>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</descriptionShort>
+	<description>Resurgents are immortal super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Despite their partial immortality, they are quite weak and slow. They are always quite calm. They can withstand almost any temperature. And under the right conditions, they can practically do without food. Their main advantage is the ability to resurrect the dead, turning them into archite-undead — thralls.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Thrall maker):&lt;/color&gt; Can raise thralls. Thralls are mutants that do not age and, depending on their body's state, may not require sleep or food. Upon resurrection, their state is frozen. Skeletons will not grow flesh, but they do not require sleep.</description>
+	<descriptionShort>Resurgents are immortal super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Despite their partial immortality, they are quite weak and slow. They are always quite calm. They can withstand almost any temperature. And under the right conditions, they can practically do without food. Their main advantage is the ability to resurrect the dead, turning them into archite-undead — thralls.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</iconPath>
 	<displayPriority>-1015</displayPriority>
 	<!-- <descriptionHyperlinks> -->
@@ -14,17 +17,19 @@
 	<!-- </descriptionHyperlinks> -->
 	<genes>
 		<!-- Undead -->
-		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
-		<li>WVC_NaturalFastGrowing</li>
+		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
+		<!-- <li>WVC_NaturalFastGrowing</li> -->
 		<li>WVC_Undead</li>
 		<li>WVC_ToxResist_Total</li>
-		<li>WVC_AgeDebuff_Sterile</li>
-		<li>Body_Standard</li>
+		<!-- <li>WVC_AgeDebuff_Sterile</li> -->
+		<!-- <li>Body_Standard</li> -->
 		<li>Hair_SnowWhite</li>
-		<li>WVC_SkinColor_Undead</li>
+		<!-- <li>WVC_SkinColor_Undead</li> -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<li>StrongStomach</li>
-		<li Tag="AnomalySkin">WVC_PatchSkin</li>
+		<!-- <li Tag="AnomalySkin">WVC_PatchSkin</li> -->
+		<li>WVC_GauntSkin</li>
+		<li>WVC_SkinColor_Granite</li>
 		<!-- Random -->
 		<!-- <li>WVC_RandomLearning</li> -->
 		<!-- <li>WVC_RandomHands</li> -->
@@ -32,19 +37,19 @@
 		<!-- <li>WVC_RandomMetabolism</li> -->
 		<!-- <li>WVC_RandomPsychicAbility</li> -->
 		<!-- Resurgent -->
-		<li>WVC_ForeverYoung</li>
+		<!-- <li>WVC_ForeverYoung</li> -->
 		<li>WVC_ResurgentCells</li>
-		<li>WVC_ResurgentCells_GeneticStability</li>
+		<!-- <li>WVC_ResurgentCells_GeneticStability</li> -->
 		<li>WVC_ResurgentCellsGain</li>
-		<li>WVC_ResurgentCells_TotalHealing</li>
-		<li>WVC_ResurgentCells_Ageless</li>
+		<!-- <li>WVC_ResurgentCells_TotalHealing</li> -->
+		<!-- <li>WVC_ResurgentCells_Ageless</li> -->
 		<li>WVC_ResurgentCells_Clotting</li>
-		<li>WVC_ResurgentCells_Blood</li>
+		<!-- <li>WVC_ResurgentCells_Blood</li> -->
 		<li>WVC_ResurgentCells_Stomach</li>
 		<li>WVC_ResurgentCells_Sleep</li>
 		<li>WVC_ReimplanterThrallMaker</li>
-		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
-		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<!-- <li>WVC_ResurgentImmunity_PerfectImmunity</li> -->
+		<!-- <li>WVC_ResurgentDisease_DiseaseFree</li> -->
 		<li>WVC_ResurgentCells_Skeleton</li>
 		<li>WVC_MinMaxTemp_Natural</li>
 		<li>UVSensitivity_Intense</li>

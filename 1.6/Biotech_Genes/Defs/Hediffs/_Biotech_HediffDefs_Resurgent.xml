@@ -36,17 +36,17 @@
 	<stages>
 	  <li>
 		<label>critical low</label>
-		<hungerRateFactor>2.0</hungerRateFactor>
+		<hungerRateFactor>3.0</hungerRateFactor>
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	  <li>
 		<label>extreme low</label>
-		<hungerRateFactor>1.7</hungerRateFactor>
+		<hungerRateFactor>2.2</hungerRateFactor>
 		<minSeverity>0.17</minSeverity>
 	  </li>
 	  <li>
 		<label>very low</label>
-		<hungerRateFactor>1.33</hungerRateFactor>
+		<hungerRateFactor>1.66</hungerRateFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
 	  <li>
@@ -56,7 +56,7 @@
 	  </li>
 	  <li>
 		<label>medium</label>
-		<hungerRateFactor>0.72</hungerRateFactor>
+		<hungerRateFactor>0.93</hungerRateFactor>
 		<minSeverity>0.45</minSeverity>
 	  </li>
 	  <li>
@@ -93,27 +93,27 @@
 	<stages>
 	  <li>
 		<label>critical low</label>
-		<totalBleedFactor>2.0</totalBleedFactor>
+		<totalBleedFactor>3.0</totalBleedFactor>
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	  <li>
 		<label>extreme low</label>
-		<totalBleedFactor>1.7</totalBleedFactor>
+		<totalBleedFactor>2.2</totalBleedFactor>
 		<minSeverity>0.17</minSeverity>
 	  </li>
 	  <li>
 		<label>very low</label>
-		<totalBleedFactor>1.2</totalBleedFactor>
+		<totalBleedFactor>1.5</totalBleedFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
 	  <li>
 		<label>low</label>
-		<totalBleedFactor>0.89</totalBleedFactor>
+		<totalBleedFactor>1.2</totalBleedFactor>
 		<minSeverity>0.35</minSeverity>
 	  </li>
 	  <li>
 		<label>medium</label>
-		<totalBleedFactor>0.67</totalBleedFactor>
+		<totalBleedFactor>1.0</totalBleedFactor>
 		<minSeverity>0.50</minSeverity>
 	  </li>
 	  <li>
@@ -152,35 +152,35 @@
 		<label>critical low</label>
 		<minSeverity>0.0</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>2.0</RestFallRateFactor>
+		  <RestFallRateFactor>4.0</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
 		<label>extreme low</label>
 		<minSeverity>0.17</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>1.7</RestFallRateFactor>
+		  <RestFallRateFactor>2.7</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
 		<label>very low</label>
 		<minSeverity>0.25</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>1.25</RestFallRateFactor>
+		  <RestFallRateFactor>1.75</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
 		<label>low</label>
 		<minSeverity>0.35</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>0.85</RestFallRateFactor>
+		  <RestFallRateFactor>1.2</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
 		<label>medium</label>
 		<minSeverity>0.50</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>0.75</RestFallRateFactor>
+		  <RestFallRateFactor>1.0</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>

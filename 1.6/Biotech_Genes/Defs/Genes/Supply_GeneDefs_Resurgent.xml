@@ -108,6 +108,7 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- To-Do: Rename to "Spores" and add Xeno-Tree summon. Non-resurgent rework -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain">
 	<defName>WVC_ResurgentCellsGain</defName>
 	<label>resurgent fungus</label>
@@ -152,11 +153,11 @@
 	<displayOrderInCategory>65</displayOrderInCategory>
 	<preventPermanentWounds>true</preventPermanentWounds>
 	<resourceLabel></resourceLabel>
-	<resourceLossPerDay>0.22</resourceLossPerDay>
+	<resourceLossPerDay>0.79</resourceLossPerDay>
 	<biostatCpx>4</biostatCpx>
 	<customEffectDescriptions>
 		<li>Restores a lost organ or heals scars every (*DateTime)5-15 days(/DateTime).</li>
-		<li>Requires &lt;color=#8a8ae6&gt;22 resurgent cells&lt;/color&gt;.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;79 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -171,11 +172,11 @@
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<resourceLabel></resourceLabel>
-	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<resourceLossPerDay>0.36</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the resurgent cells run out or the carrier reaches the minimum adult age.</li>
-		<li>Requires &lt;color=#8a8ae6&gt;6 resurgent cells&lt;/color&gt;.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;36 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
@@ -199,10 +200,10 @@
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>75</displayOrderInCategory>
 	<resourceLabel></resourceLabel>
-	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<resourceLossPerDay>0.11</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Treat wounds from time to time.</li>
-		<li>Requires &lt;color=#8a8ae6&gt;1 resurgent cell&lt;/color&gt; for each wound.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;11 resurgent cell&lt;/color&gt; for each wound.</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
