@@ -10,6 +10,52 @@ using WVC_XenotypesAndGenes.HarmonyPatches;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class Gene_Traitless : XaG_Gene, IGeneNotifyLifeStageStarted, IGeneOverriddenBy
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			UpdTraits();
+		}
+
+		private void UpdTraits()
+		{
+			try
+			{
+				TraitsUtility.RemoveAllTraits(pawn);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed remove traits. GeneDef: " + def.defName + ". Reason: " + arg.Message);
+			}
+		}
+
+		public override void TickInterval(int delta)
+		{
+			if (pawn.IsHashIntervalTick(55555, delta))
+			{
+				UpdTraits();
+			}
+		}
+
+		public void Notify_LifeStageStarted()
+		{
+			UpdTraits();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+
+		}
+
+		public void Notify_Override()
+		{
+			UpdTraits();
+		}
+
+	}
+
 	public class Gene_PredatorRepellent : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
 	{
 

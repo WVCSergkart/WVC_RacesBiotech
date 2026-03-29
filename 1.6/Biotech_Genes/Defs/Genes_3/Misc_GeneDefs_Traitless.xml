@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Traitless</defName>
+	<label>traitless</label>
+	<description>Carriers of this gene do not have any distinctive character traits; they are all very similar to each other.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Traitless</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Traitless</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>All bleeding wounds &lt;color=#8a8ae6&gt;stop bleeding&lt;/color&gt; quite quickly, as if they had existed for 15 days.</li> -->
+		<!-- <li>All &lt;color=#8a8ae6&gt;non-genetic&lt;/color&gt; traits will disappear.</li> -->
+		<li>All &lt;color=#8a8ae6&gt;non-genetic&lt;/color&gt; traits will fade over time.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>trait</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Life stage trigger. For bodies and rechaches.
 	/// </summary>
-	public interface IGeneLifeStageStarted
+	public interface IGeneNotifyLifeStageStarted
 	{
 
 		void Notify_LifeStageStarted();

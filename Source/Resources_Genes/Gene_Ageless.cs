@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassAging : XaG_Gene, IGeneLifeStageStarted
+	public class Gene_FleshmassAging : XaG_Gene, IGeneNotifyLifeStageStarted
 	{
 
 		public void Notify_LifeStageStarted()

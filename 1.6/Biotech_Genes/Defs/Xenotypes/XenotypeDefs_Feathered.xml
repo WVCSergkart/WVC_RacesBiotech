@@ -8,12 +8,12 @@
 	<label>feathered</label>
 	<!-- <label>featherdust</label> -->
 	<!-- Experiments, eternal youth, critical failure, side effect -->
-	<description>Feathereds are ageless superhumans powered by archotech-created archites in the bloodstream. They are a sub-xenotype of undead. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.
+	<description>Feathereds are ageless superhumans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Food efficiency for this xenotype is significantly reduced. Food can be replenished by sunlight or special chargers.</description>
 
 <!-- &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; The nutritional efficiency of food consumed by the xenotype is reduced by 80%; to compensate for this effect, the pawn must eat a special food (&lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt;) or be &lt;color=#8a8ae6&gt;downed&lt;/color&gt; at the time of food consumption. Hunger bar can also be replenished with help of sunlight. -->
-	<descriptionShort>Feathereds are ageless superhumans powered by archotech-created archites in the bloodstream. They are a sub-xenotype of undead. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.</descriptionShort>
+	<descriptionShort>Feathereds are ageless superhumans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.</descriptionShort>
 	<!-- undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food. -->
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
 	<descriptionHyperlinks>
@@ -78,6 +78,7 @@
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
+		<li MayRequire="wvc.sergkart.races.biotech">WVC_Traitless</li>
 	</genes>
   </XenotypeDef>
 

@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2090864210
+CRC: 2675687089
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a3fcdb180fee556000b9a171597a8b05
+    Hash: fba5026b970a38298949c94041887cb4
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 983cbc6a3f4a0bdfb41a21d2c9c9817e
+    Hash: 04c4af01d27725ec262c415e0c308d81
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -133,6 +133,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Eyes/HoloEyeMeca.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Hulk_eastm.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Plates/Plating_C_west.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Traitless.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Thin_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Shooting/Archite3.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Animalfeeder.png
