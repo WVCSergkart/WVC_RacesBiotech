@@ -128,6 +128,9 @@
 		<!-- = -->
 		<li>WVC_NaturalBodyParts_Claws</li>
 		<li>WVC_MecaBodyParts_Claws</li>
+		<!-- = -->
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_PredatorPrey_Tasty</li>
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>

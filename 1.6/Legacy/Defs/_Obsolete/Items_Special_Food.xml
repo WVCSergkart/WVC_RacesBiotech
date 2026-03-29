@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MealBase" Name="WVC_XenotypesAndGenes_SpecialMeal_Base" Abstract="True">
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Dustogenic</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Dustogenic</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <FoodPoisonChanceFixedHuman>0.16</FoodPoisonChanceFixedHuman>
+	</statBases>
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <preferability>DesperateOnly</preferability>
+	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	  <ingestEffect>EatVegetarian</ingestEffect>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestSound>Meal_Eat</ingestSound>
+	</ingestible>
+	<allowedArchonexusCount>40</allowedArchonexusCount>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDustogenic>true</isDustogenic>
+		</li>
+	</modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
+	<defName>WVC_MealDustPack</defName>
+	<label>packaged dustogenic meal</label>
+	<!-- Dust food provokes the nerve areas of the dustogenic pawn, which causes dust cells to become active, so that the food does not lose its effectiveness. -->
+	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.
+
+Poisonous for non-dustogenic pawns.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/DustPack</texPath>
+	  <!-- <graphicClass>Graphic_MealVariants</graphicClass> -->
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <!-- <color>(249,241,148)</color> -->
+	  <color>(255,249,153)</color>
+	</graphicData>
+	<statBases>
+	  <DeteriorationRate>0.25</DeteriorationRate>
+	  <MarketValue>24</MarketValue>
+	  <Mass>0.3</Mass>
+	  <WorkToMake>450</WorkToMake>
+	  <Nutrition>1.2</Nutrition>
+	</statBases>
+	<ingestible>
+	</ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
+	<defName>WVC_MealDustogenicPaste</defName>
+	<label>dustogenic paste meal</label>
+	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.
+
+Poisonous for non-dustogenic pawns.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/NutrientPaste</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <color>(255,193,149)</color>
+	  <!-- <color>(249,241,148)</color> -->
+	</graphicData>
+	<statBases>
+	  <MarketValue>10</MarketValue>
+	  <Mass>0.3</Mass>
+	  <WorkToMake>450</WorkToMake>
+	  <Nutrition>1.2</Nutrition>
+	</statBases>
+	<ingestible>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_OffsetHemogen">
+		  <offset>0.4</offset>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<tradeability>Buyable</tradeability>
+	<comps>
+	  <li Class="CompProperties_Rottable">
+		<daysToRotStart>6</daysToRotStart>
+		<rotDestroys>true</rotDestroys>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- RecipeDefs -->
+  <!-- RecipeDefs -->
+  <!-- RecipeDefs -->
+
+  <!-- Meals -->
+  <RecipeDef ParentName="CookMealBase" Name="WVC_XenotypesAndGenes_CookMeal_Base"  Abstract="True">
+	<workSpeedStat>CookSpeed</workSpeedStat>
+	<effectWorking>Cook</effectWorking>
+	<soundWorking>Recipe_CookMeal</soundWorking>
+	<allowMixingIngredients>true</allowMixingIngredients>
+	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+	<!-- <recipeUsers> -->
+	  <!-- <li>ElectricStove</li> -->
+	  <!-- <li>FueledStove</li> -->
+	<!-- </recipeUsers> -->
+	<skillRequirements>
+	  <Cooking>8</Cooking>
+	</skillRequirements>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_DustogenicFood</li>
+	</researchPrerequisites>
+	<displayPriority>1500</displayPriority>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustPack</defName>
+	<label>cook packaged dustogenic meal</label>
+	<description>Prepare a packaged dustogenic meal from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking dustogenic meal.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>0.50</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.10</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustPack>1</WVC_MealDustPack>
+	</products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustPackBulk</defName>
+	<label>cook packaged dustogenic meal x4</label>
+	<description>Prepare 4 packaged dustogenic meals from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking 4 dustogenic meals.</jobString>
+	<workAmount>1440</workAmount>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>2.00</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.40</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustPack>4</WVC_MealDustPack>
+	</products>
+  </RecipeDef>
+
+  <!-- Paste -->
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustogenicPaste</defName>
+	<label>cook dustogenic paste</label>
+	<description>Prepare a dustogenic paste from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking dustogenic paste.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>0.30</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>hemogen</customSummary>
+		  <thingDefs>
+			<li>HemogenPack</li>
+		  </thingDefs>
+		</filter>
+		<count>0.20</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.10</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustogenicPaste>1</WVC_MealDustogenicPaste>
+	</products>
+	<researchPrerequisites>
+	  <li>Deathrest</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustogenicPasteBulk</defName>
+	<label>cook dustogenic paste x4</label>
+	<description>Prepare 4 dustogenic paste from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking 4 dustogenic paste.</jobString>
+	<workAmount>1440</workAmount>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>1.20</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>hemogen</customSummary>
+		  <thingDefs>
+			<li>HemogenPack</li>
+		  </thingDefs>
+		</filter>
+		<count>0.80</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.40</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustogenicPaste>4</WVC_MealDustogenicPaste>
+	</products>
+	<researchPrerequisites>
+	  <li>Deathrest</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+</Defs>

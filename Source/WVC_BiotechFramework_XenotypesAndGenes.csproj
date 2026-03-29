@@ -88,6 +88,7 @@
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
+    <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Blacklist.cs" />
@@ -116,7 +117,7 @@
     <Compile Include="Resources_Genes\Gene_DuplicatorSubGene.cs" />
     <Compile Include="Resources_Genes\Gene_Duplicator_MeDuplicate.cs" />
     <Compile Include="Resources_Genes\Gene_Duplicator_MeSource.cs" />
-    <Compile Include="Resources_Genes\Gene_Dustogenic.cs" />
+    <Compile Include="Resources_Genes\Gene_BottomlessBelly.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraNetwork.cs" />
     <Compile Include="Resources_Genes\Gene_GeneticConverter.cs" />
     <Compile Include="Resources_Genes\Gene_GolemlinkSubGene.cs" />
@@ -343,6 +344,7 @@
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
     <Compile Include="Resources_ThinkNodes\XaG_Job.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_ArtificialBeauty.cs" />
     <Compile Include="Resources_Thought\Thought_HivemindSize.cs" />
     <Compile Include="Resources_Thought\Thought_HumanCentricMemory.cs" />
     <Compile Include="Resources_Thought\Thought_MemorySocial_NoFade.cs" />

@@ -113,28 +113,4 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
-	<defName>WVC_NutrientsInjector_HungerFactor</defName>
-	<label>super nutrients</label>
-	<description>Saturation with a special dose of nutrients.</description>
-	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
-	<hediffClass>HediffWithComps</hediffClass>
-	<initialSeverity>1.0</initialSeverity>
-	<minSeverity>0.01</minSeverity>
-	<maxSeverity>1.0</maxSeverity>
-	<stages>
-	  <li>
-		<hungerRateFactor>0.6</hungerRateFactor>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>210000~450000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
-
 </Defs>

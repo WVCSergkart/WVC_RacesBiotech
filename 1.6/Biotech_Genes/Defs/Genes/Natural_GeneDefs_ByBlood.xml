@@ -35,26 +35,5 @@
 		</li>
 	</modExtensions>
   </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneByBlood_Base">
-	<defName>WVC_FamilyByBlood_Dustogenic</defName>
-	<label>by dust</label>
-	<iconColor>(249, 241, 148)</iconColor>
-	<displayCategory>WVC_Dustogenic</displayCategory>
-	<displayOrderInCategory>100</displayOrderInCategory>
-	<selectionWeight>0.0006</selectionWeight>
-	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
-	<marketValueFactor>1.5</marketValueFactor>
-	<customEffectDescriptions>
-	  <li>Cumulative +20 opinion about family members.</li>
-	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
-			<MeAboutThoughtDef>WVC_XenotypesAndGenes_FamilyByBloodDust</MeAboutThoughtDef>
-			<ignoreIfHasGene>false</ignoreIfHasGene>
-			<targetShouldBeFamily>true</targetShouldBeFamily>
-		</li>
-	</modExtensions>
-  </GeneDef>
   
 </Defs>

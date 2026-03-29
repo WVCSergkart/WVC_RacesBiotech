@@ -14,7 +14,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_TargetUndead</iconPath>
 	<displayOrderInCategory>-50.100</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 3 possible xenotypes: &lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt;, &lt;color=#8a8ae6&gt;Featherdust&lt;/color&gt; and &lt;color=#8a8ae6&gt;Ashen&lt;/color&gt;.</li>
+		<li>Limits the &lt;color=#8a8ae6&gt;morph&lt;/color&gt; to 3 possible xenotypes: &lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt;, &lt;color=#8a8ae6&gt;Feathered&lt;/color&gt; and &lt;color=#8a8ae6&gt;Ashen&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_MorphCondition_Targeter</li>
@@ -22,8 +22,8 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<morpherXenotypeChances>
-			  <WVC_Resurgent>0.70</WVC_Resurgent>
-			  <WVC_Featherdust>0.22</WVC_Featherdust>
+			  <WVC_Resurgent>0.50</WVC_Resurgent>
+			  <WVC_Featherdust>0.42</WVC_Featherdust>
 			  <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.08</WVC_Ashen>
 			</morpherXenotypeChances>
 		</li>

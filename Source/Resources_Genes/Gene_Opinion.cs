@@ -75,49 +75,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_AngelBeauty : Gene_FoodEfficiency
-	{
-
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
-
-		public override void TickInterval(int delta)
-		{
-			//base.Tick();
-			if (!pawn.IsHashIntervalTick(57250, delta))
-			{
-				return;
-			}
-			Gene_Opinion.SetOpinion(pawn, this, Props);
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: SetOpinion",
-					action = delegate
-					{
-						Gene_Opinion.SetOpinion(pawn, this, Props);
-					}
-				};
-			}
-		}
-
-	}
-
 	public class Gene_DemonBeauty : XaG_Gene
 	{
 

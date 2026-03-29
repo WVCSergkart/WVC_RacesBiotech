@@ -17,6 +17,9 @@
 	<!-- <factionlessGenerationWeight>0.002</factionlessGenerationWeight> -->
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<displayPriority>-1020</displayPriority>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <XenotypeDef>WVC_Undead</XenotypeDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<genes>
 		<!-- = -->
 		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->

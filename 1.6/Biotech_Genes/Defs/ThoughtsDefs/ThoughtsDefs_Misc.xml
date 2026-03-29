@@ -39,19 +39,6 @@
 	</stages>
   </ThoughtDef>
 
-  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
-	<defName>WVC_XenotypesAndGenes_FamilyByBloodDust</defName>
-	<durationDays>6</durationDays>
-	<maxCumulatedOpinionOffset>200</maxCumulatedOpinionOffset>
-	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
-	<stages>
-	  <li>
-		<label>family by blood</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
-
   <!-- ===================== -->
 
   <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
@@ -131,6 +118,19 @@
   <!-- ===================== -->
 
   <!-- ========================================================== -->
+  
+  <ThoughtDef>
+	<defName>WVC_ArtificialBeauty</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_ArtificialBeauty</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>artificial beauty</label>
+		<baseOpinionOffset>40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
   <!-- ========================================================== -->
 

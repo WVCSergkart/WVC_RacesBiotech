@@ -60,4 +60,28 @@
 	</comps>
   </AbilityDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_FeatherBlades</defName>
+	<label>sharp feathers</label>
+	<description>Carriers of this gene have sharp feathers with which they can throw them at a distance.</description>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_FeatherBlades</AbilityDef>
+	</descriptionHyperlinks>
+	<displayCategory>Ability</displayCategory>
+	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<prerequisite>WVC_Wings_FeatheredWings</prerequisite>
+	<abilities>
+	  <li>WVC_Dustogenic_FeatherBlades</li>
+	</abilities>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>feather</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
 </Defs>

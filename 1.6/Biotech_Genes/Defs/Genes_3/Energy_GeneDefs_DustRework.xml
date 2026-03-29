@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDustSupply_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>0.8</marketValueFactor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
+	<defName>WVC_Dustogenic</defName>
+	<label>bottomless belly</label>
+	<labelShortAdj>bottomless</labelShortAdj>
+	<description>Carriers of this gene cannot get full from food, no matter how much they eat, they want more.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BottomlessBelly</geneClass>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<iconPath>WVC/UI/Genes3/Gene_BottomlessBelly</iconPath>
+	<displayOrderInCategory>-20</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Reduces the effectiveness of food by 2 times.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>5.0</MaxNutrition>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bottom</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_FoodEfficiency</geneClass>
+	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.0009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Metabolism</defName>
+	<label>photosynthetic metabolism</label>
+	<labelShortAdj>photosynthesis</labelShortAdj>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Photosynthesis</geneClass>
+	<description>Carriers of this gene can photosynthesize nutrients from sunlight, but obtain significantly less nutrients from food.</description>
+	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<resourceLossPerDay>0.30</resourceLossPerDay>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<customEffectDescriptions>
+	  <li>While &lt;color=#8a8ae6&gt;in sunlight&lt;/color&gt;, slowly &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt; bar.</li>
+	  <li>Any non-nudist &lt;color=#ff8585&gt;clothing blocks this effect&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 30%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.5</MaxNutrition>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<passivelyReplenishedNutrition>0.04</passivelyReplenishedNutrition>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_Dustogenic_AngelBeauty</defName>
+	<label>artificial beauty</label>
+	<labelShortAdj>art-beauty</labelShortAdj>
+	<description>Carriers of this gene have an artificially non-human beauty. Their appearance is attractive to everyone without exception.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ArtificialBeauty</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_ArtificialBeauty</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Adds an additional +40 opinion without taking into account beauty.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
+	<statOffsets>
+	  <PawnBeauty>4</PawnBeauty>
+	</statOffsets>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities" Abstract="True">
+	<marketValueFactor>1.1</marketValueFactor>
+	<selectionWeight>0.0009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>100</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ================================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>parthenogenesis</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Parthenogenesis</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Parthenogenesis</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
+		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;germline&lt;/color&gt; genes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<!-- <li>Egglaying</li> -->
+		<!-- <li>AG_Egglaying</li> -->
+		<li>AG_Gestation</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>partheno</symbol></li>
+		<li><symbol>genesis</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>0.1</birthQualityOffset>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<gender>Female</gender>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

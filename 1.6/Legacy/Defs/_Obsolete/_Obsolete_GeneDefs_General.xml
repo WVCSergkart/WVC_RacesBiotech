@@ -3,7 +3,9 @@
 
   <!-- ============================= -->
 
-  <!-- To-Do: Remove/legacy in febrary. After blankind rework and 4-5 updates. -->
+  <!-- To-Do: Remove/legacy. After blankind rework and 4-5 updates. -->
+  <!-- Upd: Пометить все как легаси после 3-5 обновлений в стиме. Релиз (реворк) feathered ксенотипа +2 обновления. -->
+  <!-- Hook: WVC_Legacy_Hook="RemoveMe" -->
 
   <GeneDef>
 	<defName>WVC_DisabledAllWork_Blank</defName>
@@ -160,5 +162,236 @@
 	  </li>
 	</modExtensions>
   </HediffDef>
+
+  <!--=====================================================================-->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneByBlood_Base">
+	<defName>WVC_FamilyByBlood_Dustogenic</defName>
+	<label>by dust</label>
+	<iconColor>(249, 241, 148)</iconColor>
+	<!-- <displayCategory>WVC_Dustogenic</displayCategory> -->
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<marketValueFactor>1.5</marketValueFactor>
+	<customEffectDescriptions>
+	  <li>Cumulative +20 opinion about family members.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XenotypesAndGenes_FamilyByBloodDust</MeAboutThoughtDef>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
+			<targetShouldBeFamily>true</targetShouldBeFamily>
+		</li>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_XenotypesAndGenes_FamilyByBloodDust</defName>
+	<durationDays>6</durationDays>
+	<maxCumulatedOpinionOffset>200</maxCumulatedOpinionOffset>
+	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>family by blood</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_NutrientsInjector_HungerFactor</defName>
+	<label>super nutrients</label>
+	<description>Saturation with a special dose of nutrients.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1.0</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.6</hungerRateFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>210000~450000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_WoundHealing</defName>
+	<label>dustogenic wound healing</label>
+	<labelShortAdj>dust-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal. But their body receives less nutrients from food.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustBodyPartsRestoration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0</iconPath>
+	<iconColor>(249, 241, 148)</iconColor>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+	  <li>Restores a lost body parts every (*DateTime)5-15 days(/DateTime).</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 16%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+	<statOffsets>
+	  <MaxNutrition>0.3</MaxNutrition>
+	</statOffsets>
+	<displayOrderInCategory>2</displayOrderInCategory>
+	<resourceLossPerDay>0.16</resourceLossPerDay>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hydra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Ageless</defName>
+	<label>blessed ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18. But their body receives less nutrients from food.</description>
+	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<resourceLossPerDay>0.09</resourceLossPerDay>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 9%</li> -->
+		<li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 9%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.2</MaxNutrition>
+	</statOffsets>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>young</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Clotting</defName>
+	<label>dustogenic clotting</label>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<resourceLossPerDay>0.04</resourceLossPerDay>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>If a pawn is downed/sleep, its wounds will be automatically treated.</li>
+		<li>Each wound costs 0.05 nutrition to treat</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>SuperClotting</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- dustogenic genetic -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_GeneticStability</defName>
+	<label>dustogenic genetic</label>
+	<description>Carriers of this gene have a strong genetic dependence on dust.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AngelicStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AngelicStability_v0</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>6</biostatMet>
+	<customEffectDescriptions>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 15%&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName> -->
+			<intervalRange>122000~440000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
 </Defs>

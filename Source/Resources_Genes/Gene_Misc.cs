@@ -2,6 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.AI;
 using WVC_XenotypesAndGenes.HarmonyPatches;
@@ -97,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class Gene_IncestLover : XaG_Gene
+	public class Gene_IncestLover : XaG_Gene, IGenePregnantHuman
 	{
 
 		public override void PostAdd()
@@ -140,6 +141,21 @@ namespace WVC_XenotypesAndGenes
 			gamePatched = true;
 		}
 
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+			foreach (GeneDef geneDef in pregnancy.geneSet.GenesListForReading.ToList())
+			{
+				if (GeneDefOf.Inbred == geneDef)
+				{
+					pregnancy.geneSet.Debug_RemoveGene(geneDef);
+				}
+			}
+		}
+
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		{
+			return false;
+		}
 
 	}
 
