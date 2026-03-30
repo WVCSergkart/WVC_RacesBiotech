@@ -1,10 +1,14 @@
 // RimWorld.StatPart_Age
 using RimWorld;
+using System;
+using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 	public class GoodwillSituationWorker_HivemindHatred : GoodwillSituationWorker
 	{
+
+		private static bool silentCatcherStatus = false;
 
 		public override int GetNaturalGoodwillOffset(Faction other)
 		{
@@ -17,19 +21,31 @@ namespace WVC_XenotypesAndGenes
 
 		private bool Applies(Faction a)
 		{
-			Ideo primaryIdeo = a.ideos.PrimaryIdeo;
-			if (primaryIdeo == null)
+			if (silentCatcherStatus)
 			{
 				return false;
 			}
-			Ideo primaryIdeo2 = Faction.OfPlayer.ideos.PrimaryIdeo;
-			if (primaryIdeo2 == null)
+			try
 			{
-				return false;
+				Ideo primaryIdeo = a.ideos?.PrimaryIdeo;
+				if (primaryIdeo == null)
+				{
+					return false;
+				}
+				Ideo primaryIdeo2 = Faction.OfPlayerSilentFail?.ideos?.PrimaryIdeo;
+				if (primaryIdeo2 == null)
+				{
+					return false;
+				}
+				if (primaryIdeo.memes.Contains(def.meme) || primaryIdeo2.memes.Contains(def.meme))
+				{
+					return true;
+				}
 			}
-			if (primaryIdeo.memes.Contains(def.meme) || primaryIdeo2.memes.Contains(def.meme))
+			catch (Exception arg)
 			{
-				return true;
+				Log.Error("Error in hivemind goodwill. Hatred disabled. Reason: " + arg.Message);
+				silentCatcherStatus = true;
 			}
 			return false;
 		}
