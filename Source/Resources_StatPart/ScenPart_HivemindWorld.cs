@@ -36,6 +36,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (!pawn.IsHuman())
+			{
+				return;
+			}
 			TrySetupCustomWorldXenotype(pawn, Xenotypes);
 			if (pawn.skills == null)
 			{

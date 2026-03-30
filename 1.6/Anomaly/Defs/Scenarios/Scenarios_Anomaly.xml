@@ -6,6 +6,8 @@
 	<label>With All Eyes</label>
 	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?
 
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- At 5%, the generated baseliner will be replaced with a random flesh-chimera xenotype.
+
 &lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a variable difficulty scenario, the challenge of which directly depends on the starting conditions.</description>
 	<scenario>
 	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
@@ -21,6 +23,18 @@
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
 		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Forced xenotypes -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Beholder">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		  <xenotypeDefs>
+			<li>WVC_Overrider</li>
+			<li>WVC_Beholdkind</li>
+			<!-- <li>WVC_Shadoweater</li> -->
+			<li>WVC_Fleshkind</li>
+		  </xenotypeDefs>
 		</li>
 
 		<!-- Player pawns modifiers -->

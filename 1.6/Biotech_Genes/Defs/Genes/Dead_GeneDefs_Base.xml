@@ -66,6 +66,7 @@
 				<li>WVC_Resurgent_UndeadResurrectionRecovery</li>
 			</hediffDefs>
 			<additionalDelay>1120~2450</additionalDelay>
+			<reqGeneMat>66</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -88,6 +89,7 @@
 			<adulthoodDef>WVC_RacesBiotech_Amnesia_Adult</adulthoodDef>
 			<ignoreHediffs>true</ignoreHediffs>
 			<additionalDelay>21200~44500</additionalDelay>
+			<reqGeneMat>98</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>

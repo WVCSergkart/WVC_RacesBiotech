@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+
+  <!-- ============================= -->
+
+  <!-- To-Do: Пометить все как легаси после 3-5 обновлений в стиме. Релиз (реворк) feathered ксенотипа +2 обновления. -->
+  <!-- Hook: WVC_Legacy_Hook="RemoveMe" -->
+
   <ThingDef ParentName="MealBase" Name="WVC_XenotypesAndGenes_SpecialMeal_Base" Abstract="True">
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
@@ -26,6 +32,7 @@
 	  <ingestSound>Meal_Eat</ingestSound>
 	</ingestible>
 	<allowedArchonexusCount>40</allowedArchonexusCount>
+	<tradeability>None</tradeability>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<isDustogenic>true</isDustogenic>
@@ -39,7 +46,9 @@
 	<!-- Dust food provokes the nerve areas of the dustogenic pawn, which causes dust cells to become active, so that the food does not lose its effectiveness. -->
 	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.
 
-Poisonous for non-dustogenic pawns.</description>
+Poisonous for non-dustogenic pawns.
+
+&lt;color=#f5ffa2&gt;Legacy:&lt;/color&gt; This item is part of the mod's legacy and can no longer be obtained through crafting or as a reward. However, it will still be available in older saves.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/DustPack</texPath>
 	  <!-- <graphicClass>Graphic_MealVariants</graphicClass> -->
@@ -56,6 +65,7 @@ Poisonous for non-dustogenic pawns.</description>
 	</statBases>
 	<ingestible>
 	</ingestible>
+	<tradeability>None</tradeability>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
@@ -63,7 +73,9 @@ Poisonous for non-dustogenic pawns.</description>
 	<label>dustogenic paste meal</label>
 	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.
 
-Poisonous for non-dustogenic pawns.</description>
+Poisonous for non-dustogenic pawns.
+
+&lt;color=#f5ffa2&gt;Legacy:&lt;/color&gt; This item is part of the mod's legacy and can no longer be obtained through crafting or as a reward. However, it will still be available in older saves.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/NutrientPaste</texPath>
 	  <graphicClass>Graphic_StackCount</graphicClass>
@@ -83,7 +95,7 @@ Poisonous for non-dustogenic pawns.</description>
 		</li>
 	  </outcomeDoers>
 	</ingestible>
-	<tradeability>Buyable</tradeability>
+	<tradeability>None</tradeability>
 	<comps>
 	  <li Class="CompProperties_Rottable">
 		<daysToRotStart>6</daysToRotStart>
@@ -110,9 +122,9 @@ Poisonous for non-dustogenic pawns.</description>
 	<skillRequirements>
 	  <Cooking>8</Cooking>
 	</skillRequirements>
-	<researchPrerequisites>
-	  <li>WVC_XenotypesAndGenes_DustogenicFood</li>
-	</researchPrerequisites>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>WVC_XenotypesAndGenes_DustogenicFood</li> -->
+	<!-- </researchPrerequisites> -->
 	<displayPriority>1500</displayPriority>
   </RecipeDef>
 
@@ -221,9 +233,9 @@ Poisonous for non-dustogenic pawns.</description>
 	<products>
 	  <WVC_MealDustogenicPaste>1</WVC_MealDustogenicPaste>
 	</products>
-	<researchPrerequisites>
-	  <li>Deathrest</li>
-	</researchPrerequisites>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>Deathrest</li> -->
+	<!-- </researchPrerequisites> -->
   </RecipeDef>
 
   <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
@@ -266,9 +278,9 @@ Poisonous for non-dustogenic pawns.</description>
 	<products>
 	  <WVC_MealDustogenicPaste>4</WVC_MealDustogenicPaste>
 	</products>
-	<researchPrerequisites>
-	  <li>Deathrest</li>
-	</researchPrerequisites>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>Deathrest</li> -->
+	<!-- </researchPrerequisites> -->
   </RecipeDef>
 
 </Defs>
