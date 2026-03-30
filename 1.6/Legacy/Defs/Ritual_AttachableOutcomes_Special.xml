@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_ShapeshifterRecruit</defName>
 	<label>shapeshifter recruit</label>
 	<effectDesc>20% chance of shapeshifter recruit of the same ideoligion joining your colony.</effectDesc>
@@ -29,7 +29,7 @@
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
 
-  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_UndeadRecruit</defName>
 	<label>undead recruit</label>
 	<effectDesc>20% chance of undead recruit of the same ideoligion joining your colony.</effectDesc>
@@ -63,7 +63,7 @@
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
 
-  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_BlankindRecruit</defName>
 	<label>subject recruit</label>
 	<effectDesc>40% chance of blankind, sandycat, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>
