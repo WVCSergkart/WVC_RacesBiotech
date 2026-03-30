@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			base.ResolveReferences(parentDef);
 			if (hatcherDaystoHatch <= 0f)
 			{
-				hatcherDaystoHatch = ThingDefOf.Human.race.gestationPeriodDays / 2;
+				hatcherDaystoHatch = ThingDefOf.Human.race.gestationPeriodDays;
 			}
 		}
 
@@ -112,6 +112,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public bool AnyParentIsNull
+		{
+			get
+			{
+				if (hatcheeParent == null)
+				{
+					return true;
+				}
+				if (otherParent == null)
+				{
+					return true;
+				}
+				return false;
+			}
+		}
+
 		public new void Hatch()
 		{
 			try
@@ -124,7 +140,11 @@ namespace WVC_XenotypesAndGenes
 					//AgelessUtility.SetAge();
 					ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
 					ReimplanterUtility.TryFixPawnXenotype_Beta(child);
-					if (hatcheeParent != null && otherParent != null)
+					if (hatcheeParent?.genes?.Xenotype == otherParent?.genes?.Xenotype || AnyParentIsNull)
+					{
+						child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
+					}
+					if (!AnyParentIsNull)
 					{
 						child.genes.hybrid = hatcheeParent.genes?.Xenotype != otherParent.genes?.Xenotype;
 					}
