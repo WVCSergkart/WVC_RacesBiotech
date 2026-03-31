@@ -89,6 +89,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
+    <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_FeatheredAgelessGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />

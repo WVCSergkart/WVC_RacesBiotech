@@ -171,13 +171,17 @@ namespace WVC_XenotypesAndGenes
 		public List<HediffDef> duplicateHediffs;
 		public List<TraitDef> duplicateTraits;
 		public List<HediffDef> blockingHediffs;
+		[Obsolete]
 		public List<TraitDef> blockingTraits;
+		[Obsolete]
 		public List<string> trustedXenotypes;
+		[Obsolete]
 		public List<GeneralHolder> possibleTraits;
 		public StatDef shiftStatDef;
 		public int reqGeneMat = -1;
 		public GeneCategoryDef overrideGeneCategory;
 		// Special Food
+		[Obsolete]
 		public List<ThingDef> specialFoodDefs;
 		// GeneticThief
 		public XenotypeDef xenotypeDef;
@@ -192,14 +196,18 @@ namespace WVC_XenotypesAndGenes
 		// public List<ShapeshiftModeDef> initialShapeModes;
 		// Chimera
 		public List<GeneDef> chimeraGenesTools;
+		[Obsolete]
 		public List<GeneDef> humanBasicGenes;
 		//public List<GeneDef> chimeraOneManArmyGenes;
 		public List<GeneralHolder> chimeraConditionalGenes;
 		// Fleshmass
 		//public int maxMutationLevel = 5;
 		//Chimera
-		public List<GeneDef> addedGenes;
-		public List<GeneDef> removedGenes;
+		//[Obsolete]
+		public List<GeneDef> geneDefs;
+		//[Obsolete]
+		//public List<GeneDef> removedGenes;
+		//public List<GeneralHolder> featheredAgelessGenes;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

@@ -58,7 +58,7 @@
 		<li>WVC_Dustogenic</li>
 		<li>WVC_MechaPowerSource_Stable</li>
 		<li>WVC_Dustogenic_Metabolism</li>
-		<li>WVC_Dustogenic_Blesslink</li>
+		<li Featherdust="RemoveMe">WVC_Dustogenic_Blesslink</li>
 		<!-- <li Featherdust="RemoveMe">WVC_WoundHealing_Unnatural</li> -->
 		<li>WVC_Dustogenic_ImmaculateConception</li>
 		<li>WVC_MecaBodyParts_Jaw</li>
@@ -84,7 +84,7 @@
 		<li>WVC_Hands_Angel</li>
 		<li>WVC_Pain_Extra</li>
 		<li>WVC_Dustogenic_Reincarnation</li>
-		<li>WVC_WoundHealing_UnrealFast</li>
+		<li Featherdust="RemoveMe">WVC_WoundHealing_UnrealFast</li>
 		<li>WVC_Dustogenic_Clotting</li>
 		<!-- in wip -->
 		<!-- <li>WVC_Dustogenic_Ageless</li> -->

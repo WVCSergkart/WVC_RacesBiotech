@@ -30,6 +30,9 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture ShapeshifterGenMatReqTex = new("WVC/UI/XaG_General/GenMatTex_Req");
 		public static readonly CachedTexture ShapeshifterGenMatHasTex = new("WVC/UI/XaG_General/GenMatTex_Has");
 
+		public static readonly CachedTexture FeatheredGenMatReqTex = new("WVC/UI/XaG_General/GenMatTex_Req");
+		public static readonly CachedTexture FeatheredGenMatHasTex = new("WVC/UI/XaG_General/GenMatTex_Has");
+
 		public static Gizmo GetRemoteControllerGizmo(Pawn pawn, bool remoteControllerCached, IGeneRemoteControl gene)
 		{
 			if (!remoteControllerCached)

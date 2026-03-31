@@ -41,12 +41,8 @@
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Featherdust"]/genes</xpath> -->
 	  <!-- <value> -->
-		<!-- <li>WVC_Fragile</li> -->
-		<!-- <li>WVC_Hands_Angel</li> -->
-		<!-- <li>WVC_Pain_Extra</li> -->
-		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
-		<!-- <li>WVC_WoundHealing_UnrealFast</li> -->
-		<!-- <li>WVC_Dustogenic_Clotting</li> -->
+		<!-- <li>WVC_Dustogenic_Ageless</li> -->
+		<!-- <li>WVC_WoundHealing_ExtremeFast</li> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
 

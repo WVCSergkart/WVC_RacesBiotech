@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- generic -->
+	<!-- <WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes> -->
+	<!-- generic -->
+	<!-- <WVC_XaG_GeneticMaterial_FeatherGenesDesc>The total genetic material of all selected genes. This value is affected by all feathered ageless colonists with the genes from the list. For implantation, this should not exceed the total age material.</WVC_XaG_GeneticMaterial_FeatherGenesDesc> -->
+	<!-- <WVC_XaG_GeneticMaterial_FeatherAge>Feathered ages material</WVC_XaG_GeneticMaterial_FeatherAge> -->
+	<!-- <WVC_XaG_GeneticMaterial_FeatherAgeDesc>Total biological and chronological years converted into genetic material. This value is influenced by all feathered ageless colonists.</WVC_XaG_GeneticMaterial_FeatherAgeDesc> -->
+
+	<!-- <WVC_XaG_FeatheredAgelessLabel>Implanter</WVC_XaG_FeatheredAgelessLabel> -->
+	<!-- <WVC_XaG_FeatheredAgelessDesc>Opens a menu where you can implant desired genes, at the cost of the combined genetic material of all feathered ageless colonists.</WVC_XaG_FeatheredAgelessDesc> -->
+
+</LanguageData>

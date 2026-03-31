@@ -929,7 +929,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_Xenogeneic_X>Xeno</WVC_Xenogeneic_X> -->
 
 	<WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes>
-	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by shapeshifter.</WVC_XaG_GeneticMaterial_GenesDesc>
+	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by gene.</WVC_XaG_GeneticMaterial_GenesDesc>
 	<WVC_XaG_GeneticMaterial_Shifter>Shapeshifter material</WVC_XaG_GeneticMaterial_Shifter>
 	<WVC_XaG_GeneticMaterial_ShifterDesc>Genetic material collected by the shapeshifter gene.</WVC_XaG_GeneticMaterial_ShifterDesc>
 	<!-- <WVC_XaG_DialogEditShiftGenes_Label>Genetic shift</WVC_XaG_DialogEditShiftGenes_Label> -->

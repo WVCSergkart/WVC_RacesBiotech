@@ -161,7 +161,7 @@ namespace WVC_XenotypesAndGenes
 			HarmonyPatch();
 		}
 
-		public bool ignoreMovementCost = false;
+		public bool ignoreMovementCost;
 
 		public string GetInspectInfo
 		{
@@ -195,7 +195,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref ignoreMovementCost, "ignoreMovementCost", defaultValue: false);
+			Scribe_Values.Look(ref ignoreMovementCost, "ignoreMovementCost", defaultValue: true);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				HarmonyPatch();

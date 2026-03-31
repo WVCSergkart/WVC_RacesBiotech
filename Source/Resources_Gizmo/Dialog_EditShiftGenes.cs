@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -720,89 +719,5 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
-	//public class Dialog_FeatheredAgelessGenes : Dialog_EditShiftGenes
-	//{
-
-	//	private Gene_FeatheredAgeless gene_FeatheredAgeless;
-
-	//	public Dialog_FeatheredAgelessGenes(Gene pawnGene) : base(pawnGene)
-	//	{
-	//		if (pawnGene is Gene_FeatheredAgeless ageless)
-	//		{
-	//			this.gene_FeatheredAgeless = ageless;
-	//		}
-	//		geneMatStats = new GeneMatStatData[2]
-	//		{
-	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", ReqTex.Texture),
-	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", HasTex.Texture),
-	//		};
-	//	}
-
-	//	//public override int ReqGeneMat => base.ReqGeneMat;
-
-	//	private int? cachedGeneMat;
-	//	public override int AllGeneMat
-	//	{
-	//		get
-	//		{
-	//			if (cachedGeneMat == null)
-	//			{
-	//				try
-	//				{
-	//					cachedGeneMat = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where(pawn => pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() != null).Sum(pawn => pawn.ageTracker.AgeChronologicalYears + pawn.ageTracker.AgeBiologicalYears);
-	//				}
-	//				catch (Exception arg)
-	//				{
-	//					Log.Error("Failed count all player pawn summary years. Reason: " + arg.Message);
-	//				}
-	//			}
-	//			return cachedGeneMat.Value;
-	//		}
-	//	}
-
-	//	protected override void SwitchButton(Rect rect3)
-	//	{
-
-	//	}
-
-	//	public override void Accept()
-	//	{
-
-	//	}
-
-	//	protected override void SetupAvailableGenes(Gene gene)
-	//	{
-	//		foreach (GeneDef item in gene_FeatheredAgeless.AllowedGenes)
-	//		{
-	//			if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
-	//			{
-	//				continue;
-	//			}
-	//			GeneDefWithChance geneDefWithChance = new();
-	//			geneDefWithChance.geneDef = item;
-	//			geneDefWithChance.disabled = pawnGenes.Contains(item);
-	//			//GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
-	//			if (item.biostatArc == 0)
-	//			{
-	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
-	//			}
-	//			else
-	//			{
-	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Archite;
-	//			}
-	//			if (DebugSettings.ShowDevGizmos)
-	//			{
-	//				geneDefWithChance.Cost = 0;
-	//			}
-	//			else
-	//			{
-	//				geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
-	//			}
-	//			allGenes.Add(geneDefWithChance);
-	//		}
-	//	}
-
-	//}
 
 }

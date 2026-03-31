@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- In Dev -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
 	<defName>WVC_Dustogenic_Ageless</defName>
 	<label>feathered ageless</label>
@@ -37,6 +38,12 @@
 		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Dustogenic_Blesslink</li> -->
+			  <!-- <li>WVC_WoundHealing_UnrealFast</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
