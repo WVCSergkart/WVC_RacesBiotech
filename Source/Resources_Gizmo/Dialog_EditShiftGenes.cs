@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -11,19 +12,27 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_EditShiftGenes : Window
 	{
 
-		public Gene_Shapeshifter gene;
+		public Gene gene;
 		public List<GeneDef> pawnGenes;
 		public bool inheritable;
 
-		public Dialog_EditShiftGenes(Gene_Shapeshifter gene)
+		private Gene_Shapeshifter gene_Shapeshifter;
+
+		protected GeneMatStatData[] geneMatStats = null;
+
+		public Dialog_EditShiftGenes(Gene pawnGene)
 		{
-			this.gene = gene;
+			this.gene = pawnGene;
+			if (pawnGene is Gene_Shapeshifter gene_Shapeshifter)
+			{
+				this.gene_Shapeshifter = gene_Shapeshifter;
+			}
 			//this.callback = callback;
-			pawnGenes = XaG_GeneUtility.ConvertToDefs(gene.pawn.genes.GenesListForReading);
+			pawnGenes = XaG_GeneUtility.ConvertToDefs(pawnGene.pawn.genes.GenesListForReading);
 			selectedGenes = new();
 			allGenes = new();
-			inheritable = !gene.pawn.genes.IsXenogene(gene);
-			SetupAvailableGenes(gene);
+			inheritable = !pawnGene.pawn.genes.IsXenogene(pawnGene);
+			SetupAvailableGenes(pawnGene);
 			forcePause = true;
 			absorbInputAroundWindow = true;
 			doCloseX = true;
@@ -31,10 +40,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
+			geneMatStats = new GeneMatStatData[2]
+			{
+				new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", ReqTex.Texture),
+				new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", HasTex.Texture),
+			};
 			OnGenesChanged();
 		}
 
-		private void SetupAvailableGenes(Gene_Shapeshifter gene)
+		protected virtual void SetupAvailableGenes(Gene gene)
 		{
 			List<GeneDef> withExtension = new();
 			//List<GeneDef> cosmetic = new();
@@ -130,9 +144,8 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDefWithChance> SelectedGenes => selectedGenes;
 		protected static readonly Vector2 ButSize = new(150f, 38f);
 
-		public int ReqGeneMat => selectedGenes.Sum(x => x.Cost);
-
-		public int AllGeneMat => gene.GeneticMaterial;
+		public virtual int ReqGeneMat => selectedGenes.Sum(x => x.Cost);
+		public virtual int AllGeneMat => gene_Shapeshifter.GeneticMaterial;
 
 		public override void DoWindowContents(Rect rect)
 		{
@@ -156,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 			DoBottomButtons(bottomAreaRect);
 		}
 
-		private void SwitchButton(Rect rect3)
+		protected virtual void SwitchButton(Rect rect3)
 		{
 			string switchButtonText = inheritable ? "WVC_Germline".Translate() : "WVC_Xenogerm".Translate();
 			float buttonWidth = switchButtonText.GetWidthCached() * 1.6f;
@@ -165,7 +178,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), delegate
 				{
-					gene.ChangeType_GermlineXenogerm();
+					gene_Shapeshifter.ChangeType_GermlineXenogerm();
 					Close();
 				});
 				Find.WindowStack.Add(window);
@@ -182,8 +195,8 @@ namespace WVC_XenotypesAndGenes
 
 		private static float cachedWidth;
 
-		public static readonly CachedTexture ReqTex = new("WVC/UI/XaG_General/GenMatTex_Req");
-		public static readonly CachedTexture HasTex = new("WVC/UI/XaG_General/GenMatTex_Has");
+		public virtual CachedTexture ReqTex => XaG_UiUtility.ShapeshifterGenMatReqTex;
+		public virtual CachedTexture HasTex => XaG_UiUtility.ShapeshifterGenMatHasTex;
 
 		public struct GeneMatStatData
 		{
@@ -201,27 +214,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private readonly GeneMatStatData[] NewStats = new GeneMatStatData[2]
-		{
-			new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", HasTex.Texture),
-			new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", ReqTex.Texture),
-		};
-
 		protected Dictionary<string, string> truncateCache = new();
 		private float MaxLabelWidth()
 		{
 			float num = 0f;
-			int num2 = NewStats.Length;
+			int num2 = geneMatStats.Length;
 			for (int i = 0; i < num2; i++)
 			{
-				num = Mathf.Max(num, Text.CalcSize(NewStats[i].labelKey.Translate()).x);
+				num = Mathf.Max(num, Text.CalcSize(geneMatStats[i].labelKey.Translate()).x);
 			}
 			return num;
 		}
 
 		public void Draw(Rect rect, int sumCost, int totalHave)
 		{
-			int num = NewStats.Length;
+			int num = geneMatStats.Length;
 			float num2 = MaxLabelWidth();
 			float num3 = rect.height / num;
 			GUI.BeginGroup(rect);
@@ -236,11 +243,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				Widgets.DrawHighlightIfMouseover(rect3);
 				rect3.xMax = rect2.xMax + 4f + 90f;
-				TaggedString taggedString = NewStats[i].descKey.Translate();
+				TaggedString taggedString = geneMatStats[i].descKey.Translate();
 				TooltipHandler.TipRegion(rect3, taggedString);
-				GUI.DrawTexture(position, NewStats[i].icon);
+				GUI.DrawTexture(position, geneMatStats[i].icon);
 				Text.Anchor = TextAnchor.MiddleLeft;
-				Widgets.Label(rect2, NewStats[i].labelKey.Translate());
+				Widgets.Label(rect2, geneMatStats[i].labelKey.Translate());
 				Text.Anchor = TextAnchor.UpperLeft;
 			}
 			float num4 = num2 + 4f + 22f + 4f;
@@ -261,7 +268,7 @@ namespace WVC_XenotypesAndGenes
 			GUI.EndGroup();
 		}
 
-		public void Accept()
+		public virtual void Accept()
 		{
 			foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
 			{
@@ -269,14 +276,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (gene.TryConsumeResource(geneDefWithChance.Cost))
+				if (gene_Shapeshifter.TryConsumeResource(geneDefWithChance.Cost))
 				{
-					gene.TryForceGene(geneDefWithChance.geneDef, inheritable);
+					gene_Shapeshifter.TryForceGene(geneDefWithChance.geneDef, inheritable);
 				}
 			}
 			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			gene.UpdateMetabolism();
-			gene.DoEffects();
+			gene_Shapeshifter.UpdateMetabolism();
+			gene_Shapeshifter.DoEffects();
 			Close();
 		}
 
@@ -447,7 +454,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected List<GeneLeftChosenGroup> leftChosenGroups = new();
 
-		private bool DrawGene(GeneDefWithChance geneWithChance, bool selectedSection, ref float curX, float curY, float packWidth, bool isMatch)
+		public virtual bool DrawGene(GeneDefWithChance geneWithChance, bool selectedSection, ref float curX, float curY, float packWidth, bool isMatch)
 		{
 			bool result = false;
 			Rect rect = new(curX, curY, packWidth, GeneSize.y + 8f);
@@ -480,7 +487,7 @@ namespace WVC_XenotypesAndGenes
 			return result;
 		}
 
-		public static void DrawBiostats(int geneMat, ref float curX, float curY, float margin = 6f)
+		public virtual void DrawBiostats(int geneMat, ref float curX, float curY, float margin = 6f)
 		{
 			float num2 = 0f;
 			float num3 = Text.LineHeightOf(GameFont.Small);
@@ -531,7 +538,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void OnGenesChanged()
+		public virtual void OnGenesChanged()
 		{
 			//selectedGenes.SortGeneDefs();
 			leftChosenGroups.Clear();
@@ -647,7 +654,7 @@ namespace WVC_XenotypesAndGenes
 			GUI.color = Color.white;
 		}
 
-		public bool CanAccept(bool throwMessage = false)
+		public virtual bool CanAccept(bool throwMessage = false)
 		{
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn, throwMessage))
 			{
@@ -713,5 +720,89 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	//public class Dialog_FeatheredAgelessGenes : Dialog_EditShiftGenes
+	//{
+
+	//	private Gene_FeatheredAgeless gene_FeatheredAgeless;
+
+	//	public Dialog_FeatheredAgelessGenes(Gene pawnGene) : base(pawnGene)
+	//	{
+	//		if (pawnGene is Gene_FeatheredAgeless ageless)
+	//		{
+	//			this.gene_FeatheredAgeless = ageless;
+	//		}
+	//		geneMatStats = new GeneMatStatData[2]
+	//		{
+	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", ReqTex.Texture),
+	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", HasTex.Texture),
+	//		};
+	//	}
+
+	//	//public override int ReqGeneMat => base.ReqGeneMat;
+
+	//	private int? cachedGeneMat;
+	//	public override int AllGeneMat
+	//	{
+	//		get
+	//		{
+	//			if (cachedGeneMat == null)
+	//			{
+	//				try
+	//				{
+	//					cachedGeneMat = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where(pawn => pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() != null).Sum(pawn => pawn.ageTracker.AgeChronologicalYears + pawn.ageTracker.AgeBiologicalYears);
+	//				}
+	//				catch (Exception arg)
+	//				{
+	//					Log.Error("Failed count all player pawn summary years. Reason: " + arg.Message);
+	//				}
+	//			}
+	//			return cachedGeneMat.Value;
+	//		}
+	//	}
+
+	//	protected override void SwitchButton(Rect rect3)
+	//	{
+
+	//	}
+
+	//	public override void Accept()
+	//	{
+
+	//	}
+
+	//	protected override void SetupAvailableGenes(Gene gene)
+	//	{
+	//		foreach (GeneDef item in gene_FeatheredAgeless.AllowedGenes)
+	//		{
+	//			if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+	//			{
+	//				continue;
+	//			}
+	//			GeneDefWithChance geneDefWithChance = new();
+	//			geneDefWithChance.geneDef = item;
+	//			geneDefWithChance.disabled = pawnGenes.Contains(item);
+	//			//GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
+	//			if (item.biostatArc == 0)
+	//			{
+	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
+	//			}
+	//			else
+	//			{
+	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Archite;
+	//			}
+	//			if (DebugSettings.ShowDevGizmos)
+	//			{
+	//				geneDefWithChance.Cost = 0;
+	//			}
+	//			else
+	//			{
+	//				geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
+	//			}
+	//			allGenes.Add(geneDefWithChance);
+	//		}
+	//	}
+
+	//}
 
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_Dustogenic_Ageless</defName>
+	<label>feathered ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene remain forever young.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FeatheredAgeless</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<displayOrderInCategory>1241</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>Decreases bio-age by 1 year every day, until 18.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>young</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent"> -->
+	<!-- <defName>WVC_Dustogenic_Ageless</defName> -->
+	<!-- <label>blessed ageless</label> -->
+	<!-- <labelShortAdj>ageless</labelShortAdj> -->
+	<!-- <description>Carriers of this gene completely stop aging after reaching the age of 18. But their body receives less nutrients from food.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <displayOrderInCategory>5</displayOrderInCategory> -->
+	<!-- <resourceLossPerDay>0.09</resourceLossPerDay> -->
+	<!-- <selectionWeight>0</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers of the gene always spawn with age within 18.</li> -->
+		<!-- <li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 9%&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <statOffsets> -->
+	  <!-- <MaxNutrition>0.2</MaxNutrition> -->
+	<!-- </statOffsets> -->
+	<!-- <biologicalAgeTickFactorFromAgeCurve> -->
+	  <!-- <points> -->
+		<!-- <li>(13, 1)</li> -->
+		<!-- <li>(18.5, 0)</li> -->
+	  <!-- </points> -->
+	<!-- </biologicalAgeTickFactorFromAgeCurve> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Ageless</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>young</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

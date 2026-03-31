@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -45,34 +46,20 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DustAgeless : Gene_FoodEfficiency
+	public class Gene_FeatheredAgeless : Gene_Ageless
 	{
-		public readonly long oneYear = 3600000L;
 
-		public readonly long humanAdultAge = 18L;
-
-		private int ticksToAgeReversal;
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			AgelessUtility.InitialRejuvenation(pawn);
-			ResetInterval();
-		}
+		//public List<GeneDef> AllowedGenes => new();
 
 		public override void TickInterval(int delta)
 		{
-			//base.delta();
-			ticksToAgeReversal -= delta;
-			if (ticksToAgeReversal > 0)
+			if (pawn.IsHashIntervalTick(59955, delta))
 			{
-				return;
+				AgeReversal();
 			}
-			ResetInterval();
-			AgeReversal();
 		}
 
-		public void AgeReversal()
+		private void AgeReversal()
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
@@ -80,34 +67,72 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Revers age",
-					action = delegate
-					{
-						//AgeReversal();
-						//ResetInterval();
-						ticksToAgeReversal = 0;
-					}
-				};
-			}
-		}
+	}
 
-		private void ResetInterval()
-		{
-			IntRange intRange = new(300000, 900000);
-			ticksToAgeReversal = intRange.RandomInRange;
-		}
+	[Obsolete]
+	public class Gene_DustAgeless : Gene_FeatheredAgeless
+	{
+		//public readonly long oneYear = 3600000L;
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref ticksToAgeReversal, "ticksToAgeReversal", 0);
-		}
+		//public readonly long humanAdultAge = 18L;
+
+		//private int ticksToAgeReversal;
+
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	AgelessUtility.InitialRejuvenation(pawn);
+		//	ResetInterval();
+		//}
+
+		//public override void TickInterval(int delta)
+		//{
+		//	//base.delta();
+		//	ticksToAgeReversal -= delta;
+		//	if (ticksToAgeReversal > 0)
+		//	{
+		//		return;
+		//	}
+		//	ResetInterval();
+		//	AgeReversal();
+		//}
+
+		//public void AgeReversal()
+		//{
+		//	if (AgelessUtility.CanAgeReverse(pawn))
+		//	{
+		//		AgelessUtility.AgeReverse(pawn);
+		//	}
+		//}
+
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: Revers age",
+		//			action = delegate
+		//			{
+		//				//AgeReversal();
+		//				//ResetInterval();
+		//				ticksToAgeReversal = 0;
+		//			}
+		//		};
+		//	}
+		//}
+
+		//private void ResetInterval()
+		//{
+		//	IntRange intRange = new(300000, 900000);
+		//	ticksToAgeReversal = intRange.RandomInRange;
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref ticksToAgeReversal, "ticksToAgeReversal", 0);
+		//}
 	}
 
 	public class Gene_ResurgentAgeless : Gene_ResurgentDependent
