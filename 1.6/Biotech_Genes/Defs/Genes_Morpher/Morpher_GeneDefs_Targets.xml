@@ -22,8 +22,8 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<morpherXenotypeChances>
-			  <WVC_Resurgent>0.50</WVC_Resurgent>
-			  <WVC_Featherdust>0.42</WVC_Featherdust>
+			  <WVC_Resurgent>0.60</WVC_Resurgent>
+			  <WVC_Featherdust>0.32</WVC_Featherdust>
 			  <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.08</WVC_Ashen>
 			</morpherXenotypeChances>
 		</li>

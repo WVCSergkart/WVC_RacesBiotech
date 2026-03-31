@@ -34,22 +34,21 @@
 	</Operation>
 
 	<!-- Featherdust Rework Part 2 -->
-	<Operation Class="PatchOperationRemove">
-	  <xpath>/Defs/XenotypeDef/genes/li[@Featherdust="RemoveMe"]</xpath>
-	  <success>Always</success>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/XenotypeDef[defName="WVC_Featherdust"]/genes</xpath>
-	  <value>
-		<li>WVC_Fragile</li>
-		<li>WVC_Hands_Angel</li>
-		<li>WVC_Pain_Extra</li>
-		<!-- <li>Aggression_HyperAggressive</li> -->
-		<li>WVC_Dustogenic_Reincarnation</li>
-		<li>WVC_WoundHealing_UnrealFast</li>
-		<li>WVC_Dustogenic_Clotting</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationRemove"> -->
+	  <!-- <xpath>/Defs/XenotypeDef/genes/li[@Featherdust="RemoveMe"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Featherdust"]/genes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_Fragile</li> -->
+		<!-- <li>WVC_Hands_Angel</li> -->
+		<!-- <li>WVC_Pain_Extra</li> -->
+		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
+		<!-- <li>WVC_WoundHealing_UnrealFast</li> -->
+		<!-- <li>WVC_Dustogenic_Clotting</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationRemove"> -->
 	  <!-- <xpath>/Defs/RecipeDef[@WVC_XaG_Tag_ForMassiveRemove="ThingDefs" or @WVC_XaG_Tag_ForMassiveRemove="SerumRecipesDefs"]</xpath> -->

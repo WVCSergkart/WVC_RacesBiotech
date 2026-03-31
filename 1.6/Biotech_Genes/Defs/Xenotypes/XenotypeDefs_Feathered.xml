@@ -59,7 +59,7 @@
 		<li>WVC_MechaPowerSource_Stable</li>
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_Dustogenic_Blesslink</li>
-		<li Featherdust="RemoveMe">WVC_WoundHealing_Unnatural</li>
+		<!-- <li Featherdust="RemoveMe">WVC_WoundHealing_Unnatural</li> -->
 		<li>WVC_Dustogenic_ImmaculateConception</li>
 		<li>WVC_MecaBodyParts_Jaw</li>
 		<li>Immunity_SuperStrong</li>
@@ -68,7 +68,7 @@
 		<li>ToxResist_Total</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
 		<li>WVC_IncestLover</li>
-		<li Featherdust="RemoveMe">Fertile</li>
+		<!-- <li Featherdust="RemoveMe">Fertile</li> -->
 		<li>WVC_Dustogenic_AngelBeauty</li>
 		<li>WVC_Wings_FeatheredWings</li>
 		<li>WVC_HeadBoneCurveHorns</li>
@@ -78,7 +78,14 @@
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
-		<li Featherdust="RemoveMe">WVC_Traitless</li>
+		<!-- <li Featherdust="RemoveMe">WVC_Traitless</li> -->
+		<!-- v2 -->
+		<li>WVC_Fragile</li>
+		<li>WVC_Hands_Angel</li>
+		<li>WVC_Pain_Extra</li>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>WVC_Dustogenic_Clotting</li>
 	</genes>
   </XenotypeDef>
 
