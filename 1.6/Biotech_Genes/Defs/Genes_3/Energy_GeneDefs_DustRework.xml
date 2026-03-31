@@ -27,7 +27,7 @@
 	  <li>Reduces the effectiveness of food by 2 times.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <MaxNutrition>5.0</MaxNutrition>
+	  <MaxNutrition>3.0</MaxNutrition>
 	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>

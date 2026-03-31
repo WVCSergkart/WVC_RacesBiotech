@@ -319,39 +319,6 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
-	<defName>WVC_Dustogenic_Clotting</defName>
-	<label>dustogenic clotting</label>
-	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
-	<iconColor>(241, 175, 129)</iconColor>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<displayOrderInCategory>35</displayOrderInCategory>
-	<resourceLossPerDay>0.04</resourceLossPerDay>
-	<selectionWeight>0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<customEffectDescriptions>
-		<li>If a pawn is downed/sleep, its wounds will be automatically treated.</li>
-		<li>Each wound costs 0.05 nutrition to treat</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>SuperClotting</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>bleed</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<hideGene>true</hideGene>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
-	</modExtensions>
-  </GeneDef>
-
   <!-- dustogenic genetic -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">

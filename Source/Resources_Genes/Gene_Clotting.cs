@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -40,15 +41,15 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_DustClotting : XaG_Gene
+	public class Gene_DownedClotting : XaG_Gene
 	{
 
-		private static readonly FloatRange TendingQualityRange = new(0.8f, 1.0f);
+		private static readonly FloatRange TendingQualityRange = new(0.2f, 1.0f);
 
 		public override void TickInterval(int delta)
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(1500, delta))
+			if (!pawn.IsHashIntervalTick(2500, delta))
 			{
 				return;
 			}
@@ -59,10 +60,16 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				GeneResourceUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				//GeneResourceUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 			}
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_DustClotting : Gene_DownedClotting
+	{
 
 	}
 

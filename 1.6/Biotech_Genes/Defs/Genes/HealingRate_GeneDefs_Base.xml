@@ -63,13 +63,14 @@
 	<label>unrealfast wound healing</label>
 	<labelShortAdj>unreal-heal</labelShortAdj>
 	<description>Carriers of this gene heal from wounds eight times as fast as normal.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_BodyPartsRestoration</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_UnrealFastHealing</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v2</iconPath>
 	<displayOrderInCategory>60</displayOrderInCategory>
 	<marketValueFactor>1.6</marketValueFactor>
 	<biostatMet>-5</biostatMet>
 	<customEffectDescriptions>
-	  <li>Restores a lost limb every (*DateTime)15-30 days(/DateTime).</li>
+	  <!-- <li>Restores a lost limb every (*DateTime)15-30 days(/DateTime).</li> -->
+	  <li>Regenerates limbs, organs and wounds.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <InjuryHealingFactor>8</InjuryHealingFactor>

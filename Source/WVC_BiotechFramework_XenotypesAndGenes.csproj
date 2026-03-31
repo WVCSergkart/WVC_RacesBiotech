@@ -89,6 +89,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
+    <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Blacklist.cs" />
@@ -251,7 +252,7 @@
     <Compile Include="Resources_Genes\Gene_Morpher.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />
     <Compile Include="Resources_Genes\Gene_Psylink.cs" />
-    <Compile Include="Resources_Genes\Gene_Regen.cs" />
+    <Compile Include="Resources_Genes\Gene_MachineWoundHealing.cs" />
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Genes\Gene_Shapeshifter_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_SunAndDarkness.cs" />
