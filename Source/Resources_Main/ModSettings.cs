@@ -70,7 +70,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_pregnancyForAllGenders = false;
 		// Reincarnation
 		public float reincarnation_MinChronoAge = 200f;
-		public float reincarnation_Chance = 0.12f;
+		public float reincarnation_Chance = 1.0f;
+		public float reincarnation_DelayDays = 15f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodfeeder_AutoBloodfeed = false;
@@ -224,7 +225,8 @@ namespace WVC_XenotypesAndGenes
 			// Reincarnation
 			//Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
-			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.12f);
+			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 1.0f);
+			Scribe_Values.Look(ref reincarnation_DelayDays, "reincarnation_DelayDays", defaultValue: 15f);
 			// Hemogenic
 			Scribe_Values.Look(ref harmony_EnableGenesMechanicsTriggers, "harmony_EnableGenesMechanicsTriggers", defaultValue: true);
 			//Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
@@ -948,6 +950,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
+				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_DelayDays".Translate((settings.reincarnation_DelayDays * 100f).ToString()), ref settings.reincarnation_DelayDays, 1f, 120f, round: 0, tooltip: "WVC_ToolTip_reincarnation_DelayDays".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_featheredAgeless_GenesCostFactor".Translate(settings.featheredAgeless_GenesCostFactor.ToString()), ref settings.featheredAgeless_GenesCostFactor, 0f, 10f, round: 1, tooltip: "WVC_ToolTip_featheredAgeless_GenesCostFactor".Translate());
 			}
 			listingStandard.GapLine();
@@ -1209,6 +1212,7 @@ namespace WVC_XenotypesAndGenes
 			//WVC_Biotech.settings.reincarnation_EnableMechanic = settingsDef.reincarnation_EnableMechanic;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = settingsDef.reincarnation_MinChronoAge;
 			WVC_Biotech.settings.reincarnation_Chance = settingsDef.reincarnation_Chance;
+			WVC_Biotech.settings.reincarnation_DelayDays = settingsDef.reincarnation_DelayDays;
 			// =
 			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = settingsDef.harmony_EnableGenesMechanicsTriggers;
 			//WVC_Biotech.settings.bloodeater_SafeBloodfeed = settingsDef.bloodeater_SafeBloodfeed;

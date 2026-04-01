@@ -10,7 +10,7 @@
 	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
 	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation), Invisibility, Ageless</WVC_XaGGeneSettings_Undead>
 	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
-	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
+	<!-- <WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation> -->
 	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator, Archiver</WVC_XaGGeneSettings_Shapeshifer>
 	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
 	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
@@ -77,12 +77,15 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
 	<!-- ================================== -->
 
-	<WVC_Label_reincarnation_EnableMechanic>Enable reincarnation mechanic</WVC_Label_reincarnation_EnableMechanic>
-	<WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic>
+	<!-- <WVC_Label_reincarnation_EnableMechanic>Enable reincarnation mechanic</WVC_Label_reincarnation_EnableMechanic> -->
+	<!-- <WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic> -->
 
 	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
 
 	<WVC_Label_reincarnation_Chance>Reincarnation chance {0}%</WVC_Label_reincarnation_Chance>
+
+	<WVC_Label_reincarnation_DelayDays>Reincarnation delay {0} days</WVC_Label_reincarnation_DelayDays>
+	<WVC_ToolTip_reincarnation_DelayDays>Delay before the descendant pawn's arrival. Note that this does not delay the arrival if the gene carrier's body is destroyed, but only sets a deadline if their body is rotting on the ground.\n\nFor balance (or pain), it is recommended to set a minimum of 60 days. The default is 15 days.</WVC_ToolTip_reincarnation_DelayDays>
 
 	<!-- ================================== -->
 

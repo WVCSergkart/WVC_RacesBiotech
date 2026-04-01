@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
@@ -120,14 +121,11 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		//public override void ExposeData()
-		//{
-		//	Scribe_Deep.Look(ref knownXenotypeDefs, "knownXenotypeDefs");
-		//	if (knownXenotypeDefs == null)
-		//          {
-		//		knownXenotypeDefs = new();
-		//	}
-		//}
+		public List<ReincarnationSet> reincarnations;
+		public override void ExposeData()
+		{
+			Scribe_Deep.Look(ref reincarnations, "reincarnations");
+		}
 
 		public override void GameComponentTick()
 		{
@@ -157,6 +155,47 @@ namespace WVC_XenotypesAndGenes
 			//	nextSecondRecache = 1;
 			//}
 			//HealingUtility.UpdRegenCollection();
+			TryReincarnate();
+		}
+
+		public void TryReincarnate()
+		{
+			if (reincarnations == null)
+			{
+				return;
+			}
+			try
+			{
+				foreach (ReincarnationSet reincarnation in reincarnations.ToList())
+				{
+					if (reincarnation.asker == null || reincarnation.questScriptDefs.NullOrEmpty())
+					{
+						reincarnations.Remove(reincarnation);
+						continue;
+					}
+					if (!reincarnation.asker.Dead)
+					{
+						reincarnations.Remove(reincarnation);
+						continue;
+					}
+					if (reincarnation.asker.Corpse == null || reincarnation.asker.Corpse.Age > WVC_Biotech.settings.reincarnation_DelayDays * 60000)
+					{
+						foreach (QuestScriptDef item in reincarnation.questScriptDefs)
+						{
+							Gene_Reincarnation.ReincarnationQuest(reincarnation.asker, item);
+						}
+						reincarnations.Remove(reincarnation);
+					}
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed trigger reincarnation. Reason: " + arg.Message);
+			}
+			if (reincarnations.Empty())
+			{
+				reincarnations = null;
+			}
 		}
 
 		public void DelayRecache(int delay = 1500)

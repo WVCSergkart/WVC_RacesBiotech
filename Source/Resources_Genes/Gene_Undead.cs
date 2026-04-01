@@ -174,44 +174,67 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_PawnDied(dinfo, culprit);
-			if (!CanReincarnate())
+			//if (!CanReincarnate())
+			//{
+			//	return;
+			//}
+			//TryReincarnate(pawn, Spawner.summonQuest, WVC_Biotech.settings.reincarnation_Chance);
+			if (Rand.Chance(WVC_Biotech.settings.reincarnation_Chance))
 			{
-				return;
+				SetupReincarnation();
 			}
-			TryReincarnate(pawn, Spawner.summonQuest, WVC_Biotech.settings.reincarnation_Chance);
 		}
 
-		public bool CanReincarnate()
+		private void SetupReincarnation()
 		{
-			return CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge);
+			XaG_GameComponent xaG_GameComponent = Current.Game?.GetComponent<XaG_GameComponent>();
+			if (xaG_GameComponent != null)
+			{
+				if (xaG_GameComponent.reincarnations == null)
+				{
+					xaG_GameComponent.reincarnations = new();
+				}
+				ReincarnationSet newSet = new ReincarnationSet(pawn, Spawner.summonQuest, GestationUtility.BabiesCount(pawn));
+				xaG_GameComponent.reincarnations.Add(newSet);
+			}
+			//if (XaG_GameComponent.reincarnations == null)
+			//{
+			//	XaG_GameComponent.reincarnations = new();
+			//}
+			//XaG_GameComponent.reincarnations.Add(new(pawn, Spawner.summonQuest, GestationUtility.BabiesCount(pawn)));
 		}
 
-		public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
-		{
-			if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
-			{
-				return false;
-			}
-			if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
-			{
-				return true;
-			}
-			return false;
-		}
+		//public bool CanReincarnate()
+		//{
+		//	return CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge);
+		//}
 
-		public static bool TryReincarnate(Pawn pawn, QuestScriptDef summonQuest, float reincarnationChance = 0.01f)
-		{
-			if (!Rand.Chance(reincarnationChance))
-			{
-				return false;
-			}
-			int litterSize = GestationUtility.BabiesCount(pawn);
-			for (int i = 0; i < litterSize; i++)
-			{
-				ReincarnationQuest(pawn, summonQuest);
-			}
-			return true;
-		}
+		//public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
+		//{
+		//	if (WVC_Biotech.settings.reincarnation_Chance <= 0f)
+		//	{
+		//		return false;
+		//	}
+		//	if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
+		//public static bool TryReincarnate(Pawn pawn, QuestScriptDef summonQuest, float reincarnationChance = 0.01f)
+		//{
+		//	if (!Rand.Chance(reincarnationChance))
+		//	{
+		//		return false;
+		//	}
+		//	int litterSize = GestationUtility.BabiesCount(pawn);
+		//	for (int i = 0; i < litterSize; i++)
+		//	{
+		//		ReincarnationQuest(pawn, summonQuest);
+		//	}
+		//	return true;
+		//}
 
 		public static void ReincarnationQuest(Pawn pawn, QuestScriptDef quest)
 		{
@@ -220,10 +243,10 @@ namespace WVC_XenotypesAndGenes
 			_ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
 		}
 
-		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
-		}
+		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		//{
+		//	yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
+		//}
 
 	}
 

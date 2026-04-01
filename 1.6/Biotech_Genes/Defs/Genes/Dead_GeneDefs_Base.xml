@@ -107,7 +107,9 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>In case of death, with some chance &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
+		<!-- <li>In case of death, with some chance &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li> -->
+		<li>After death, within 15 days, a &lt;color=#8a8ae6&gt;descendant&lt;/color&gt; may arrive.</li>
+		<li>If the pawn is &lt;color=#8a8ae6&gt;resurrected&lt;/color&gt; during this time, the &lt;color=#8a8ae6&gt;descendant&lt;/color&gt; will not arrive.</li>
 		<li>Descendant inherits &lt;color=#8a8ae6&gt;xenotype, genes, backstory, skills, traits and apperance&lt;/color&gt; of the carrier.</li>
 		<li>&lt;color=#ff8585&gt;Chrono age must be above 200 years.&lt;/color&gt;</li>
 	</customEffectDescriptions>

@@ -56,7 +56,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_pregnancyForAllGenders = false;
 		// Reincarnation
 		public float reincarnation_MinChronoAge = 200f;
-		public float reincarnation_Chance = 0.12f;
+		public float reincarnation_Chance = 1.0f;
+		public float reincarnation_DelayDays = 15f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodfeeder_AutoBloodfeed = false;
