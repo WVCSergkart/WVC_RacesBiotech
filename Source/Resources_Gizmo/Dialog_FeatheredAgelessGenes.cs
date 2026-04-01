@@ -7,147 +7,231 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	//public class Dialog_FeatheredAgelessGenes : Dialog_EditShiftGenes
-	//{
+	public class Dialog_FeatheredAgelessGenes : Dialog_EditShiftGenes
+	{
 
-	//	private Gene_FeatheredAgeless gene_FeatheredAgeless;
+		private Gene_FeatheredAgeless gene_FeatheredAgeless;
+		private bool isArchite;
 
-	//	public Dialog_FeatheredAgelessGenes(Gene pawnGene) : base(pawnGene)
-	//	{
-	//		geneMatStats = new GeneMatStatData[2]
-	//		{
-	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherAge", "WVC_XaG_GeneticMaterial_FeatherAgeDesc", ReqTex.Texture),
-	//			new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_FeatherGenesDesc", HasTex.Texture),
-	//		};
-	//	}
+		public Dialog_FeatheredAgelessGenes(Gene pawnGene) : base(pawnGene)
+		{
+			Gene_FeatheredAgeless.ResetCache();
+			geneMatStats = new GeneMatStatData[2]
+			{
+				new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherAge", "WVC_XaG_GeneticMaterial_FeatherAgeDesc", HasTex.Texture),
+				new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherReq", "WVC_XaG_GeneticMaterial_FeatherReqDesc", ReqTex.Texture),
+			};
+		}
 
-	//	public override CachedTexture HasTex => XaG_UiUtility.FeatheredGenMatHasTex;
-	//	public override CachedTexture ReqTex => XaG_UiUtility.FeatheredGenMatReqTex;
+		public override CachedTexture HasTex => XaG_UiUtility.FeatheredGenMatHasTex;
+		public override CachedTexture ReqTex => XaG_UiUtility.FeatheredGenMatReqTex;
 
-	//	//public override int ReqGeneMat => base.ReqGeneMat;
+		//public override int ReqGeneMat => base.ReqGeneMat;
 
-	//	public int CostFactor => 4;
-	//	private int GetGeneCost(GeneDefWithChance newGene)
-	//	{
-	//		return newGene.Cost * CostFactor;
-	//	}
+		//public override void DrawBiostats(int geneMat, ref float curX, float curY, float margin = 6)
+		//{
+		//	float num2 = 0f;
+		//	float num3 = Text.LineHeightOf(GameFont.Small);
+		//	Rect iconRect = new(curX, curY + margin + num2, num3, num3);
+		//	if (geneMat > 0)
+		//	{
+		//		XaG_UiUtility.DrawStat(iconRect, ReqTex, geneMat.ToString(), num3);
+		//	}
+		//	curX += 34f;
+		//}
 
-	//	private static List<Pawn> Colonists => PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists;
+		public int CostFactor => 1;
+		private int GetGeneCost(GeneDefWithChance newGene)
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				return 0;
+			}
+			return newGene.Cost * CostFactor + 7;
+		}
 
-	//	private int? cachedGeneMat;
-	//	public override int AllGeneMat
-	//	{
-	//		get
-	//		{
-	//			if (cachedGeneMat == null)
-	//			{
-	//				try
-	//				{
-	//					SimpleCurve curve = new()
-	//					{
-	//						new CurvePoint(1, 1),
-	//						new CurvePoint(100, 60),
-	//						new CurvePoint(200, 70),
-	//						new CurvePoint(400, 80),
-	//						new CurvePoint(1000, 120)
-	//					};
-	//					cachedGeneMat = Gene_FeatheredAgeless.collectedYears + Colonists.Where(pawn => pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() != null).Sum(pawn => (int)curve.Evaluate(pawn.ageTracker.AgeChronologicalYears) + pawn.ageTracker.AgeBiologicalYears);
-	//				}
-	//				catch (Exception arg)
-	//				{
-	//					Log.Error("Failed count all player pawn summary years. Reason: " + arg.Message);
-	//					cachedGeneMat = 0;
-	//				}
-	//			}
-	//			return cachedGeneMat.Value;
-	//		}
-	//	}
+		//private int? cachedGeneMat;
+		//public override int AllGeneMat
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneMat == null)
+		//		{
+		//			try
+		//			{
+		//				SimpleCurve curveChrono = new()
+		//				{
+		//					new CurvePoint(1, 1),
+		//					new CurvePoint(100, 40),
+		//					new CurvePoint(200, 45),
+		//					new CurvePoint(400, 50),
+		//					new CurvePoint(1000, 70)
+		//				};
+		//				SimpleCurve curveBio = new()
+		//				{
+		//					new CurvePoint(1, 1),
+		//					new CurvePoint(18, 40),
+		//					new CurvePoint(20, 20),
+		//					new CurvePoint(100, 40)
+		//				};
+		//				cachedGeneMat = Colonists.Where(pawn => pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() != null).Sum(pawn => (int)curveChrono.Evaluate(pawn.ageTracker.AgeChronologicalYears) + (int)curveBio.Evaluate(pawn.ageTracker.AgeBiologicalYears));
+		//			}
+		//			catch (Exception arg)
+		//			{
+		//				Log.Error("Failed count all player pawn summary years. Reason: " + arg.Message);
+		//				cachedGeneMat = 0;
+		//			}
+		//		}
+		//		return cachedGeneMat.Value;
+		//	}
+		//}
+		public override int AllGeneMat => gene_FeatheredAgeless.AllGeneMat;
 
-	//	protected override void SwitchButton(Rect rect3)
-	//	{
+		protected override void SwitchButton(Rect rect3)
+		{
 
-	//	}
+		}
 
-	//	public override void OnGenesChanged()
-	//	{
-	//		cachedReqGeneMat = null;
-	//		base.OnGenesChanged();
-	//	}
+		public override void OnGenesChanged()
+		{
+			cachedReqGeneMat = null;
+			base.OnGenesChanged();
+		}
 
-	//	private int? cachedReqGeneMat;
-	//	public override int ReqGeneMat
-	//	{
-	//		get
-	//		{
-	//			if (cachedReqGeneMat == null)
-	//			{
-	//				int value = base.ReqGeneMat;
-	//				foreach (Pawn pawn in Colonists)
-	//				{
-	//					if (pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() == null)
-	//					{
-	//						continue;
-	//					}
-	//					foreach (Gene gene in pawn.genes.GenesListForReading)
-	//					{
-	//						if (gene_FeatheredAgeless.Undead.geneDefs.Contains(gene.def))
-	//						{
-	//							GeneDefWithChance newGene = new()
-	//							{
-	//								geneDef = gene.def
-	//							};
-	//							value += GetGeneCost(newGene);
-	//						}
-	//					}
-	//				}
-	//				cachedReqGeneMat = value;
-	//			}
-	//			return cachedReqGeneMat.Value;
-	//		}
-	//	}
+		private int? cachedReqGeneMat;
+		public override int ReqGeneMat
+		{
+			get
+			{
+				if (cachedReqGeneMat == null)
+				{
+					int value = base.ReqGeneMat;
+					foreach (Pawn pawn in Gene_FeatheredAgeless.Colonists)
+					{
+						if (pawn.genes?.GetFirstGeneOfType<Gene_FeatheredAgeless>() == null)
+						{
+							continue;
+						}
+						foreach (Gene gene in pawn.genes.GenesListForReading)
+						{
+							if (gene_FeatheredAgeless.Undead.geneDefs.Contains(gene.def))
+							{
+								GeneDefWithChance newGene = new()
+								{
+									geneDef = gene.def
+								};
+								value += GetGeneCost(newGene);
+							}
+						}
+					}
+					cachedReqGeneMat = value;
+				}
+				return cachedReqGeneMat.Value;
+			}
+		}
 
-	//	public override void Accept()
-	//	{
-	//		Log.Error("Accpeted");
-	//	}
+		public override bool CanAccept(bool throwMessage = false)
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn, throwMessage))
+			{
+				return false;
+			}
+			if (SelectedGenes.Empty())
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_GeneGeneticThief_NullGeneSet".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (SelectedGenes.Any((geneChance) => geneChance.disabled))
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_DialogFeatheredAgelessGenes_Disabled".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (AllGeneMat < ReqGeneMat)
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_DialogEditShiftGenes_NeedMoreAmount".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			List<GeneDefWithChance> selectedGenes = SelectedGenes;
+			foreach (GeneDefWithChance selectedGene in SelectedGenes)
+			{
+				if (selectedGene.geneDef.prerequisite != null && !Contains(selectedGenes, selectedGene.geneDef.prerequisite) && !pawnGenes.Contains(selectedGene.geneDef.prerequisite))
+				{
+					if (throwMessage)
+					{
+						Messages.Message("MessageGeneMissingPrerequisite".Translate(selectedGene.geneDef.label).CapitalizeFirst() + ": " + selectedGene.geneDef.prerequisite.LabelCap, null, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+			}
+			return true;
+		}
 
-	//	protected override void SetupAvailableGenes(Gene gene)
-	//	{
-	//		if (gene is Gene_FeatheredAgeless ageless)
-	//		{
-	//			this.gene_FeatheredAgeless = ageless;
-	//		}
-	//		else
-	//		{
-	//			return;
-	//		}
-	//		foreach (GeneDef item in gene_FeatheredAgeless.Undead.geneDefs)
-	//		{
-	//			if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
-	//			{
-	//				continue;
-	//			}
-	//			GeneDefWithChance geneDefWithChance = new();
-	//			geneDefWithChance.geneDef = item;
-	//			geneDefWithChance.disabled = pawnGenes.Contains(item);
-	//			//GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
-	//			if (item.biostatArc == 0)
-	//			{
-	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
-	//			}
-	//			else
-	//			{
-	//				geneDefWithChance.displayCategory = GeneCategoryDefOf.Archite;
-	//			}
-	//			geneDefWithChance.Cost = GetGeneCost(geneDefWithChance);
-	//			if (DebugSettings.ShowDevGizmos)
-	//			{
-	//				geneDefWithChance.Cost = 0;
-	//			}
-	//			allGenes.Add(geneDefWithChance);
-	//		}
-	//	}
+		public override void Accept()
+		{
+			foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
+			{
+				if (geneDefWithChance.disabled)
+				{
+					continue;
+				}
+				if (XaG_GeneUtility.TryRemoveAllConflicts(gene.pawn, geneDefWithChance.geneDef))
+				{
+					gene.pawn.genes.AddGene(geneDefWithChance.geneDef, !inheritable);
+				}
+			}
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
+			Close();
+		}
 
-	//}
+		protected override void SetupAvailableGenes(Gene gene)
+		{
+			if (gene is Gene_FeatheredAgeless ageless)
+			{
+				this.gene_FeatheredAgeless = ageless;
+			}
+			else
+			{
+				return;
+			}
+			isArchite = pawnGenes.Any(def => def.biostatArc != 0);
+			//List<GeneDef> pawnGenes = gene.pawn.genes.GenesListForReading.ConvertToDefs();
+			foreach (GeneDef item in gene_FeatheredAgeless.Undead.geneDefs)
+			{
+				if (!isArchite && item.biostatArc != 0)
+				{
+					continue;
+				}
+				if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+				{
+					continue;
+				}
+				GeneDefWithChance geneDefWithChance = new();
+				geneDefWithChance.geneDef = item;
+				geneDefWithChance.disabled = pawnGenes.Contains(item);
+				//GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
+				geneDefWithChance.displayCategory = item.displayCategory;
+				//if (item.biostatArc == 0)
+				//{
+				//	geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
+				//}
+				//else
+				//{
+				//	geneDefWithChance.displayCategory = GeneCategoryDefOf.Archite;
+				//}
+				geneDefWithChance.Cost = GetGeneCost(geneDefWithChance);
+				allGenes.Add(geneDefWithChance);
+			}
+		}
+
+	}
 
 }

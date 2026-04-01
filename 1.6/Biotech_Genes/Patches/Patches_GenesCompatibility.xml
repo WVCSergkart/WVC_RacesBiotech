@@ -142,6 +142,16 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="Superclotting"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>SuperClotting</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
 	  <!-- <xpath>/Defs/ThoughtDef[defName="SoakingWet"]</xpath> -->
 	  <!-- <safetyDepth>1</safetyDepth> -->

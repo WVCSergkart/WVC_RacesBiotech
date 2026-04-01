@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2675687089
+CRC: 1669843819
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fba5026b970a38298949c94041887cb4
+    Hash: b23c558d8ff81ef880c432d97d2ca221
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 04c4af01d27725ec262c415e0c308d81
+    Hash: 7676bc7b6b73038733a87ce7378d831f
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -555,6 +555,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Bloodeater_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_MetLimit_5x0c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Hivemind_EfficiencyNode.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/GenMatTex_FeathersReq.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/Minus.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Prey_A.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_GestatorGauranlen_v0.png
@@ -642,9 +643,10 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/NaturalCatEars_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/Shapeshifter_Head/Head_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Duplicator_LowOutChance.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno1.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/GenMatTex_FeathersHas.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Reimplanter_Bloodfeeder_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/GeneticStabilitySerumArcho_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno1.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v1.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_Thrall_x1c_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Hulk_south.png

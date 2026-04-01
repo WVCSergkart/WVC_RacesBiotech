@@ -706,7 +706,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		private static bool Contains(List<GeneDefWithChance> list, GeneDef geneDef)
+		public static bool Contains(List<GeneDefWithChance> list, GeneDef geneDef)
 		{
 			foreach (GeneDefWithChance selectedGene in list)
 			{

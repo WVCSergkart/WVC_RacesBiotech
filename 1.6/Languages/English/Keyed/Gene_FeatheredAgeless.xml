@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<!-- generic -->
-	<!-- <WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes> -->
-	<!-- generic -->
-	<!-- <WVC_XaG_GeneticMaterial_FeatherGenesDesc>The total genetic material of all selected genes. This value is affected by all feathered ageless colonists with the genes from the list. For implantation, this should not exceed the total age material.</WVC_XaG_GeneticMaterial_FeatherGenesDesc> -->
-	<!-- <WVC_XaG_GeneticMaterial_FeatherAge>Feathered ages material</WVC_XaG_GeneticMaterial_FeatherAge> -->
-	<!-- <WVC_XaG_GeneticMaterial_FeatherAgeDesc>Total biological and chronological years converted into genetic material. This value is influenced by all feathered ageless colonists.</WVC_XaG_GeneticMaterial_FeatherAgeDesc> -->
+	<WVC_XaG_GeneticMaterial_FeatherReq>Required genetic</WVC_XaG_GeneticMaterial_FeatherReq>
+	<WVC_XaG_GeneticMaterial_FeatherReqDesc>The total genetic value of the genes of all &lt;color=#8a8ae6&gt;feathered&lt;/color&gt; ageless colonists. For any gene to be implanted, this value must be lower than the &lt;color=#8a8ae6&gt;total genetic&lt;/color&gt;.
 
-	<!-- <WVC_XaG_FeatheredAgelessLabel>Implanter</WVC_XaG_FeatheredAgelessLabel> -->
-	<!-- <WVC_XaG_FeatheredAgelessDesc>Opens a menu where you can implant desired genes, at the cost of the combined genetic material of all feathered ageless colonists.</WVC_XaG_FeatheredAgelessDesc> -->
+This value is affected by &lt;color=#8a8ae6&gt;all genes&lt;/color&gt; from the list present in the target pawns. This includes the carrier's genes. However, overwriting old genes requires maintaining the limit and does not deduct the cost of potentially deleted genes.</WVC_XaG_GeneticMaterial_FeatherReqDesc>
+	<WVC_XaG_GeneticMaterial_FeatherAge>Total genetic</WVC_XaG_GeneticMaterial_FeatherAge>
+	<WVC_XaG_GeneticMaterial_FeatherAgeDesc>The total genetic strength of all &lt;color=#8a8ae6&gt;feathered&lt;/color&gt; ageless colonists. It is calculated from &lt;color=#8a8ae6&gt;biological&lt;/color&gt; age and &lt;color=#8a8ae6&gt;chronological&lt;/color&gt; age.
+
+&lt;color=#8a8ae6&gt;Genetic value&lt;/color&gt; can be increased by using young colonists (18 years) and/or high chronological age. However, the effectiveness of chronoage is significantly less than that of bioage.</WVC_XaG_GeneticMaterial_FeatherAgeDesc>
+
+	<WVC_XaG_FeatheredAgelessLabel>Implanter</WVC_XaG_FeatheredAgelessLabel>
+	<WVC_XaG_FeatheredAgelessDesc>Opens a menu where you can select the desired genes and implant them. Implantation requires a certain level of &lt;color=#8a8ae6&gt;genetic value&lt;/color&gt; in the colony.</WVC_XaG_FeatheredAgelessDesc>
+
+	<WVC_XaG_DialogFeatheredAgelessGenes_Disabled>It is not possible to implant some selected genes.</WVC_XaG_DialogFeatheredAgelessGenes_Disabled>
+
+	<WVC_XaG_FeatheredAgelees_TotalGeneMatLabel>gen-val {0}</WVC_XaG_FeatheredAgelees_TotalGeneMatLabel>
 
 </LanguageData>
