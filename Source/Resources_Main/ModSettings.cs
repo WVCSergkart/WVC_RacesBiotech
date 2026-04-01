@@ -44,8 +44,10 @@ namespace WVC_XenotypesAndGenes
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
-		[Obsolete]
+		// Remove?
+		//[Obsolete]
 		public bool disableNonAcceptablePreyGenes = false;
+		//
 		public bool enable_OverOverridableGenesMechanic = true;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -71,13 +73,14 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
-		//public bool bloodeater_SafeBloodfeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
 		// Invisibility
 		public float invisibility_invisBonusTicks = 0;
+		// Ageless
+		public float featheredAgeless_GenesCostFactor = 1f;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
@@ -232,6 +235,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref thrallMaker_cooldownOverride, "thrallMaker_cooldownOverride", defaultValue: 9f);
 			Scribe_Values.Look(ref invisibility_invisBonusTicks, "invisibility_invisDurationFactor", defaultValue: 0f);
 			//Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
+			Scribe_Values.Look(ref featheredAgeless_GenesCostFactor, "featheredAgeless_GenesCostFactor", defaultValue: 1f);
 			// Links
 			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: false);
@@ -944,6 +948,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
+				listingStandard.SliderLabeledWithRef("WVC_Label_featheredAgeless_GenesCostFactor".Translate(settings.featheredAgeless_GenesCostFactor.ToString()), ref settings.featheredAgeless_GenesCostFactor, 0f, 10f, round: 1, tooltip: "WVC_ToolTip_featheredAgeless_GenesCostFactor".Translate());
 			}
 			listingStandard.GapLine();
 			// =
@@ -1187,6 +1192,8 @@ namespace WVC_XenotypesAndGenes
 			//WVC_Biotech.settings.enableHarmonyTelepathyGene = settingsDef.enableHarmonyTelepathyGene;
 			// =
 			WVC_Biotech.settings.invisibility_invisBonusTicks = settingsDef.invisibility_invisBonusTicks;
+			// =
+			WVC_Biotech.settings.featheredAgeless_GenesCostFactor = settingsDef.featheredAgeless_GenesCostFactor;
 			// =
 			WVC_Biotech.settings.enable_OverOverridableGenesMechanic = settingsDef.enable_OverOverridableGenesMechanic;
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;

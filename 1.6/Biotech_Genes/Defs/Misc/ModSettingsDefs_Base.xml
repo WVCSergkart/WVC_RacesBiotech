@@ -30,7 +30,7 @@
 	<hideGeneHediffs>true</hideGeneHediffs>
 	<enable_chimeraXenogermCD>True</enable_chimeraXenogermCD>
 	<!-- <offsetMarketPriceFromGenes>True</offsetMarketPriceFromGenes> -->
-	<enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch>
+	<!-- <enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch> -->
 	<chimera_defaultReqMetabolismRange>-5~5</chimera_defaultReqMetabolismRange>
 	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
 	<!-- <enable_DevModeInfo>True</enable_DevModeInfo> -->
@@ -115,8 +115,11 @@
 	<!-- public bool canNonPlayerPawnResurrect = true; -->
 	<!-- public bool totalHealingIgnoreScarification = true; -->
 	<!-- public bool enableIncestLoverGene = true; -->
+	<!-- // Remove? -->
+	<!-- //[Obsolete] -->
 	<!-- public bool disableNonAcceptablePreyGenes = false; -->
-	<!-- public bool enable_OverOverridableGenesMechanic = false; -->
+	<!-- // -->
+	<!-- public bool enable_OverOverridableGenesMechanic = true; -->
 	<!-- public bool disableUniqueXenotypeScenarios = false; -->
 	<!-- public bool restoreBodyPartsWithFullHP = false; -->
 	<!-- public bool thrallMaker_ThrallsInheritMasterGenes = true; -->
@@ -135,18 +138,20 @@
 	<!-- public bool enable_birthQualityOffsetFromGenes = true; -->
 	<!-- public float xenotypeGestator_GestationTimeFactor = 1f; -->
 	<!-- public float xenotypeGestator_GestationMatchPercent = 0.4f; -->
+	<!-- public bool enable_pregnancyForAllGenders = false; -->
 	<!-- // Reincarnation -->
 	<!-- public float reincarnation_MinChronoAge = 200f; -->
 	<!-- public float reincarnation_Chance = 0.12f; -->
 	<!-- // Hemogenic -->
 	<!-- public bool harmony_EnableGenesMechanicsTriggers = true; -->
-	<!-- public bool bloodeater_SafeBloodfeed = false; -->
 	<!-- public bool bloodfeeder_AutoBloodfeed = false; -->
 	<!-- public float hemogenic_ImplanterFangsChanceFactor = 1f; -->
 	<!-- // Thralls -->
 	<!-- public float thrallMaker_cooldownOverride = 9f; -->
 	<!-- // Invisibility -->
 	<!-- public float invisibility_invisBonusTicks = 0; -->
+	<!-- // Ageless -->
+	<!-- public float featheredAgeless_GenesCostFactor = 1f; -->
 	<!-- // Links -->
 	<!-- public bool link_addedMechlinkWithGene = false; -->
 	<!-- public bool link_addedPsylinkWithGene = false; -->
@@ -157,9 +162,9 @@
 	<!-- public IntRange golemlink_golemsToSpawnRange = new(1, 3); -->
 	<!-- public IntRange falselink_spawnIntervalRange = new(480000, 960000); -->
 	<!-- public IntRange falselink_mechsToSpawnRange = new(1, 6); -->
-	<!-- public float voidlink_mechCostFactor = 2f; -->
+	<!-- public float voidlink_mechCostFactor = 3f; -->
 	<!-- public float voidlink_mechCostLimit = 99f; -->
-	<!-- public float voidlink_resourceGainFromMechsFactor = 0.05f; -->
+	<!-- public float voidlink_resourceGainFromMechsFactor = 0.01f; -->
 	<!-- public bool voidlink_dynamicResourceLimit = true; -->
 	<!-- // Shapeshifter Morpher Archiver Traitshifter -->
 	<!-- public float shapeshifer_GeneCellularRegeneration = 1f; -->
@@ -174,10 +179,11 @@
 	<!-- public bool enable_chimeraStartingTools = true; -->
 	<!-- public bool enable_chimeraXenogermCD = false; -->
 	<!-- public bool enable_chimeraXenogenesLimit = true; -->
-	<!-- public IntRange chimera_defaultReqMetabolismRange = new(-99, 99); -->
+	<!-- public IntRange chimera_defaultReqMetabolismRange = new(-5, 5); -->
 	<!-- // Duplicator -->
 	<!-- public float duplicator_RandomOutcomeChance = 0.66f; -->
 	<!-- public float duplicator_RandomGeneChance = 0.12f; -->
+	<!-- public bool duplicator_abilityCastForSourceOnly = false; -->
 	<!-- // Fleshmass -->
 	<!-- public float fleshmass_MaxMutationsLevel = 5f; -->
 	<!-- public bool fleshmass_HideBodypartHediffs = false; -->
@@ -193,8 +199,11 @@
 	<!-- public bool disableXenotypes_Mechalike = false; -->
 	<!-- public bool disableXenotypes_GolemMasters = false; -->
 	<!-- public bool disableXenotypes_Bloodeaters = false; -->
-	<!-- public bool disableXenotypes_MutantMakers = false; -->
+	<!-- public bool disableXenotypes_Hivemind = false; -->
 	<!-- public bool disableXenotypes_Misc = false; -->
+	<!-- // Preferred Xenotypes -->
+	<!-- public bool preferredXenotypes_enableTweak = true; -->
+	<!-- public float preferredXenotypes_RequiredMinMatch = 0.6f; -->
 	<!-- // Misc -->
 	<!-- public bool geneGizmosDefaultCollapse = false; -->
 	<!-- public bool showGenesSettingsGizmo = true; -->
@@ -202,6 +211,6 @@
 	<!-- // ExtraSettings -->
 	<!-- public float generalGenesRarity_Divisor = 0f; -->
 	<!-- public bool offsetMarketPriceFromGenes = false; -->
-	<!-- public bool enable_HideMechanitorButtonsPatch = false; -->
+	<!-- //public bool enable_HideMechanitorButtonsPatch = false; -->
 
 </Defs>

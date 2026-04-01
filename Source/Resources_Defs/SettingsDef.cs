@@ -30,7 +30,10 @@ namespace WVC_XenotypesAndGenes
 		public bool canNonPlayerPawnResurrect = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool enableIncestLoverGene = true;
+		// Remove?
+		//[Obsolete]
 		public bool disableNonAcceptablePreyGenes = false;
+		//
 		public bool enable_OverOverridableGenesMechanic = true;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -56,13 +59,14 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
-		public bool bloodeater_SafeBloodfeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public float thrallMaker_cooldownOverride = 9f;
 		// Invisibility
 		public float invisibility_invisBonusTicks = 0;
+		// Ageless
+		public float featheredAgeless_GenesCostFactor = 1f;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
@@ -122,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 		// ExtraSettings
 		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
-		public bool enable_HideMechanitorButtonsPatch = false;
+		//public bool enable_HideMechanitorButtonsPatch = false;
 
 	}
 

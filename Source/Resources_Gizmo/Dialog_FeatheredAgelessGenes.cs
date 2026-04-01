@@ -40,14 +40,14 @@ namespace WVC_XenotypesAndGenes
 		//	curX += 34f;
 		//}
 
-		public int CostFactor => 1;
+		public float CostFactor => WVC_Biotech.settings.featheredAgeless_GenesCostFactor;
 		private int GetGeneCost(GeneDefWithChance newGene)
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
 				return 0;
 			}
-			return newGene.Cost * CostFactor + 7;
+			return (int)(newGene.Cost * CostFactor) + 7;
 		}
 
 		//private int? cachedGeneMat;

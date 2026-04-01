@@ -97,10 +97,10 @@ namespace WVC_XenotypesAndGenes
 				// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
 				// }
 				// Legacy. To-Do: Remove after 1-2 steam updates.
-				if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
-				{
-					Gene_PredatorRepellent.HarmonyPatch();
-				}
+				//if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
+				//{
+				//	Gene_PredatorRepellent.HarmonyPatch();
+				//}
 				//Log.Error("7");
 				if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
 				{

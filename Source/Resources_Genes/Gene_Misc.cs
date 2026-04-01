@@ -134,7 +134,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.IsNotAcceptablePrey))));
+				if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
+				{
+					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.IsNotAcceptablePrey))));
+				}
 			}
 			catch (Exception arg)
 			{
