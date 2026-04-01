@@ -8,12 +8,16 @@
 	<label>feathered</label>
 	<!-- <label>featherdust</label> -->
 	<!-- Experiments, eternal youth, critical failure, side effect -->
-	<description>Feathereds are ageless super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.
+	<description>Feathereds are ageless super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. While lacking the ability to resurrect, they have incredibly fast regeneration, and their wounds, lost organs, and limbs are restored in a matter of days. They are quite vulnerable, willful, and possess incredible beauty that captivates everyone. Their main drawback is their bottomless belly; they have great difficulty satiating themselves with any food, and sunlight or a charger are their best bet for satiation.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Food efficiency for this xenotype is significantly reduced. Food can be replenished by sunlight or special chargers.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Food efficiency for this xenotype is significantly reduced. Food can be replenished by sunlight or special chargers.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Death):&lt;/color&gt; There is some chance that after their death, a relative will come to replace them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Special):&lt;/color&gt; Some of their abilities are hidden behind their ageless gene. Reading skills are required.</description>
 
 <!-- &lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; The nutritional efficiency of food consumed by the xenotype is reduced by 80%; to compensate for this effect, the pawn must eat a special food (&lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt;) or be &lt;color=#8a8ae6&gt;downed&lt;/color&gt; at the time of food consumption. Hunger bar can also be replenished with help of sunlight. -->
-	<descriptionShort>Feathereds are ageless super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. Instead of resurrection, they have eternal youth and unnatural regeneration; their limbs can regrow very quickly, within a few days. They also have a natural tendency to oversee and can be aided by random mechs. Their main weakness is an insatiable hunger; food cannot satiate them; they require either sunlight or charging.</descriptionShort>
+	<descriptionShort>Feathereds are ageless super-humans powered by archotech-created archites in the bloodstream. They are an undead sub-xenotype. While lacking the ability to resurrect, they have incredibly fast regeneration, and their wounds, lost organs, and limbs are restored in a matter of days. They are quite vulnerable, willful, and possess incredible beauty that captivates everyone. Their main drawback is their bottomless belly; they have great difficulty satiating themselves with any food, and sunlight or a charger are their best bet for satiation.</descriptionShort>
 	<!-- undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food. -->
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
 	<descriptionHyperlinks>
@@ -55,21 +59,18 @@
 		<!-- <li>WVC_SlaveSuppression_Unruly</li> -->
 		<!-- <li>WVC_IncestLover</li> -->
 		<!-- new -->
+		<!-- <li Featherdust="RemoveMe">WVC_Dustogenic_Blesslink</li> -->
+		<!-- <li Featherdust="RemoveMe">WVC_MecaBodyParts_Jaw</li> -->
 		<li>WVC_Dustogenic</li>
 		<li>WVC_MechaPowerSource_Stable</li>
 		<li>WVC_Dustogenic_Metabolism</li>
-		<li Featherdust="RemoveMe">WVC_Dustogenic_Blesslink</li>
-		<!-- <li Featherdust="RemoveMe">WVC_WoundHealing_Unnatural</li> -->
 		<li>WVC_Dustogenic_ImmaculateConception</li>
-		<li Featherdust="RemoveMe">WVC_MecaBodyParts_Jaw</li>
 		<li>Immunity_SuperStrong</li>
-		<!-- <li Featherdust="RemoveMe">WVC_NaturalAgeless</li> -->
 		<li>WVC_Dustogenic_Ageless</li>
 		<li>WVC_NaturalFastGrowing</li>
 		<li>ToxResist_Total</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
 		<li>WVC_IncestLover</li>
-		<!-- <li Featherdust="RemoveMe">Fertile</li> -->
 		<li>WVC_Dustogenic_AngelBeauty</li>
 		<li>WVC_Wings_FeatheredWings</li>
 		<li>WVC_HeadBoneCurveHorns</li>
@@ -79,16 +80,12 @@
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
-		<!-- <li Featherdust="RemoveMe">WVC_Traitless</li> -->
-		<!-- v2 -->
 		<li>WVC_Fragile</li>
 		<li>WVC_Hands_Angel</li>
 		<li>WVC_Pain_Extra</li>
 		<li>WVC_Dustogenic_Reincarnation</li>
 		<li>WVC_WoundHealing_UnrealFast</li>
 		<li>WVC_Dustogenic_Clotting</li>
-		<!-- in wip -->
-		<!-- <li>WVC_Dustogenic_Ageless</li> -->
 	</genes>
   </XenotypeDef>
 
