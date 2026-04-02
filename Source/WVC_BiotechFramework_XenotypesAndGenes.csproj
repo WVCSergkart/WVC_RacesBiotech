@@ -237,7 +237,6 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Bodyparts.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
-    <Compile Include="Resources_Quests\IncidentWorker_RustkinConvert.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_WandererJoin_WalkIn.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
@@ -309,17 +308,18 @@
     <Compile Include="Resources_RitualAttachableOutcome\RitualAttachableOutcomeEffectWorker_XenotypeRecruit.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_PawnGenes.cs" />
     <Compile Include="Resources_Main\GoodwillSituationWorker_HivemindHatred.cs" />
-    <Compile Include="Resources_StatPart\ScenPart_HivemindWorld.cs" />
-    <Compile Include="Resources_StatPart\ScenPart_PawnModifier_Beholder.cs" />
-    <Compile Include="Resources_StatPart\ScenPart_PawnModifier_Scarlands.cs" />
-    <Compile Include="Resources_StatPart\ScenPart_PawnModifier_CustomWorld.cs" />
-    <Compile Include="Resources_StatPart\SketchResolver_Gravship.cs" />
-    <Compile Include="Resources_StatPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_HivemindWorld.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Beholder.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Scarlands.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_CustomWorld.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Undead.cs" />
+    <Compile Include="Resources_ScenPart\SketchResolver_Gravship.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromGenes.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_StatPart\StatPart_SourceFactor.cs" />
     <Compile Include="Resources_StatPart\StatPart_MaxVoidsenceFactorFromMechs.cs" />
-    <Compile Include="Resources_StatPart\StockGenerator_BuyAllSellable.cs" />
+    <Compile Include="Resources_ScenPart\StockGenerator_BuyAllSellable.cs" />
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
@@ -468,6 +468,9 @@
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_PsychicEntropyTracker.currentPsyfocus" />
     <Publicize Include="Assembly-CSharp:RimWorld.CompHatcher.gestateProgress" />
     <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="XenotypesGetterProject\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

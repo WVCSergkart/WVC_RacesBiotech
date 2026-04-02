@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Система гибкого спавна ксенотипов, в зависимости от текущих условий и т.д. и т.п. -->
+  <!-- Может повлиять на производительность во время генерации, что будет отражаться как лаг спайка при спавне рейда -->
+  <!-- Тестовый режим -->
+
+  <!-- <WVC_XenotypesAndGenes.XenotypeGetterDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_Duplicator</defName> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Duplicator</workerClass> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_RogueFormer</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+
+  <!-- <WVC_XenotypesAndGenes.XenotypeGetterDef MayRequire="ludeon.rimworld.anomaly"> -->
+	<!-- <defName>WVC_Fleshmass</defName> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Fleshmass</workerClass> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_Fleshkind</li> -->
+	  <!-- <li>WVC_Overrider</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+
+  <!-- <WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+	<!-- <defName>WVC_Metalkin</defName> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Metalkin</workerClass> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_GeneThrower</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+
+  <!-- In Dev -->
+  <!-- <WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+	<!-- <defName>WVC_Mechakin</defName> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Mechakin</workerClass> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_Meca</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+
+  <!-- <WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+	<!-- <defName>WVC_Undead</defName> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Undead</workerClass> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_Undead</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </WVC_XenotypesAndGenes.XenotypeGetterDef> -->
+
+</Defs>

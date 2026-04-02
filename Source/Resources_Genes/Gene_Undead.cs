@@ -50,6 +50,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (MiscUtility.GameNotStarted() && Rand.Chance(0.35f))
+			{
+				pawn?.HumanComponent()?.SetResurrected();
+			}
+		}
+
 		//private bool PawnCanResurrect()
 		//{
 		//	if (Giver.ignoreHediffs)
