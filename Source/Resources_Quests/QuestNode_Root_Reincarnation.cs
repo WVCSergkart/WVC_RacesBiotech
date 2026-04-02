@@ -19,20 +19,20 @@ namespace WVC_XenotypesAndGenes
 		{
 			Slate slate = QuestGen.slate;
 			Quest quest = QuestGen.quest;
-			Pawn pawn = slate.Get<Pawn>("asker");
+			Pawn asker = slate.Get<Pawn>("asker");
 			List<Map> maps = Find.Maps;
 			Map map = maps.Where((Map homeMape) => homeMape.IsPlayerHome).RandomElement();
 			// PawnGenerationRequest request = new(pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Adult);
-			PawnGenerationRequest request = DuplicateUtility.RequestCopy(pawn);
+			PawnGenerationRequest request = DuplicateUtility.RequestCopy(asker);
 			Pawn reincarnated = quest.GeneratePawn(request);
-			slate.Set("mechanitor", pawn);
+			slate.Set("mechanitor", asker);
 			slate.Set("reincarnated", reincarnated);
 			// GestationUtility.GeneTransfer(reincarnated, pawn, true, true);
 			// reincarnated.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
 			// reincarnated.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawn);
 			// DuplicateUtility.CopySkills(pawn, reincarnated);
-			DuplicateUtility.DuplicatePawn(pawn, reincarnated);
-			AgelessUtility.ChronoCorrection(reincarnated, pawn);
+			DuplicateUtility.DuplicatePawn(asker, reincarnated);
+			AgelessUtility.ChronoCorrection(reincarnated, asker);
 			AgelessUtility.Rejuvenation(reincarnated);
 			if (hediffDefs != null)
 			{

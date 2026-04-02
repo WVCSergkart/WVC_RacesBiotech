@@ -950,7 +950,7 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
-				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_DelayDays".Translate((settings.reincarnation_DelayDays * 100f).ToString()), ref settings.reincarnation_DelayDays, 1f, 120f, round: 0, tooltip: "WVC_ToolTip_reincarnation_DelayDays".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_DelayDays".Translate((settings.reincarnation_DelayDays).ToString()), ref settings.reincarnation_DelayDays, 1f, 120f, round: 0, tooltip: "WVC_ToolTip_reincarnation_DelayDays".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_featheredAgeless_GenesCostFactor".Translate(settings.featheredAgeless_GenesCostFactor.ToString()), ref settings.featheredAgeless_GenesCostFactor, 0f, 10f, round: 1, tooltip: "WVC_ToolTip_featheredAgeless_GenesCostFactor".Translate());
 			}
 			listingStandard.GapLine();

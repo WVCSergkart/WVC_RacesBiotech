@@ -28,7 +28,7 @@
 	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
 	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
 	<hideGeneHediffs>true</hideGeneHediffs>
-	<enable_chimeraXenogermCD>True</enable_chimeraXenogermCD>
+	<!-- <enable_chimeraXenogermCD>True</enable_chimeraXenogermCD> -->
 	<!-- <offsetMarketPriceFromGenes>True</offsetMarketPriceFromGenes> -->
 	<!-- <enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch> -->
 	<chimera_defaultReqMetabolismRange>-5~5</chimera_defaultReqMetabolismRange>

@@ -43,16 +43,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ChronoCorrection(Pawn reincarnated, Pawn pawn)
 		{
-			if (reincarnated.ageTracker.AgeChronologicalTicks >= pawn.ageTracker.AgeChronologicalTicks)
+			//if (reincarnated.ageTracker.AgeChronologicalTicks >= pawn.ageTracker.AgeChronologicalTicks)
+			//{
+			//if (reincarnated.ageTracker.AgeChronologicalTicks - (18L * 3600000L) < reincarnated.ageTracker.AgeBiologicalTicks)
+			//{
+			//	reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks;
+			//}
+			//else
+			//{
+			//	reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (18L * 3600000L);
+			//}
+			//}
+			reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (new IntRange(18, 30).RandomInRange * 3600000L);
+			if (reincarnated.ageTracker.AgeChronologicalTicks < reincarnated.ageTracker.AgeBiologicalTicks)
 			{
-				if (reincarnated.ageTracker.AgeChronologicalTicks - (18L * 3600000L) < reincarnated.ageTracker.AgeBiologicalTicks)
-				{
-					reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks;
-				}
-				else
-				{
-					reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (18L * 3600000L);
-				}
+				reincarnated.ageTracker.AgeChronologicalTicks = reincarnated.ageTracker.AgeBiologicalTicks;
 			}
 		}
 

@@ -124,7 +124,8 @@ namespace WVC_XenotypesAndGenes
 		public List<ReincarnationSet> reincarnations;
 		public override void ExposeData()
 		{
-			Scribe_Deep.Look(ref reincarnations, "reincarnations");
+			base.ExposeData();
+			Scribe_Collections.Look(ref reincarnations, "reincarnations", LookMode.Deep);
 		}
 
 		public override void GameComponentTick()
