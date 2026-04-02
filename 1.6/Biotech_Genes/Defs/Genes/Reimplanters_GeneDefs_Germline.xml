@@ -12,7 +12,6 @@
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_Endogenes</li>
@@ -33,16 +32,17 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Endogenes">
 	<defName>WVC_ReimplanterArchite_Endogenes</defName>
 	<biostatArc>1</biostatArc>
-	<!-- <sterilize>true</sterilize> -->
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_Endogenes</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_ReimplanterArchite_Endogenes</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>26</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- AbilityDef -->
@@ -51,22 +51,12 @@
 	<label>implant germline</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Endo_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_ReimplanterNatural_Endogenes</li> -->
-		  <!-- <li>WVC_ReimplanterArchite_Endogenes</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
 		<reimplantEndogenes>true</reimplantEndogenes>
 		<reimplantXenogenes>false</reimplantXenogenes>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbEndogerm</absorberJob>
 	  </li>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
-		<!-- <humanityCheck>true</humanityCheck> -->
-		<!-- <serumsCheck>true</serumsCheck> -->
-	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 
@@ -87,7 +77,6 @@
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect xenogenes.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseEndogenes</li>
@@ -107,17 +96,18 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndogenes">
 	<defName>WVC_ReimplanterArchite_RiseEndogenes</defName>
-	<!-- <sterilize>true</sterilize> -->
 	<biostatArc>1</biostatArc>
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_RiseEndogenes</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_ReimplanterArchite_RiseEndogenes</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>36</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- AbilityDef -->
@@ -126,17 +116,8 @@
 	<label>implant germline (corpse)</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Endo_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_ReimplanterNatural_RiseEndogenes</li> -->
-		  <!-- <li>WVC_ReimplanterArchite_RiseEndogenes</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
-		<!-- <afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef> -->
-		<!-- <resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef> -->
-		<!-- <resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef> -->
 		<reimplantEndogenes>true</reimplantEndogenes>
 		<reimplantXenogenes>false</reimplantXenogenes>
 	  </li>

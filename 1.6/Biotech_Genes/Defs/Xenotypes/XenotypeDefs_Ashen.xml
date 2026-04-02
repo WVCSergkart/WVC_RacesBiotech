@@ -23,7 +23,7 @@
 	<genes>
 		<!-- = -->
 		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
-		<li>WVC_Reimplanter_RiseFromTheDead</li>
+		<!-- <li>WVC_Reimplanter_RiseFromTheDead</li> -->
 		<!-- <li>WVC_Undead</li> -->
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>

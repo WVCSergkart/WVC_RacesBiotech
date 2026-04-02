@@ -9,7 +9,6 @@
 	<displayOrderInCategory>75</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_EndogermReimplanter</li>
@@ -18,16 +17,17 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
 	<defName>WVC_EndogermReimplanter</defName>
-	<!-- <sterilize>true</sterilize> -->
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_EndogermReimplanter</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_EndogermReimplanter</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>44</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
@@ -53,7 +53,6 @@
 	<displayOrderInCategory>80</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_Reimplanter_RiseFromTheDead</li>
@@ -62,17 +61,18 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes">
 	<defName>WVC_Reimplanter_RiseFromTheDead</defName>
-	<!-- <sterilize>true</sterilize> -->
 	<biostatArc>1</biostatArc>
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_Reimplanter_ArchiteRiseFromTheDead</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Reimplanter_ArchiteRiseFromTheDead</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>62</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes">
@@ -92,20 +92,10 @@
 	<defName>WVC_EndogermReimplanter</defName>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Hybrid_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_EndogermReimplanter</li> -->
-		  <!-- <li>WVC_NaturalReimplanter</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbGenogerm</absorberJob>
 	  </li>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
-		<!-- <humanityCheck>true</humanityCheck> -->
-		<!-- <serumsCheck>true</serumsCheck> -->
-	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 
@@ -123,17 +113,8 @@
 	<label>implant genes (corpse)</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_Reimplanter_RiseFromTheDead</li> -->
-		  <!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
-		<!-- <afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef> -->
-		<!-- <resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef> -->
-		<!-- <resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef> -->
 	  </li>
 	</comps>
   </AbilityDef>
@@ -155,7 +136,6 @@
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
 	<selectionWeight>0.0008</selectionWeight>
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<!-- <iconColor>(241, 175, 129)</iconColor> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
@@ -186,20 +166,10 @@
 	  <violent>false</violent>
 	</verbProperties>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff"> -->
-		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass> -->
-		<!-- <hediffDef>WVC_Dustogenic_DelayedReimplanter</hediffDef> -->
-		<!-- <humanityCheck>true</humanityCheck> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
-		<!-- <humanityCheck>true</humanityCheck> -->
-		<!-- <serumsCheck>false</serumsCheck> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ChangeXenotypeHediff</compClass>
 		<hediffDef>WVC_Dustogenic_DelayedReimplanter</hediffDef>
 		<humanityCheck>true</humanityCheck>
-		<!-- <simpleMessage>WVC_XaG_ChimeraDeathMarkAdded</simpleMessage> -->
 	  </li>
 	  <li Class="CompProperties_AbilityRequiresCapacity">
 		<capacity>Manipulation</capacity>

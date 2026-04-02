@@ -326,9 +326,9 @@
 			<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen> -->
 		  </xenotypeChances>
 		  <allowedXenotypes>
-			<li>WVC_Resurgent</li>
-			<li>WVC_Featherdust</li>
-			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+			<!-- <li>WVC_Resurgent</li> -->
+			<!-- <li>WVC_Featherdust</li> -->
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
 			<li>WVC_Shadoweater</li>
 		  </allowedXenotypes>
 		  <chimeraGeneDefs>

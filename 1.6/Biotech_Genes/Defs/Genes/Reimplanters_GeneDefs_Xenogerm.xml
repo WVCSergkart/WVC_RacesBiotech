@@ -10,10 +10,8 @@
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Xeno_v0</iconPath>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li> -->
 		<li>Сhanges the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect endogenes.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_Xenogenes</li>
@@ -34,16 +32,17 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Xenogenes">
 	<defName>WVC_ReimplanterArchite_Xenogenes</defName>
 	<biostatArc>1</biostatArc>
-	<!-- <sterilize>true</sterilize> -->
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_Xenogenes</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_ReimplanterArchite_Xenogenes</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>22</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- AbilityDef -->
@@ -52,22 +51,12 @@
 	<label>implant xenogerm</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Xeno_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_ReimplanterNatural_Xenogenes</li> -->
-		  <!-- <li>WVC_ReimplanterArchite_Xenogenes</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
 		<reimplantEndogenes>false</reimplantEndogenes>
 		<reimplantXenogenes>true</reimplantXenogenes>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbXenogerm</absorberJob>
 	  </li>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
-		<!-- <humanityCheck>true</humanityCheck> -->
-		<!-- <serumsCheck>true</serumsCheck> -->
-	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 
@@ -88,7 +77,6 @@
 	<customEffectDescriptions>
 		<li>Сhanges the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Does not affect endogenes.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Can use sub-genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseXenogenes</li>
@@ -108,17 +96,18 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseXenogenes">
 	<defName>WVC_ReimplanterArchite_RiseXenogenes</defName>
-	<!-- <sterilize>true</sterilize> -->
 	<biostatArc>1</biostatArc>
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_RiseXenogenes</li>
 	</abilities>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_ReimplanterArchite_RiseXenogenes</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>31</reqGeneMat>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- AbilityDef -->
@@ -127,17 +116,8 @@
 	<label>implant xenogerm (corpse)</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Xeno_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_ReimplanterNatural_RiseXenogenes</li> -->
-		  <!-- <li>WVC_ReimplanterArchite_RiseXenogenes</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_NewImplanter</compClass>
-		<!-- <afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef> -->
-		<!-- <resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef> -->
-		<!-- <resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef> -->
 		<reimplantEndogenes>false</reimplantEndogenes>
 		<reimplantXenogenes>true</reimplantXenogenes>
 	  </li>
