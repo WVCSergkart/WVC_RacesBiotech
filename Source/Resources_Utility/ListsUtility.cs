@@ -83,6 +83,27 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static List<XenotypeGetterDef> cachedXenotypeGetterDefs;
+		public static List<XenotypeGetterDef> XenotypeGetterDefs
+		{
+			get
+			{
+				if (cachedXenotypeGetterDefs == null)
+				{
+					List<XenotypeGetterDef> list = new();
+					foreach (XenotypesAndGenesListDef xenotypesAndGenesListDef in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading.Where(def => def.xenotypeGetterDefs != null))
+					{
+						foreach (XenotypeGetterDef xenotypeGetterDef in xenotypesAndGenesListDef.xenotypeGetterDefs)
+						{
+							list.Add(xenotypeGetterDef);
+						}
+					}
+					cachedXenotypeGetterDefs = list;
+				}
+				return cachedXenotypeGetterDefs;
+			}
+		}
+
 		//[Obsolete]
 		//public static List<XaG_CountWithChance> GetIdenticalGeneDefs()
 		//{

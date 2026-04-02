@@ -175,6 +175,54 @@
 	<hivemindGeneTypes>
 		<!-- <li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li> -->
 	</hivemindGeneTypes>
+	<!-- ScenPart_PawnModifier_Xenotypes -->
+	<xenotypeGetterDefs>
+	  <li MayRequire="ludeon.rimworld.anomaly">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Duplicator</workerClass>
+		<chance>2</chance>
+		<xenotypeDefs>
+		  <li>WVC_RogueFormer</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.anomaly">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Fleshmass</workerClass>
+		<chance>2</chance>
+		<xenotypeDefs>
+		  <li>WVC_Fleshkind</li>
+		  <li>WVC_Overrider</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Metalkin</workerClass>
+		<chance>0.2</chance>
+		<xenotypeDefs>
+		  <li>WVC_GeneThrower</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Mechakin</workerClass>
+		<chance>1</chance>
+		<xenotypeDefs>
+		  <li>WVC_Meca</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Undead</workerClass>
+		<chance>1</chance>
+		<xenotypeDefs>
+		  <li>WVC_Undead</li>
+		  <li>WVC_Featherdust</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Tribal</workerClass>
+		<chance>0.2</chance>
+		<xenotypeDefs>
+		  <li>WVC_RuneDryad</li>
+		  <li>WVC_Golemkind</li>
+		</xenotypeDefs>
+	  </li>
+	</xenotypeGetterDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

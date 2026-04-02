@@ -51,5 +51,7 @@ namespace WVC_XenotypesAndGenes
 		// [Obsolete]
 		// public List<GeneDef> nonCandidatesForSerums;
 
+		public List<XenotypeGetterDef> xenotypeGetterDefs;
+
 	}
 }

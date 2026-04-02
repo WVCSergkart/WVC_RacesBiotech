@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class ScenPart_PawnModifier_Xenotypes : ScenPart_PawnModifier
+	public class ScenPart_PawnModifier_DynamicXenotypes : ScenPart_PawnModifier
 	{
 
 		private bool disabled = false;
@@ -36,15 +36,15 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XenotypeDef xenotypeDef = null;
-			List<XenotypeGetterDef> allDefsListForReading = DefDatabase<XenotypeGetterDef>.AllDefsListForReading;
-			allDefsListForReading.Shuffle();
-			foreach (XenotypeGetterDef xenotypeGetterDef in allDefsListForReading)
+			List<XenotypeGetterDef> xenotypeGetterDefs = ListsUtility.XenotypeGetterDefs;
+			xenotypeGetterDefs.Shuffle();
+			foreach (XenotypeGetterDef xenotypeGetterDef in xenotypeGetterDefs)
 			{
 				if (xenotypeDef != null)
 				{
 					break;
 				}
-				if (Rand.Chance(xenotypeGetterDef.chance) && xenotypeGetterDef.Worker.CanFire())
+				if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire())
 				{
 					xenotypeDef = xenotypeGetterDef.Worker.GetXenotype();
 				}

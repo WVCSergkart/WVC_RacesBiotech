@@ -37,6 +37,22 @@ namespace WVC_XenotypesAndGenes
 			return pawn.TryGetComp<CompHumanlike>();
 		}
 
+		public static bool IsColonyChild(this Pawn pawn)
+		{
+			if (pawn.story == null)
+			{
+				return false;
+			}
+			foreach (BackstoryDef backstory in pawn.story.AllBackstories)
+			{
+				if (backstory.IsPlayerColonyChildBackstory)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool CanBleed(this Pawn pawn)
 		{
 			if (!pawn.health.CanBleed)

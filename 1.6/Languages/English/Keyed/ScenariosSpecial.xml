@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<WVC_Label_LongRunningJoke_DoLeave>Give up</WVC_Label_LongRunningJoke_DoLeave>
+	<WVC_Desc_LongRunningJoke_DoLeave>{0} has given up on this community.\n\n[PAWN_pronoun] has decided to leave and pursue a better life elsewhere. You can try to arrest [PAWN_objective] as [PAWN_pronoun] leaves. Otherwise, you may still see [PAWN_objective] again some day.</WVC_Desc_LongRunningJoke_DoLeave>
+
+</LanguageData>

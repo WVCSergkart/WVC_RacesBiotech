@@ -1,16 +1,40 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
-using RimWorld;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class XenotypeGetterDef : Def
+
+	// Non-def. But Def in name
+	public class XenotypeGetterDef
 	{
 
-		public List<XenotypeDef> xenotypeDefs;
+		public List<string> xenotypeDefs;
 
-		public float chance = 0.5f;
+		private List<XenotypeDef> cachedXenotypeDefs;
+		public List<XenotypeDef> XenotypeDefs
+		{
+			get
+			{
+				if (cachedXenotypeDefs == null)
+				{
+					List<XenotypeDef> list = new();
+					foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
+					{
+						if (xenotypeDefs.Contains(item.defName))
+						{
+							list.Add(item);
+						}
+					}
+					cachedXenotypeDefs = list;
+				}
+				return cachedXenotypeDefs;
+			}
+		}
+
+		public float chance = 1.0f;
 
 		public Type workerClass = typeof(XenotypeGetter);
 
