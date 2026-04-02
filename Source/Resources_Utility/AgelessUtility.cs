@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			//	reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (18L * 3600000L);
 			//}
 			//}
-			reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (new IntRange(18, 30).RandomInRange * 3600000L);
+			reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (new IntRange(18, 70).RandomInRange * 3600000L);
 			if (reincarnated.ageTracker.AgeChronologicalTicks < reincarnated.ageTracker.AgeBiologicalTicks)
 			{
 				reincarnated.ageTracker.AgeChronologicalTicks = reincarnated.ageTracker.AgeBiologicalTicks;

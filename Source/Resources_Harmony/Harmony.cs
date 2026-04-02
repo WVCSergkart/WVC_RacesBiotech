@@ -1024,6 +1024,16 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 
+			//public static void BodySizePatch(ref float __result, Pawn __instance)
+			//{
+			//	if (!Gene_BodySize.ResizedPawns.Contains(__instance))
+			//	{
+			//		return;
+			//	}
+			//	Log.ErrorOnce("0", 929292929);
+			//	__result *= 0.8f;
+			//}
+
 			public static bool NoMovementCost(ref float __result, Pawn pawn, IntVec3 c)
 			{
 				if (Gene_Wings.WingedPawns.Contains(pawn))

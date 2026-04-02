@@ -161,7 +161,7 @@ namespace WVC_XenotypesAndGenes
 			HarmonyPatch();
 		}
 
-		public bool ignoreMovementCost;
+		public bool ignoreMovementCost = true;
 
 		public string GetInspectInfo
 		{

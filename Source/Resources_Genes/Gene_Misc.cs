@@ -10,6 +10,80 @@ using WVC_XenotypesAndGenes.HarmonyPatches;
 namespace WVC_XenotypesAndGenes
 {
 
+	//public class Gene_BodySize : XaG_Gene, IGeneOverriddenBy
+	//{
+
+	//	private static HashSet<Pawn> cachedPawns;
+	//	public static HashSet<Pawn> ResizedPawns
+	//	{
+	//		get
+	//		{
+	//			if (cachedPawns == null)
+	//			{
+	//				List<Pawn> list = new();
+	//				foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+	//				{
+	//					if (pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>()?.Props != null)
+	//					{
+	//						list.Add(pawn);
+	//					}
+	//				}
+	//				cachedPawns = [.. list];
+	//			}
+	//			return cachedPawns;
+	//		}
+	//	}
+
+	//	private GeneExtension_Giver cachedGeneExtension;
+	//	public GeneExtension_Giver Props
+	//	{
+	//		get
+	//		{
+	//			if (cachedGeneExtension == null)
+	//			{
+	//				cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+	//			}
+	//			return cachedGeneExtension;
+	//		}
+	//	}
+
+	//	public override void PostAdd()
+	//	{
+	//		base.PostAdd();
+	//		HarmonyPatch();
+	//	}
+
+	//	public void Notify_OverriddenBy(Gene overriddenBy)
+	//	{
+
+	//	}
+
+	//	public void Notify_Override()
+	//	{
+	//		HarmonyPatch();
+	//	}
+
+
+	//	private static bool gamePatched = false;
+	//	public static void HarmonyPatch()
+	//	{
+	//		if (gamePatched)
+	//		{
+	//			return;
+	//		}
+	//		try
+	//		{
+	//			HarmonyUtility.Harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(Pawn), "BodySize"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.BodySizePatch))));
+	//		}
+	//		catch (Exception arg)
+	//		{
+	//			Log.Error("Failed apply predator repellent patch. Reason: " + arg.Message);
+	//		}
+	//		gamePatched = true;
+	//	}
+
+	//}
+
 	public class Gene_Traitless : XaG_Gene, IGeneNotifyLifeStageStarted, IGeneOverriddenBy
 	{
 
