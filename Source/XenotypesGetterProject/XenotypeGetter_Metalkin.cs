@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+using Verse.Noise;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -16,7 +17,11 @@ namespace WVC_XenotypesAndGenes
 					return true;
 				}
 			}
-			if (Faction.OfPlayer.def.techLevel == TechLevel.Neolithic || Faction.OfPlayer.def.techLevel == TechLevel.Medieval || Faction.OfPlayer.def.techLevel == TechLevel.Animal)
+			if (Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Neolithic || Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Medieval || Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Animal)
+			{
+				return false;
+			}
+			if (!CommsConsoleUtility.PlayerHasPoweredCommsConsole())
 			{
 				return false;
 			}

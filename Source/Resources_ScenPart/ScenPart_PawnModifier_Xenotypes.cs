@@ -18,6 +18,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			//if (MiscUtility.GameNotStarted())
+			//{
+			//	return;
+			//}
 			try
 			{
 				GetXenotype(pawn);
@@ -54,6 +58,12 @@ namespace WVC_XenotypesAndGenes
 				SetXenotype(pawn, xenotypeDef);
 			}
 		}
+
+		//private static bool LogError()
+		//{
+		//	Log.Error("0");
+		//	return true;
+		//}
 
 		private void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
