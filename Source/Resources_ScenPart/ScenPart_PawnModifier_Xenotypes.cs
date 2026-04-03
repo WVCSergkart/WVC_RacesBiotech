@@ -11,6 +11,10 @@ namespace WVC_XenotypesAndGenes
 	public class ScenPart_PawnModifier_DynamicXenotypes : ScenPart_PawnModifier
 	{
 
+		public float dynamicXenotypeChance = 0.05f;
+
+		public virtual float DynamicChance => dynamicXenotypeChance;
+
 		private bool disabled = false;
 		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
 		{
@@ -40,18 +44,22 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XenotypeDef xenotypeDef = null;
-			List<XenotypeGetterDef> xenotypeGetterDefs = ListsUtility.XenotypeGetterDefs;
-			xenotypeGetterDefs.Shuffle();
-			foreach (XenotypeGetterDef xenotypeGetterDef in xenotypeGetterDefs)
+			if (Rand.Chance(DynamicChance))
 			{
-				if (xenotypeDef != null)
-				{
-					break;
-				}
-				if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire(pawn))
-				{
-					xenotypeDef = xenotypeGetterDef.Worker.GetXenotype();
-				}
+				//List<XenotypeGetterDef> xenotypeGetterDefs = ListsUtility.XenotypeGetterDefs;
+				//xenotypeGetterDefs.Shuffle();
+				//foreach (XenotypeGetterDef xenotypeGetterDef in xenotypeGetterDefs)
+				//{
+				//	if (xenotypeDef != null)
+				//	{
+				//		break;
+				//	}
+				//	if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire(pawn))
+				//	{
+				//		xenotypeDef = xenotypeGetterDef.Worker.GetXenotype();
+				//	}
+				//}
+				xenotypeDef = ListsUtility.XenotypeGetterDefs?.Where(getter => getter.Worker.CanFire(pawn))?.RandomElementByWeight(getter => getter.Worker.Chance())?.Worker?.GetXenotype();
 			}
 			if (xenotypeDef != null)
 			{
@@ -68,6 +76,12 @@ namespace WVC_XenotypesAndGenes
 		public void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			ScenPart_PawnModifier_CustomWorld.TrySetupCustomWorldXenotype(pawn, [new(xenotypeDef)]);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref dynamicXenotypeChance, "dynamicXenotypeChance", defaultValue: 0.05f);
 		}
 
 	}

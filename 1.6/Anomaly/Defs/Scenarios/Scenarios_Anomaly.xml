@@ -163,7 +163,11 @@
 	<label>From the Void</label>
 	<description>When you opened your eyes, you saw a completely unfamiliar landscape. All your memories were confused and blurred. You barely remembered your name, and your past was a complete fog, and your skills, if there were any, were gone. The only thing you clearly understood was the feeling of hunger, which was growing with each passing second.
 
-&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; Difficulty depends directly on whether you create it yourself. Ideology, biome, sliders, factions, settings. Don't complain about it being easy when you're too lazy to read the gene descriptions.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All surface biomes will be replaced with ice sheet, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- The temperature of all biomes will be -51C.\n- All resources will be much rarer, and the mine yield will be much lower.\n- Trade caravans stop selling goods and only buy them. The exception is orbital traders.
+
+&lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; Difficulty depends directly on whether you create it yourself. Ideology, biome, sliders, factions, settings.</description>
 	<scenario>
 	  <summary>One pawn with no supplies. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
 	  <playerFaction>
@@ -177,6 +181,13 @@
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
 		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Gameplay effects -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_IceWorld">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		  <biomeDef>IceSheet</biomeDef>
 		</li>
 
 		<!-- Player pawns modifiers -->

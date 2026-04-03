@@ -3,6 +3,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -18,6 +19,26 @@ namespace WVC_XenotypesAndGenes
 
 		private Pawn startingPawn;
 
+		private float? cachedDynamicChance;
+		public override float DynamicChance
+		{
+			get
+			{
+				if (cachedDynamicChance == null)
+				{
+					if (MiscUtility.GameStarted())
+					{
+						cachedDynamicChance = Mathf.Clamp(0.01f * (Find.TickManager.TicksGame / 1000000), 0.01f, 0.12f);
+					}
+					else
+					{
+						cachedDynamicChance = base.DynamicChance;
+					}
+				}
+				return cachedDynamicChance.Value;
+			}
+		}
+
 		public override void PostGameStart()
 		{
 			startingPawn = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.First();
@@ -32,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
+				cachedDynamicChance = null;
 				TryDoLeave();
 			}
 			catch (Exception arg)

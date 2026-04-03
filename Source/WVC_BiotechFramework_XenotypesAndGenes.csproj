@@ -310,6 +310,7 @@
     <Compile Include="Resources_Main\GoodwillSituationWorker_HivemindHatred.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_HivemindWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Beholder.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_IceWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Scarlands.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_CustomWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Undead.cs" />
