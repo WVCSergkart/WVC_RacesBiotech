@@ -30,6 +30,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool IsInitialized => !cachedPawns.NullOrEmpty();
+
 		private static float? cachedHivemindPsychicFactor;
 		public static float HivemindPsychicSensitivity
 		{

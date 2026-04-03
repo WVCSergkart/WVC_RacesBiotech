@@ -178,13 +178,15 @@
 	<!-- ScenPart_PawnModifier_DynamicXenotypes -->
 	<xenotypeGetterDefs>
 	  <li MayRequire="ludeon.rimworld.anomaly">
+		<!-- anomaly_started or duplicator_obelisk -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Duplicator</workerClass>
-		<chance>2</chance>
+		<chance>1.2</chance>
 		<xenotypeDefs>
 		  <li>WVC_RogueFormer</li>
 		</xenotypeDefs>
 	  </li>
 	  <li MayRequire="ludeon.rimworld.anomaly">
+		<!-- anomaly_endgame or nucleus or mutator_obelisk -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Fleshmass</workerClass>
 		<chance>2</chance>
 		<xenotypeDefs>
@@ -254,6 +256,14 @@
 		  <!-- <li>WVC_Beholdkind</li> -->
 		</xenotypeDefs>
 	  </li>
+	  <li MayRequire="ludeon.rimworld.odyssey">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Faction</workerClass>
+		<chance>0.8</chance>
+		<factionDef>TradersGuild</factionDef>
+		<xenotypeDefs>
+		  <li>WVC_Ferrkind</li>
+		</xenotypeDefs>
+	  </li>
 	  <li>
 		<!-- non-metalkin undead non-shapeshifter -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Fantasy</workerClass>
@@ -269,6 +279,38 @@
 		<chance>7</chance>
 		<xenotypeDefs>
 		  <li>WVC_CatDeity</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- (fleshmass or hivemind_init) and rescueesCanJoin_faction -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Hivemind</workerClass>
+		<chance>0.9</chance>
+		<xenotypeDefs>
+		  <li>WVC_Fleshkind</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- world_generation_only -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_GameNotStarted</workerClass>
+		<chance>5</chance>
+		<xenotypeDefs>
+		  <li>WVC_Mergekin</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- sanguophage_any_map -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Sanguophage</workerClass>
+		<chance>0.1</chance>
+		<xenotypeDefs>
+		  <li>WVC_Bloodeater</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- sanguophage outdoor_temp_20+ -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Sandycat</workerClass>
+		<chance>1.1</chance>
+		<xenotypeDefs>
+		  <li>WVC_Sandycat</li>
 		</xenotypeDefs>
 	  </li>
 	</xenotypeGetterDefs>

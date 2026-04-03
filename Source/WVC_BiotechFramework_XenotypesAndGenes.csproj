@@ -454,6 +454,8 @@
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Xenotypes.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetterDef.cs" />
+    <Compile Include="XenotypesGetterProject\XenotypeGetter_Sanguophage.cs" />
+    <Compile Include="XenotypesGetterProject\XenotypeGetter_GameNotStarted.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Deadcat.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Duplicator.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Faction.cs" />

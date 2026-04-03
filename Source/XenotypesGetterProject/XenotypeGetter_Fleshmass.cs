@@ -29,4 +29,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class XenotypeGetter_Hivemind : XenotypeGetter_Fleshmass
+	{
+
+		public override bool CanFire(Pawn pawn)
+		{
+			if (pawn.Faction != null && !pawn.Faction.def.rescueesCanJoin)
+			{
+				return false;
+			}
+			return base.CanFire(pawn);
+		}
+
+		public override bool CanFire()
+		{
+			if (HivemindUtility.IsInitialized)
+			{
+				return true;
+			}
+			return base.CanFire();
+		}
+
+	}
+
 }
