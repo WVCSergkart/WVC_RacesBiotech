@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void GetXenotype(Pawn pawn)
 		{
-			if (!XaG_GeneUtility.PawnIsBaseliner(pawn) || !pawn.IsHuman())
+			if (pawn.genes == null || !XaG_GeneUtility.PawnIsBaseliner(pawn))
 			{
 				return;
 			}
@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					break;
 				}
-				if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire())
+				if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire(pawn))
 				{
 					xenotypeDef = xenotypeGetterDef.Worker.GetXenotype();
 				}
@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 		//	return true;
 		//}
 
-		private void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		public void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			ScenPart_PawnModifier_CustomWorld.TrySetupCustomWorldXenotype(pawn, [new(xenotypeDef)]);
 		}

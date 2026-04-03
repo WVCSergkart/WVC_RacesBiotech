@@ -113,6 +113,8 @@ namespace WVC_XenotypesAndGenes
 		//
 		[MayRequireAnomaly]
 		public static PawnKindDef Devourer;
+		//
+		public static ThingDef Cat;
 	}
 
 	// [DefOf]

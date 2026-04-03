@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 	public class XenotypeGetterDef
 	{
 
+		public FactionDef factionDef;
+
 		public List<string> xenotypeDefs;
 
 		private List<XenotypeDef> cachedXenotypeDefs;

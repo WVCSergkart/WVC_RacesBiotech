@@ -175,7 +175,7 @@
 	<hivemindGeneTypes>
 		<!-- <li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li> -->
 	</hivemindGeneTypes>
-	<!-- ScenPart_PawnModifier_Xenotypes -->
+	<!-- ScenPart_PawnModifier_DynamicXenotypes -->
 	<xenotypeGetterDefs>
 	  <li MayRequire="ludeon.rimworld.anomaly">
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Duplicator</workerClass>
@@ -193,6 +193,7 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
+		<!-- gravship or (comm_console and techlevel) -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Metalkin</workerClass>
 		<chance>0.2</chance>
 		<xenotypeDefs>
@@ -200,6 +201,7 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
+		<!-- cold_biome metalkin -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Mechakin</workerClass>
 		<chance>1</chance>
 		<xenotypeDefs>
@@ -207,6 +209,7 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
+		<!-- undead (any resurrected pawns) -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Undead</workerClass>
 		<chance>1</chance>
 		<xenotypeDefs>
@@ -215,11 +218,57 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
+		<!-- non-metalkin -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Tribal</workerClass>
 		<chance>0.2</chance>
 		<xenotypeDefs>
 		  <li>WVC_RuneDryad</li>
 		  <li>WVC_Golemkind</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.roaylty">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Faction</workerClass>
+		<chance>0.7</chance>
+		<factionDef>Empire</factionDef>
+		<xenotypeDefs>
+		  <li>WVC_Bloodeater</li>
+		  <li>WVC_Lilith</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.roaylty">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Faction</workerClass>
+		<chance>0.1</chance>
+		<factionDef>Empire</factionDef>
+		<xenotypeDefs>
+		  <li>WVC_Ashen</li>
+		  <li>WVC_Shadoweater</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.anomaly">
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Faction</workerClass>
+		<chance>0.5</chance>
+		<factionDef>HoraxCult</factionDef>
+		<xenotypeDefs>
+		  <li>WVC_Ashen</li>
+		  <li>WVC_GeneThrower</li>
+		  <!-- <li>WVC_Beholdkind</li> -->
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- non-metalkin undead non-shapeshifter -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Fantasy</workerClass>
+		<chance>0.2</chance>
+		<xenotypeDefs>
+		  <li>WVC_Reaperkind</li>
+		  <li>WVC_Ripperkind</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.roaylty">
+		<!-- a_lot_of_vanilla_cats -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Deadcat</workerClass>
+		<chance>7</chance>
+		<xenotypeDefs>
+		  <li>WVC_CatDeity</li>
 		</xenotypeDefs>
 	  </li>
 	</xenotypeGetterDefs>

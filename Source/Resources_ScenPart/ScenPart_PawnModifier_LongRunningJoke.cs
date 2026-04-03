@@ -40,6 +40,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
+		{
+			if (startingPawn?.genes != null && Rand.Chance(0.03f))
+			{
+				SetXenotype(pawn, startingPawn.genes.Xenotype);
+			}
+			base.ModifyPawnPostGenerate(pawn, redressed);
+		}
+
 		private void TryDoLeave()
 		{
 			if (StaticCollectionsClass.cachedColonistsDuplicatesDeathrestingCount <= 5)

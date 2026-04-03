@@ -9,6 +9,11 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeGetterDef def;
 
+		public virtual bool CanFire(Pawn pawn)
+		{
+			return CanFire();
+		}
+
 		public virtual bool CanFire()
 		{
 			return true;
