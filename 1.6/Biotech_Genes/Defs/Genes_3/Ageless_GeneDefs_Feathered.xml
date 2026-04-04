@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- In Dev -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
 	<defName>WVC_Dustogenic_Ageless</defName>
 	<label>feathered ageless</label>
@@ -15,12 +14,9 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
-	<!-- <selectionWeight>0</selectionWeight> -->
-	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<customEffectDescriptions>
 		<li>Decreases bio-age by 1 year every 5 days, until 18.</li>
 		<li>Allows to &lt;color=#8a8ae6&gt;implant&lt;/color&gt; health related genes from a small list.</li>
-		<!-- <li>Allows the pawn to &lt;color=#8a8ae6&gt;lay eggs&lt;/color&gt; instead of a live birth.</li> -->
 		<li>Implantation &lt;color=#8a8ae6&gt;requires&lt;/color&gt; meeting the combined bio-chronological age requirements.</li>
 		<li>All &lt;color=#8a8ae6&gt;colonists&lt;/color&gt; with this gene are used for the calculation, regardless of psy-sensitivity.</li>
 		<li>Implantation of archite genes is only possible if the pawn has archite genes.</li>
@@ -40,9 +36,6 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VEF.Genes.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<hideGene>true</hideGene>
-		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<geneDefs>
 			  <!-- misc -->
@@ -51,6 +44,7 @@
 			  <li>WVC_Dustogenic_AngelBeauty</li>
 			  <li>WVC_Dustogenic_Clotting</li>
 			  <li>WVC_Dustogenic_Reincarnation</li>
+			  <li>WVC_Dustogenic_FeatherBlades</li>
 			  <li>WVC_Eyes_Colorful</li>
 			  <li>Fertile</li>
 			  <li>Superclotting</li>
@@ -62,8 +56,8 @@
 			  <!-- immunity -->
 			  <li>Immunity_Strong</li>
 			  <li>Immunity_SuperStrong</li>
-			  <!-- <li>WVC_WoundHealing_UnrealFast</li> -->
-			  <!-- <li>WVC_WoundHealing_ExtremeFast</li> -->
+			  <!-- <li>WVC_Immunity_ExtremeStrong</li> -->
+			  <!-- <li>WVC_Immunity_UnrealStrong</li> -->
 			  <!-- reimplanters -->
 			  <li>WVC_ReimplanterArchite_RiseXenogenes</li>
 			  <li>WVC_ReimplanterNatural_RiseXenogenes</li>
@@ -71,6 +65,8 @@
 			  <li>WVC_ReimplanterNatural_Xenogenes</li>
 			  <li>WVC_ReimplanterArchite_RiseEndogenes</li>
 			  <li>WVC_ReimplanterNatural_RiseEndogenes</li>
+			  <li>WVC_ReimplanterArchite_Endogenes</li>
+			  <li>WVC_ReimplanterNatural_Endogenes</li>
 			  <li>WVC_NaturalReimplanter_RiseFromTheDead</li>
 			  <li>WVC_Reimplanter_RiseFromTheDead</li>
 			  <li>WVC_NaturalReimplanter</li>

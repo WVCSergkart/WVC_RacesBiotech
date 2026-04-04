@@ -24,7 +24,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHolder == null)
 				{
-					cachedHolder = ListsUtility.GetAllXenotypesHolders().Where((xeno) => xeno.genes.Any((gene) => HivemindUtility.IsHivemindGeneDef(gene) && !gene.IsGeneDefOfType<IGeneNonSync>())).ToList();
+					//cachedHolder = ListsUtility.GetAllXenotypesHolders().Where((xeno) => xeno.genes.Any((gene) => HivemindUtility.IsHivemindGeneDef(gene) && !gene.IsGeneDefOfType<IGeneNonSync>())).ToList();
+					cachedHolder = xenotypeDefs.ConvertToHolder();
 				}
 				return cachedHolder;
 			}
