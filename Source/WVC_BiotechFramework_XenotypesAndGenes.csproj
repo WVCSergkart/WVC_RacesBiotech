@@ -466,6 +466,7 @@
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Metalkin.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Tribal.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Undead.cs" />
+    <Compile Include="XenotypesGetterProject\XenotypeGetter_Nociokin.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Publicizer">

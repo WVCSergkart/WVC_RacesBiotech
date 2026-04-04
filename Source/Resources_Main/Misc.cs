@@ -256,5 +256,12 @@ namespace WVC_XenotypesAndGenes
 	//		return AlertReport.CulpritsAre(OvipositorPawns.Where((p) => p.Map != null).Select((p) => new GlobalTargetInfo(p.Position, p.Map)).ToList());
 	//	}
 	//}
+	//public class MayRequireSauridsForkAttribute : MayRequireAttribute
+	//{
+	//	public MayRequireSauridsForkAttribute()
+	//		: base("vanillaracesexpanded.saurid.forked")
+	//	{
+	//	}
+	//}
 
 }

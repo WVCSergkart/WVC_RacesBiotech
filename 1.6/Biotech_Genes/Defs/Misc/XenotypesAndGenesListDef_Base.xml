@@ -276,7 +276,7 @@
 	  <li MayRequire="ludeon.rimworld.roaylty">
 		<!-- a_lot_of_vanilla_cats -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Deadcat</workerClass>
-		<chance>7</chance>
+		<chance>2</chance>
 		<xenotypeDefs>
 		  <li>WVC_CatDeity</li>
 		</xenotypeDefs>
@@ -311,6 +311,14 @@
 		<chance>1.1</chance>
 		<xenotypeDefs>
 		  <li>WVC_Sandycat</li>
+		</xenotypeDefs>
+	  </li>
+	  <li MayRequire="ludeon.rimworld.anomaly">
+		<!-- defeat_mechhive and embrace_monolith -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Nociokin</workerClass>
+		<chance>1.7</chance>
+		<xenotypeDefs>
+		  <li>WVC_Nociokin</li>
 		</xenotypeDefs>
 	  </li>
 	</xenotypeGetterDefs>
