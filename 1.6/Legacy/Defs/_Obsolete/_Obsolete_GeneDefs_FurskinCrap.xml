@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFurskinBase" Abstract="True">
+	<description>TEST</description>
+	<displayCategory>Miscellaneous</displayCategory>
+	<selectionWeight>0.0012</selectionWeight>
+	<marketValueFactor>1.0</marketValueFactor>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<randomChosen>false</randomChosen>
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<prerequisite>Furskin</prerequisite>
+	<iconPath>WVC/UI/Genes/FurBall</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>0</biostatArc>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
+	<defName>WVC_Furskin_WarmFur</defName>
+	<label>warm fur</label>
+	<description>Carriers of this gene have very warm coats.</description>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(255, 180, 160)</iconColor>
+    <displayCategory>Temperature</displayCategory>
+	<displayOrderInCategory>555</displayOrderInCategory>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+			<ComfyTemperatureMax>-8</ComfyTemperatureMax>
+			<ComfyTemperatureMin>-28</ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>warm</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>warm</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
+	<defName>WVC_Furskin_AttractiveFur</defName>
+	<label>attractive fur</label>
+	<description>Carriers of this gene have coats that draw attention to themselves.</description>
+	<biostatMet>0</biostatMet>
+	<iconColor>(160, 255, 160)</iconColor>
+	<missingGeneRomanceChanceFactor>2</missingGeneRomanceChanceFactor>
+	<displayCategory>Beauty</displayCategory>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>attra</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ctive</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
+	<defName>WVC_Furskin_CoarseFur</defName>
+	<label>coarse fur</label>
+	<description>Carriers of this gene have a very hard coat that serves as natural armor.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<iconColor>(190, 220, 255)</iconColor>
+	<displayCategory>Violence</displayCategory>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+		  <!-- <ArmorRating_Heat>0.5</ArmorRating_Heat> -->
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_Furskin_Fluffy</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>coarse</symbol></li>
+		<li><symbol>coar</symbol></li>
+		<li><symbol>co</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>rse</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
+	<defName>WVC_Furskin_FluffyFur</defName>
+	<label>fluffy fur</label>
+	<description>Carriers of this gene have a very soft, fluffy and neat coat.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<iconColor>(255, 190, 250)</iconColor>
+	<displayCategory>Beauty</displayCategory>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <PawnBeauty>0.5</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_Furskin_Fluffy</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fluffy</symbol></li>
+		<li><symbol>fluf</symbol></li>
+		<li><symbol>flu</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>puff</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

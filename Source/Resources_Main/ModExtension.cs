@@ -1,8 +1,10 @@
+using HarmonyLib;
+using RimWorld;
 using System;
 using System.Collections.Generic;
-using RimWorld;
 using UnityEngine;
 using Verse;
+using WVC_XenotypesAndGenes.HarmonyPatches;
 
 // namespace WVC
 namespace WVC_XenotypesAndGenes
@@ -392,6 +394,42 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_Obsolete : DefModExtension
 	{
+
 		public bool logInDevMode = true;
+
+		public override void ResolveReferences(Def parentDef)
+		{
+			base.ResolveReferences(parentDef);
+			parentDef.label = parentDef.label + " " + "WVC_XaG_GeneExtension_Obsolete_Label".Translate().Resolve();
+			parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GeneExtension_Obsolete_Desc".Translate().Resolve();
+			if (parentDef is GeneDef geneDef)
+			{
+				geneDef.selectionWeight = 0;
+				geneDef.canGenerateInGeneSet = false;
+			}
+			HarmonyPatch();
+		}
+
+		private static bool gamePatched = false;
+		private static void HarmonyPatch()
+		{
+			if (gamePatched)
+			{
+				return;
+			}
+			try
+			{
+				if (!WVC_Biotech.settings.hideXaGGenes)
+				{
+					HarmonyUtility.Harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_HideObsoleteGenes))));
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed apply hideGenes patch. Reason: " + arg.Message);
+			}
+			gamePatched = true;
+		}
+
 	}
 }

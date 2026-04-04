@@ -303,6 +303,22 @@ namespace WVC_XenotypesAndGenes
 				}
 				__result = cachedGeneDefsInOrder;
 			}
+			public static void Patch_HideObsoleteGenes(ref List<GeneDef> __result)
+			{
+				if (cachedGeneDefsInOrder == null)
+				{
+					List<GeneDef> newList = new();
+					foreach (GeneDef geneDef in __result)
+					{
+						if (geneDef.GetModExtension<GeneExtension_Obsolete>() == null)
+						{
+							newList.Add(geneDef);
+						}
+					}
+					cachedGeneDefsInOrder = newList;
+				}
+				__result = cachedGeneDefsInOrder;
+			}
 
 			// Backgroud
 

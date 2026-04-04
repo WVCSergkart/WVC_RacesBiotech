@@ -6,7 +6,7 @@
 	<label>With All Eyes</label>
 	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- At 5%, the generated baseliner will be replaced with a random flesh-chimera xenotype.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- At 5%, the generated &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt; will be replaced with a random &lt;color=#8a8ae6&gt;flesh-chimera&lt;/color&gt; xenotype.
 
 &lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a variable difficulty scenario, the challenge of which directly depends on the starting conditions.</description>
 	<scenario>
@@ -163,7 +163,7 @@
 	<label>From the Void</label>
 	<description>When you opened your eyes, you saw a completely unfamiliar landscape. All your memories were confused and blurred. You barely remembered your name, and your past was a complete fog, and your skills, if there were any, were gone. The only thing you clearly understood was the feeling of hunger, which was growing with each passing second.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All surface biomes will be replaced with ice sheet, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- The temperature of all biomes will be -51C.\n- All resources will be much rarer, and the mine yield will be much lower.\n- Trade caravans stop selling goods and only buy them. The exception is orbital traders.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All surface biomes will be replaced with &lt;color=#8a8ae6&gt;ice sheet&lt;/color&gt;, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- The temperature of all biomes will be -51C.\n- All &lt;color=#8a8ae6&gt;resources&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;rarer&lt;/color&gt;, and the mine &lt;color=#8a8ae6&gt;yield&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;lower&lt;/color&gt;.\n- Trade &lt;color=#8a8ae6&gt;caravans&lt;/color&gt; stop selling goods and &lt;color=#8a8ae6&gt;only buy&lt;/color&gt; them. The exception is orbital traders.\n- &lt;color=#f46d6b&gt;For the scenario, it is recommended to disable all mods that add biomes and/or change world generation.&lt;/color&gt;
 
 &lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 

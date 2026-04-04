@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableEyesGraphic, "disableEyesGraphic", defaultValue: false);
 			Scribe_Values.Look(ref useMaskForFurskinGenes, "useMaskForFurskinGenes", defaultValue: true);
 			// Generator
-			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
+			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true, forceSave: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);

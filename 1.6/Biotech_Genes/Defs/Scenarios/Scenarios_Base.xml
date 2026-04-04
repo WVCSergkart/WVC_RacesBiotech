@@ -27,7 +27,7 @@
 	<label>Long running joke</label>
 	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- Dynamically spawns xenotypes from the &lt;color=#8a8ae6&gt;XenoGenes&lt;/color&gt; mod. This depends on quests, weather, tech level, pawns, buildings, factions, and many other factors.\n- When the colony's population &lt;color=#8a8ae6&gt;exceeds 5&lt;/color&gt;, there's a 25% chance that someone will decide to leave. &lt;color=#8a8ae6&gt;Exceptions&lt;/color&gt; include &lt;color=#8a8ae6&gt;children&lt;/color&gt; raised in the colony, &lt;color=#8a8ae6&gt;androids&lt;/color&gt;, &lt;color=#8a8ae6&gt;mutants&lt;/color&gt;, and the &lt;color=#8a8ae6&gt;starting pawn&lt;/color&gt;. Quest pawns and anomaly mutants are ignored.\n- The non-player hivemind size will always be considered 15.\n- When generated, there is a 3% chance that the npc-pawn will have the &lt;color=#8a8ae6&gt;starting pawn&lt;/color&gt; xenotype.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- Dynamically spawns xenotypes from the &lt;color=#8a8ae6&gt;XenoGenes&lt;/color&gt; mod. This depends on quests, weather, tech level, pawns, buildings, factions, and many other factors.\n- When the colony's population &lt;color=#8a8ae6&gt;exceeds 5&lt;/color&gt;, there's a 25% chance that someone will decide to leave. &lt;color=#8a8ae6&gt;Exceptions&lt;/color&gt; include &lt;color=#8a8ae6&gt;children&lt;/color&gt; raised in the colony, &lt;color=#8a8ae6&gt;androids&lt;/color&gt;, &lt;color=#8a8ae6&gt;mutants&lt;/color&gt;, and the &lt;color=#8a8ae6&gt;starting pawn&lt;/color&gt;. Quest pawns and anomaly mutants are ignored.\n- The &lt;color=#8a8ae6&gt;non-player hivemind&lt;/color&gt; size will always be considered 15.\n- When generated, there is a 3% chance that the npc-pawn will have the &lt;color=#8a8ae6&gt;starting pawn&lt;/color&gt; xenotype.
 
 &lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 
@@ -294,7 +294,7 @@
 	<label>Raised from the Dead</label>
 	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- At 20%, the generated baseliner will be replaced with a &lt;color=#8a8ae6&gt;undead xenotype&lt;/color&gt;.\n- All pawns generated in this way will be considered &lt;color=#8a8ae6&gt;resurrected&lt;/color&gt; for the corresponding ideology.\n- Pawns without a faction have a 20% chance to get the &lt;color=#8a8ae6&gt;feathered or ashen xenotype&lt;/color&gt; instead of undead.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- At 20%, the generated baseliner will be replaced with a &lt;color=#8a8ae6&gt;undead xenotype&lt;/color&gt;.\n- All pawns generated in this way will be considered &lt;color=#8a8ae6&gt;resurrected&lt;/color&gt; for the corresponding ideology.\n- Pawns without a faction have a 20% chance to get the &lt;color=#8a8ae6&gt;feathered xenotype&lt;/color&gt; instead of undead.
 
 &lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; A naked brutality scenario with a second chance and additional modifiers that make the start easier or harder. To increase the difficulty, enable the "Hide hediffs" option in the settings (WVC - Xenotypes and Genes).</description>
 	<scenario>
@@ -333,7 +333,7 @@
 		  </undeadXenotypeDefs>
 		  <rareXenotypeDefs>
 			<li>WVC_Featherdust</li>
-			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+			<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
 		  </rareXenotypeDefs>
 		</li>
 

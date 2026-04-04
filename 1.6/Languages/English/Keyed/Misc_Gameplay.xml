@@ -5,6 +5,10 @@
 
 	<!-- ================================== -->
 
+
+	<WVC_XaG_GeneExtension_Obsolete_Label>&lt;color=#ff8585&gt;(Obsolete)&lt;/color&gt;</WVC_XaG_GeneExtension_Obsolete_Label>
+	<WVC_XaG_GeneExtension_Obsolete_Desc>&lt;color=#ff8585&gt;Obsolete:&lt;/color&gt; This gene is obsolete and is no longer intended for use outside of dev mode.</WVC_XaG_GeneExtension_Obsolete_Desc>
+
 	<WVC_XaG_SkipThing>Skip</WVC_XaG_SkipThing>
 	<WVC_XaG_SkipThingDesc>Use the skip gate to move the object to a more convenient location.</WVC_XaG_SkipThingDesc>
 	<WVC_XaG_SkipThing_ChooseSkipLocation>Choose skip location</WVC_XaG_SkipThing_ChooseSkipLocation>
