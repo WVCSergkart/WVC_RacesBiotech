@@ -742,7 +742,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (MiscUtility.CanStartPregnancy(pawn, false))
 				{
-					MiscUtility.Impregnate(pawn);
+					GestationUtility.Impregnate(pawn);
 				}
 			}
 		}

@@ -150,10 +150,10 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (!startingPawnsIsPregnant)
 			{
-				MiscUtility.TryUpdChildGenes(pawn);
+				GestationUtility.TryUpdChildGenes(pawn);
 				return;
 			}
-			MiscUtility.TryImpregnateOrUpdChildGenes(pawn);
+			GestationUtility.TryImpregnateOrUpdChildGenes(pawn);
 		}
 
 		public override IEnumerable<Thing> PlayerStartingThings()

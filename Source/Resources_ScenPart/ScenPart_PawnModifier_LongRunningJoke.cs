@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				colonist.SetFaction(null);
 			}
-			LordMaker.MakeNewLord(colonist.Faction, new LordJob_ExitMapBest(LocomotionUrgency.Jog), colonist.Map).AddPawn(colonist);
+			LordMaker.MakeNewLord(colonist.Faction, new LordJob_ExitMapBest(LocomotionUrgency.Walk), colonist.Map).AddPawn(colonist);
 		}
 
 		private static bool CanLeaveColony(Pawn colonist)

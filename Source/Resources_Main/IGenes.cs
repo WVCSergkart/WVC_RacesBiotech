@@ -290,4 +290,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public interface IGeneLovin
+	//{
+
+	//	void Hook_TicksToNextLovin(Pawn caller, Pawn partner);
+
+	//}
+
 }

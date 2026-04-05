@@ -27,6 +27,54 @@ namespace WVC_XenotypesAndGenes
 			return WVC_Biotech.settings.enable_pregnancyForAllGenders;
 		}
 
+		public static bool TryUpdChildGenes(Pawn pawn)
+		{
+			if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
+			{
+				if (hediff is Hediff_Pregnant pregnant)
+				{
+					GeneSet newGeneSet = new();
+					HediffUtility.AddParentGenes(pawn, newGeneSet);
+					newGeneSet.SortGenes();
+					pregnant.geneSet = newGeneSet;
+					return true;
+				}
+				else
+				{
+					pawn.health.RemoveHediff(hediff);
+				}
+			}
+			return false;
+		}
+
+		public static void TryImpregnateOrUpdChildGenes(Pawn pawn)
+		{
+			if (!TryUpdChildGenes(pawn))
+			{
+				Impregnate(pawn);
+			}
+		}
+
+		public static void Impregnate(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return;
+			}
+			if (!Find.Storyteller.difficulty.ChildrenAllowed)
+			{
+				return;
+			}
+			Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
+			hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
+			GeneSet newGeneSet = new();
+			HediffUtility.AddParentGenes(pawn, newGeneSet);
+			// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
+			newGeneSet.SortGenes();
+			hediff_Pregnant.SetParents(pawn, null, newGeneSet);
+			pawn.health.AddHediff(hediff_Pregnant);
+		}
+
 		public static void GestateChild_WithGenes(Pawn parent, Thing motherOrEgg = null, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogenes = true, bool xenogenes = true)
 		{
 			if (motherOrEgg == null)

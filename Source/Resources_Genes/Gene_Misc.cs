@@ -255,6 +255,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Incestuous_Relations))));
 					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Incestuous_LovinChanceFactor))));
+					//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(JobDriver_Lovin), "GenerateRandomMinTicksToNextLovin"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Notify_GotLovin))));
 				}
 			}
 			catch (Exception arg)
@@ -279,6 +280,17 @@ namespace WVC_XenotypesAndGenes
 		{
 			return false;
 		}
+
+		//public void Hook_TicksToNextLovin(Pawn caller, Pawn partner)
+		//{
+		//	if (caller.gender == Gender.Female && partner.gender == Gender.Female)
+		//	{
+		//		if (MiscUtility.CanStartPregnancy(partner, false))
+		//		{
+		//			GestationUtility.Impregnate(partner);
+		//		}
+		//	}
+		//}
 
 	}
 

@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void StartPregnancy()
 		{
-			MiscUtility.Impregnate(pawn);
+			GestationUtility.Impregnate(pawn);
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)

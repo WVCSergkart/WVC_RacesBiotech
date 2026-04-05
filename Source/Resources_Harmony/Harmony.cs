@@ -1,8 +1,9 @@
+using HarmonyLib;
+using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
-using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -1081,6 +1082,32 @@ namespace WVC_XenotypesAndGenes
 				}
 				return true;
 			}
+
+			//public static void Notify_GotLovin(Pawn pawn, Pawn ___Partner)
+			//{
+			//	if (MiscUtility.GameNotStarted())
+			//	{
+			//		return;
+			//	}
+			//	if (pawn?.genes == null || ___Partner?.genes == null)
+			//	{
+			//		return;
+			//	}
+			//	foreach (Gene gene in pawn.genes.GenesListForReading)
+			//	{
+			//		if (gene is IGeneLovin gene_LifeStageStarted && gene.Active)
+			//		{
+			//			try
+			//			{
+			//				gene_LifeStageStarted.Hook_TicksToNextLovin(pawn, ___Partner);
+			//			}
+			//			catch (Exception arg)
+			//			{
+			//				Log.Error("Failed trigger Notify_GotLovin for gene: " + gene.def.defName + ", pawn: " + pawn.NameFullColored + ". Reason: " + arg.Message);
+			//			}
+			//		}
+			//	}
+			//}
 
 		}
 
