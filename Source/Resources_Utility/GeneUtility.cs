@@ -1,8 +1,11 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using RimWorld;
+using System.Reflection.Emit;
+using System.Text;
+using UnityEngine;
 using Verse;
 using Verse.Grammar;
 
@@ -86,6 +89,378 @@ namespace WVC_XenotypesAndGenes
 		public static bool Furskin_ShouldNotDrawNow(Pawn pawn)
 		{
 			return pawn.DevelopmentalStage != DevelopmentalStage.Adult || (pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh) == RotDrawMode.Dessicated;
+		}
+		public static string GetDescriptionFull_Wiki(GeneDef geneDef)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (!geneDef.description.NullOrEmpty())
+			{
+				sb.Append(geneDef.description).AppendLine().AppendLine();
+			}
+			bool flag = false;
+			if (geneDef.prerequisite != null)
+			{
+				sb.AppendLine(" - " + "Requires".Translate() + ": " + geneDef.prerequisite.LabelCap);
+				flag = true;
+			}
+			if (geneDef.minAgeActive > 0f)
+			{
+				sb.AppendLine(string.Concat(" - " + "TakesEffectAfterAge".Translate() + ": ", geneDef.minAgeActive.ToString()));
+				flag = true;
+			}
+			if (flag)
+			{
+				sb.AppendLine();
+			}
+			bool flag2 = false;
+			if (geneDef.biostatCpx != 0)
+			{
+				sb.AppendLineTagged(" - " + "Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + geneDef.biostatCpx.ToStringWithSign());
+				flag2 = true;
+			}
+			if (geneDef.biostatMet != 0)
+			{
+				sb.AppendLineTagged(" - " + "Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + geneDef.biostatMet.ToStringWithSign());
+				flag2 = true;
+			}
+			if (geneDef.biostatArc != 0)
+			{
+				sb.AppendLineTagged(" - " + "ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + geneDef.biostatArc.ToStringWithSign());
+				flag2 = true;
+			}
+			if (flag2)
+			{
+				sb.AppendLine();
+			}
+			if (geneDef.forcedTraits != null)
+			{
+				sb.AppendLineTagged(("ForcedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.forcedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+			}
+			if (geneDef.suppressedTraits != null)
+			{
+				sb.AppendLineTagged(("SuppressedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.suppressedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+			}
+			if (geneDef.aptitudes != null)
+			{
+				sb.AppendLineTagged(("Aptitudes".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.aptitudes.Select((Aptitude x) => x.skill.LabelCap.ToString() + " " + x.level.ToStringWithSign()).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+			}
+			bool effectsTitleWritten = false;
+			if (geneDef.passionMod != null)
+			{
+				switch (geneDef.passionMod.modType)
+				{
+					case PassionMod.PassionModType.AddOneLevel:
+						AppendEffectLine("PassionModAdd".Translate(geneDef.passionMod.skill));
+						break;
+					case PassionMod.PassionModType.DropAll:
+						AppendEffectLine("PassionModDrop".Translate(geneDef.passionMod.skill));
+						break;
+				}
+			}
+			if (!geneDef.statFactors.NullOrEmpty())
+			{
+				for (int num = 0; num < geneDef.statFactors.Count; num++)
+				{
+					StatModifier statModifier = geneDef.statFactors[num];
+					if (statModifier.stat.CanShowWithLoadedMods())
+					{
+						AppendEffectLine(statModifier.stat.LabelCap + " " + statModifier.ToStringAsFactor);
+					}
+				}
+			}
+			if (!geneDef.conditionalStatAffecters.NullOrEmpty())
+			{
+				for (int num2 = 0; num2 < geneDef.conditionalStatAffecters.Count; num2++)
+				{
+					if (geneDef.conditionalStatAffecters[num2].statFactors.NullOrEmpty())
+					{
+						continue;
+					}
+					for (int num3 = 0; num3 < geneDef.conditionalStatAffecters[num2].statFactors.Count; num3++)
+					{
+						StatModifier statModifier2 = geneDef.conditionalStatAffecters[num2].statFactors[num3];
+						if (statModifier2.stat.CanShowWithLoadedMods())
+						{
+							AppendEffectLine(statModifier2.stat.LabelCap + " " + statModifier2.ToStringAsFactor + " (" + geneDef.conditionalStatAffecters[num2].Label + ")");
+						}
+					}
+				}
+			}
+			if (!geneDef.statOffsets.NullOrEmpty())
+			{
+				for (int num4 = 0; num4 < geneDef.statOffsets.Count; num4++)
+				{
+					StatModifier statModifier3 = geneDef.statOffsets[num4];
+					if (statModifier3.stat.CanShowWithLoadedMods())
+					{
+						AppendEffectLine(statModifier3.stat.LabelCap + " " + statModifier3.ValueToStringAsOffset);
+					}
+				}
+			}
+			if (!geneDef.conditionalStatAffecters.NullOrEmpty())
+			{
+				for (int num5 = 0; num5 < geneDef.conditionalStatAffecters.Count; num5++)
+				{
+					if (geneDef.conditionalStatAffecters[num5].statOffsets.NullOrEmpty())
+					{
+						continue;
+					}
+					for (int num6 = 0; num6 < geneDef.conditionalStatAffecters[num5].statOffsets.Count; num6++)
+					{
+						StatModifier statModifier4 = geneDef.conditionalStatAffecters[num5].statOffsets[num6];
+						if (statModifier4.stat.CanShowWithLoadedMods())
+						{
+							AppendEffectLine(statModifier4.stat.LabelCap + " " + statModifier4.ValueToStringAsOffset + " (" + geneDef.conditionalStatAffecters[num5].Label.UncapitalizeFirst() + ")");
+						}
+					}
+				}
+			}
+			if (!geneDef.capMods.NullOrEmpty())
+			{
+				for (int num7 = 0; num7 < geneDef.capMods.Count; num7++)
+				{
+					PawnCapacityModifier pawnCapacityModifier = geneDef.capMods[num7];
+					if (pawnCapacityModifier.offset != 0f)
+					{
+						AppendEffectLine(pawnCapacityModifier.capacity.GetLabelFor().CapitalizeFirst() + " " + (pawnCapacityModifier.offset * 100f).ToString("+#;-#") + "%");
+					}
+					if (pawnCapacityModifier.postFactor != 1f)
+					{
+						AppendEffectLine(pawnCapacityModifier.capacity.GetLabelFor().CapitalizeFirst() + " x" + pawnCapacityModifier.postFactor.ToStringPercent());
+					}
+					if (pawnCapacityModifier.setMax != 999f)
+					{
+						AppendEffectLine(pawnCapacityModifier.capacity.GetLabelFor().CapitalizeFirst() + " " + "max".Translate().CapitalizeFirst() + ": " + pawnCapacityModifier.setMax.ToStringPercent());
+					}
+				}
+			}
+			if (!geneDef.customEffectDescriptions.NullOrEmpty())
+			{
+				foreach (string customEffectDescription in geneDef.customEffectDescriptions)
+				{
+					AppendEffectLine(customEffectDescription.ResolveTags());
+				}
+			}
+			if (!geneDef.damageFactors.NullOrEmpty())
+			{
+				for (int num8 = 0; num8 < geneDef.damageFactors.Count; num8++)
+				{
+					AppendEffectLine("DamageType".Translate(geneDef.damageFactors[num8].damageDef.label).CapitalizeFirst() + " x" + geneDef.damageFactors[num8].factor.ToStringPercent());
+				}
+			}
+			if (geneDef.resourceLossPerDay != 0f && !geneDef.resourceLabel.NullOrEmpty())
+			{
+				AppendEffectLine("ResourceLossPerDay".Translate(geneDef.resourceLabel.Named("RESOURCE"), (-Mathf.RoundToInt(geneDef.resourceLossPerDay * 100f)).ToStringWithSign().Named("OFFSET")).CapitalizeFirst());
+			}
+			if (!Mathf.Approximately(geneDef.painFactor, 1f))
+			{
+				AppendEffectLine("Pain".Translate() + " x" + geneDef.painFactor.ToStringPercent());
+			}
+			if (geneDef.painOffset != 0f)
+			{
+				AppendEffectLine("Pain".Translate() + " " + (geneDef.painOffset * 100f).ToString("+###0;-###0") + "%");
+			}
+			if (geneDef.chemical != null)
+			{
+				if (!Mathf.Approximately(geneDef.addictionChanceFactor, 1f))
+				{
+					if (geneDef.addictionChanceFactor <= 0f)
+					{
+						AppendEffectLine("AddictionImmune".Translate(geneDef.chemical).CapitalizeFirst());
+					}
+					else
+					{
+						AppendEffectLine("AddictionChanceFactor".Translate(geneDef.chemical).CapitalizeFirst() + " x" + geneDef.addictionChanceFactor.ToStringPercent());
+					}
+				}
+				if (geneDef.overdoseChanceFactor != 1f)
+				{
+					AppendEffectLine("OverdoseChanceFactor".Translate(geneDef.chemical).CapitalizeFirst() + " x" + geneDef.overdoseChanceFactor.ToStringPercent());
+				}
+				if (geneDef.toleranceBuildupFactor != 1f)
+				{
+					AppendEffectLine("ToleranceBuildupFactor".Translate(geneDef.chemical).CapitalizeFirst() + " x" + geneDef.toleranceBuildupFactor.ToStringPercent());
+				}
+			}
+			if (!geneDef.enablesNeeds.NullOrEmpty())
+			{
+				if (geneDef.enablesNeeds.Count == 1)
+				{
+					AppendEffectLine(string.Format("{0}: {1}", "AddsNeed".Translate(), geneDef.enablesNeeds[0].LabelCap));
+				}
+				else
+				{
+					AppendEffectLine(string.Format("{0}: {1}", "AddsNeeds".Translate(), geneDef.enablesNeeds.Select((NeedDef x) => x.label).ToCommaList().CapitalizeFirst()));
+				}
+			}
+			if (!geneDef.disablesNeeds.NullOrEmpty())
+			{
+				if (geneDef.disablesNeeds.Count == 1)
+				{
+					AppendEffectLine(string.Format("{0}: {1}", "DisablesNeed".Translate(), geneDef.disablesNeeds[0].LabelCap));
+				}
+				else
+				{
+					AppendEffectLine(string.Format("{0}: {1}", "DisablesNeeds".Translate(), geneDef.disablesNeeds.Select((NeedDef x) => x.label).ToCommaList().CapitalizeFirst()));
+				}
+			}
+			if (geneDef.missingGeneRomanceChanceFactor != 1f)
+			{
+				AppendEffectLine("MissingGeneRomanceChance".Translate(geneDef.label.Named("GENE")) + " x" + geneDef.missingGeneRomanceChanceFactor.ToStringPercent());
+			}
+			if (geneDef.ignoreDarkness)
+			{
+				AppendEffectLine("UnaffectedByDarkness".Translate());
+			}
+			if (geneDef.foodPoisoningChanceFactor != 1f)
+			{
+				if (geneDef.foodPoisoningChanceFactor <= 0f)
+				{
+					AppendEffectLine("FoodPoisoningImmune".Translate());
+				}
+				else
+				{
+					AppendEffectLine("Stat_Hediff_FoodPoisoningChanceFactor_Name".Translate() + " x" + geneDef.foodPoisoningChanceFactor.ToStringPercent());
+				}
+			}
+			if (geneDef.socialFightChanceFactor != 1f)
+			{
+				if (geneDef.socialFightChanceFactor <= 0f)
+				{
+					AppendEffectLine("WillNeverSocialFight".Translate());
+				}
+				else
+				{
+					AppendEffectLine("SocialFightChanceFactor".Translate() + " x" + geneDef.socialFightChanceFactor.ToStringPercent());
+				}
+			}
+			if (geneDef.aggroMentalBreakSelectionChanceFactor != 1f)
+			{
+				if (geneDef.aggroMentalBreakSelectionChanceFactor >= 999f)
+				{
+					AppendEffectLine("AlwaysAggroMentalBreak".Translate());
+				}
+				else if (geneDef.aggroMentalBreakSelectionChanceFactor <= 0f)
+				{
+					AppendEffectLine("NeverAggroMentalBreak".Translate());
+				}
+				else
+				{
+					AppendEffectLine("AggroMentalBreakSelectionChanceFactor".Translate() + " x" + geneDef.aggroMentalBreakSelectionChanceFactor.ToStringPercent());
+				}
+			}
+			if (geneDef.prisonBreakMTBFactor != 1f)
+			{
+				if (geneDef.prisonBreakMTBFactor < 0f)
+				{
+					AppendEffectLine("WillNeverPrisonBreak".Translate());
+				}
+				else
+				{
+					AppendEffectLine("PrisonBreakIntervalFactor".Translate() + " x" + geneDef.prisonBreakMTBFactor.ToStringPercent());
+				}
+			}
+			bool flag3 = effectsTitleWritten;
+			if (!geneDef.makeImmuneTo.NullOrEmpty())
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				sb.AppendLineTagged(("ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.makeImmuneTo.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				flag3 = true;
+			}
+			if (!geneDef.hediffGiversCannotGive.NullOrEmpty())
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				sb.AppendLineTagged(("ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.hediffGiversCannotGive.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				flag3 = true;
+			}
+			if (geneDef.biologicalAgeTickFactorFromAgeCurve != null)
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				sb.AppendLineTagged(("AgeFactors".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.biologicalAgeTickFactorFromAgeCurve.Select((CurvePoint p) => "PeriodYears".Translate(p.x).ToString() + ": x" + p.y.ToStringPercent()).ToLineList("  - ", capitalizeItems: true));
+				flag3 = true;
+			}
+			if (geneDef.disabledWorkTags != WorkTags.None)
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				IEnumerable<WorkTypeDef> source = DefDatabase<WorkTypeDef>.AllDefsListForReading.Where((WorkTypeDef x) => (geneDef.disabledWorkTags & x.workTags) != 0);
+				sb.AppendLineTagged(("DisabledWorkLabel".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine("  - " + source.Select((WorkTypeDef x) => x.labelShort).ToCommaList().CapitalizeFirst());
+				if (geneDef.disabledWorkTags.ExactlyOneWorkTagSet())
+				{
+					sb.AppendLine("  - " + geneDef.disabledWorkTags.LabelTranslated().CapitalizeFirst());
+				}
+				flag3 = true;
+			}
+			if (!geneDef.abilities.NullOrEmpty())
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				if (geneDef.abilities.Count == 1)
+				{
+					sb.AppendLineTagged(("GivesAbility".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				}
+				else
+				{
+					sb.AppendLineTagged(("GivesAbilities".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				}
+				sb.AppendLine(geneDef.abilities.Select((AbilityDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				flag3 = true;
+			}
+			IEnumerable<ThoughtDef> enumerable = DefDatabase<ThoughtDef>.AllDefs.Where((ThoughtDef x) => (x.requiredGenes.NotNullAndContains(geneDef) || x.nullifyingGenes.NotNullAndContains(geneDef)) && x.stages != null && x.stages.Any((ThoughtStage y) => y.baseMoodEffect != 0f));
+			if (enumerable.Any())
+			{
+				if (flag3)
+				{
+					sb.AppendLine();
+				}
+				sb.AppendLineTagged(("Mood".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				foreach (ThoughtDef item in enumerable)
+				{
+					ThoughtStage thoughtStage = item.stages.FirstOrDefault((ThoughtStage x) => x.baseMoodEffect != 0f);
+					if (thoughtStage != null)
+					{
+						string text = thoughtStage.LabelCap + ": " + thoughtStage.baseMoodEffect.ToStringWithSign();
+						if (item.requiredGenes.NotNullAndContains(geneDef))
+						{
+							sb.AppendLine("  - " + text);
+						}
+						else if (item.nullifyingGenes.NotNullAndContains(geneDef))
+						{
+							sb.AppendLine("  - " + "Removes".Translate() + ": " + text);
+						}
+					}
+				}
+			}
+			return sb.ToString().TrimEndNewlines();
+			void AppendEffectLine(string text2)
+			{
+				if (!effectsTitleWritten)
+				{
+					sb.AppendLineTagged(("Effects".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+					effectsTitleWritten = true;
+				}
+				sb.AppendLine("  - " + text2);
+			}
 		}
 
 		// Genepacks

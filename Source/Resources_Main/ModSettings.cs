@@ -816,7 +816,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					string text = "Dump: ";
 					List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
-					foreach (GeneCategoryDef geneCategoryDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)))
+					List<GeneCategoryDef> geneCategoryDefs = DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)).ToList();
+					geneCategoryDefs.SortBy(def => def.label);
+					allDefsListForReading.SortBy(def => def.label);
+					foreach (GeneCategoryDef geneCategoryDef in geneCategoryDefs)
 					{
 						text += "\n\n# " + geneCategoryDef.LabelCap;
 						foreach (GeneDef geneDef in allDefsListForReading)
@@ -826,10 +829,9 @@ namespace WVC_XenotypesAndGenes
 								continue;
 							}
 							text += "\n## " + geneDef.LabelCap;
-							text += "\n" + geneDef.DescriptionFull;
-							text += "\n\n" + "defName: " + geneDef.defName;
-							text += "\n\n" + "geneClass: " + geneDef.geneClass;
-							text += "\n\n\n" + "Selection weight (Genepack chance): " + geneDef.selectionWeight;
+							text += "\n" + "defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`";
+							text += "\n\n" + XaG_GeneUtility.GetDescriptionFull_Wiki(geneDef);
+							text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
 						}
 					}
 					text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
