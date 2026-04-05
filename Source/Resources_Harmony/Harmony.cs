@@ -310,7 +310,7 @@ namespace WVC_XenotypesAndGenes
 					List<GeneDef> newList = new();
 					foreach (GeneDef geneDef in __result)
 					{
-						if (geneDef.GetModExtension<GeneExtension_Obsolete>() == null)
+						if (!geneDef.IsObsolete())
 						{
 							newList.Add(geneDef);
 						}

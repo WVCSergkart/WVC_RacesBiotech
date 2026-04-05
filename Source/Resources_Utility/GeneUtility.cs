@@ -78,6 +78,11 @@ namespace WVC_XenotypesAndGenes
 			ResetGenesInspectString(pawn);
 		}
 
+		public static bool IsObsolete(this GeneDef geneDef)
+		{
+			return geneDef.GetModExtension<GeneExtension_Obsolete>() != null;
+		}
+
 		public static bool Furskin_ShouldNotDrawNow(Pawn pawn)
 		{
 			return pawn.DevelopmentalStage != DevelopmentalStage.Adult || (pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh) == RotDrawMode.Dessicated;

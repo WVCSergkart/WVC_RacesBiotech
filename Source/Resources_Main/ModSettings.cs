@@ -812,6 +812,30 @@ namespace WVC_XenotypesAndGenes
 				{
 					Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Log genes dump for wiki"))
+				{
+					string text = "Dump: ";
+					List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
+					foreach (GeneCategoryDef geneCategoryDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)))
+					{
+						text += "\n\n# " + geneCategoryDef.LabelCap;
+						foreach (GeneDef geneDef in allDefsListForReading)
+						{
+							if (geneDef.displayCategory != geneCategoryDef || geneDef.IsObsolete() || !geneDef.IsXenoGenesDef())
+							{
+								continue;
+							}
+							text += "\n## " + geneDef.LabelCap;
+							text += "\n" + geneDef.DescriptionFull;
+							text += "\n\n" + "defName: " + geneDef.defName;
+							text += "\n\n" + "geneClass: " + geneDef.geneClass;
+							text += "\n\n\n" + "Selection weight (Genepack chance): " + geneDef.selectionWeight;
+						}
+					}
+					text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
+					text.ResolveTags();
+					Log.Error(text);
+				}
 			}
 			listingStandard.End();
 			Widgets.EndScrollView();
