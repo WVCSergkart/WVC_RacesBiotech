@@ -90,6 +90,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			return pawn.DevelopmentalStage != DevelopmentalStage.Adult || (pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh) == RotDrawMode.Dessicated;
 		}
+
+		// Wiki
 		public static string GetDescriptionFull_Wiki(GeneDef geneDef)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -100,12 +102,12 @@ namespace WVC_XenotypesAndGenes
 			bool flag = false;
 			if (geneDef.prerequisite != null)
 			{
-				sb.AppendLine(" - " + "Requires".Translate() + ": " + geneDef.prerequisite.LabelCap);
+				sb.AppendLine("- " + "Requires".Translate() + ": " + geneDef.prerequisite.LabelCap);
 				flag = true;
 			}
 			if (geneDef.minAgeActive > 0f)
 			{
-				sb.AppendLine(string.Concat(" - " + "TakesEffectAfterAge".Translate() + ": ", geneDef.minAgeActive.ToString()));
+				sb.AppendLine(string.Concat("- " + "TakesEffectAfterAge".Translate() + ": ", geneDef.minAgeActive.ToString()));
 				flag = true;
 			}
 			if (flag)
@@ -115,17 +117,17 @@ namespace WVC_XenotypesAndGenes
 			bool flag2 = false;
 			if (geneDef.biostatCpx != 0)
 			{
-				sb.AppendLineTagged(" - " + "Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + geneDef.biostatCpx.ToStringWithSign());
+				sb.AppendLineTagged("- " + "Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + geneDef.biostatCpx.ToStringWithSign());
 				flag2 = true;
 			}
 			if (geneDef.biostatMet != 0)
 			{
-				sb.AppendLineTagged(" - " + "Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + geneDef.biostatMet.ToStringWithSign());
+				sb.AppendLineTagged("- " + "Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + geneDef.biostatMet.ToStringWithSign());
 				flag2 = true;
 			}
 			if (geneDef.biostatArc != 0)
 			{
-				sb.AppendLineTagged(" - " + "ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + geneDef.biostatArc.ToStringWithSign());
+				sb.AppendLineTagged("- " + "ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + geneDef.biostatArc.ToStringWithSign());
 				flag2 = true;
 			}
 			if (flag2)
@@ -134,18 +136,18 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (geneDef.forcedTraits != null)
 			{
-				sb.AppendLineTagged(("ForcedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.Append(geneDef.forcedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+				sb.AppendLineTagged(("- " + "ForcedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.forcedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("	* ", capitalizeItems: true)).AppendLine().AppendLine();
 			}
 			if (geneDef.suppressedTraits != null)
 			{
-				sb.AppendLineTagged(("SuppressedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.Append(geneDef.suppressedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+				sb.AppendLineTagged(("- " + "SuppressedTraits".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.suppressedTraits.Select((GeneticTraitData x) => x.def.DataAtDegree(x.degree).label).ToLineList("	* ", capitalizeItems: true)).AppendLine().AppendLine();
 			}
 			if (geneDef.aptitudes != null)
 			{
-				sb.AppendLineTagged(("Aptitudes".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.Append(geneDef.aptitudes.Select((Aptitude x) => x.skill.LabelCap.ToString() + " " + x.level.ToStringWithSign()).ToLineList("  - ", capitalizeItems: true)).AppendLine().AppendLine();
+				sb.AppendLineTagged(("- " + "Aptitudes".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.Append(geneDef.aptitudes.Select((Aptitude x) => x.skill.LabelCap.ToString() + " " + x.level.ToStringWithSign()).ToLineList("	* ", capitalizeItems: true)).AppendLine().AppendLine();
 			}
 			bool effectsTitleWritten = false;
 			if (geneDef.passionMod != null)
@@ -370,8 +372,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					sb.AppendLine();
 				}
-				sb.AppendLineTagged(("ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.AppendLine(geneDef.makeImmuneTo.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				sb.AppendLineTagged(("- " + "ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.makeImmuneTo.Select((HediffDef x) => x.label).ToLineList("	* ", capitalizeItems: true));
 				flag3 = true;
 			}
 			if (!geneDef.hediffGiversCannotGive.NullOrEmpty())
@@ -380,8 +382,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					sb.AppendLine();
 				}
-				sb.AppendLineTagged(("ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.AppendLine(geneDef.hediffGiversCannotGive.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				sb.AppendLineTagged(("- " + "ImmuneTo".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.hediffGiversCannotGive.Select((HediffDef x) => x.label).ToLineList("	* ", capitalizeItems: true));
 				flag3 = true;
 			}
 			if (geneDef.biologicalAgeTickFactorFromAgeCurve != null)
@@ -390,8 +392,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					sb.AppendLine();
 				}
-				sb.AppendLineTagged(("AgeFactors".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.AppendLine(geneDef.biologicalAgeTickFactorFromAgeCurve.Select((CurvePoint p) => "PeriodYears".Translate(p.x).ToString() + ": x" + p.y.ToStringPercent()).ToLineList("  - ", capitalizeItems: true));
+				sb.AppendLineTagged(("- " + "AgeFactors".Translate().CapitalizeFirst() + " curve" + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine(geneDef.biologicalAgeTickFactorFromAgeCurve.Select((CurvePoint p) => "PeriodYears".Translate(p.x).ToString() + ": x" + p.y.ToStringPercent()).ToLineList("	* ", capitalizeItems: true));
 				flag3 = true;
 			}
 			if (geneDef.disabledWorkTags != WorkTags.None)
@@ -401,11 +403,11 @@ namespace WVC_XenotypesAndGenes
 					sb.AppendLine();
 				}
 				IEnumerable<WorkTypeDef> source = DefDatabase<WorkTypeDef>.AllDefsListForReading.Where((WorkTypeDef x) => (geneDef.disabledWorkTags & x.workTags) != 0);
-				sb.AppendLineTagged(("DisabledWorkLabel".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
-				sb.AppendLine("  - " + source.Select((WorkTypeDef x) => x.labelShort).ToCommaList().CapitalizeFirst());
+				sb.AppendLineTagged(("- " + "DisabledWorkLabel".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLine("	* " + source.Select((WorkTypeDef x) => x.labelShort).ToCommaList().CapitalizeFirst());
 				if (geneDef.disabledWorkTags.ExactlyOneWorkTagSet())
 				{
-					sb.AppendLine("  - " + geneDef.disabledWorkTags.LabelTranslated().CapitalizeFirst());
+					sb.AppendLine("	* " + geneDef.disabledWorkTags.LabelTranslated().CapitalizeFirst());
 				}
 				flag3 = true;
 			}
@@ -417,13 +419,13 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (geneDef.abilities.Count == 1)
 				{
-					sb.AppendLineTagged(("GivesAbility".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+					sb.AppendLineTagged(("- " + "GivesAbility".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
 				}
 				else
 				{
-					sb.AppendLineTagged(("GivesAbilities".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+					sb.AppendLineTagged(("- " + "GivesAbilities".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
 				}
-				sb.AppendLine(geneDef.abilities.Select((AbilityDef x) => x.label).ToLineList("  - ", capitalizeItems: true));
+				sb.AppendLine(geneDef.abilities.Select((AbilityDef x) => x.label).ToLineList("	* ", capitalizeItems: true));
 				flag3 = true;
 			}
 			IEnumerable<ThoughtDef> enumerable = DefDatabase<ThoughtDef>.AllDefs.Where((ThoughtDef x) => (x.requiredGenes.NotNullAndContains(geneDef) || x.nullifyingGenes.NotNullAndContains(geneDef)) && x.stages != null && x.stages.Any((ThoughtStage y) => y.baseMoodEffect != 0f));
@@ -433,7 +435,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					sb.AppendLine();
 				}
-				sb.AppendLineTagged(("Mood".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+				sb.AppendLineTagged(("- " + "Mood".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
 				foreach (ThoughtDef item in enumerable)
 				{
 					ThoughtStage thoughtStage = item.stages.FirstOrDefault((ThoughtStage x) => x.baseMoodEffect != 0f);
@@ -442,11 +444,11 @@ namespace WVC_XenotypesAndGenes
 						string text = thoughtStage.LabelCap + ": " + thoughtStage.baseMoodEffect.ToStringWithSign();
 						if (item.requiredGenes.NotNullAndContains(geneDef))
 						{
-							sb.AppendLine("  - " + text);
+							sb.AppendLine("	* " + text);
 						}
 						else if (item.nullifyingGenes.NotNullAndContains(geneDef))
 						{
-							sb.AppendLine("  - " + "Removes".Translate() + ": " + text);
+							sb.AppendLine("	* " + "Removes".Translate() + ": " + text);
 						}
 					}
 				}
@@ -456,10 +458,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!effectsTitleWritten)
 				{
-					sb.AppendLineTagged(("Effects".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+					sb.AppendLineTagged(("- " + "Effects".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
 					effectsTitleWritten = true;
 				}
-				sb.AppendLine("  - " + text2);
+				sb.AppendLine("	* " + text2);
 			}
 		}
 
@@ -1667,7 +1669,7 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
 			if (!xenotypesDef.NullOrEmpty())
 			{
-				Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList(" - "));
+				Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList("- "));
 			}
 			else
 			{
