@@ -1,15 +1,44 @@
+using HarmonyLib;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
 using Verse.AI.Group;
+using WVC_XenotypesAndGenes.HarmonyPatches;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public static class DuplicateUtility
 	{
+
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+
+		private static bool duplicatorObeliskPatched = false;
+		public static void HarmonyPatch()
+		{
+			if (duplicatorObeliskPatched)
+			{
+				return;
+			}
+			try
+			{
+				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "TryDuplicatePawn"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.AnomalyTryDuplicate_Patch))));
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed apply obelisk duplicator patch. Reason: " + arg.Message);
+			}
+			duplicatorObeliskPatched = true;
+		}
+
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
+
 		public static bool TryDuplicatePawn(Pawn caster, IntVec3 targetCell, out Pawn duplicate)
 		{
 			return DuplicateUtility.TryDuplicatePawn(caster, caster, targetCell, caster.Map, out duplicate, out _, out _, doEffects: false);

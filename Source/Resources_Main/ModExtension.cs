@@ -410,10 +410,10 @@ namespace WVC_XenotypesAndGenes
 			HarmonyPatch();
 		}
 
-		private static bool gamePatched = false;
+		private static bool genesInOrderPatched = false;
 		private static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (genesInOrderPatched)
 			{
 				return;
 			}
@@ -428,7 +428,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply hideGenes patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			genesInOrderPatched = true;
 		}
 
 	}

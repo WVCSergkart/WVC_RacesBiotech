@@ -199,10 +199,10 @@ namespace WVC_XenotypesAndGenes
 		//=================
 
 
-		private static bool gamePatched = false;
+		private static bool isAcceptablePreyForPatched = false;
 		public static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (isAcceptablePreyForPatched)
 			{
 				return;
 			}
@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply predator repellent patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			isAcceptablePreyForPatched = true;
 		}
 	}
 
@@ -242,10 +242,10 @@ namespace WVC_XenotypesAndGenes
 		//=================
 
 
-		private static bool gamePatched = false;
+		private static bool incestCheckPatched = false;
 		private static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (incestCheckPatched)
 			{
 				return;
 			}
@@ -262,7 +262,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply incest lover patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			incestCheckPatched = true;
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)

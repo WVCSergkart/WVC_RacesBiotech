@@ -205,10 +205,10 @@ namespace WVC_XenotypesAndGenes
 		//=================
 
 
-		private static bool gamePatched = false;
+		private static bool movementCostPatched = false;
 		private static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (movementCostPatched)
 			{
 				return;
 			}
@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply wings patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			movementCostPatched = true;
 		}
 
 	}

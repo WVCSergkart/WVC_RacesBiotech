@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -885,6 +886,54 @@ namespace WVC_XenotypesAndGenes
 				DuplicateUtility.CopyGenes(pawn, newPawn);
 				return false;
 			}
+
+			public static bool AnomalyTryDuplicate_Patch(ref bool __result, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, Faction faction = null, bool allowCreepjoiners = false, bool randomOutcome = false, bool negativeOutcomes = true)
+			{
+				if (DuplicateUtility.TryDuplicatePawn(originalPawn, originalPawn, targetCell, map, out duplicatePawn, out _, out _, randomOutcome, true, true))
+				{
+					if (faction != null && duplicatePawn.Faction != faction)
+					{
+						duplicatePawn.SetFaction(faction);
+					}
+					__result = true;
+					return false;
+				}
+				return true;
+			}
+
+			//public static bool ObeliskDuplicator_Patch(Pawn interactor, bool triggeredByPlayer = false, CompObelisk_Duplicator __instance)
+			//{
+			//	if (!CellFinder.TryFindRandomCellNear(__instance.parent.Position, __instance.parent.Map, 16, IsValidSpawnCell, out var result, 100))
+			//	{
+			//		return true;
+			//	}
+			//	if (DuplicateUtility.TryDuplicatePawn(interactor, interactor, result, __instance.parent.Map, out Pawn duplicatePawn, out _, out _, true, true, true))
+			//	{
+			//		__instance.lastInteractionEffectTick = Find.TickManager.TicksGame;
+			//		if (duplicatePawn.Faction == Faction.OfEntities)
+			//		{
+			//			__instance.Lord.AddPawn(duplicatePawn);
+			//			return false;
+			//		}
+			//		Find.LetterStack.ReceiveLetter("ObeliskDuplicationLetterLabel".Translate(), "ObeliskDuplicationLetter".Translate(interactor.Named("PAWN")), LetterDefOf.NeutralEvent, duplicatePawn);
+			//		Messages.Message("ObeliskDuplicationSuccessMessage".Translate(interactor.Named("PAWN")), interactor, MessageTypeDefOf.NeutralEvent);
+			//	}
+			//	else if (triggeredByPlayer)
+			//	{
+			//		parent.GetComp<CompObeliskTriggerInteractor>().ResetCooldown(sendMessage: false);
+			//		Find.LetterStack.ReceiveLetter("ObeliskDuplicationFailedLetterLabel".Translate(), "ObeliskDuplicationFailedLetter".Translate(interactor.Named("PAWN")), LetterDefOf.NeutralEvent, duplicatePawn);
+			//	}
+			//	return false;
+
+			//	bool IsValidSpawnCell(IntVec3 pos)
+			//	{
+			//		if (pos.Standable(__instance.parent.Map) && pos.Walkable(__instance.parent.Map))
+			//		{
+			//			return !pos.Fogged(__instance.parent.Map);
+			//		}
+			//		return false;
+			//	}
+			//}
 
 			// CompBiosculpterPod
 

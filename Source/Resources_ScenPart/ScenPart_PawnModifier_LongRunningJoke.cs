@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static void DoLeave(Pawn colonist)
+		public static void DoLeave(Pawn colonist)
 		{
 			if (PawnUtility.ShouldSendNotificationAbout(colonist))
 			{
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 			LordMaker.MakeNewLord(colonist.Faction, new LordJob_ExitMapBest(LocomotionUrgency.Walk), colonist.Map).AddPawn(colonist);
 		}
 
-		private static bool CanLeaveColony(Pawn colonist)
+		public static bool CanLeaveColony(Pawn colonist)
 		{
 			if (colonist.Map == null || colonist.InSpace())
 			{
@@ -128,11 +128,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!RCellFinder.TryFindBestExitSpot(colonist, out _, TraverseMode.ByPawn, false))
+			if (!colonist.ageTracker.Adult)
 			{
 				return false;
 			}
-			if (!colonist.ageTracker.Adult)
+			if (!RCellFinder.TryFindBestExitSpot(colonist, out _, TraverseMode.ByPawn, false))
 			{
 				return false;
 			}

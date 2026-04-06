@@ -198,10 +198,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		private static bool gamePatched = false;
+		private static bool skillRecordSkillLossPatched = false;
 		private static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (skillRecordSkillLossPatched)
 			{
 				return;
 			}
@@ -216,7 +216,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply hatred patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			skillRecordSkillLossPatched = true;
 		}
 
 		//public static int hivemindHatredAptitude = -8;

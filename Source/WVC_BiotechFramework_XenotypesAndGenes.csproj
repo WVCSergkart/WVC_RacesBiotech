@@ -313,6 +313,7 @@
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_IceWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Scarlands.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_CustomWorld.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_TheDeathChain.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Undead.cs" />
     <Compile Include="Resources_ScenPart\SketchResolver_Gravship.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />

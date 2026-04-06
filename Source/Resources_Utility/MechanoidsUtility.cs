@@ -49,10 +49,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		private static bool gamePatched = false;
+		private static bool mechanitorGetGizmosPatched = false;
 		public static void HarmonyPatch()
 		{
-			if (gamePatched)
+			if (mechanitorGetGizmosPatched)
 			{
 				return;
 			}
@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed apply mechanitor UI patch. Reason: " + arg.Message);
 			}
-			gamePatched = true;
+			mechanitorGetGizmosPatched = true;
 		}
 
 		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
