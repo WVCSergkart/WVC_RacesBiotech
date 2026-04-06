@@ -25,6 +25,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool ShouldHideGizmo => !CanUse;
 
+		public static bool generalSourceOnlyMode = false;
+
 		private bool? cachedIsSource;
 		public bool CanUse
 		{
@@ -32,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedIsSource.HasValue)
 				{
-					cachedIsSource = !WVC_Biotech.settings.duplicator_abilityCastForSourceOnly || !parent.pawn.IsDuplicate;
+					cachedIsSource = (!WVC_Biotech.settings.duplicator_abilityCastForSourceOnly && !generalSourceOnlyMode) || !parent.pawn.IsDuplicate;
 				}
 				return cachedIsSource.Value;
 			}

@@ -12,8 +12,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostGameStart()
 		{
 			startingPawn = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.First();
-			//SetGeneral();
-			DuplicateUtility.HarmonyPatch();
+			SetGeneral();
 		}
 
 		private int nextTick;
@@ -63,6 +62,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private void SetGeneral()
+		{
+			DuplicateUtility.HarmonyPatch();
+			CompAbilityEffect_Duplicator.generalSourceOnlyMode = true;
+		}
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -70,8 +75,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref nextTick, "nextTick", defaultValue: 60000);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				//SetGeneral();
-				DuplicateUtility.HarmonyPatch();
+				SetGeneral();
 			}
 		}
 

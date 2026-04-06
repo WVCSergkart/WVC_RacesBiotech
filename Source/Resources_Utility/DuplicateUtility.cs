@@ -51,11 +51,16 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Clone
-		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true, bool addDuplicate = false)
+		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true, bool addDuplicate = false, bool allowCreepjoiners = true)
 		{
 			duplicatePawn = null;
 			customLetter = null;
 			letterDef = null;
+			if (!allowCreepjoiners && originalPawn.IsCreepJoiner)
+			{
+				duplicatePawn = null;
+				return false;
+			}
 			try
 			{
 				if (ModsConfig.AnomalyActive)

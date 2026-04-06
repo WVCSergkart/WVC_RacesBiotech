@@ -100,6 +100,7 @@ namespace WVC_XenotypesAndGenes
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		public float duplicator_RandomGeneChance = 0.12f;
 		public bool duplicator_abilityCastForSourceOnly = false;
+		public bool duplicator_ReplaceVanillaDuplicator = false;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
 		public bool fleshmass_HideBodypartHediffs = false;

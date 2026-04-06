@@ -145,6 +145,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					cachedHarmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(Pawn), "IsDuplicate"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Anomaly_IsDuplicate))));
 				}
+				if (WVC_Biotech.settings.duplicator_ReplaceVanillaDuplicator)
+				{
+					DuplicateUtility.HarmonyPatch();
+				}
 				//Log.Error("10");
 			}
 
@@ -889,11 +893,15 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool AnomalyTryDuplicate_Patch(ref bool __result, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, Faction faction = null, bool allowCreepjoiners = false, bool randomOutcome = false, bool negativeOutcomes = true)
 			{
-				if (DuplicateUtility.TryDuplicatePawn(originalPawn, originalPawn, targetCell, map, out duplicatePawn, out _, out _, randomOutcome, true, true))
+				if (DuplicateUtility.TryDuplicatePawn(originalPawn, originalPawn, targetCell, map, out duplicatePawn, out string letterDesc, out LetterDef letterType, faction != Faction.OfEntities, true, true, allowCreepjoiners))
 				{
 					if (faction != null && duplicatePawn.Faction != faction)
 					{
 						duplicatePawn.SetFaction(faction);
+						if (duplicatePawn.Faction == Faction.OfEntities)
+						{
+							Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
+						}
 					}
 					__result = true;
 					return false;

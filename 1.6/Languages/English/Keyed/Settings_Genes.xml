@@ -237,6 +237,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 	<WVC_Label_duplicator_abilityCastForSourceOnly>Duplicator for source only</WVC_Label_duplicator_abilityCastForSourceOnly>
 	<WVC_ToolTip_duplicator_abilityCastForSourceOnly>If enabled, duplicates cannot use the Duplicator gene's ability.</WVC_ToolTip_duplicator_abilityCastForSourceOnly>
 
+	<WVC_Label_duplicator_ReplaceVanillaDuplicator>Replace vanilla duplicator (Anomaly DLC)</WVC_Label_duplicator_ReplaceVanillaDuplicator>
+	<WVC_ToolTip_duplicator_ReplaceVanillaDuplicator>If enabled, the vanilla duplication mechanic will be replaced with the mod's mechanics. This means that vanilla duplication will also have an expanded outcome list.\n\nHowever, keep in mind that the obelisk will still not report outcome quality and will send a basic letter.\n\nA restart is required.</WVC_ToolTip_duplicator_ReplaceVanillaDuplicator>
+
 	<!-- ================================== -->
 
 	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>

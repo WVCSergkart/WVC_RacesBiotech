@@ -144,6 +144,7 @@ namespace WVC_XenotypesAndGenes
 			Color someColor = graphicGene.CurrentColor;
 			Widgets.ColorSelector(new Rect(rect.x, y, rect.width, colorsHeight), ref someColor, AllHairColors, out colorsHeight);
 			graphicGene.CurrentColor = someColor;
+			pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
 			colorsHeight += Text.LineHeight * 2f;
 		}
 

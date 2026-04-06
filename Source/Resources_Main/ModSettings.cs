@@ -114,6 +114,7 @@ namespace WVC_XenotypesAndGenes
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		public float duplicator_RandomGeneChance = 0.12f;
 		public bool duplicator_abilityCastForSourceOnly = false;
+		public bool duplicator_ReplaceVanillaDuplicator = false;
 		// Fleshmass
 		public float fleshmass_MaxMutationsLevel = 5f;
 		public bool fleshmass_HideBodypartHediffs = false;
@@ -277,6 +278,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
 			Scribe_Values.Look(ref duplicator_RandomGeneChance, "duplicator_RandomGeneChance", defaultValue: 0.12f);
 			Scribe_Values.Look(ref duplicator_abilityCastForSourceOnly, "duplicator_abilityCastForSourceOnly", defaultValue: false);
+			Scribe_Values.Look(ref duplicator_ReplaceVanillaDuplicator, "duplicator_ReplaceVanillaDuplicator", defaultValue: false);
 			// Fleshmass
 			Scribe_Values.Look(ref fleshmass_MaxMutationsLevel, "fleshmass_MaxMutationsLevel", defaultValue: 5f);
 			Scribe_Values.Look(ref fleshmass_HideBodypartHediffs, "fleshmass_HideBodypartHediffs", defaultValue: false);
@@ -1021,6 +1023,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomGeneChance".Translate((settings.duplicator_RandomGeneChance).ToString()), ref settings.duplicator_RandomGeneChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomGeneChance".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_duplicator_abilityCastForSourceOnly".Translate().Colorize(ColorLibrary.LightBlue), ref settings.duplicator_abilityCastForSourceOnly, "WVC_ToolTip_duplicator_abilityCastForSourceOnly".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_duplicator_ReplaceVanillaDuplicator".Translate().Colorize(ColorLibrary.LightPurple), ref settings.duplicator_ReplaceVanillaDuplicator, "WVC_ToolTip_duplicator_ReplaceVanillaDuplicator".Translate());
 				//if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
 				//{
 				//	listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
@@ -1206,6 +1209,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
 			WVC_Biotech.settings.duplicator_RandomGeneChance = settingsDef.duplicator_RandomGeneChance;
 			WVC_Biotech.settings.duplicator_abilityCastForSourceOnly = settingsDef.duplicator_abilityCastForSourceOnly;
+			WVC_Biotech.settings.duplicator_ReplaceVanillaDuplicator = settingsDef.duplicator_ReplaceVanillaDuplicator;
 			// =
 			WVC_Biotech.settings.thrallMaker_cooldownOverride = settingsDef.thrallMaker_cooldownOverride;
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = settingsDef.thrallMaker_ThrallsInheritMasterGenes;
