@@ -72,42 +72,44 @@ namespace WVC_XenotypesAndGenes
 			}, orderInPriority: -999));
 			list.Add(new FloatMenuOption("WVC_XaG_RemoteControlBloodeater_AbilitiesVisibility".Translate(), delegate
 			{
-				SetHideAbilities();
+				//SetHideAbilities();
+				shouldHideBloodfeedAbilities = !shouldHideBloodfeedAbilities;
+				ResetCollection();
 			}, orderInPriority: -9999));
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
-		public void SetHideAbilities(bool? hide = null)
-		{
-			bool anyHided = false;
-			foreach (Ability ability in pawn.abilities.abilities)
-			{
-				CompAbilityEffect_HideIfBloodeater hideIfBloodeater = ability.CompOfType<CompAbilityEffect_HideIfBloodeater>();
-				if (hideIfBloodeater == null)
-				{
-					continue;
-				}
-				if (hide.HasValue)
-				{
-					hideIfBloodeater.shouldHide = hide.Value;
-				}
-				else
-				{
-					if (hideIfBloodeater.shouldHide)
-					{
-						anyHided = true;
-					}
-					if (anyHided)
-					{
-						hideIfBloodeater.shouldHide = !anyHided;
-					}
-					else
-					{
-						hideIfBloodeater.shouldHide = !hideIfBloodeater.shouldHide;
-					}
-				}
-			}
-		}
+		//public void SetHideAbilities(bool? hide = null)
+		//{
+		//	bool anyHided = false;
+		//	foreach (Ability ability in pawn.abilities.abilities)
+		//	{
+		//		CompAbilityEffect_HideIfBloodeater hideIfBloodeater = ability.CompOfType<CompAbilityEffect_HideIfBloodeater>();
+		//		if (hideIfBloodeater == null)
+		//		{
+		//			continue;
+		//		}
+		//		if (hide.HasValue)
+		//		{
+		//			hideIfBloodeater.shouldHide = hide.Value;
+		//		}
+		//		else
+		//		{
+		//			if (hideIfBloodeater.shouldHide)
+		//			{
+		//				anyHided = true;
+		//			}
+		//			if (anyHided)
+		//			{
+		//				hideIfBloodeater.shouldHide = !anyHided;
+		//			}
+		//			else
+		//			{
+		//				hideIfBloodeater.shouldHide = !hideIfBloodeater.shouldHide;
+		//			}
+		//		}
+		//	}
+		//}
 
 		public bool RemoteControl_Hide => !Active;
 
@@ -127,7 +129,8 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			SetHideAbilities(false);
+			//SetHideAbilities(false);
+			ResetCollection();
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
@@ -139,8 +142,42 @@ namespace WVC_XenotypesAndGenes
 			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
 		}
 
+		// ==================== COLLECTION ====================
+		// ==================== COLLECTION ====================
+		// ==================== COLLECTION ====================
 
-		//===========
+		private static HashSet<Pawn> cachedPawnsWithHidedAbilities;
+		public static HashSet<Pawn> BloodeaterHidedAbilities
+		{
+			get
+			{
+				if (cachedPawnsWithHidedAbilities == null)
+				{
+					HashSet<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive)
+					{
+						if (pawn.genes?.GetFirstGeneOfType<Gene_Bloodeater>()?.HideBloodfeedAbilities == true)
+						{
+							list.Add(pawn);
+						}
+					}
+					cachedPawnsWithHidedAbilities = list;
+				}
+				return cachedPawnsWithHidedAbilities;
+			}
+		}
+
+		public static void ResetCollection()
+		{
+			cachedPawnsWithHidedAbilities = null;
+		}
+
+		private bool shouldHideBloodfeedAbilities = WVC_Biotech.settings.bloodeater_HideAbilitiesByDefault;
+		public bool HideBloodfeedAbilities => shouldHideBloodfeedAbilities;
+
+		// ==================== COLLECTION ====================
+		// ==================== COLLECTION ====================
+		// ==================== COLLECTION ====================
 
 		public override string LabelCap
 		{
@@ -185,6 +222,11 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
 			Scribe_Defs.Look(ref currentBloodfeedMode, "currentBloodfeedMethod");
+			Scribe_Values.Look(ref shouldHideBloodfeedAbilities, "shouldHideBloodfeedAbilities", WVC_Biotech.settings.bloodeater_HideAbilitiesByDefault);
+			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			//{
+			//	ResetCollection();
+			//}
 		}
 
 		public override void TickInterval(int delta)
@@ -419,12 +461,13 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			SetHideAbilities(false);
+			//SetHideAbilities(false);
+			ResetCollection();
 		}
 
 		public void Notify_Override()
 		{
-
+			ResetCollection();
 		}
 
 	}

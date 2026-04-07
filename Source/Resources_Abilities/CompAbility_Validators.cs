@@ -13,10 +13,11 @@ namespace WVC_XenotypesAndGenes
 
 	// =======================================
 
+	[Obsolete("Do not use")]
 	public class CompProperties_AbilityPawnPregnant : CompProperties_AbilityEffect
 	{
 
-		public int recacheFrequency = 2320;
+		public int recacheFrequency = 240;
 
 		public CompProperties_AbilityPawnPregnant()
 		{
@@ -25,12 +26,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete("Do not use")]
 	public class CompAbilityEffect_PawnPregnant : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityPawnPregnant Props => (CompProperties_AbilityPawnPregnant)props;
 
-		private int nextRecache = -1;
+		private int nextTick = -1;
 		private string cachedReason = null;
 		private bool cachedResult = false;
 
@@ -42,12 +44,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool GizmoDisabled(out string reason)
 		{
-			if (Find.TickManager.TicksGame < nextRecache)
+			nextTick--;
+			if (nextTick > 0)
 			{
 				reason = cachedReason;
 				return cachedResult;
 			}
-			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
+			nextTick = Props.recacheFrequency;
 			Pawn pawn = parent.pawn;
 			Hediff pregnancy = HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs);
 			if (pregnancy != null)
@@ -130,21 +133,22 @@ namespace WVC_XenotypesAndGenes
 	public class CompAbilityEffect_HideIfBloodeater : CompAbilityEffect
 	{
 
-		public bool shouldHide = false;
+		//public bool shouldHide = false;
 
 		public override bool ShouldHideGizmo
 		{
 			get
 			{
-				return shouldHide;
+				return Gene_Bloodeater.BloodeaterHidedAbilities.Contains(parent.pawn);
+				//return shouldHide;
 			}
 		}
 
-		public override void PostExposeData()
-		{
-			base.PostExposeData();
-			Scribe_Values.Look(ref shouldHide, "shouldHide", false);
-		}
+		//public override void PostExposeData()
+		//{
+		//	base.PostExposeData();
+		//	Scribe_Values.Look(ref shouldHide, "shouldHide", false);
+		//}
 
 	}
 
@@ -159,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Gender gender = Gender.None;
 
-		public int recacheFrequency = 5420;
+		public int recacheFrequency = 120;
 
 		public CompProperties_AbilityGeneIsActive()
 		{
@@ -173,7 +177,7 @@ namespace WVC_XenotypesAndGenes
 
 		public new CompProperties_AbilityGeneIsActive Props => (CompProperties_AbilityGeneIsActive)props;
 
-		private int nextRecache = -1;
+		private int nextTick = -1;
 		private string cachedReason = null;
 		private bool cachedResult = false;
 
@@ -186,12 +190,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool GizmoDisabled(out string reason)
 		{
-			if (Find.TickManager.TicksGame < nextRecache)
+			nextTick--;
+			if (nextTick > 0)
 			{
 				reason = cachedReason;
 				return cachedResult;
 			}
-			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
+			nextTick = Props.recacheFrequency;
 			Pawn pawn = parent.pawn;
 			if (Props.gender != Gender.None)
 			{

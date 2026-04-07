@@ -103,6 +103,9 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
 	<!-- ================================== -->
 
+	<WVC_Label_bloodeater_HideAbilitiesByDefault>Hide bloodfeed abilities by default</WVC_Label_bloodeater_HideAbilitiesByDefault>
+	<WVC_ToolTip_bloodeater_HideAbilitiesByDefault>Bloodeater can hide the supported ability gizmo, reducing UI bloat. This is switched manually through the genes setting. If this option is enabled, ability gizmos will be hidden by default.</WVC_ToolTip_bloodeater_HideAbilitiesByDefault>
+
 	<!-- <WVC_Label_bloodeater_disableAutoFeed>Disable bloodEATer auto-feed</WVC_Label_bloodeater_disableAutoFeed> -->
 	<!-- <WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodEATer gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed> -->
 

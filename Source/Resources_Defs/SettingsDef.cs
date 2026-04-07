@@ -42,6 +42,7 @@ namespace WVC_XenotypesAndGenes
 		public bool learningTelepathWorkForBothSides = false;
 		public float learning_CyclicallySelfLearning_MaxSkillLevel = 20f;
 		// Info
+		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
@@ -59,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_Chance = 1.0f;
 		public float reincarnation_DelayDays = 15f;
 		// Hemogenic
-		public bool harmony_EnableGenesMechanicsTriggers = true;
+		public bool bloodeater_HideAbilitiesByDefault = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
@@ -128,7 +129,6 @@ namespace WVC_XenotypesAndGenes
 		// ExtraSettings
 		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
-		//public bool enable_HideMechanitorButtonsPatch = false;
 
 	}
 

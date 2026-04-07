@@ -35,6 +35,7 @@
 	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
 	<duplicator_ReplaceVanillaDuplicator>True</duplicator_ReplaceVanillaDuplicator>
 	<!-- <enable_DevModeInfo>True</enable_DevModeInfo> -->
+	<bloodeater_HideAbilitiesByDefault>True</bloodeater_HideAbilitiesByDefault>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
