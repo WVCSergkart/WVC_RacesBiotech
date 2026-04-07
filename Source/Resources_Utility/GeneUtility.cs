@@ -95,14 +95,25 @@ namespace WVC_XenotypesAndGenes
 		public static string GetDescriptionFull_Wiki(GeneDef geneDef)
 		{
 			StringBuilder sb = new StringBuilder();
+			sb.Append(" " + geneDef.LabelCap);
+			sb.AppendLine();
+			sb.AppendLine("defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`");
+			sb.AppendLine();
 			if (!geneDef.description.NullOrEmpty())
 			{
-				sb.Append(geneDef.description).AppendLine().AppendLine();
+				sb.AppendLine("> " + geneDef.description).AppendLine().AppendLine();
 			}
 			bool flag = false;
 			if (geneDef.prerequisite != null)
 			{
-				sb.AppendLine("- " + "Requires".Translate() + ": " + geneDef.prerequisite.LabelCap);
+				if (geneDef.prerequisite.IsXenoGenesDef())
+				{
+					sb.AppendLine("- " + "Requires".Translate() + ": " + "[" + geneDef.prerequisite.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-DUMP#" + geneDef.prerequisite.label + ")" + " ([Genes-WIP](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-(WIP)#" + geneDef.prerequisite.label + "))");
+				}
+				else
+				{
+					sb.AppendLine("- " + "Requires".Translate() + ": " + geneDef.prerequisite.LabelCap);
+				}
 				flag = true;
 			}
 			if (geneDef.minAgeActive > 0f)
@@ -452,6 +463,20 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
+			}
+			sb.AppendLine();
+			sb.AppendLine("**Selection weight (Genepack chance)**: " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight);
+			List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading.Where(xeno => xeno.genes.Any(gene => gene == geneDef)).ToList();
+			if (!xenotypeDefs.NullOrEmpty())
+			{
+				sb.AppendLine();
+				string xenosList = "";
+				foreach (XenotypeDef xenotypeDef in xenotypeDefs)
+				{
+					xenosList += "\n - [" + xenotypeDef.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Xenotypes#" + xenotypeDef.label + ")";
+				}
+				sb.AppendLine("**In use by**:" + xenosList);
+				//sb.AppendLine(xenotypeDefs.Select(xenos => xenos.label).ToLineList(" - ", capitalizeItems: true));
 			}
 			return sb.ToString().TrimEndNewlines();
 			void AppendEffectLine(string text2)
@@ -1136,19 +1161,27 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAllGenes(List<GeneDef> geneDefs, Pawn pawn)
 		{
-			if (geneDefs.NullOrEmpty() || pawn?.genes == null)
+			if (geneDefs.NullOrEmpty())
 			{
 				return false;
 			}
-			List<GeneDef> matchedGenes = new();
-			foreach (Gene gene in pawn.genes.GenesListForReading)
+			//List<GeneDef> matchedGenes = new();
+			//foreach (Gene gene in pawn.genes.GenesListForReading)
+			//{
+			//	if (geneDefs.Contains(gene.def) && !matchedGenes.Contains(gene.def))
+			//	{
+			//		matchedGenes.Add(gene.def);
+			//	}
+			//}
+			//return geneDefs.Count == matchedGenes.Count;
+			foreach (GeneDef geneDef in geneDefs)
 			{
-				if (geneDefs.Contains(gene.def) && !matchedGenes.Contains(gene.def))
+				if (!XaG_GeneUtility.HasGene(geneDef, pawn))
 				{
-					matchedGenes.Add(gene.def);
+					return false;
 				}
 			}
-			return geneDefs.Count == matchedGenes.Count;
+			return true;
 		}
 
 		public static bool HasAnyGene(List<GeneDef> geneDefs, Pawn pawn)

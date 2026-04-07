@@ -830,12 +830,13 @@ namespace WVC_XenotypesAndGenes
 							{
 								continue;
 							}
-							text += "\n## " + geneDef.LabelCap;
-							text += "\n" + "defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`";
-							text += "\n\n" + XaG_GeneUtility.GetDescriptionFull_Wiki(geneDef);
-							text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
+							//text += "\n## " + geneDef.LabelCap;
+							//text += "\n" + "defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`";
+							text += "\n##" + XaG_GeneUtility.GetDescriptionFull_Wiki(geneDef);
+							//text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
 						}
 					}
+					// Without this, tags will be buggy
 					text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
 					text.ResolveTags();
 					Log.Error(text);
