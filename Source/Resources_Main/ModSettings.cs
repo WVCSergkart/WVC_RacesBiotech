@@ -819,8 +819,8 @@ namespace WVC_XenotypesAndGenes
 					string text = "Dump: ";
 					List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
 					List<GeneCategoryDef> geneCategoryDefs = DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)).ToList();
-					geneCategoryDefs.SortBy(def => def.label);
-					allDefsListForReading.SortBy(def => def.label);
+					geneCategoryDefs.SortBy(def => -def.displayPriorityInXenotype);
+					allDefsListForReading.SortBy(def => def.displayOrderInCategory);
 					foreach (GeneCategoryDef geneCategoryDef in geneCategoryDefs)
 					{
 						text += "\n\n# " + geneCategoryDef.LabelCap;
