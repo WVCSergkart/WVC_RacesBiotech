@@ -675,6 +675,10 @@ namespace WVC_XenotypesAndGenes
 
 			public static void Incestuous_LovinChanceFactor(ref float __result, Pawn ___pawn, ref Pawn otherPawn, Pawn_RelationsTracker __instance)
 			{
+				//if (Gene_PsychicHarem.Harem.Contains(___pawn) && Gene_PsychicHarem.Harem.Contains(otherPawn))
+				//{
+				//	__result = 999f;
+				//}
 				if (__instance.FamilyByBlood.Contains(otherPawn) && ___pawn?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
 				{
 					__result *= 100f;

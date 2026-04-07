@@ -382,21 +382,21 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Legacy support.
 			// To-Do: Remove after 1-2 steam updates.
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].Active == true)
-				{
-					GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-					if (modExtension != null)
-					{
-						if (!modExtension.canBePredatorPrey)
-						{
-							return true;
-						}
-					}
-				}
-			}
+			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			//for (int i = 0; i < genesListForReading.Count; i++)
+			//{
+			//	if (genesListForReading[i].Active == true)
+			//	{
+			//		GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
+			//		if (modExtension != null)
+			//		{
+			//			if (!modExtension.canBePredatorPrey)
+			//			{
+			//				return true;
+			//			}
+			//		}
+			//	}
+			//}
 			// Legacy support.
 			return false;
 		}

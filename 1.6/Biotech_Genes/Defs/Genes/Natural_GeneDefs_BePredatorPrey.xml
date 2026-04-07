@@ -35,11 +35,11 @@
 	<statFactors>
 	  <MeatAmount>0.2</MeatAmount>
 	</statFactors>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<canBePredatorPrey>false</canBePredatorPrey>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <canBePredatorPrey>false</canBePredatorPrey> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">

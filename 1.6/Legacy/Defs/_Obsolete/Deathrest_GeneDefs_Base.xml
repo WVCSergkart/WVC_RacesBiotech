@@ -11,6 +11,9 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<minAgeActive>3</minAgeActive>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
   </GeneDef>
 
   <!-- ===================================================== -->

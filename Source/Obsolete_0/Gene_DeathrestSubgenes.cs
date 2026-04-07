@@ -1,11 +1,12 @@
 using RimWorld;
+using System;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-
+	[Obsolete]
 	public class Gene_DeathrestDependant : XaG_Gene
 	{
 
@@ -64,6 +65,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 
+	[Obsolete]
 	public class Gene_Deathrest_Immunization : Gene_DeathrestDependant
 	{
 
@@ -74,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-
+	[Obsolete]
 	public class Gene_Deathrest_Healing : Gene_DeathrestDependant
 	{
 
@@ -99,6 +101,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 
+	[Obsolete]
 	public class Gene_Deathrest_HemogenGain : Gene_DeathrestDependant
 	{
 
@@ -113,6 +116,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 
+	[Obsolete]
 	public class Gene_Deathrest_FastRest : Gene_DeathrestDependant
 	{
 

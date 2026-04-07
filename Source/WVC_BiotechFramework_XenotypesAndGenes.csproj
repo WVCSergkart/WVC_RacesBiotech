@@ -70,6 +70,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Devourer.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantGeneDef.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_NewImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
+    <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
@@ -146,7 +148,7 @@
     <Compile Include="Resources_Genes\Gene_Archiver.cs" />
     <Compile Include="Resources_Genes\Gene_Auto.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera_SubGenes.cs" />
-    <Compile Include="Resources_Genes\Gene_DeathrestSubgenes.cs" />
+    <Compile Include="Obsolete_0\Gene_DeathrestSubgenes.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Summon.cs" />
@@ -161,7 +163,6 @@
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
     <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
-    <Compile Include="Resources_Genes\Gene_PerfectCanvas.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_FeatheredAgelessGenes.cs" />
@@ -192,7 +193,6 @@
     <Compile Include="Resources_Hediff\Hediff_Duplicator.cs" />
     <Compile Include="Resources_Hediff\Hediff_LoveEnhancer.cs" />
     <Compile Include="Resources_Hediff\Hediff_Morpher.cs" />
-    <Compile Include="Resources_Hediff\Hediff_PerfectCanvas.cs" />
     <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
     <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassImmunity.cs" />
@@ -313,7 +313,7 @@
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_IceWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Scarlands.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_CustomWorld.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_TheDeathChain.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Duplicators.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Undead.cs" />
     <Compile Include="Resources_ScenPart\SketchResolver_Gravship.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />
@@ -355,6 +355,7 @@
     <Compile Include="Resources_Thought\Thought_HivemindSize.cs" />
     <Compile Include="Resources_Thought\Thought_HumanCentricMemory.cs" />
     <Compile Include="Resources_Thought\Thought_MemorySocial_NoFade.cs" />
+    <Compile Include="Resources_Thought\Thought_PsychicHarem.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />

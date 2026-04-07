@@ -82,6 +82,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_PackMentality.lastRecacheTick = -1;
 			Gene_Recluse.lastRecacheTick = -1;
 			CompStylingStation.cachedPawns = null;
+			//Thought_PsychicHarem.badMoodTicks = -1;
 		}
 
 		//public static void AddHideMechanitors(Pawn pawn)
