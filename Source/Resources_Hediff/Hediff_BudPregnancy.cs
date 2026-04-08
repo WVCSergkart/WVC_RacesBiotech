@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		private Pawn mother;
 		private Pawn father;
-		private GeneSet geneSet;
+		public GeneSet geneSet;
 		private XenotypeHolder_Exposable xenotypeHolder;
 
 		public void SetupBud(Hediff hediff)
@@ -106,6 +106,19 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						gestateProgress -= 0.1f;
+					}
+				};
+			}
+			if (!pawn.Drafted)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "InspectBabyGenes".Translate() + "...",
+					defaultDesc = "InspectGenesHediffDesc".Translate(),
+					icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+					action = delegate
+					{
+						InspectPaneUtility.OpenTab(typeof(ITab_GenesCustomPregnancy));
 					}
 				};
 			}

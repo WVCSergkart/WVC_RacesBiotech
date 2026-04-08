@@ -232,6 +232,7 @@
     <Compile Include="Resources_Defs\SkillsGeneTemplateDef.cs" />
     <Compile Include="Resources_Defs\ThrallDef.cs" />
     <Compile Include="Resources_Main\IngestionOutcomeDoer_HumanEgg.cs" />
+    <Compile Include="Resources_Main\ITab_GenesCustomPregnancy.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_Defs\XenotypeForcerGeneTemplateDef.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />

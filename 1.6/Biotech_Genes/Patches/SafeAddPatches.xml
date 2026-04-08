@@ -45,6 +45,16 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<inspectorTabs>
+		  <li>WVC_XenotypesAndGenes.ITab_GenesCustomPregnancy</li>
+		</inspectorTabs>
+	  </value>
+	</Operation>
+
 	<!-- ==================================================== -->
 
 	<Operation Class="PatchOperationFindMod">

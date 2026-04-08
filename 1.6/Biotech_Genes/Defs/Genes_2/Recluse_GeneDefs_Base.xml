@@ -20,7 +20,7 @@
 		<!-- <li>If there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony, then the carrier receive a &lt;color=#8a8ae6&gt;negative memory&lt;/color&gt;.</li> -->
 		<li>Decreases mood if there is &lt;color=#8a8ae6&gt;more than 1 pawn&lt;/color&gt; in the colony.</li>
 		 <!-- The memory lasts for about a day. -->
-		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant and deathresting pawns.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, anomaly mutant and deathresting pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_OneManArmy"> -->

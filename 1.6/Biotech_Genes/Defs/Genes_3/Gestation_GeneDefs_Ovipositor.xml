@@ -125,6 +125,9 @@
 	<!-- <inspectorTabs> -->
 	  <!-- <li>WVC_XenotypesAndGenes.ITab_EggGenes</li> -->
 	<!-- </inspectorTabs> -->
+	<inspectorTabs>
+	  <li>WVC_XenotypesAndGenes.ITab_GenesCustomPregnancy</li>
+	</inspectorTabs>
 	<ingestible>
 	  <sourceDef>Human</sourceDef>
 	  <ateEvent>AteHumanMeat</ateEvent>

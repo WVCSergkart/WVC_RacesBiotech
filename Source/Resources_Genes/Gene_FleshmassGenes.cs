@@ -753,7 +753,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartPregnancyRandom()
 		{
-			if (Rand.Chance(0.025f * pawn.GetStatValue(StatDefOf.Fertility)))
+			if (Rand.Chance(0.05f * pawn.GetStatValue(StatDefOf.Fertility)))
 			{
 				if (MiscUtility.CanStartPregnancy(pawn, false))
 				{
