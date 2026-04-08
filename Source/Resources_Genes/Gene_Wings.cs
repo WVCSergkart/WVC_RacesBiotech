@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 	//	}
 
 	//}
-	public class Gene_Wings : XaG_Gene, IGeneRemoteControl, IGeneOverriddenBy, IGeneInspectInfo
+	public class Gene_Wings : XaG_Gene, IGeneRemoteControl, IGeneOverriddenBy, IGeneInspectInfo, IGeneNotifyGenesChanged
 	{
 
 		private static HashSet<Pawn> cachedWingedPawns;
@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 					List<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive)
 					{
-						if (pawn?.genes?.GetFirstGeneOfType<Gene_Wings>()?.ignoreMovementCost == true)
+						if (pawn?.genes?.GetFirstGeneOfType<Gene_Wings>()?.IgnoreMovementCost == true)
 						{
 							list.Add(pawn);
 						}
@@ -162,12 +162,19 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool ignoreMovementCost = true;
+		public virtual bool IgnoreMovementCost
+		{
+			get
+			{
+				return ignoreMovementCost;
+			}
+		}
 
 		public string GetInspectInfo
 		{
 			get
 			{
-				if (ignoreMovementCost)
+				if (IgnoreMovementCost)
 				{
 					return "WVC_XaG_Gene_Wings_On_Info".Translate();
 				}
@@ -222,6 +229,23 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed apply wings patch. Reason: " + arg.Message);
 			}
 			movementCostPatched = true;
+		}
+
+	}
+
+	public class Gene_Levitation : Gene_Wings
+	{
+
+		public override bool IgnoreMovementCost
+		{
+			get
+			{
+				if (base.IgnoreMovementCost)
+				{
+					return pawn.IsPsychicSensitive();
+				}
+				return false;
+			}
 		}
 
 	}

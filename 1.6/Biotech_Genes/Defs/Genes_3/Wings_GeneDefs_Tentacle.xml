@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Psychic">
 	<defName>WVC_Wings_TentacleWings</defName>
 	<label>tentacle wings</label>
-	<description>Carriers of this gene grow tentacle wings.</description>
+	<description>Carriers of this gene grow large, wing-like tentacle-like growths on their backs. With their help, the carriers can hover above the ground to a limited extent, and although the growths themselves are not real wings, flight is provided by the psychic abilities that these growths provide.</description>
 	<iconPath>WVC/UI/Genes3/Gene_TentacleWings</iconPath>
 	<missingGeneRomanceChanceFactor>0.70</missingGeneRomanceChanceFactor>
 	<capMods>
