@@ -736,6 +736,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: StartPregnancyRandom",
+					action = delegate
+					{
+						StartPregnancyRandom();
+					}
+				};
+			}
+		}
+
 		public void StartPregnancyRandom()
 		{
 			if (Rand.Chance(0.025f * pawn.GetStatValue(StatDefOf.Fertility)))

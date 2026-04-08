@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3565691764
+CRC: 3420722676
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1e9acd9d2ff0662d7c7a7cd547bbf5e7
+    Hash: 989f63a5605cf117e4ab0deb0eb42fe2
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 7560df9dc63ec743e00175770e50ddac
+    Hash: 517f45212d9be9d9a6d2884e27852135
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -684,6 +684,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_GenderMorph.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsBrokenA_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Intellectual/Archite2.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Budding.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Shooting/NoChance.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Thin_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsB_north.png
@@ -1077,6 +1078,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Female_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Male_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_VoidVoice_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Obsession.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ResurgentSleep_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PerfectShape_v0.png

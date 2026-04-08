@@ -44,11 +44,11 @@ namespace WVC_XenotypesAndGenes
 
 		//public XenotypeDef xenotypeDef;
 
-		private SaveableXenotypeHolder xenotypeHolder;
+		private XenotypeHolder_Exposable xenotypeHolder;
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			xenotypeHolder = new SaveableXenotypeHolder(holder);
+			xenotypeHolder = new XenotypeHolder_Exposable(holder);
 		}
 
 

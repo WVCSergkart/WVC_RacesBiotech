@@ -71,14 +71,14 @@ namespace WVC_XenotypesAndGenes
 					icon = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 				}
 			}
-			this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);
+			this.xenotypeHolder = new XenotypeHolder_Exposable(xenotypeDef, genes, inheritable, icon, name);
 			this.xenotypeHolder.PostSetup();
 			//GeneUtility.UpdateXenogermReplication(pawn);
 		}
 
 		public void SetupHolder(XenotypeHolder xenotypeHolder)
 		{
-			this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeHolder);
+			this.xenotypeHolder = new XenotypeHolder_Exposable(xenotypeHolder);
 			this.xenotypeHolder.PostSetup();
 			//GeneUtility.UpdateXenogermReplication(pawn);
 		}
@@ -111,8 +111,8 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private SaveableXenotypeHolder xenotypeHolder = null;
-		public SaveableXenotypeHolder XenotypeHolder => xenotypeHolder;
+		private XenotypeHolder_Exposable xenotypeHolder = null;
+		public XenotypeHolder_Exposable XenotypeHolder => xenotypeHolder;
 
 		public void ResetHolder()
 		{

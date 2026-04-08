@@ -2,23 +2,39 @@
 <Defs>
 
   <!-- TestTemplate -->
-  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
-	<!-- <defName>WVC_TestTemplate</defName> -->
-	<!-- <label>TestTemplate</label> -->
-	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
-	<!-- <genes> -->
-		<!-- <li>WVC_HeadSkinHornB</li> -->
-		<!-- <li>Hair_ShortOnly</li> -->
-		<!-- <li>Body_Standard</li> -->
-		<!-- <li>Hair_SnowWhite</li> -->
-		<!-- <li>Skin_Melanin9</li> -->
-	<!-- </genes> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <defaultColor>(247, 255, 133)</defaultColor> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </XenotypeDef> -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST">
+	<defName>WVC_TestTemplate</defName>
+	<label>TestTemplate</label>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
+	<genes>
+		<li>WVC_Obsession</li>
+		<li>Ageless</li>
+		<li>DiseaseFree</li>
+		<li>WVC_FleshmassReproduction</li>
+		<li>WVC_FleshmassAging</li>
+		<li>LowSleep</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_IncestLover</li>
+		<li>WVC_Budding</li>
+		<li>Fertile</li>
+		<li>WVC_Wings_TentacleWings</li>
+		<li>WVC_HeadTentacles0c</li>
+		<li>WVC_BodyTentacles</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_LongTentacleTail</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>Immunity_SuperStrong</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(247, 255, 133)</defaultColor>
+		</li>
+	</modExtensions>
+  </XenotypeDef>
 
   <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
 	<!-- <defName>WVC_TestTemplateB</defName> -->

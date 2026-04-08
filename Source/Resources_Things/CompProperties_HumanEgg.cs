@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 
 		//private float gestateProgress;
 
-		public SaveableXenotypeHolder xenotypeHolder;
+		public XenotypeHolder_Exposable xenotypeHolder;
 		public GeneSet geneSet;
 
 		public void SetupEgg(Hediff hediff)
@@ -105,26 +105,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				float num = delta / (Props.hatcherDaystoHatch * 60000f);
 				gestateProgress += num;
-				if (gestateProgress > 1f)
+				if (gestateProgress > 1f && parent.Map != null)
 				{
 					Hatch();
 				}
-			}
-		}
-
-		public bool AnyParentIsNull
-		{
-			get
-			{
-				if (hatcheeParent == null)
-				{
-					return true;
-				}
-				if (otherParent == null)
-				{
-					return true;
-				}
-				return false;
 			}
 		}
 
@@ -132,37 +116,55 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				Pawn pawn = hatcheeParent ?? otherParent;
-				bool shouldNotify = true;
-				for (int i = 0; i < parent.stackCount; i++)
-				{
-					GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeDef: XenotypeDefOf.Baseliner, parent2: otherParent != null && otherParent != pawn ? otherParent : null);
-					//AgelessUtility.SetAge();
-					ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
-					ReimplanterUtility.TryFixPawnXenotype_Beta(child);
-					if (hatcheeParent?.genes?.Xenotype == otherParent?.genes?.Xenotype || AnyParentIsNull)
-					{
-						child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
-					}
-					if (!AnyParentIsNull)
-					{
-						child.genes.hybrid = hatcheeParent.genes?.Xenotype != otherParent.genes?.Xenotype;
-					}
-					//if (ShouldUpdateChild(child))
-					//{
-					//}
-					if (PawnUtility.ShouldSendNotificationAbout(child) && shouldNotify)
-					{
-						shouldNotify = false;
-						Find.LetterStack.ReceiveLetter("WVC_XaG_HumanEggHatchLabel".Translate(), "WVC_XaG_HumanEggHatchDesc".Translate(child.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
-					}
-				}
+				SpawnHatchee(hatcheeParent, otherParent, xenotypeHolder, parent, parent.stackCount, "WVC_XaG_HumanEggHatchLabel", "WVC_XaG_HumanEggHatchDesc");
 			}
 			catch (Exception arg)
 			{
 				Log.Error("Failed hatch child from human egg. Reason: " + arg);
 			}
 			parent.Destroy(DestroyMode.QuestLogic);
+		}
+
+		public static void SpawnHatchee(Pawn mother, Pawn father, XenotypeHolder xenotypeHolder, Thing parent, int stackCount, string letterLabel, string letterDesc)
+		{
+			Pawn pawn = mother ?? father;
+			bool shouldNotify = true;
+			for (int i = 0; i < stackCount; i++)
+			{
+				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeDef: XenotypeDefOf.Baseliner, parent2: father != null && father != pawn ? father : null);
+				//AgelessUtility.SetAge();
+				ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
+				ReimplanterUtility.TryFixPawnXenotype_Beta(child);
+				if (mother?.genes?.Xenotype == father?.genes?.Xenotype || AnyParentIsNull())
+				{
+					child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
+				}
+				if (!AnyParentIsNull())
+				{
+					child.genes.hybrid = mother.genes?.Xenotype != father.genes?.Xenotype;
+				}
+				//if (ShouldUpdateChild(child))
+				//{
+				//}
+				if (PawnUtility.ShouldSendNotificationAbout(child) && shouldNotify)
+				{
+					shouldNotify = false;
+					Find.LetterStack.ReceiveLetter(letterLabel.Translate(), letterDesc.Translate(child.LabelShort.Colorize(ColoredText.NameColor)), MainDefOf.WVC_XaG_GestationEvent, new LookTargets(child));
+				}
+			}
+
+			bool AnyParentIsNull()
+			{
+				if (mother == null)
+				{
+					return true;
+				}
+				if (father == null)
+				{
+					return true;
+				}
+				return false;
+			}
 		}
 
 		public bool ShouldUpdateChild(Pawn child)

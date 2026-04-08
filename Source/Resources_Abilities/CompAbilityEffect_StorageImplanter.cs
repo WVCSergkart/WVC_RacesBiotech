@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string ExtraTooltipPart()
 		{
-			SaveableXenotypeHolder xenotypeHolder = Gene?.XenotypeHolder;
+			XenotypeHolder_Exposable xenotypeHolder = Gene?.XenotypeHolder;
 			if (xenotypeHolder != null)
 			{
 				return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(xenotypeHolder.LabelCap, xenotypeHolder.genes.Count, xenotypeHolder.inheritable.ToStringYesNo(), xenotypeHolder.CustomXenotype.ToStringYesNo()).ToString();

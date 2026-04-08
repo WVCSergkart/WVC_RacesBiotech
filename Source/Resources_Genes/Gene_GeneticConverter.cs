@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 
 			void SetXenotype(Pawn item)
 			{
-				SaveableXenotypeHolder newHolder = new(pawn.genes.Xenotype, pawn.genes.Endogenes.ConvertToDefs(), true, pawn.genes.iconDef, pawn.genes.xenotypeName);
+				XenotypeHolder_Exposable newHolder = new(pawn.genes.Xenotype, pawn.genes.Endogenes.ConvertToDefs(), true, pawn.genes.iconDef, pawn.genes.xenotypeName);
 				ReimplanterUtility.SetXenotype(item, newHolder);
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGeneticConverterSucces".Translate(item.Named("TARGET"), pawn.Named("CASTER")), LetterDefOf.NeutralEvent, new LookTargets(item, pawn));
 				MiscUtility.DoShapeshiftEffects_OnPawn(item);

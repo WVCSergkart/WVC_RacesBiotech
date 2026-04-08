@@ -169,6 +169,7 @@
     <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
+    <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
@@ -203,7 +204,7 @@
     <Compile Include="Resources_Holders\GeneSetPresets.cs" />
     <Compile Include="Resources_Holders\PawnContainerHolder.cs" />
     <Compile Include="Resources_Holders\PawnGeneSetHolder.cs" />
-    <Compile Include="Resources_Holders\SaveableXenotypeHolder.cs" />
+    <Compile Include="Resources_Holders\XenotypeHolder_Exposable.cs" />
     <Compile Include="Resources_Holders\ThrallHolder.cs" />
     <Compile Include="Resources_Holders\TraitDefHolder.cs" />
     <Compile Include="Resources_Holders\XenotypeHolder.cs" />

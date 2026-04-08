@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef chosenXenotype = null;
 
-		public SaveableXenotypeHolder xenotypeHolder = null;
+		public XenotypeHolder_Exposable xenotypeHolder = null;
 
 		public CompProperties_XenoTree Props => (CompProperties_XenoTree)props;
 
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			xenotypeHolder = new SaveableXenotypeHolder(holder);
+			xenotypeHolder = new XenotypeHolder_Exposable(holder);
 			changeCooldown = Find.TickManager.TicksGame + Props.xenotypeChangeCooldown;
 		}
 

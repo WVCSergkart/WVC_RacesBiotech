@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Budding</defName>
+	<label>budding</label>
+	<description>Carriers of this gene can carry children in cancerous fleshmass buds on their bodies.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Budding</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Budding</iconPath>
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>106</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Turns &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; into cancer &lt;color=#8a8ae6&gt;bud&lt;/color&gt; 3 days after it starts.</li>
+		<li>Bud will &lt;color=#8a8ae6&gt;not prevent&lt;/color&gt; pregnancy.</li>
+		<li>Each subsequent pregnancy increases the &lt;color=#8a8ae6&gt;litter&lt;/color&gt; size.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+		<prefixSymbols>
+			<li>
+				<symbol>bud</symbol>
+			</li>
+			<li>
+				<symbol>tumor</symbol>
+			</li>
+		</prefixSymbols>
+		<suffixSymbols>
+			<li>
+				<symbol>tumor</symbol>
+			</li>
+		</suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Egglaying</li>
+	  <li>WVC_Budding</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDef>WVC_Budding</hediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Budding</defName>
+	<label>cancer bud</label>
+	<description>A large, fleshmass cancerous tumor on the carrier's body. At some point, it will develop into a baby, but for now, it only causes pain.</description>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_BudPregnancy</hediffClass>
+	<!-- <alwaysShowSeverity>true</alwaysShowSeverity> -->
+  </HediffDef>
+
+</Defs>

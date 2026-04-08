@@ -15,11 +15,11 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotype = null;
 
-		public SaveableXenotypeHolder xenotypeHolder = null;
+		public XenotypeHolder_Exposable xenotypeHolder = null;
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			xenotypeHolder = new SaveableXenotypeHolder(holder);
+			xenotypeHolder = new XenotypeHolder_Exposable(holder);
 		}
 
 		//public bool customMode = false;

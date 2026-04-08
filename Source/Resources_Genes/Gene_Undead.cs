@@ -370,4 +370,98 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Obsession : XaG_Gene
+	{
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			if (!Active || pawn.ageTracker?.Adult != true)
+			{
+				return;
+			}
+			try
+			{
+				DoAction();
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed trigger obsession. For gene: " + def.defName + ". Reason: " + arg.Message);
+			}
+		}
+
+		private void DoAction()
+		{
+			if (pawn.Faction != Faction.OfPlayer || pawn.relations == null || pawn.relations.ChildrenCount <= 0 || pawn.skills == null || pawn.story?.traits == null || !pawn.IsPsychicSensitive())
+			{
+				return;
+			}
+			List<Pawn> children = pawn.relations.Children.ToList();
+			children.SortBy(child => child.ageTracker.Adult);
+			foreach (Pawn child in children)
+			{
+				if (TryObsession(child))
+				{
+					child.needs?.mood?.thoughts?.memories?.RemoveMemoriesWhereOtherPawnIs(pawn);
+					break;
+				}
+			}
+		}
+
+		private bool TryObsession(Pawn child)
+		{
+			if (child.ageTracker.CurLifeStage.alwaysDowned || !child.IsHuman() || child.skills == null || !child.IsPsychicSensitive() || child.Map == null || child.Faction != pawn.Faction)
+			{
+				return false;
+			}
+			if (child.ageTracker.Adult)
+			{
+				child.story.Adulthood = pawn.story.Adulthood;
+				child.story.Childhood = pawn.story.Childhood;
+				TransferSkills(child);
+				foreach (Trait trait in child.story.traits.allTraits.ToList())
+				{
+					if (trait.sourceGene != null)
+					{
+						continue;
+					}
+					trait.RemoveTrait(child);
+				}
+				foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+				{
+					if (trait.sourceGene != null)
+					{
+						continue;
+					}
+					if (child.CanGetTrait(trait.def))
+					{
+						Trait newTrait = new Trait(trait.def, trait.Degree);
+						child.story.traits.GainTrait(newTrait);
+					}
+				}
+			}
+			else
+			{
+				TransferSkills(child);
+			}
+			return false;
+
+			void TransferSkills(Pawn child)
+			{
+				foreach (SkillRecord parentSkill in pawn.skills.skills)
+				{
+					foreach (SkillRecord childSkill in child.skills.skills)
+					{
+						if (parentSkill.def == childSkill.def)
+						{
+							childSkill.Level = parentSkill.Level;
+							childSkill.xpSinceLastLevel = parentSkill.xpSinceLastLevel;
+							childSkill.passion = parentSkill.passion;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
 }

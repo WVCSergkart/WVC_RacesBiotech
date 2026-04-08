@@ -122,17 +122,7 @@ namespace WVC_XenotypesAndGenes
 				compHumanEgg.SetupEgg(pregnancy);
 				int litterSize = GestationUtility.BabiesCount(pawn);
 				MiscUtility.SpawnItems(pawn, thing, litterSize, Props.showMessageIfOwned, Props.spawnMessage);
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.MorningSickness);
-				if (firstHediffOfDef != null)
-				{
-					pawn.health.RemoveHediff(firstHediffOfDef);
-				}
-				Hediff firstHediffOfDef2 = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PregnancyMood);
-				if (firstHediffOfDef2 != null)
-				{
-					pawn.health.RemoveHediff(firstHediffOfDef2);
-				}
-				pawn.health.RemoveHediff(pregnancy);
+				RemovePregnancy(pawn, pregnancy);
 				if (Props.cooldownHediffDef != null)
 				{
 					pawn.health.AddHediff(Props.cooldownHediffDef);
@@ -153,6 +143,21 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed create human egg. Reason: " + arg);
 				StopLayEgg();
 			}
+		}
+
+		public static void RemovePregnancy(Pawn pawn, Hediff_Pregnant pregnancy)
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.MorningSickness);
+			if (firstHediffOfDef != null)
+			{
+				pawn.health.RemoveHediff(firstHediffOfDef);
+			}
+			Hediff firstHediffOfDef2 = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PregnancyMood);
+			if (firstHediffOfDef2 != null)
+			{
+				pawn.health.RemoveHediff(firstHediffOfDef2);
+			}
+			pawn.health.RemoveHediff(pregnancy);
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
@@ -222,6 +227,80 @@ namespace WVC_XenotypesAndGenes
 		//	base.PostRemove();
 		//	StopLayEgg();
 		//}
+
+	}
+
+	public class Gene_Budding : XaG_Gene, IGenePregnantHuman, IGeneOverriddenBy
+	{
+
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Props
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
+
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		{
+			if (Props?.hediffDef != null)
+			{
+				Hediff_BudPregnancy firstBud = pawn.health.hediffSet?.GetFirstHediff<Hediff_BudPregnancy>();
+				if (firstBud != null)
+				{
+					firstBud.SecondPregnancy();
+				}
+				else
+				{
+					Hediff hediff = HediffMaker.MakeHediff(Props?.hediffDef, pawn);
+					if (hediff is Hediff_BudPregnancy hediff_BudPregnancy)
+					{
+						hediff_BudPregnancy.SetupBud(pregnancy);
+						pawn.health.AddHediff(hediff_BudPregnancy);
+					}
+				}
+				Gene_Ovipositor.RemovePregnancy(pawn, pregnancy);
+				return true;
+			}
+			return false;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			RemoveHediff();
+		}
+
+		public void Notify_Override()
+		{
+
+		}
+
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			RemoveHediff();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			RemoveHediff();
+		}
+
+		private void RemoveHediff()
+		{
+			HediffUtility.TryRemoveHediff(Props?.hediffDef, pawn);
+		}
 
 	}
 
