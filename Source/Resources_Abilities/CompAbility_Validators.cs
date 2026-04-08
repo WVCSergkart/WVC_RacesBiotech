@@ -1,8 +1,9 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
+using static RimWorld.PsychicRitualRoleDef;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -42,15 +43,22 @@ namespace WVC_XenotypesAndGenes
 			cachedResult = reason != null;
 		}
 
+		//public override void CompTick()
+		//{
+		//	if (nextTick > 0)
+		//	{
+		//		nextTick--;
+		//	}
+		//}
+
 		public override bool GizmoDisabled(out string reason)
 		{
-			nextTick--;
-			if (nextTick > 0)
+			if (nextTick > Find.TickManager.TicksGame)
 			{
 				reason = cachedReason;
 				return cachedResult;
 			}
-			nextTick = Props.recacheFrequency;
+			nextTick = Find.TickManager.TicksGame + Props.recacheFrequency;
 			Pawn pawn = parent.pawn;
 			Hediff pregnancy = HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs);
 			if (pregnancy != null)
@@ -163,7 +171,10 @@ namespace WVC_XenotypesAndGenes
 
 		public Gender gender = Gender.None;
 
+		[Obsolete("Use ticksInRange instead")]
 		public int recacheFrequency = 120;
+
+		public IntRange ticksInRange = new(120, 360);
 
 		public CompProperties_AbilityGeneIsActive()
 		{
@@ -181,37 +192,49 @@ namespace WVC_XenotypesAndGenes
 		private string cachedReason = null;
 		private bool cachedResult = false;
 
-		// This should improve optimization at least a little.
 		private void Cache(string reason)
 		{
 			cachedReason = reason;
 			cachedResult = reason != null;
+			nextTick = Find.TickManager.TicksGame + Props.ticksInRange.RandomInRange;
 		}
+
+		//public override void CompTick()
+		//{
+		//	if (nextTick > 0)
+		//	{
+		//		nextTick--;
+		//	}
+		//}
 
 		public override bool GizmoDisabled(out string reason)
 		{
-			nextTick--;
-			if (nextTick > 0)
+			if (nextTick > Find.TickManager.TicksGame)
 			{
 				reason = cachedReason;
 				return cachedResult;
 			}
-			nextTick = Props.recacheFrequency;
-			Pawn pawn = parent.pawn;
+			//Log.Error("0");
+			GetReason(out reason, parent.pawn);
+			Cache(reason);
+			return false;
+		}
+
+		private void GetReason(out string reason, Pawn pawn)
+		{
+			reason = null;
 			if (Props.gender != Gender.None)
 			{
 				if (Props.gender != pawn.gender)
 				{
 					reason = "WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate(pawn);
-					Cache(reason);
-					return true;
+					return;
 				}
 			}
 			if (pawn?.genes == null)
 			{
 				reason = "WVC_XaG_AbilityGeneIsActive_PawnBaseliner".Translate(pawn);
-				Cache(reason);
-				return true;
+				return;
 			}
 			if (!Props.eachOfGenes.NullOrEmpty())
 			{
@@ -220,8 +243,7 @@ namespace WVC_XenotypesAndGenes
 					if (!XaG_GeneUtility.HasActiveGene(allSelectedItem, pawn))
 					{
 						reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + "\n" + Props.eachOfGenes.Select((GeneDef x) => x.label).ToLineList(" - ", capitalizeItems: true);
-						Cache(reason);
-						return true;
+						return;
 					}
 				}
 			}
@@ -232,19 +254,12 @@ namespace WVC_XenotypesAndGenes
 					if (XaG_GeneUtility.HasActiveGene(allSelectedItem, pawn))
 					{
 						reason = null;
-						Cache(reason);
-						return false;
+						return;
 					}
 				}
 				reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + "\n" + Props.anyOfGenes.Select((GeneDef x) => x.label).ToLineList(" - ", capitalizeItems: true);
-				Cache(reason);
-				return true;
 			}
-			reason = null;
-			Cache(reason);
-			return false;
 		}
-
 	}
 
 }

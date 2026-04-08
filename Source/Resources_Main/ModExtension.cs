@@ -400,8 +400,11 @@ namespace WVC_XenotypesAndGenes
 		public override void ResolveReferences(Def parentDef)
 		{
 			base.ResolveReferences(parentDef);
-			parentDef.label = parentDef.label + " " + "WVC_XaG_GeneExtension_Obsolete_Label".Translate().Resolve();
-			parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GeneExtension_Obsolete_Desc".Translate().Resolve();
+			if (!WVC_Biotech.settings.EnableLegacyMode)
+			{
+				parentDef.label = parentDef.label + " " + "WVC_XaG_GeneExtension_Obsolete_Label".Translate().Resolve();
+				parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GeneExtension_Obsolete_Desc".Translate().Resolve();
+			}
 			if (parentDef is GeneDef geneDef)
 			{
 				geneDef.selectionWeight = 0;
@@ -419,7 +422,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				if (!WVC_Biotech.settings.hideXaGGenes)
+				if (!WVC_Biotech.settings.hideXaGGenes && !WVC_Biotech.settings.EnableLegacyMode)
 				{
 					HarmonyUtility.Harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_HideObsoleteGenes))));
 				}

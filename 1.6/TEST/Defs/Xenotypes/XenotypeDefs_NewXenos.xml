@@ -7,14 +7,11 @@
 	<!-- <label>TestTemplate</label> -->
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
 	<!-- <genes> -->
+		<!-- <li>WVC_HeadSkinHornB</li> -->
+		<!-- <li>Hair_ShortOnly</li> -->
 		<!-- <li>Body_Standard</li> -->
-		<!-- <li>Skin_Melanin1</li> -->
-		<!-- <li>Skin_Melanin2</li> -->
-		<!-- <li>Hair_Gray</li> -->
-		<!-- <li>Hair_Blonde</li> -->
-		<!-- <li>Hair_SandyBlonde</li> -->
-		<!-- <li>WVC_Eyes_Colorful</li> -->
-		<!-- <li>WVC_BioferriteGrowths</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_Melanin9</li> -->
 	<!-- </genes> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
