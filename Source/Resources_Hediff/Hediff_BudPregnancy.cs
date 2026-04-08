@@ -54,14 +54,14 @@ namespace WVC_XenotypesAndGenes
 				mother = pregnancy.Mother;
 				geneSet = pregnancy.geneSet;
 				xenotypeHolder = new(father, mother, pregnancy.geneSet.GenesListForReading);
-				budSize = GestationUtility.BabiesCount(pawn);
+				budSize = GestationUtility.GetLitterSize(pawn);
 			}
 		}
 
 		public void SecondPregnancy()
 		{
 			curStage = null;
-			budSize += GestationUtility.BabiesCount(pawn);
+			budSize += GestationUtility.GetLitterSize(pawn);
 		}
 
 		private float gestateProgress = 0;

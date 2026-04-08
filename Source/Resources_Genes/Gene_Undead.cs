@@ -205,7 +205,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					xaG_GameComponent.reincarnations = new();
 				}
-				ReincarnationSet newSet = new ReincarnationSet(pawn, Spawner.summonQuest, GestationUtility.BabiesCount(pawn));
+				ReincarnationSet newSet = new ReincarnationSet(pawn, Spawner.summonQuest, GestationUtility.GetLitterSize(pawn));
 				xaG_GameComponent.reincarnations.Add(newSet);
 			}
 			//if (XaG_GameComponent.reincarnations == null)

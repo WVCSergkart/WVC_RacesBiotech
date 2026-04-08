@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SpawnChild(Pawn parent, Thing motherOrEgg, out Pawn child, bool endogenes = true, bool xenogenes = true)
 		{
-			int litterSize = GestationUtility.BabiesCount(parent);
+			int litterSize = GestationUtility.GetLitterSize(parent);
 			PawnGenerationRequest generateNewBornPawn = NewBornRequest(parent.kindDef, parent.Faction);
 			child = null;
 			for (int i = 0; i < litterSize; i++)
@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public static int BabiesCount(Pawn pawn)
+		public static int GetLitterSize(Pawn pawn)
 		{
 			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
 			if (litterSize < 1)

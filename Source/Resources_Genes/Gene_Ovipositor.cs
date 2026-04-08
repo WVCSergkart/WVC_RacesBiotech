@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 				Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
 				CompHumanEgg compHumanEgg = thing.TryGetComp<CompHumanEgg>();
 				compHumanEgg.SetupEgg(pregnancy);
-				int litterSize = GestationUtility.BabiesCount(pawn);
+				int litterSize = GestationUtility.GetLitterSize(pawn);
 				MiscUtility.SpawnItems(pawn, thing, litterSize, Props.showMessageIfOwned, Props.spawnMessage);
 				RemovePregnancy(pawn, pregnancy);
 				if (Props.cooldownHediffDef != null)
