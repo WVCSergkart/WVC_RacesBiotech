@@ -254,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 				Hediff_BudPregnancy firstBud = pawn.health.hediffSet?.GetFirstHediff<Hediff_BudPregnancy>();
 				if (firstBud != null)
 				{
-					firstBud.SecondPregnancy();
+					firstBud.IncreaseLitterSize();
 				}
 				else
 				{

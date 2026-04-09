@@ -16,7 +16,8 @@
 	<customEffectDescriptions>
 		<li>Turns &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; into cancer &lt;color=#8a8ae6&gt;bud&lt;/color&gt; 3 days after it starts.</li>
 		<li>Bud will &lt;color=#8a8ae6&gt;not prevent&lt;/color&gt; pregnancy.</li>
-		<li>Each subsequent pregnancy increases the &lt;color=#8a8ae6&gt;litter&lt;/color&gt; size.</li>
+		<li>Each subsequent pregnancy increases the &lt;color=#8a8ae6&gt;litter&lt;/color&gt; size for max 5.</li>
+		<li>&lt;color=#8a8ae6&gt;Geneset&lt;/color&gt; of a bud is determined by the &lt;color=#8a8ae6&gt;first pregnancy&lt;/color&gt; and does not change until &lt;color=#8a8ae6&gt;hatching&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 		<prefixSymbols>

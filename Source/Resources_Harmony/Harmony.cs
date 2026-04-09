@@ -1117,27 +1117,27 @@ namespace WVC_XenotypesAndGenes
 				if (Gene_Wings.WingedPawns.Contains(pawn))
 				{
 					float num = ((c.x != pawn.Position.x && c.z != pawn.Position.z) ? pawn.TicksPerMoveDiagonal : pawn.TicksPerMoveCardinal);
-					if (pawn.Map?.roofGrid?.Roofed(c) == true)
-					{
-						TerrainDef terrainDef = pawn.Map.terrainGrid.TerrainAt(c);
-						if (terrainDef == null)
-						{
-							num = 10000f;
-						}
-						else if (terrainDef.passability == Traversability.Impassable && !terrainDef.IsWater)
-						{
-							num = 10000f;
-						}
-						List<Thing> list = pawn.Map.thingGrid.ThingsListAt(c);
-						for (int i = 0; i < list.Count; i++)
-						{
-							Thing thing = list[i];
-							if (thing.def.passability == Traversability.Impassable)
-							{
-								num = 10000f;
-							}
-						}
-					}
+					//if (pawn.Map?.roofGrid?.Roofed(c) == true)
+					//{
+					//	TerrainDef terrainDef = pawn.Map.terrainGrid.TerrainAt(c);
+					//	if (terrainDef == null)
+					//	{
+					//		num = 10000f;
+					//	}
+					//	else if (terrainDef.passability == Traversability.Impassable && !terrainDef.IsWater)
+					//	{
+					//		num = 10000f;
+					//	}
+					//	List<Thing> list = pawn.Map.thingGrid.ThingsListAt(c);
+					//	for (int i = 0; i < list.Count; i++)
+					//	{
+					//		Thing thing = list[i];
+					//		if (thing.def.passability == Traversability.Impassable)
+					//		{
+					//			num = 10000f;
+					//		}
+					//	}
+					//}
 					__result = num;
 					return false;
 				}

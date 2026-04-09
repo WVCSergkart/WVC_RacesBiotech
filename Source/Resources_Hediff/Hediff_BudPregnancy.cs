@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		//public override string Label => base.Label + " " + SeverityLabel;
-		public override string LabelInBrackets => "x" + budSize.ToString() + " " + gestateProgress.ToStringPercent();
+		public override string LabelInBrackets => "x" + litterSize.ToString() + " " + gestateProgress.ToStringPercent();
 
 		public override bool ShouldRemove => false;
 
@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => true;
 
-		private int budSize = 1;
+		private int litterSize = 1;
 
 		private HediffStage curStage;
 		public override HediffStage CurStage
@@ -33,8 +33,16 @@ namespace WVC_XenotypesAndGenes
 				if (curStage == null)
 				{
 					curStage = new();
-					curStage.painOffset = (0.08f * budSize);
-					curStage.hungerRateFactor = 1f + (budSize * 0.1f);
+					SimpleCurve curve = new()
+					{
+						new CurvePoint(0.08f, 0.08f),
+						new CurvePoint(0.16f, 0.012f),
+						new CurvePoint(0.32f, 0.016f),
+						new CurvePoint(0.64f, 0.20f),
+						new CurvePoint(1.0f, 0.22f)
+					};
+					curStage.painOffset = curve.Evaluate(0.08f * litterSize);
+					curStage.hungerRateFactor = 1f + (litterSize * 0.06f);
 				}
 				return curStage;
 			}
@@ -54,14 +62,18 @@ namespace WVC_XenotypesAndGenes
 				mother = pregnancy.Mother;
 				geneSet = pregnancy.geneSet;
 				xenotypeHolder = new(father, mother, pregnancy.geneSet.GenesListForReading);
-				budSize = GestationUtility.GetLitterSize(pawn);
+				litterSize = GestationUtility.GetLitterSize(pawn);
 			}
 		}
 
-		public void SecondPregnancy()
+		public void IncreaseLitterSize()
 		{
 			curStage = null;
-			budSize += GestationUtility.GetLitterSize(pawn);
+			litterSize += GestationUtility.GetLitterSize(pawn);
+			if (litterSize > 5)
+			{
+				litterSize = 5;
+			}
 		}
 
 		private float gestateProgress = 0;
@@ -79,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				CompHumanEgg.SpawnHatchee(mother, father, xenotypeHolder, pawn, budSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
+				CompHumanEgg.SpawnHatchee(mother, father, xenotypeHolder, pawn, litterSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
 			}
 			catch (Exception arg)
 			{
@@ -131,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_References.Look(ref father, "father", saveDestroyedThings: true);
 			Scribe_References.Look(ref mother, "mother", saveDestroyedThings: true);
-			Scribe_Values.Look(ref budSize, "budSize", 1);
+			Scribe_Values.Look(ref litterSize, "budSize", 1);
 			Scribe_Values.Look(ref gestateProgress, "gestateProgress", 0);
 			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder");
 			Scribe_Deep.Look(ref geneSet, "geneSet");

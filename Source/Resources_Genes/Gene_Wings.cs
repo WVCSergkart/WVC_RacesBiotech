@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 	//	}
 
 	//}
-	public class Gene_Wings : XaG_Gene, IGeneRemoteControl, IGeneOverriddenBy, IGeneInspectInfo, IGeneNotifyGenesChanged
+	public class Gene_Wings : XaG_Gene, IGeneRemoteControl, IGeneOverriddenBy, IGeneInspectInfo
 	{
 
 		private static HashSet<Pawn> cachedWingedPawns;
@@ -233,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Levitation : Gene_Wings
+	public class Gene_Levitation : Gene_Wings, IGeneNotifyGenesChanged
 	{
 
 		public override bool IgnoreMovementCost
@@ -246,6 +246,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
+		}
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			ResetCollection();
 		}
 
 	}
