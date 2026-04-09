@@ -1428,7 +1428,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (geneDef.prerequisite.IsXenoGenesDef())
 				{
-					sb.AppendLine("- " + "Requires".Translate() + ": " + "[" + geneDef.prerequisite.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-DUMP#" + geneDef.prerequisite.label + ")" + " ([Genes-WIP](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-(WIP)#" + geneDef.prerequisite.label + "))");
+					sb.AppendLine("- " + "Requires".Translate() + ": " + "[" + geneDef.prerequisite.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-DUMP#" + geneDef.prerequisite.label.Replace(" ", "-") + ")" + " ([Genes-WIP](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-(WIP)#" + geneDef.prerequisite.label.Replace(" ", "-") + "))");
 				}
 				else
 				{
@@ -1793,7 +1793,7 @@ namespace WVC_XenotypesAndGenes
 				string xenosList = "";
 				foreach (XenotypeDef xenotypeDef in xenotypeDefs)
 				{
-					xenosList += "\n - [" + xenotypeDef.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Xenotypes#" + xenotypeDef.label + ")";
+					xenosList += "\n - [" + xenotypeDef.LabelCap + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Xenotypes#" + xenotypeDef.label.Replace(" ", "-") + ")";
 				}
 				sb.AppendLine("**In use by**:" + xenosList);
 				//sb.AppendLine(xenotypeDefs.Select(xenos => xenos.label).ToLineList(" - ", capitalizeItems: true));
