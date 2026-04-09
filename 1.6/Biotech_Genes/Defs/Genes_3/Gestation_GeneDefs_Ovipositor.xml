@@ -132,7 +132,7 @@
 	  <sourceDef>Human</sourceDef>
 	  <ateEvent>AteHumanMeat</ateEvent>
 	  <!-- rare -->
-	  <optimalityOffsetHumanlikes>-20</optimalityOffsetHumanlikes>
+	  <optimalityOffsetHumanlikes>-120</optimalityOffsetHumanlikes>
 	  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
 	  <outcomeDoers>
 		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_HumanEgg" >

@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						foreach (QuestScriptDef item in reincarnation.questScriptDefs)
 						{
-							Gene_Reincarnation.ReincarnationQuest(reincarnation.asker, item);
+							DeathlessUtility.ReincarnationQuest(reincarnation.asker, item);
 						}
 						reincarnations.Remove(reincarnation);
 					}

@@ -280,6 +280,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//InDev
+	public interface IGeneDeathless
+	{
+
+
+
+	}
+
 	public interface IGeneMechanitorUI
 	{
 

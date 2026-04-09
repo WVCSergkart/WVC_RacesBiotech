@@ -1,11 +1,13 @@
+using HarmonyLib;
+using RimWorld;
+using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
-using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using WVC_XenotypesAndGenes.HarmonyPatches;
 // using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
@@ -232,13 +234,6 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static void ReincarnationQuest(Pawn pawn, QuestScriptDef quest)
-		{
-			Slate slate = new();
-			slate.Set("asker", pawn);
-			_ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
-		}
-
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), Activated().ToStringYesNo(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
@@ -249,7 +244,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Cellular : Gene_AddOrRemoveHediff, IGeneFloatMenuOptions
 	{
 
-		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
 		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
@@ -366,6 +361,53 @@ namespace WVC_XenotypesAndGenes
 		//		return;
 		//	}
 		//	HealingUtility.DisableRot(pawn);
+		//}
+
+		//=================
+
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	HarmonyPatch();
+		//	ResetCache();
+		//}
+
+		//public override void PostRemove()
+		//{
+		//	base.PostRemove();
+		//	ResetCache();
+		//}
+
+		//public override void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	base.Notify_OverriddenBy(overriddenBy);
+		//	ResetCache();
+		//}
+
+		//public override void Notify_Override()
+		//{
+		//	base.Notify_Override();
+		//	HarmonyPatch();
+		//	ResetCache();
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		//	{
+		//		HarmonyPatch();
+		//	}
+		//}
+
+		//private static void ResetCache()
+		//{
+		//	DeathlessUtility.ResetCollection();
+		//}
+
+		//private static void HarmonyPatch()
+		//{
+		//	DeathlessUtility.HarmonyPatch();
 		//}
 
 	}

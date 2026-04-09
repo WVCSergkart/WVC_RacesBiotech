@@ -95,7 +95,6 @@
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Blacklist.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Dependant.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind_Gestator.cs" />
@@ -166,7 +165,6 @@
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_FeatheredAgelessGenes.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_HivemindBlacklist.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
@@ -359,6 +357,7 @@
     <Compile Include="Resources_Thought\Thought_MemorySocial_NoFade.cs" />
     <Compile Include="Resources_Thought\Thought_PsychicHarem.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
+    <Compile Include="Resources_Utility\DeathlessUtility.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
