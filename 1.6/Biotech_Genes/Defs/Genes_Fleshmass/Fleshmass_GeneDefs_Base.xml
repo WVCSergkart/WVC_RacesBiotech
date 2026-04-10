@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFleshmass_Mutations" Abstract="True">
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<marketValueFactor>5</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
+  </GeneDef>
+
+
+</Defs>

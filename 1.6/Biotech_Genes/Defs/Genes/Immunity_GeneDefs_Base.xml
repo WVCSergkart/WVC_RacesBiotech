@@ -4,15 +4,6 @@
   <GeneDef ParentName="GeneImmunityBase" Name="WVC_XenotypesAndGenes_GeneImmunity_Base" Abstract="True">
 	<selectionWeight>0.0022</selectionWeight>
 	<iconColor>(255, 255, 255)</iconColor>
-	<symbolPack>
-	  <prefixSymbols>
-		<li>
-		  <symbol>sick</symbol>
-		  <weight>3</weight>
-		</li>
-		<li><symbol>frail</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
   </GeneDef>
 
   <!-- ============================= -->
@@ -29,6 +20,15 @@
 	  <ImmunityGainSpeed>0.01</ImmunityGainSpeed>
 	</statFactors>
 	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li>
+		  <symbol>sick</symbol>
+		  <weight>3</weight>
+		</li>
+		<li><symbol>frail</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
 </Defs>

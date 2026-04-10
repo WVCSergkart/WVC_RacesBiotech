@@ -44,4 +44,10 @@
 	<hairColorOverride>(176,191,128)</hairColorOverride>
   </GeneDef>
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_FleshGreen</defName> -->
+	<!-- <label>flesh green skin</label> -->
+	<!-- <skinColorOverride>(188,202,153)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
 </Defs>

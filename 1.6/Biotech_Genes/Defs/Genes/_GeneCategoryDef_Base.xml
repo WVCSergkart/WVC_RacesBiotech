@@ -8,6 +8,11 @@
   <!-- </GeneCategoryDef> -->
 
   <!-- Fleshmass 525.2886992038 -->
+  <GeneCategoryDef>
+	<defName>WVC_Fleshmass</defName>
+	<label>fleshmass</label>
+	<displayPriorityInXenotype>525.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
   <!-- Duplicator 524.2886992038 -->
   <GeneCategoryDef>
 	<defName>WVC_Reimplanters</defName>

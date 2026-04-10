@@ -1,62 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- To-Do: Added ability -->
-  <!-- <GeneDef> -->
-	<!-- <defName>WVC_PsychicHarem</defName> -->
-	<!-- <label>psychic harem</label> -->
-	<!-- <description>Carriers of this gene are capable of forming tightly knit communities, and become happier the stronger their community is.</description> -->
-	<!-- <iconPath>WVC/UI/Genes3/Gene_PackMentality</iconPath> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PsychicHarem</geneClass> -->
-	<!-- <displayCategory>Psychic</displayCategory> -->
-	<!-- <displayOrderInCategory>101</displayOrderInCategory> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Each pawn with this gene get a +999 to &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; about carriers of this gene.</li> -->
-		<!-- <li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, the size of which is the number of pawns in the harem.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <biostatCpx>2</biostatCpx> -->
-	<!-- <biostatMet>-1</biostatMet> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion"> -->
-			<!-- <AboutMeThoughtDef>WVC_PsychicHarem_Opinion</AboutMeThoughtDef> -->
-			<!-- <thoughtDef>WVC_PsychicHarem_Mood</thoughtDef> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Hivemind_Thoughts</li> -->
-	  <!-- <li>BGM_FungalParasitism</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
+  <GeneDef>
+	<defName>WVC_PsychicHarem</defName>
+	<label>psychic harem</label>
+	<description>Carriers of this gene are united by a psychic bond that forces them to sympathize with each other, and in which they involuntarily share their most intimate thoughts.</description>
+	<iconPath>WVC/UI/Genes3/Gene_PsychicHarem</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PsychicHarem</geneClass>
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>101</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Each pawn with this gene get a +999 to &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; about carriers of this gene.</li>
+		<li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, the size of which is the number of pawns in the harem.</li>
+		<li>The death of any member of the harem will have a temporary negative effect on the pawns that were in the harem.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<abilities>
+	  <li>WVC_PsychicHarem</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_PsychicHarem</AbilityDef>
+	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_PsychicHarem_Opinion</AboutMeThoughtDef>
+			<thoughtDef>WVC_PsychicHarem_Mood</thoughtDef>
+		</li>
+	</modExtensions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Thoughts</li>
+	  <li>BGM_FungalParasitism</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_PsychicHarem</defName>
+	<label>psychic bond</label>
+	<description>Psychic connects the target and caster through gene implantation. The target must be friendly to the caster.</description>
+	<iconPath>WVC/UI/Genes3/Gene_PsychicHarem</iconPath>
+	<sendMessageOnCooldownComplete>false</sendMessageOnCooldownComplete>
+	<showPsycastEffects>false</showPsycastEffects>
+	<cooldownTicksRange>120000</cooldownTicksRange>
+	<verbProperties>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>This action will add the gene to the target and make them part of the psychic harem. The gene will be added as xenogene. If the target is psychically deaf, they will not be part of the harem, regardless of the gene.</confirmationDialogText>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ImplantGeneDef</compClass>
+		<geneDefs>
+		  <li>WVC_PsychicHarem</li>
+		</geneDefs>
+	  </li>
+	</comps>
+  </AbilityDef>
 
   <!-- ============================================== -->
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PsychicHarem_Mood</defName> -->
-	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_PsychicHarem</thoughtClass> -->
-	<!-- <stackLimit>800</stackLimit> -->
-	<!-- <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn> -->
-	<!-- <validWhileDespawned>true</validWhileDespawned> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>psychic harem</label> -->
-		<!-- <description>I feel the different hidden emotions of the harem.</description> -->
-		<!-- <baseMoodEffect>1</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PsychicHarem_Mood</defName>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_PsychicHarem</thoughtClass>
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>psychic harem</label>
+		<description>I feel the different hidden emotions of the harem.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base"> -->
-	<!-- <defName>WVC_PsychicHarem_Opinion</defName> -->
-	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_Social_PsychicHarem</thoughtClass> -->
-	<!-- <stackLimit>800</stackLimit> -->
-	<!-- <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn> -->
-	<!-- <validWhileDespawned>true</validWhileDespawned> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>harem member</label> -->
-		<!-- <baseOpinionOffset>999</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_PsychicHarem_Opinion</defName>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_Social_PsychicHarem</thoughtClass>
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>harem member</label>
+		<baseOpinionOffset>999</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
 </Defs>

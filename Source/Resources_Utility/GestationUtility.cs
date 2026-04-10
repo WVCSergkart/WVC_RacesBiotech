@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 			return WVC_Biotech.settings.enable_pregnancyForAllGenders;
 		}
 
-		public static bool TryUpdChildGenes(Pawn pawn)
+		public static bool TryUpdChildGenes(Pawn pawn, Pawn secondParent = null)
 		{
 			if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.PregnantHuman, out Hediff hediff))
 			{
@@ -35,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					GeneSet newGeneSet = new();
 					HediffUtility.AddParentGenes(pawn, newGeneSet);
+					HediffUtility.AddParentGenes(secondParent, newGeneSet);
 					newGeneSet.SortGenes();
 					pregnant.geneSet = newGeneSet;
 					return true;
@@ -47,17 +48,17 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void TryImpregnateOrUpdChildGenes(Pawn pawn)
+		public static void TryImpregnateOrUpdChildGenes(Pawn mother, Pawn fatherOrSecondMother = null)
 		{
-			if (!TryUpdChildGenes(pawn))
+			if (!TryUpdChildGenes(mother, fatherOrSecondMother))
 			{
-				Impregnate(pawn);
+				Impregnate(mother, fatherOrSecondMother);
 			}
 		}
 
-		public static void Impregnate(Pawn pawn)
+		public static void Impregnate(Pawn mother, Pawn fatherOrSecondMother = null)
 		{
-			if (pawn?.genes == null)
+			if (mother?.genes == null)
 			{
 				return;
 			}
@@ -65,14 +66,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
+			Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, mother);
 			hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
 			GeneSet newGeneSet = new();
-			HediffUtility.AddParentGenes(pawn, newGeneSet);
+			HediffUtility.AddParentGenes(mother, newGeneSet);
+			HediffUtility.AddParentGenes(fatherOrSecondMother, newGeneSet);
 			// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
 			newGeneSet.SortGenes();
-			hediff_Pregnant.SetParents(pawn, null, newGeneSet);
-			pawn.health.AddHediff(hediff_Pregnant);
+			hediff_Pregnant.SetParents(mother, fatherOrSecondMother, newGeneSet);
+			mother.health.AddHediff(hediff_Pregnant);
 		}
 
 		public static void GestateChild_WithGenes(Pawn parent, Thing motherOrEgg = null, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogenes = true, bool xenogenes = true)

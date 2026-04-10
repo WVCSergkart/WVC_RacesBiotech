@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2298984700
+CRC: 3125765810
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d6bd6d939d7b40d7514ab8ec462cd194
+    Hash: 841e5fe2369d5827e0992d476d2d63dd
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 31b429f0d5e8d89aa1c7ce4dfe8c84bf
+    Hash: 7234b08187ecc2a43e99b0429ac99c95
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -153,6 +153,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PowerSource_Tox.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_SelfOverrider_HeadSpikes.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Melee/Minus.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_PsychicHarem.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_RemoveVoidDrainMaster.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Female_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble_east.png
@@ -372,7 +373,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/MechanoidizationSoftware.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/ElfEars/DoubleEars_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/Bighorn_east.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno23.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_FleshmassFertile.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DemonTail_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_PsychicBloodfeeder_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DustClotting_v0.png
@@ -381,6 +382,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/TentaclesChest_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Female_east.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno23.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_GenesSettings_Gizmo.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/HeadTentacles0c_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsB_east.png
@@ -474,10 +476,11 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Dormant_Resyncer.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/BoneTail_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/MembranousWings_north.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_Lilith_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_PainPassive.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/FurChest_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ChimeraLimit_Increased.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Thrall_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_Lilith_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/Ui_BackgroundGolems_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/UnClothedArmor.png

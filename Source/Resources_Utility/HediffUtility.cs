@@ -1,7 +1,8 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
+using System.Security.Cryptography;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -25,6 +26,14 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		//public static void IsImmuneTo(HediffDef def)
+		//{
+		//	if (!naturalImmunityOnly && (AnyHediffMakesFullyImmuneTo(def, out var _) || AnyGeneMakesFullyImmuneTo(def)) && num < 0.65000004f)
+		//	{
+		//		num = 0.65000004f;
+		//	}
+		//}
 
 		//public static void UpdatePawnGeneHediffs(Pawn pawn)
 		//{

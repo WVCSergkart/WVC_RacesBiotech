@@ -47,6 +47,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
+		public bool hediffs_checkImmunizationAndRemove = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;

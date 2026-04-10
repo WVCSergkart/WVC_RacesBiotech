@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- To-Do: Add ability. -->
+  <GeneDef ParentName="FertilityBase">
+	<defName>WVC_FleshmassFertility</defName>
+	<label>fleshmass fertility</label>
+	<description>Carriers of this gene have absurd fertility.</description>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassFertile</iconPath>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to impregnate pawns by command at any time.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>8</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_FleshmassFertility</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_FleshmassFertility</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_FleshmassFertility</defName>
+	<label>tentacle implanter</label>
+	<description>Fertilize the target pawn or update the target's fetus' genes. The target must be friendly and belong to the player's faction.</description>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassFertile</iconPath>
+	<sendMessageOnCooldownComplete>false</sendMessageOnCooldownComplete>
+	<showPsycastEffects>false</showPsycastEffects>
+	<cooldownTicksRange>50000</cooldownTicksRange>
+	<verbProperties>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>This action will initiate the target's pregnancy. The fetus's genes will contain a combination of endogenes from both parents, regardless of their xenotype. If the target is already pregnant, the fetus's genes will be updated.</confirmationDialogText>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Impregnate</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

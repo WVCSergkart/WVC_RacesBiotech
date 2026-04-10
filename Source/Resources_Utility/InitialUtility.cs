@@ -56,6 +56,23 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
+		//public static void Hediffs()
+		//{
+		//	if (!WVC_Biotech.settings.hediffs_checkImmunizationAndRemove)
+		//	{
+		//		return;
+		//	}
+		//	foreach (HediffDef hediffDef in DefDatabase<HediffDef>.AllDefsListForReading)
+		//	{
+		//		HediffCompProperties_Immunizable comp_Immunizable = hediffDef.CompProps<HediffCompProperties_Immunizable>();
+		//		if (comp_Immunizable != null)
+		//		{
+		//			HediffCompProperties_ImmunityCheck newComp = new();
+		//			hediffDef.comps.Add(newComp);
+		//		}
+		//	}
+		//}
+
 		public static void GenesAndMutants()
 		{
 			List<GeneDef> xenogenesGenes = new();

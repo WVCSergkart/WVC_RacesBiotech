@@ -71,6 +71,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Devourer.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantGeneDef.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_Impregnate.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_NewImplanter.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Resources_Gizmo\Dialog_FeatheredAgelessGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />

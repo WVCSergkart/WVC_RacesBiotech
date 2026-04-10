@@ -26,6 +26,8 @@ namespace WVC_XenotypesAndGenes
 						targetPawn.genes?.AddGene(geneDef, true);
 					}
 				}
+				ReimplanterUtility.PostImplantDebug(targetPawn);
+				Messages.Message("WVC_XaG_ImplantedGeneDef_Succes".Translate(), targetPawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 			catch (Exception arg)
 			{

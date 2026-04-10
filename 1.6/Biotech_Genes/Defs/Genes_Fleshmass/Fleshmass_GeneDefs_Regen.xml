@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassRegeneration</defName>
+	<label>fleshmass regeneration</label>
+	<description>Carriers of this gene have cancerous mass of semi-sentient flesh that regenerate wounds and restore lost limbs depending on the number of wounds and scars.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassRegeneration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SpecialRegeneration</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>66</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

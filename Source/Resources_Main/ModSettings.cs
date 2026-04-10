@@ -61,6 +61,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
+		//public bool hediffs_checkImmunizationAndRemove = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
@@ -188,6 +189,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref thrallMaker_ThrallsInheritMasterGenes, "thrallMaker_ThrallsInheritMasterGenes", defaultValue: true);
 			// Fix
 			Scribe_Values.Look(ref harmony_vanillaFixesTweaksAndCompatability, "harmony_vanillaFixesTweaksAndCompatability", defaultValue: true);
+			//Scribe_Values.Look(ref hediffs_checkImmunizationAndRemove, "hediffs_checkImmunizationAndRemove", defaultValue: true);
 			// Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			//Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
@@ -479,6 +481,7 @@ namespace WVC_XenotypesAndGenes
 			//	listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
 			//}
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_vanillaFixesTweaksAndCompatability, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
+			//listingStandard.CheckboxLabeled("WVC_Label_hediffs_checkImmunizationAndRemove".Translate(), ref settings.hediffs_checkImmunizationAndRemove, "WVC_ToolTip_hediffs_checkImmunizationAndRemove".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.GapLine();
 			// Serums
@@ -1176,6 +1179,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
 			// Fix
 			WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability = settingsDef.harmony_vanillaFixesTweaksAndCompatability;
+			//WVC_Biotech.settings.hediffs_checkImmunizationAndRemove = settingsDef.hediffs_checkImmunizationAndRemove;
 			//WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
 			// Info
 			WVC_Biotech.settings.enable_xagHumanComponent = settingsDef.enable_xagHumanComponent;
