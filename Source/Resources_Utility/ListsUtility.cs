@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayer)?.ToList() ?? new();
+				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayerSilentFail)?.ToList() ?? new();
 			}
 		}
 

@@ -171,48 +171,4 @@
 	<!-- </modExtensions> -->
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
-	<defName>WVC_Shapeshift_Deathless</defName>
-	<label>cellular</label>
-	<!-- <description>Carriers of this gene have archites that transfer consciousness to the cellular-molecular level, which makes their carriers almost indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description> -->
-	<description>Carriers of this gene have archites that transfer their consciousness to the cellular-psychic level, making them almost unkillable. As long as their body has a piece of dark archotechnology in it, they can recover.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Cellular</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
-	<displayOrderInCategory>185</displayOrderInCategory>
-	<prerequisite></prerequisite>
-	<selectionWeight>0.00001</selectionWeight>
-	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<biostatCpx>7</biostatCpx>
-	<biostatArc>4</biostatArc>
-	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Carrier cannot be killed by &lt;color=#8a8ae6&gt;direct damage&lt;/color&gt;.</li>
-		<li>Allows to kill the carrier by extracting the anomaly &lt;color=#8a8ae6&gt;shard&lt;/color&gt;.</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Disables corpse rotting.&lt;/color&gt;</li> -->
-		<li>Healing: 1 hp/day</li>
-	</customEffectDescriptions>
-	<!-- <statFactors> -->
-	  <!-- <IncomingDamageFactor>1.20</IncomingDamageFactor> -->
-	<!-- </statFactors> -->
-	<statOffsets>
-	  <IncomingDamageFactor>0.20</IncomingDamageFactor>
-	  <MentalBreakThreshold>0.10</MentalBreakThreshold>
-	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">2</WVC_ScarifierScars>
-	</statOffsets>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <scarsCount>2</scarsCount> -->
-			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
-			<jobDef>WVC_XaG_DestroyCellularBody</jobDef>
-			<!-- <bodyparts> -->
-				<!-- <li>Brain</li> -->
-			<!-- </bodyparts> -->
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<regeneration>1</regeneration>
-			<reqGeneMat>88</reqGeneMat>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
 </Defs>

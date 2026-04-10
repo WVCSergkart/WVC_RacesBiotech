@@ -6,7 +6,7 @@
 	<label>metabolism network</label>
 	<description>Carriers of this gene have archites that connect with other carriers of this gene via micro skip gates and jointly improve the carriers' metabolism.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SharedMetabolism</geneClass>
-	<iconPath>WVC/UI/Genes/PsyDull_v0</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_SharedMetabolism</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>

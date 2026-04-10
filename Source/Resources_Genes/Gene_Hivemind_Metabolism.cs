@@ -1,61 +1,65 @@
 ﻿using System.Linq;
+using UnityEngine.PlayerLoop;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	// In Dev
+
 	public class Gene_Hivemind_Metabolism : Gene_Hivemind_Drone
 	{
-
-		private static int savedMetCount = 0;
-		public int LastMetCount
-		{
-			get
-			{
-				if (MiscUtility.GameNotStarted())
-				{
-					return savedMetCount;
-				}
-				savedMetCount = Hivemind.Count;
-				return savedMetCount;
-			}
-		}
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Active && MiscUtility.GameStarted())
-			{
-				UpdMet();
-			}
+			ResetCache();
 		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			ResetCache();
+		}
+
+		public override void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			base.Notify_OverriddenBy(overriddenBy);
+			ResetCache();
+		}
+
+		public override void Notify_Override()
+		{
+			base.Notify_Override();
+			ResetCache();
+		}
+
+		private static bool updated = false;
 
 		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(59889, delta))
+			if (updated)
 			{
 				return;
 			}
-			if (HivemindUtility.InHivemind(pawn))
+			int? count = Hivemind?.Count;
+			if (count.HasValue)
 			{
-				UpdMet();
+				def.biostatMet = count.Value;
 			}
+			updated = true;
 		}
 
-		private void UpdMet()
+		private void ResetCache()
 		{
-			def.biostatMet = LastMetCount;
+			updated = false;
 			def.cachedDescription = null;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref savedMetCount, "savedMetCount", 0);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				def.biostatMet = savedMetCount;
-				def.cachedDescription = null;
+				ResetCache();
 			}
 		}
 
@@ -64,77 +68,57 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SharedMetabolism : XaG_Gene, IGeneOverriddenBy
 	{
 
-		private static int? savedMetCount;
-		public int LastMetCount
-		{
-			get
-			{
-				if (MiscUtility.GameNotStarted())
-				{
-					return 0;
-				}
-				if (savedMetCount == null)
-				{
-					savedMetCount = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive?.Where((target) => target.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() != null)?.ToList()?.Count;
-					if (savedMetCount == null)
-					{
-						savedMetCount = 0;
-					}
-				}
-				return savedMetCount.Value;
-			}
-		}
-
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Active && MiscUtility.GameStarted())
-			{
-				UpdMet();
-			}
+			ResetCache();
 		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			ResetCache();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			ResetCache();
+		}
+
+		public void Notify_Override()
+		{
+			ResetCache();
+		}
+
+		private static bool updated = false;
 
 		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(59879, delta))
+			if (updated)
 			{
 				return;
 			}
-			UpdMet();
+			int? count = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive?.Where((target) => target.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() != null)?.ToList()?.Count;
+			if (count.HasValue)
+			{
+				def.biostatMet = count.Value;
+			}
+			updated = true;
 		}
 
-		private void UpdMet()
+		private void ResetCache()
 		{
-			savedMetCount = null;
-			def.biostatMet = LastMetCount;
+			updated = false;
 			def.cachedDescription = null;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref savedMetCount, "savedMetCount");
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && savedMetCount.HasValue)
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				def.biostatMet = savedMetCount.Value;
-				def.cachedDescription = null;
+				ResetCache();
 			}
-		}
-
-		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			UpdMet();
-		}
-
-		public void Notify_Override()
-		{
-			UpdMet();
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			UpdMet();
 		}
 
 	}

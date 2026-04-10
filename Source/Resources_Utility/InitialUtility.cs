@@ -71,32 +71,32 @@ namespace WVC_XenotypesAndGenes
 					//	geneDef.exclusionTags = new();
 					//}
 				}
-				if (geneExtension_Giver != null)
-				{
-					GeneExtension_Giver(geneDef, geneExtension_Giver);
-				}
+				//if (geneExtension_Giver != null)
+				//{
+				//	GeneExtension_Giver(geneDef, geneExtension_Giver);
+				//}
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
 			MutantsPatch(xenogenesGenes);
 		}
 
-		public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
-		{
-			if (geneExtension_Giver.metHediffDef != null && geneDef.IsGeneDefOfType<IGeneMetabolism>())
-			{
-				if (geneDef.customEffectDescriptions == null)
-				{
-					geneDef.customEffectDescriptions = new();
-				}
-				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
-			}
-			//int scarsCount = geneExtension_Giver.scarsCount;
-			//if (scarsCount != 0)
-			//{
-			//    geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
-			//}
-		}
+		//public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
+		//{
+		//	if (geneExtension_Giver.metHediffDef != null && geneDef.IsGeneDefOfType<IGeneMetabolism>())
+		//	{
+		//		if (geneDef.customEffectDescriptions == null)
+		//		{
+		//			geneDef.customEffectDescriptions = new();
+		//		}
+		//		geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
+		//	}
+		//	//int scarsCount = geneExtension_Giver.scarsCount;
+		//	//if (scarsCount != 0)
+		//	//{
+		//	//    geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScars".Translate().Resolve() + ": " + (scarsCount > 0 ? "+" : "") + scarsCount);
+		//	//}
+		//}
 
 		public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
@@ -226,6 +226,10 @@ namespace WVC_XenotypesAndGenes
 			if (geneDef.customEffectDescriptions == null)
 			{
 				geneDef.customEffectDescriptions = new();
+			}
+			if (geneDef.IsGeneDefOfType<IGeneMetabolism>())
+			{
+				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
 			}
 			if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
 			{

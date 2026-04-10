@@ -90,6 +90,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
+    <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
