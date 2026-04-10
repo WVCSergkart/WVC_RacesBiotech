@@ -93,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Genepacks
 
+		[Obsolete]
 		public static void GenerateGenepackName(GeneSet geneSet, RulePackDef rule)
 		{
 			if (rule == null)
@@ -112,6 +113,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void SetGenesInPack(GeneralHolder geneCount, GeneSet geneSet)
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
@@ -131,6 +133,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet, GeneralHolder geneCount)
 		{
 			if (!gene.IsXenoGenesDef())
@@ -176,6 +179,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		[Obsolete]
 		public static bool IsCosmeticGene(GeneDef gene)
 		{
 			if (gene.skinColorBase != null || gene.skinColorOverride != null || gene.hairColorOverride != null)
@@ -298,6 +302,27 @@ namespace WVC_XenotypesAndGenes
 			//	Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			//}
 			ImplantChimeraEvolveGeneSet(pawn, geneDef?.GetModExtension<GeneExtension_Undead>()?.xenotypeDef, saveOldGeneSet);
+		}
+
+		public static void AddGene(this Pawn pawn, GeneDef geneDef, bool xenogene, Gene caller = null)
+		{
+			if (caller != null && caller.def.ConflictsWith(geneDef))
+			{
+				return;
+			}
+			if (!xenogene && !XaG_GeneUtility.HasGene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn))
+			{
+				pawn.genes.AddGene(geneDef, xenogene);
+			}
+		}
+
+		public static void RemoveGene(this Pawn pawn, Gene gene, Gene caller = null)
+		{
+			if (gene == caller)
+			{
+				return;
+			}
+			pawn.genes.RemoveGene(gene);
 		}
 
 		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, XenotypeDef xenotypeDef, bool saveOldGeneSet = true)
@@ -535,21 +560,53 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool TryRemoveAllConflicts(Pawn pawn, GeneDef geneDef, bool xenogene, List<GeneDef> exceptions = null)
+		{
+			try
+			{
+				if (xenogene)
+				{
+					foreach (Gene item in pawn.genes.Xenogenes.ToList())
+					{
+						RemoveConflictingGene(pawn, geneDef, exceptions, item);
+					}
+				}
+				else
+				{
+					foreach (Gene item in pawn.genes.Endogenes.ToList())
+					{
+						RemoveConflictingGene(pawn, geneDef, exceptions, item);
+					}
+				}
+				return true;
+			}
+			catch
+			{
+				Log.Error("Failed remove conflict genes from pawn: " + pawn.LabelShort);
+			}
+			return false;
+		}
+
+		private static void RemoveConflictingGene(Pawn pawn, GeneDef geneDef, List<GeneDef> exceptions, Gene item)
+		{
+			if (!item.def.ConflictsWith(geneDef))
+			{
+				return;
+			}
+			if (exceptions != null && exceptions.Contains(item.def))
+			{
+				return;
+			}
+			pawn.genes.RemoveGene(item);
+		}
+
 		public static bool TryRemoveAllConflicts(Pawn pawn, GeneDef geneDef, List<GeneDef> exceptions = null)
 		{
 			try
 			{
 				foreach (Gene item in pawn.genes.GenesListForReading.ToList())
 				{
-					if (!item.def.ConflictsWith(geneDef))
-					{
-						continue;
-					}
-					if (exceptions != null && exceptions.Contains(item.def))
-					{
-						continue;
-					}
-					pawn.genes.RemoveGene(item);
+					RemoveConflictingGene(pawn, geneDef, exceptions, item);
 				}
 				return true;
 			}

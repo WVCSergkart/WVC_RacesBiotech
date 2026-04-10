@@ -16,6 +16,23 @@ namespace WVC_XenotypesAndGenes
 		[NoTranslate]
 		public string texPathFemale;
 
+		//public bool isGeneralOption = false;
+		//public bool useIcon;
+
+		public List<GeneDef> geneDefs;
+
+		public override Texture2D Icon
+		{
+			get
+			{
+				if (geneDefs != null)
+				{
+					return ContentFinder<Texture2D>.Get(iconPath);
+				}
+				return base.Icon;
+			}
+		}
+
 		public string TexPathByGender(Gender gender)
 		{
 			if (!texPathFemale.NullOrEmpty() && gender == Gender.Female)

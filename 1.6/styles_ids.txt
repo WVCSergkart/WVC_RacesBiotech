@@ -3,3 +3,4 @@
 5010 - Holoeyes
 1000001 - Gene_FungoidHair
 1000011 - Gene_CenterFrill
+2350 - Gene_Skinshaper

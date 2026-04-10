@@ -33,7 +33,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static bool updated = false;
-
 		public override void TickInterval(int delta)
 		{
 			if (updated)
@@ -44,14 +43,15 @@ namespace WVC_XenotypesAndGenes
 			if (count.HasValue)
 			{
 				def.biostatMet = count.Value;
+				def.cachedDescription = null;
+				GeneResourceUtility.UpdMetabolism(pawn);
 			}
 			updated = true;
 		}
 
-		private void ResetCache()
+		public static void ResetCache()
 		{
 			updated = false;
-			def.cachedDescription = null;
 		}
 
 		public override void ExposeData()
@@ -102,6 +102,8 @@ namespace WVC_XenotypesAndGenes
 			if (count.HasValue)
 			{
 				def.biostatMet = count.Value;
+				def.cachedDescription = null;
+				GeneResourceUtility.UpdMetabolism(pawn);
 			}
 			updated = true;
 		}
@@ -109,7 +111,6 @@ namespace WVC_XenotypesAndGenes
 		private void ResetCache()
 		{
 			updated = false;
-			def.cachedDescription = null;
 		}
 
 		public override void ExposeData()

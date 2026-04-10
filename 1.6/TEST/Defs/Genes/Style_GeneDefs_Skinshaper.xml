@@ -12,137 +12,225 @@
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>2</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Allows to use the style menu at any time.</li>
+		<li>Allows to switch sets of pre-prepared genes.</li>
+		<li>Each set is a set of a furskin or head and skin/hair color.</li>
 	</customEffectDescriptions>
-	<biostatCpx>2</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<geneSetPresets>
-			  <li>
-				<name>undead</name>
-				<geneDefs>
-					<li>Hair_SnowWhite</li>
-					<li>WVC_SkinColor_Undead</li>
-					<li>WVC_PatchSkin</li>
-					<li>WVC_HalfBone</li>
-				</geneDefs>
-			  </li>
-			  <li MayRequire="ludeon.rimworld.anomaly">
-				<name>fleshmass demon</name>
-				<geneDefs>
-					<li>WVC_LongTentacleTail</li>
-					<li>WVC_HeadBoneCurveHorns</li>
-					<li>WVC_HairColor_Slate</li>
-					<li>WVC_SkinColor_MilkWhite</li>
-					<li>WVC_FleshmassSkin</li>
-				</geneDefs>
-			  </li>
-			  <li MayRequire="ludeon.rimworld.anomaly">
-				<name>toughspike</name>
-				<geneDefs>
-					<li>WVC_FleshmassSkin</li>
-					<li>WVC_TentacleTail</li>
-					<li>WVC_Toughspike</li>
-					<li>WVC_SkinColor_FleshRed</li>
-					<li>Hair_SnowWhite</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>boneman</name>
-				<geneDefs>
-					<li>WVC_Eyes_Boneskin</li>
-					<li>WVC_BoneSkin</li>
-					<li>WVC_SkinColor_OldBones</li>
-					<li>WVC_Wings_BoneWings</li>
-					<li>WVC_BoneTailA</li>
-					<li>WVC_HeadBoneCurveHorns</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>angel</name>
-				<geneDefs>
-					<li>WVC_FeatherSkin</li>
-					<li>Skin_SheerWhite</li>
-					<li>WVC_Wings_FeatheredWings</li>
-					<li>Hair_SnowWhite</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>granite golem</name>
-				<geneDefs>
-					<li>WVC_StoneSkin</li>
-					<li>WVC_SkinColor_Granite</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>limestone golem</name>
-				<geneDefs>
-					<li>WVC_StoneSkin</li>
-					<li>WVC_SkinColor_Limestone</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>marble golem</name>
-				<geneDefs>
-					<li>WVC_StoneSkin</li>
-					<li>WVC_SkinColor_Marble</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>sandstone golem</name>
-				<geneDefs>
-					<li>WVC_StoneSkin</li>
-					<li>WVC_SkinColor_Sandstone</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>slate golem</name>
-				<geneDefs>
-					<li>WVC_StoneSkin</li>
-					<li>WVC_SkinColor_Slate</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>dryad mommy</name>
-				<geneDefs>
-					<li>WVC_Ears_DoublePointedA</li>
-					<li>WVC_SkinnyTailA</li>
-					<li>WVC_RuneSkin</li>
-					<li>Hair_DarkBlack</li>
-					<li>WVC_SkinColor_ffdcb4_HEX</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>faceless</name>
-				<geneDefs>
-					<li>WVC_HairColor_Slate</li>
-					<li>WVC_SkinColor_Slate</li>
-					<li>WVC_NodeSkin</li>
-					<li>WVC_Eyes_Holoeyes</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>scavenge machine</name>
-				<geneDefs>
-					<li>WVC_MechaSkin</li>
-					<li>WVC_HairColor_Slate</li>
-					<li>WVC_SkinColor_Metal</li>
-				</geneDefs>
-			  </li>
-			  <li>
-				<name>catman</name>
-				<geneDefs>
-					<li>WVC_CatEarsA</li>
-					<li>WVC_CatTailA</li>
-					<li>WVC_SemifurSkin</li>
-					<li>WVC_SkinColor_Slate</li>
-				</geneDefs>
-			  </li>
-			</geneSetPresets>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <geneSetPresets> -->
+			  <!-- <li> -->
+				<!-- <name>undead</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>Hair_SnowWhite</li> -->
+					<!-- <li>WVC_SkinColor_Undead</li> -->
+					<!-- <li>WVC_PatchSkin</li> -->
+					<!-- <li>WVC_HalfBone</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li MayRequire="ludeon.rimworld.anomaly"> -->
+				<!-- <name>fleshmass demon</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_LongTentacleTail</li> -->
+					<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+					<!-- <li>WVC_HairColor_Slate</li> -->
+					<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+					<!-- <li>WVC_FleshmassSkin</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li MayRequire="ludeon.rimworld.anomaly"> -->
+				<!-- <name>toughspike</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_FleshmassSkin</li> -->
+					<!-- <li>WVC_TentacleTail</li> -->
+					<!-- <li>WVC_Toughspike</li> -->
+					<!-- <li>WVC_SkinColor_FleshRed</li> -->
+					<!-- <li>Hair_SnowWhite</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>boneman</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_Eyes_Boneskin</li> -->
+					<!-- <li>WVC_BoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_OldBones</li> -->
+					<!-- <li>WVC_Wings_BoneWings</li> -->
+					<!-- <li>WVC_BoneTailA</li> -->
+					<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>angel</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_FeatherSkin</li> -->
+					<!-- <li>Skin_SheerWhite</li> -->
+					<!-- <li>WVC_Wings_FeatheredWings</li> -->
+					<!-- <li>Hair_SnowWhite</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>granite golem</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_StoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_Granite</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>limestone golem</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_StoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_Limestone</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>marble golem</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_StoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_Marble</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>sandstone golem</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_StoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_Sandstone</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>slate golem</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_StoneSkin</li> -->
+					<!-- <li>WVC_SkinColor_Slate</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>dryad mommy</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_Ears_DoublePointedA</li> -->
+					<!-- <li>WVC_SkinnyTailA</li> -->
+					<!-- <li>WVC_RuneSkin</li> -->
+					<!-- <li>Hair_DarkBlack</li> -->
+					<!-- <li>WVC_SkinColor_ffdcb4_HEX</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>faceless</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_HairColor_Slate</li> -->
+					<!-- <li>WVC_SkinColor_Slate</li> -->
+					<!-- <li>WVC_NodeSkin</li> -->
+					<!-- <li>WVC_Eyes_Holoeyes</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>scavenge machine</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_MechaSkin</li> -->
+					<!-- <li>WVC_HairColor_Slate</li> -->
+					<!-- <li>WVC_SkinColor_Metal</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <name>catman</name> -->
+				<!-- <geneDefs> -->
+					<!-- <li>WVC_CatEarsA</li> -->
+					<!-- <li>WVC_CatTailA</li> -->
+					<!-- <li>WVC_SemifurSkin</li> -->
+					<!-- <li>WVC_SkinColor_Slate</li> -->
+				<!-- </geneDefs> -->
+			  <!-- </li> -->
+			<!-- </geneSetPresets> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Skinshaper" Abstract="True" >
+	<uniqueStyleId>2350</uniqueStyleId>
+	<noGraphic>true</noGraphic>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Abomination</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_HeadTentacles0c</li>
+		<li>WVC_BodyTentacles</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_FleshPink</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Mechaskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_MechaSkin</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Cyberskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<geneDefs>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Metal</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Catman</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_CatEarsA</li>
+		<li>WVC_CatTailA</li>
+		<li>WVC_SemifurSkin</li>
+		<li>WVC_SkinColor_Slate</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Faceless</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_Eyes_Holoeyes</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Golem</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_SkinColor_Granite</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Angel</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_FeatherSkin</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<li>Hair_SnowWhite</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Skinshaper">
+	<defName>WVC_SkinShaper_Toughspike</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<geneDefs>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_TentacleTail</li>
+		<li>WVC_Toughspike</li>
+		<li>WVC_SkinColor_FleshRed</li>
+		<li>Hair_SnowWhite</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
 
 </Defs>

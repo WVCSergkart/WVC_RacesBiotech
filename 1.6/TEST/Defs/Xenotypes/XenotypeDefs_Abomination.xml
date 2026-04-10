@@ -22,11 +22,10 @@
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_SharedMetabolism</li>
 		<li>WVC_Rejuvenator</li>
-		<li>Immunity_SuperStrong</li>
+		<li>Immunity_Weak</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_PsychicHarem</li>
 		<li>MoveSpeed_Slow</li>
-		<li>Aggression_Aggressive</li>
 		<li>WVC_Pain_Passive</li>
 		<li>WVC_FemaleOnly</li>
 		<li>WVC_IncestLover</li>
@@ -37,9 +36,18 @@
 		<li>WVC_FleshmassSkin</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_SkinColor_FleshRed</li>
 		<li>WVC_SkinColor_FleshPink</li>
+		<!-- <li>WVC_SkinColor_FleshRed</li> -->
+		<li>Inbred</li>
+		<li>Instability_Major</li>
+		<!-- test -->
+		<!-- <li>WVC_Skinshaper</li> -->
 	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(161, 161, 255)</defaultColor>
+		</li>
+	</modExtensions>
   </XenotypeDef>
 
 </Defs>

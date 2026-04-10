@@ -165,6 +165,7 @@ namespace WVC_XenotypesAndGenes
 			HediffWithComps_Hivemind_Learning.Recache();
 			Gene_Hivemind_Resyncer.UpdResync();
 			Gene_MorpherXenotypeTargeter_Hivemind.cachedXenotypeDefs = null;
+			Gene_Hivemind_Metabolism.ResetCache();
 			//Gene_Hivemind_Thoughts.cachedHivemindMood = null;
 		}
 
