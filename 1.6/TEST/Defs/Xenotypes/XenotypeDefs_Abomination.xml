@@ -4,7 +4,7 @@
   <!-- Dev Name: Abomination -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
 	<defName>WVC_Abomination</defName>
-	<!-- abominated, abomination, abominatkin, ??? -->
+	<!-- abominated, abomination, abominatkin, sickerkin -->
 	<label>abomination</label>
 	<description>Abominations are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
 	<descriptionShort>Abominations are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
@@ -15,22 +15,22 @@
 	<genes>
 		<li>WVC_Obsession</li>
 		<li>DiseaseFree</li>
-		<li>WVC_FleshmassRegeneration</li>
+		<li>WVC_FleshmassHeart</li>
 		<li>WVC_FleshmassReproduction</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
+		<li>WVC_Chimera_Devourer</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_SharedMetabolism</li>
-		<li>WVC_Rejuvenator</li>
+		<li>WVC_Rejuvenator</li>	<!-- Replace??? -->
 		<li>Immunity_Weak</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_PsychicHarem</li>
-		<li>MoveSpeed_Slow</li>
 		<li>WVC_Pain_Passive</li>
 		<li>WVC_FemaleOnly</li>
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
-		<li>Beauty_VeryUgly</li>
+		<li>Beauty_VeryUgly</li>	<!-- Replace??? -->
 		<li>WVC_HeadTentacles0c</li>
 		<li>WVC_BodyTentacles</li>
 		<li>WVC_FleshmassSkin</li>
@@ -39,9 +39,6 @@
 		<li>WVC_SkinColor_FleshPink</li>
 		<li>WVC_SkinColor_FleshRed</li>
 		<li>Inbred</li>
-		<li>Instability_Major</li>
-		<li>WVC_FleshmassHeart</li>
-		<li>WVC_Chimera_Devourer</li>
 		<!-- test -->
 		<!-- <li>WVC_Skinshaper</li> -->
 	</genes>

@@ -27,6 +27,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ChangeGender();
+			ResetCollection();
+		}
+
+		private static void ResetCollection()
+		{
+			GestationUtility.ResetCollection_Bisexual();
+			GestationUtility.HarmonyPatch_Bisexual();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			ResetCollection();
 		}
 
 		public virtual void ChangeGender()
@@ -90,12 +103,22 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-
+			ResetCollection();
 		}
 
 		public void Notify_Override()
 		{
+			ResetCollection();
 			ChangeGender();
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				ResetCollection();
+			}
 		}
 
 	}
@@ -143,12 +166,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
-
-		// public override void ExposeData()
-		// {
-		// base.ExposeData();
-		// ChangeBodyType();
-		// }
 
 	}
 

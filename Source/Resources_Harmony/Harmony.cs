@@ -1170,10 +1170,21 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 
-			// TEST
+			// ============TEST============TEST============TEST============TEST============
+			// ============TEST============TEST============TEST============TEST============
+			// ============TEST============TEST============TEST============TEST============
+
 			public static void DeathlessHook(ref bool __result, GeneDef geneDef, Pawn_GeneTracker __instance)
 			{
 				if (!__result && geneDef == GeneDefOf.Deathless && DeathlessUtility.DeathlessPawns.Contains(__instance.pawn))
+				{
+					__result = true;
+				}
+			}
+
+			public static void BisexualHook(ref bool __result, ref Pawn ___pawn, TraitDef tDef)
+			{
+				if (!__result && tDef == TraitDefOf.Bisexual && GestationUtility.BisexualPawns.Contains(___pawn))
 				{
 					__result = true;
 				}
