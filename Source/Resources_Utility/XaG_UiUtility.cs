@@ -114,6 +114,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static Gizmo ITab_InspectBabyGenes()
+		{
+			return new Command_Action
+			{
+				defaultLabel = "InspectBabyGenes".Translate() + "...",
+				defaultDesc = "InspectGenesHediffDesc".Translate(),
+				icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+				action = delegate
+				{
+					InspectPaneUtility.OpenTab(typeof(ITab_GenesCustomPregnancy));
+				}
+			};
+		}
+
 		public static void GizmoButton(Rect rect3, ref bool collapse)
 		{
 			Text.Anchor = TextAnchor.UpperRight;

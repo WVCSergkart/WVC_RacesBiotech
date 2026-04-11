@@ -11,7 +11,7 @@ using static HarmonyLib.Code;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Hediff_BudPregnancy : Hediff
+	public class Hediff_BudPregnancy : Hediff, IHediffCustomPregnancy
 	{
 
 		//public override string Label => base.Label + " " + SeverityLabel;
@@ -48,9 +48,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public GeneSet GeneSet => geneSet;
+
 		private Pawn mother;
 		private Pawn father;
-		public GeneSet geneSet;
+		private GeneSet geneSet;
 		private XenotypeHolder_Exposable xenotypeHolder;
 
 		public void SetupBud(Hediff hediff)
@@ -123,16 +125,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!pawn.Drafted)
 			{
-				yield return new Command_Action
-				{
-					defaultLabel = "InspectBabyGenes".Translate() + "...",
-					defaultDesc = "InspectGenesHediffDesc".Translate(),
-					icon = GeneSetHolderBase.GeneticInfoTex.Texture,
-					action = delegate
-					{
-						InspectPaneUtility.OpenTab(typeof(ITab_GenesCustomPregnancy));
-					}
-				};
+				yield return XaG_UiUtility.ITab_InspectBabyGenes();
 			}
 		}
 

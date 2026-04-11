@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffComp_XenotypeGestator : HediffComp
+	public class HediffComp_XenotypeGestator : HediffComp, IHediffCustomPregnancy
 	{
 
 		private readonly int ticksInday = 60000;
@@ -70,6 +70,21 @@ namespace WVC_XenotypesAndGenes
 		//		return cachedGestatorGene;
 		//	}
 		//}
+
+		private GeneSet cachedGeneSet;
+		public GeneSet GeneSet
+		{
+			get
+			{
+				if (cachedGeneSet == null)
+				{
+					cachedGeneSet = new();
+					HediffUtility.AddGeneDefs(cachedGeneSet, xenotypeHolder.xenotypeDef != null && xenotypeHolder.xenotypeDef != XenotypeDefOf.Baseliner ? xenotypeHolder.xenotypeDef.genes : xenotypeHolder.genes);
+					cachedGeneSet.SortGenes();
+				}
+				return cachedGeneSet;
+			}
+		}
 
 		public override string CompLabelInBracketsExtra => GetLabel();
 
@@ -157,11 +172,15 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			if (!Pawn.Drafted)
+			{
+				yield return XaG_UiUtility.ITab_InspectBabyGenes();
+			}
 		}
 
 	}
 
-	public class HediffComp_Gestator : HediffComp
+	public class HediffComp_Gestator : HediffComp, IHediffCustomPregnancy
 	{
 		private readonly int ticksInday = 60000;
 
@@ -177,6 +196,22 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.CompExposeData();
 			Scribe_Values.Look(ref ticksCounter, "ticksCounter", 0);
+		}
+
+		private GeneSet cachedGeneSet;
+		public GeneSet GeneSet
+		{
+			get
+			{
+				if (cachedGeneSet == null)
+				{
+					cachedGeneSet = new();
+					HediffUtility.AddGeneDefs(cachedGeneSet, Pawn.genes.GenesListForReading.ConvertToDefs());
+					//Log.Error(cachedGeneSet.GenesListForReading.Count.ToString());
+					cachedGeneSet.SortGenes();
+				}
+				return cachedGeneSet;
+			}
 		}
 
 		public override void CompPostTickInterval(ref float severityAdjustment, int delta)
@@ -230,8 +265,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			if (!Pawn.Drafted)
+			{
+				yield return XaG_UiUtility.ITab_InspectBabyGenes();
+			}
 		}
-
 	}
 
 }

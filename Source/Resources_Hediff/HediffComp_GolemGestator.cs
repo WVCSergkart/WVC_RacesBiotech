@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class HediffComp_GolemGestator : HediffComp
+	public class HediffComp_GolemGestator : HediffComp, IHediffCustomPregnancy
 	{
 		private readonly int ticksInday = 60000;
 
@@ -36,6 +36,23 @@ namespace WVC_XenotypesAndGenes
 		protected int GestationIntervalDays => Props.gestationIntervalDays;
 
 		public override string CompLabelInBracketsExtra => GetLabel();
+
+		private GeneSet cachedGeneSet;
+		public GeneSet GeneSet
+		{
+			get
+			{
+				if (cachedGeneSet == null)
+				{
+					cachedGeneSet = new();
+					//HediffUtility.AddParentGenes(childOwner, cachedGeneSet);
+					//Log.Error("0");
+					HediffUtility.AddGeneDefs(cachedGeneSet, childOwner.genes.GenesListForReading.ConvertToDefs());
+					cachedGeneSet.SortGenes();
+				}
+				return cachedGeneSet;
+			}
+		}
 
 		public override void CompExposeData()
 		{
@@ -106,6 +123,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			//if (!Pawn.Drafted)
+			//{
+			//}
+			yield return XaG_UiUtility.ITab_InspectBabyGenes();
 		}
 
 		public string GetLabel()

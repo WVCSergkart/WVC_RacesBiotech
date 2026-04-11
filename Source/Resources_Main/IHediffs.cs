@@ -1,11 +1,13 @@
-﻿namespace WVC_XenotypesAndGenes
+﻿using RimWorld;
+
+namespace WVC_XenotypesAndGenes
 {
 
-	//public interface IHediffGene
-	//{
+	public interface IHediffCustomPregnancy
+	{
 
-	//	void Update();
+		GeneSet GeneSet { get; }
 
-	//}
+	}
 
 }

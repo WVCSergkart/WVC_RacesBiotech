@@ -155,6 +155,11 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			List<GeneDef> genes = XaG_GeneUtility.ConvertToDefs(parent.genes.Endogenes);
+			AddGeneDefs(geneSet, genes);
+		}
+
+		public static void AddGeneDefs(GeneSet geneSet, List<GeneDef> genes)
+		{
 			foreach (GeneDef gene in genes)
 			{
 				if (geneSet.GenesListForReading.Contains(gene))

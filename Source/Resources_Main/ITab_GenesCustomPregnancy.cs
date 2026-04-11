@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 	//}
 	public class ITab_GenesCustomPregnancy : RimWorld.ITab_GenesPregnancy
 	{
-		public override bool IsVisible => true;
+		//public override bool IsVisible => true;
 
 		protected override bool StillValid
 		{
@@ -83,36 +83,44 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		protected override Pawn SelPawn
+		{
+			get
+			{
+				//if (base.SelThing is Pawn pawn)
+				//{
+				//	return pawn;
+				//}
+				return base.SelPawnForGenes ?? base.SelPawn;
+			}
+		}
+
 		private GeneSet UnbornBabyHediffGeneset()
 		{
-			//Log.Error("0");
-			Pawn selPawnForGenes = base.SelPawnForGenes;
+			Pawn selPawnForGenes = SelPawn;
 			if (selPawnForGenes != null)
 			{
-				//Log.Error("1");
 				foreach (Hediff hediff in selPawnForGenes.health.hediffSet.hediffs)
 				{
-					//Log.Error("2");
-					if (hediff is Hediff_BudPregnancy hediffWithParents)
+					if (hediff is IHediffCustomPregnancy hediffWithParents)
 					{
-						//Log.Error("3");
-						return hediffWithParents.geneSet;
+						return hediffWithParents.GeneSet;
+					}
+					if (hediff is HediffWithComps hediffWithComps)
+					{
+						foreach (HediffComp hediffComp in hediffWithComps.comps)
+						{
+							if (hediffComp is IHediffCustomPregnancy hediffCompCustomPregnancy)
+							{
+								return hediffCompCustomPregnancy.GeneSet;
+							}
+						}
 					}
 				}
 			}
-			//Log.Error("4");
 			CompHumanEgg compHumanEgg = base.SelThing.TryGetComp<CompHumanEgg>();
 			if (compHumanEgg != null)
 			{
-				//Log.Error("5");
-				//if (compHumanEgg.geneSet == null)
-				//{
-				//	Log.Error("0");
-				//}
-				//else
-				//{
-				//	Log.Error("1");
-				//}
 				return compHumanEgg.geneSet;
 			}
 			return null;

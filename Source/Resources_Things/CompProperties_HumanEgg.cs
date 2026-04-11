@@ -273,16 +273,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			yield return new Command_Action
-			{
-				defaultLabel = "InspectBabyGenes".Translate() + "...",
-				defaultDesc = "InspectGenesHediffDesc".Translate(),
-				icon = GeneSetHolderBase.GeneticInfoTex.Texture,
-				action = delegate
-				{
-					InspectPaneUtility.OpenTab(typeof(ITab_GenesCustomPregnancy));
-				}
-			};
+			yield return XaG_UiUtility.ITab_InspectBabyGenes();
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
