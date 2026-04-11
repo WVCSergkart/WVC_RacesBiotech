@@ -281,7 +281,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				fingerspike = PawnKindDefOf.Toughspike;
 			}
-			GenDrop.TryDropSpawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(fingerspike, Faction.OfEntities)), positionHeld, mapHeld, ThingPlaceMode.Near, out _);
+			if (GenDrop.TryDropSpawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(fingerspike, Faction.OfEntities)), positionHeld, mapHeld, ThingPlaceMode.Near, out _))
+			{
+				FleshbeastUtility.MeatSplatter(3, positionHeld, mapHeld, FleshbeastUtility.MeatExplosionSize.Large);
+			}
 		}
 
 	}

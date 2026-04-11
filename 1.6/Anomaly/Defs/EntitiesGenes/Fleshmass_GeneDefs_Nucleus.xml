@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations" Name="WVC_XenotypesAndGenes_GeneFleshmassNucleus_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_FleshmassNucleus_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>5</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: for each mutation (mutation level * 2) hp/day</li>
+		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
+		<li>Mutations obtained in this way differ from the standard ones.</li>
+		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_FleshmassNucleus</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<statDef>WVC_FleshmassMutationsDelayFactor</statDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmassNucleus_Base">
 	<defName>WVC_FleshmassNucleus</defName>
 	<label>fleshmass nucleus</label>
 	<description>Carriers of this gene have archites that form inside the fleshmass nucleus. It causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass heart.</description>
@@ -13,23 +38,33 @@
 	<biostatArc>5</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Healing: for each mutation (mutation level * 2) hp/day</li>
 		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fleshmass heart&lt;/color&gt;.</li>
-		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
-		<li>Mutations obtained in this way differ from the standard ones.</li>
-		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<statDef>WVC_FleshmassMutationsDelayFactor</statDef>
-		</li>
 	</modExtensions>
   </GeneDef>
 
-  <!-- ================================ -->
-
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmassNucleus_Base">
+	<defName>WVC_FleshmassHeart</defName>
+	<label>fleshmass heart</label>
+	<description>Carriers of this gene have archites that form inside the fleshmass heart. It causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass entity.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassHeart</geneClass>
+	<minAgeActive>3</minAgeActive>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassHeart</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>1</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fingerspike&lt;/color&gt; or &lt;color=#b0bf80&gt;toughspike&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <WVC_FleshmassMutationsDelayFactor>3.0</WVC_FleshmassMutationsDelayFactor>
+	</statFactors>
+  </GeneDef>
 
 </Defs>

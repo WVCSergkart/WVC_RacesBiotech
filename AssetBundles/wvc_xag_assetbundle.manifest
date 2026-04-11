@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3125765810
+CRC: 3643585221
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 841e5fe2369d5827e0992d476d2d63dd
+    Hash: 6cb7f4a42f69d0b442bd6d0f856517b7
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 7234b08187ecc2a43e99b0429ac99c95
+    Hash: f828c1b7a40cd76834b12509a0b09fa2
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -449,6 +449,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_CollapseButton.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/TentaclesChestThin_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Bottom.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_FleshmassHeart.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/FoxEars_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/HumanEgg/EggSmall_b.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_SelfOverrider_Stomach.png

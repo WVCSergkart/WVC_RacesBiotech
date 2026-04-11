@@ -11,6 +11,9 @@
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<prerequisite></prerequisite>
 	<abilities>
 	  <li>WVC_Chimera_Devourer</li>
 	</abilities>

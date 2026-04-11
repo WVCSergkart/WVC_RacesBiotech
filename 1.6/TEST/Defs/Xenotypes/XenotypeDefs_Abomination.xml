@@ -37,9 +37,11 @@
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>WVC_SkinColor_FleshPink</li>
-		<!-- <li>WVC_SkinColor_FleshRed</li> -->
+		<li>WVC_SkinColor_FleshRed</li>
 		<li>Inbred</li>
 		<li>Instability_Major</li>
+		<li>WVC_FleshmassHeart</li>
+		<li>WVC_Chimera_Devourer</li>
 		<!-- test -->
 		<!-- <li>WVC_Skinshaper</li> -->
 	</genes>

@@ -5,29 +5,19 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class CompAbilityEffect_Devourer : CompAbilityEffect_ChimeraDependant
+	public class CompAbilityEffect_Devourer : CompAbilityEffect
 	{
+		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
 
 		//[Unsaved(false)]
-		//private Gene_FleshmassNucleus cachedFleshGene;
-
-		//public Gene_FleshmassNucleus FleshmassNucleusGene
-		//{
-		//    get
-		//    {
-		//        if (cachedFleshGene == null || !cachedFleshGene.Active)
-		//        {
-		//            cachedFleshGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>();
-		//        }
-		//        return cachedFleshGene;
-		//    }
-		//}
+		//private Gene_Chimera cachedChimeraGene;
+		public Gene_Chimera ChimeraGene => parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
 			Pawn victim = target.Pawn;
-			if (victim != null && ChimeraGene != null)
+			if (victim != null)
 			{
 				DevourTarget(victim);
 			}
@@ -38,10 +28,8 @@ namespace WVC_XenotypesAndGenes
 			string phase = "start";
 			try
 			{
-				if (!ChimeraGene.TryAddGenesFromList(victim.genes.GenesListForReading))
-				{
-					return;
-				}
+				phase = "try copy pawn genes";
+				ChimeraGene?.TryAddGenesFromList(victim.genes.GenesListForReading);
 				Pawn caster = parent.pawn;
 				phase = "change goodwill";
 				if (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger())
@@ -54,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 					victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
 				}
 				phase = "try copy chimera genes";
-				ChimeraGene.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
+				ChimeraGene?.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
 				phase = "reset xenotype";
 				float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
 				ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
@@ -66,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 					casterFood.CurLevel += victimFood.CurLevel;
 					for (int i = 0; i < victimFood.CurLevel; i++)
 					{
-						ChimeraGene.GetRandomGene();
+						ChimeraGene?.GetRandomGene();
 					}
 				}
 				phase = "copy skills";
@@ -139,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (ChimeraGene == null || !pawn.IsHuman())
+			if (!pawn.IsHuman())
 			{
 				if (throwMessages)
 				{
