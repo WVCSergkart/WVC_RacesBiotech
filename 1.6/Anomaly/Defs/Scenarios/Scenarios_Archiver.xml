@@ -35,11 +35,11 @@
 			  <requiredAtStart>true</requiredAtStart>
 			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
 			</li>
-			<!-- <li> -->
+			<li>
 			  <!-- <xenotype>Baseliner</xenotype> -->
-			  <!-- <count>2</count> -->
-			  <!-- <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages> -->
-			<!-- </li> -->
+			  <count>2</count>
+			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+			</li>
 		  </xenotypeCounts>
 		</li>
 
