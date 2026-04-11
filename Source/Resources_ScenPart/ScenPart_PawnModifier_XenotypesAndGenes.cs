@@ -26,8 +26,8 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneralHolder> chimeraGenesPerBiomeDef;
 		//public GeneDef chimeraEvolveGeneDef;
 		//public bool saveOldChimeraGeneSet = false;
-		[Obsolete]
-		public int startingMutations = 0;
+		//[Obsolete]
+		//public int startingMutations = 0;
 		public int startingDuplicates = 0;
 		public IntRange additionalChronoAge = new(0, 0);
 		public Gender gender = Gender.None;

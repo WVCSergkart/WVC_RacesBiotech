@@ -93,6 +93,7 @@
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
+    <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />

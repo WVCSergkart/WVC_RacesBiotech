@@ -179,6 +179,7 @@ namespace WVC_XenotypesAndGenes
 		public List<string> trustedXenotypes;
 		[Obsolete]
 		public List<GeneralHolder> possibleTraits;
+		[Obsolete]
 		public StatDef shiftStatDef;
 		public int reqGeneMat = -1;
 		public GeneCategoryDef overrideGeneCategory;

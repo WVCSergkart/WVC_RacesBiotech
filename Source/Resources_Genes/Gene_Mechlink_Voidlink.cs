@@ -73,6 +73,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			ScenPart_PawnModifier_IceWorld.lastDeadVoidPawn = pawn;
 			if (mapHeld == null)
 			{
 				return;

@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 	public class ScenPart_PawnModifier_IceWorld : ScenPart_PawnModifier_Scarlands
 	{
 
+		public static Pawn lastDeadVoidPawn = null;
+
 		public override void PostGameStart()
 		{
 			base.PostGameStart();
@@ -30,6 +32,29 @@ namespace WVC_XenotypesAndGenes
 		protected override void ModifyPawnPostGenerate(Pawn pawn, bool redressed)
 		{
 
+		}
+
+		//protected override void ModifyNewPawn(Pawn p)
+		//{
+
+		//}
+
+		public override void PostIdeoChosen()
+		{
+			if (lastDeadVoidPawn == null)
+			{
+				return;
+			}
+			foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+			{
+				if (Rand.Chance(0.7f))
+				{
+					DuplicateUtility.CopyPawn(lastDeadVoidPawn, startingAndOptionalPawn);
+					startingAndOptionalPawn.Name = lastDeadVoidPawn.Name;
+					AgelessUtility.ChronoCorrection(startingAndOptionalPawn, lastDeadVoidPawn);
+					break;
+				}
+			}
 		}
 
 		private void SetGeneral()

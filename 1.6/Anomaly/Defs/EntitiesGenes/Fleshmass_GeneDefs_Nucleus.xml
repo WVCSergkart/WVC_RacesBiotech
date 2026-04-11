@@ -19,17 +19,12 @@
 		<li>Mutations obtained in this way differ from the standard ones.</li>
 		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
 	</customEffectDescriptions>
-	<!-- <statFactors> -->
-	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">4.0</VEF_BodySize_Multiplier> -->
-	  <!-- <VEF_CosmeticBodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.25</VEF_CosmeticBodySize_Multiplier> -->
-	<!-- </statFactors> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<!-- unused -->
-			<!-- <regeneration>100</regeneration> -->
-			<!-- <maxMutationLevel>5</maxMutationLevel> -->
-			<!-- unused -->
 			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<statDef>WVC_FleshmassMutationsDelayFactor</statDef>
 		</li>
 	</modExtensions>
   </GeneDef>

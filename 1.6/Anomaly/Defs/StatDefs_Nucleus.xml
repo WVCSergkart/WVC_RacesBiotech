@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef ParentName="WVC_XenotypesAndGenes_StatDefs_Base">
+	<defName>WVC_FleshmassMutationsDelayFactor</defName>
+	<label>mutations rate factor</label>
+	<description>A factor affecting the delay between mutations caused by the fleshmass gene. The higher the value, the greater the delay between mutations.</description>
+	<defaultBaseValue>1</defaultBaseValue>
+	<minValue>0</minValue>
+	<displayPriorityInCategory>155</displayPriorityInCategory>
+	<toStringStyle>PercentZero</toStringStyle>
+  </StatDef>
+
+</Defs>
