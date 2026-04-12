@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base">
+	<defName>WVC_Immunity_VeryWeak</defName>
+	<label>very weak immunity</label>
+	<labelShortAdj>susceptible</labelShortAdj>
+	<description>Carriers of this gene gain immunity to diseases dangerously slowly than normal. They are almost guaranteed to die from infections that others would survive.</description>
+	<iconPath>WVC/UI/Genes3/Gene_VeryWeakImmunity</iconPath>
+	<displayOrderInCategory>-0.05</displayOrderInCategory>
+	<statFactors>
+	  <ImmunityGainSpeed>0.7</ImmunityGainSpeed>
+	</statFactors>
+	<biostatMet>4</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li>
+		  <symbol>sick</symbol>
+		  <weight>3</weight>
+		</li>
+		<li><symbol>frail</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base"> -->
+	<!-- <defName>WVC_Immunity_ExtremeStrong</defName> -->
+	<!-- <label>extreme immunity</label> -->
+	<!-- <labelShortAdj>extreme-immune</labelShortAdj> -->
+	<!-- <description>Carriers of this gene gain immunity to diseases extreme faster than normal.</description> -->
+	<!-- <iconPath>WVC/UI/Genes3/Gene_ExtremeStrongImmunity</iconPath> -->
+	<!-- <displayOrderInCategory>21</displayOrderInCategory> -->
+	<!-- <marketValueFactor>1.5</marketValueFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ImmunityGainSpeed>2.25</ImmunityGainSpeed> -->
+	<!-- </statFactors> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>stout</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base"> -->
+	<!-- <defName>WVC_Immunity_UnrealStrong</defName> -->
+	<!-- <label>unreal immunity</label> -->
+	<!-- <labelShortAdj>unreal-immune</labelShortAdj> -->
+	<!-- <description>Carriers of this gene gain immunity to diseases unreal faster than normal.</description> -->
+	<!-- <iconPath>WVC/UI/Genes3/Gene_UnrealStrongImmunity</iconPath> -->
+	<!-- <displayOrderInCategory>22</displayOrderInCategory> -->
+	<!-- <marketValueFactor>2.0</marketValueFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ImmunityGainSpeed>3.5</ImmunityGainSpeed> -->
+	<!-- </statFactors> -->
+	<!-- <biostatMet>-4</biostatMet> -->
+	<!-- <biostatCpx>4</biostatCpx> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>stout</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base"> -->
+	<!-- <defName>WVC_Immunity_ImpossibleStrong</defName> -->
+	<!-- <label>impossible immunity</label> -->
+	<!-- <labelShortAdj>impossible-immune</labelShortAdj> -->
+	<!-- <description>Carriers of this gene gain immunity to diseases impossible faster than normal.</description> -->
+	<!-- <iconPath>WVC/UI/Genes3/Gene_UnrealStrongImmunity</iconPath> -->
+	<!-- <displayOrderInCategory>22</displayOrderInCategory> -->
+	<!-- <marketValueFactor>3.0</marketValueFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ImmunityGainSpeed>5.0</ImmunityGainSpeed> -->
+	<!-- </statFactors> -->
+	<!-- <biostatMet>-5</biostatMet> -->
+	<!-- <biostatCpx>5</biostatCpx> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>stout</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+</Defs>

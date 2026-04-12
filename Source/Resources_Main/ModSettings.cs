@@ -819,6 +819,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Log xenotypes"))
+				{
+					IEnumerable<XenotypeDef> enumerable = ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => xenos.IsXenoGenesDef());
+					Log.Error("All xenotypes " + enumerable.Count() + ":" + "\n" + enumerable.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
+				}
 				if (listingStandard.ButtonText("DEV: Log genes dump for wiki"))
 				{
 					string text = "Dump: ";

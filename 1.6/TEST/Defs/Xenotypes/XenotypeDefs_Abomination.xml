@@ -2,13 +2,14 @@
 <Defs>
 
   <!-- Dev Name: Abomination -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Abomination</defName>
-	<!-- abominated, abomination, abominatkin, sickerkin -->
-	<label>abomination</label>
-	<description>Abominations are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
-	<descriptionShort>Abominations are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Xeno_DuplicatorNociokin</iconPath>
+	<!-- abominated, abomination, abominatkin, sickerkin, leper, leperkin -->
+	<label>leper</label>
+	<!-- <label>abomination</label> -->
+	<description>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
+	<descriptionShort>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Leper0c</iconPath>
 	<displayPriority>-1105</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
@@ -23,14 +24,14 @@
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_SharedMetabolism</li>
 		<li>WVC_Rejuvenator</li>	<!-- Replace??? -->
-		<li>Immunity_Weak</li>
+		<li>WVC_Immunity_VeryWeak</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_PsychicHarem</li>
 		<li>WVC_Pain_Passive</li>
 		<li>WVC_FemaleOnly</li>
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
-		<li>Beauty_VeryUgly</li>	<!-- Replace??? -->
+		<li>WVC_Beauty_AbominationallyUgly</li>
 		<li>WVC_HeadTentacles0c</li>
 		<li>WVC_BodyTentacles</li>
 		<li>WVC_FleshmassSkin</li>

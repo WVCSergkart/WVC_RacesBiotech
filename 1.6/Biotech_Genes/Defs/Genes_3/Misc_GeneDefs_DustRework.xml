@@ -88,7 +88,7 @@
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>Adds an additional +40 opinion without taking into account beauty.</li>
+	  <li>Adds an additional &lt;color=#8a8ae6&gt;+40 opinion&lt;/color&gt; without taking into account beauty.</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>

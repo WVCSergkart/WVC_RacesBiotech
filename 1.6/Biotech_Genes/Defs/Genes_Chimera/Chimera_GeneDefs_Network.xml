@@ -25,7 +25,7 @@
 				<genes>
 				  <li>WVC_Chimera_Implanter</li>
 				  <li>WVC_Chimera_SelfCopy</li>
-				  <li MayRequire="wvc.sergkart.test.tools">WVC_Chimera_Converter</li>
+				  <!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Chimera_Converter</li> -->
 				  <li>WVC_Chimera_BandwidthLimit</li>
 				</genes>
 			  </li>

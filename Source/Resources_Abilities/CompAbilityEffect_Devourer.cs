@@ -28,8 +28,9 @@ namespace WVC_XenotypesAndGenes
 			string phase = "start";
 			try
 			{
+				Gene_Chimera gene_Chimera = ChimeraGene;
 				phase = "try copy pawn genes";
-				ChimeraGene?.TryAddGenesFromList(victim.genes.GenesListForReading);
+				gene_Chimera?.TryAddGenesFromList(victim.genes.GenesListForReading);
 				Pawn caster = parent.pawn;
 				phase = "change goodwill";
 				if (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger())
@@ -42,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 					victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
 				}
 				phase = "try copy chimera genes";
-				ChimeraGene?.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
+				gene_Chimera?.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
 				phase = "reset xenotype";
 				float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
 				ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
@@ -54,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 					casterFood.CurLevel += victimFood.CurLevel;
 					for (int i = 0; i < victimFood.CurLevel; i++)
 					{
-						ChimeraGene?.GetRandomGene();
+						gene_Chimera?.GetRandomGene();
 					}
 				}
 				phase = "copy skills";

@@ -129,8 +129,33 @@
 		<label>artificial beauty</label>
 		<baseOpinionOffset>40</baseOpinionOffset>
 	  </li>
+	  <li>
+		<label>abominationally ugly</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>strangely attractive</label>
+		<baseOpinionOffset>40</baseOpinionOffset>
+	  </li>
 	</stages>
   </ThoughtDef>
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_AbominationallyUgly</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_AbominationallyUgly</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>abominationally ugly</label> -->
+		<!-- <baseOpinionOffset>-40</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>strangely attractive</label> -->
+		<!-- <baseOpinionOffset>40</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
   <!-- ========================================================== -->
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_Beauty_AbominationallyUgly</defName>
+	<label>abominationally ugly</label>
+	<labelShortAdj>gross</labelShortAdj>
+	<description>Carriers of this gene have an asymmetrical facial structure, rough skin, and an awkward figure. Their deformity is almost impossible to correct. But they find it attractive in each other.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AbominationallyUgly</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_AbominationallyUgly</iconPath>
+	<displayOrderInCategory>-0.05</displayOrderInCategory>
+	<statOffsets>
+	  <PawnBeauty>-6</PawnBeauty>
+	</statOffsets>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+	  <li>Adds an additional &lt;color=#8a8ae6&gt;-40 opinion&lt;/color&gt; without taking into account beauty.</li>
+	  <li>Carriers &lt;color=#8a8ae6&gt;ignore the beauty&lt;/color&gt; stat and have &lt;color=#8a8ae6&gt;+40 opinion&lt;/color&gt; to each other.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>lep</symbol></li>
+		<li><symbol>abom</symbol></li>
+		<li><symbol>gris</symbol></li>
+		<li><symbol>hideo</symbol></li>
+		<li><symbol>grote</symbol></li>
+		<li><symbol>horri</symbol></li>
+		<li><symbol>freak</symbol></li>
+		<li><symbol>foul</symbol></li>
+		<li><symbol>gross</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

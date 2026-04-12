@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		//public bool genesRegrowAfterShapeshift = true;
 
 		private bool? cachedGenesRegrow;
-		public bool GenesRegrow
+		public bool EnableGenesRegrowing
 		{
 			get
 			{
@@ -223,7 +223,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//cachedGenesMatch_UI = null;
 			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, ShiftStatDef.LabelCap, MinGenesMatch_UI, ShiftStatDef.description, 160);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), GenesRegrow.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), EnableGenesRegrowing.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
 
 		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
@@ -272,7 +272,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryOffsetResource(float count)
 		{
-			if (!GenesRegrow && count > 0f)
+			if (!EnableGenesRegrowing && count > 0f)
 			{
 				return false;
 			}
@@ -301,6 +301,11 @@ namespace WVC_XenotypesAndGenes
 				return TryOffsetResource(count);
 			}
 			return false;
+		}
+
+		public static void OffsetResource(Pawn pawn, float resourceOffset)
+		{
+			pawn.genes?.GetFirstGeneOfType<Gene_Shapeshifter>()?.TryOffsetResource(resourceOffset);
 		}
 
 		public void TryForceGene(GeneDef geneDef, bool inheritable)
@@ -377,7 +382,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
 				//ReimplanterUtility.SetXenotype_Safe(pawn, xenotypeHolder, removeXenogenes);
 			}
-			if (GenesRegrow)
+			if (EnableGenesRegrowing)
 			{
 				if (!xenotypeHolder.isTrueShiftForm)
 				{

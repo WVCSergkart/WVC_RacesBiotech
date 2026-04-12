@@ -13,6 +13,7 @@
 		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
 		<li>Mutations obtained in this way differ from the standard ones.</li>
 		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
+		<!-- <li>Generates &lt;color=#8a8ae6&gt;genetic materials&lt;/color&gt; for a shapeshifter.</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_FleshmassNucleus</li>

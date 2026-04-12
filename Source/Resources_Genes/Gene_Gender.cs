@@ -27,19 +27,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ChangeGender();
-			ResetCollection();
+			//ResetCollection();
 		}
 
-		private static void ResetCollection()
-		{
-			GestationUtility.ResetCollection_Bisexual();
-			GestationUtility.HarmonyPatch_Bisexual();
-		}
+		//private static void ResetCollection()
+		//{
+		//	GestationUtility.ResetCollection_Bisexual();
+		//	GestationUtility.HarmonyPatch_Bisexual();
+		//}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			ResetCollection();
+			//ResetCollection();
 		}
 
 		public virtual void ChangeGender()
@@ -103,23 +103,23 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			ResetCollection();
+			//ResetCollection();
 		}
 
 		public void Notify_Override()
 		{
-			ResetCollection();
+			//ResetCollection();
 			ChangeGender();
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			{
-				ResetCollection();
-			}
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		//	{
+		//		ResetCollection();
+		//	}
+		//}
 
 	}
 

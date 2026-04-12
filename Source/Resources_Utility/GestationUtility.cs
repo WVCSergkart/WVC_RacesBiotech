@@ -282,62 +282,62 @@ namespace WVC_XenotypesAndGenes
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 
-		private static HashSet<Pawn> cachedBisexualPawns;
-		public static HashSet<Pawn> BisexualPawns
-		{
-			get
-			{
-				if (cachedBisexualPawns == null)
-				{
-					List<Pawn> list = new();
-					foreach (Pawn pawn in ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive)
-					{
-						if (pawn?.genes?.GenesListForReading?.Any(gene => gene is Gene_Gender && gene.Active) == true)
-						{
-							list.Add(pawn);
-						}
-					}
-					//Log.Error(list.Select((pawn) => pawn.Name.ToString()).ToLineList(" - "));
-					cachedBisexualPawns = [.. list];
-				}
-				return cachedBisexualPawns;
-			}
-		}
+		//private static HashSet<Pawn> cachedBisexualPawns;
+		//public static HashSet<Pawn> BisexualPawns
+		//{
+		//	get
+		//	{
+		//		if (cachedBisexualPawns == null)
+		//		{
+		//			List<Pawn> list = new();
+		//			foreach (Pawn pawn in ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive)
+		//			{
+		//				if (pawn?.genes?.GenesListForReading?.Any(gene => gene is Gene_Gender && gene.Active) == true)
+		//				{
+		//					list.Add(pawn);
+		//				}
+		//			}
+		//			//Log.Error(list.Select((pawn) => pawn.Name.ToString()).ToLineList(" - "));
+		//			cachedBisexualPawns = [.. list];
+		//		}
+		//		return cachedBisexualPawns;
+		//	}
+		//}
 
-		public static void ResetCollection_Bisexual()
-		{
-			cachedBisexualPawns = null;
-		}
+		//public static void ResetCollection_Bisexual()
+		//{
+		//	cachedBisexualPawns = null;
+		//}
 
-		private static bool hasTraitHook_Patched = false;
-		public static void HarmonyPatch_Bisexual()
-		{
-			if (hasTraitHook_Patched)
-			{
-				return;
-			}
-			try
-			{
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(TraitSet), "HasTrait", [typeof(TraitDef)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.BisexualHook))));
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(TraitSet), "HasTrait", [typeof(TraitDef), typeof(int)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.BisexualHook))));
-				foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
-				{
-					if (geneDef.IsGeneDefOfType<Gene_Gender>())
-					{
-						if (geneDef.customEffectDescriptions == null)
-						{
-							geneDef.customEffectDescriptions = new();
-						}
-						geneDef.customEffectDescriptions.Add("WVC_XaG_GeneGender_BisexualPatch".Translate());
-					}
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Warning("Non-critical error. Failed apply bisexual hook. Reason: " + arg.Message);
-			}
-			hasTraitHook_Patched = true;
-		}
+		//private static bool hasTraitHook_Patched = false;
+		//public static void HarmonyPatch_Bisexual()
+		//{
+		//	if (hasTraitHook_Patched)
+		//	{
+		//		return;
+		//	}
+		//	try
+		//	{
+		//		HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(TraitSet), "HasTrait", [typeof(TraitDef)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.BisexualHook))));
+		//		HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(TraitSet), "HasTrait", [typeof(TraitDef), typeof(int)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.BisexualHook))));
+		//		foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+		//		{
+		//			if (geneDef.IsGeneDefOfType<Gene_Gender>())
+		//			{
+		//				if (geneDef.customEffectDescriptions == null)
+		//				{
+		//					geneDef.customEffectDescriptions = new();
+		//				}
+		//				geneDef.customEffectDescriptions.Add("WVC_XaG_GeneGender_BisexualPatch".Translate());
+		//			}
+		//		}
+		//	}
+		//	catch (Exception arg)
+		//	{
+		//		Log.Warning("Non-critical error. Failed apply bisexual hook. Reason: " + arg.Message);
+		//	}
+		//	hasTraitHook_Patched = true;
+		//}
 
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========

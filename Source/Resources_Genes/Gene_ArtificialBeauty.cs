@@ -22,8 +22,8 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		private static List<Pawn> cachedAngelicPawns;
-		public static List<Pawn> AngelPawns
+		private static HashSet<Pawn> cachedAngelicPawns;
+		public static HashSet<Pawn> AngelPawns
 		{
 			get
 			{
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 					thoughtDisabled = list.NullOrEmpty();
-					cachedAngelicPawns = list;
+					cachedAngelicPawns = [..list];
 				}
 				return cachedAngelicPawns;
 			}
@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			ResetCollection();
 		}
 
-		public static void ResetCollection()
+		public virtual void ResetCollection()
 		{
 			thoughtDisabled = false;
 			cachedAngelicPawns = null;
@@ -70,6 +70,15 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Override()
 		{
 			ResetCollection();
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				ResetCollection();
+			}
 		}
 
 	}
@@ -115,6 +124,39 @@ namespace WVC_XenotypesAndGenes
 		//		};
 		//	}
 		//}
+
+	}
+
+	public class Gene_AbominationallyUgly : Gene_ArtificialBeauty, IGeneOverriddenBy
+	{
+
+		private static HashSet<Pawn> cachedLeperPawns;
+		public static HashSet<Pawn> LeperPawns
+		{
+			get
+			{
+				if (cachedLeperPawns == null)
+				{
+					List<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+					{
+						if (pawn?.genes?.GetFirstGeneOfType<Gene_AbominationallyUgly>() != null)
+						{
+							list.Add(pawn);
+						}
+					}
+					thoughtDisabled = list.NullOrEmpty();
+					cachedLeperPawns = [..list];
+				}
+				return cachedLeperPawns;
+			}
+		}
+
+		public override void ResetCollection()
+		{
+			cachedLeperPawns = null;
+			base.ResetCollection();
+		}
 
 	}
 

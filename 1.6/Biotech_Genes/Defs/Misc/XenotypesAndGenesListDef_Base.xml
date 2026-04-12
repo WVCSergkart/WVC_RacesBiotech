@@ -131,6 +131,10 @@
 		<!-- = -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<li>WVC_PredatorPrey_Tasty</li>
+		<!-- = -->
+		<!-- for performance purposes -->
+		<li>WVC_Beauty_AbominationallyUgly</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>
