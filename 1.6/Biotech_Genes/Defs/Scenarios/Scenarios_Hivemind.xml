@@ -71,7 +71,7 @@
 		<!-- Game start dialog -->
 		<li Class="ScenPart_GameStartDialog">
 		  <def>GameStartDialog</def>
-		  <text>TEXT</text>
+		  <text>Since birth, you've heard the thoughts of others, and your thoughts have been heard by others. But now the mind is divided, and you are just one of its fragments; now you are free to decide for yourself.</text>
 		  <closeSound>GameStartSting</closeSound>
 		</li>
 

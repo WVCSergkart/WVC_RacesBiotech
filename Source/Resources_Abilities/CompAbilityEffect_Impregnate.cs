@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (target.Pawn != null && !target.Pawn.CanBePregnant())
+			if (target.Pawn != null && (!target.Pawn.CanBePregnant()))
 			{
 				if (throwMessages)
 				{
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false);
+			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false) && MiscUtility.CanStartPregnancy(target.Pawn, true);
 		}
 
 	}

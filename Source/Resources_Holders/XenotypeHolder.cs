@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -40,11 +41,47 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		//public XenotypeHolder(XenotypeDef xenotypeDef)
+		//{
+		//	this.xenotypeDef = xenotypeDef;
+		//	genes = xenotypeDef.genes;
+		//	inheritable = xenotypeDef.inheritable;
+		//}
+
 		public XenotypeHolder(XenotypeDef xenotypeDef)
 		{
+			if (xenotypeDef == XenotypeDefOf.Baseliner || xenotypeDef.genes.NullOrEmpty())
+			{
+				this.shouldSkip = true;
+			}
 			this.xenotypeDef = xenotypeDef;
-			genes = xenotypeDef.genes;
-			inheritable = xenotypeDef.inheritable;
+			this.genes = xenotypeDef.genes;
+			this.displayPriority = xenotypeDef.displayPriority;
+			this.inheritable = xenotypeDef.inheritable;
+		}
+
+		public XenotypeHolder(CustomXenotype customXenotype)
+		{
+			SetupCustomXenotype(customXenotype);
+		}
+
+		public XenotypeHolder(CustomXenotype customXenotype, int index)
+		{
+			SetupCustomXenotype(customXenotype);
+			this.displayPriority = -1 * (10000 + index);
+		}
+
+		private void SetupCustomXenotype(CustomXenotype customXenotype)
+		{
+			if (customXenotype.genes.NullOrEmpty())
+			{
+				this.shouldSkip = true;
+			}
+			this.name = customXenotype.fileName;
+			this.iconDef = customXenotype.iconDef;
+			this.genes = customXenotype.genes;
+			this.xenotypeDef = XenotypeDefOf.Baseliner;
+			this.inheritable = customXenotype.inheritable;
 		}
 
 		//public bool PawnIsSameXenotype(Pawn pawn)

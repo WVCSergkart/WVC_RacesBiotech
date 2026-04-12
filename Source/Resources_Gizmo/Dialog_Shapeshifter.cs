@@ -37,10 +37,17 @@ namespace WVC_XenotypesAndGenes
 			//absorbInputAroundWindow = true;
 			//alwaysUseFullBiostatsTableHeight = true;
 			//searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			//allXenotypes = ListsUtility.GetAllXenotypesHolders();
+			allXenotypes = gene.Xenotypes;
 			minGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
 			SetupAvailableHolders(allXenotypes);
-			selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
+			if (allXenotypes.Any(xenos => xenos.xenotypeDef == gene.pawn.genes.Xenotype))
+			{
+				selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.xenotypeDef == gene.pawn.genes.Xenotype);
+			}
+			else
+			{
+				selectedXenoHolder = allXenotypes.RandomElement();
+			}
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
 			disabled = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			//GetMatchForAllXenos();
@@ -66,7 +73,14 @@ namespace WVC_XenotypesAndGenes
 					item.matchPercent = matchPercent;
 				}
 			}
-			UpdGenesMatchUpToMinOneXenotype(xenotypes);
+			try
+			{
+				UpdGenesMatchUpToMinOneXenotype(xenotypes);
+			}
+			catch
+			{
+				Log.Warning("Error in Dialog_Shapeshifter. Failed UpdGenesMatchUpToMinOneXenotype. Xenotypes count: " + allXenotypes.Count);
+			}
 		}
 
 		private void UpdGenesMatchUpToMinOneXenotype(List<XenotypeHolder> xenotypes)

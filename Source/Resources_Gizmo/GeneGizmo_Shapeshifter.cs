@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst());
 			if (Mouse.IsOver(rect3))
 			{
-				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial, gene.EnableGenesRegrowing.ToStringYesNo()));
+				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial));
 			}
 			// Collapse button
 			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);

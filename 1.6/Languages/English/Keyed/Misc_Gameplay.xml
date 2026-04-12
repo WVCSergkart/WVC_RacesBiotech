@@ -917,62 +917,6 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 
-	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
-	<WVC_XaG_GeneShapeshifter_Desc>Allows to change the pawn's xenotype to any desired one, provided there is sufficient genetic compatibility or genetic materials.</WVC_XaG_GeneShapeshifter_Desc>
-	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
-	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
-	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>
-	<!-- <WVC_XaG_ClearGenesWarning>Genes of the selected type will be removed.</WVC_XaG_ClearGenesWarning> -->
-
-	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
-
-	<WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>Expected number of xenotype genes. This does not reflect the exact number of genes in the xenotype.</WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>
-
-	<!-- <WVC_Endogenous_E>Endo</WVC_Endogenous_E> -->
-	<!-- <WVC_Xenogeneic_X>Xeno</WVC_Xenogeneic_X> -->
-
-	<WVC_XaG_GeneticMaterial_Genes>Genes material</WVC_XaG_GeneticMaterial_Genes>
-	<WVC_XaG_GeneticMaterial_GenesDesc>The total genetic material of all selected genes. For implantation, it should not exceed the genetic material collected by gene.</WVC_XaG_GeneticMaterial_GenesDesc>
-	<WVC_XaG_GeneticMaterial_Shifter>Shapeshifter material</WVC_XaG_GeneticMaterial_Shifter>
-	<WVC_XaG_GeneticMaterial_ShifterDesc>Genetic material collected by the shapeshifter gene.</WVC_XaG_GeneticMaterial_ShifterDesc>
-	<!-- <WVC_XaG_DialogEditShiftGenes_Label>Genetic shift</WVC_XaG_DialogEditShiftGenes_Label> -->
-	<WVC_XaG_DialogEditShiftGenes_PawnHasGene>The pawn already has one of the selected genes.</WVC_XaG_DialogEditShiftGenes_PawnHasGene>
-	<!-- <WVC_XaG_DialogEditShiftGenes_ExcCost>A</WVC_XaG_DialogEditShiftGenes_ExcCost> -->
-	<WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>More genetic material is required.</WVC_XaG_DialogEditShiftGenes_NeedMoreAmount>
-	<WVC_XaG_DialogEditShiftGenes_Explanation>Genes can be implanted at the cost of genetic material. Implanted genes remove genes with which they conflict.</WVC_XaG_DialogEditShiftGenes_Explanation>
-	 <!-- If genes conflict with existing genes, they cannot be implanted. -->
-	<WVC_XaG_DialogEditShiftGenes_CannotSave>Implantation is not possible. {0}</WVC_XaG_DialogEditShiftGenes_CannotSave>
-
-	<WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>The implantation will remove some of the pawn's genes.</WVC_XaG_DialogEditShiftGenes_ConflictWithPawnGenes>
-	<WVC_XaG_DialogEditShiftGenes_Warning>Shapeshifter cannot remove genes individually. Implanted genes cannot be removed until the next shapeshift.</WVC_XaG_DialogEditShiftGenes_Warning>
-
-	<WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>This action will change the type of shapeshifter gene, if it was xenogene (xenogerm), it will become endogene (germline) and vice versa. The accumulated genetic material will be transferred.\n\nNote that genes implanted at the cost of genetic material are always implanted where the shapeshifter gene is located.</WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning>
-	<WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>Shapeshifter changed it's genetic type successfully.</WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage>
-
-	<WVC_Germline>Germline</WVC_Germline>
-	<WVC_Xenogerm>Xenogerm</WVC_Xenogerm>
-	<WVC_XaG_CurrentGeneType>Gene type:</WVC_XaG_CurrentGeneType>
-	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
-	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->
-
-	<WVC_Inheritable>Inheritable</WVC_Inheritable>
-	<WVC_DoubleXenotypes>Double xenotypes</WVC_DoubleXenotypes>
-	<WVC_AllowedXenotypes>Allowed xenotypes</WVC_AllowedXenotypes>
-	<WVC_XaG_DoubleXenotypeWithChanceText>{0} with chance: {1}%</WVC_XaG_DoubleXenotypeWithChanceText>
-	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>Responsible for whether the genes of this xenotype are endogenous or xenogenous. The final xenotype of the pawn will be chosen relative to the xenogenes.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
-
-	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
-	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
-
-	<WVC_XaG_GeneRemover_Label>Remover</WVC_XaG_GeneRemover_Label>
-	<WVC_XaG_GeneRemover_Desc>Allows to remove any genes from the current geneset. Genes are removed one at a time.</WVC_XaG_GeneRemover_Desc>
-	<WVC_XaG_GeneRemover_Warning>This action will result in the gene being removed from the pawn's geneset, which is irreversible. If the shapeshifter gene is present, this may provide genetic material or, on the contrary, consume it. The amount of genetic material is calculated relative to the complexity and archites of the gene.</WVC_XaG_GeneRemover_Warning>
-
-	<WVC_XaG_ShapeshifterGizmoTip>&lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; allows to change the pawn's xenotype at any time, this is limited only by the &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; hediff. After &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;, the pawn is guaranteed to receive &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;, the duration of which depends on the complexity, metabolism and archites of the selected xenotype. If the pawn had &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt; at the time of shapeshifting, it is summed up.\n\nSome xenotypes are &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, these xenotypes can be applied at any time without restrictions.\n\n -  &lt;color=#8076ff&gt;Genetic material&lt;/color&gt;: {0}\n -  &lt;color=#6bb6bb&gt;Genes regrowing&lt;/color&gt;: {1}</WVC_XaG_ShapeshifterGizmoTip>
-	<!-- \n -  &lt;color=#8076ff&gt;Req genes match&lt;/color&gt;: {2} -->
-
-	<WVC_XaG_ShapeshifterGenesImplant_Desc>Allows the implantation of special genes using excess &lt;color=#8076ff&gt;genetic material&lt;/color&gt;.\n\n&lt;color=#8076ff&gt;Genetic material&lt;/color&gt; accumulates when using shapeshift, each xenotype has its own amount of accumulated material, except for &lt;color=#8a8ae6&gt;true forms&lt;/color&gt;, they always have a zero value.\n\nAlso, the accumulation of &lt;color=#8076ff&gt;genetic material&lt;/color&gt; is impossible if the genes regrowing effect was disabled.\n\nSome sub-genes can also accumulate it.</WVC_XaG_ShapeshifterGenesImplant_Desc>
-
 	<!-- ========== GENE SHAPESHIFTER STYLE ========== -->
 
 	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>

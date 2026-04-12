@@ -11,45 +11,6 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter
 	{
-		//public string RemoteActionName => "WVC_HideShow".Translate();
-
-		//public string RemoteActionDesc => "WVC_XaG_Shapeshifter_HideShowDesc".Translate();
-
-		//public void RemoteControl_Action()
-		//{
-		//	gizmoCollapse = !gizmoCollapse;
-		//	SetupRemoteContollers(gizmoCollapse);
-		//}
-
-		//public bool RemoteControl_Hide => !Active;
-
-		//public bool RemoteControl_Enabled
-		//{
-		//	get
-		//	{
-		//		return true;
-		//	}
-		//	set
-		//	{
-
-		//	}
-		//}
-
-		//public void RemoteControl_Recache()
-		//{
-
-		//}
-
-		//private void SetupRemoteContollers(bool setAllTo)
-		//{
-		//	XaG_UiUtility.SetAllRemoteControllersTo(pawn, setAllTo);
-		//}
-
-		// ===================
-
-		//public override bool Active => !base.Overridden;
-
-		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
 		public GeneExtension_Undead Props
@@ -77,10 +38,40 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		//public bool xenogermComaAfterShapeshift = true;
-		//public bool genesRegrowAfterShapeshift = true;
+		// Scenario hook
+		public static List<XenotypeHolder> xenotypesOverride;
+		public List<XenotypeHolder> Xenotypes
+		{
+			get
+			{
+				if (xenotypesOverride != null)
+				{
+					return xenotypesOverride;
+				}
+				//List<XenotypeHolder> holders = new();
+				//int limit = 3;
+				//List<XenotypeHolder> xenotypeHolders = ListsUtility.GetAllXenotypesHolders();
+				////xenotypeHolders.SortBy(xenos => xenos.genes.Any(geneDef => geneDef.IsGeneDefOfType<Gene_Shapeshift_TrueForm>()), xenos => xenos.genes);
+				//xenotypeHolders.Shuffle();
+				//foreach (XenotypeHolder xenotypeHolder in xenotypeHolders)
+				//{
+				//	if (holders.Count >= limit)
+				//	{
+				//		break;
+				//	}
+				//	holders.Add(xenotypeHolder);
+				//}
+				//if (!holders.Any(holder => holder.xenotypeDef == pawn.genes.Xenotype))
+				//{
+				//	holders.Add(new(pawn.genes.Xenotype));
+				//}
+				//return holders;
+				return ListsUtility.GetAllXenotypesHolders();
+			}
+		}
 
 		private bool? cachedGenesRegrow;
+		[Obsolete]
 		public bool EnableGenesRegrowing
 		{
 			get
@@ -93,6 +84,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		private void UpdGenesRegrow()
 		{
 			cachedGenesRegrow = null;
@@ -114,16 +106,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			UpdateMetabolism();
-			//	if (pawn.genes.IsXenogene(this))
-			//	{
-			//		pawn.genes.RemoveGene(this);
-			//		pawn.genes.AddGene(this.def, false);
-			//		return;
-			//	}
 		}
 
 		private Gizmo gizmo;
-		//public bool remoteControllerCached = false;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -131,10 +116,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			//if (!remoteControllerCached)
-			//         {
-			//             SetupRemoteContollers(false);
-			//         }
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
@@ -168,8 +149,6 @@ namespace WVC_XenotypesAndGenes
 
 		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
-			// Debug fire
-			//Notify_PregnancyStarted(pregnancy);
 			return false;
 		}
 
@@ -181,67 +160,16 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			// if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
-			// {
-			// pawn.genes.AddGene(this.def, false);
-			// Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
-			// newShifter.UpdateForNewGene(this);
-			// }
 			RemoveHediffs();
-			//SetupRemoteContollers(true);
 		}
 
-		//public StatDef ShiftStatDef => Props.shiftStatDef;
-
-		//public float MinGenesMatch
+		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		//{
-		//	get
-		//	{
-		//		return pawn.GetStatValue(ShiftStatDef);
-		//	}
+		//	yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), EnableGenesRegrowing.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		//}
 
-		//private string cachedGenesMatch_UI;
-		//public string MinGenesMatch_UI
-		//{
-		//	get
-		//	{
-		//		if (cachedGenesMatch_UI.NullOrEmpty())
-		//		{
-		//			cachedGenesMatch_UI = MinGenesMatch.ToStringPercent();
-		//		}
-		//		return cachedGenesMatch_UI;
-		//	}
-		//}
-
-		//public void Notify_GenesChanged(Gene changedGene)
-		//{
-		//	cachedGenesMatch_UI = null;
-		//}
-
-		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		public virtual void CopyFrom(Gene_Shapeshifter oldShapeshifter)
 		{
-			//cachedGenesMatch_UI = null;
-			//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, ShiftStatDef.LabelCap, MinGenesMatch_UI, ShiftStatDef.description, 160);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), EnableGenesRegrowing.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
-		}
-
-		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			//Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
-			//Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
-			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
-			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
-			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
-		}
-
-		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
-		{
-			//xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
-			//genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
 			geneticMaterial = oldShapeshifter.geneticMaterial;
 			gizmoCollapse = oldShapeshifter.gizmoCollapse;
 		}
@@ -257,7 +185,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
 			if (gene_Shapeshifter != null)
 			{
-				gene_Shapeshifter.UpdateForNewGene(this);
+				gene_Shapeshifter.CopyFrom(this);
 				gene_Shapeshifter.AddXenogermReplicating(new() { def });
 				gene_Shapeshifter.DoEffects();
 				Messages.Message("WVC_XaG_DialogEditShiftGenes_ChangeTypeMessage".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -268,15 +196,12 @@ namespace WVC_XenotypesAndGenes
 
 		public int GeneticMaterial => (int)geneticMaterial;
 
-		//public float ReqMatchPercent => WVC_Biotech.settings.shapeshifer_BaseGenesMatch - (GeneticMaterial * 0.01f);
-
 		public bool TryOffsetResource(float count)
 		{
 			if (!EnableGenesRegrowing && count > 0f)
 			{
 				return false;
 			}
-			//Log.Error(count.ToString());
 			geneticMaterial += count;
 			if (geneticMaterial < 0f)
 			{
@@ -314,7 +239,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.AddGene(geneDef, !inheritable);
 				AddXenogermReplicating(new() { geneDef });
-				//UpdateMetabolism();
 			}
 		}
 
@@ -378,9 +302,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				//xenotypeHolder.genes.Add(def);
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder, this, removeXenogenes);
-				//ReimplanterUtility.SetXenotype_Safe(pawn, xenotypeHolder, removeXenogenes);
 			}
 			if (EnableGenesRegrowing)
 			{
@@ -388,9 +310,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					TryOffsetResource((int)((xenotypeHolder.genes.Sum((gene) => gene.biostatCpx) * 0.05f) + (xenotypeHolder.genes.Sum((gene) => gene.biostatArc) * 0.1f)));
 				}
-				//GeneUtility.UpdateXenogermReplication(pawn);
 				AddXenogermReplicating(xenotypeHolder.genes, (hybridizeXenotypes ? 2f : 1f) * WVC_Biotech.settings.shapeshifer_CooldownDurationFactor);
-				//AddGenMat(days);
 			}
 			if (ModLister.IdeologyInstalled)
 			{
@@ -422,7 +342,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			//WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
 			if (!Props.soundDefOnImplant.NullOrUndefined())
 			{
@@ -445,7 +364,6 @@ namespace WVC_XenotypesAndGenes
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			cachedPreservedGenes = null;
-			//UpdGenesRegrow();
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
@@ -457,18 +375,23 @@ namespace WVC_XenotypesAndGenes
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
-				//GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
 			UpdateMetabolism();
 			cachedPreservedGenes = null;
-			//UpdGenesRegrow();
-			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedGenesRegrow = null;
 			cachedPreservedGenes = null;
+		}
+
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
 	}

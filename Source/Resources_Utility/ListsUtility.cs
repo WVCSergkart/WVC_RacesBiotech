@@ -264,39 +264,13 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeHolder> list = new();
 			foreach (XenotypeDef item in GetAllXenotypesExceptAndroids())
 			{
-				//if (!StaticCollectionsClass.currentGameComponent.HasKnownXenotype(item))
-				//{
-				//	continue;
-				//}
-				XenotypeHolder newHolder = new();
-				if (item == XenotypeDefOf.Baseliner || item.genes.NullOrEmpty())
-				{
-					newHolder.shouldSkip = true;
-				}
-				newHolder.xenotypeDef = item;
-				newHolder.genes = item.genes;
-				newHolder.displayPriority = item.displayPriority;
-				newHolder.inheritable = item.inheritable;
-				list.Add(newHolder);
+				list.Add(new(item));
 			}
+			int index = 0;
 			foreach (CustomXenotype item in GetCustomXenotypesList())
 			{
-				//if (!StaticCollectionsClass.currentGameComponent.HasKnownXenotype(item))
-				//{
-				//	continue;
-				//}
-				XenotypeHolder newHolder = new();
-				if (item.genes.NullOrEmpty())
-				{
-					newHolder.shouldSkip = true;
-				}
-				newHolder.name = item.fileName;
-				newHolder.iconDef = item.iconDef;
-				newHolder.genes = item.genes;
-				newHolder.xenotypeDef = XenotypeDefOf.Baseliner;
-				newHolder.displayPriority = -1 * (10000 + list.Count);
-				newHolder.inheritable = item.inheritable;
-				list.Add(newHolder);
+				list.Add(new(item, index));
+				index++;
 			}
 			return list;
 		}
