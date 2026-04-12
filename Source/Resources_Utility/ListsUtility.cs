@@ -309,11 +309,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (gameStarted && item.Icon == null)
-				{
-					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
-					continue;
-				}
+				// Not relevant for 1.6
+				//if (gameStarted && item.Icon == null)
+				//{
+				//	Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
+				//	continue;
+				//}
 				if (!XaG_GeneUtility.IsAndroid(item))
 				{
 					list.Add(item);

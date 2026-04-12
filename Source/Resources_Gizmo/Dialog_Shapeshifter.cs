@@ -56,6 +56,14 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetupAvailableHolders(List<XenotypeHolder> xenotypes)
 		{
+			SimpleCurve geneticCurve = new()
+			{
+				new CurvePoint(0, 0),
+				new CurvePoint(20, 10),
+				new CurvePoint(50, 25),
+				new CurvePoint(100, 30)
+			};
+			float geneticMaterial = geneticCurve.Evaluate(gene.GeneticMaterial);
 			foreach (XenotypeHolder item in xenotypes)
 			{
 				foreach (GeneDef geneDef in item.genes)
@@ -69,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!item.isTrueShiftForm)
 				{
-					item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, minGenesMatch, out float matchPercent, true, gene.GeneticMaterial * 0.01f);
+					item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, minGenesMatch, out float matchPercent, true, geneticMaterial * 0.01f);
 					item.matchPercent = matchPercent;
 				}
 			}

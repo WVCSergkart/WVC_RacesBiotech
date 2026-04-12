@@ -273,7 +273,7 @@
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
+    <Compile Include="Obsolete_0\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingGene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
