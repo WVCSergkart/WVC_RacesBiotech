@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 			AgeReversal();
 		}
 
-		public void AgeReversal()
+		public virtual void AgeReversal()
 		{
 			if (AgelessUtility.CanAgeReverse(pawn, desiredAge))
 			{
@@ -99,6 +99,23 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref desiredAge, "desiredAge", 18);
+		}
+
+	}
+
+	public class Gene_Agevenator :  Gene_Rejuvenator
+	{
+
+		public override void AgeReversal()
+		{
+			if (pawn.ageTracker.AgeBiologicalYears < desiredAge)
+			{
+				AgelessUtility.AgeReReverse(pawn);
+			}
+			else
+			{
+				base.AgeReversal();
+			}
 		}
 
 	}

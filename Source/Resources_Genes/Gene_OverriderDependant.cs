@@ -268,7 +268,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Stomach : Gene_OverriderDependant, IGeneNotifyGenesChanged
+	public class Gene_SelfOverrider_Stomach : Gene_OverriderDependant, IGeneRecacheable
 	{
 
 		private float? cachedOffset;
@@ -284,7 +284,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedOffset = null;
 		}
@@ -440,7 +440,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SelfOverrider_Solar : Gene_OverriderDependant, IGeneNotifyGenesChanged
+	public class Gene_SelfOverrider_Solar : Gene_OverriderDependant, IGeneRecacheable
 	{
 
 		public int basicTick = 7119;
@@ -504,7 +504,7 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.OffsetNeedFood(pawn, Nutrition);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedNutritionPerTick = null;
 		}

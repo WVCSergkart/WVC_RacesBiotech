@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Duplicator : XaG_Gene, IGeneNotifyGenesChanged
+	public class Gene_Duplicator : XaG_Gene, IGeneRecacheable
 	{
 
 		private GeneExtension_Giver cachedGeneExtension;
@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (MiscUtility.GameStarted() && SourcePawn != pawn)
 			{
-				SourcePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_GenesChanged(null);
+				SourcePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_GenesRecache(null);
 			}
 		}
 
@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 
 		public StatDef StatDef => Giver.statDef;
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			//Log.Error(pawn.NameFullColored.ToString());
 			cachedDuplicates = null;

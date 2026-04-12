@@ -398,14 +398,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static void NotifyGenesChanged(Gene item)
 		{
-			if (item is IGeneNotifyGenesChanged iGeneNotifyGenesChanged)
+			try
 			{
-				iGeneNotifyGenesChanged.Notify_GenesChanged(null);
+				if (item is IGeneRecacheable iGeneNotifyGenesChanged)
+				{
+					iGeneNotifyGenesChanged.Notify_GenesRecache(null);
+				}
+				//if (item is IGeneMetabolism metabol)
+				//{
+				//	metabol.UpdateMetabolism();
+				//}
 			}
-			//if (item is IGeneMetabolism metabol)
-			//{
-			//	metabol.UpdateMetabolism();
-			//}
+			catch
+			{
+				Log.Error("Failed trigger Notify_GenesRecache for gene " + item.def.defName);
+			}
 		}
 
 		public static void NotifyGenesChanged(Pawn pawn)

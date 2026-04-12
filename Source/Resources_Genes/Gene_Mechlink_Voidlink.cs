@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Voidlink : Gene_Mechlink, IGeneOverriddenBy, IGeneNotifyOnKilled, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
+	public class Gene_Voidlink : Gene_Mechlink, IGeneOverriddenBy, IGeneNotifyOnKilled, IGeneRecacheable, IGeneAddOrRemoveHediff
 	{
 
 		public override void PostAdd()
@@ -231,7 +231,7 @@ namespace WVC_XenotypesAndGenes
 
 		public StatDef MaxResource_StatDef => Spawner.voidMaxResource_StatDef;
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			CacheReset();
 		}

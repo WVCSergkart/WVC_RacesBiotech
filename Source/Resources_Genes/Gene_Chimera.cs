@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
+	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -632,7 +632,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedReqMetRange = null;
 			cachedIsReqCooldown = null;

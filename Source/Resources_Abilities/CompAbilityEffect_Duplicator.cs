@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			Pawn caster = parent.pawn;
-			Duplicator.Notify_GenesChanged(null);
+			Duplicator.Notify_GenesRecache(null);
 			float failChanceFactor = Duplicator.StatDef != null ? caster.GetStatValue(Duplicator.StatDef) : 1f;
 			//Log.Error("");
 			if (DuplicateUtility.TryDuplicatePawn(caster, source, spawnCell, source.Map, out Pawn duplicatePawn, out string letterDesc, out LetterDef letterType, Rand.Chance(failChanceFactor * WVC_Biotech.settings.duplicator_RandomOutcomeChance), addDuplicate: true))

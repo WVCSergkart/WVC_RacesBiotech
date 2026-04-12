@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneNotifyGenesChanged, IGeneShapeshifter
+	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter
 	{
 		//public string RemoteActionName => "WVC_HideShow".Translate();
 
@@ -465,7 +465,7 @@ namespace WVC_XenotypesAndGenes
 			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedGenesRegrow = null;
 			cachedPreservedGenes = null;

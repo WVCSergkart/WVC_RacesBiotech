@@ -117,10 +117,10 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// For internal gene cache reset. Not triggered directly in vanilla, but triggered by post debug.
 	/// </summary>
-	public interface IGeneNotifyGenesChanged
+	public interface IGeneRecacheable
 	{
 
-		void Notify_GenesChanged(Gene changedGene);
+		void Notify_GenesRecache(Gene changedGene);
 
 	}
 
@@ -302,6 +302,13 @@ namespace WVC_XenotypesAndGenes
 	//{
 
 	//	void Hook_TicksToNextLovin(Pawn caller, Pawn partner);
+
+	//}
+
+	//public interface IGeneNotifyResurrected
+	//{
+
+	//	void NotifyResurrected();
 
 	//}
 

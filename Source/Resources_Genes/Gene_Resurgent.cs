@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain, IGeneNotifyGenesChanged
+	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain, IGeneRecacheable
 	{
 
 		public bool woundClottingAllowed = true;
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ===========================
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedResurgentTotalHealing = null;
 			cachedResurgentClotting = null;

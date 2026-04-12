@@ -815,6 +815,42 @@ namespace WVC_XenotypesAndGenes
 				{
 					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Log obsolete genes in xenotypes"))
+				{
+					string log = "Xenotypes:";
+					foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+					{
+						log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
+						if (xenotypeDef.genes == null)
+						{
+							continue;
+						}
+						foreach (GeneDef geneDef in xenotypeDef.genes)
+						{
+							if (geneDef.IsObsolete())
+							{
+								log += "\n" + geneDef.defName + " | " + geneDef.label;
+							}
+						}
+					}
+					log += "\nThralls:";
+					foreach (ThrallDef xenotypeDef in DefDatabase<ThrallDef>.AllDefsListForReading)
+					{
+						log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
+						if (xenotypeDef.genes == null)
+						{
+							continue;
+						}
+						foreach (GeneDef geneDef in xenotypeDef.genes)
+						{
+							if (geneDef.IsObsolete())
+							{
+								log += "\n" + geneDef.defName + " | " + geneDef.label;
+							}
+						}
+					}
+					Log.Error("Obsolete genes:" + "\n" + log);
+				}
 				if (listingStandard.ButtonText("DEV: Log chimerkins"))
 				{
 					Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));

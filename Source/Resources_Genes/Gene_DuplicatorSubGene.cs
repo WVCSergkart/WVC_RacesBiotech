@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Duplicator.Notify_GenesChanged(null);
+			Duplicator.Notify_GenesRecache(null);
 			foreach (Pawn dupe in Duplicator.PawnDuplicates_WithSource.ToList())
 			{
 				if (!dupe.Dead)

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.PlayerLoop;
 using Verse;
 
@@ -63,9 +65,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Notify_GenesRecache(Gene changedGene)
+		{
+			ResetCache();
+		}
+
 	}
 
-	public class Gene_SharedMetabolism : XaG_Gene, IGeneOverriddenBy
+	public class Gene_SharedMetabolism : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		public override void PostAdd()
@@ -98,14 +105,44 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			int? count = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive?.Where((target) => target.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() != null)?.ToList()?.Count;
-			if (count.HasValue)
+			try
 			{
-				def.biostatMet = count.Value;
-				def.cachedDescription = null;
-				GeneResourceUtility.UpdMetabolism(pawn);
+				SetMetabolism();
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed set metabolism: " + def.defName + ". Reason: " + arg.Message);
 			}
 			updated = true;
+		}
+
+		private void SetMetabolism()
+		{
+			def.biostatMet = 0;
+			int metabol = 0;
+			List<Pawn> allPlayerPawns_MapsOrCaravans_Alive = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive;
+			foreach (Pawn item in allPlayerPawns_MapsOrCaravans_Alive)
+			{
+				if (item.genes == null)
+				{
+					continue;
+				}
+				if (item.genes.GetFirstGeneOfType<Gene_SharedMetabolism>() == null)
+				{
+					continue;
+				}
+				foreach (Gene gene in item.genes.GenesListForReading)
+				{
+					if (gene.Overridden)
+					{
+						continue;
+					}
+					metabol += gene.def.biostatMet;
+				}
+			}
+			def.biostatMet = metabol / allPlayerPawns_MapsOrCaravans_Alive.Count;
+			def.cachedDescription = null;
+			GeneResourceUtility.UpdMetabolism(pawn);
 		}
 
 		private void ResetCache()
@@ -120,6 +157,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				ResetCache();
 			}
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			ResetCache();
+		}
+
+		public void Notify_GenesRecache(Gene changedGene)
+		{
+			ResetCache();
 		}
 
 	}

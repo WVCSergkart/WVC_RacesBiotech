@@ -278,6 +278,7 @@ namespace WVC_XenotypesAndGenes
 						Log.Error("Failed trigger Notify_PawnKilled for gene " + gene.def.defName);
 					}
 				}
+				ReimplanterUtility.NotifyGenesChanged(gene);
 			}
 			if (pawn.Faction != Faction.OfPlayerSilentFail)
 			{
@@ -536,6 +537,7 @@ namespace WVC_XenotypesAndGenes
 		public bool Undead => resurrected;
 
 		private bool resurrected = false;
+
 		public virtual void Notify_Resurrected()
 		{
 			SetResurrected();
@@ -543,7 +545,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.WVC_UndeadResurrection, Pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			Gene_Wings.ResetCollection();
+			if (Pawn.genes == null)
+			{
+				return;
+			}
+			//Gene_Wings.ResetCollection();
+			ReimplanterUtility.NotifyGenesChanged(Pawn);
 		}
 
 		public void SetResurrected()

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Hivemind_Drone : XaG_Gene, IGeneOverriddenBy, IGeneHivemind
+	public class Gene_Hivemind_Drone : XaG_Gene, IGeneOverriddenBy, IGeneHivemind, IGeneRecacheable
 	{
 
 		public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
@@ -45,6 +45,11 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			ResetCollection();
+		}
+
+		public virtual void Notify_GenesRecache(Gene changedGene)
+		{
 			ResetCollection();
 		}
 

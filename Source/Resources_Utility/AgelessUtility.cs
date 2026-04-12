@@ -82,6 +82,11 @@ namespace WVC_XenotypesAndGenes
 			//long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
 			//pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
 			pawn.ageTracker.AgeBiologicalTicks = (long)Mathf.Clamp(pawn.ageTracker.AgeBiologicalTicks - oneYear, oneYear * 18 + 2100000L, oneYear * 100);
+			IdeoAndNotify(pawn);
+		}
+
+		private static void IdeoAndNotify(Pawn pawn)
+		{
 			if (ModsConfig.IdeologyActive)
 			{
 				pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
@@ -91,6 +96,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
 			}
+		}
+
+		public static void AgeReReverse(Pawn pawn)
+		{
+			long oneYear = 3600000L;
+			pawn.ageTracker.AgeBiologicalTicks = (long)Mathf.Clamp(pawn.ageTracker.AgeBiologicalTicks + oneYear, oneYear * 18 + 2100000L, oneYear * 100);
+			IdeoAndNotify(pawn);
 		}
 
 		public static bool TryAgeReverse(Pawn pawn)

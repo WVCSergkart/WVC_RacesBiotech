@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneNotifyGenesChanged, IGeneAddOrRemoveHediff
+	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneRecacheable, IGeneAddOrRemoveHediff
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -35,13 +35,13 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			Local_AddOrRemoveHediff();
 		}
 
@@ -164,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 			SyncNeedFoodWithHemogen();
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedResourceLossPerDay = null;
 		}

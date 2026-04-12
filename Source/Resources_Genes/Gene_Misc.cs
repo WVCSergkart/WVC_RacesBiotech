@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_PredatorRepellent : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_PredatorRepellent : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		private static HashSet<Pawn> cachedNonPreyPawns;
@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			ResetCollection();
 		}

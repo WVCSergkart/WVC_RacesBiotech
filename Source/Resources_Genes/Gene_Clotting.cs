@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class Gene_ScarifierClotting : XaG_Gene, IGeneNotifyGenesChanged
+	public class Gene_ScarifierClotting : XaG_Gene, IGeneRecacheable
 	{
 
 		[Unsaved(false)]
@@ -129,8 +129,9 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly FloatRange TendingQualityRange = new(0.7f, 1.0f);
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
+			//cachedScarifierGene = null;
 			scarifierIsNull = null;
 		}
 

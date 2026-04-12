@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Photosynthesis : Gene_FoodEfficiency, IGeneNotifyGenesChanged
+	public class Gene_Photosynthesis : Gene_FoodEfficiency, IGeneRecacheable
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedNutritionPerTick = null;
 		}

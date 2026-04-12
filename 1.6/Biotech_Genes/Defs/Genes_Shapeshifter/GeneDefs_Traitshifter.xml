@@ -6,7 +6,8 @@
 	<label>traitshifter</label>
 	<description>Carriers of this gene have archites that can influence their character, changing it at the will of the carrier.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Traitshifter</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Traitshifter_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_Traitshifter_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Traitshfiter</iconPath>
 	<displayOrderInCategory>195</displayOrderInCategory>
 	<prerequisite></prerequisite>
 	<biostatCpx>1</biostatCpx>

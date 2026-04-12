@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- To-Do: Move to legacy after blankind and deadcat rework. Mark as legacy after+ 4-5 updates. August -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Recovery</defName>
+	<label>postshift recovery</label>
+	<description>Carriers of this gene have archites that stabilize the carrier after a shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Recovery</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Recovery_v0</iconPath>
+	<displayOrderInCategory>160</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Disables &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; hediff when &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;.</li>
+		<li>&lt;color=#ffec85&gt;Completely blocks the shapeshifter gene from receiving genetic material.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
+	<statFactors>
+	  <LifespanFactor>0.6</LifespanFactor>
+	  <CancerRate>2</CancerRate>
+	  <ImmunityGainSpeed>0.80</ImmunityGainSpeed>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_PostShapeshift_Recovery</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <scarsCount>1</scarsCount> -->
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>56</reqGeneMat> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Metabolism</defName>
+	<label>postshift metabolism</label>
+	<description>Carriers of this gene have archites that significantly increase metabolism after shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_GiveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Hunger_v0</iconPath>
+	<displayOrderInCategory>170</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<customEffectDescriptions>
+		<li>If, after using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, a pawn receives this gene, then for some time its &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is significantly &lt;color=#8a8ae6&gt;reduced&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_PostshiftMetabolism_HungerFactor</hediffDefName>
+			<intervalRange>120000~180000</intervalRange>
+		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>11</reqGeneMat> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_PostshiftMetabolism_HungerFactor</defName>
+	<label>postshift metabolism</label>
+	<description>A residual shapeshift effect during which the owner's metabolism is significantly enhanced.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.01</hungerRateFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>210000~450000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+</Defs>

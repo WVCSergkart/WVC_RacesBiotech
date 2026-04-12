@@ -14,49 +14,12 @@
   <!-- ===================================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
-	<defName>WVC_PostShapeshift_Recovery</defName>
-	<label>postshift recovery</label>
-	<description>Carriers of this gene have archites that stabilize the carrier after a shapeshift.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Recovery</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Recovery_v0</iconPath>
-	<displayOrderInCategory>160</displayOrderInCategory>
-	<customEffectDescriptions>
-		<li>Disables &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; hediff when &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt;.</li>
-		<li>&lt;color=#ffec85&gt;Completely blocks the shapeshifter gene from receiving genetic material.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
-	</statOffsets>
-	<statFactors>
-	  <LifespanFactor>0.6</LifespanFactor>
-	  <CancerRate>2</CancerRate>
-	  <ImmunityGainSpeed>0.80</ImmunityGainSpeed>
-	</statFactors>
-	<exclusionTags>
-	  <li>WVC_PostShapeshift_Recovery</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <scarsCount>1</scarsCount> -->
-			<hediffDefs>
-				<li>XenogermReplicating</li>
-				<li>XenogerminationComa</li>
-				<li>XenogermLossShock</li>
-			</hediffDefs>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>56</reqGeneMat>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_PostShapeshift_Regeneration</defName>
-	<!-- <label>postshift regeneration</label> -->
 	<label>preshift healing</label>
 	<description>Carriers of this gene have archites that regenerate all wounds, even critical ones, before a shapeshift.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_TotalHealing</iconPath>
 	<displayOrderInCategory>165</displayOrderInCategory>
 	<selectionWeight>0.000094</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
@@ -73,38 +36,8 @@
 	  <li>WVC_PostShapeshift_Recovery</li>
 	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <scarsCount>1</scarsCount> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<reqGeneMat>28</reqGeneMat>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
-	<defName>WVC_PostShapeshift_Metabolism</defName>
-	<label>postshift metabolism</label>
-	<description>Carriers of this gene have archites that significantly increase metabolism after shapeshift.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_GiveHediff</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Hunger_v0</iconPath>
-	<displayOrderInCategory>170</displayOrderInCategory>
-	<!-- <biostatCpx>1</biostatCpx> -->
-	<customEffectDescriptions>
-		<li>If, after using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, a pawn receives this gene, then for some time its &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is significantly &lt;color=#8a8ae6&gt;reduced&lt;/color&gt;.</li>
-	</customEffectDescriptions>
-	<statOffsets>
-	  <MaxNutrition>1.0</MaxNutrition>
-	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
-	</statOffsets>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_PostshiftMetabolism_HungerFactor</hediffDefName>
-			<intervalRange>120000~180000</intervalRange>
-			<!-- <scarsCount>1</scarsCount> -->
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>11</reqGeneMat>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -114,7 +47,8 @@
 	<label>postshift scarred</label>
 	<description>Carriers of this gene become covered with scars after shapeshifting.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Scarred</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Scarred_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_Scarred_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_Scarred</iconPath>
 	<displayOrderInCategory>175</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<customEffectDescriptions>
@@ -128,11 +62,6 @@
 	<statFactors>
 	  <IncomingDamageFactor>1.20</IncomingDamageFactor>
 	</statFactors>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <scarsCount>3</scarsCount> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<reqGeneMat>14</reqGeneMat>
@@ -145,7 +74,8 @@
 	<label>shift form</label>
 	<description>Carriers of this gene can always return to their true form at any time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshift_TrueForm</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_TrueForm_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_TrueForm_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_TrueForm</iconPath>
 	<displayOrderInCategory>180</displayOrderInCategory>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
@@ -155,20 +85,6 @@
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
 	</statOffsets>
-	<!-- <statFactors> -->
-	  <!-- <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition> -->
-	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier> -->
-	<!-- </statFactors> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
-			<!-- <hideGene>true</hideGene> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <scarsCount>3</scarsCount> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

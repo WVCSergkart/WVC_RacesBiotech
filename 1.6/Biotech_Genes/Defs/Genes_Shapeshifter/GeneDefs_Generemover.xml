@@ -6,7 +6,8 @@
 	<label>generemover</label>
 	<description>Carriers of this gene have archites that can selectively destroy the carrier's genes.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Generemover</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_Generemover_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_GeneRemover</iconPath>
 	<displayOrderInCategory>190</displayOrderInCategory>
 	<prerequisite></prerequisite>
 	<!-- <selectionWeight>0.0001</selectionWeight> -->

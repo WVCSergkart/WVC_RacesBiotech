@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_PsychicHarem : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_PsychicHarem : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			cachedPawns = null;
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			ResetCollection();
 		}

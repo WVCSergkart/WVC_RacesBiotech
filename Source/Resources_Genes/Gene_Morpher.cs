@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : XaG_Gene, IGeneWithEffects, IGeneNotifyGenesChanged, IGeneOverriddenBy, IGeneShapeshifter
+	public class Gene_Morpher : XaG_Gene, IGeneWithEffects, IGeneRecacheable, IGeneOverriddenBy, IGeneShapeshifter
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedPossibleXenotypesString = null;
 			cachedOneTimeMorpher = null;
@@ -835,12 +835,12 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public virtual void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 	}
 

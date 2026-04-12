@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneNotifyGenesChanged, IGeneOverriddenBy
+	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo, IGeneRecacheable, IGeneOverriddenBy
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int CountSpawn => WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedAllowedGolemModes = null;
 			//cachedMakerSubGenes = null;
@@ -127,13 +127,13 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			//base.Notify_OverriddenBy(overriddenBy);
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public void Notify_Override()
 		{
 			//base.Notify_Override();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		//private GolemlinkMode workerInt;

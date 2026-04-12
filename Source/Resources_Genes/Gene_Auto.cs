@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AutoResearch : XaG_Gene, IGeneNotifyGenesChanged
+	public class Gene_AutoResearch : XaG_Gene, IGeneRecacheable
 	{
 
 		//public override void Tick()
@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void Notify_GenesChanged(Gene changedGene)
+		public virtual void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedResearchSpeed = null;
 		}

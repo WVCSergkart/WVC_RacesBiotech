@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DeadlifeBuilder : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_DeadlifeBuilder : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		public int nextTick = 6000;
@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			nextTick = 3000;
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public override void TickInterval(int delta)
@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!foundSelf)
 			{
-				Notify_GenesChanged(null);
+				Notify_GenesRecache(null);
 			}
 			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
@@ -285,22 +285,22 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedBuilderGenes = null;
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public override void ExposeData()

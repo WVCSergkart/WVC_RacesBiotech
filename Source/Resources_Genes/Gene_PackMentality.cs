@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_PackMentality : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_PackMentality : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		private GeneExtension_Opinion cachedExtension;
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			UpdThoughts();
 		}
 
@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			//if (!ThePack.Contains(pawn))
 			//{
 			//	Notify_GenesChanged(null);
@@ -115,23 +115,23 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			UpdThoughts();
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedPackPawns = null;
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 			UpdThoughts();
 		}
 
@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ColdBlooded : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_ColdBlooded : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		private static List<Pawn> cachedColdBloodedPawns;
@@ -190,33 +190,33 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedColdBloodedPawns = null;
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 	}
 
-	public class Gene_Pheromones : XaG_Gene, IGeneOverriddenBy, IGeneNotifyGenesChanged
+	public class Gene_Pheromones : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		private static List<Pawn> cachedPheromonesPawns;
@@ -243,28 +243,28 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedPheromonesPawns = null;
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesChanged(null);
+			Notify_GenesRecache(null);
 		}
 
 	}

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ArtificialBeauty : XaG_Gene, IGeneOverriddenBy
+	public class Gene_ArtificialBeauty : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
 		public static bool thoughtDisabled = false;
@@ -79,6 +79,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				ResetCollection();
 			}
+		}
+
+		public void Notify_GenesRecache(Gene changedGene)
+		{
+			ResetCollection();
 		}
 
 	}

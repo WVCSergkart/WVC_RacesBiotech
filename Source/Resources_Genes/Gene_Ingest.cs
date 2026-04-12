@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff, IGeneNotifyGenesChanged
+	public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff, IGeneRecacheable
 	{
 
 		private float? cachedOffset;
@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 			return offset;
 		}
 
-		public void Notify_GenesChanged(Gene changedGene)
+		public void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedOffset = null;
 		}
