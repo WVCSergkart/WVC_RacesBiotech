@@ -213,7 +213,16 @@ namespace WVC_XenotypesAndGenes
 			int ticks = Find.TickManager.TicksGame - holder.lastTimeSeenByPlayer;
 			if (ticks > 0)
 			{
-				HealingUtility.Regeneration(holder.holded, regeneration: 50, tick: ticks);
+				int tries = 1;
+				if (ticks > 60000)
+				{
+					tries = ticks / 30000;
+					ticks /= tries;
+				}
+				for (int i = 0; i < tries; i++)
+				{
+					HealingUtility.Regeneration(holder.holded, regeneration: 50, tick: ticks);
+				}
 			}
 		}
 

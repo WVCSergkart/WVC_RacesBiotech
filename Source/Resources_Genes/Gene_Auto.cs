@@ -36,15 +36,27 @@ namespace WVC_XenotypesAndGenes
 			}
 			ResearchManager researchManager = Find.ResearchManager;
 			ResearchProjectDef currentProject = researchManager.GetProject();
+			//SimpleCurve curve = new()
+			//{
+			//	new CurvePoint(0, 3),
+			//	new CurvePoint(1000, 5),
+			//	new CurvePoint(2000, 7),
+			//	new CurvePoint(3000, 12),
+			//	new CurvePoint(10000, 40),
+			//	new CurvePoint(100000, 60)
+			//};
 			if (currentProject != null)
 			{
-				//pawn.skills.Learn(SkillDefOf.Intellectual, 0.01f * tick);
-				//float amount = researchRate * (cachedResearchSpeed.Value * tick) - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 12.8f : 0f);
-				//float researchAmount = Mathf.Clamp(amount, currentProject.baseCost * 0.01f, (currentProject.baseCost * 0.2f));
-				//researchManager.ResearchPerformed(researchAmount, pawn);
-				float amount = cachedResearchSpeed.Value * researchRate * tick * (1f - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.01f : 0f));
-				researchManager.ResearchPerformed(amount, pawn);
-				pawn.skills.Learn(SkillDefOf.Intellectual, 0.05f * researchRate * tick);
+				//float amount = cachedResearchSpeed.Value * researchRate * tick * (1f - (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 1 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.01f : 0f));
+				//float amount = (currentProject.baseCost / (60000 * curve.Evaluate(currentProject.baseCost))) * researchRate * cachedResearchSpeed.Value * tick;
+				//researchManager.ResearchPerformed(amount, pawn);
+				//pawn.skills.Learn(SkillDefOf.Intellectual, 0.05f * researchRate * tick);
+				// Vanilla-like. Hmm..
+				Pawn actor = pawn;
+				float statValue = cachedResearchSpeed.Value;
+				statValue *= researchRate;
+				Find.ResearchManager.ResearchPerformed(statValue * (float)tick, actor);
+				actor.skills.Learn(SkillDefOf.Intellectual, 0.05f * (float)tick);
 			}
 		}
 
