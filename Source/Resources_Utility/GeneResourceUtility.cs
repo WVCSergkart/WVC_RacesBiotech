@@ -763,10 +763,10 @@ namespace WVC_XenotypesAndGenes
 		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>() != null;
 		//}
 
-		public static bool IsBloodeater(this Pawn pawn)
-		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
-		}
+		//public static bool IsBloodeater(this Pawn pawn)
+		//{
+		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
+		//}
 
 		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
 		{

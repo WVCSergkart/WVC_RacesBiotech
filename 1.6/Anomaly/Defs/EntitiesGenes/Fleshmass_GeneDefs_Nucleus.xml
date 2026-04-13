@@ -64,7 +64,7 @@
 		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fingerspike&lt;/color&gt; or &lt;color=#b0bf80&gt;toughspike&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
-	  <WVC_FleshmassMutationsDelayFactor>3.0</WVC_FleshmassMutationsDelayFactor>
+	  <WVC_FleshmassMutationsDelayFactor>1.7</WVC_FleshmassMutationsDelayFactor>
 	</statFactors>
   </GeneDef>
 

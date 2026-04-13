@@ -6,7 +6,9 @@
 	<label>Faulty Shape</label>
 	<description>TEST
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; does not have access to archite &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt;.\n- All genes have 2 times &lt;color=#8a8ae6&gt;less complexity and archites&lt;/color&gt;.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; does not have access to archite &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt;.\n- All genes have 2 times &lt;color=#8a8ae6&gt;less complexity and archites&lt;/color&gt;.\n- All pawns will be considered to have the &lt;color=#8a8ae6&gt;bisexual&lt;/color&gt; trait for &lt;color=#8a8ae6&gt;vanilla&lt;/color&gt; checks.\n- &lt;color=#8a8ae6&gt;Shapeshifters&lt;/color&gt; will have a &lt;color=#8a8ae6&gt;limit&lt;/color&gt; on the maximum number of genes. If they exceed this limit, they will lose &lt;color=#8a8ae6&gt;one random gene&lt;/color&gt; each day.
+
+&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;\n- All pawns that have any of these genes are considered shapeshifters: &lt;color=#8a8ae6&gt;Shapeshifter, chimera, morpher, archiver, switcher&lt;/color&gt;.\n- The limit for endogenes is 35 genes (5 rows). The limit for xenogenes is sanguophage genset + 3.
 
 &lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 

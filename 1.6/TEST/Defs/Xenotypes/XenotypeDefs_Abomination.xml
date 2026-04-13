@@ -7,9 +7,13 @@
 	<!-- abominated, abomination, abominatkin, sickerkin, leper, leperkin -->
 	<label>leper</label>
 	<!-- <label>abomination</label> -->
-	<description>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
-	<descriptionShort>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Icon_Leper0c</iconPath>
+	<description>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream. They are very weak, incredibly ugly, have disgusting habits and tastes, and are difficult to learn new things. However, they can reproduce incredibly quickly, and if they live long enough, they become incredibly strong. But their greatest asset is the ability to restructure their genetic code.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype is a shapeshifter and can change its geneset at any time.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Health):&lt;/color&gt; This xenotype becomes stronger over time.</description>
+	<descriptionShort>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream. They are very weak, incredibly ugly, have disgusting habits and tastes, and are difficult to learn new things. However, they can reproduce incredibly quickly, and if they live long enough, they become incredibly strong. But their greatest asset is the ability to restructure their genetic code.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Leper1c</iconPath>
 	<displayPriority>-1105</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
@@ -17,6 +21,7 @@
 		<li>WVC_Obsession</li>
 		<li>DiseaseFree</li>
 		<li>WVC_FleshmassHeart</li>
+		<!-- <li PoorGuysHook="PatchMeImAboveThem">WVC_Shapeshift_Deathless</li> -->
 		<li>WVC_FleshmassReproduction</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
@@ -28,7 +33,8 @@
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_PsychicHarem</li>
 		<li>WVC_Pain_Passive</li>
-		<li>WVC_FemaleOnly</li>
+		<!-- <li>WVC_FemaleOnly</li> -->
+		<li>Beard_NoBeardOnly</li>
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
 		<li>WVC_Beauty_AbominationallyUgly</li>

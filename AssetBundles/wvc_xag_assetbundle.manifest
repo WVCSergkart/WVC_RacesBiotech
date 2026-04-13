@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2355198366
+CRC: 2879676594
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2710df1b7c9aaa63e0c779e527c22d51
+    Hash: 8f5c1025900e903e38f3fd4fd8b78de4
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 78fac7b50c9952ab9e252f7aeb974d47
+    Hash: da028e405e2bfdcbb42f0e3cefdff7c8
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -257,6 +257,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/NodeGene_FacelessHead/Head_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_MorpherSubGene_Diurnal.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Leper1c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/DevMode_Setttings.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_TemperatureNatural_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Xeno_MasksEvil.png

@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (xenotypesOverride != null)
+				if (!xenotypesOverride.NullOrEmpty())
 				{
 					return xenotypesOverride;
 				}

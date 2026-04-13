@@ -4,4 +4,6 @@
 	<WVC_Label_LongRunningJoke_DoLeave>Give up</WVC_Label_LongRunningJoke_DoLeave>
 	<WVC_Desc_LongRunningJoke_DoLeave>{0} has given up on this community.\n\n{0_pronoun} has decided to leave and pursue a better life elsewhere. You can try to arrest {0_objective} as {0_pronoun} leaves. Otherwise, you may still see {0_objective} again some day.</WVC_Desc_LongRunningJoke_DoLeave>
 
+	<WVC_XaG_FaultyShapeDisease>{0} lost the {1} gene due to genetic overload.</WVC_XaG_FaultyShapeDisease>
+
 </LanguageData>

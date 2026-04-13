@@ -144,12 +144,4 @@
   </XenotypeIconDef>
   <!-- Used -->
 
-  <!-- Leper -->
-  <!-- Used -->
-  <XenotypeIconDef>
-	<defName>WVC_Leper0c</defName>
-	<texPath>WVC/UI/Icons3/Icon_Leper0c</texPath>
-  </XenotypeIconDef>
-  <!-- Used -->
-
 </Defs>
