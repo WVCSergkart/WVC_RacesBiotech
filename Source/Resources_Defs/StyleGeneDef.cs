@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int uniqueStyleId = 0;
 
+		public List<int> allowedStyles;
+
 		[NoTranslate]
 		public string texPathFemale;
 
@@ -20,6 +22,19 @@ namespace WVC_XenotypesAndGenes
 		//public bool useIcon;
 
 		public List<GeneDef> geneDefs;
+
+		public bool AllowedForStyle(int styleId)
+		{
+			if (uniqueStyleId == styleId)
+			{
+				return true;
+			}
+			if (allowedStyles != null)
+			{
+				return allowedStyles.Contains(styleId);
+			}
+			return false;
+		}
 
 		public override Texture2D Icon
 		{

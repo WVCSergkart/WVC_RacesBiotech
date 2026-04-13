@@ -2,6 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using WVC_XenotypesAndGenes.HarmonyPatches;
@@ -251,6 +252,48 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
+		}
+
+	}
+
+	public class Gene_TentacleWings : Gene_Levitation, IGeneCustomGraphic
+	{
+
+		private StyleGeneDef styleGeneDef;
+		public StyleGeneDef StyleGeneDef
+		{
+			get
+			{
+				return styleGeneDef;
+			}
+			set
+			{
+				styleGeneDef = value;
+			}
+		}
+
+		public int StyleId => 2351;
+
+		public Color CurrentColor
+		{
+			get
+			{
+				return pawn.story.SkinColor;
+			}
+			set
+			{
+
+			}
+		}
+
+		public Color? DefaultColor => pawn.story.SkinColor;
+
+		public List<Color> AllColors => new();
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Defs.Look(ref styleGeneDef, "styleGeneDef");
 		}
 
 	}

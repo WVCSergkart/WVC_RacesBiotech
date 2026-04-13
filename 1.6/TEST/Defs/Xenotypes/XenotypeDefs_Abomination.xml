@@ -21,7 +21,6 @@
 		<li>WVC_Obsession</li>
 		<li>DiseaseFree</li>
 		<li>WVC_FleshmassHeart</li>
-		<!-- <li PoorGuysHook="PatchMeImAboveThem">WVC_Shapeshift_Deathless</li> -->
 		<li>WVC_FleshmassReproduction</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
@@ -34,10 +33,12 @@
 		<li>WVC_PsychicHarem</li>
 		<li>WVC_Pain_Passive</li>
 		<!-- <li>WVC_FemaleOnly</li> -->
+		<!-- or -->
 		<li>Beard_NoBeardOnly</li>
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
 		<li>WVC_Beauty_AbominationallyUgly</li>
+		<li>WVC_Wings_TentacleWings</li>
 		<li>WVC_HeadTentacles0c</li>
 		<li>WVC_BodyTentacles</li>
 		<li>WVC_FleshmassSkin</li>

@@ -5,6 +5,7 @@
 	<defName>WVC_Wings_TentacleWings</defName>
 	<label>tentacle wings</label>
 	<description>Carriers of this gene grow large, wing-like tentacle-like growths on their backs. With their help, the carriers can hover above the ground to a limited extent, and although the growths themselves are not real wings, flight is provided by the psychic abilities that these growths provide.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_TentacleWings</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_TentacleWings</iconPath>
 	<missingGeneRomanceChanceFactor>0.70</missingGeneRomanceChanceFactor>
 	<capMods>
@@ -15,9 +16,12 @@
 	</capMods>
 	<renderNodeProperties>
 	  <li>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_Attachments</nodeClass>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
 		<texPaths>
 		  <li>WVC/BodyParts/BodyParts_Wings/TentacleWings</li>
+		  <li>WVC/BodyParts/BodyParts_Wings/TentacleWings1c</li>
+		  <li>WVC/BodyParts/BodyParts_Wings/TentacleWings2c</li>
 		</texPaths>
 		<colorType>Skin</colorType>
 		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>

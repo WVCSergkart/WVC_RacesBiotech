@@ -511,7 +511,7 @@ namespace WVC_XenotypesAndGenes
 			int num4 = 0;
 			int num5 = 0;
 			tmpStyleItems.Clear();
-			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.uniqueStyleId == currentStyleId)));
+			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.AllowedForStyle(currentStyleId))));
 			tmpStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
 			if (tmpStyleItems.NullOrEmpty())
 			{

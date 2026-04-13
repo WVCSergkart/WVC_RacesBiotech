@@ -35,4 +35,24 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class PawnRenderNode_Attachments : PawnRenderNode
+	{
+
+		public PawnRenderNode_Attachments(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+			: base(pawn, props, tree)
+		{
+		}
+
+		protected override string TexPathFor(Pawn pawn)
+		{
+			if (gene is IGeneCustomGraphic styleGene && styleGene.StyleGeneDef != null)
+			{
+				return styleGene.StyleGeneDef.TexPathByGender(pawn.gender);
+			}
+			return base.TexPathFor(pawn);
+		}
+
+
+	}
+
 }
