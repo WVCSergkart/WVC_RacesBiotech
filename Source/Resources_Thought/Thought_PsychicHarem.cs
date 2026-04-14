@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int badMoodTicks = -1;
 
-		public override bool ShouldDiscard => !Gene_PsychicHarem.Harem.Contains(pawn);
+		public override bool ShouldDiscard => !Gene_PsychicHarem.InHarem(pawn);
 
 		public override float MoodOffset()
 		{
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 	public class Thought_Social_PsychicHarem : Thought_MemorySocial_NoFade
 	{
 
-		public override bool ShouldDiscard => !Gene_PsychicHarem.Harem.Contains(pawn) || !Gene_PsychicHarem.Harem.Contains(otherPawn);
+		public override bool ShouldDiscard => !Gene_PsychicHarem.InHarem(pawn) || !Gene_PsychicHarem.InHarem(otherPawn);
 
 		public override float OpinionOffset()
 		{

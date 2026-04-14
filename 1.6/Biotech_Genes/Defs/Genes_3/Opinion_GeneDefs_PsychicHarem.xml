@@ -27,6 +27,9 @@
 			<AboutMeThoughtDef>WVC_PsychicHarem_Opinion</AboutMeThoughtDef>
 			<thoughtDef>WVC_PsychicHarem_Mood</thoughtDef>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDef>WVC_PsychicHarem</hediffDef> -->
+		<!-- </li> -->
 	</modExtensions>
 	<exclusionTags>
 	  <li>WVC_Hivemind_Thoughts</li>
@@ -91,5 +94,14 @@
 	  </li>
 	</stages>
   </ThoughtDef>
+
+  <!-- ============================================== -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_PsychicHarem</defName> -->
+	<!-- <label>psychic harem</label> -->
+	<!-- <description>Due to the psychic connection, some of the character traits are passed on to the harem and are also strengthened in the owner.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_PsychicHarem</hediffClass> -->
+  <!-- </HediffDef> -->
 
 </Defs>

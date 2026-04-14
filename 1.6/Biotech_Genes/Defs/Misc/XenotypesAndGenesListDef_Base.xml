@@ -155,8 +155,97 @@
 		<li>WVC_FleshmassArmor</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_SelfdevourStomach</li>
-		<!-- = -->
+		<!-- From log -->
 		<li>WVC_Dustogenic_Metabolism</li>
+		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_BioferriteGrowths</li>
+		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_DarknessExposure</li>
+		<li>WVC_StoneChunkSpawner_Slate</li>
+		<li>WVC_StoneChunkSpawner_Limestone</li>
+		<li>WVC_StoneChunkSpawner_Granite</li>
+		<li>WVC_StoneChunkSpawner_Sandstone</li>
+		<li>WVC_StoneChunkSpawner_Marble</li>
+		<li>WVC_Mecha_RedFormerSpikesDouble</li>
+		<li>WVC_Mecha_YellowFormerAntennaDouble</li>
+		<li>WVC_Eyes_Colorful</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_MaleOnly</li>
+		<li>WVC_GeneticStability</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Learning_Scarifier</li>
+		<li>WVC_Learning_Telepath</li>
+		<li>WVC_ArchiteMechlink</li>
+		<li>WVC_NaturalMechlink</li>
+		<li>WVC_IncestLover</li>
+		<li>WVC_FamilyByBlood_Basic</li>
+		<li>WVC_SameBloodSameXenotype</li>
+		<li MayRequire="ludeon.rimworld.royalty">WVC_NaturalPsylink</li>
+		<li MayRequire="ludeon.rimworld.royalty">WVC_ArchitePsylink</li>
+		<!-- abilities -->
+		<!-- <li>WVC_EndogermReimplanter</li> -->
+		<!-- <li>WVC_NaturalReimplanter</li> -->
+		<!-- <li>WVC_Reimplanter_RiseFromTheDead</li> -->
+		<!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
+		<!-- <li>WVC_ReimplanterNatural_Endogenes</li> -->
+		<!-- <li>WVC_ReimplanterArchite_Endogenes</li> -->
+		<!-- <li>WVC_ReimplanterNatural_RiseEndogenes</li> -->
+		<!-- <li>WVC_ReimplanterArchite_RiseEndogenes</li> -->
+		<!-- <li>WVC_ReimplanterNatural_Xenogenes</li> -->
+		<!-- <li>WVC_ReimplanterArchite_Xenogenes</li> -->
+		<!-- <li>WVC_ReimplanterNatural_RiseXenogenes</li> -->
+		<!-- <li>WVC_ReimplanterArchite_RiseXenogenes</li> -->
+		<!-- <li>WVC_HybridImplanter</li> -->
+		<!-- <li>WVC_MergeImplanter</li> -->
+		<!-- abilities -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_GeneticStability</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Clotting</li>
+		<li>WVC_RepairSkin</li>
+		<li>WVC_Eyes_Holoeyes</li>
+		<li>WVC_CyclicallySelfLearning</li>
+		<li>WVC_Genemaker</li>
+		<li MayRequire="Ludeon.RimWorld.Ideology">WVC_Chameleon</li>
+		<li>WVC_GenderMorph</li>
+		<li>WVC_ExpEqualizer</li>
+		<li>WVC_BleedStopper</li>
+		<li>WVC_SharedMetabolism</li>
+		<li>WVC_Agevenator</li>
+		<li>WVC_FlycatcherSkin</li>
+		<li>WVC_Generemover</li>
+		<li>WVC_Skillshifter</li>
+		<li>WVC_Traitshifter</li>
+		<li>WVC_Overrider</li>
+		<li>WVC_Pain_Overrider</li>
+		<li>WVC_WoundHealing_Overrider</li>
+		<li>WVC_PerfectImmunity_Overrider</li>
+		<li>WVC_Health_Overrider</li>
+		<li>WVC_OverallAdaptation_Overrider</li>
+		<li>WVC_Stomach_Overrider</li>
+		<li>WVC_Tough_Overrider</li>
+		<li>WVC_Wimp_Overrider</li>
+		<li>WVC_Learning_Overrider</li>
+		<li>WVC_NoLearning_Overrider</li>
+		<li>WVC_Ageless_Overrider</li>
+		<li>WVC_Aging_Overrider</li>
+		<li>WVC_Solar_Overrider</li>
+		<li MayRequire="Ludeon.RimWorld.Ideology">WVC_Scars_Overrider</li>
+		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_DeathRefusal</li>
+		<li>WVC_MechSummon_Light</li>
+		<li>WVC_MechSummon_Medium</li>
+		<li>WVC_MechSummon_Heavy</li>
+		<li>WVC_MechSummon_UltraHeavy</li>
+		<li>WVC_MechaAI_SoftwareManipulation</li>	<!-- horror plating -->
+		<li>WVC_Dustogenic_Ageless</li>	<!-- feathered ageless -->
+		<li>WVC_NodeSkin</li>	<!-- eyeless -->
+		<li>WVC_XenotypesAndGenes_RandomEndotypeForcer</li>	<!-- random endotype -->
+		<li>WVC_XenotypesAndGenes_RandomXenotypeForcer</li>	<!-- random xenotype -->
+		<li>WVC_MecaBodyParts_Heart</li>	<!-- archite-clotting -->
+		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_Inhumanized</li>	<!-- inhuman -->
+		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_Rehumanized</li>	<!-- rehuman -->
+		<li>WVC_Traitless</li>	<!-- traitless -->
+		<li>WVC_Dustogenic</li>	<!-- bottomless belly -->
+		<li>WVC_Shapeshift_Deathless</li>	<!-- cellular -->
+		<li>WVC_MechaAI_Base</li>	<!-- excellent memory -->
+		<li>WVC_Learning_SlowNoSkillDecay</li>	<!-- stubborn study -->
+		<li>WVC_WoundHealing_SelfRepair</li>	<!-- self-repair wound healing -->
+		<!-- From log -->
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>

@@ -274,6 +274,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!pawnAbilities.Contains(ability))
 					{
+						if (item.mutant?.Def?.abilityWhitelist != null && !item.mutant.Def.abilityWhitelist.Contains(ability))
+						{
+							continue;
+						}
 						item.abilities.GainAbility(ability);
 					}
 				}

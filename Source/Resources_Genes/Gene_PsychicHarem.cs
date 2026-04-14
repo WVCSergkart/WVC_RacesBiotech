@@ -8,18 +8,31 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PsychicHarem : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
+		private GeneExtension_Opinion cachedOpinionExtension;
+		public GeneExtension_Opinion Opinion
 		{
 			get
 			{
-				if (cachedExtension == null)
+				if (cachedOpinionExtension == null)
 				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+					cachedOpinionExtension = def?.GetModExtension<GeneExtension_Opinion>();
 				}
-				return cachedExtension;
+				return cachedOpinionExtension;
 			}
 		}
+
+		//private GeneExtension_Giver cachedGiverExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGiverExtension == null)
+		//		{
+		//			cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGiverExtension;
+		//	}
+		//}
 
 		private static List<Pawn> cachedPawns;
 		public static List<Pawn> Harem
@@ -46,6 +59,15 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedPawns;
 			}
+		}
+
+		public static bool InHarem(Pawn caller)
+		{
+			if (caller == null)
+			{
+				return false;
+			}
+			return Harem.Contains(caller);
 		}
 
 		public override void PostAdd()
@@ -79,11 +101,13 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (member != pawn)
 						{
-							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, member);
-							member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.AboutMeThoughtDef, member);
+							member.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.AboutMeThoughtDef, pawn);
 						}
 					}
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, null);
+					//HediffUtility.TryAddHediff(Giver.hediffDef, pawn, def);
+					//Hediff_PsychicHarem.curStage = null;
 				}
 			}
 			catch (Exception arg)
@@ -124,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 			ResetCollection();
 			foreach (Pawn pawn in Harem)
 			{
-				Thought_Memory thought_Memory = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thoughtDef);
+				Thought_Memory thought_Memory = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Opinion.thoughtDef);
 				if (thought_Memory != null && thought_Memory is Thought_PsychicHarem haremMood)
 				{
 					haremMood.badMoodTicks = Find.TickManager.TicksGame + (60000 * 5);

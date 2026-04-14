@@ -675,9 +675,9 @@ namespace WVC_XenotypesAndGenes
 
 			public static void Incestuous_LovinChanceFactor(ref float __result, Pawn ___pawn, ref Pawn otherPawn, Pawn_RelationsTracker __instance)
 			{
-				if (Gene_PsychicHarem.Harem.Contains(___pawn) && Gene_PsychicHarem.Harem.Contains(otherPawn))
+				if (Gene_PsychicHarem.InHarem(___pawn) && Gene_PsychicHarem.InHarem(otherPawn))
 				{
-					__result = 999f;
+					__result *= 999f;
 				}
 				else if (__instance.FamilyByBlood.Contains(otherPawn) && ___pawn?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
 				{
@@ -697,7 +697,7 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < __instance.GenesListForReading.Count; i++)
 				{
 					Gene gene = __instance.GenesListForReading[i];
-					if (gene?.Active != true || gene?.def?.hediffGiversCannotGive == null)
+					if (gene?.def?.hediffGiversCannotGive == null || !gene.Active)
 					{
 						continue;
 					}
