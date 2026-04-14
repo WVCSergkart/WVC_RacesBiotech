@@ -171,12 +171,12 @@
 		<li>WVC_MaleOnly</li>
 		<li>WVC_GeneticStability</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Learning_Scarifier</li>
-		<li>WVC_Learning_Telepath</li>
+		<!-- <li>WVC_Learning_Telepath</li> -->
 		<li>WVC_ArchiteMechlink</li>
 		<li>WVC_NaturalMechlink</li>
 		<li>WVC_IncestLover</li>
-		<li>WVC_FamilyByBlood_Basic</li>
-		<li>WVC_SameBloodSameXenotype</li>
+		<!-- <li>WVC_FamilyByBlood_Basic</li> -->
+		<!-- <li>WVC_SameBloodSameXenotype</li> -->
 		<li MayRequire="ludeon.rimworld.royalty">WVC_NaturalPsylink</li>
 		<li MayRequire="ludeon.rimworld.royalty">WVC_ArchitePsylink</li>
 		<!-- abilities -->
