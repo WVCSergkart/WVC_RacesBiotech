@@ -9,7 +9,8 @@
 	<label>gestation</label>
 	<description>Archites slowly forms new life. This process requires a considerable amount of the organism's resources, which leads to a significant weakening of the pawn.</description>
 	<hediffClass>HediffWithComps</hediffClass>
-	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<!-- <defaultLabelColor>(255,255,255)</defaultLabelColor> -->
+	<defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
 	<preventsPregnancy>true</preventsPregnancy>
 	<removeOnQuestLodgers>true</removeOnQuestLodgers>
 	<pregnant>true</pregnant>

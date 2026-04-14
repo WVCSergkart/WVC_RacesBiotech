@@ -113,7 +113,10 @@
 
 	<WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene>
 
-	<WVC_XaG_GenesSettings_DescTip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
+	<WVC_XaG_Tip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt;</WVC_XaG_Tip>
+	<WVC_XaG_Tips>&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;</WVC_XaG_Tips>
+	<WVC_XaG_GenesSettings_DescTip>Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
+	<WVC_XaG_IGeneCustomGraphic_DescTip>Style can be changed using the &lt;color=#8a8ae6&gt;shapeshifter, chimera, or chameleon&lt;/color&gt; genes.</WVC_XaG_IGeneCustomGraphic_DescTip>
 
 	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>
 

@@ -236,10 +236,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void UniqueDescAutopatch(GeneDef geneDef)
 		{
-			if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
-			{
-				geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
-			}
+			SetTips(geneDef);
 			if (geneDef.customEffectDescriptions == null)
 			{
 				geneDef.customEffectDescriptions = new();
@@ -274,6 +271,40 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
+			}
+		}
+
+		private static void SetTips(GeneDef geneDef)
+		{
+			bool isRemoteController = WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>();
+			bool isCustomGraphic = ModsConfig.IdeologyActive && geneDef.IsGeneDefOfType<IGeneCustomGraphic>();
+			if (isRemoteController || isCustomGraphic)
+			{
+				bool tipsInsteadTip = isRemoteController && isCustomGraphic;
+				if (tipsInsteadTip)
+				{
+					geneDef.description += "\n\n" + "WVC_XaG_Tips".Translate().ToString();
+					if (isRemoteController)
+					{
+						geneDef.description += "\n  - " + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
+					}
+					if (isCustomGraphic)
+					{
+						geneDef.description += "\n  - " + "WVC_XaG_IGeneCustomGraphic_DescTip".Translate().ToString();
+					}
+				}
+				else
+				{
+					geneDef.description += "\n\n" + "WVC_XaG_Tip".Translate().ToString();
+					if (isRemoteController)
+					{
+						geneDef.description += " " + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
+					}
+					if (isCustomGraphic)
+					{
+						geneDef.description += " " + "WVC_XaG_IGeneCustomGraphic_DescTip".Translate().ToString();
+					}
+				}
 			}
 		}
 

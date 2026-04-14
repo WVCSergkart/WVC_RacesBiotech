@@ -30,6 +30,9 @@ namespace WVC_XenotypesAndGenes
 
 		public ThrallDef defaultThrallDef;
 
+		public ThoughtDef opinionDef;
+		public ThoughtDef memoryDef;
+
 		public CompProperties_AbilityReimplanter()
 		{
 			compClass = typeof(CompAbilityEffect_NewImplanter);
