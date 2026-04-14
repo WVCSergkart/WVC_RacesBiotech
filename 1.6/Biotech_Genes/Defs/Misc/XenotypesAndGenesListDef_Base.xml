@@ -80,6 +80,7 @@
 		<li>WVC_Wings_Levitation</li>
 		<li>WVC_Wings_MembranousWings</li>
 		<li>WVC_Wings_FeatheredWings</li>
+		<li>WVC_Wings_TentacleWings</li>
 		<li>WVC_MecaBodyParts_Lung</li>
 		<!-- = -->
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier</li>
@@ -90,8 +91,13 @@
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_StrongMelee</li>
 		<!-- = -->
 		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>WVC_Dustogenic_Clotting</li>
 		<!-- = -->
 		<li>WVC_Feminine</li>
+		<!-- = -->
+		<li>WVC_FeatherSkin</li>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_BodyTentacles</li>
 		<!-- = -->
 		<li>WVC_RandomGeneticSpeciality</li>
 		<li>WVC_RandomLearning</li>
@@ -135,6 +141,22 @@
 		<!-- for performance purposes -->
 		<li>WVC_Beauty_AbominationallyUgly</li>
 		<li>WVC_Dustogenic_AngelBeauty</li>
+		<!-- = -->
+		<li>WVC_HeadTentacles0c</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>
+		<li>WVC_Rejuvenator</li>
+		<li>WVC_WoundHealing_Unnatural</li>
+		<li>WVC_MecaBodyParts_Kidney</li>
+		<li>WVC_HealingStomach</li>
+		<li>WVC_UVSensitivity_Deadly</li>
+		<!-- = -->
+		<li>WVC_FleshmassRegeneration</li>
+		<li>WVC_FleshmassArmor</li>
+		<li>WVC_FleshmassAging</li>
+		<li>WVC_SelfdevourStomach</li>
+		<!-- = -->
+		<li>WVC_Dustogenic_Metabolism</li>
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>

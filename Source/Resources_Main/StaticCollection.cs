@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 			FamilyUtility.lastRecacheTick = -1;
 			GeneshiftUtility.lastRecacheTick = -1;
 			Gene_Switcher.cachedHolders = null;
-			Gene_PackMentality.lastRecacheTick = -1;
+			Gene_PackMentality.ResetCache();
 			Gene_Recluse.lastRecacheTick = -1;
 			CompStylingStation.cachedPawns = null;
 			//Thought_PsychicHarem.badMoodTicks = -1;

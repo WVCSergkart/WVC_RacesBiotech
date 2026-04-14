@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				StyleGeneDef = DefDatabase<StyleGeneDef>.AllDefsListForReading?.Where(style => style.uniqueStyleId == StyleId)?.RandomElement();
+				StyleGeneDef = StyleGeneDef.GetRandomDefForStyleGene(this);
 			}
 			catch
 			{

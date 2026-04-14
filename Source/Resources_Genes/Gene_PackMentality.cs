@@ -47,32 +47,18 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Notify_GenesRecache(null);
-			UpdThoughts();
+			ResetCache();
 		}
 
-		//private static int? cachedRefreshRate;
-		//public static int TickRefresh
-		//{
-		//	get
-		//	{
-		//		if (!cachedRefreshRate.HasValue)
-		//		{
-		//			cachedRefreshRate = (int)(57835 * ((ThePack.Count > 1 ? ThePack.Count : 1) * 0.5f));
-		//		}
-		//		return cachedRefreshRate.Value;
-		//	}
-		//}
+		//public static int lastRecacheTick = -1;
 
-		public static int lastRecacheTick = -1;
-		public static bool ShouldUpdate => Find.TickManager.TicksGame > lastRecacheTick;
+		private static int lastRecacheTick = -1;
+		public static bool ShouldUpdate => shouldUpdate || Find.TickManager.TicksGame > lastRecacheTick;
+
+		private static bool shouldUpdate = true;
 
 		public override void TickInterval(int delta)
 		{
-			//if (!pawn.IsHashIntervalTick(TickRefresh, delta))
-			//{
-			//	return;
-			//}
 			if (ShouldUpdate)
 			{
 				UpdThoughts();
@@ -81,15 +67,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdThoughts()
 		{
-			if (pawn?.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
-			Notify_GenesRecache(null);
-			//if (!ThePack.Contains(pawn))
+			//if (pawn?.Faction != Faction.OfPlayer)
 			//{
-			//	Notify_GenesChanged(null);
+			//	return;
 			//}
+			//Notify_GenesRecache(null);
 			try
 			{
 				foreach (Pawn pawn in ThePack)
@@ -109,34 +91,40 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Warning("Failed update pack thoughts. Reason: " + arg.Message);
 			}
-			lastRecacheTick = Find.TickManager.TicksGame + 57835;
+			shouldUpdate = false;
+			lastRecacheTick = Find.TickManager.TicksGame + 60000;
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Notify_GenesRecache(null);
-			UpdThoughts();
+			ResetCache();
 		}
 
 		public void Notify_GenesRecache(Gene changedGene)
 		{
+			ResetCache();
+		}
+
+		public static void ResetCache()
+		{
 			cachedPackPawns = null;
+			shouldUpdate = true;
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesRecache(null);
+			ResetCache();
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesRecache(null);
-			UpdThoughts();
+			ResetCache();
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
+			//ResetCache();
 			foreach (Pawn member in ThePack)
 			{
 				if (member != pawn)

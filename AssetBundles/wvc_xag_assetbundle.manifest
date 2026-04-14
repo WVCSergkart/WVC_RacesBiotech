@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 943069599
+CRC: 4115246254
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cd00e4622c0211b797aa7bb89c8d38cb
+    Hash: dec2d2863b7f495ebe369afba468d546
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: f36e8c04c279aa8a0b46b012372390c6
+    Hash: a3726ed1598a646ae343e2ea2fc8f992
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -77,6 +77,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_StasisLearning.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Construction/ScarifierSkills_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_ShapeshifterFur_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings4c_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/SkillDown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/CatTailA_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/InvisibleThing.png
@@ -136,6 +137,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemLifter_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Ripper.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Artistic/Archite2.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings3c_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_Lilith_v2.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/DemonTailB_south.png
@@ -336,6 +338,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/XGTex_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FurskinA_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_UnnaturalWoundHealing_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings3c_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FurskinE_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_MetLimit_0x5c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Mecha_Genepack/Archopack_c.png
@@ -866,11 +869,12 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_HemogenicGain_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_MaleOnly.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Medicine/Minus.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Reincarnation_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings3c_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad_northm.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_MorpherSubGene_OneTimeUse.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Orientation.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Reincarnation_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Icon_Thrall_Demon1c_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Orientation.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Precepts/Precept_Undead.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/Transparent_Head/Head_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DarknessExposure_v0.png
@@ -1032,9 +1036,10 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_TelepathLearning_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Shooting/Archite2.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Shapeshifter_Body/Naked_Female_east.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_GenderMorph.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings4c_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsBrokenA_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Intellectual/Archite2.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_GenderMorph.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Thin_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsB_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/ArchiteSerum_v1.png
@@ -1171,6 +1176,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/W_Genepack/Genepack_d.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Fat_east.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings4c_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Precepts/Memes_GreatFamily.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno3.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/GeneBackground_Xenogene.png

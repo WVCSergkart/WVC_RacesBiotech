@@ -12,7 +12,7 @@
 	<customEffectDescriptions>
 		<li>Each pawn with this gene get a +50 to &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; about carriers of this gene.</li>
 		<li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, the size of which is the number of pawns in the pack.</li>
-		<li>&lt;color=#8a8ae6&gt;Updated&lt;/color&gt; once a &lt;color=#8a8ae6&gt;day&lt;/color&gt; or when a new pawn is added to the pack.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Updated&lt;/color&gt; once a &lt;color=#8a8ae6&gt;day&lt;/color&gt; or when a new pawn is added to the pack.</li> -->
 	</customEffectDescriptions>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>

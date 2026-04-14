@@ -2,6 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -258,6 +259,24 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_TentacleWings : Gene_Levitation, IGeneCustomGraphic
 	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			SetRandomStyle();
+		}
+
+		private void SetRandomStyle()
+		{
+			try
+			{
+				StyleGeneDef = StyleGeneDef.GetRandomDefForStyleGene(this);
+			}
+			catch (Exception arg)
+			{
+				Log.Warning("Failed set random style for gene: " + def.defName + ". Reason: " + arg.Message);
+			}
+		}
 
 		private StyleGeneDef styleGeneDef;
 		public StyleGeneDef StyleGeneDef

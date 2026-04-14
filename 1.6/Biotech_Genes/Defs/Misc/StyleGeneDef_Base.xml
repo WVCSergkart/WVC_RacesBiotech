@@ -97,14 +97,28 @@
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
 	<defName>WVC_TentacleWings0c</defName>
 	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings</texPath>
+	<!-- For random selection. Used manually (in class) for few genes. selectionWeight = default 1 -->
+	<selectionWeight>1.0</selectionWeight>
   </WVC_XenotypesAndGenes.StyleGeneDef>
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
 	<defName>WVC_TentacleWings1c</defName>
 	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings1c</texPath>
+	<selectionWeight>0.8</selectionWeight>
   </WVC_XenotypesAndGenes.StyleGeneDef>
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
 	<defName>WVC_TentacleWings2c</defName>
 	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings2c</texPath>
+	<selectionWeight>1.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings3c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings3c</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings4c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings4c</texPath>
+	<selectionWeight>0.4</selectionWeight>
   </WVC_XenotypesAndGenes.StyleGeneDef>
 
   <!-- ======================================== -->

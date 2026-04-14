@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -14,6 +15,8 @@ namespace WVC_XenotypesAndGenes
 		public int uniqueStyleId = 0;
 
 		public List<int> allowedStyles;
+
+		public float selectionWeight = 1f;
 
 		[NoTranslate]
 		public string texPathFemale;
@@ -34,6 +37,15 @@ namespace WVC_XenotypesAndGenes
 				return allowedStyles.Contains(styleId);
 			}
 			return false;
+		}
+
+		public static StyleGeneDef GetRandomDefForStyleGene(IGeneCustomGraphic gene)
+		{
+			if (DefDatabase<StyleGeneDef>.AllDefsListForReading.Where(style => style.selectionWeight > 0f && style.AllowedForStyle(gene.StyleId)).TryRandomElementByWeight(style => style.selectionWeight, out StyleGeneDef styleGeneDef))
+			{
+				return styleGeneDef;
+			}
+			return null;
 		}
 
 		public override Texture2D Icon
