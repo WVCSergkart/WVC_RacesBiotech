@@ -35,7 +35,7 @@ Please note that this may impact some mechanics, which may become unavailable or
 A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>
-	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent.</WVC_ToolTip_disableXenotypes_Undeads>
+	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent, Leper.</WVC_ToolTip_disableXenotypes_Undeads>
 
 	<WVC_Label_disableXenotypes_Psycasters>|- Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
 	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>

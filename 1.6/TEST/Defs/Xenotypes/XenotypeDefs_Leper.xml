@@ -14,7 +14,7 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Health):&lt;/color&gt; This xenotype becomes stronger over time.</description>
 	<descriptionShort>Lepers are ageless super-humans powered by archotech-created archites in the bloodstream. They are very weak, incredibly ugly, have disgusting habits and tastes, and are difficult to learn new things. However, they can reproduce incredibly quickly, and if they live long enough, they become incredibly strong. But their greatest asset is the ability to restructure their genetic code.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Leper1c</iconPath>
-	<displayPriority>-1105</displayPriority>
+	<displayPriority>-1022</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
