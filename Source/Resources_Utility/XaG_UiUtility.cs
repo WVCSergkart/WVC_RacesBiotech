@@ -481,244 +481,249 @@ namespace WVC_XenotypesAndGenes
 
 		public static void DevOptions(Listing_Standard listingStandard, Mod mod)
 		{
-			if (Prefs.DevMode)
+			if (!Prefs.DevMode)
 			{
-				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
+				return;
+			}
+			if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
+			{
+				List<GeneDef> genes = new();
+				int genesCount = 0;
+				foreach (Def def in mod.Content.AllDefs)
 				{
-					List<GeneDef> genes = new();
-					int genesCount = 0;
-					foreach (Def def in mod.Content.AllDefs)
+					if (def is GeneDef geneDef)
 					{
-						if (def is GeneDef geneDef)
-						{
-							genesCount++;
-							genes.Add(geneDef);
-						}
-					}
-					Log.Error("WVC Genes: " + genesCount.ToString());
-					if (!genes.NullOrEmpty())
-					{
-						Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
-					}
-					else
-					{
-						Log.Error("Genes list is null");
+						genesCount++;
+						genes.Add(geneDef);
 					}
 				}
-				if (listingStandard.ButtonText("DEV: Count used in xenotypes genes"))
+				Log.Error("WVC Genes: " + genesCount.ToString());
+				if (!genes.NullOrEmpty())
 				{
-					List<GeneDef> genes = new();
-					int genesCount = 0;
-					foreach (Def def in mod.Content.AllDefs)
+					Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Error("Genes list is null");
+				}
+			}
+			if (listingStandard.ButtonText("DEV: Count used in xenotypes genes"))
+			{
+				List<GeneDef> genes = new();
+				int genesCount = 0;
+				foreach (Def def in mod.Content.AllDefs)
+				{
+					if (def is XenotypeDef xenotypeDef)
 					{
-						if (def is XenotypeDef xenotypeDef)
+						foreach (GeneDef geneDef in xenotypeDef.genes)
 						{
-							foreach (GeneDef geneDef in xenotypeDef.genes)
+							if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
 							{
-								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+								genesCount++;
+								genes.Add(geneDef);
+							}
+						}
+					}
+				}
+				Log.Error("WVC Genes: " + genesCount.ToString());
+				if (!genes.NullOrEmpty())
+				{
+					Log.Error("All xenotype genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Error("Genes list is null");
+				}
+			}
+			if (listingStandard.ButtonText("DEV: Count used in thrallDefs genes"))
+			{
+				List<GeneDef> genes = new();
+				int genesCount = 0;
+				foreach (Def def in mod.Content.AllDefs)
+				{
+					if (def is ThrallDef xenotypeDef)
+					{
+						foreach (GeneDef geneDef in xenotypeDef.genes)
+						{
+							if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+							{
+								genesCount++;
+								genes.Add(geneDef);
+							}
+						}
+					}
+				}
+				Log.Error("WVC Genes: " + genesCount.ToString());
+				if (!genes.NullOrEmpty())
+				{
+					Log.Error("All thrall genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Error("Genes list is null");
+				}
+			}
+			if (listingStandard.ButtonText("DEV: Log genes weights"))
+			{
+				// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+				// {
+				// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
+				// }
+				Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
+			}
+			if (listingStandard.ButtonText("DEV: Log Gene_CustomHair"))
+			{
+				Log.Error("Custom hair genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((g) => g.IsGeneDefOfType<Gene_CustomHair>()).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
+			}
+			if (listingStandard.ButtonText("DEV: Count unused in xenotypes genes"))
+			{
+				List<GeneDef> genes = new();
+				int genesCount = 0;
+				foreach (Def def in mod.Content.AllDefs)
+				{
+					if (def is XenotypeDef xenotypeDef)
+					{
+						foreach (GeneDef geneDef in xenotypeDef.genes)
+						{
+							if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+							{
+								genesCount++;
+								genes.Add(geneDef);
+							}
+						}
+					}
+				}
+				Log.Error("WVC used genes: " + genesCount.ToString());
+				if (!genes.NullOrEmpty())
+				{
+					Log.Error("All unused genes:" + "\n" + mod.Content.AllDefs.Where((Def x) => x is GeneDef geneDef && !genes.Contains(geneDef) && geneDef.GetModExtension<GeneExtension_Obsolete>() == null).Select((Def x) => x.defName).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Error("Genes list is null");
+				}
+			}
+			if (listingStandard.ButtonText("DEV: Log used genes"))
+			{
+				Dictionary<GeneDef, int> genes = new();
+				foreach (Def def in mod.Content.AllDefs)
+				{
+					if (def is XenotypeDef xenotypeDef)
+					{
+						foreach (GeneDef geneDef in xenotypeDef.genes)
+						{
+							if (geneDef.IsXenoGenesDef())
+							{
+								if (!genes.TryGetValue(geneDef, out int dgene))
 								{
-									genesCount++;
-									genes.Add(geneDef);
+									genes[geneDef] = 1;
+								}
+								else
+								{
+									// Log.Error(geneDef.defName + " +1");
+									genes[geneDef] += 1;
 								}
 							}
 						}
 					}
-					Log.Error("WVC Genes: " + genesCount.ToString());
-					if (!genes.NullOrEmpty())
-					{
-						Log.Error("All xenotype genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
-					}
-					else
-					{
-						Log.Error("Genes list is null");
-					}
 				}
-				if (listingStandard.ButtonText("DEV: Count used in thrallDefs genes"))
+				if (!genes.NullOrEmpty())
 				{
-					List<GeneDef> genes = new();
-					int genesCount = 0;
-					foreach (Def def in mod.Content.AllDefs)
+					string text = "";
+					foreach (var item in genes)
 					{
-						if (def is ThrallDef xenotypeDef)
+						text += "\n" + item.Key.defName + ": " + item.Value.ToString();
+					}
+					Log.Error("Genes:" + text);
+				}
+				else
+				{
+					Log.Error("Genes list is null");
+				}
+			}
+			if (listingStandard.ButtonText("DEV: Log obsolete genes"))
+			{
+				Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
+			}
+			if (listingStandard.ButtonText("DEV: Log obsolete genes in xenotypes"))
+			{
+				string log = "Xenotypes:";
+				foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+				{
+					log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
+					if (xenotypeDef.genes == null)
+					{
+						continue;
+					}
+					foreach (GeneDef geneDef in xenotypeDef.genes)
+					{
+						if (geneDef.IsObsolete())
 						{
-							foreach (GeneDef geneDef in xenotypeDef.genes)
-							{
-								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
-								{
-									genesCount++;
-									genes.Add(geneDef);
-								}
-							}
+							log += "\n" + geneDef.defName + " | " + geneDef.label;
 						}
 					}
-					Log.Error("WVC Genes: " + genesCount.ToString());
-					if (!genes.NullOrEmpty())
+				}
+				log += "\nThralls:";
+				foreach (ThrallDef xenotypeDef in DefDatabase<ThrallDef>.AllDefsListForReading)
+				{
+					log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
+					if (xenotypeDef.genes == null)
 					{
-						Log.Error("All thrall genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+						continue;
 					}
-					else
+					foreach (GeneDef geneDef in xenotypeDef.genes)
 					{
-						Log.Error("Genes list is null");
-					}
-				}
-				if (listingStandard.ButtonText("DEV: Log genes weights"))
-				{
-					// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
-					// {
-					// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
-					// }
-					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
-				}
-				if (listingStandard.ButtonText("DEV: Log Gene_CustomHair"))
-				{
-					Log.Error("Custom hair genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((g) => g.IsGeneDefOfType<Gene_CustomHair>()).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
-				}
-				if (listingStandard.ButtonText("DEV: Count unused in xenotypes genes"))
-				{
-					List<GeneDef> genes = new();
-					int genesCount = 0;
-					foreach (Def def in mod.Content.AllDefs)
-					{
-						if (def is XenotypeDef xenotypeDef)
+						if (geneDef.IsObsolete())
 						{
-							foreach (GeneDef geneDef in xenotypeDef.genes)
-							{
-								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
-								{
-									genesCount++;
-									genes.Add(geneDef);
-								}
-							}
+							log += "\n" + geneDef.defName + " | " + geneDef.label;
 						}
 					}
-					Log.Error("WVC used genes: " + genesCount.ToString());
-					if (!genes.NullOrEmpty())
-					{
-						Log.Error("All unused genes:" + "\n" + mod.Content.AllDefs.Where((Def x) => x is GeneDef geneDef && !genes.Contains(geneDef) && geneDef.GetModExtension<GeneExtension_Obsolete>() == null).Select((Def x) => x.defName).ToLineList(" - "));
-					}
-					else
-					{
-						Log.Error("Genes list is null");
-					}
 				}
-				if (listingStandard.ButtonText("DEV: Log used genes"))
+				Log.Error("Obsolete genes:" + "\n" + log);
+			}
+			if (listingStandard.ButtonText("DEV: Log chimerkins"))
+			{
+				Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
+			}
+			if (listingStandard.ButtonText("DEV: Log xenotypes"))
+			{
+				IEnumerable<XenotypeDef> enumerable = ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => xenos.IsXenoGenesDef());
+				Log.Error("All xenotypes " + enumerable.Count() + ":" + "\n" + enumerable.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
+			}
+			if (listingStandard.ButtonText("DEV: Log genes dump for wiki"))
+			{
+				string text = "Dump: ";
+				List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
+				List<GeneCategoryDef> geneCategoryDefs = DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)).ToList();
+				geneCategoryDefs.SortBy(def => -def.displayPriorityInXenotype);
+				allDefsListForReading.SortBy(def => def.displayOrderInCategory);
+				foreach (GeneCategoryDef geneCategoryDef in geneCategoryDefs)
 				{
-					Dictionary<GeneDef, int> genes = new();
-					foreach (Def def in mod.Content.AllDefs)
+					text += "\n\n# " + geneCategoryDef.LabelCap;
+					foreach (GeneDef geneDef in allDefsListForReading)
 					{
-						if (def is XenotypeDef xenotypeDef)
-						{
-							foreach (GeneDef geneDef in xenotypeDef.genes)
-							{
-								if (geneDef.IsXenoGenesDef())
-								{
-									if (!genes.TryGetValue(geneDef, out int dgene))
-									{
-										genes[geneDef] = 1;
-									}
-									else
-									{
-										// Log.Error(geneDef.defName + " +1");
-										genes[geneDef] += 1;
-									}
-								}
-							}
-						}
-					}
-					if (!genes.NullOrEmpty())
-					{
-						string text = "";
-						foreach (var item in genes)
-						{
-							text += "\n" + item.Key.defName + ": " + item.Value.ToString();
-						}
-						Log.Error("Genes:" + text);
-					}
-					else
-					{
-						Log.Error("Genes list is null");
-					}
-				}
-				if (listingStandard.ButtonText("DEV: Log obsolete genes"))
-				{
-					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
-				}
-				if (listingStandard.ButtonText("DEV: Log obsolete genes in xenotypes"))
-				{
-					string log = "Xenotypes:";
-					foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
-					{
-						log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
-						if (xenotypeDef.genes == null)
+						if (geneDef.displayCategory != geneCategoryDef || geneDef.IsObsolete() || !geneDef.IsXenoGenesDef())
 						{
 							continue;
 						}
-						foreach (GeneDef geneDef in xenotypeDef.genes)
-						{
-							if (geneDef.IsObsolete())
-							{
-								log += "\n" + geneDef.defName + " | " + geneDef.label;
-							}
-						}
+						//text += "\n## " + geneDef.LabelCap;
+						//text += "\n" + "defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`";
+						text += "\n##" + XaG_GeneUtility.GetDescriptionFull_Wiki(geneDef);
+						//text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
 					}
-					log += "\nThralls:";
-					foreach (ThrallDef xenotypeDef in DefDatabase<ThrallDef>.AllDefsListForReading)
-					{
-						log += "\n " + xenotypeDef.defName + " | " + xenotypeDef.label + ":";
-						if (xenotypeDef.genes == null)
-						{
-							continue;
-						}
-						foreach (GeneDef geneDef in xenotypeDef.genes)
-						{
-							if (geneDef.IsObsolete())
-							{
-								log += "\n" + geneDef.defName + " | " + geneDef.label;
-							}
-						}
-					}
-					Log.Error("Obsolete genes:" + "\n" + log);
 				}
-				if (listingStandard.ButtonText("DEV: Log chimerkins"))
-				{
-					Log.Error("Chimera xenotypes:" + "\n" + ListsUtility.ChimeraXenotypes.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
-				}
-				if (listingStandard.ButtonText("DEV: Log xenotypes"))
-				{
-					IEnumerable<XenotypeDef> enumerable = ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => xenos.IsXenoGenesDef());
-					Log.Error("All xenotypes " + enumerable.Count() + ":" + "\n" + enumerable.Select((XenotypeDef x) => x.defName + " | " + x.LabelCap.ToString()).ToLineList(" - "));
-				}
-				if (listingStandard.ButtonText("DEV: Log genes dump for wiki"))
-				{
-					string text = "Dump: ";
-					List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
-					List<GeneCategoryDef> geneCategoryDefs = DefDatabase<GeneCategoryDef>.AllDefsListForReading.Where(def => allDefsListForReading.Any(geneDef => geneDef.IsXenoGenesDef() && !geneDef.IsObsolete() && geneDef.displayCategory == def)).ToList();
-					geneCategoryDefs.SortBy(def => -def.displayPriorityInXenotype);
-					allDefsListForReading.SortBy(def => def.displayOrderInCategory);
-					foreach (GeneCategoryDef geneCategoryDef in geneCategoryDefs)
-					{
-						text += "\n\n# " + geneCategoryDef.LabelCap;
-						foreach (GeneDef geneDef in allDefsListForReading)
-						{
-							if (geneDef.displayCategory != geneCategoryDef || geneDef.IsObsolete() || !geneDef.IsXenoGenesDef())
-							{
-								continue;
-							}
-							//text += "\n## " + geneDef.LabelCap;
-							//text += "\n" + "defName: `" + geneDef.defName + "` | geneClass: `" + geneDef.geneClass + "`";
-							text += "\n##" + XaG_GeneUtility.GetDescriptionFull_Wiki(geneDef);
-							//text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
-						}
-					}
-					// Without this, tags will be buggy
-					text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
-					text.ResolveTags();
-					Log.Error(text);
-				}
-				if (listingStandard.ButtonText("DEV: Log mutant excepted genes"))
-				{
-					Log.Error("Ghoul disables genes:" + "\n" + MutantDefOf.Ghoul.disablesGenes.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
-				}
+				// Without this, tags will be buggy
+				text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
+				text.ResolveTags();
+				Log.Error(text);
+			}
+			if (listingStandard.ButtonText("DEV: Log mutant excepted genes"))
+			{
+				Log.Error("Ghoul disables genes:" + "\n" + MutantDefOf.Ghoul.disablesGenes.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
+			}
+			if (listingStandard.ButtonText("DEV: Average gene complexity"))
+			{
+				Log.Error("Average cpx: " + XaG_GeneUtility.GetAverageCpx);
 			}
 		}
 

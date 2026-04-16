@@ -15,6 +15,20 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static float GetAverageCpx
+		{
+			get
+			{
+				List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
+				float averageCpx = allDefsListForReading.Sum(gene => gene.biostatCpx) / allDefsListForReading.Count;
+				if (averageCpx < 1)
+				{
+					return 1;
+				}
+				return averageCpx;
+			}
+		}
+
 		public static bool ActiveDowned(Pawn pawn, Gene gene)
 		{
 			return !pawn.Downed || !gene.Active;

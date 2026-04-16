@@ -755,7 +755,8 @@ namespace WVC_XenotypesAndGenes
 
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 
-		public int XenogenesLimit
+		// Info Only
+		public int ComplexityLimit
 		{
 			get
 			{
@@ -795,11 +796,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!ReqCooldown || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 				{
-					if (XenogenesLimit > 0)
-					{
-						return true;
-					}
-					return "WVC_XaG_Gene_Chimera_LimitToLow".Translate();
+					//if (ComplexityLimit > 0)
+					//{
+					//	return true;
+					//}
+					//return "WVC_XaG_Gene_Chimera_LimitToLow".Translate();
+					return true;
 				}
 				return "WVC_XaG_Gene_Chimera_InCooldown".Translate();
 			}

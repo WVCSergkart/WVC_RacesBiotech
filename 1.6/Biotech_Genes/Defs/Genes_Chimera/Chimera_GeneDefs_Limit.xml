@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare" Name="WVC_XenotypesAndGenes_GeneChimera_SubGenesLimit" Abstract="True">
-	<biostatCpx>1</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<prerequisite>WVC_Chimera</prerequisite>

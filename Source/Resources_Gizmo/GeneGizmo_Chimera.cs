@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (Gene_Chimera.ChimeraGenesLimit)
 					{
-						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.XenogenesLimit, gene.ArchiteLimit));
+						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(gene.ComplexityLimit, gene.ArchiteLimit));
 					}
 					IntRange reqMetRange = gene.ReqMetRange;
 					if (reqMetRange.TrueMin > -99 || reqMetRange.TrueMax < 99)
