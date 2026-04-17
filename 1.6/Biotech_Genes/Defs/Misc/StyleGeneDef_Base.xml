@@ -123,6 +123,50 @@
 
   <!-- ======================================== -->
 
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_ElfEars" Abstract="True" >
+	<uniqueStyleId>4010</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars0c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEars</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars1c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEarsB</texPath>
+	<selectionWeight>0.3</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars2c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEarsC</texPath>
+	<selectionWeight>0.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_DemonHorns" Abstract="True" >
+	<uniqueStyleId>4015</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns0c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsA</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns1c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsC</texPath>
+	<selectionWeight>0.7</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns2c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsBrokenA</texPath>
+	<selectionWeight>0.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
 	<defName>WVC_NoGraphic</defName>
 	<noGraphic>true</noGraphic>

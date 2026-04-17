@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Color? DefaultColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
+		//public Color? DefaultColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
 
 		public List<GeneralHolder> ColorHolder => Props.holofaces;
 
@@ -187,7 +187,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//Find.WindowStack.Add(new Dialog_ChangeGeneColor(this, closeOnAccept));
 			//Find.WindowStack.Add(new Dialog_StylingEyesGene(pawn, this, true));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, false));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, null));
 			//        List<FloatMenuOption> list = new();
 			//        List<XaG_CountWithChance> list2 = Props.holofaces;
 			//        for (int i = 0; i < list2.Count; i++)

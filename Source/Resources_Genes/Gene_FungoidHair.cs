@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual int StyleId => -1;
 
-		public virtual Color? DefaultColor => Color.white;
+		//public virtual Color? DefaultColor => Color.white;
 		public virtual List<GeneralHolder> ColorHolder => new();
 
 		private StyleGeneDef styleGeneDef;
@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void DoAction()
 		{
 			//Find.WindowStack.Add(new Dialog_ChangeGraphic_Simple(this));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, false));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, null));
 		}
 
 		//public virtual void SetColor(Color color, bool visible)
@@ -124,17 +124,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override Color? DefaultColor
-		{
-			get
-			{
-				if (Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
-				{
-					return countWithChance.color;
-				}
-				return null;
-			}
-		}
+		//public override Color? DefaultColor
+		//{
+		//	get
+		//	{
+		//		if (Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+		//		{
+		//			return countWithChance.color;
+		//		}
+		//		return null;
+		//	}
+		//}
 
 		public override List<GeneralHolder> ColorHolder => Props.holofaces;
 

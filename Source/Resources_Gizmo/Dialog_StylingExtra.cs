@@ -33,12 +33,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private bool returnable;
+		private Dialog_StylingGene oldDialog;
+		//private bool returnable;
 		public override string CloseButtonText
 		{
 			get
 			{
-				if (returnable)
+				if (oldDialog != null)
 				{
 					return "Back".Translate();
 				}
@@ -54,12 +55,12 @@ namespace WVC_XenotypesAndGenes
 			public Color initialColor;
 		}
 
-		public Dialog_StylingExtra(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockAll, bool newTab) : base(pawn, gene, unlockTattoos)
+		public Dialog_StylingExtra(Pawn pawn, Gene gene, bool unlockTattoos, bool unlockAll, Dialog_StylingGene oldDialog) : base(pawn, gene, unlockTattoos)
 		{
 			//graphicGene = gene as IGeneCustomGraphic;,
 			//initialHoloface = graphicGene.CurrentTextID;
 			//initialColor = graphicGene.CurrentColor;
-			this.returnable = newTab;
+			this.oldDialog = oldDialog;
 			this.unlockAll = unlockAll;
 			if (gene is IGeneCustomGraphic geneCustom)
 			{
@@ -129,6 +130,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetCurrentGene(IGeneCustomGraphic gene)
 		{
+			cachedStyleItems = null;
 			graphicGene = gene;
 			if (gene != null)
 			{
@@ -197,7 +199,21 @@ namespace WVC_XenotypesAndGenes
 			}
 			pawn.Drawer.renderer.SetAllGraphicsDirty();
 			Close();
+			//if (oldDialog != null)
+			//{
+			//	oldDialog.SetTab(StylingTab.Hair);
+			//}
 		}
+
+		//public override void Close(bool doCloseSound = true)
+		//{
+		//	Log.Error("1");
+		//	if (oldDialog != null)
+		//	{
+		//		oldDialog.SetTab(StylingTab.Hair);
+		//	}
+		//	base.Close(doCloseSound);
+		//}
 
 	}
 

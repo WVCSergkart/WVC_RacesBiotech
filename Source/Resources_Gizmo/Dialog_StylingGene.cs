@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static List<string> tmpUnwantedStyleNames = new();
 
-		public static List<StyleItemDef> tmpStyleItems = new();
+		protected List<StyleItemDef> cachedStyleItems;
 
 		// private bool DevMode => stylingStation == null;
 
@@ -245,29 +245,29 @@ namespace WVC_XenotypesAndGenes
 			tabs.Clear();
 			tabs.Add(new TabRecord("Hair".Translate().CapitalizeFirst(), delegate
 			{
-				curTab = StylingTab.Hair;
+				SetTab(StylingTab.Hair);
 			}, curTab == StylingTab.Hair));
 			if (pawn.style.CanWantBeard || devEditMode)
 			{
 				tabs.Add(new TabRecord("Beard".Translate().CapitalizeFirst(), delegate
 				{
-					curTab = StylingTab.Beard;
+					SetTab(StylingTab.Beard);
 				}, curTab == StylingTab.Beard));
 			}
 			if (unlockTattoos)
 			{
 				tabs.Add(new TabRecord("TattooFace".Translate().CapitalizeFirst(), delegate
 				{
-					curTab = StylingTab.TattooFace;
+					SetTab(StylingTab.TattooFace);
 				}, curTab == StylingTab.TattooFace));
 				tabs.Add(new TabRecord("TattooBody".Translate().CapitalizeFirst(), delegate
 				{
-					curTab = StylingTab.TattooBody;
+					SetTab(StylingTab.TattooBody);
 				}, curTab == StylingTab.TattooBody));
 			}
 			tabs.Add(new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate().CapitalizeFirst(), delegate
 			{
-				OpenExtra();
+				SetTab(StylingTab.Other);
 			}, curTab == StylingTab.Other));
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
@@ -319,51 +319,24 @@ namespace WVC_XenotypesAndGenes
 						pawn.style.BodyTattoo = t;
 					}, (StyleItemDef t) => pawn.style.BodyTattoo == t, (StyleItemDef t) => initialBodyTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Body);
 					break;
-					// case StylingTab.ApparelColor:
-					// DrawApparelColor(rect);
-					// break;
+				case StylingTab.Other:
+					// Do nothing
+					break;
 			}
 		}
 
-		private void OpenExtra()
+		public void SetTab(StylingTab newTab)
 		{
-			//List<FloatMenuOption> list = new();
-			//foreach (Gene gene in pawn.genes.GenesListForReading)
-			//{
-			//	if (gene is not IGeneCustomGraphic customGraphic || !gene.Active)
-			//	{
-			//		continue;
-			//	}
-			//	list.Add(new FloatMenuOption(gene.LabelCap, delegate
-			//	{
-			//		customGraphic.DoAction();
-			//	}));
-			//}
-			//if (!list.Any())
-			//{
-			//	list.Add(new FloatMenuOption("WVC_None".Translate(), delegate
-			//	{
-
-			//	}));
-			//}
-			//Find.WindowStack.Add(new FloatMenu(list));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, gene, unlockTattoos, true, true));
+			cachedStyleItems = null;
+			if (newTab == StylingTab.Other)
+			{
+				Find.WindowStack.Add(new Dialog_StylingExtra(pawn, gene, unlockTattoos, true, this));
+			}
+			else
+			{
+				curTab = newTab;
+			}
 		}
-
-		// private void DrawDyeRequirement(Rect rect, ref float curY, int requiredDye)
-		// {
-		// Widgets.ThingIcon(new Rect(rect.x, curY, Text.LineHeight, Text.LineHeight), ThingDefOf.Dye, null, null, 1.1f);
-		// string text = (string)("Required".Translate() + ": ") + requiredDye + " " + ThingDefOf.Dye.label;
-		// float x = Text.CalcSize(text).x;
-		// Widgets.Label(new Rect(rect.x + Text.LineHeight + 4f, curY, x, Text.LineHeight), text);
-		// Rect rect2 = new(rect.x, curY, x + Text.LineHeight + 8f, Text.LineHeight);
-		// if (Mouse.IsOver(rect2))
-		// {
-		// Widgets.DrawHighlight(rect2);
-		// TooltipHandler.TipRegionByKey(rect2, "TooltipDyeExplanation");
-		// }
-		// curY += Text.LineHeight;
-		// }
 
 		public virtual void DrawHairColors(Rect rect)
 		{
@@ -510,17 +483,22 @@ namespace WVC_XenotypesAndGenes
 			int num3 = 0;
 			int num4 = 0;
 			int num5 = 0;
-			tmpStyleItems.Clear();
-			tmpStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.AllowedForStyle(currentStyleId))));
-			tmpStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
-			if (tmpStyleItems.NullOrEmpty())
+			//cachedStyleItems.Clear();
+			if (cachedStyleItems == null)
+			{
+				//Log.Error("1");
+				cachedStyleItems = new();
+				cachedStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (devEditMode || PawnStyleItemChooser.WantsToUseStyle(pawn, x) || hadStyleItem(x)) && (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.AllowedForStyle(currentStyleId))));
+				cachedStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
+			}
+			if (cachedStyleItems.NullOrEmpty())
 			{
 				Widgets.NoneLabelCenteredVertically(rect, "(" + "NoneUsableForPawn".Translate(pawn.Named("PAWN")) + ")");
 			}
 			else
 			{
 				Widgets.BeginScrollView(rect, ref scrollPosition, viewRect);
-				foreach (StyleItemDef tmpStyleItem in tmpStyleItems)
+				foreach (StyleItemDef tmpStyleItem in cachedStyleItems)
 				{
 					if (num5 >= num - 1)
 					{

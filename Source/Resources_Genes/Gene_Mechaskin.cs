@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual Color? DefaultColor => Color.white;
+		//public virtual Color? DefaultColor => Color.white;
 
 		private StyleGeneDef styleGeneDef;
 		public StyleGeneDef StyleGeneDef

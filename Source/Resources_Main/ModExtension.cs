@@ -309,6 +309,8 @@ namespace WVC_XenotypesAndGenes
 		public float headScaleFactor = 1f;
 		// Style Extra
 		public int styleId = -1;
+		public List<Color> colors;
+		//public Color? defaultColor;
 	}
 
 	public class GeneExtension_Giver : DefModExtension

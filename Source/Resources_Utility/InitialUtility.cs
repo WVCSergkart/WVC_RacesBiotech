@@ -311,7 +311,7 @@ namespace WVC_XenotypesAndGenes
 		private static void MutantsPatch(List<GeneDef> xenogenesGenes)
 		{
 			List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
-			List<GeneDef> exceptions = ListsUtility.GetAnomalyExceptions();
+			List<GeneDef> exceptions = ListsUtility.AnomalyExceptions;
 			foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
 			{
 				if (mutantDef == null)

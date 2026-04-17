@@ -24,7 +24,29 @@ namespace WVC_XenotypesAndGenes
 		//public bool isGeneralOption = false;
 		//public bool useIcon;
 
-		public List<GeneDef> geneDefs;
+		public List<string> geneDefs;
+
+		public List<GeneDef> GeneDefs
+		{
+			get
+			{
+				if (xenotypeDef == null)
+				{
+					return new();
+				}
+				List<GeneDef> list = new();
+				foreach (GeneDef gene in xenotypeDef.genes)
+				{
+					if (geneDefs.Contains(gene.defName))
+					{
+						list.Add(gene);
+					}
+				}
+				return list;
+			}
+		}
+
+		public XenotypeDef xenotypeDef;
 
 		public bool AllowedForStyle(int styleId)
 		{

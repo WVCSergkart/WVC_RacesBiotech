@@ -73,7 +73,7 @@
 	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
 	  <li MayRequire="ludeon.rimworld.odyssey">Plant_TreeArchean</li>
 	</plantsToNotOverwrite_SpawnSubplant>
-	<!-- XaG genes that will work with mutants. Required any GeneDefs -->
+	<!-- XaG genes that will work with mutants. Required any GeneDef string -->
 	<anomalyXenoGenesExceptions>
 		<li>WVC_GeneSavant</li>
 		<li>WVC_NaturalAgeless</li>
@@ -245,6 +245,127 @@
 		<li>WVC_MechaAI_Base</li>	<!-- excellent memory -->
 		<li>WVC_Learning_SlowNoSkillDecay</li>	<!-- stubborn study -->
 		<li>WVC_WoundHealing_SelfRepair</li>	<!-- self-repair wound healing -->
+		<!-- cosmetic list -->
+		<li>WVC_SkinColor_Rusted</li>	<!-- rusted skin -->
+		<li>WVC_SkinColor_DemonRed</li>	<!-- demonic red skin -->
+		<li>WVC_SkinColor_Anomaly</li>	<!-- anomaly green hair -->
+		<li>WVC_HeadSkinHornB</li>	<!-- single mini horn -->
+		<li>WVC_BioferriteGrowths</li>	<!-- bioferrite tentacles -->
+		<li>WVC_VoiceDryadBasic</li>	<!-- basic dryad voice -->
+		<li>WVC_VoiceDryadBarkskin</li>	<!-- barkskin voice -->
+		<li>WVC_VoiceDryadWoodmaker</li>	<!-- woodmaker voice -->
+		<li>WVC_VoiceDryadBerrymaker</li>	<!-- berrymaker voice -->
+		<li>WVC_VoiceDryadMedicinemaker</li>	<!-- medicinemaker voice -->
+		<li>WVC_VoiceDryadGaumaker</li>	<!-- gaumaker voice -->
+		<li>WVC_VoiceDryadCarrier</li>	<!-- carrier voice -->
+		<li>WVC_VoiceDryadClawer</li>	<!-- clawer voice -->
+		<li>WVC_CatEarsA</li>	<!-- cat ears -->
+		<li>WVC_FoxEarsA</li>	<!-- spikelike ears -->
+		<li>WVC_Mecha_EarsCat</li>	<!-- cat ears -->
+		<li>WVC_Mecha_RedFormerEarsDouble</li>	<!-- spikelike ears -->
+		<li>WVC_Mecha_RedFormerSpikesDouble</li>	<!-- headspikes -->
+		<li>WVC_Mecha_YellowFormerAntennaDouble</li>	<!-- head antenna -->
+		<li>WVC_Eyes_Colorful</li>	<!-- colorful eyes -->
+		<li>WVC_Hair_PunkOnly</li>	<!-- punk-haired -->
+		<li>WVC_Hair_TribalOnly</li>	<!-- tribal-haired -->
+		<li>WVC_Hair_NonBald</li>	<!-- never bald -->
+		<li>WVC_SkinColor_b4c8ff_HEX</li>	<!-- bright blue skin -->
+		<li>WVC_SkinColor_c8b4ff_HEX</li>	<!-- bright purple skin -->
+		<li>WVC_SkinColor_c8ffb4_HEX</li>	<!-- bright green skin -->
+		<li>WVC_SkinColor_ffb4b4_HEX</li>	<!-- bright red skin -->
+		<li>WVC_SkinColor_fffab4_HEX</li>	<!-- bright yellow skin -->
+		<li>WVC_SkinColor_b4fff0_HEX</li>	<!-- bright cian skin -->
+		<li>WVC_SkinColor_ffdcb4_HEX</li>	<!-- bright orange skin -->
+		<li>WVC_SkinColor_ffb4dc_HEX</li>	<!-- bright pink skin -->
+		<li>WVC_SkinColor_Slate</li>	<!-- slate skin -->
+		<li>WVC_SkinColor_Limestone</li>	<!-- limestone skin -->
+		<li>WVC_SkinColor_Granite</li>	<!-- granite skin -->
+		<li>WVC_SkinColor_Sandstone</li>	<!-- sandstone skin -->
+		<li>WVC_SkinColor_Marble</li>	<!-- marble skin -->
+		<li>WVC_SkinColor_Coral</li>	<!-- coral skin -->
+		<li>WVC_SkinColor_GlacialIce</li>	<!-- glacial skin -->
+		<li>WVC_SkinColor_Sand</li>	<!-- sand skin -->
+		<li>WVC_SkinColor_Undead</li>	<!-- undead skin -->
+		<li>WVC_SkinColor_Metal</li>	<!-- old-metal skin -->
+		<li>WVC_HairColor_b4c8ff_HEX</li>	<!-- bright blue hair -->
+		<li>WVC_HairColor_c8b4ff_HEX</li>	<!-- bright purple hair -->
+		<li>WVC_HairColor_c8ffb4_HEX</li>	<!-- bright green hair -->
+		<li>WVC_HairColor_ffb4b4_HEX</li>	<!-- bright red hair -->
+		<li>WVC_HairColor_fffab4_HEX</li>	<!-- bright yellow hair -->
+		<li>WVC_HairColor_b4fff0_HEX</li>	<!-- bright cian hair -->
+		<li>WVC_HairColor_ffdcb4_HEX</li>	<!-- bright orange hair -->
+		<li>WVC_HairColor_ffb4dc_HEX</li>	<!-- bright pink hair -->
+		<li>WVC_HairColor_Slate</li>	<!-- slate hair -->
+		<li>WVC_HairColor_Limestone</li>	<!-- limestone hair -->
+		<li>WVC_HairColor_Granite</li>	<!-- granite hair -->
+		<li>WVC_HairColor_Sandstone</li>	<!-- sandstone hair -->
+		<li>WVC_HairColor_Marble</li>	<!-- marble hair -->
+		<li>WVC_HairColor_Coral</li>	<!-- coral hair -->
+		<li>WVC_HairColor_GlacialIce</li>	<!-- glacial hair -->
+		<li>WVC_HairColor_Sand</li>	<!-- sand hair -->
+		<li>WVC_HairColor_Undead</li>	<!-- undead hair -->
+		<li>WVC_DemonTailA</li>	<!-- demon tail -->
+		<li>WVC_SkinnyTailA</li>	<!-- skinny tail -->
+		<li>WVC_CatTailA</li>	<!-- cat-like tail -->
+		<li>WVC_LizardTailA</li>	<!-- short spiked tail -->
+		<li>WVC_DragonTailA</li>	<!-- spiked tail -->
+		<li>WVC_Mecha_AntennaTail</li>	<!-- segmented tail -->
+		<li>WVC_Mecha_ScytheTail</li>	<!-- scythe tail -->
+		<li>WVC_Mecha_ConnectorTail</li>	<!-- connector tail -->
+		<li>WVC_VoiceAnimals_Cat</li>	<!-- cat voice -->
+		<li>WVC_VoiceAnimals_BigCat</li>	<!-- big cat voice -->
+		<li>WVC_VoiceMechaMilitor</li>	<!-- militor voice -->
+		<li>WVC_VoiceMechaLifter</li>	<!-- lifter voice -->
+		<li>WVC_VoiceMechaConstructoid</li>	<!-- constructoid voice -->
+		<li>WVC_VoiceMechaAgrihand</li>	<!-- agrihand voice -->
+		<li>WVC_VoiceMechaFabricor</li>	<!-- fabricor voice -->
+		<li>WVC_VoiceMechaCleansweeper</li>	<!-- cleansweeper voice -->
+		<li>WVC_VoiceMechaUrchin</li>	<!-- urchin voice -->
+		<li>WVC_VoiceMechaParamedic</li>	<!-- paramedic voice -->
+		<li>WVC_VoiceMechaLegionary</li>	<!-- legionary voice -->
+		<li>WVC_VoiceMechaTesseron</li>	<!-- tesseron voice -->
+		<li>WVC_VoiceMechaScorcher</li>	<!-- scorcher voice -->
+		<li>WVC_VoiceMechaApocriton</li>	<!-- apocriton voice -->
+		<li>WVC_VoiceMechaScyther</li>	<!-- scyther voice -->
+		<li>WVC_VoiceMechaPikeman</li>	<!-- pikeman voice -->
+		<li>WVC_VoiceMechaTunneler</li>	<!-- tunneler voice -->
+		<li>WVC_VoiceMechaCentipede</li>	<!-- centipede voice -->
+		<li>WVC_VoiceMechaTermite</li>	<!-- termite voice -->
+		<li>WVC_VoiceMechaCenturion</li>	<!-- centurion voice -->
+		<li>WVC_VoiceMechaWarqueen</li>	<!-- queen voice -->
+		<li>WVC_VoiceMechaDiabolus</li>	<!-- diabolus voice -->
+		<li>WVC_Wings_FeatheredWings</li>	<!-- feathered wings -->
+		<li>WVC_Wings_MembranousWings</li>	<!-- membranous wings -->
+		<li>WVC_ChestFur</li>	<!-- chest fur -->
+		<li>WVC_SkinColor_DarkBlue</li>	<!-- dark blue skin -->
+		<li>WVC_SkinColor_FleshRed</li>	<!-- flesh red skin -->
+		<li>WVC_SkinColor_FleshPink</li>	<!-- flesh pink skin -->
+		<li>WVC_SkinColor_MilkWhite</li>	<!-- milk white skin -->
+		<li>WVC_Toughspike</li>	<!-- toughspike -->
+		<li>WVC_Ears_PointedA</li>	<!-- elf ears -->
+		<li>WVC_Ears_PointedB</li>	<!-- short elf ears -->
+		<li>WVC_Ears_DoublePointedA</li>	<!-- double ears -->
+		<!-- <li>WVC_Eyes_Holoeyes</li> -->
+		<!-- <li>WVC_NodeSkin</li> -->
+		<li>WVC_HeadBoneHorns</li>	<!-- horns -->
+		<li>WVC_HeadSkinHorns</li>	<!-- skin horns -->
+		<li>WVC_HeadBoneDoubleHorn</li>	<!-- double horn -->
+		<li>WVC_HeadBoneCurveHorns</li>	<!-- curved horns -->
+		<li>WVC_MechaAI_SoftwareManipulation</li>	<!-- horror plating -->
+		<li>WVC_CatTailB</li>	<!-- double cat tail -->
+		<li>WVC_TentacleTail</li>	<!-- tentacle tail -->
+		<li>WVC_LongTentacleTail</li>	<!-- long tentacle tail -->
+		<li>WVC_BodyTentacles</li>	<!-- body tentacles -->
+		<li>WVC_FeatherSkin</li>	<!-- feathers -->
+		<li>WVC_HalfBone</li>	<!-- halfbone -->
+		<li>WVC_MechaSkin</li>	<!-- metalskin -->
+		<li>WVC_SkinColor_OldBones</li>	<!-- old bones -->
+		<!-- <li>WVC_Eyes_Boneskin</li> -->
+		<li>WVC_HeadTentacles0c</li>	<!-- head tentacles -->
+		<li>WVC_HeadBoneBighorns</li>	<!-- bighorns -->
+		<li>WVC_BoneTailA</li>	<!-- bone tail -->
+		<li>WVC_Wings_BoneWings</li>	<!-- bone wings -->
+		<li>WVC_Wings_TentacleWings</li>	<!-- tentacle wings -->
 		<!-- From log -->
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->

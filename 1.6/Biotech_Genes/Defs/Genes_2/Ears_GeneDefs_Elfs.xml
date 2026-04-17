@@ -21,9 +21,10 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_ElfPointed">
 	<defName>WVC_Ears_PointedA</defName>
 	<label>elf ears</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Attachments</geneClass>
 	<renderNodeProperties>
 	  <li>
-		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_AttachmentsHead</nodeClass>
 		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
 		<texPaths>
 			<li>WVC/BodyParts/ElfEars/PointedEars</li>
@@ -42,6 +43,11 @@
 		</drawData>
 	  </li>
 	</renderNodeProperties>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>4010</styleId>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_ElfPointed">

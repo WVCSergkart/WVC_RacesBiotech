@@ -327,19 +327,17 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<GeneDef> GetAnomalyExceptions()
-		{
-			List<GeneDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				if (item.anomalyXenoGenesExceptions.NullOrEmpty())
-				{
-					continue;
-				}
-				list.AddRange(item.anomalyXenoGenesExceptions);
-			}
-			return list;
-		}
+		public static List<GeneDef> AnomalyExceptions =>
+			//List<GeneDef> list = new();
+			//foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			//{
+			//	if (item.anomalyXenoGenesExceptions.NullOrEmpty())
+			//	{
+			//		continue;
+			//	}
+			//	list.AddRange(item.anomalyXenoGenesExceptions);
+			//}
+			XenotypesAndGenesListDef.AnomalyXenoGenesExceptions;
 
 		public static List<MutantDef> GetMutantsExceptions()
 		{

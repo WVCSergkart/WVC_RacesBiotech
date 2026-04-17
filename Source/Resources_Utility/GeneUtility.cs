@@ -193,7 +193,6 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		[Obsolete]
 		public static bool IsCosmeticGene(GeneDef gene)
 		{
 			if (gene.skinColorBase != null || gene.skinColorOverride != null || gene.hairColorOverride != null)

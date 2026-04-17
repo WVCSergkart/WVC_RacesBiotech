@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!updated && styleGeneDef == null)
 				{
-					styleGeneDef = DefDatabase<StyleGeneDef>.AllDefsListForReading?.Where(style => style.uniqueStyleId == StyleId && style.geneDefs != null && XaG_GeneUtility.HasAllGenes(style.geneDefs, pawn))?.FirstOrDefault();
+					styleGeneDef = DefDatabase<StyleGeneDef>.AllDefsListForReading?.Where(style => style.uniqueStyleId == StyleId && style.geneDefs != null && XaG_GeneUtility.HasAllGenes(style.GeneDefs, pawn))?.FirstOrDefault();
 					updated = true;
 				}
 				return styleGeneDef;
@@ -202,7 +202,7 @@ namespace WVC_XenotypesAndGenes
 
 			void RemoveGene(StyleGeneDef styleGeneDef, Gene item)
 			{
-				if (styleGeneDef.geneDefs.Contains(item.def))
+				if (styleGeneDef.GeneDefs.Contains(item.def))
 				{
 					pawn.RemoveGene(item, this);
 				}
@@ -213,12 +213,12 @@ namespace WVC_XenotypesAndGenes
 		private void Add_StyleGeneDef(StyleGeneDef styleGeneDef)
 		{
 			bool xenogene = IsXenogene;
-			foreach (GeneDef geneDef in styleGeneDef.geneDefs)
+			foreach (GeneDef geneDef in styleGeneDef.GeneDefs)
 			{
-				if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef, xenogene, new() { def }))
-				{
-					pawn.AddGene(geneDef, xenogene, this);
-				}
+				//if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef, xenogene, new() { def }))
+				//{
+				//}
+				pawn.AddGene(geneDef, xenogene, this);
 			}
 			this.styleGeneDef = styleGeneDef;
 		}
@@ -236,13 +236,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Color? DefaultColor => Color.white;
+		//public Color? DefaultColor => Color.white;
 
 		public List<Color> AllColors => new();
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, false));
+			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, null));
 			genesSettings.Close();
 		}
 
@@ -253,5 +253,4 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
 }

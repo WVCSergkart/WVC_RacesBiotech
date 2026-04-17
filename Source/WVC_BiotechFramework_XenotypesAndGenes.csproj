@@ -91,6 +91,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
+    <Compile Include="Resources_Genes\Gene_Attachments.cs" />
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
@@ -163,7 +164,7 @@
     <Compile Include="Resources_Genes\Gene_Hivemind.cs" />
     <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
-    <Compile Include="Resources_Genes\Gene_CosmeticShifter.cs" />
+    <Compile Include="Resources_Genes\Gene_Skinshaper.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Resources_Main\ITab_GenesCustomPregnancy.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_Defs\XenotypeForcerGeneTemplateDef.cs" />
+    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Attachments.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Bodyparts.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />

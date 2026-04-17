@@ -305,7 +305,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Color? DefaultColor => pawn.story.SkinColor;
+		//public Color? DefaultColor => pawn.story.SkinColor;
 
 		public List<Color> AllColors => new();
 

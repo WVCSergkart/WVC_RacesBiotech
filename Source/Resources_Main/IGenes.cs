@@ -251,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 		//void DoAction();
 
 		Color CurrentColor { get; set; }
-		Color? DefaultColor { get; }
+		//Color? DefaultColor { get; }
 
 		//void SetColor(Color color, bool visible);
 

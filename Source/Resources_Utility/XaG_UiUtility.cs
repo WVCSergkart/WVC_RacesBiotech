@@ -725,6 +725,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Average cpx: " + XaG_GeneUtility.GetAverageCpx);
 			}
+			if (listingStandard.ButtonText("DEV: Log potentially cosmetic genes"))
+			{
+				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading.Where(def => XaG_GeneUtility.IsCosmeticGene(def)).ToList();
+				Log.Error("Cosmetic genes:" + "\n" + geneDefs.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
+			}
+			if (listingStandard.ButtonText("DEV: Log cosmetic genes except furskins"))
+			{
+				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading.Where(def => def.IsXenoGenesDef() && XaG_GeneUtility.IsCosmeticGene(def) && def.fur == null).ToList();
+				Log.Error("Cosmetic genes:" + "\n" + geneDefs.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
+			}
 		}
 
 	}

@@ -26,13 +26,37 @@ namespace WVC_XenotypesAndGenes
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 		public List<MutantDef> xenoGenesMutantsExceptions = new();
-		public List<GeneDef> anomalyXenoGenesExceptions = new();
+		public List<string> anomalyXenoGenesExceptions = new();
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
 		public List<XenotypeDef> devXenotypeDefs = new();
 		public List<GeneDef> humanGeneDefs = new();
 		public List<string> androidGenes = new();
 		public List<string> hivemindGenes = new();
 		public List<Type> hivemindGeneTypes = new();
+
+		public static List<GeneDef> AnomalyXenoGenesExceptions
+		{
+			get
+			{
+				List<GeneDef> database = DefDatabase<GeneDef>.AllDefsListForReading;
+				List<GeneDef> geneDefs = new();
+				foreach (XenotypesAndGenesListDef listDef in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				{
+					if (listDef.anomalyXenoGenesExceptions == null)
+					{
+						continue;
+					}
+					foreach (GeneDef geneDef in database)
+					{
+						if (listDef.anomalyXenoGenesExceptions.Contains(geneDef.defName) && !geneDefs.Contains(geneDef))
+						{
+							geneDefs.Add(geneDef);
+						}
+					}
+				}
+				return geneDefs;
+			}
+		}
 
 		//[Obsolete]
 		//public List<XaG_CountWithChance> identicalGeneDefs = new();
