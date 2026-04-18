@@ -38,7 +38,7 @@
 	<label>cold archite-tolerant</label>
 	<labelShortAdj>super cold</labelShortAdj>
 	<description>Carriers of this gene are much more comfortable in very cold temperatures.</description>
-	<iconPath>WVC/UI/Genes/Gene_TemperatureCold_v1</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_MinTemp_Space</iconPath>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<statOffsets>
 	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
@@ -68,7 +68,7 @@
 	<label>heat archite-tolerant</label>
 	<labelShortAdj>super hot</labelShortAdj>
 	<description>Carriers of this gene are more comfortable in very hot temperatures.</description>
-	<iconPath>WVC/UI/Genes/Gene_TemperatureHot_v1</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_MaxTemp_Magma</iconPath>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<statOffsets>
 	  <ComfyTemperatureMax>999</ComfyTemperatureMax>

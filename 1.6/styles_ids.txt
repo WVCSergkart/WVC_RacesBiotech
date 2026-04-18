@@ -7,3 +7,5 @@
 2351 - Gene_TentacleWings
 4010 - Elf ears
 4015 - Demon horns
+4020 - Headspikes
+4021 - Head antenna

@@ -157,7 +157,6 @@
 		<li>WVC_SelfdevourStomach</li>
 		<!-- From log -->
 		<li>WVC_Dustogenic_Metabolism</li>
-		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_BioferriteGrowths</li>
 		<li MayRequire="Ludeon.RimWorld.Anomaly">WVC_DarknessExposure</li>
 		<li>WVC_StoneChunkSpawner_Slate</li>
 		<li>WVC_StoneChunkSpawner_Limestone</li>

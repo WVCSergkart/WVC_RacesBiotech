@@ -167,6 +167,40 @@
 
   <!-- ======================================== -->
 
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaSpikes" Abstract="True" >
+	<uniqueStyleId>4020</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaSpikes">
+	<defName>WVC_MechaSpikes0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</texPath>
+	<selectionWeight>5.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaSpikes">
+	<defName>WVC_MechaSpikes1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</texPath>
+	<selectionWeight>3.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaAntenna" Abstract="True" >
+	<uniqueStyleId>4021</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaAntenna">
+	<defName>WVC_MechaAntenna0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</texPath>
+	<selectionWeight>5.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaAntenna">
+	<defName>WVC_MechaAntenna1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</texPath>
+	<selectionWeight>3.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
 	<defName>WVC_NoGraphic</defName>
 	<noGraphic>true</noGraphic>
@@ -176,6 +210,8 @@
 	  <li>2351</li>
 	  <li>1000001</li>
 	  <li>1000011</li>
+	  <li>4020</li>
+	  <li>4021</li>
 	</allowedStyles>
   </WVC_XenotypesAndGenes.StyleGeneDef>
 

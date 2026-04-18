@@ -721,10 +721,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Ghoul disables genes:" + "\n" + MutantDefOf.Ghoul.disablesGenes.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
 			}
-			if (listingStandard.ButtonText("DEV: Average gene complexity"))
-			{
-				Log.Error("Average cpx: " + XaG_GeneUtility.GetAverageCpx);
-			}
+			//if (listingStandard.ButtonText("DEV: Average gene complexity"))
+			//{
+			//	Log.Error("Average cpx: " + XaG_GeneUtility.GetAverageCpx);
+			//}
 			if (listingStandard.ButtonText("DEV: Log potentially cosmetic genes"))
 			{
 				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading.Where(def => XaG_GeneUtility.IsCosmeticGene(def)).ToList();
@@ -732,8 +732,25 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (listingStandard.ButtonText("DEV: Log cosmetic genes except furskins"))
 			{
-				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading.Where(def => def.IsXenoGenesDef() && XaG_GeneUtility.IsCosmeticGene(def) && def.fur == null).ToList();
+				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading.Where(def => def.IsXenoGenesDef() && XaG_GeneUtility.IsCosmeticGene(def) && def.fur == null && def.forcedHeadTypes == null && def.prerequisite == null).ToList();
 				Log.Error("Cosmetic genes:" + "\n" + geneDefs.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
+			}
+			if (listingStandard.ButtonText("DEV: Log all style ids"))
+			{
+				string log = "";
+				List<int> ids = new();
+				foreach (StyleGeneDef styleGeneDef in DefDatabase<StyleGeneDef>.AllDefsListForReading)
+				{
+					if (!ids.Contains(styleGeneDef.uniqueStyleId))
+					{
+						ids.Add(styleGeneDef.uniqueStyleId);
+					}
+				}
+				foreach (int id in ids)
+				{
+					log += "\n" + id;
+				}
+				Log.Error("Style IDs:" + "\n" + log);
 			}
 		}
 

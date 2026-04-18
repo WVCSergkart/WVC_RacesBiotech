@@ -44,11 +44,15 @@
 		<li>WVC_FleshmassSkin</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_SkinColor_FleshPink</li>
-		<li>WVC_SkinColor_FleshRed</li>
+		<!-- <li>WVC_SkinColor_FleshPink</li> -->
+		<!-- <li>WVC_SkinColor_FleshRed</li> -->
+		<li>Skin_SheerWhite</li>
 		<li>Inbred</li>
 		<!-- test -->
 		<!-- <li>WVC_Skinshaper</li> -->
+		<!-- space? -->
+		<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
