@@ -93,7 +93,20 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				pawn.story.TryGetRandomHeadFromSet((pawn.genes.GenesListForReading?.Where((gene) => gene.def.forcedHeadTypes != null)?.ToList()?.RandomElement()?.def?.forcedHeadTypes ?? DefDatabase<HeadTypeDef>.AllDefs.Where((HeadTypeDef x) => x.randomChosen)));
+				//Gene pawnGene = null;
+				List<HeadTypeDef> heads = new();
+				foreach (Gene gene in pawn.genes.GenesListForReading)
+				{
+					if (gene.def.forcedHeadTypes != null && gene.Active)
+					{
+						heads.AddRangeSafe(gene.def.forcedHeadTypes);
+					}
+				}
+				//if (pawn.genes.GenesListForReading.Where((gene) => gene.def.forcedHeadTypes != null).TryRandomElement(out Gene headPawnGene))
+				//{
+				//	pawnGene = headPawnGene;
+				//}
+				pawn.story.TryGetRandomHeadFromSet(!heads.NullOrEmpty() ? heads : DefDatabase<HeadTypeDef>.AllDefsListForReading.Where((HeadTypeDef x) => x.randomChosen));
 			}
 			catch (Exception arg)
 			{

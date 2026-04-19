@@ -113,6 +113,7 @@ namespace WVC_XenotypesAndGenes
 			chimerkins = new();
 			nonChimerkins = new();
 			PreferredXenotypesUtility.UpdCollection();
+			//cachedVoidFascinationPawns = null;
 		}
 		public static void UpdLeader()
 		{
@@ -122,6 +123,37 @@ namespace WVC_XenotypesAndGenes
 				lastRecacheTick = Find.TickManager.TicksGame + 7232;
 			}
 		}
+
+		//private static HashSet<Pawn> cachedVoidFascinationPawns;
+		//public static HashSet<Pawn> VoidFascinationPawns
+		//{
+		//	get
+		//	{
+		//		if (cachedVoidFascinationPawns == null)
+		//		{
+		//			List<Pawn> list = new();
+		//			foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+		//			{
+		//				if (IsVoidFacinationPawn(pawn))
+		//				{
+		//					list.Add(pawn);
+		//				}
+		//			}
+		//			cachedVoidFascinationPawns = [.. list];
+		//		}
+		//		return cachedVoidFascinationPawns;
+		//	}
+		//}
+
+		///// <summary>
+		///// Integration Hook
+		///// </summary>
+		///// <param name="pawn"></param>
+		///// <returns></returns>
+		//private static bool IsVoidFacinationPawn(Pawn pawn)
+		//{
+		//	return ModsConfig.AnomalyActive && pawn.story?.traits?.HasTrait(TraitDefOf.VoidFascination) == true;
+		//}
 
 	}
 

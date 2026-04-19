@@ -76,6 +76,7 @@ namespace WVC_XenotypesAndGenes
 					cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexNullRefFix))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawnRelations"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerator_GeneratePawnRelations))));
+					//cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerationRequest), "ValidateAndFix"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerationRequest_ValidateAndFix))));
 					//harmony.Patch(AccessTools.Method(typeof(Gene_Deathrest), "CanBindToBindable"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(NonHemogenDeathrest))));
 				}
 				//Log.Error("4");
@@ -125,6 +126,7 @@ namespace WVC_XenotypesAndGenes
 					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
 					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(ResurrectionUtility), "TryResurrect"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Notify_PostResurrected))));
+					//cachedHarmony.Patch(AccessTools.Method(typeof(TraitSet), "RecacheTraits"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(GainTrait_Hook))));
 					if (ModsConfig.IdeologyActive)
 					{
 						cachedHarmony.Patch(AccessTools.Method(typeof(Pawn_IdeoTracker), "SetIdeo"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
@@ -175,6 +177,51 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
+			//public static void Patch_PawnGenerationRequest_ValidateAndFix(PawnGenerationRequest __instance)
+			//{
+			//	Gender? forcedGender = null;
+			//	if (__instance.ForcedXenotype != null)
+			//	{
+			//		GetGender(ref forcedGender, __instance.ForcedXenotype.genes);
+			//	}
+			//	if (forcedGender == null)
+			//	{
+			//		GetGender(ref forcedGender, __instance.ForcedEndogenes);
+			//	}
+			//	if (forcedGender == null)
+			//	{
+			//		GetGender(ref forcedGender, __instance.ForcedXenogenes);
+			//	}
+			//	if (GenderIsNotNull(forcedGender))
+			//	{
+			//		//Log.Error(forcedGender.Value.ToString());
+			//		__instance.FixedGender = forcedGender;
+			//	}
+
+			//	static void GetGender(ref Gender? forcedGender, List<GeneDef> geneDefs)
+			//	{
+			//		if (geneDefs == null)
+			//		{
+			//			return;
+			//		}
+			//		foreach (GeneDef geneDef in geneDefs)
+			//		{
+			//			if (geneDef.IsGeneDefOfType<Gene_Gender>())
+			//			{
+			//				forcedGender = geneDef?.GetModExtension<GeneExtension_Giver>()?.gender;
+			//			}
+			//			if (GenderIsNotNull(forcedGender))
+			//			{
+			//				break;
+			//			}
+			//		}
+			//	}
+
+			//	static bool GenderIsNotNull(Gender? forcedGender)
+			//	{
+			//		return forcedGender != null && forcedGender != Gender.None;
+			//	}
+			//}
 
 			public static void IdeoUpdTrigger()
 			{
@@ -1189,6 +1236,11 @@ namespace WVC_XenotypesAndGenes
 					__result = true;
 				}
 			}
+
+			//public static void GainTrait_Hook()
+			//{
+			//	GeneshiftUtility.ResetXenotypesCollection();
+			//}
 
 		}
 
