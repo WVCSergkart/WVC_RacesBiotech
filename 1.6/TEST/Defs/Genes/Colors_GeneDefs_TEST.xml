@@ -39,7 +39,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
-	<defName>WVC_SkinColor_Anomaly</defName>
+	<defName>WVC_HairColor_Anomaly</defName>
 	<label>anomaly green hair</label>
 	<hairColorOverride>(176,191,128)</hairColorOverride>
   </GeneDef>
@@ -48,6 +48,12 @@
 	<!-- <defName>WVC_SkinColor_FleshGreen</defName> -->
 	<!-- <label>flesh green skin</label> -->
 	<!-- <skinColorOverride>(188,202,153)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_PinkWhite</defName> -->
+	<!-- <label>pink white skin</label> -->
+    <!-- <skinColorOverride>(250, 220, 240)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
 </Defs>

@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false) && MiscUtility.CanStartPregnancy(target.Pawn, true);
+			return ReimplanterUtility.ImplanterValidation(parent.def, parent.pawn, target, throwMessages, false) && !target.Pawn.IsSterile(true);
 		}
 
 	}

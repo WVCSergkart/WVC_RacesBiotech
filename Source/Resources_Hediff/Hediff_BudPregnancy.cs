@@ -129,6 +129,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		{
+			foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+			{
+				yield return item;
+			}
+			if (geneSet == null)
+			{
+				yield break;
+			}
+			foreach (StatDrawEntry item2 in geneSet.SpecialDisplayStats())
+			{
+				yield return item2;
+			}
+		}
+
 		//public override string SeverityLabel => gestateProgress.ToStringPercent();
 
 		public override void ExposeData()

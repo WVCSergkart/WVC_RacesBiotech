@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
 			}
-			if (MiscUtility.CanStartPregnancy(pawn, Giver))
+			if (MiscUtility.CanStartPregnancy(pawn, Giver) && (def.sterilize || !pawn.IsSterile(true)))
 			{
 				if (UseDialogWarning)
 				{

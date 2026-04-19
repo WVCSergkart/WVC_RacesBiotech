@@ -1,10 +1,11 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
@@ -308,11 +309,28 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (throwMessage)
 				{
-					Messages.Message("WVC_XaG_Gene_SimpleGestator_ToYoungMessage".Translate(pawn.LabelShortCap).CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+					Messages.Message("PawnIsTooYoung".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
 				return false;
 			}
 			return true;
+		}
+
+		public static bool IsSterile(this Pawn pawn, bool throwMessage)
+		{
+			//if (!CanStartPregnancy(pawn, throwMessage))
+			//{
+			//	return false;
+			//}
+			if (pawn.Sterile())
+			{
+				if (throwMessage)
+				{
+					Messages.Message("PawnIsSterile".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return true;
+			}
+			return false;
 		}
 
 		public static void MakeCustomJob(Pawn pawn, Thing target, JobDef jobDef, GeneDef geneDef = null, bool allStack = false, float factor = 1f)

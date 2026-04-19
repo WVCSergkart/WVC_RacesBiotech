@@ -157,8 +157,40 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//private static HashSet<Pawn> cachedVoidFascinationPawns;
+		//public static HashSet<Pawn> VoidFascinationPawns
+		//{
+		//	get
+		//	{
+		//		if (cachedVoidFascinationPawns == null)
+		//		{
+		//			List<Pawn> list = new();
+		//			foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+		//			{
+		//				if (IsVoidFacinationPawn(pawn))
+		//				{
+		//					list.Add(pawn);
+		//				}
+		//			}
+		//			cachedVoidFascinationPawns = [.. list];
+		//		}
+		//		return cachedVoidFascinationPawns;
+		//	}
+		//}
+
+		///// <summary>
+		///// Integration Hook
+		///// </summary>
+		///// <param name="pawn"></param>
+		///// <returns></returns>
+		//private static bool IsVoidFacinationPawn(Pawn pawn)
+		//{
+		//	return ModsConfig.AnomalyActive && pawn.story?.traits?.HasTrait(TraitDefOf.VoidFascination) == true;
+		//}
+
 		public override void ResetCollection()
 		{
+			//cachedVoidFascinationPawns = null;
 			cachedLeperPawns = null;
 			base.ResetCollection();
 		}

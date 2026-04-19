@@ -32,9 +32,9 @@
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_PsychicHarem</li>
 		<li>WVC_Pain_Passive</li>
-		<!-- <li>WVC_FemaleOnly</li> -->
+		<li>WVC_FemaleOnly</li>
 		<!-- or -->
-		<li>Beard_NoBeardOnly</li>
+		<!-- <li>Beard_NoBeardOnly</li> -->
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
 		<li>WVC_Beauty_AbominationallyUgly</li>
@@ -47,6 +47,7 @@
 		<!-- <li>WVC_SkinColor_FleshPink</li> -->
 		<!-- <li>WVC_SkinColor_FleshRed</li> -->
 		<li>Skin_SheerWhite</li>
+		<!-- <li>WVC_SkinColor_PinkWhite</li> -->
 		<li>Inbred</li>
 		<!-- test -->
 		<!-- <li>WVC_Skinshaper</li> -->

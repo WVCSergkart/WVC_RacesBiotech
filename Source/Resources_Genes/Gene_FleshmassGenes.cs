@@ -529,7 +529,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Rand.Chance(0.05f * pawn.GetStatValue(StatDefOf.Fertility)))
 			{
-				if (MiscUtility.CanStartPregnancy(pawn, false))
+				if (!pawn.IsSterile(false))
 				{
 					GestationUtility.Impregnate(pawn);
 				}
