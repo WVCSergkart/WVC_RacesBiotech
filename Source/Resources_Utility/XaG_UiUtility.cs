@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -485,10 +486,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
+			if (listingStandard.ButtonText("DEV: Count active WVC_ xenotypes and genes"))
 			{
 				List<GeneDef> genes = new();
+				List<XenotypeDef> xenotypes = new();
 				int genesCount = 0;
+				int xenotypesCount = 0;
 				foreach (Def def in mod.Content.AllDefs)
 				{
 					if (def is GeneDef geneDef)
@@ -496,11 +499,25 @@ namespace WVC_XenotypesAndGenes
 						genesCount++;
 						genes.Add(geneDef);
 					}
+					else if (def is XenotypeDef xenotypeDef)
+					{
+						xenotypesCount++;
+						xenotypes.Add(xenotypeDef);
+					}
+				}
+				Log.Error("WVC Xenotypes: " + xenotypesCount.ToString());
+				if (!xenotypes.NullOrEmpty())
+				{
+					Log.Error("All active XaG xenotypes:" + "\n" + xenotypes.Select((XenotypeDef x) => x.defName + " | " + x.label).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Error("Xenotypes list is null");
 				}
 				Log.Error("WVC Genes: " + genesCount.ToString());
 				if (!genes.NullOrEmpty())
 				{
-					Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+					Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName + " | " + x.label).ToLineList(" - "));
 				}
 				else
 				{
@@ -643,6 +660,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (listingStandard.ButtonText("DEV: Log obsolete genes"))
 			{
+				Log.Error("Genes with obsolete attribute:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.geneClass.HasAttribute<ObsoleteAttribute>()).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.geneClass).ToLineList(" - "));
 				Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 			}
 			if (listingStandard.ButtonText("DEV: Log obsolete genes in xenotypes"))

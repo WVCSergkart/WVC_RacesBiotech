@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneRecacheable, IGeneAddOrRemoveHediff
+	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneRecacheable, IGeneAddOrRemoveHediff, IGeneNotifyLifeStageStarted
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -35,13 +35,13 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			Notify_GenesRecache(null);
+			//Notify_GenesRecache(null);
 			Local_AddOrRemoveHediff();
 		}
 
 		public void Notify_Override()
 		{
-			Notify_GenesRecache(null);
+			//Notify_GenesRecache(null);
 			Local_AddOrRemoveHediff();
 		}
 
@@ -56,19 +56,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Error in Gene_EternalHunger in def: " + def.defName + ". Pawn: " + pawn.Name + ". Reason: " + arg);
 			}
+			shouldUpdateHediff = false;
 		}
 
-
+		private bool shouldUpdateHediff = true;
 		public override void TickInterval(int delta)
 		{
 			base.TickInterval(delta);
-			if (pawn.IsHashIntervalTick(56421, delta))
-			{
-				Local_AddOrRemoveHediff();
-			}
+			//if (pawn.IsHashIntervalTick(56421, delta))
+			//{
+			//	Local_AddOrRemoveHediff();
+			//}
 			if (!pawn.IsHashIntervalTick(455, delta))
 			{
 				return;
+			}
+			if (shouldUpdateHediff)
+			{
+				Local_AddOrRemoveHediff();
 			}
 			if (pawn.Faction != Faction.OfPlayer)
 			{
@@ -79,26 +84,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			SyncNeedFoodWithHemogen();
-			//if (pawn.Map == null)
-			//{
-			//	return;
-			//}
-			//if (pawn.Downed || pawn.Drafted || !pawn.Awake())
-			//{
-			//	return;
-			//}
-			//if (Resource is not Gene_Hemogen gene_hemogen || gene_hemogen.MinLevelForAlert + 0.3f < gene_hemogen.Value)
-			//{
-			//	return;
-			//}
-			//if (TryGetFood())
-			//{
-			//	return;
-			//}
-			//if (Gene_BloodHunter.TryHuntForFood(pawn))
-			//{
-			//	Messages.Message("WVC_XaG_Gene_EternalHunger_HuntWarning".Translate(pawn.NameShortColored.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
-			//}
 		}
 
 		private void SyncNeedFoodWithHemogen()
@@ -137,7 +122,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			//base.Notify_IngestedThing(thing, numTaken);
 			if (!Active || Hemogen == null)
 			{
 				return;
@@ -145,11 +129,6 @@ namespace WVC_XenotypesAndGenes
 			if (thing.IsRawMeat())
 			{
 				Hemogen.Value += thing.def.GetStatValueAbstract(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor) * numTaken;
-				//IngestibleProperties ingestible = thing.def.ingestible;
-				//if (ingestible != null)
-				//{
-				//	GeneUtility.OffsetHemogen(pawn, GetHemogenCountFromFood(thing) * (float)numTaken * 1.2f);
-				//}
 			}
 			SyncNeedFoodWithHemogen();
 		}
@@ -166,101 +145,15 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_GenesRecache(Gene changedGene)
 		{
+			shouldUpdateHediff = true;
 			cachedResourceLossPerDay = null;
 		}
 
-		// Misc
-
-		//public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (!foodNeedDisabled)
-		//		{
-		//			return base.Active;
-		//		}
-		//		return false;
-		//	}
-		//}
-
-		//public bool foodNeedDisabled = false;
-
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
-		//	{
-		//		foodNeedDisabled = pawn.needs?.food == null;
-		//	}
-		//}
-
-		//public bool TryGetFood()
-		//{
-		//	if (!pawn.TryGetNeedFood_WithRef(out Need_Food need_Food, ref foodNeedDisabled))
-		//	{
-		//		return false;
-		//	}
-		//	List<Thing> meatFood = new();
-		//	foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
-		//	{
-		//		if (item.def.ingestible != null && item.def.IsMeat)
-		//		{
-		//			meatFood.Add(item);
-		//		}
-		//	}
-		//	for (int j = 0; j < meatFood.Count; j++)
-		//	{
-		//		Thing specialFood = MiscUtility.GetSpecialFood(pawn, meatFood[j].def);
-		//		if (specialFood == null)
-		//		{
-		//			continue;
-		//		}
-		//		int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
-		//		GeneResourceUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
-		//		Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
-		//		job.count = stack + 3;
-		//		pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
-		//		return true;
-		//	}
-		//	return false;
-		//}
-
-		//public float GetHunger(int stack, Thing thing, Need_Food need_Food)
-		//{
-		//	float nutrition = stack * thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000);
-		//	float currentNeedFood = need_Food.CurLevel;
-		//	float maxNeedFood = need_Food.MaxLevel;
-		//	float targetFoodLevel = maxNeedFood - nutrition;
-		//	float offset = -1 * (currentNeedFood - targetFoodLevel);
-		//	if (offset > 0f)
-		//	{
-		//		offset = 0f;
-		//	}
-		//	return offset;
-		//}
-
-		//public int GetFoodCount(Thing thing)
-		//{
-		//	int foodCount = 0;
-		//	float hemogen = GetHemogenCountFromFood(thing);
-		//	float currentHemogenLvl = Resource.Value;
-		//	float targetHemogenLvl = Resource.targetValue;
-		//	while (currentHemogenLvl < targetHemogenLvl)
-		//	{
-		//		foodCount++;
-		//		currentHemogenLvl += hemogen;
-		//		if (foodCount >= 75)
-		//		{
-		//			break;
-		//		}
-		//	}
-		//	return foodCount;
-		//}
-
-		//public float GetHemogenCountFromFood(Thing thing)
-		//{
-		//	return 0.175f *  thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000);
-		//}
+		public void Notify_LifeStageStarted()
+		{
+			shouldUpdateHediff = true;
+			cachedResourceLossPerDay = null;
+		}
 
 	}
 

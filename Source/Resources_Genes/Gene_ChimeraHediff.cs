@@ -50,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 			Local_AddOrRemoveHediff();
 		}
 
+		// The old update mechanics are used here. For the task here it is more reliable.
 		public override void TickInterval(int delta)
 		{
 			if (!pawn.IsHashIntervalTick(67150, delta))
