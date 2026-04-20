@@ -158,6 +158,19 @@ namespace WVC_XenotypesAndGenes
 					{
 						parent.GetLord()?.AddPawn(newBorn);
 					}
+					try
+					{
+						if (motherOrEgg is Pawn hatcherPawn && hatcherPawn.CanReserveAndReach(newBorn, PathEndMode.Touch, Danger.Deadly))
+						{
+							Job job = JobMaker.MakeJob(JobDefOf.BringBabyToSafetyUnforced, newBorn);
+							job.count = 1;
+							hatcherPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
+						}
+					}
+					catch
+					{
+						Log.Warning("Failed BringBabyToSafetyForced job.");
+					}
 					if (xenotypeDef == null && xenotypeHolder == null)
 					{
 						ReimplanterUtility.GeneralReimplant(parent, newBorn, endogene, xenogene, false);

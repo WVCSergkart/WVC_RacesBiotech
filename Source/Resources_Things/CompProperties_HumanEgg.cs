@@ -128,6 +128,10 @@ namespace WVC_XenotypesAndGenes
 		public static void SpawnHatchee(Pawn mother, Pawn father, XenotypeHolder xenotypeHolder, Thing parent, int stackCount, string letterLabel, string letterDesc)
 		{
 			Pawn pawn = mother ?? father;
+			if (pawn == null && parent is Pawn possiblePawn)
+			{
+				pawn = possiblePawn;
+			}
 			bool shouldNotify = true;
 			for (int i = 0; i < stackCount; i++)
 			{
