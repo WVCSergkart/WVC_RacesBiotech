@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 				MutantDef mutantDef = Gene_DryadQueen?.Props?.mutantDef;
 				if (mutantDef != null)
 				{
-					Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, mutantDef);
+					MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, mutantDef);
 				}
 			}
 		}

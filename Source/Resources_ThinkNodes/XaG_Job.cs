@@ -1,3 +1,4 @@
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -23,6 +24,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public GeneDef geneDef;
+		public XenotypeDef xenotypeDef;
 
 		public bool consumeStack;
 

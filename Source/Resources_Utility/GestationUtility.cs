@@ -164,12 +164,14 @@ namespace WVC_XenotypesAndGenes
 						{
 							Job job = JobMaker.MakeJob(JobDefOf.BringBabyToSafetyUnforced, newBorn);
 							job.count = 1;
-							hatcherPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
+							//hatcherPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
+							hatcherPawn.jobs.SuspendCurrentJob(JobCondition.InterruptForced);
+							hatcherPawn.jobs.StartJob(job, tag: JobTag.Misc);
 						}
 					}
 					catch
 					{
-						Log.Warning("Failed BringBabyToSafetyForced job.");
+						Log.Warning("Failed BringBabyToSafetyUnforced job.");
 					}
 					if (xenotypeDef == null && xenotypeHolder == null)
 					{

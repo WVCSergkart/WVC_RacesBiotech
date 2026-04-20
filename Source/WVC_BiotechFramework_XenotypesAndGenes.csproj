@@ -162,7 +162,6 @@
     <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind.cs" />
-    <Compile Include="Resources_Genes\Gene_Subhuman.cs" />
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
     <Compile Include="Resources_Genes\Gene_Skinshaper.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
@@ -173,6 +172,8 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
+    <Compile Include="Resources_Hediff\Hediff_FaultyShapeDisease.cs" />
+    <Compile Include="Resources_Hediff\Hediff_HivemindHatred.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />

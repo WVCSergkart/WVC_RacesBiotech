@@ -206,6 +206,7 @@
 	<label>hivemind hatred</label>
 	<description>The psychic influence of a more powerful hivemind suppresses the owner's abilities.</description>
 	<defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_HivemindHatred</hediffClass>
 	<aptitudes>
 	  <Intellectual>-8</Intellectual>
 	  <Social>-8</Social>

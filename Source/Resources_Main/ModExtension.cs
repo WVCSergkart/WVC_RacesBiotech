@@ -45,6 +45,9 @@ namespace WVC_XenotypesAndGenes
 		public GeneDef geneDef;
 		public int reqDupesCount;
 		public bool forDuplicates = false;
+		// ShiftGenes
+		public float cost;
+		public GeneCategoryDef displayCategory;
 		// CopyPaste
 		public GeneDef copyFromGeneDef;
 		public bool copyExclusionTags = true;
@@ -181,7 +184,9 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneralHolder> possibleTraits;
 		[Obsolete]
 		public StatDef shiftStatDef;
+		[Obsolete]
 		public int reqGeneMat = -1;
+		[Obsolete]
 		public GeneCategoryDef overrideGeneCategory;
 		// Special Food
 		[Obsolete]
@@ -378,7 +383,9 @@ namespace WVC_XenotypesAndGenes
 		//Subhumans
 		public MutantDef mutantDef;
 		//Skinshaper
+		[Obsolete]
 		public List<GeneSetPresets> geneSetPresets;
+		[Obsolete]
 		public GeneSetPresets geneSetByDefault;
 		//
 		public StatDef statDef;

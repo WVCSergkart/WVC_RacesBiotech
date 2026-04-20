@@ -51,6 +51,55 @@
 				<li>WVC_ShapeshifterDeathless</li>
 				<li>WVC_ChimeraMetabolism_HungerFactor</li>
 			</hediffDefs>
+			<geneDefWithChances>
+				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
+				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
+				<li>  <geneDef>WVC_NeverDead</geneDef><!-- never dead -->  <cost>98</cost>  </li>
+				<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+				<li>  <geneDef>WVC_NaturalMechlink</geneDef><!-- natural mechlink -->  <cost>27</cost>  </li>
+				<li>  <geneDef>WVC_NaturalPsylink</geneDef><!-- natural psylink -->  <cost>27</cost>  </li>
+				<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
+				<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_RiseEndogenes</geneDef><!-- post endo-implanter -->  <cost>36</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_Xenogenes</geneDef><!-- xenogerm implanter -->  <cost>22</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_RiseXenogenes</geneDef><!-- post xeno-implanter -->  <cost>31</cost>  </li>
+				<li>  <geneDef>WVC_DeadStomach</geneDef><!-- dead stomach -->  <cost>60</cost>  </li>
+				<li>  <geneDef>WVC_MecaBodyParts_Lung</geneDef><!-- overall adaptation -->  <cost>89</cost>  </li>
+				<li>  <geneDef>WVC_ShapeshiftSkin</geneDef><!-- shiftskin -->  <cost>15</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+				<li>  <geneDef>WVC_MecaBodyParts_Kidney</geneDef><!-- machine wound healing -->  <cost>75</cost>  </li>
+				<li>  <geneDef>WVC_Incrementer</geneDef><!-- incrementer -->  <cost>14</cost>  </li>
+				<li>  <geneDef>WVC_StorageImplanter</geneDef><!-- storage implanter -->  <cost>25</cost>  </li>
+				<li>  <geneDef>WVC_Shapeshift_Deathless</geneDef><!-- cellular -->  <cost>88</cost>  </li>
+				<li>  <geneDef>WVC_Chimera</geneDef><!-- chimera -->  <cost>32</cost>  </li>
+				<li>  <geneDef>WVC_Duplicator</geneDef><!-- duplicator -->  <cost>51</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  </li>
+				<li>  <geneDef>WVC_SelfdevourStomach</geneDef><!-- self-devour stomach -->  <cost>56</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassBrain</geneDef><!-- fleshmass thinker -->  <cost>56</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassSkin</geneDef><!-- flesh-eye skin -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+				<li>  <geneDef>WVC_Generemover</geneDef><!-- generemover -->  <cost>23</cost>  </li>
+				<li>  <geneDef>WVC_Skillshifter</geneDef><!-- skillshifter -->  <cost>77</cost>  </li>
+				<li>  <geneDef>WVC_Traitshifter</geneDef><!-- traitshifter -->  <cost>48</cost>  </li>
+				<li>  <geneDef>WVC_Overrider</geneDef><!-- overrider -->  <cost>89</cost>  </li>
+				<li>  <geneDef>WVC_Pain_Overrider</geneDef><!-- overrided pain -->  <cost>34</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_WoundHealing_Overrider</geneDef><!-- overrided healing -->  <cost>66</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_PerfectImmunity_Overrider</geneDef><!-- overrided immunity -->  <cost>46</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Health_Overrider</geneDef><!-- overrided health -->  <cost>22</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_OverallAdaptation_Overrider</geneDef><!-- overrided adaptation -->  <cost>57</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Stomach_Overrider</geneDef><!-- overrided stomach -->  <cost>55</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Tough_Overrider</geneDef><!-- overrided tough -->  <cost>75</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Wimp_Overrider</geneDef><!-- overrided wimp -->  <cost>30</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Learning_Overrider</geneDef><!-- overrided learning -->  <cost>61</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_NoLearning_Overrider</geneDef><!-- overrided no-learning -->  <cost>59</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Ageless_Overrider</geneDef><!-- overrided ageless -->  <cost>24</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Aging_Overrider</geneDef><!-- overrided aging -->  <cost>33</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Solar_Overrider</geneDef><!-- overrided solar -->  <cost>48</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_Scars_Overrider</geneDef><!-- overrided scars -->  <cost>77</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li>  <geneDef>WVC_PostShapeshift_Regeneration</geneDef><!-- preshift healing -->  <cost>28</cost>  </li>
+				<li>  <geneDef>WVC_PostShapeshift_Scarred</geneDef><!-- postshift scarred -->  <cost>14</cost>  </li>
+			</geneDefWithChances>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>

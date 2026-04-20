@@ -25,8 +25,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (job is XaG_Job xaG_Job)
 				{
-					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
-					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
+					//if (xenotypeDef != null)
+					//{
+					//	XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, xenotypeDef);
+					//}
+					//else if (geneDef != null)
+					//{
+					//	XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
+					//}
+					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, Victim.GetComp<CompEntitiesGenes>()?.Props?.xenotypeDef);
+					//XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
 					GeneResourceUtility.OffsetNeedFood(pawn, 100, true);
 				}
 				//HediffUtility.MutationMeatSplatter(Victim, false);

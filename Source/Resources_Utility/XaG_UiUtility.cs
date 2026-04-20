@@ -770,6 +770,32 @@ namespace WVC_XenotypesAndGenes
 				}
 				Log.Error("Style IDs:" + "\n" + log);
 			}
+			// Converter
+			//if (listingStandard.ButtonText("DEV: Log all style ids"))
+			//{
+			//	List<GeneDef> withExtension = new();
+			//	foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)  //.Where((def) => !humanGenes.Contains(def))
+			//	{
+			//		if (item?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0)
+			//		{
+			//			withExtension.Add(item);
+			//		}
+			//	}
+			//	string log = "\n";
+			//	foreach (GeneDef item in withExtension)
+			//	{
+			//		GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
+			//		log += "\n" + "<li>";
+			//		log += "  " + "<geneDef>" + item.defName + "</geneDef>" + "<!-- " + item.label + " -->";
+			//		log += "  " + "<cost>" + geneExtension_Undead.reqGeneMat + "</cost>";
+			//		if (geneExtension_Undead.overrideGeneCategory != null)
+			//		{
+			//			log += "  " + "<displayCategory>" + geneExtension_Undead.overrideGeneCategory + "</displayCategory>";
+			//		}
+			//		log += "  </li>";
+			//	}
+			//	Log.Error(log);
+			//}
 		}
 
 	}

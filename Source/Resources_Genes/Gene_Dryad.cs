@@ -193,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 				dryad.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
 			}
 			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-			Gene_Subhuman.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
+			MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
 			return dryad;
 		}
 

@@ -10,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public GeneDef geneDef;
+		public XenotypeDef xenotypeDef;
 
 		public JobDef jobDef;
 
@@ -52,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (Props.geneDef == null || Props.jobDef == null)
+			if (Props.xenotypeDef == null || Props.jobDef == null)
 			{
 				yield break;
 			}
@@ -67,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Props.warningText.Translate(), delegate
 					{
-						MiscUtility.MakeCustomJob(selPawn, parent, Props.jobDef, Props.geneDef);
+						MiscUtility.MakeCustomJob(selPawn, parent, Props.jobDef);
 					});
 					Find.WindowStack.Add(window);
 				}

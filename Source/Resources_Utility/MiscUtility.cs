@@ -14,6 +14,30 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void ClearOrSetPawnAsMutantInstantly(Pawn pawn, MutantDef mutant)
+		{
+			if (mutant == null)
+			{
+				Revert(pawn);
+				pawn.mutant = null;
+				return;
+			}
+			if (pawn.mutant?.Def == mutant)
+			{
+				return;
+			}
+			Revert(pawn);
+			pawn.mutant = new Pawn_MutantTracker(pawn, mutant, RotStage.Fresh);
+			pawn.mutant.Turn(clearLord: true);
+			static void Revert(Pawn pawn)
+			{
+				if (pawn.IsMutant)
+				{
+					pawn.mutant.Revert(false);
+				}
+			}
+		}
+
 		public static void GeneAbilityReadyLetter(int nextTick, Gene gene)
 		{
 			if (nextTick <= 0 && PawnUtility.ShouldSendNotificationAbout(gene.pawn))
@@ -339,6 +363,12 @@ namespace WVC_XenotypesAndGenes
 			xaG_Job.geneDef = geneDef;
 			xaG_Job.consumeStack = allStack;
 			xaG_Job.factor = factor;
+			pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
+		}
+
+		public static void MakeCustomJob(Pawn pawn, Thing target, JobDef jobDef)
+		{
+			XaG_Job xaG_Job = new(JobMaker.MakeJob(jobDef, target));
 			pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
 		}
 

@@ -10,7 +10,7 @@
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
-					  <geneDef>WVC_FleshmassNucleus</geneDef>
+					  <xenotypeDef>WVC_Beholdkind</xenotypeDef>
 					  <jobDef>WVC_DevourEntitie</jobDef>
 					</li>
 				  </value>
@@ -20,7 +20,7 @@
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
-					  <geneDef>WVC_VoidMechlink</geneDef>
+					  <xenotypeDef>WVC_Nociokin</xenotypeDef>
 					  <jobDef>WVC_DevourEntitie</jobDef>
 					  <warningText>WVC_XaG_GeneChimeraDevourNociosphereWarning</warningText>
 					</li>

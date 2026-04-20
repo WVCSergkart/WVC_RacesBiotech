@@ -47,9 +47,9 @@
 			<voidDamageChance_StatDef>WVC_VoidDamageChance</voidDamageChance_StatDef>
 			<voidMaxResource_StatDef>WVC_MaxVoidEnergy</voidMaxResource_StatDef>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef>WVC_Nociokin</xenotypeDef>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <xenotypeDef>WVC_Nociokin</xenotypeDef> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

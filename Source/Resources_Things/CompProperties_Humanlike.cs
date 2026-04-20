@@ -405,7 +405,17 @@ namespace WVC_XenotypesAndGenes
 						XenotypeDef xenotypeDef = xenotypeDefs[i];
 						list.Add(new FloatMenuOption(xenotypeDef.LabelCap, delegate
 						{
-							ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+							if (Find.Selector.SelectedPawns.Count > 1)
+							{
+								foreach (Pawn selectedPawn in Find.Selector.SelectedPawns)
+								{
+									ReimplanterUtility.SetXenotype_DoubleXenotype(selectedPawn, xenotypeDef);
+								}
+							}
+							else
+							{
+								ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotypeDef);
+							}
 						}, orderInPriority: 0 - i));
 					}
 					Find.WindowStack.Add(new FloatMenu(list));

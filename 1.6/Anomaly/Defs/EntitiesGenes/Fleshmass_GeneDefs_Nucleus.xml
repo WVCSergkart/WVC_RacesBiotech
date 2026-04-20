@@ -41,11 +41,11 @@
 	<customEffectDescriptions>
 		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fleshmass heart&lt;/color&gt;.</li>
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <xenotypeDef>WVC_Beholdkind</xenotypeDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmassNucleus_Base">

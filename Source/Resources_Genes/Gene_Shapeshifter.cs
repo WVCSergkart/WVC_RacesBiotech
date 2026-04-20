@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Scenario hook
 		public static List<XenotypeHolder> xenotypesOverride;
-		public List<XenotypeHolder> Xenotypes
+		public virtual List<XenotypeHolder> Xenotypes
 		{
 			get
 			{

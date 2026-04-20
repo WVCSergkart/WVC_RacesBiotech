@@ -49,38 +49,23 @@ namespace WVC_XenotypesAndGenes
 
 		protected virtual void SetupAvailableGenes(Gene gene)
 		{
-			List<GeneDef> withExtension = new();
-			//List<GeneDef> cosmetic = new();
-			//List<GeneDef> humanGenes = ListsUtility.GetHumanGeneDefs();
-			foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)  //.Where((def) => !humanGenes.Contains(def))
+			List<GeneDefWithChance> allGenes = new();
+			foreach (GeneralHolder item in gene_Shapeshifter.Giver.geneDefWithChances)
 			{
-				if (item?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0)
-				{
-					withExtension.Add(item);
-				}
-				//else if (!item.renderNodeProperties.NullOrEmpty())
-				//{
-				//    cosmetic.Add(item);
-				//}
-			}
-			foreach (GeneDef item in withExtension)
-			{
-				if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+				if (item.geneDef.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.geneDef.prerequisite, gene.pawn))
 				{
 					continue;
 				}
 				GeneDefWithChance geneDefWithChance = new();
-				geneDefWithChance.geneDef = item;
-				geneDefWithChance.disabled = pawnGenes.Contains(item);
-				// || XaG_GeneUtility.ConflictWith(item, pawnGenes)
-				GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
-				if (geneExtension_Undead.overrideGeneCategory == null)
+				geneDefWithChance.geneDef = item.geneDef;
+				geneDefWithChance.disabled = pawnGenes.Contains(item.geneDef);
+				if (item.displayCategory == null)
 				{
 					geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
 				}
 				else
 				{
-					geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
+					geneDefWithChance.displayCategory = item.displayCategory;
 				}
 				if (DebugSettings.ShowDevGizmos)
 				{
@@ -88,30 +73,46 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
+					geneDefWithChance.Cost = (int)item.cost;
 				}
 				allGenes.Add(geneDefWithChance);
 			}
-			//foreach (GeneDef item in cosmetic)
+			this.allGenes = allGenes;
+			//List<GeneDef> withExtension = new();
+			//foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)
 			//{
-			//    if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
-			//    {
-			//        continue;
-			//    }
-			//    GeneDefWithChance geneDefWithChance = new();
-			//    geneDefWithChance.geneDef = item;
-			//    geneDefWithChance.disabled = pawnGenes.Contains(item);
-			//    geneDefWithChance.displayCategory = WVC_GenesDefOf.Cosmetic;
-			//    allGenes.Add(geneDefWithChance);
+			//	if (item?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0)
+			//	{
+			//		withExtension.Add(item);
+			//	}
 			//}
-			//foreach (GeneDef item in humanGenes)
+			//foreach (GeneDef item in withExtension)
 			//{
-			//    GeneDefWithChance geneDefWithChance = new();
-			//    geneDefWithChance.geneDef = item;
-			//    geneDefWithChance.disabled = pawnGenes.Contains(item);
-			//    geneDefWithChance.displayCategory = WVC_GenesDefOf.Cosmetic;
-			//    geneDefWithChance.Cost = 0;
-			//    allGenes.Add(geneDefWithChance);
+			//	if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+			//	{
+			//		continue;
+			//	}
+			//	GeneDefWithChance geneDefWithChance = new();
+			//	geneDefWithChance.geneDef = item;
+			//	geneDefWithChance.disabled = pawnGenes.Contains(item);
+			//	GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
+			//	if (geneExtension_Undead.overrideGeneCategory == null)
+			//	{
+			//		geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
+			//	}
+			//	else
+			//	{
+			//		geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
+			//	}
+			//	if (DebugSettings.ShowDevGizmos)
+			//	{
+			//		geneDefWithChance.Cost = 0;
+			//	}
+			//	else
+			//	{
+			//		geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
+			//	}
+			//	allGenes.Add(geneDefWithChance);
 			//}
 		}
 

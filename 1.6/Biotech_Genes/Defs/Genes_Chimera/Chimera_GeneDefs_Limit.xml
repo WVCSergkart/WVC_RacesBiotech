@@ -22,7 +22,7 @@
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<biostatMet>-4</biostatMet>
 	<statOffsets>
-	  <WVC_ChimeraLimit>4.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>8.0</WVC_ChimeraLimit>
 	</statOffsets>
   </GeneDef>
 
@@ -34,7 +34,7 @@
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<biostatMet>-8</biostatMet>
 	<statOffsets>
-	  <WVC_ChimeraLimit>8.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>16.0</WVC_ChimeraLimit>
 	</statOffsets>
   </GeneDef>
 
@@ -46,7 +46,7 @@
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<biostatMet>-12</biostatMet>
 	<statOffsets>
-	  <WVC_ChimeraLimit>12.0</WVC_ChimeraLimit>
+	  <WVC_ChimeraLimit>24.0</WVC_ChimeraLimit>
 	</statOffsets>
   </GeneDef>
 

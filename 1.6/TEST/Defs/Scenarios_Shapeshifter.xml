@@ -6,9 +6,13 @@
 	<label>Faulty Shape</label>
 	<description>TEST
 
-&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; does not have access to archite &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt;.\n- All genes have 2 times &lt;color=#8a8ae6&gt;less complexity and archites&lt;/color&gt;.\n- All pawns will be considered to have the &lt;color=#8a8ae6&gt;bisexual&lt;/color&gt; trait for &lt;color=#8a8ae6&gt;vanilla&lt;/color&gt; checks.\n- &lt;color=#8a8ae6&gt;Shapeshifters&lt;/color&gt; will have a &lt;color=#8a8ae6&gt;limit&lt;/color&gt; on the maximum number of genes. If they exceed this limit, they will lose &lt;color=#8a8ae6&gt;one random gene&lt;/color&gt; each day.
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifter&lt;/color&gt; does not have access to archite &lt;color=#8a8ae6&gt;xenotypes&lt;/color&gt;.\n- All genes have 2 times &lt;color=#8a8ae6&gt;less complexity and archites&lt;/color&gt;.\n- All pawns will be considered to have the &lt;color=#8a8ae6&gt;bisexual&lt;/color&gt; trait for &lt;color=#8a8ae6&gt;vanilla&lt;/color&gt; checks.
 
-&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;\n- All pawns that have any of these genes are considered shapeshifters: &lt;color=#8a8ae6&gt;Shapeshifter, chimera, morpher, archiver, switcher&lt;/color&gt;.\n- The limit for endogenes is 35 genes (5 rows). The limit for xenogenes is sanguophage genset + 3.
+&lt;color=#f5ffa2&gt;Leper start:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifters&lt;/color&gt; will have a &lt;color=#8a8ae6&gt;limit&lt;/color&gt; on the maximum number of genes. If they exceed this limit, they will lose &lt;color=#8a8ae6&gt;one random gene&lt;/color&gt; each day.\n- Each &lt;color=#8a8ae6&gt;monolith level&lt;/color&gt; increases the limit by 1\n- If the monolith is &lt;color=#8a8ae6&gt;embraced&lt;/color&gt;, the limit will disappear.\n- Every day 5 shapeshifter &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; is obtained.\n- Shapeshifter can implant &lt;color=#8a8ae6&gt;fleshmass geneline and hivemind geneline&lt;/color&gt; genes.
+
+&lt;color=#f5ffa2&gt;Ashen start:&lt;/color&gt;\n- 
+
+&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;\n- All pawns that have any of these genes are considered shapeshifters: &lt;color=#8a8ae6&gt;Shapeshifter, chimera, morpher, archiver, switcher&lt;/color&gt;.\n- The limit for endogenes is 35 genes (5 rows). The limit for xenogenes is sanguophage genset + 3.\n- The limit for endogenes is 35 genes (5 rows). The limit for xenogenes is sanguophage genset + 3.\n- &lt;color=#8a8ae6&gt;Geneline&lt;/color&gt; genes require the &lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; gene.
 
 &lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 
@@ -65,10 +69,17 @@
 		</li>
 
 		<!-- Forced world and xenotypes -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Shapeshifter">
-		  <def>WVC_XaG_Starting</def>
-		  <context>NonPlayer</context>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Shapeshifter"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <context>NonPlayer</context> -->
+		  <!-- <leperStartDef MayRequire="ludeon.rimworld.anomaly">WVC_Abomination</leperStartDef> -->
+		  <!-- <ashenStartDef MayRequire="ludeon.rimworld.ideology">WVC_Ashen</ashenStartDef> -->
+		  <!-- <hediffDef>WVC_FaultyShapeDisease</hediffDef> -->
+		  <!-- <shiftGeneDefs MayRequire="ludeon.rimworld.anomaly"> -->
+			<!-- <li>WVC_Chimera_GenelineFleshmass</li> -->
+			<!-- <li>WVC_Chimera_GenelineHiveMind</li> -->
+		  <!-- </shiftGeneDefs> -->
+		<!-- </li> -->
 
 		<!-- Player pawns modifiers -->
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
@@ -84,5 +95,17 @@
 	  </parts>
 	</scenario>
   </ScenarioDef>
+
+  <!--============-->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime"> -->
+	<!-- <defName>WVC_FaultyShapeDisease</defName> -->
+	<!-- <label>faulty shape disease</label> -->
+	<!-- <description>An unknown source is slowly making adjustments to the owner's genetic code. -->
+
+<!-- &lt;color=#f5ffa2&gt;Effects:&lt;/color&gt;\n- &lt;color=#8a8ae6&gt;Shapeshifters&lt;/color&gt; will have a &lt;color=#8a8ae6&gt;limit&lt;/color&gt; on the maximum number of genes. If they exceed this limit, they will lose &lt;color=#8a8ae6&gt;one random gene&lt;/color&gt; each day.\n- Each &lt;color=#8a8ae6&gt;monolith level&lt;/color&gt; increases the limit by 1\n- If the monolith is &lt;color=#8a8ae6&gt;embraced&lt;/color&gt;, the limit will disappear.\n- Every day 5 shapeshifter &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt; is obtained.</description> -->
+	<!-- <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_FaultyShapeDisease</hediffClass> -->
+  <!-- </HediffDef> -->
 
 </Defs>
