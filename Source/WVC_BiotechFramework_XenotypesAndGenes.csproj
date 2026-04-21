@@ -95,6 +95,7 @@
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
+    <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_FeatheredAgelessGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Fleshshaper.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />

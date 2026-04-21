@@ -28,6 +28,7 @@
 		<li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt;: Absorbing all target &lt;color=#8a8ae6&gt;genes&lt;/color&gt;.</li>
 		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#8a8ae6&gt;Nucleus&lt;/color&gt;: Trigger &lt;color=#8a8ae6&gt;fleshmass overgrow&lt;/color&gt;.</li>
 		<li>Absorbs all accumulated &lt;color=#8a8ae6&gt;experience&lt;/color&gt; of the target.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#8a8ae6&gt;Fleshshaper&lt;/color&gt;: Adds the target's xenotype to the list of available ones.</li>
 		<li MayRequire="ludeon.rimworld.anomaly">Using the ability can &lt;color=#8a8ae6&gt;inhumanize&lt;/color&gt; the caster.</li>
 	</customEffectDescriptions>
 	<!-- <modExtensions> -->

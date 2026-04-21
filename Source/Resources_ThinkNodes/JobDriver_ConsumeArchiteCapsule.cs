@@ -42,9 +42,9 @@ namespace WVC_XenotypesAndGenes
 					chimera.AddArchiteLimit((int)(1 * xaG_Job.factor));
 					Target.ReduceStack();
 				}
-				if (!chimera.Props.soundDefOnImplant.NullOrUndefined())
+				if (!chimera.Extension_Undead.soundDefOnImplant.NullOrUndefined())
 				{
-					chimera.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
+					chimera.Extension_Undead.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
 				}
 			});
 		}

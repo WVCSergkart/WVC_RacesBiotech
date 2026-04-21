@@ -163,9 +163,9 @@
 	  <AbilityDef>WVC_Animalfeeder</AbilityDef>
 	</descriptionHyperlinks>
 	<biostatMet>-2</biostatMet>
-	<customEffectDescriptions>
-		<li>Allows the chimera to gain random non-archite genes when using the ability.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows the chimera to gain random non-archite genes when using the ability.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>animalfeeder</symbol></li>

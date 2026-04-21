@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (GeneSetPresets file in chimeraDialog.gene.geneSetPresets.ToList())
+			foreach (GeneSetPresets file in chimeraDialog.gene.GeneSetPresets.ToList())
 			{
 				if (num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 						GeneSetPresets localFile = file;
 						Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmDelete".Translate(localFile.name), delegate
 						{
-							chimeraDialog.gene.geneSetPresets.Remove(localFile);
+							chimeraDialog.gene.GeneSetPresets.Remove(localFile);
 						}, destructive: true));
 					}
 					TooltipHandler.TipRegionByKey(rect2, deleteTipKey);

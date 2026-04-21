@@ -1,3 +1,5 @@
+using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -216,6 +218,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneMetabolism
 	{
 
+		//[Obsolete]
 		void UpdateMetabolism();
 
 	}
@@ -277,6 +280,48 @@ namespace WVC_XenotypesAndGenes
 	{
 
 
+
+	}
+
+	public interface IGeneXenogenesEditor
+	{
+
+		List<GeneDef> AllGenes { get; }
+
+		List<GeneDef> CollectedGenes { get; }
+		List<GeneDef> DisabledGenes { get; }
+		List<GeneDef> DestroyedGenes { get; }
+
+		Pawn Pawn { get; }
+		GeneDef Def { get; }
+
+		string LabelCap { get; }
+
+		GeneExtension_Undead Extension_Undead { get; }
+
+		void Debug_RemoveDupes();
+
+		bool TryDisableGene(GeneDef geneDef);
+		void RemoveCollectedGene_Storage(GeneDef geneDef);
+		void ImplantGene(GeneDef geneDef);
+
+		bool TryGetUniqueGene();
+		bool TryGetToolGene();
+
+		//StatDef ChimeraLimitStatDef { get; }
+
+		int ArchiteLimit { get; }
+		int ComplexityLimit { get; }
+
+		List <GeneSetPresets> GeneSetPresets { get; set; }
+
+		IntRange ReqMetRange { get; }
+		bool ReqCooldown { get; }
+		bool DisableSubActions { get; }
+		bool UseGeneline { get; }
+
+		void UpdSubHediffs();
+		void UpdateCache();
 
 	}
 

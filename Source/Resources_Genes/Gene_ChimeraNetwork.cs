@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (GeneDef geneDef in selectedGenes)
 			{
-				Chimera.RemoveCollectedGene(geneDef);
+				Chimera.RemoveCollectedGene_Storage(geneDef);
 				try
 				{
 					if (Rand.Chance(0.12f))

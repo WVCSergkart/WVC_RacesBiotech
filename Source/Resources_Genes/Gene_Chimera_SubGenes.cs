@@ -162,11 +162,11 @@ namespace WVC_XenotypesAndGenes
 			bool playSound = false;
 			for (int i = 0; i < countSpawn; i++)
 			{
-				if (Chimera.EatedGenes.NullOrEmpty())
+				if (Chimera.DisabledGenes.NullOrEmpty())
 				{
 					break;
 				}
-				Chimera.DestroyGene(Chimera.EatedGenes.RandomElement());
+				Chimera.DestroyGene(Chimera.DisabledGenes.RandomElement());
 				if (Rand.Chance(geneChance))
 				{
 					GetRandomGene();

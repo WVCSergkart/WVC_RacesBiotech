@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.AppendLine();
 					stringBuilder.AppendLineTagged("WVC_XaG_Gene_Chimera_GizmoTip".Translate());
 					stringBuilder.AppendLine();
-					if (gene.Genelined)
+					if (gene.UseGeneline)
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_Geneline".Translate(GetCount().ToString()));
 					}
@@ -38,9 +38,9 @@ namespace WVC_XenotypesAndGenes
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_Basic".Translate(gene.CollectedGenes.Count));
 					}
-					if (!gene.EaterDisabled)
+					if (!gene.DisableSubActions)
 					{
-						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_EatAndDes".Translate(gene.EatedGenes.Count, gene.DestroyedGenes.Count));
+						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_EatAndDes".Translate(gene.DisabledGenes.Count, gene.DestroyedGenes.Count));
 					}
 					if (Gene_Chimera.ChimeraGenesLimit)
 					{
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					gene.UpdCached();
+					gene.UpdateCache();
 					gene.UpdSubHediffs();
 					if (gene.CanBeUsed)
 					{

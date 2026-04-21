@@ -330,6 +330,7 @@ namespace WVC_XenotypesAndGenes
 		public XenotypeDef xenotypeForcerDef = null;
 		public bool xenotypeIsInheritable = true;
 		public List<HeadTypeDef> headTypeDefs;
+		[Obsolete]
 		public HediffDef metHediffDef;
 		// Scarifier
 		//public int scarsCount = 0;

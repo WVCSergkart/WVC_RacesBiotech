@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		// private Action callback;
 
-		public Gene_Chimera gene;
+		public IGeneXenogenesEditor gene;
 
 		public List<GeneDef> selectedGenes = new();
 
@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 		//public Gene_StorageImplanter storageImplanter = null;
 		public bool subActionsDisabled = false;
 
-		public Dialog_CreateChimera(Gene_Chimera chimera)
+		public Dialog_CreateChimera(IGeneXenogenesEditor chimera)
 		{
 			// generationRequestIndex = index;
 			// this.callback = callback;
@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void GetCustomEater()
 		{
-			foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
+			foreach (Gene pawnGene in gene.Pawn.genes.GenesListForReading)
 			{
 				if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
 				{
@@ -161,9 +161,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				BasicEater();
 			}
-			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
+			if (!gene.Extension_Undead.soundDefOnImplant.NullOrUndefined())
 			{
-				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+				gene.Extension_Undead.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.Pawn));
 			}
 			gene.Debug_RemoveDupes();
 			UpdateGenesInforamtion();
@@ -179,7 +179,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (GeneDef geneDef in selectedGenes)
 			{
-				if (!gene.TryEatGene(geneDef))
+				if (!gene.TryDisableGene(geneDef))
 				{
 					continue;
 				}
@@ -605,67 +605,91 @@ namespace WVC_XenotypesAndGenes
 
 		private void GetLimitAndCost()
 		{
-			int limitCost = 0;
-			float genesLimit = 0;
-			float genesLimitFactor = 1f;
-			StatDef statDef = gene.ChimeraLimitStatDef;
-			//foreach (Hediff item in gene.pawn.health.hediffSet.hediffs)
+			int biostatCpxCost = 0;
+			//float genesLimit = 0;
+			//float genesLimitFactor = 1f;
+			//StatDef statDef = gene.ChimeraLimitStatDef;
+			int biostatArcCost = 0;
+			//foreach (GeneDef item in pawnEndoGenes)
 			//{
-			//    gene.GetStatFromStatModifiers(statDef, item.CurStage?.statOffsets, item.CurStage?.statFactors, out float offset, out float factor);
-			//    genesLimit += offset;
-			//    genesLimitFactor *= factor;
+			//	if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
+			//	{
+			//		continue;
+			//	}
+			//	GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
+			//	genesLimit += offset;
+			//	genesLimitFactor *= factor;
 			//}
-			//int archites = 0;
-			int arcLimitCost = 0;
-			foreach (GeneDef item in pawnEndoGenes)
-			{
-				//archites += item.biostatArc;
-				if (XaG_GeneUtility.ConflictWith(item, SelectedGenes))
-				{
-					continue;
-				}
-				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
-				genesLimit += offset;
-				genesLimitFactor *= factor;
-			}
 			foreach (GeneDef item in SelectedGenes)
 			{
-				gene.GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
-				limitCost += item.biostatCpx;
-				arcLimitCost += item.biostatArc;
-				genesLimit += offset;
-				genesLimitFactor *= factor;
+				//GetStatFromStatModifiers(statDef, item.statOffsets, item.statFactors, out float offset, out float factor);
+				biostatCpxCost += item.biostatCpx;
+				biostatArcCost += item.biostatArc;
+				//genesLimit += offset;
+				//genesLimitFactor *= factor;
 			}
-			foreach (Gene pawnGene in gene.pawn.genes.GenesListForReading)
+			//foreach (Gene pawnGene in gene.Pawn.genes.GenesListForReading)
+			//{
+			//	if (!SelectedGenes.Contains(pawnGene.def) && pawnGene.pawn.genes.Xenogenes.Contains(pawnGene))
+			//	{
+			//		continue;
+			//	}
+			//	if (pawnGene is not Gene_ChimeraHediff chimeraHediffGene)
+			//	{
+			//		continue;
+			//	}
+			//	if (chimeraHediffGene.ChimeraHediff != null)
+			//	{
+			//		GetStatFromStatModifiers(statDef, chimeraHediffGene.ChimeraHediff?.CurStage?.statOffsets, chimeraHediffGene.ChimeraHediff?.CurStage?.statFactors, out float offset, out float factor);
+			//		genesLimit += offset;
+			//		genesLimitFactor *= factor;
+			//	}
+			//}
+			//genesLimit *= genesLimitFactor;
+			cachedComplexityLimit_Consumed = biostatCpxCost;
+			//
+			cachedLimitConsumed_Arc = biostatArcCost;
+			//
+			if (Gene_Chimera.ChimeraGenesLimit)
 			{
-				if (!SelectedGenes.Contains(pawnGene.def) && pawnGene.pawn.genes.Xenogenes.Contains(pawnGene))
-				{
-					continue;
-				}
-				if (pawnGene is not Gene_ChimeraHediff chimeraHediffGene)
-				{
-					continue;
-				}
-				if (chimeraHediffGene.ChimeraHediff != null)
-				{
-					gene.GetStatFromStatModifiers(statDef, chimeraHediffGene.ChimeraHediff?.CurStage?.statOffsets, chimeraHediffGene.ChimeraHediff?.CurStage?.statFactors, out float offset, out float factor);
-					genesLimit += offset;
-					genesLimitFactor *= factor;
-				}
+				cachedComplexityLimit = gene.ComplexityLimit;
+				cachedArchitesLimit = gene.ArchiteLimit;
 			}
-			genesLimit *= genesLimitFactor;
-			//genesLimit *= XaG_GeneUtility.GetAverageCpx; // To use or not to use..?
-			cachedComplexityLimit_Consumed = limitCost;
-			cachedComplexityLimit = (int)genesLimit;
-			//
-			cachedArchitesLimit = gene.ArchiteLimit;
-			cachedLimitConsumed_Arc = arcLimitCost;
-			//
-			if (!Gene_Chimera.ChimeraGenesLimit)
+			else
 			{
 				cachedComplexityLimit = 999;
 				cachedArchitesLimit = 999;
 			}
+
+			//void GetStatFromStatModifiers(StatDef statDef, List<StatModifier> statOffsets, List<StatModifier> statFactors, out float offset, out float factor)
+			//{
+			//	offset = 0;
+			//	factor = 1;
+			//	if (statDef == null)
+			//	{
+			//		return;
+			//	}
+			//	if (statOffsets != null)
+			//	{
+			//		foreach (StatModifier statModifier in statOffsets)
+			//		{
+			//			if (statModifier.stat == statDef)
+			//			{
+			//				offset += statModifier.value;
+			//			}
+			//		}
+			//	}
+			//	if (statFactors != null)
+			//	{
+			//		foreach (StatModifier statModifier in statFactors)
+			//		{
+			//			if (statModifier.stat == statDef)
+			//			{
+			//				factor *= statModifier.value;
+			//			}
+			//		}
+			//	}
+			//}
 		}
 
 
@@ -864,9 +888,13 @@ namespace WVC_XenotypesAndGenes
 		protected override void DrawSearchRect(Rect rect)
 		{
 			base.DrawSearchRect(rect);
+			if (gene.GeneSetPresets == null)
+			{
+				return;
+			}
 			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y), "Load".Translate()))
 			{
-				if (!gene.geneSetPresets.NullOrEmpty())
+				if (!gene.GeneSetPresets.NullOrEmpty())
 				{
 					Find.WindowStack.Add(new Dialog_ChimeraPresetsList_Load(this));
 				}
@@ -883,24 +911,24 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					if (!gene.geneSetPresets.NullOrEmpty())
+					if (!gene.GeneSetPresets.NullOrEmpty())
 					{
-						foreach (GeneSetPresets geneSetPresets in gene.geneSetPresets.ToList())
+						foreach (GeneSetPresets geneSetPresets in gene.GeneSetPresets.ToList())
 						{
 							if (geneSetPresets.name == xenotypeName)
 							{
-								gene.geneSetPresets.Remove(geneSetPresets);
+								gene.GeneSetPresets.Remove(geneSetPresets);
 							}
 						}
 					}
 					else
 					{
-						gene.geneSetPresets = new();
+						gene.GeneSetPresets = new();
 					}
 					GeneSetPresets preset = new();
 					preset.name = xenotypeName;
 					preset.geneDefs = selectedGenes;
-					gene.geneSetPresets.Add(preset);
+					gene.GeneSetPresets.Add(preset);
 					Messages.Message("WVC_XaG_CreateChimera_NewPresetSaved".Translate().CapitalizeFirst(), null, MessageTypeDefOf.PositiveEvent, historical: false);
 				}
 			}
@@ -908,12 +936,12 @@ namespace WVC_XenotypesAndGenes
 
 		private void StorageImplanterSet()
 		{
-			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
+			if (Gene_StorageImplanter.CanStoreGenes(gene.Pawn, out Gene_StorageImplanter implanter))
 			{
 				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, null, xenotypeName?.Trim());
 				foreach (GeneDef geneDef in selectedGenes)
 				{
-					gene.RemoveCollectedGene(geneDef);
+					gene.RemoveCollectedGene_Storage(geneDef);
 				}
 				Close();
 			}
@@ -932,17 +960,17 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), chimeraApplyEater.Translate()))
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.pawn.LabelCap), GenesEater));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.Pawn.LabelCap), GenesEater));
 			}
 			if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.Pawn.LabelCap), StorageImplanterSet));
 			}
 		}
 
 		protected override bool CanAccept()
 		{
-			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn))
 			{
 				return false;
 			}
@@ -977,11 +1005,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (selectedGenes.NullOrEmpty())
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.pawn.LabelCap), ClearXenogenes));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.Pawn.LabelCap), ClearXenogenes));
 			}
 			else
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ImplantGeneSet".Translate(gene.pawn.LabelCap), StartChange));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ImplantGeneSet".Translate(gene.Pawn.LabelCap), StartChange));
 			}
 		}
 
@@ -989,12 +1017,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			ClearGenes(selectedGenes);
 			List<GeneDef> implantedGenes = new();
-			ReimplanterUtility.UnknownChimerkin(gene.pawn);
+			ReimplanterUtility.UnknownChimerkin(gene.Pawn);
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				try
 				{
-					if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
+					if (!XaG_GeneUtility.HasGene(geneDef, gene.Pawn))
 					{
 						gene.ImplantGene(geneDef);
 						implantedGenes.Add(geneDef);
@@ -1006,18 +1034,63 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			RemoveOverridenGenes(ref implantedGenes);
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			gene.UpdateChimeraXenogerm(implantedGenes);
-			gene.DoEffects();
-			gene.UpdateMetabolism();
-			gene.UpdSubHediffs();
+			ReimplanterUtility.PostImplantDebug(gene.Pawn);
+			UpdateChimeraXenogerm(implantedGenes);
+			UpdateOther();
 			Close(doCloseSound: false);
+		}
+
+		private void UpdateOther()
+		{
+			if (gene is IGeneWithEffects geneWithEffects)
+			{
+				geneWithEffects.DoEffects();
+			}
+			if (gene is IGeneMetabolism geneMetabolism)
+			{
+				geneMetabolism.UpdateMetabolism();
+			}
+			gene.UpdSubHediffs();
+		}
+
+		public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
+		{
+			Hediff firstHediffOfDef = gene.Pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (firstHediffOfDef != null)
+			{
+				List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(gene.Pawn);
+				foreach (Ability ability in xenogenesAbilities)
+				{
+					if (!ability.HasCooldown)
+					{
+						continue;
+					}
+					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
+				}
+				//pawn.health.RemoveHediff(firstHediffOfDef);
+			}
+			if (implantedGenes.Empty())
+			{
+				return;
+			}
+			XaG_GeneUtility.GetBiostatsFromList(implantedGenes, out int cpx, out int met, out int _);
+			int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+			int nonArchiteCount = implantedGenes.Count - architeCount;
+			int days = Mathf.Clamp(nonArchiteCount + (architeCount * 3) - met + (int)(cpx * 0.2f), 0, 999);
+			int ticks = days * (gene.ReqCooldown ? 30000 : 120000);
+			if (ticks < 30000 && implantedGenes.Count > 0)
+			{
+				ticks = 30000;
+			}
+			//int count = (implantedGenes.Count + 1) * 180000;
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(gene.Pawn, new((int)(ticks * 0.8f), (int)(ticks * 1.1f)), firstHediffOfDef);
+			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
 		private void RemoveOverridenGenes(ref List<GeneDef> implantedGenes)
 		{
 			bool postImplantRemoveMessage = false;
-			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+			foreach (Gene gene in gene.Pawn.genes.Xenogenes.ToList())
 			{
 				if (gene.Overridden && gene.overriddenByGene != null)
 				{
@@ -1045,14 +1118,14 @@ namespace WVC_XenotypesAndGenes
 
 		private void UpdateGenesInforamtion()
 		{
-			subActionsDisabled = gene.EaterDisabled;
+			subActionsDisabled = gene.DisableSubActions;
 			GetCustomEater();
 			//selectedGenes = new();
 			cachedGeneDefsInOrder = new();
 			List<GeneDef> genelinedGenes = null;
-			ConvertToDefsAndGetGeneline(gene.pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
+			ConvertToDefsAndGetGeneline(gene.Pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
 			this.pawnEndoGenes = pawnEndoGenes;
-			ConvertToDefsAndGetGeneline(gene.pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
+			ConvertToDefsAndGetGeneline(gene.Pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
 			this.pawnXenoGenes = pawnXenoGenes;
 			if (genelinedGenes == null)
 			{
@@ -1107,7 +1180,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
+				foreach (Gene gene in gene.Pawn.genes.Xenogenes.ToList())
 				{
 					if (nonRemoveGenes != null && nonRemoveGenes.Contains(gene.def))
 					{
@@ -1115,9 +1188,9 @@ namespace WVC_XenotypesAndGenes
 					}
 					gene.pawn?.genes?.RemoveGene(gene);
 				}
-				if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
+				if (!XaG_GeneUtility.HasGene(gene.Def, gene.Pawn))
 				{
-					gene.pawn.genes.AddGene(gene.def, false);
+					gene.Pawn.genes.AddGene(gene.Def, false);
 				}
 			}
 			catch
@@ -1125,7 +1198,7 @@ namespace WVC_XenotypesAndGenes
 				Log.Warning("Error during genes removing. Broken PostRemove() in some gene?");
 			}
 			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
+			ReimplanterUtility.PostImplantDebug(gene.Pawn);
 		}
 
 		public void ClearXenogenes()
@@ -1133,9 +1206,16 @@ namespace WVC_XenotypesAndGenes
 			// gene.ClearChimeraXenogerm();
 			ClearGenes();
 			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			gene.DoEffects();
-			gene.UpdateMetabolism();
+			ReimplanterUtility.PostImplantDebug(gene.Pawn);
+			//if (gene is IGeneWithEffects geneWithEffects)
+			//{
+			//	geneWithEffects.DoEffects();
+			//}
+			//if (gene is IGeneMetabolism geneMetabolism)
+			//{
+			//	geneMetabolism.UpdateMetabolism();
+			//}
+			UpdateOther();
 			Close(doCloseSound: false);
 		}
 

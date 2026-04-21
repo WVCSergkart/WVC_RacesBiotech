@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 4078641796
+CRC: 579758764
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d8eec65a03c5d211c8a94e9c2a48507a
+    Hash: 6bae8d814be06e23d3580ba0927639a3
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: a6b584e0ffeb379943fb4ea863bd8b53
+    Hash: 3761f96a47251b3f5d4f7e061ef92b57
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -734,6 +734,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Artistic/SkillUp_Equal.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/ChanceTex_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Plates/Plating_C_east.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshshaper.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_HiveMind_SharedGenes.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Male_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/GenMatTex_Has.png
@@ -906,6 +907,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Temperature_Cold_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno4.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Plates/Plating_C_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_XenogenesEditorGeneral.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Precepts/Precept_GeneticSupremacy_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_NoImmunity_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/NodeTail_south.png

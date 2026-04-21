@@ -16,7 +16,29 @@
 
   <!-- ================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" Abstract="True">
+	<labelShortAdj>shifter</labelShortAdj>
+	<customEffectDescriptions>
+		<li>Allows to change the xenotype at any time.</li>
+		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<exclusionTags>
+	  <li>WVC_ShapeshifterGene</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<blockingHediffs>
+				<li>XenogermReplicating</li>
+			</blockingHediffs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene">
 	<defName>WVC_Shapeshifter</defName>
 	<label>shapeshifter</label>
 	<labelShortAdj>shifter</labelShortAdj>
@@ -24,40 +46,21 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter</iconPath>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Shapeshifter</resourceGizmoType>
-	<customEffectDescriptions>
-		<li>Allows to change the xenotype at any time.</li>
-		<!-- <li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li> -->
-		<!-- <li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li> -->
-		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
-	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
 	</statOffsets>
-	<displayOrderInCategory>155</displayOrderInCategory>
-	<biostatCpx>8</biostatCpx>
-	<biostatArc>3</biostatArc>
-	<exclusionTags>
-	  <li>WVC_ShapeshifterGene</li>
-	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<birthQualityOffset>0.25</birthQualityOffset>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <scarsCount>-3</scarsCount> -->
-			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
-			<hediffDefs>
-				<!-- <li>WVC_PostshiftMetabolism_HungerFactor</li> -->
-				<li>WVC_ShapeshifterDeathless</li>
-				<li>WVC_ChimeraMetabolism_HungerFactor</li>
-			</hediffDefs>
 			<geneDefWithChances>
 				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
 				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
 				<li>  <geneDef>WVC_NeverDead</geneDef><!-- never dead -->  <cost>98</cost>  </li>
 				<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 				<li>  <geneDef>WVC_NaturalMechlink</geneDef><!-- natural mechlink -->  <cost>27</cost>  </li>
-				<li>  <geneDef>WVC_NaturalPsylink</geneDef><!-- natural psylink -->  <cost>27</cost>  </li>
+				<li MayRequire="ludeon.rimworld.royalty">  <geneDef>WVC_NaturalPsylink</geneDef><!-- natural psylink -->  <cost>27</cost>  </li>
 				<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
 				<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
 				<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
@@ -96,19 +99,10 @@
 				<li>  <geneDef>WVC_Ageless_Overrider</geneDef><!-- overrided ageless -->  <cost>24</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
 				<li>  <geneDef>WVC_Aging_Overrider</geneDef><!-- overrided aging -->  <cost>33</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
 				<li>  <geneDef>WVC_Solar_Overrider</geneDef><!-- overrided solar -->  <cost>48</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-				<li>  <geneDef>WVC_Scars_Overrider</geneDef><!-- overrided scars -->  <cost>77</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
+				<li MayRequire="ludeon.rimworld.ideology">  <geneDef>WVC_Scars_Overrider</geneDef><!-- overrided scars -->  <cost>77</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
 				<li>  <geneDef>WVC_PostShapeshift_Regeneration</geneDef><!-- preshift healing -->  <cost>28</cost>  </li>
-				<li>  <geneDef>WVC_PostShapeshift_Scarred</geneDef><!-- postshift scarred -->  <cost>14</cost>  </li>
+				<li MayRequire="ludeon.rimworld.ideology">  <geneDef>WVC_PostShapeshift_Scarred</geneDef><!-- postshift scarred -->  <cost>14</cost>  </li>
 			</geneDefWithChances>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
-			<!-- <shiftStatDef>WVC_Shapeshifter_MinGenesMatch</shiftStatDef> -->
-			<blockingHediffs>
-				<li>XenogermReplicating</li>
-				<!-- <li>XenogerminationComa</li> -->
-				<!-- <li>XenogermLossShock</li> -->
-			</blockingHediffs>
 		</li>
 	</modExtensions>
   </GeneDef>

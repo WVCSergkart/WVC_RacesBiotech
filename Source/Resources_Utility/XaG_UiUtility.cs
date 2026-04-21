@@ -18,6 +18,10 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture GeneBackground_ArchiteEndogene = new("WVC/UI/Genes/GeneBackground_ArchiteGene");
 		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
+		public static readonly CachedTexture Shapeshifter_MenuIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoMain");
+		public static readonly CachedTexture Shapeshifter_BonusGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
+		public static readonly CachedTexture Shapeshifter_XenogenesEditorIcon = new("WVC/UI/XaG_General/UI_XenogenesEditorGeneral");
+
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 		public static readonly CachedTexture GenesSettingsIcon = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
 

@@ -25,7 +25,8 @@
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
 		<li>WVC_Chimera_Devourer</li>
-		<li>WVC_Shapeshifter</li>
+		<!-- <li>WVC_Shapeshifter</li> -->
+		<li>WVC_Fleshshaper</li>
 		<li>WVC_SharedMetabolism</li>
 		<li>WVC_Agevenator</li>
 		<li>WVC_Immunity_VeryWeak</li>

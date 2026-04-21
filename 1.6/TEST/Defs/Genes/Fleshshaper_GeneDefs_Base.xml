@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_Fleshshaper</defName>
+	<label>fleshshaper</label>
+	<description>Carriers of this gene have archites that are capable of rewriting and editing their owners' genetic code within certain limits. Carriers can freely change their xenotype and edit their genes to a limited extent, but their xenogermline are subject to constant decay.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Fleshshaper</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Fleshshaper</iconPath>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Fleshshaper</resourceGizmoType>
+	<displayOrderInCategory>-1</displayOrderInCategory>
+	<biostatCpx>-5</biostatCpx>
+	<!-- <statFactors> -->
+	  <!-- <WVC_FleshmassMutationsDelayFactor>1.2</WVC_FleshmassMutationsDelayFactor> -->
+	<!-- </statFactors> -->
+	<!-- <statOffsets> -->
+	  <!-- <WVC_ChimeraLimit>11.0</WVC_ChimeraLimit> -->
+	<!-- </statOffsets> -->
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
+		<li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides 5 &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>-0.05</birthQualityOffset>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<statDef>WVC_ChimeraLimit</statDef>
+			<geneDefWithChances>
+				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
+				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
+				<li>  <geneDef>WVC_Shapeshift_Deathless</geneDef><!-- cellular -->  <cost>88</cost>  </li>
+				<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+				<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
+				<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_RiseEndogenes</geneDef><!-- post endo-implanter -->  <cost>36</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_Xenogenes</geneDef><!-- xenogerm implanter -->  <cost>22</cost>  </li>
+				<li>  <geneDef>WVC_ReimplanterArchite_RiseXenogenes</geneDef><!-- post xeno-implanter -->  <cost>31</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  </li>
+				<li>  <geneDef>WVC_SelfdevourStomach</geneDef><!-- self-devour stomach -->  <cost>56</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassBrain</geneDef><!-- fleshmass thinker -->  <cost>56</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassSkin</geneDef><!-- flesh-eye skin -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+				<li>  <geneDef>WVC_FleshmassNucleus</geneDef><!-- fleshmass nucleus -->  <cost>99</cost>  </li>
+				<li>  <geneDef>WVC_FleshmassHeart</geneDef><!-- fleshmass heart -->  <cost>72</cost>  </li>
+			</geneDefWithChances>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

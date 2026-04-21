@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			if (victim.IsAnimal)
+			if (Rand.Chance(0.2f) && victim.IsAnimal)
 			{
 				Chimera?.GetRandomGene();
 			}

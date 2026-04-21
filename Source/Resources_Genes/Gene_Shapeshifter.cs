@@ -39,15 +39,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Scenario hook
-		public static List<XenotypeHolder> xenotypesOverride;
+		//public static List<XenotypeHolder> xenotypesOverride;
 		public virtual List<XenotypeHolder> Xenotypes
 		{
 			get
 			{
-				if (!xenotypesOverride.NullOrEmpty())
-				{
-					return xenotypesOverride;
-				}
+				//if (!xenotypesOverride.NullOrEmpty())
+				//{
+				//	return xenotypesOverride;
+				//}
 				//List<XenotypeHolder> holders = new();
 				//int limit = 3;
 				//List<XenotypeHolder> xenotypeHolders = ListsUtility.GetAllXenotypesHolders();
@@ -131,7 +131,8 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
-			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+			//HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+			HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
 		}
 
 		public void Notify_Override()
@@ -356,7 +357,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdateMetabolism()
 		{
-			HediffUtility.TryAddOrUpdMetabolism(Giver.metHediffDef, pawn, this);
+			HediffUtility.TryAddOrUpdMetabolism(pawn, this);
 		}
 
 		// Shapeshift

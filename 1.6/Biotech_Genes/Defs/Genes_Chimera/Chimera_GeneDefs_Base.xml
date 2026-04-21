@@ -207,7 +207,7 @@
 			</chimeraConditionalGenes>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef>
+			<!-- <metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef> -->
 			<statDef>WVC_ChimeraLimit</statDef>
 		</li>
 	</modExtensions>
