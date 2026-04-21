@@ -183,8 +183,8 @@ Disable this option if you have any mods that change the mechanics of the hunger
 	<WVC_Label_enable_chimeraXenogermCD>Сhimera cooldown</WVC_Label_enable_chimeraXenogermCD>
 	<WVC_ToolTip_enable_chimeraXenogermCD>If enabled, the use of Chimera will be impossible until the genes regrowing effect ends.</WVC_ToolTip_enable_chimeraXenogermCD>
 
-	<WVC_Label_enable_chimeraXenogenesLimit>Enable chimera genes limit</WVC_Label_enable_chimeraXenogenesLimit>
-	<WVC_ToolTip_enable_chimeraXenogenesLimit>If enabled, the chimera will have a limit on the maximum number of complexity/archites.</WVC_ToolTip_enable_chimeraXenogenesLimit>
+	<WVC_Label_enable_chimeraXenogenesLimit>Enable xenogenes editor limit</WVC_Label_enable_chimeraXenogenesLimit>
+	<WVC_ToolTip_enable_chimeraXenogenesLimit>If enabled, the chimera/fleshshaper will have a limit on the maximum number of complexity/archites.</WVC_ToolTip_enable_chimeraXenogenesLimit>
 
 	<!-- <WVC_Label_chimeraMinGeneCopyChance>Min gene copy chance +{0}%</WVC_Label_chimeraMinGeneCopyChance> -->
 

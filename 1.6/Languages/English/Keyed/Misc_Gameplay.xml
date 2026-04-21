@@ -490,7 +490,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- ============================ INFO STATS ============================ -->
 
-	<WVC_XaG_Gene_Wings_On_Info>Ignores terrain</WVC_XaG_Gene_Wings_On_Info>
+	<WVC_XaG_Gene_Wings_On_Info>Ignores terrain cost</WVC_XaG_Gene_Wings_On_Info>
 	<!-- <WVC_XaG_Gene_Undead_On_Info>Undead (Can resurrect)</WVC_XaG_Gene_Undead_On_Info> -->
 	<WVC_XaG_Gene_Undead_On_Info>Resurrect in case of death</WVC_XaG_Gene_Undead_On_Info>
 	<!-- <WVC_XaG_Gene_DustUndead_On_Info>Reincarnate in case of death</WVC_XaG_Gene_DustUndead_On_Info> -->
@@ -719,7 +719,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraDeathMark_GenesObtained>{0}'s genes were obtained.</WVC_XaG_ChimeraDeathMark_GenesObtained>
 	<WVC_XaG_GeneManeater_VictimEated>{0} was eaten whole and the genes were harvested.</WVC_XaG_GeneManeater_VictimEated>
 
-	<WVC_XaG_WarningPawnWillDieFromDevourer>Warning: {PAWN_nameDef} will be killed and {PAWN_possessive} body will be destroyed. {PAWN_nameDef}'s genes will be absorbed and {PAWN_possessive} skill experience will be inherited by the caster.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromDevourer>
+	<WVC_XaG_WarningPawnWillDieFromDevourer>Warning: {PAWN_nameDef} will be killed and {PAWN_possessive} body will be destroyed. If the pawn is a human, then {PAWN_nameDef}'s genes will be absorbed and {PAWN_possessive} skill experience will be inherited by the caster.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromDevourer>
 
 	<WVC_XaG_GeneRipper_GeneCopied>{0} ripped the {1} gene.</WVC_XaG_GeneRipper_GeneCopied>
 

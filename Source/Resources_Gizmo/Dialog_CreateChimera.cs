@@ -950,13 +950,17 @@ namespace WVC_XenotypesAndGenes
 		protected override void DoBottomButtons(Rect rect)
 		{
 			base.DoBottomButtons(rect);
+			if (subActionsDisabled)
+			{
+				if (Widgets.ButtonText(new Rect((rect.xMax / 2) - (ButSize.x / 2), rect.y, ButSize.x, ButSize.y), "WVC_Reset".Translate()))
+				{
+					selectedGenes = new();
+				}
+				return;
+			}
 			if (Widgets.ButtonText(new Rect((rect.xMax / 2) - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_Reset".Translate()))
 			{
 				selectedGenes = new();
-			}
-			if (subActionsDisabled)
-			{
-				return;
 			}
 			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), chimeraApplyEater.Translate()))
 			{

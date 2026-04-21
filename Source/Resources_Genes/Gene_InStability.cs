@@ -311,7 +311,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetInterval();
-			useStabilizerAuto = Props.defaultBoolValue;
+			//useStabilizerAuto = Props.defaultBoolValue;
 		}
 
 		public override void TickInterval(int delta)

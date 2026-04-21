@@ -162,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		// Undead
 		public List<HediffDef> hediffDefs;
+		[Obsolete]
 		public List<ThoughtDef> thoughtDefs;
 		public BackstoryDef childhoodDef;
 		public BackstoryDef adulthoodDef;
@@ -169,11 +170,14 @@ namespace WVC_XenotypesAndGenes
 		public IntRange additionalDelay = new(6000, 9000);
 		// Reincarnation
 		public QuestScriptDef summonQuest;
+		[Obsolete]
 		public int minChronoAge = 54;
+		[Obsolete]
 		public float chance = 0.37f;
 		// Shapeshifter
 		public SoundDef soundDefOnImplant;
 		public List<HediffDef> duplicateHediffs;
+		[Obsolete]
 		public List<TraitDef> duplicateTraits;
 		public List<HediffDef> blockingHediffs;
 		[Obsolete]
@@ -197,6 +201,7 @@ namespace WVC_XenotypesAndGenes
 		//public Color destroyedGenesColor;
 		// Regen
 		public float regeneration = -1f;
+		[Obsolete]
 		public float immunization = -1f;
 		//public float deathrestBoost = -1f;
 		// Regen
@@ -277,8 +282,10 @@ namespace WVC_XenotypesAndGenes
 		//outcome
 		public List<XenotypeChance> xenotypeChances;
 		//Food
+		[Obsolete]
 		public bool isDustogenic = false;
 		//Fleshmass
+		[Obsolete]
 		public bool isFleshmass = false;
 		//Xenos
 		//public bool isChimerkin = false;
@@ -329,6 +336,7 @@ namespace WVC_XenotypesAndGenes
 		public BackstoryDef adultBackstoryDef;
 		public XenotypeDef xenotypeForcerDef = null;
 		public bool xenotypeIsInheritable = true;
+		[Obsolete]
 		public List<HeadTypeDef> headTypeDefs;
 		[Obsolete]
 		public HediffDef metHediffDef;
@@ -342,6 +350,7 @@ namespace WVC_XenotypesAndGenes
 		public bool showMessageIfOwned = false;
 		public string message = "WVC_XaG_Extreme_GeneticInstabilityMessage";
 		public JobDef jobDef;
+		[Obsolete]
 		public bool defaultBoolValue = false;
 		public SimpleCurve curve;
 		// Golems Gizmo
@@ -352,6 +361,7 @@ namespace WVC_XenotypesAndGenes
 		//public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
 		//public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
 		//public int golemistTypeIndex = -1;
+		[Obsolete]
 		public QuestScriptDef summonQuest;
 		// Bloodeater
 		public float nutritionPerBite = 0.8f;
@@ -366,8 +376,6 @@ namespace WVC_XenotypesAndGenes
 		public JobDef repairJobDef;
 		public ThingDef xenoChargerDef;
 		public float chargeSpeedFactor = 1f;
-		// Morpher
-		public List<XenotypeDef> xenotypeDefs;
 		// Colorable Eyes
 		public List<GeneralHolder> holofaces;
 		public Color defaultColor;
@@ -401,6 +409,8 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> excludedGeneDefs;
 		// Size
 		//public float factor = 1f;
+		// Fleshshaper
+		public List<XenotypeDef> xenotypeDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

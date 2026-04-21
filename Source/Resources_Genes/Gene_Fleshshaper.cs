@@ -22,11 +22,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private List<string> unlockedXenotypes;
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
 			{
-				return base.Xenotypes.Where(holder => holder.Baseliner || holder.genes.Any()).ToList();
+				return base.Xenotypes.Where(holder =>
+				{
+					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.xenotypeDef);
+					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
+					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
+					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
+				}).ToList();
 			}
 		}
 
@@ -104,6 +111,15 @@ namespace WVC_XenotypesAndGenes
 			// Dev
 		}
 
+		public void UnlockXenotype(string xenotypeName)
+		{
+			if (unlockedXenotypes == null)
+			{
+				unlockedXenotypes = new();
+			}
+			unlockedXenotypes.AddSafe(xenotypeName);
+		}
+
 		public void ImplantGene(GeneDef geneDef)
 		{
 			if (!this.def.ConflictsWith(geneDef))
@@ -178,18 +194,18 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
-		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
-		//	{
-		//		if (geneSetPresets == null)
-		//		{
-		//			geneSetPresets = new();
-		//		}
-		//	}
-		//}
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
+			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			//{
+			//	if (geneSetPresets == null)
+			//	{
+			//		geneSetPresets = new();
+			//	}
+			//}
+		}
 
 	}
 

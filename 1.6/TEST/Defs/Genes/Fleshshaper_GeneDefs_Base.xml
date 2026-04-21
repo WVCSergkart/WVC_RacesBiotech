@@ -10,9 +10,9 @@
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Fleshshaper</resourceGizmoType>
 	<displayOrderInCategory>-1</displayOrderInCategory>
 	<biostatCpx>-5</biostatCpx>
-	<!-- <statFactors> -->
-	  <!-- <WVC_FleshmassMutationsDelayFactor>1.2</WVC_FleshmassMutationsDelayFactor> -->
-	<!-- </statFactors> -->
+	<statFactors>
+	  <WVC_FleshmassMutationsDelayFactor>1.5</WVC_FleshmassMutationsDelayFactor>
+	</statFactors>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_ChimeraLimit>11.0</WVC_ChimeraLimit> -->
 	<!-- </statOffsets> -->
@@ -26,7 +26,14 @@
 			<birthQualityOffset>-0.05</birthQualityOffset>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<statDef>WVC_ChimeraLimit</statDef>
+			<!-- <statDef>WVC_ChimeraLimit</statDef> -->
+			<xenotypeDefs>
+			  <li>WVC_Fleshkind</li>
+			</xenotypeDefs>
+			<geneCategoryDefs>
+			  <li>WVC_Fleshmass</li>
+			  <!-- <li>WVC_HiveMind</li> -->
+			</geneCategoryDefs>
 			<geneDefWithChances>
 				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
 				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>

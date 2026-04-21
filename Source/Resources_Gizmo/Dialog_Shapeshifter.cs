@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				UpdGenesMatchUpToMinOneXenotype(xenotypes);
+				UpdGenesMatchUpToMinOneXenotype(xenotypes, 0);
 			}
 			catch
 			{
@@ -91,20 +91,25 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void UpdGenesMatchUpToMinOneXenotype(List<XenotypeHolder> xenotypes)
+		private void UpdGenesMatchUpToMinOneXenotype(List<XenotypeHolder> xenotypes, int tries)
 		{
-			if (!disabled && xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
+			if (tries > 20 || disabled)
+			{
+				return;
+			}
+			tries++;
+			if (xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
 			{
 				minGenesMatch -= 0.05f;
 				if (DebugSettings.ShowDevGizmos)
 				{
 					Log.Warning("Required genes match decreased. New required match: " + minGenesMatch);
 				}
-				UpdHoldersOverride(xenotypes);
+				UpdHoldersOverride(xenotypes, tries);
 			}
 		}
 
-		private void UpdHoldersOverride(List<XenotypeHolder> xenotypes)
+		private void UpdHoldersOverride(List<XenotypeHolder> xenotypes, int tries)
 		{
 			foreach (XenotypeHolder item in xenotypes)
 			{
@@ -113,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 					item.isOverriden = false;
 				}
 			}
-			UpdGenesMatchUpToMinOneXenotype(xenotypes);
+			UpdGenesMatchUpToMinOneXenotype(xenotypes, tries);
 		}
 
 		// public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)

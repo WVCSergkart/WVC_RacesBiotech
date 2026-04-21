@@ -387,6 +387,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool IsDustogenicFood(this Thing thing)
 		{
 			if (thing?.def?.ingestible == null)

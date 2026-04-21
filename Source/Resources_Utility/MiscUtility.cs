@@ -50,10 +50,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (T item in other)
 			{
-				if (!set.Contains(item))
-				{
-					set.Add(item);
-				}
+				AddSafe(set, item);
+			}
+		}
+
+		public static void AddSafe<T>(this List<T> set, T item)
+		{
+			if (!set.Contains(item))
+			{
+				set.Add(item);
 			}
 		}
 
