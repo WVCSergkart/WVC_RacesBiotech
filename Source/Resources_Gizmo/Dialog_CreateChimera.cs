@@ -1031,7 +1031,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!XaG_GeneUtility.HasGene(geneDef, gene.Pawn))
 					{
-						gene.ImplantGene(geneDef);
+						gene.AddGene_Editor(geneDef);
 						implantedGenes.Add(geneDef);
 					}
 				}

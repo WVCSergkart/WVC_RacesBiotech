@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using RimWorld;
+using System.Collections.Generic;
+using System.Text;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -7,6 +8,21 @@ namespace WVC_XenotypesAndGenes
 
 	public static class InitialUtility
 	{
+
+		public static void GetModStatus()
+		{
+			StringBuilder stringBuilder = new();
+			WVC_Biotech mod = LoadedModManager.GetMod<WVC_Biotech>();
+			stringBuilder.AppendLine("Xenotypes and Genes is initialized successfully.");
+			if (mod != null)
+			{
+				stringBuilder.AppendLine("Mod version: " + mod.Content.ModMetaData.ModVersion);
+				stringBuilder.AppendLine("Steam status: " + (mod.Content.SteamAppId == 2886992038).ToStringTrueFalse_Debug());
+			}
+			stringBuilder.AppendLine("Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
+			stringBuilder.AppendLine("Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug());
+			Log.Message(stringBuilder.ToString().TrimEndNewlines());
+		}
 
 		//private static WVC_Biotech cachedThisMod;
 		//public static WVC_Biotech GetMod

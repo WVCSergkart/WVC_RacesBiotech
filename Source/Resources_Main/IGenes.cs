@@ -279,7 +279,8 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneShapeshifter
 	{
 
-
+		//void AddGene_Safe(GeneDef geneDef, bool inheritable);
+		//void RemoveGene_Safe(Gene gene);
 
 	}
 
@@ -303,7 +304,7 @@ namespace WVC_XenotypesAndGenes
 
 		bool TryDisableGene(GeneDef geneDef);
 		void RemoveCollectedGene_Storage(GeneDef geneDef);
-		void ImplantGene(GeneDef geneDef);
+		void AddGene_Editor(GeneDef geneDef);
 
 		bool TryGetUniqueGene();
 		bool TryGetToolGene();

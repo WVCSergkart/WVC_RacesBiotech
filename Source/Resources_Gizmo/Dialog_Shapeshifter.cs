@@ -232,25 +232,25 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			TryShapeshift(gene, this);
+			TryShapeshift(gene);
 			Close(doCloseSound: false);
 		}
 
 		// Shapeshift
-		private bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)
+		private bool TryShapeshift(Gene_Shapeshifter geneShapeshifter)
 		{
 			int num = 0;
 			try
 			{
 				num = 1;
-				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.disabled);
+				geneShapeshifter.PreShapeshift(disabled);
 				num = 2;
-				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.disabled || dialog.clearXenogenes, xenotypeHybridization && !dialog.disabled);
+				geneShapeshifter.Shapeshift(selectedXenoHolder, disabled || clearXenogenes, xenotypeHybridization && !disabled);
 				num = 3;
-				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.disabled);
+				geneShapeshifter.PostShapeshift(disabled);
 				num = 4;
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.Label)
-				+ "\n\n" + dialog.selectedXenoHolder.Description,
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), selectedXenoHolder.Label)
+				+ "\n\n" + selectedXenoHolder.Description,
 				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				num = 5;
 				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);

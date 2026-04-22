@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 				//InitialUtility.XenotypeDefs();
 				//phase = "harmony";
 				//HarmonyPatches.HarmonyUtility.HarmonyPatches();
+				phase = "status report";
+				InitialUtility.GetModStatus();
 			}
 			catch (Exception arg)
 			{

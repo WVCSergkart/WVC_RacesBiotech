@@ -583,7 +583,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		public virtual void ImplantGene(GeneDef geneDef)
+		public virtual void AddGene_Editor(GeneDef geneDef)
 		{
 			if (!this.def.ConflictsWith(geneDef))
 			{

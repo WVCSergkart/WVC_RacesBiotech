@@ -608,7 +608,7 @@ namespace WVC_XenotypesAndGenes
 						continue;
 					}
 					//RemoveGene(gene);
-					shapeshiferGene.RemoveGene(gene);
+					shapeshiferGene.RemoveGene_Safe(gene);
 				}
 			}
 			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
@@ -620,7 +620,7 @@ namespace WVC_XenotypesAndGenes
 						continue;
 					}
 					//RemoveGene(gene);
-					shapeshiferGene.RemoveGene(gene);
+					shapeshiferGene.RemoveGene_Safe(gene);
 				}
 			}
 			foreach (GeneDef geneDef in xenotypeHolder.genes)
@@ -629,7 +629,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				shapeshiferGene.AddGene(geneDef, xenotypeHolder.inheritable);
+				shapeshiferGene.AddGene_Safe(geneDef, xenotypeHolder.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 			if (doPostDebug)

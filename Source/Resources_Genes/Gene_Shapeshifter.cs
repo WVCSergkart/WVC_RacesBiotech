@@ -255,16 +255,19 @@ namespace WVC_XenotypesAndGenes
 					List<GeneDef> newList = new();
 					foreach (Gene item in pawn.genes.GenesListForReading)
 					{
+						// Legacy
 						if (item is Gene_ShapeshifterDependant dependant && dependant.PreservedGeneDefs != null && dependant.Active)
 						{
-							foreach (GeneDef geneDef in dependant.PreservedGeneDefs)
-							{
-								if (!newList.Contains(geneDef))
-								{
-									newList.Add(geneDef);
-								}
-							}
+							//foreach (GeneDef geneDef in dependant.PreservedGeneDefs)
+							//{
+							//	if (!newList.Contains(geneDef))
+							//	{
+							//		newList.Add(geneDef);
+							//	}
+							//}
+							newList.AddRangeSafe(dependant.PreservedGeneDefs);
 						}
+						// Legacy
 					}
 					cachedPreservedGenes = newList;
 				}
@@ -272,7 +275,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void AddGene(GeneDef geneDef, bool inheritable)
+		public virtual void AddGene_Safe(GeneDef geneDef, bool inheritable)
 		{
 			if (!geneDef.ConflictsWith(this.def))
 			{
@@ -280,7 +283,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void RemoveGene(Gene gene)
+		public virtual void RemoveGene_Safe(Gene gene)
 		{
 			if (gene != this && !PreservedGeneDefs.Contains(gene.def))
 			{
@@ -362,20 +365,20 @@ namespace WVC_XenotypesAndGenes
 
 		// Shapeshift
 
-		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		public virtual void PreShapeshift(bool genesRegrowing)
 		{
 			cachedPreservedGenes = null;
 			if (!genesRegrowing)
 			{
-				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
+				GeneResourceUtility.Notify_PreShapeshift(this);
 			}
 		}
 
-		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		public virtual void PostShapeshift(bool genesRegrowing)
 		{
 			if (!genesRegrowing)
 			{
-				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
+				GeneResourceUtility.Notify_PostShapeshift(this);
 			}
 			UpdateMetabolism();
 			cachedPreservedGenes = null;

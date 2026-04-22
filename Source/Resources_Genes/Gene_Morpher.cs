@@ -687,7 +687,7 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef.xenotypeDef, true);
 			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
-				AddGene(geneDef, xenotypeDef.inheritable);
+				AddGene_Safe(geneDef, xenotypeDef.inheritable);
 			}
 			if (xenotypeDef.CustomXenotype)
 			{
@@ -700,7 +700,7 @@ namespace WVC_XenotypesAndGenes
 			//currentFormName = xenotypeDef.Label;
 		}
 
-		public virtual void AddGene(GeneDef geneDef, bool inheritable)
+		public virtual void AddGene_Safe(GeneDef geneDef, bool inheritable)
 		{
 			//if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
 			//{
@@ -717,7 +717,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void RemoveGene(Gene gene)
+		public virtual void RemoveGene_Safe(Gene gene)
 		{
 			//if (gene != this)
 			//{
@@ -740,7 +740,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (gene.def.IsGeneDefOfType<Gene_MorpherDependant>())
 					{
-						RemoveGene(gene);
+						RemoveGene_Safe(gene);
 					}
 				}
 				pawn?.genes?.RemoveGene(this);

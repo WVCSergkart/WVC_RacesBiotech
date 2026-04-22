@@ -483,6 +483,11 @@ namespace WVC_XenotypesAndGenes
 			GUI.color = Color.white;
 		}
 
+		public static string ToStringTrueFalse_Debug(this bool b)
+		{
+			return b ? "True" : "False";
+		}
+
 
 		public static void DevOptions(Listing_Standard listingStandard, Mod mod)
 		{

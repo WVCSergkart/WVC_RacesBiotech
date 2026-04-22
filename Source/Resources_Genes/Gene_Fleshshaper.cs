@@ -120,13 +120,13 @@ namespace WVC_XenotypesAndGenes
 			unlockedXenotypes.AddSafe(xenotypeName);
 		}
 
-		public void ImplantGene(GeneDef geneDef)
+		public void AddGene_Editor(GeneDef geneDef)
 		{
 			//if (!this.def.ConflictsWith(geneDef))
 			//{
 			//	pawn.genes.AddGene(geneDef, true);
 			//}
-			AddGene(geneDef, false);
+			AddGene_Safe(geneDef, false);
 		}
 
 		public override void CopyFrom(Gene_Shapeshifter oldShapeshifter)
@@ -151,16 +151,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				//TryOffsetResource(5);
-				//if (pawn.genes.Endogenes.Count > 35)
-				//{
-				//	Gene gene = pawn.genes.Endogenes.RandomElement();
-				//	pawn.genes.RemoveGene(gene);
-				//	Message(pawn, gene);
-				//}
-				if (pawn.genes.Xenogenes.TryRandomElement(out Gene gene) && TryOffsetResource(5))
+				//pawn.genes.Xenogenes.TryRandomElement(out Gene gene)
+				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(5))
 				{
-					//Gene gene = pawn.genes.Xenogenes.TryRandomElement();
+					//RemoveGene_Safe(gene);
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
 				}
@@ -176,6 +170,50 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("WVC_XaG_FaultyShapeDisease".Translate(pawn, gene.Label), pawn, MessageTypeDefOf.NegativeEvent);
 				}
+			}
+
+			bool TryRandomGene(Pawn pawn, out Gene gene)
+			{
+				gene = null;
+				if (pawn.genes.Xenogenes.Empty())
+				{
+					return false;
+				}
+				List<Gene> archite = new();
+				List<Gene> nonCosmetic = new();
+				List<Gene> cosmetic = new();
+				foreach (Gene pawnGene in pawn.genes.Xenogenes)
+				{
+					if (pawnGene == this || PreservedGeneDefs.Contains(pawnGene.def))
+					{
+						continue;
+					}
+					if (pawnGene.def.biostatArc != 0)
+					{
+						archite.Add(pawnGene);
+					}
+					else if (XaG_GeneUtility.IsCosmeticGene(pawnGene.def))
+					{
+						cosmetic.Add(pawnGene);
+					}
+					else
+					{
+						nonCosmetic.Add(pawnGene);
+					}
+				}
+				if (!archite.Empty())
+				{
+					gene = archite.RandomElement();
+				}
+				else if (!nonCosmetic.Empty())
+				{
+					gene = nonCosmetic.RandomElement();
+				}
+				else if (!cosmetic.Empty())
+				{
+					gene = cosmetic.RandomElement();
+				}
+				return gene != null;
 			}
 		}
 

@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene gene in pawn.genes.Endogenes.ToList())
 			{
-				morpher.RemoveGene(gene);
+				morpher.RemoveGene_Safe(gene);
 			}
 			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
 			{
@@ -150,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
 			{
-				morpher.RemoveGene(gene);
+				morpher.RemoveGene_Safe(gene);
 			}
 		}
 
@@ -158,11 +158,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (GeneDef gene in endogeneDefs)
 			{
-				morpher.AddGene(gene, true);
+				morpher.AddGene_Safe(gene, true);
 			}
 			foreach (GeneDef gene in xenogeneDefs)
 			{
-				morpher.AddGene(gene, false);
+				morpher.AddGene_Safe(gene, false);
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
