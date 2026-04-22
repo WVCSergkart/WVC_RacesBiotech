@@ -134,6 +134,9 @@ namespace WVC_XenotypesAndGenes
 
 		private void GetCustomEater()
 		{
+			geneCustomChimeraEater = null;
+			chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
+			chimeraApplyEaterWarning = "WVC_XaG_GeneGeneticThief_EatSelectedGenes";
 			foreach (Gene pawnGene in gene.Pawn.genes.GenesListForReading)
 			{
 				if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
@@ -1157,7 +1160,7 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene item in pawnGenes)
 			{
 				geneDefs.Add(item.def);
-				if (item is not Gene_ChimeraGeneline geneline)
+				if (!gene.UseGeneline || item is not Gene_ChimeraGeneline geneline)
 				{
 					continue;
 				}

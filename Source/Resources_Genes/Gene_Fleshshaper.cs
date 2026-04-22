@@ -122,10 +122,20 @@ namespace WVC_XenotypesAndGenes
 
 		public void ImplantGene(GeneDef geneDef)
 		{
-			if (!this.def.ConflictsWith(geneDef))
+			//if (!this.def.ConflictsWith(geneDef))
+			//{
+			//	pawn.genes.AddGene(geneDef, true);
+			//}
+			AddGene(geneDef, false);
+		}
+
+		public override void CopyFrom(Gene_Shapeshifter oldShapeshifter)
+		{
+			if (oldShapeshifter is Gene_Fleshshaper gene_Fleshshaper)
 			{
-				pawn.genes.AddGene(geneDef, true);
+				this.unlockedXenotypes = gene_Fleshshaper.unlockedXenotypes;
 			}
+			base.CopyFrom(oldShapeshifter);
 		}
 
 		public override void TickInterval(int delta)
@@ -148,9 +158,9 @@ namespace WVC_XenotypesAndGenes
 				//	pawn.genes.RemoveGene(gene);
 				//	Message(pawn, gene);
 				//}
-				if (pawn.genes.Xenogenes.Any() && TryOffsetResource(5))
+				if (pawn.genes.Xenogenes.TryRandomElement(out Gene gene) && TryOffsetResource(5))
 				{
-					Gene gene = pawn.genes.Xenogenes.RandomElement();
+					//Gene gene = pawn.genes.Xenogenes.TryRandomElement();
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
 				}

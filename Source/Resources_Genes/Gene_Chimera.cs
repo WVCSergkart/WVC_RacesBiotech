@@ -617,7 +617,7 @@ namespace WVC_XenotypesAndGenes
 			cachedIsReqCooldown = null;
 			cachedEaterDisabled = null;
 			cachedIsGenelined = null;
-			cachedIsCustomEater = null;
+			//cachedIsCustomEater = null;
 		}
 
 		private bool? cachedIsReqCooldown;
@@ -668,18 +668,18 @@ namespace WVC_XenotypesAndGenes
 				return cachedReqMetRange.Value;
 			}
 		}
-		private bool? cachedIsCustomEater;
-		public bool IsCustomEater
-		{
-			get
-			{
-				if (!cachedIsCustomEater.HasValue)
-				{
-					UpdateCache();
-				}
-				return cachedIsCustomEater.Value;
-			}
-		}
+		//private bool? cachedIsCustomEater;
+		//public bool IsCustomEater
+		//{
+		//	get
+		//	{
+		//		if (!cachedIsCustomEater.HasValue)
+		//		{
+		//			UpdateCache();
+		//		}
+		//		return cachedIsCustomEater.Value;
+		//	}
+		//}
 
 		public void UpdateCache()
 		{
@@ -687,7 +687,7 @@ namespace WVC_XenotypesAndGenes
 			cachedIsReqCooldown = WVC_Biotech.settings.enable_chimeraXenogermCD;
 			cachedEaterDisabled = false;
 			cachedIsGenelined = false;
-			cachedIsCustomEater = false;
+			//cachedIsCustomEater = false;
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
 				if (item is not Gene_ChimeraDependant subgene || !subgene.Active)
@@ -706,10 +706,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					cachedIsGenelined = true;
 				}
-				if (subgene is IGeneCustomChimeraEater)
-				{
-					cachedIsCustomEater = true;
-				}
+				//if (subgene is IGeneCustomChimeraEater)
+				//{
+				//	cachedIsCustomEater = true;
+				//}
 				if (subgene.ReqMetRange.HasValue)
 				{
 					cachedReqMetRange = subgene.ReqMetRange.Value;
