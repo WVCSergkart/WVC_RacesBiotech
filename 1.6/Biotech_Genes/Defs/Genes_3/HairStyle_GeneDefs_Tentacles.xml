@@ -5,6 +5,7 @@
 	<defName>WVC_HeadTentacles0c</defName>
 	<label>head tentacles</label>
 	<description>Carriers of this gene grow tentacles on their heads instead of hair.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_CustomSkinHair</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HeadTentacles0c</iconPath>
 	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
 	<!-- <selectionWeight>0.0012</selectionWeight> -->
@@ -27,8 +28,8 @@
 	</capMods>
 	<renderNodeProperties>
 	  <li>
-		<nodeClass>PawnRenderNode</nodeClass>
-		<!-- <nodeClass>PawnRenderNode_Hair</nodeClass> -->
+		<!-- <nodeClass>PawnRenderNode</nodeClass> -->
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_CustomHair</nodeClass>
 		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
 		<texPaths>
 		  <li>WVC/BodyParts/Hair/HeadTentacles0c</li>
@@ -67,6 +68,11 @@
 		<li><symbol>ten</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>2360</styleId>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

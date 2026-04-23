@@ -5,6 +5,7 @@
 1000011 - Gene_CenterFrill
 2350 - Gene_Skinshaper
 2351 - Gene_TentacleWings
+2360 - Tentacle hair
 4010 - Elf ears
 4015 - Demon horns
 4020 - Headspikes

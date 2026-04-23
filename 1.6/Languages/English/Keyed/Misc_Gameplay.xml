@@ -118,6 +118,7 @@
 	<WVC_XaG_Tips>&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;</WVC_XaG_Tips>
 	<WVC_XaG_GenesSettings_DescTip>Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
 	<WVC_XaG_IGeneCustomGraphic_DescTip>Style can be changed using the &lt;color=#8a8ae6&gt;shapeshifter, chimera, or chameleon&lt;/color&gt; genes.</WVC_XaG_IGeneCustomGraphic_DescTip>
+	<WVC_XaG_GeneCustomHair_DescTip>Supports changing style on &lt;color=#8a8ae6&gt;styling station&lt;/color&gt;.</WVC_XaG_GeneCustomHair_DescTip>
 
 	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>
 

@@ -300,9 +300,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			bool isRemoteController = WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>();
 			bool isCustomGraphic = ModsConfig.IdeologyActive && geneDef.IsGeneDefOfType<IGeneCustomGraphic>();
+			bool isCustomHairGene = isCustomGraphic && geneDef.IsGeneDefOfType<Gene_CustomHair>();
 			if (isRemoteController || isCustomGraphic)
 			{
-				bool tipsInsteadTip = isRemoteController && isCustomGraphic;
+				bool tipsInsteadTip = isRemoteController && isCustomGraphic || isCustomGraphic && isCustomHairGene;
 				if (tipsInsteadTip)
 				{
 					geneDef.description += "\n\n" + "WVC_XaG_Tips".Translate().ToString();
@@ -313,6 +314,10 @@ namespace WVC_XenotypesAndGenes
 					if (isCustomGraphic)
 					{
 						geneDef.description += "\n  - " + "WVC_XaG_IGeneCustomGraphic_DescTip".Translate().ToString();
+						if (isCustomHairGene)
+						{
+							geneDef.description += "\n  - " + "WVC_XaG_GeneCustomHair_DescTip".Translate().ToString();
+						}
 					}
 				}
 				else

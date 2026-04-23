@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1991255202
+CRC: 1642279000
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 097ccf80c5004e61f86fc897f5711997
+    Hash: 6404e6f9b5f9799c736c3c961186a770
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: c3a1388c2552b5a99a00c78b8c372388
+    Hash: ae3e7cae066c040102330a1e96ced1db
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -294,6 +294,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Female_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Sterile_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Gauntskin_Body/Naked_Female_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Princess_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Superclotting_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/ElfEars/DoubleEars_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/DisableTalking_v0.png
@@ -474,6 +475,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Aptitudes_Crafter.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Shapeshifter_Body/Naked_Thin_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Fat_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Princess_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WildnessB_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/MaleBody_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/Bone_Head/BoneHeadEyes_south.png
@@ -565,6 +567,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/Shapeshifter_Head/Head_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Plants/NoChance.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Tough_v3.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Princess_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/SerumCraftingTable/SerumCraftingTable2_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Scarifier_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/NoChance.png

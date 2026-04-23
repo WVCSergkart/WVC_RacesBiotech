@@ -7,107 +7,6 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_CustomHair : XaG_Gene, IGeneCustomGraphic, IGeneOverriddenBy
-	{
-
-		public virtual Color CurrentColor
-		{
-			get
-			{
-				return color;
-			}
-			set
-			{
-				color = value;
-			}
-		}
-
-		public virtual int StyleId => -1;
-
-		//public virtual Color? DefaultColor => Color.white;
-		public virtual List<GeneralHolder> ColorHolder => new();
-
-		private StyleGeneDef styleGeneDef;
-		private Color color;
-
-		//public virtual bool IsStylable => true;
-
-		public virtual StyleGeneDef StyleGeneDef
-		{
-			get
-			{
-				return styleGeneDef;
-			}
-			set
-			{
-				styleGeneDef = value;
-				//int count = def.RenderNodeProperties.First((node) => node.nodeClass.SameOrSubclassOf<PawnRenderNode_CustomHair>()).texPaths.Count;
-				//if (currentTextID > count)
-				//{
-				//	currentTextID = count;
-				//}
-				//Log.Error(currentTextID.ToString());
-				pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
-			}
-		}
-
-		public virtual List<Color> AllColors => new();
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref color, "color");
-			Scribe_Defs.Look(ref styleGeneDef, "currentTextID");
-		}
-
-		public virtual void DoAction()
-		{
-			//Find.WindowStack.Add(new Dialog_ChangeGraphic_Simple(this));
-			Find.WindowStack.Add(new Dialog_StylingExtra(pawn, this, true, false, null));
-		}
-
-		//public virtual void SetColor(Color color, bool visible)
-		//{
-
-		//}
-
-		//================RECACHE===================
-		//================RECACHE===================
-		//================RECACHE===================
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			ResetCache();
-		}
-
-		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			ResetCache();
-		}
-
-		public void Notify_Override()
-		{
-			ResetCache();
-		}
-
-		private static void ResetCache()
-		{
-			CompStylingStation.cachedPawns = null;
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			ResetCache();
-		}
-
-		//================RECACHE===================
-		//================RECACHE===================
-		//================RECACHE===================
-
-	}
-
 	public class Gene_FungoidHair : Gene_CustomHair
 	{
 
@@ -211,6 +110,23 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override int StyleId => 1000011;
+
+	}
+
+	public class Gene_CustomSkinHair : Gene_CustomHair
+	{
+
+		public override Color CurrentColor
+		{
+			get
+			{
+				return pawn.story.SkinColor;
+			}
+			set
+			{
+
+			}
+		}
 
 	}
 

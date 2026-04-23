@@ -92,6 +92,7 @@
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
     <Compile Include="Resources_Genes\Gene_Attachments.cs" />
+    <Compile Include="Resources_Genes\Gene_CustomHair.cs" />
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
