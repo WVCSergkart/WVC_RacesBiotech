@@ -483,8 +483,12 @@ namespace WVC_XenotypesAndGenes
 			GUI.color = Color.white;
 		}
 
-		public static string ToStringTrueFalse_Debug(this bool b)
+		public static string ToStringTrueFalse_Debug(this bool b, bool alt = false)
 		{
+			if (alt)
+			{
+				return b ? "Enabled" : "Disabled";
+			}
 			return b ? "True" : "False";
 		}
 

@@ -13,14 +13,20 @@ namespace WVC_XenotypesAndGenes
 		{
 			StringBuilder stringBuilder = new();
 			WVC_Biotech mod = LoadedModManager.GetMod<WVC_Biotech>();
-			stringBuilder.AppendLine("Xenotypes and Genes is initialized successfully.");
+			stringBuilder.AppendLine("Xenotypes and Genes is initialized successfully. Getting mod status:");
 			if (mod != null)
 			{
-				stringBuilder.AppendLine("Mod version: " + mod.Content.ModMetaData.ModVersion);
-				stringBuilder.AppendLine("Steam status: " + (mod.Content.SteamAppId == 2886992038).ToStringTrueFalse_Debug());
+				stringBuilder.AppendLine(" - Mod version: " + mod.Content.ModMetaData.ModVersion);
+				stringBuilder.AppendLine(" - Steam status: " + (mod.Content.SteamAppId == 2886992038).ToStringTrueFalse_Debug());
 			}
-			stringBuilder.AppendLine("Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
-			stringBuilder.AppendLine("Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug());
+			stringBuilder.AppendLine(" - Compatability mode: " + WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability.ToStringTrueFalse_Debug(true));
+			stringBuilder.AppendLine(" - Human component status: " + WVC_Biotech.settings.enable_xagHumanComponent.ToStringTrueFalse_Debug());
+			stringBuilder.AppendLine(" - Mod graphic: " + (!WVC_Biotech.settings.disableAllGraphic).ToStringTrueFalse_Debug(true));
+			stringBuilder.AppendLine(" - Xenotypes in factions (Obsolete): " + WVC_Biotech.settings.enable_spawnXenotypesInFactions.ToStringTrueFalse_Debug(true));
+			stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
+			stringBuilder.AppendLine(" - Aptitudes: " + WVC_Biotech.settings.generateSkillGenes.ToStringTrueFalse_Debug(true));
+			stringBuilder.AppendLine(" - Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
+			stringBuilder.AppendLine(" - Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug(true));
 			Log.Message(stringBuilder.ToString().TrimEndNewlines());
 		}
 
