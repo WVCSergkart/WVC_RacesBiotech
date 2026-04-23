@@ -410,7 +410,7 @@ namespace WVC_XenotypesAndGenes
 		// Size
 		//public float factor = 1f;
 		// Fleshshaper
-		public List<XenotypeDef> xenotypeDefs;
+		public List<string> xenotypeDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

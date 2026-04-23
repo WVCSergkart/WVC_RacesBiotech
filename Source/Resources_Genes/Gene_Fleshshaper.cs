@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return base.Xenotypes.Where(holder =>
 				{
-					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.xenotypeDef);
+					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.Label);
 					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
 					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;

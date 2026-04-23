@@ -11,17 +11,10 @@ namespace WVC_XenotypesAndGenes
 
 	public class Dialog_CreateChimera : GeneCreationDialogBase
 	{
-		// private int generationRequestIndex = 1;
-
-		// private Action callback;
 
 		public IGeneXenogenesEditor gene;
 
 		public List<GeneDef> selectedGenes = new();
-
-		// public string presetName;
-
-		// private bool eatAllSelectedGenes;
 
 		private bool? selectedCollapsed = false;
 
@@ -34,12 +27,6 @@ namespace WVC_XenotypesAndGenes
 		private GeneDef hoveredGene;
 
 		private List<GeneDef> overridenGenes;
-
-		// private static bool ignoreRestrictionsConfirmationSent;
-
-		//private const int MaxCustomXenotypes = 200;
-
-		//private static readonly Color OutlineColorSelected = new Color(1f, 1f, 0.7f, 1f);
 
 		public override Vector2 InitialSize => new(Mathf.Min(UI.screenWidth, 1036), UI.screenHeight - 4);
 
@@ -73,10 +60,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					return "WVC_XaG_ChimeraApply_Clear".Translate().CapitalizeFirst();
 				}
-				// else if (eatAllSelectedGenes)
-				// {
-				// return "WVC_XaG_ChimeraApply_Eat".Translate().CapitalizeFirst();
-				// }
 				return "WVC_XaG_ChimeraApply_Implant".Translate().CapitalizeFirst();
 			}
 		}
@@ -103,16 +86,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		//public Gene_StorageImplanter storageImplanter = null;
 		public bool subActionsDisabled = false;
 
 		public Dialog_CreateChimera(IGeneXenogenesEditor chimera)
 		{
-			// generationRequestIndex = index;
-			// this.callback = callback;
 			xenotypeName = string.Empty;
 			gene = chimera;
-			//storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
 			forcePause = true;
 			closeOnAccept = false;
 			absorbInputAroundWindow = true;
@@ -122,12 +101,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
-			//pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-			//pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-			//pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			//allGenes = gene.CollectedGenes;
-			//eatedGenes = gene.EatedGenes;
-			//selectedGenes = pawnXenoGenes;
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
@@ -480,10 +453,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!gene.CollectedGenes.Contains(geneDef))
 			{
-				//ColorLibrary.LightBlue
-				//GenColor.FromHex("47753c") // Green
-				//GenColor.FromHex("304452") // Dark Blue
-				//Widgets.DrawBoxSolidWithOutline(rect, new(1f, 1f, 1f, 0f), GenColor.FromHex("304452"));
 				Rect genelineRect = new(rect.xMax - 25f, rect.yMax - 72f, 22f, 22f);
 				Widgets.DrawTextureFitted(genelineRect, XaG_UiUtility.GenelineIconMark.Texture, 1f, 1f);
 				if (Mouse.IsOver(genelineRect))
