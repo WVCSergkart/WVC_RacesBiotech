@@ -13,5 +13,9 @@
 	<defName>WVC_TentacleHair1c</defName>
 	<texPath>WVC/BodyParts/Hair/Princess</texPath>
   </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleHair">
+	<defName>WVC_TentacleHair2c</defName>
+	<texPath>WVC/BodyParts/Hair/Scrapper</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
 
 </Defs>

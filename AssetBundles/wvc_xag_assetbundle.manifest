@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1642279000
+CRC: 3144346779
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6404e6f9b5f9799c736c3c961186a770
+    Hash: 56a04d09e081d4d18dc54e48f6afd90e
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ae3e7cae066c040102330a1e96ced1db
+    Hash: 678b493023c4e414a08fe39fc122c744
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -344,6 +344,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_MetLimit_0x5c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Mecha_Genepack/Archopack_c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/StrikingPower_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_west.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Switcher_Implanter.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ArchiteSkin_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Tentacles/Naked_Female_south.png
@@ -570,6 +571,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Princess_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/SerumCraftingTable/SerumCraftingTable2_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Scarifier_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/NoChance.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/UndeadGene_Body/Naked_Male_south.png
@@ -825,6 +827,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FurskinG_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WildnessC_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Shapeshifter_PreservedArchiver.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/GenelineBackground.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_NoWoundHealing_v0.png
@@ -1294,6 +1297,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/ShortDemonTailA_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Hulk_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Headbone_Bighorns.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Hulk_southm.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Ageless_Slow_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Female_east.png
