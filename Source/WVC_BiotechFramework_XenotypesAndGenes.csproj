@@ -207,7 +207,7 @@
     <Compile Include="Resources_Hediff\HediffComp_ChimeraDeathMark.cs" />
     <Compile Include="Resources_Hediff\Hediff_PsychicSensitivity.cs" />
     <Compile Include="Resources_Holders\GeneDefOverrideSaver.cs" />
-    <Compile Include="Resources_Holders\GeneSetPresets.cs" />
+    <Compile Include="Resources_Holders\GeneSetPreset.cs" />
     <Compile Include="Resources_Holders\PawnContainerHolder.cs" />
     <Compile Include="Resources_Holders\PawnGeneSetHolder.cs" />
     <Compile Include="Resources_Holders\XenotypeHolder_Exposable.cs" />
@@ -275,7 +275,7 @@
     <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeTree.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChimeraPresetsLoad.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_XenogenesEditor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />

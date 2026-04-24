@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 		private void DrawSection(Rect rect, List<GeneDef> genes, string label, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref bool? collapsed)
 		{
 			float curX = 4f;
-			Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
+			Dialog_XenogenesEditor.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
 			if (collapsed == true)
 			{
 				if (Event.current.type == EventType.Layout)
@@ -218,7 +218,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return;
 			}
-			Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
+			Dialog_XenogenesEditor.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
 			DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, containingRect, ref curX, num, ref flag, num2, num3, b, rect3);
 		}
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -9,11 +10,12 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ChimeraPresetsList_Load : Dialog_FileList
 	{
 
-		public Dialog_CreateChimera chimeraDialog;
+		public Dialog_XenogenesEditor xenogenesEditor;
+		public List<GeneSetPreset> Presets => xenogenesEditor.gene.GeneSetPresets;
 
-		public Dialog_ChimeraPresetsList_Load(Dialog_CreateChimera dialog)
+		public Dialog_ChimeraPresetsList_Load(Dialog_XenogenesEditor dialog)
 		{
-			this.chimeraDialog = dialog;
+			this.xenogenesEditor = dialog;
 			interactButLabel = "LoadGameButton".Translate();
 			deleteTipKey = "DeleteThisXenotype";
 		}
@@ -24,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Vector2 vector = new(inRect.width - 16f, 40f);
 			float y = vector.y;
-			float height = files.Count * y;
+			float height = Presets.Count * y;
 			Rect viewRect = new(0f, 0f, inRect.width - 16f, height);
 			float num = inRect.height - Window.CloseButSize.y - bottomAreaHeight - 18f;
 			if (ShouldDoTypeInField)
@@ -35,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (GeneSetPresets file in chimeraDialog.gene.GeneSetPresets.ToList())
+			foreach (GeneSetPreset file in Presets.ToList())
 			{
 				if (num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
@@ -48,10 +50,10 @@ namespace WVC_XenotypesAndGenes
 					Rect rect2 = new(rect.width - 36f, (rect.height - 36f) / 2f, 36f, 36f);
 					if (Widgets.ButtonImage(rect2, TexButton.Delete, Color.white, GenUI.SubtleMouseoverColor))
 					{
-						GeneSetPresets localFile = file;
+						GeneSetPreset localFile = file;
 						Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmDelete".Translate(localFile.name), delegate
 						{
-							chimeraDialog.gene.GeneSetPresets.Remove(localFile);
+							Presets.Remove(localFile);
 						}, destructive: true));
 					}
 					TooltipHandler.TipRegionByKey(rect2, deleteTipKey);
@@ -59,27 +61,16 @@ namespace WVC_XenotypesAndGenes
 					Rect rect3 = new(rect2.x - 100f, (rect.height - 36f) / 2f, 100f, 36f);
 					if (Widgets.ButtonText(rect3, interactButLabel))
 					{
-						// DoFileInteraction(Path.GetFileNameWithoutExtension(file.FileName));
-						GeneSetPresets localFile = file;
+						GeneSetPreset localFile = file;
 						Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_Dialog_ChimeraPresetsList_Load".Translate(localFile.name), delegate
 						{
-							chimeraDialog.SetPreset(localFile);
-							// chimeraDialog.selectedGenes = new();
-							// foreach (GeneDef geneDef in localFile.geneDefs)
-							// {
-							// if (chimeraDialog.gene.StolenGenes.Contains(geneDef))
-							// {
-							// chimeraDialog.selectedGenes.Add(geneDef);
-							// }
-							// }
+							xenogenesEditor.SetPreset(localFile);
 							Close();
 						}, destructive: true));
 					}
 					Rect rect4 = new(rect3.x - 94f, 0f, 94f, rect.height);
-					// DrawDateAndVersion(file, rect4);
 					GUI.color = Color.white;
 					Text.Anchor = TextAnchor.UpperLeft;
-					// GUI.color = FileNameColor(file);
 					Rect rect5 = new(8f, 0f, rect4.x - 8f - 4f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
 					Text.Font = GameFont.Small;

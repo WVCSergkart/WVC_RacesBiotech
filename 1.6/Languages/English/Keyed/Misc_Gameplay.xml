@@ -683,6 +683,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_StorageImplanter_Label>Edit genes</WVC_XaG_StorageImplanter_Label>
 	<WVC_XaG_StorageImplanter_SwitchMode>Inheritable: {0}</WVC_XaG_StorageImplanter_SwitchMode>
+	<WVC_XaG_StorageImplanter_ResetPresets>Reset presets</WVC_XaG_StorageImplanter_ResetPresets>
 
 	<WVC_XaG_StorageImplanter_Apply>Store</WVC_XaG_StorageImplanter_Apply>
 	<WVC_XaG_StorageImplanter_Warning>If a pawn has a storage implanter gene, then the selected genes/geneset/xenotype can be written into it and then implanted using the appropriate implanter ability.\n\nIf the storage implanter already contains gene information, it will be overwritten.\n\nNote that in some cases the selected genes will be extracted from the source and cannot be returned. For example, the chimera will lose these genes if they were stored in it.</WVC_XaG_StorageImplanter_Warning>

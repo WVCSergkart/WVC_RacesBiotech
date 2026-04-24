@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 		public int nonPlayerHivemindSize = 50;
 		public GoodwillSituationDef hivemindHatred;
 		//public MemeDef memeDef;
-		public List<GeneSetPresets> hivemindPresets;
+		public List<GeneSetPreset> hivemindPresets;
 
 		public override List<XenotypeHolder> Xenotypes
 		{
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 					item.xpSinceLastLevel = item.XpRequiredForLevelUp * 0.2f;
 				}
 			}
-			if (hivemindPresets.TryRandomElementByWeight((item) => item.selectionWeight, out GeneSetPresets genesSet) && Rand.Chance(genesSet.selectionWeight))
+			if (hivemindPresets.TryRandomElementByWeight((item) => item.selectionWeight, out GeneSetPreset genesSet) && Rand.Chance(genesSet.selectionWeight))
 			{
 				XaG_GeneUtility.AddGenesToChimera(pawn, genesSet.geneDefs, true);
 			}

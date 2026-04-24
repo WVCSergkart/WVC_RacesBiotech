@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class GeneSetPresets : IExposable
+	public class GeneSetPreset : IExposable
 	{
 
 		[MustTranslate]
@@ -11,6 +11,27 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> geneDefs = new();
 		public float selectionWeight = 1f;
+
+		public GeneSetPreset()
+		{
+
+		}
+
+		public GeneSetPreset(XenotypeHolder holder)
+		{
+			name = holder.Label;
+			geneDefs = holder.genes;
+		}
+
+		public static void SetupGeneSetPresets(IGeneXenogenesEditor geneXenogenesEditor)
+		{
+			List<GeneSetPreset> newList = new();
+			foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders())
+			{
+				newList.Add(new(xenotypeHolder));
+			}
+			geneXenogenesEditor.GeneSetPresets = newList;
+		}
 
 		public void ExposeData()
 		{

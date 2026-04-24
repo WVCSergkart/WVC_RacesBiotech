@@ -393,9 +393,9 @@ namespace WVC_XenotypesAndGenes
 		public MutantDef mutantDef;
 		//Skinshaper
 		[Obsolete]
-		public List<GeneSetPresets> geneSetPresets;
+		public List<GeneSetPreset> geneSetPresets;
 		[Obsolete]
-		public GeneSetPresets geneSetByDefault;
+		public GeneSetPreset geneSetByDefault;
 		//
 		public StatDef statDef;
 		//

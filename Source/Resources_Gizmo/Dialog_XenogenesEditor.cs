@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_CreateChimera : GeneCreationDialogBase
+	public class Dialog_XenogenesEditor : GeneCreationDialogBase
 	{
 
 		public IGeneXenogenesEditor gene;
@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 		private bool limitDisabled = false;
 		private bool isContainer = false;
 
-		public Dialog_CreateChimera(IGeneXenogenesEditor chimera)
+		public Dialog_XenogenesEditor(IGeneXenogenesEditor chimera)
 		{
 			xenotypeName = string.Empty;
 			gene = chimera;
@@ -242,7 +242,7 @@ namespace WVC_XenotypesAndGenes
 		private void DrawSection(Rect rect, List<GeneDef> genes, string label, ref float curY, ref float sectionHeight, bool adding, Rect containingRect, ref bool? collapsed)
 		{
 			float curX = 4f;
-			Dialog_CreateChimera.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
+			Dialog_XenogenesEditor.DrawGenesSections_Label(ref rect, label, ref curY, adding, ref collapsed);
 			if (collapsed == true)
 			{
 				if (Event.current.type == EventType.Layout)
@@ -251,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return;
 			}
-			Dialog_CreateChimera.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
+			Dialog_XenogenesEditor.DrawGenesSection_DrawRectFast(ref rect, ref curY, sectionHeight, adding, out float num, out bool flag, out float num2, out float num3, out float b, out Rect rect3);
 			DrawGenesSection_Local(rect, genes, ref curY, ref sectionHeight, adding, containingRect, ref curX, num, ref flag, num2, num3, b, rect3);
 		}
 
@@ -860,7 +860,7 @@ namespace WVC_XenotypesAndGenes
 			// Presets
 		}
 
-		public void SetPreset(GeneSetPresets geneSetPresets)
+		public void SetPreset(GeneSetPreset geneSetPresets)
 		{
 			xenotypeName = geneSetPresets.name;
 			selectedGenes = new();
@@ -902,7 +902,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!gene.GeneSetPresets.NullOrEmpty())
 					{
-						foreach (GeneSetPresets geneSetPresets in gene.GeneSetPresets.ToList())
+						foreach (GeneSetPreset geneSetPresets in gene.GeneSetPresets.ToList())
 						{
 							if (geneSetPresets.name == xenotypeName)
 							{
@@ -914,7 +914,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						gene.GeneSetPresets = new();
 					}
-					GeneSetPresets preset = new();
+					GeneSetPreset preset = new();
 					preset.name = xenotypeName;
 					preset.geneDefs = selectedGenes;
 					gene.GeneSetPresets.Add(preset);
@@ -978,7 +978,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (GeneDef selectedGene in SelectedGenes)
 			{
-				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && (isContainer || !pawnEndoGenes.Contains(selectedGene.prerequisite)))
+				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
 				{
 					Messages.Message("MessageGeneMissingPrerequisite".Translate(selectedGene.label).CapitalizeFirst() + ": " + selectedGene.prerequisite.LabelCap, null, MessageTypeDefOf.RejectInput, historical: false);
 					return false;
@@ -1017,6 +1017,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void SimpleChange()
 		{
+			if (gene is IGeneXenogenesContainer container)
+			{
+				container.ResetContainer();
+			}
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				try
@@ -1143,10 +1147,18 @@ namespace WVC_XenotypesAndGenes
 			//selectedGenes = new();
 			cachedGeneDefsInOrder = new();
 			List<GeneDef> genelinedGenes = null;
-			ConvertToDefsAndGetGeneline(gene.Pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
-			this.pawnEndoGenes = pawnEndoGenes;
-			ConvertToDefsAndGetGeneline(gene.Pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
-			this.pawnXenoGenes = pawnXenoGenes;
+			if (isContainer)
+			{
+				this.pawnEndoGenes = new();
+				this.pawnXenoGenes = new();
+			}
+			else
+			{
+				ConvertToDefsAndGetGeneline(gene.Pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
+				ConvertToDefsAndGetGeneline(gene.Pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
+				this.pawnEndoGenes = pawnEndoGenes;
+				this.pawnXenoGenes = pawnXenoGenes;
+			}
 			if (genelinedGenes == null)
 			{
 				allGenes = gene.CollectedGenes;
@@ -1164,6 +1176,10 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 			selectedGenes = this.pawnXenoGenes;
+			if (gene is IGeneXenogenesContainer container && container.XenotypeHolder != null)
+			{
+				selectedGenes = container.XenotypeHolder.genes;
+			}
 			UpdateSearchResults();
 		}
 

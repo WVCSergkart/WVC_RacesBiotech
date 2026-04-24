@@ -284,6 +284,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneXenogenesContainer
+	{
+
+		XenotypeHolder XenotypeHolder { get; }
+		void ResetContainer();
+
+	}
+
 	public interface IGeneXenogenesEditor
 	{
 
@@ -315,7 +323,7 @@ namespace WVC_XenotypesAndGenes
 		int ArchiteLimit { get; }
 		int ComplexityLimit { get; }
 
-		List <GeneSetPresets> GeneSetPresets { get; set; }
+		List <GeneSetPreset> GeneSetPresets { get; set; }
 
 		IntRange ReqMetRange { get; }
 		bool ReqCooldown { get; }

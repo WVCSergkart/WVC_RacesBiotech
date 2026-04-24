@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_StorageImplanter : XaG_Gene, IGeneXenogenesEditor
+	public class Gene_StorageImplanter : XaG_Gene, IGeneXenogenesEditor, IGeneXenogenesContainer
 	{
 
 		//public static bool CanStoreGenes(Pawn pawn, out Gene_StorageImplanter implanter)
@@ -72,15 +72,21 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			WVC_XenotypesAndGenes.GeneSetPreset.SetupGeneSetPresets(this);
+		}
+
 		public void DoAction()
 		{
 			UpdateCache();
 			UpdSubHediffs();
-			Find.WindowStack.Add(new Dialog_CreateChimera(this));
+			Find.WindowStack.Add(new Dialog_XenogenesEditor(this));
 		}
 
 		private XenotypeHolder_Exposable xenotypeHolder = null;
-		public XenotypeHolder_Exposable XenotypeHolder => xenotypeHolder;
+		public XenotypeHolder XenotypeHolder => xenotypeHolder;
 
 		public List<GeneDef> AllGenes => CollectedGenes;
 
@@ -114,8 +120,8 @@ namespace WVC_XenotypesAndGenes
 		public int ComplexityLimit => 999;
 
 
-		public List<GeneSetPresets> geneSetPresets = new();
-		public List<GeneSetPresets> GeneSetPresets
+		public List<GeneSetPreset> geneSetPresets = new();
+		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{
@@ -127,14 +133,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public IntRange ReqMetRange => new(-999, 999);
+		public IntRange ReqMetRange => new(-5, 5);
 		public bool ReqCooldown => false;
 		public bool DisableSubActions => true;
 		public bool UseGeneline => false;
 
 		public bool IsContainer => true;
 
-		public void ResetHolder()
+		public void ResetContainer()
 		{
 			cachedGeneDefs = null;
 			xenotypeHolder = null;

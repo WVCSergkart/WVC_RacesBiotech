@@ -43,6 +43,10 @@ namespace WVC_XenotypesAndGenes
 						Gene.UpdateCache();
 					}));
 				}
+				list.Add(new FloatMenuOption("WVC_XaG_StorageImplanter_ResetPresets".Translate(), delegate
+				{
+					GeneSetPreset.SetupGeneSetPresets(Gene);
+				}));
 				return list;
 			}
 		}
@@ -59,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 				ReimplanterUtility.ExtractXenogerm(parent.pawn);
 				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
-				Gene.ResetHolder();
+				//Gene.ResetContainer();
 			}
 		}
 
@@ -93,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string ExtraTooltipPart()
 		{
-			XenotypeHolder_Exposable xenotypeHolder = Gene?.XenotypeHolder;
+			XenotypeHolder xenotypeHolder = Gene?.XenotypeHolder;
 			if (xenotypeHolder != null)
 			{
 				return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(xenotypeHolder.LabelCap, xenotypeHolder.genes.Count, xenotypeHolder.inheritable.ToStringYesNo(), xenotypeHolder.CustomXenotype.ToStringYesNo()).ToString();

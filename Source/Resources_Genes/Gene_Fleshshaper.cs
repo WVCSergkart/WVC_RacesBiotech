@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Disabled for this gene
 		//public List<GeneSetPresets> geneSetPresets = new();
-		public List<GeneSetPresets> GeneSetPresets
+		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{

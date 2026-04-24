@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					xenogenesEditor.UpdateCache();
 					xenogenesEditor.UpdSubHediffs();
-					Find.WindowStack.Add(new Dialog_CreateChimera(xenogenesEditor));
+					Find.WindowStack.Add(new Dialog_XenogenesEditor(xenogenesEditor));
 				}
 			}
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_Fleshshaper_XenogenesEditorTip".Translate(gene.GeneticMaterial));

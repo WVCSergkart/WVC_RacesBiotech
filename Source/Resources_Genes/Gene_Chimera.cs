@@ -44,8 +44,8 @@ namespace WVC_XenotypesAndGenes
 
 		private List<GeneDef> destroyedGenes = new();
 
-		public List<GeneSetPresets> geneSetPresets = new();
-		public List<GeneSetPresets> GeneSetPresets
+		public List<GeneSetPreset> geneSetPresets = new();
+		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{

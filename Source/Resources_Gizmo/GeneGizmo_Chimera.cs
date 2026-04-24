@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 					gene.UpdSubHediffs();
 					if (gene.CanBeUsed)
 					{
-						Find.WindowStack.Add(new Dialog_CreateChimera(gene));
+						Find.WindowStack.Add(new Dialog_XenogenesEditor(gene));
 					}
 					else
 					{
