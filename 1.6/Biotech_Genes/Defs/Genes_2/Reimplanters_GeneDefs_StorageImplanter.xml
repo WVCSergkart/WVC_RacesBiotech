@@ -20,13 +20,14 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_StorageImplanter</AbilityDef>
 	</descriptionHyperlinks>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>2</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the saved geneset.</li>
 		<li>To create a geneset, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+		<li>Supports implanter &lt;color=#ff8585&gt;sub-genes&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">

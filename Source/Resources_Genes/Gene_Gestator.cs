@@ -331,7 +331,7 @@ namespace WVC_XenotypesAndGenes
 				hediff.SetupHolder(Gene.XenotypeHolder);
 				//hediff.xenotypeDef = null;
 				hediff.gestationIntervalDays = pawn.RaceProps.gestationPeriodDays;
-				Gene.ResetContainer();
+				//Gene.ResetContainer();
 			}
 		}
 
