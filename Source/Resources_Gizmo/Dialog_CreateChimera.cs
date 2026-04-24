@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHeader == null)
 				{
-					if (!Gene_Chimera.ChimeraGenesLimit)
+					if (limitDisabled)
 					{
 						cachedHeader = gene.LabelCap;
 					}
@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return "WVC_XaG_ChimeraApply_Clear".Translate().CapitalizeFirst();
 				}
-				return "WVC_XaG_ChimeraApply_Implant".Translate().CapitalizeFirst();
+				return "Apply".Translate().CapitalizeFirst();
 			}
 		}
 
@@ -87,6 +87,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public bool subActionsDisabled = false;
+		private bool limitDisabled = false;
+		private bool isContainer = false;
 
 		public Dialog_CreateChimera(IGeneXenogenesEditor chimera)
 		{
@@ -101,6 +103,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
+			limitDisabled = !Gene_Chimera.ChimeraGenesLimit || (gene.ComplexityLimit == 999 && gene.ArchiteLimit == 999);
+			isContainer = gene.IsContainer;
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
@@ -108,8 +112,8 @@ namespace WVC_XenotypesAndGenes
 		private void GetCustomEater()
 		{
 			geneCustomChimeraEater = null;
-			chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
-			chimeraApplyEaterWarning = "WVC_XaG_GeneGeneticThief_EatSelectedGenes";
+			chimeraApplyEater = "WVC_XaG_IGeneXenogenesEditor_Disable";
+			chimeraApplyEaterWarning = "WVC_XaG_IGeneXenogenesEditor_DisableGenes";
 			foreach (Gene pawnGene in gene.Pawn.genes.GenesListForReading)
 			{
 				if (pawnGene is IGeneCustomChimeraEater customEater && pawnGene.Active)
@@ -122,8 +126,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private string chimeraApplyEater = "WVC_XaG_ChimeraApply_Eat";
-		private TaggedString chimeraApplyEaterWarning = "WVC_XaG_GeneGeneticThief_EatSelectedGenes";
+		private string chimeraApplyEater = "WVC_XaG_IGeneXenogenesEditor_Disable";
+		private TaggedString chimeraApplyEaterWarning = "WVC_XaG_IGeneXenogenesEditor_DisableGenes";
 		private IGeneCustomChimeraEater geneCustomChimeraEater;
 
 		private void GenesEater()
@@ -137,10 +141,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				BasicEater();
 			}
-			if (!gene.Extension_Undead.soundDefOnImplant.NullOrUndefined())
-			{
-				gene.Extension_Undead.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.Pawn));
-			}
+			//if (gene.Extension_Undead != null && !gene.Extension_Undead.soundDefOnImplant.NullOrUndefined())
+			//{
+			//}
+			gene.Extension_Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(gene.Pawn));
 			gene.Debug_RemoveDupes();
 			UpdateGenesInforamtion();
 			OnGenesChanged();
@@ -467,6 +471,10 @@ namespace WVC_XenotypesAndGenes
 
 		private bool GetOverridden(GeneDef geneDef)
 		{
+			if (isContainer)
+			{
+				return overridenGenes.Contains(geneDef);
+			}
 			if (geneDef.endogeneCategory == EndogeneCategory.Melanin)
 			{
 				return true;
@@ -622,15 +630,15 @@ namespace WVC_XenotypesAndGenes
 			//
 			cachedLimitConsumed_Arc = biostatArcCost;
 			//
-			if (Gene_Chimera.ChimeraGenesLimit)
-			{
-				cachedComplexityLimit = gene.ComplexityLimit;
-				cachedArchitesLimit = gene.ArchiteLimit;
-			}
-			else
+			if (limitDisabled)
 			{
 				cachedComplexityLimit = 999;
 				cachedArchitesLimit = 999;
+			}
+			else
+			{
+				cachedComplexityLimit = gene.ComplexityLimit;
+				cachedArchitesLimit = gene.ArchiteLimit;
 			}
 
 			//void GetStatFromStatModifiers(StatDef statDef, List<StatModifier> statOffsets, List<StatModifier> statFactors, out float offset, out float factor)
@@ -738,6 +746,18 @@ namespace WVC_XenotypesAndGenes
 			Rect rect5 = new(rect2.x + Margin + 10f, num4, rect.width * 0.75f - Margin * 3f - 10f, num3);
 			rect5.yMax = rect4.yMax + num3 + 4f;
 			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, true, maxGCX);
+			PresetNameField(rect, rect2, num4, rect5);
+			Rect rect12 = rect;
+			rect12.yMin = rect12.yMax - ButSize.y;
+			DoBottomButtons(rect12);
+		}
+
+		private void PresetNameField(Rect rect, Rect rect2, float num4, Rect rect5)
+		{
+			if (gene.GeneSetPresets == null)
+			{
+				return;
+			}
 			// Presets
 			float num = rect.width * 0.25f - Margin - 10f;
 			float num2 = num - 24f - 10f;
@@ -838,9 +858,6 @@ namespace WVC_XenotypesAndGenes
 				TooltipHandler.TipRegion(rect11, text4);
 			}
 			// Presets
-			Rect rect12 = rect;
-			rect12.yMin = rect12.yMax - ButSize.y;
-			DoBottomButtons(rect12);
 		}
 
 		public void SetPreset(GeneSetPresets geneSetPresets)
@@ -906,18 +923,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void StorageImplanterSet()
-		{
-			if (Gene_StorageImplanter.CanStoreGenes(gene.Pawn, out Gene_StorageImplanter implanter))
-			{
-				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, null, xenotypeName?.Trim());
-				foreach (GeneDef geneDef in selectedGenes)
-				{
-					gene.RemoveCollectedGene_Storage(geneDef);
-				}
-				Close();
-			}
-		}
+		//private void StorageImplanterSet()
+		//{
+		//	if (Gene_StorageImplanter.CanStoreGenes(gene.Pawn, out Gene_StorageImplanter implanter))
+		//	{
+		//		implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, null, xenotypeName?.Trim());
+		//		foreach (GeneDef geneDef in selectedGenes)
+		//		{
+		//			gene.RemoveCollectedGene_Storage(geneDef);
+		//		}
+		//		Close();
+		//	}
+		//}
 
 		protected override void DoBottomButtons(Rect rect)
 		{
@@ -938,14 +955,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(chimeraApplyEaterWarning.ToString().Translate(gene.Pawn.LabelCap), GenesEater));
 			}
-			if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
-			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.Pawn.LabelCap), StorageImplanterSet));
-			}
+			//if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+			//{
+			//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.Pawn.LabelCap), StorageImplanterSet));
+			//}
 		}
 
 		protected override bool CanAccept()
 		{
+			//if (isContainer)
+			//{
+			//	return true;
+			//}
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn))
 			{
 				return false;
@@ -957,7 +978,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (GeneDef selectedGene in SelectedGenes)
 			{
-				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && !pawnEndoGenes.Contains(selectedGene.prerequisite))
+				if (selectedGene.prerequisite != null && !selectedGenes.Contains(selectedGene.prerequisite) && (isContainer || !pawnEndoGenes.Contains(selectedGene.prerequisite)))
 				{
 					Messages.Message("MessageGeneMissingPrerequisite".Translate(selectedGene.label).CapitalizeFirst() + ": " + selectedGene.prerequisite.LabelCap, null, MessageTypeDefOf.RejectInput, historical: false);
 					return false;
@@ -979,14 +1000,37 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void Accept()
 		{
+			if (isContainer)
+			{
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_IGeneXenogenesEditor_ApplyWarning".Translate(gene.LabelCap), SimpleChange));
+				return;
+			}
 			if (selectedGenes.NullOrEmpty())
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.Pawn.LabelCap), ClearXenogenes));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_IGeneXenogenesEditor_ClearGenes".Translate(gene.LabelCap), ClearXenogenes));
 			}
 			else
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ImplantGeneSet".Translate(gene.Pawn.LabelCap), StartChange));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_IGeneXenogenesEditor_ApplyGenes".Translate(gene.Pawn.LabelCap), StartChange));
 			}
+		}
+
+		public void SimpleChange()
+		{
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				try
+				{
+					gene.AddGene_Editor(geneDef);
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Error during packaging in def: " + geneDef.defName + ". Reason: " + arg.Message);
+				}
+			}
+			gene.UpdateCache();
+			gene.UpdSubHediffs();
+			Close();
 		}
 
 		public void StartChange()

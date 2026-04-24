@@ -431,20 +431,20 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void DoBottomButtons(Rect rect)
 		{
-			if (selectedGeneSetHolder != null && Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
-			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
-			}
+			//if (selectedGeneSetHolder != null && Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+			//{
+			//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+			//}
 		}
 
-		private void StorageImplanterSet()
-		{
-			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
-			{
-				gene.StoreGeneSet(selectedGeneSetHolder, implanter);
-				Close();
-			}
-		}
+		//private void StorageImplanterSet()
+		//{
+		//	if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
+		//	{
+		//		gene.StoreGeneSet(selectedGeneSetHolder, implanter);
+		//		Close();
+		//	}
+		//}
 
 		protected override void Accept()
 		{

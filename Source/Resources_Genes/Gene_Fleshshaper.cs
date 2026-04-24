@@ -46,16 +46,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGeneDefs == null)
 				{
-					List<GeneDef> geneDefs = new();
-					foreach (XenotypeHolder xenotypeHolder in Xenotypes)
-					{
-						geneDefs.AddRangeSafe(xenotypeHolder.genes);
-					}
-					cachedGeneDefs = geneDefs;
+					cachedGeneDefs = XenotypesGenes;
 				}
 				return cachedGeneDefs;
 			}
 		}
+
+		public bool IsContainer => false;
 
 		public void UpdateCache()
 		{
@@ -70,22 +67,8 @@ namespace WVC_XenotypesAndGenes
 
 		//public StatDef ChimeraLimitStatDef => Giver.statDef;
 
-		public int ArchiteLimit
-		{
-			get
-			{
-				return pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatArc);
-			}
-		}
-
-		public int ComplexityLimit
-		{
-			get
-			{
-				//return (int)pawn.GetStatValue(ChimeraLimitStatDef);
-				return pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatCpx);
-			}
-		}
+		public int ArchiteLimit => pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatArc);
+		public int ComplexityLimit => pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatCpx);
 
 		// Disabled for this gene
 		//public List<GeneSetPresets> geneSetPresets = new();
@@ -215,11 +198,6 @@ namespace WVC_XenotypesAndGenes
 				}
 				return gene != null;
 			}
-		}
-
-		public void RemoveCollectedGene_Storage(GeneDef geneDef)
-		{
-
 		}
 
 		public bool TryDisableGene(GeneDef geneDef)

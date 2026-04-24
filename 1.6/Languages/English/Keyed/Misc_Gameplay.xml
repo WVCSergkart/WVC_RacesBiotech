@@ -19,6 +19,8 @@
 	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
 	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
 
+	<Apply>apply</Apply>
+
 	<WVC_None>None</WVC_None>
 
 	<WVC_XaG_Impregnator_Succes>The target pawn was impregnated and the fetus' genes were updated successfully.</WVC_XaG_Impregnator_Succes>
@@ -678,6 +680,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_DialogVoidlink_VoidEnergyDesc>Cost of skipping this mechanoid. If the cost exceeds the current &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; level, the skip will be cancelled.</WVC_XaG_DialogVoidlink_VoidEnergyDesc>
 
 	<!-- =============== STORAGE IMPLANTER =============== -->
+
+	<WVC_XaG_StorageImplanter_Label>Edit genes</WVC_XaG_StorageImplanter_Label>
+	<WVC_XaG_StorageImplanter_SwitchMode>Inheritable: {0}</WVC_XaG_StorageImplanter_SwitchMode>
 
 	<WVC_XaG_StorageImplanter_Apply>Store</WVC_XaG_StorageImplanter_Apply>
 	<WVC_XaG_StorageImplanter_Warning>If a pawn has a storage implanter gene, then the selected genes/geneset/xenotype can be written into it and then implanted using the appropriate implanter ability.\n\nIf the storage implanter already contains gene information, it will be overwritten.\n\nNote that in some cases the selected genes will be extracted from the source and cannot be returned. For example, the chimera will lose these genes if they were stored in it.</WVC_XaG_StorageImplanter_Warning>

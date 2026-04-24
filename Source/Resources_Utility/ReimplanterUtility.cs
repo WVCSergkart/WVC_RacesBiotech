@@ -141,19 +141,37 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotypeDef == null)
 			{
+				//foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef.inheritable))
+				//{
+				//	if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
+				//	{
+				//		xenotypeDef = xenos;
+				//		break;
+				//	}
+				//}
+				xenotypeDef = UnknownXenotypeDef(recipient.genes.Endogenes.ConvertToDefs());
+			}
+			if (xenotypeDef != null)
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, recipient, xenotypeDef);
+			}
+		}
+
+		public static XenotypeDef UnknownXenotypeDef(List<GeneDef> genes)
+		{
+			XenotypeDef xenotypeDef = null;
+			if (xenotypeDef == null)
+			{
 				foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef.inheritable))
 				{
-					if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
+					if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, 1f))
 					{
 						xenotypeDef = xenos;
 						break;
 					}
 				}
 			}
-			if (xenotypeDef != null)
-			{
-				ReimplanterUtility.SetXenotypeDirect(null, recipient, xenotypeDef);
-			}
+			return xenotypeDef;
 		}
 
 		//private static JobDef cachedForcedReimplantJob;
@@ -588,7 +606,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				SetXenotype(pawn, xenotypeHolder.xenotypeDef, true);
+				SetXenotype(pawn, xenotypeHolder.XenotypeDef_Safe, true);
 			}
 		}
 

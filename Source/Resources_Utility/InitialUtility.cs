@@ -300,9 +300,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			bool isRemoteController = WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>();
 			bool isCustomGraphic = ModsConfig.IdeologyActive && geneDef.IsGeneDefOfType<IGeneCustomGraphic>();
-			bool isCustomHairGene = isCustomGraphic && geneDef.IsGeneDefOfType<Gene_CustomHair>();
 			if (isRemoteController || isCustomGraphic)
 			{
+				bool isCustomHairGene = isCustomGraphic && geneDef.IsGeneDefOfType<Gene_CustomHair>();
 				bool tipsInsteadTip = isRemoteController && isCustomGraphic || isCustomGraphic && isCustomHairGene;
 				if (tipsInsteadTip)
 				{

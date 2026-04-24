@@ -24,8 +24,8 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Completely changes the genes of the target pawn to the genes of the saved xenotype.</li>
-		<li>To create a xenogerm, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
+		<li>Completely changes the genes of the target pawn to the genes of the saved geneset.</li>
+		<li>To create a geneset, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
@@ -41,7 +41,9 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
 	<defName>WVC_StorageImplanter</defName>
 	<label>storage implanter</label>
+	<description>Implant the selected geneset into the target.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
 	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_FloatMenu</gizmoClass>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_StorageImplanter</compClass>

@@ -162,24 +162,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100));
 			}
-			else
-			{
-				Rect storeButton = new(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y);
-				if (Widgets.ButtonText(storeButton, "WVC_XaG_StorageImplanter_Apply".Translate()))
-				{
-					Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
-				}
-				//Rect clearXenogenes = new(storeButton.xMax - ButSize.x, storeButton.y, storeButton.width, storeButton.height);
-				//if (Widgets.ButtonText(clearXenogenes, "WVC_Xenogerm".Translate()))
-				//{
-				//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
-				//}
-				//Rect clearEndogenes = new(clearXenogenes.xMax - ButSize.x, clearXenogenes.y, clearXenogenes.width, clearXenogenes.height);
-				//if (Widgets.ButtonText(clearEndogenes, "WVC_Germline".Translate()))
-				//{
-				//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
-				//}
-			}
+			//else
+			//{
+			//	//Rect storeButton = new(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y);
+			//	//if (Widgets.ButtonText(storeButton, "WVC_XaG_StorageImplanter_Apply".Translate()))
+			//	//{
+			//	//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+			//	//}
+			//	//Rect clearXenogenes = new(storeButton.xMax - ButSize.x, storeButton.y, storeButton.width, storeButton.height);
+			//	//if (Widgets.ButtonText(clearXenogenes, "WVC_Xenogerm".Translate()))
+			//	//{
+			//	//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
+			//	//}
+			//	//Rect clearEndogenes = new(clearXenogenes.xMax - ButSize.x, clearXenogenes.y, clearXenogenes.width, clearXenogenes.height);
+			//	//if (Widgets.ButtonText(clearEndogenes, "WVC_Germline".Translate()))
+			//	//{
+			//	//	Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_ClearGenesWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), StorageImplanterSet));
+			//	//}
+			//}
 		}
 
 		private static void DisabledText(Rect rect, string text)
@@ -193,14 +193,14 @@ namespace WVC_XenotypesAndGenes
 			GUI.color = Color.white;
 		}
 
-		private void StorageImplanterSet()
-		{
-			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
-			{
-				implanter.SetupHolder(selectedXenoHolder);
-				Close();
-			}
-		}
+		//private void StorageImplanterSet()
+		//{
+		//	if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
+		//	{
+		//		implanter.SetupHolder(selectedXenoHolder);
+		//		Close();
+		//	}
+		//}
 
 		protected override bool CanAccept()
 		{

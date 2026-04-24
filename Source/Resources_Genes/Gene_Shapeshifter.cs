@@ -38,35 +38,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// Scenario hook
-		//public static List<XenotypeHolder> xenotypesOverride;
-		public virtual List<XenotypeHolder> Xenotypes
+		public virtual List<XenotypeHolder> Xenotypes => ListsUtility.GetAllXenotypesHolders();
+		public virtual List<GeneDef> XenotypesGenes
 		{
 			get
 			{
-				//if (!xenotypesOverride.NullOrEmpty())
-				//{
-				//	return xenotypesOverride;
-				//}
-				//List<XenotypeHolder> holders = new();
-				//int limit = 3;
-				//List<XenotypeHolder> xenotypeHolders = ListsUtility.GetAllXenotypesHolders();
-				////xenotypeHolders.SortBy(xenos => xenos.genes.Any(geneDef => geneDef.IsGeneDefOfType<Gene_Shapeshift_TrueForm>()), xenos => xenos.genes);
-				//xenotypeHolders.Shuffle();
-				//foreach (XenotypeHolder xenotypeHolder in xenotypeHolders)
-				//{
-				//	if (holders.Count >= limit)
-				//	{
-				//		break;
-				//	}
-				//	holders.Add(xenotypeHolder);
-				//}
-				//if (!holders.Any(holder => holder.xenotypeDef == pawn.genes.Xenotype))
-				//{
-				//	holders.Add(new(pawn.genes.Xenotype));
-				//}
-				//return holders;
-				return ListsUtility.GetAllXenotypesHolders();
+				List<GeneDef> geneDefs = new();
+				foreach (XenotypeHolder xenotypeHolder in Xenotypes)
+				{
+					geneDefs.AddRangeSafe(xenotypeHolder.genes);
+				}
+				return geneDefs;
 			}
 		}
 

@@ -45,7 +45,6 @@ namespace WVC_XenotypesAndGenes
 		private List<GeneDef> destroyedGenes = new();
 
 		public List<GeneSetPresets> geneSetPresets = new();
-
 		public List<GeneSetPresets> GeneSetPresets
 		{
 			get
@@ -81,6 +80,8 @@ namespace WVC_XenotypesAndGenes
 		//		return WVC_Biotech.settings.chimeraMinGeneCopyChance;
 		//	}
 		//}
+
+		public bool IsContainer => false;
 
 		public List<GeneDef> AllGenes
 		{
@@ -276,12 +277,12 @@ namespace WVC_XenotypesAndGenes
 			if (!consumedGenes.Contains(geneDef))
 			{
 				consumedGenes.Add(geneDef);
-				RemoveCollectedGene_Storage(geneDef);
+				RemoveCollectedGene(geneDef);
 				return true;
 			}
 			return false;
 		}
-		public void RemoveCollectedGene_Storage(GeneDef geneDef)
+		public void RemoveCollectedGene(GeneDef geneDef)
 		{
 			//if (collectedGenes.Contains(geneDef))
 			//{

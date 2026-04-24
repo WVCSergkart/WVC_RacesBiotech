@@ -8,13 +8,10 @@
 	<WVC_XaG_GenelineMarkTooltip>This gene is not collected and was obtained from an external source.</WVC_XaG_GenelineMarkTooltip>
 
 	<WVC_XaG_Gene_Chimera_GizmoLabel>Chimera`s genes</WVC_XaG_Gene_Chimera_GizmoLabel>
-	<!-- <WVC_XaG_Gene_Chimera_GizmoTip>A chimera can &lt;color=#aad8a2&gt;collect&lt;/color&gt; an unlimited number of genes. &lt;color=#aad8a2&gt;Collecting&lt;/color&gt; methods depend on &lt;color=#6bb6bb&gt;abilities&lt;/color&gt;.\n\n&lt;color=#aad8a2&gt;Collected genes&lt;/color&gt; can be implanted or removed at any time, but this will cause &lt;color=#6bb6bb&gt;genes&lt;/color&gt; to &lt;color=#6bb6bb&gt;regrowing&lt;/color&gt;. Genes are always &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; as &lt;color=#6bb6bb&gt;xenogenes&lt;/color&gt;. Please note that a chimera cannot &lt;color=#aad8a2&gt;collect&lt;/color&gt; its owner's genes.\n\n&lt;color=#b26160&gt;Eated genes&lt;/color&gt; cannot be &lt;color=#aad8a2&gt;collected&lt;/color&gt; or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;; these genes are lost for this particular chimera. Some genes give special effects depending on the genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, the chimera does not have bonuses from this, but can get a random gene when it &lt;color=#b26160&gt;eats&lt;/color&gt;.\n\n -  &lt;color=#aad8a2&gt;Collected genes&lt;/color&gt;: {0}\n -  &lt;color=#b26160&gt;Eated genes&lt;/color&gt;: {1}\n -  &lt;color=#999999&gt;Destroyed genes&lt;/color&gt;: {2}\n -  &lt;color=#8a8ae6&gt;Xenogenes limit&lt;/color&gt;: {3}</WVC_XaG_Gene_Chimera_GizmoTip> -->
-	<WVC_XaG_Gene_Chimera_GizmoTip>A chimera can &lt;color=#aad8a2&gt;collect&lt;/color&gt; an unlimited number of genes. &lt;color=#aad8a2&gt;Collecting&lt;/color&gt; methods depend on &lt;color=#6bb6bb&gt;abilities&lt;/color&gt;.\n\n&lt;color=#aad8a2&gt;Collected genes&lt;/color&gt; can be implanted or removed at any time, but this will cause &lt;color=#6bb6bb&gt;genes&lt;/color&gt; to &lt;color=#6bb6bb&gt;regrowing&lt;/color&gt;. Genes are always &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; as &lt;color=#6bb6bb&gt;xenogenes&lt;/color&gt;. Please note that a chimera cannot &lt;color=#aad8a2&gt;collect&lt;/color&gt; its owner's genes.\n\n&lt;color=#b26160&gt;Eated genes&lt;/color&gt; cannot be &lt;color=#aad8a2&gt;collected&lt;/color&gt; or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;; these genes are lost for this particular chimera. Some genes give special effects depending on the genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, the chimera does not have bonuses from this, but can get a random gene when it &lt;color=#b26160&gt;eats&lt;/color&gt;.</WVC_XaG_Gene_Chimera_GizmoTip>
-	<!-- Some genes give special effects depending on the genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, the chimera does not have bonuses from this, but can get a random gene when it &lt;color=#b26160&gt;eats&lt;/color&gt;. -->
-	<!-- Some genes provide special effects relative to the number of genes &lt;color=#b26160&gt;eaten&lt;/color&gt;, but the chimera itself does not have any special bonuses from this. -->
+	<WVC_XaG_Gene_Chimera_GizmoTip>A chimera can &lt;color=#aad8a2&gt;collect&lt;/color&gt; an unlimited number of genes. &lt;color=#aad8a2&gt;Collecting&lt;/color&gt; methods depend on &lt;color=#6bb6bb&gt;abilities&lt;/color&gt;.\n\n&lt;color=#aad8a2&gt;Collected genes&lt;/color&gt; can be implanted or removed at any time, but this will cause &lt;color=#6bb6bb&gt;genes&lt;/color&gt; to &lt;color=#6bb6bb&gt;regrowing&lt;/color&gt;. Genes are always &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; as &lt;color=#6bb6bb&gt;xenogenes&lt;/color&gt;. Please note that a chimera cannot &lt;color=#aad8a2&gt;collect&lt;/color&gt; its owner's genes.\n\n&lt;color=#b26160&gt;Absorbed genes&lt;/color&gt; cannot be &lt;color=#aad8a2&gt;collected&lt;/color&gt; or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;; these genes are lost for this particular chimera. Some genes give special effects depending on the &lt;color=#b26160&gt;absorbed&lt;/color&gt; genes, the chimera does not have bonuses from this, but can get a random gene when it &lt;color=#b26160&gt;absorb&lt;/color&gt;.</WVC_XaG_Gene_Chimera_GizmoTip>
 	<WVC_XaG_Chimera_GizmoTip_Basic> -  &lt;color=#aad8a2&gt;Collected genes&lt;/color&gt;: {0}</WVC_XaG_Chimera_GizmoTip_Basic>
 	<WVC_XaG_Chimera_GizmoTip_Geneline> -  &lt;color=#aad8a2&gt;Geneline genes&lt;/color&gt;: {0}</WVC_XaG_Chimera_GizmoTip_Geneline>
-	<WVC_XaG_Chimera_GizmoTip_EatAndDes> -  &lt;color=#b26160&gt;Eated genes&lt;/color&gt;: {0}\n -  &lt;color=#999999&gt;Destroyed genes&lt;/color&gt;: {1}</WVC_XaG_Chimera_GizmoTip_EatAndDes>
+	<WVC_XaG_Chimera_GizmoTip_EatAndDes> -  &lt;color=#b26160&gt;Absorbed genes&lt;/color&gt;: {0}\n -  &lt;color=#999999&gt;Destroyed genes&lt;/color&gt;: {1}</WVC_XaG_Chimera_GizmoTip_EatAndDes>
 	<WVC_XaG_Chimera_GizmoTip_GenesLimit> -  &lt;color=#8a8ae6&gt;Complexity limit&lt;/color&gt;: {0}\n -  &lt;color=#8a8ae6&gt;Archites limit&lt;/color&gt;: {1}</WVC_XaG_Chimera_GizmoTip_GenesLimit>
 	<WVC_XaG_Chimera_GizmoTip_MetLimit> -  &lt;color=#8a8ae6&gt;Metabolic limit&lt;/color&gt;: from {0} to {1}</WVC_XaG_Chimera_GizmoTip_MetLimit>
 
@@ -28,25 +25,25 @@
 	<WVC_XaG_Gene_Chimera_InCooldown>Chimera cannot be used until genes regrowing is complete.</WVC_XaG_Gene_Chimera_InCooldown>
 	<WVC_XaG_Gene_Chimera_LimitMessage>Maximum limit exceeded. Please remove some of the selected genes.</WVC_XaG_Gene_Chimera_LimitMessage>
 
-	<WVC_XaG_GeneChimera_EatIsBlocked>Chimera is unable to eat. Blocked by: {0} gene.</WVC_XaG_GeneChimera_EatIsBlocked>
+	<!-- <WVC_XaG_GeneChimera_EatIsBlocked>Chimera is unable to absorb. Blocked by: {0} gene.</WVC_XaG_GeneChimera_EatIsBlocked> -->
 
-	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Eated genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>
+	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Absorbed genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>
 
 	<WVC_XaG_GeneChimeraGizmoLabel>Chimera</WVC_XaG_GeneChimeraGizmoLabel>
 
 	<WVC_XaG_GeneChimera_PostImplantRemove>It was not possible to implant some of the genes because they were overridden by existing ones.</WVC_XaG_GeneChimera_PostImplantRemove>
 
-	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
-	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
-	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->
-	<WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene>
-	<WVC_XaG_GeneGeneticThief_EatGene>Eat selected genes</WVC_XaG_GeneGeneticThief_EatGene>
-	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
-	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
+	<!-- <WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects> -->
+	<!-- <WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc> -->
+	<!-- <WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene> -->
+	<!-- <WVC_XaG_GeneGeneticThief_EatGene>Absorb selected genes</WVC_XaG_GeneGeneticThief_EatGene> -->
+	<!-- <WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene> -->
+	<!-- <WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton> -->
 
-	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\nIf the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.\n\nIf the pawn already has genes regrowing, then all xenogene abilities will have a cooldown after implantation.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
-	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
-	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
+	<WVC_XaG_IGeneXenogenesEditor_ApplyGenes>Xenogenes will be modified according to the selected geneset. This will trigger genes regrowing, the duration of which depends on the biostats of the selected genes and their quantity. Genes regrowing may limit some abilities and genes.\n\nIf the pawn already has genes regrowing, then all xenogene abilities will have a cooldown after implantation.</WVC_XaG_IGeneXenogenesEditor_ApplyGenes>
+	<WVC_XaG_IGeneXenogenesEditor_ClearGenes>All pawn xenogenes will be removed. If {0} is a xenogene, it will be reset and added as an endogene.</WVC_XaG_IGeneXenogenesEditor_ClearGenes>
+	<WVC_XaG_IGeneXenogenesEditor_DisableGenes>The selected genes will be absorbed and will no longer be available for implantation, nor will they be able to be re-obtained. Depending on the gene, this effect may have its own benefits.</WVC_XaG_IGeneXenogenesEditor_DisableGenes>
+	<!-- <WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes> -->
 
 	<WVC_Share>Share</WVC_Share>
 	<WVC_XaG_GeneChimeraNetwork_Desc>Share genes with an unknown source with a small chance of obtaining tool genes. The genes will be lost, but they can be obtained again.</WVC_XaG_GeneChimeraNetwork_Desc>
@@ -60,8 +57,8 @@
 
 	<WVC_XaG_ChimeraBadMetabol_Message>The total metabolism should be between {0} and {1}. Current metabolism {2}.</WVC_XaG_ChimeraBadMetabol_Message>
 
-	<WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat>
-	<WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant>
+	<!-- <WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat> -->
+	<!-- <WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant> -->
 
 	<WVC_XaG_GeneChimera_EntityImplant>Chimera evolution applied.</WVC_XaG_GeneChimera_EntityImplant>
 
@@ -95,7 +92,8 @@
 	<WVC_XaG_Dialog_ChimeraPresetsList_Load>The selected preset will replace the selected genes.</WVC_XaG_Dialog_ChimeraPresetsList_Load>
 
 	<WVC_XaG_ChimeraApply_Implant>Implant</WVC_XaG_ChimeraApply_Implant>
-	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
+	<WVC_XaG_IGeneXenogenesEditor_Disable>Absorb</WVC_XaG_IGeneXenogenesEditor_Disable>
+	<!-- <WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat> -->
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
 
 	<WVC_XaG_ChimeraDeathMarkAdded>Mark added to target.</WVC_XaG_ChimeraDeathMarkAdded>
@@ -124,5 +122,9 @@
 	<WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>Devour will destroy the fleshmass nucleus and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones related to the fleshmass. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>
 
 	<WVC_XaG_GeneChimeraDevourNociosphereWarning>Devour will destroy the nociosphere and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourNociosphereWarning>
+
+	<!-- =============== XENOGENES EDITOR =============== -->
+
+	<WVC_XaG_IGeneXenogenesEditor_ApplyWarning>The selected genes will be added to the gene set of gene {0}.</WVC_XaG_IGeneXenogenesEditor_ApplyWarning>
 
 </LanguageData>

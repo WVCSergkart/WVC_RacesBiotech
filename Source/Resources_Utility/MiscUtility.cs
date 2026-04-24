@@ -48,6 +48,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddRangeSafe<T>(this List<T> set, List<T> other)
 		{
+			if (other == null)
+			{
+				return;
+			}
 			foreach (T item in other)
 			{
 				AddSafe(set, item);

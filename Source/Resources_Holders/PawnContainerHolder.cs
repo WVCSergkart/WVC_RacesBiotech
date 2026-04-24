@@ -27,6 +27,16 @@ namespace WVC_XenotypesAndGenes
 
 		public int lastTimeSeenByPlayer = -1;
 
+		public override List<GeneDef> AllGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				geneDefs.AddRangeSafe(holded?.genes?.GenesListForReading?.ConvertToDefs());
+				return geneDefs;
+			}
+		}
+
 		public override int AllGenesCount
 		{
 			get

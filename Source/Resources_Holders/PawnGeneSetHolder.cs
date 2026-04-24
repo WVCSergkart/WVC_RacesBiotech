@@ -37,6 +37,17 @@ namespace WVC_XenotypesAndGenes
 		public TattooDef savedBodyTattooDef;
 		public TattooDef savedFaceTattooDef;
 
+		public virtual List<GeneDef> AllGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				geneDefs.AddRangeSafe(endogeneDefs);
+				geneDefs.AddRangeSafe(xenogeneDefs);
+				return geneDefs;
+			}
+		}
+
 		private void SaveAppearance(Pawn pawn)
 		{
 			//savedHairColor = pawn.story.HairColor;

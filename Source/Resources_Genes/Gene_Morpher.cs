@@ -144,6 +144,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual List<GeneDef> AllHoldedGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				foreach (PawnGeneSetHolder holder in SavedGeneSets)
+				{
+					geneDefs.AddRangeSafe(holder?.AllGenes);
+				}
+				return geneDefs;
+			}
+		}
+
 		//public override string LabelCap
 		//{
 		//	get
@@ -814,24 +827,24 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
-		public virtual void StoreGeneSet(PawnGeneSetHolder geneSet, Gene_StorageImplanter storage)
-		{
-			List<GeneDef> selectedGenes = new();
-			if (!geneSet.endogeneDefs.NullOrEmpty())
-			{
-				selectedGenes.AddRange(geneSet.endogeneDefs);
-			}
-			if (!geneSet.xenogeneDefs.NullOrEmpty())
-			{
-				selectedGenes.AddRange(geneSet.xenogeneDefs);
-			}
-			if (!selectedGenes.Contains(def))
-			{
-				selectedGenes.Add(def);
-			}
-			storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneSet.xenotypeDef.inheritable, geneSet.iconDef, null);
-			RemoveSetHolder(geneSet);
-		}
+		//public virtual void StoreGeneSet(PawnGeneSetHolder geneSet, Gene_StorageImplanter storage)
+		//{
+		//	List<GeneDef> selectedGenes = new();
+		//	if (!geneSet.endogeneDefs.NullOrEmpty())
+		//	{
+		//		selectedGenes.AddRange(geneSet.endogeneDefs);
+		//	}
+		//	if (!geneSet.xenogeneDefs.NullOrEmpty())
+		//	{
+		//		selectedGenes.AddRange(geneSet.xenogeneDefs);
+		//	}
+		//	if (!selectedGenes.Contains(def))
+		//	{
+		//		selectedGenes.Add(def);
+		//	}
+		//	storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneSet.xenotypeDef.inheritable, geneSet.iconDef, null);
+		//	RemoveSetHolder(geneSet);
+		//}
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{

@@ -151,6 +151,20 @@ namespace WVC_XenotypesAndGenes
 			cachedFloatMenuOptions = null;
 		}
 
+		public static void RecacheFloatAbilities(Pawn pawn)
+		{
+			foreach (Ability ability in pawn.abilities?.abilities)
+			{
+				foreach (Gizmo gizmo in ability.GetGizmos())
+				{
+					if (gizmo is Command_Ability_FloatMenu floatMenu)
+					{
+						floatMenu.Recache();
+					}
+				}
+			}
+		}
+
 		public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
 		{
 			get

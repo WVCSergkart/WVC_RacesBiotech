@@ -303,7 +303,8 @@ namespace WVC_XenotypesAndGenes
 		void Debug_RemoveDupes();
 
 		bool TryDisableGene(GeneDef geneDef);
-		void RemoveCollectedGene_Storage(GeneDef geneDef);
+		//[Obsolete]
+		//void RemoveCollectedGene_Storage(GeneDef geneDef);
 		void AddGene_Editor(GeneDef geneDef);
 
 		bool TryGetUniqueGene();
@@ -320,6 +321,7 @@ namespace WVC_XenotypesAndGenes
 		bool ReqCooldown { get; }
 		bool DisableSubActions { get; }
 		bool UseGeneline { get; }
+		bool IsContainer {  get; }
 
 		void UpdSubHediffs();
 		void UpdateCache();

@@ -32,9 +32,25 @@ namespace WVC_XenotypesAndGenes
 
 		//public string customEffectsDesc = null;
 
-		public bool Baseliner => xenotypeDef == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
+		public XenotypeDef XenotypeDef_Safe
+		{
+			get
+			{
+				if (xenotypeDef == null)
+				{
+					xenotypeDef = ReimplanterUtility.UnknownXenotypeDef(genes);
+					if (xenotypeDef == null)
+					{
+						xenotypeDef = XenotypeDefOf.Baseliner;
+					}
+					inheritable = xenotypeDef.inheritable;
+				}
+				return xenotypeDef;
+			}
+		}
 
-		public bool CustomXenotype => xenotypeDef == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
+		public bool Baseliner => XenotypeDef_Safe == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
+		public bool CustomXenotype => XenotypeDef_Safe == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
 
 		public XenotypeHolder()
 		{
@@ -117,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (name.NullOrEmpty())
 					{
-						cachedLabel = xenotypeDef.label;
+						cachedLabel = XenotypeDef_Safe.label;
 					}
 					else
 					{

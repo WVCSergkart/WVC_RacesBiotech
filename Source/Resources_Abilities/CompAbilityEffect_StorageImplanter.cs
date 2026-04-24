@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompAbilityEffect_StorageImplanter : CompAbilityEffect
+	public class CompAbilityEffect_StorageImplanter : CompAbilityEffect, IAbilityFloatMenu
 	{
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
@@ -26,6 +26,27 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public IEnumerable<FloatMenuOption> FloatMenuOptions
+		{
+			get
+			{
+				List<FloatMenuOption> list = new();
+				list.Add(new FloatMenuOption("WVC_XaG_StorageImplanter_Label".Translate(), delegate
+				{
+					Gene.DoAction();
+				}));
+				if (Gene.XenotypeHolder != null)
+				{
+					list.Add(new FloatMenuOption("WVC_XaG_StorageImplanter_SwitchMode".Translate(Gene.XenotypeHolder.inheritable.ToStringYesNo()), delegate
+					{
+						Gene.XenotypeHolder.inheritable = !Gene.XenotypeHolder.inheritable;
+						Gene.UpdateCache();
+					}));
+				}
+				return list;
+			}
+		}
+
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
@@ -33,6 +54,8 @@ namespace WVC_XenotypesAndGenes
 			if (pawn != null)
 			{
 				ReimplanterUtility.SetXenotype(pawn, Gene.XenotypeHolder);
+				CompAbilityEffect_NewImplanter.Notify_Reimplanted(pawn, parent.pawn);
+				//ReimplanterUtility.UnknownChimerkin(pawn);
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 				ReimplanterUtility.ExtractXenogerm(parent.pawn);
 				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
