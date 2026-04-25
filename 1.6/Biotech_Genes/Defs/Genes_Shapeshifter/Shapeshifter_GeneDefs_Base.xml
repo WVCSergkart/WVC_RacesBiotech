@@ -55,7 +55,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<geneDefWithChances>
-				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
+				<li MayRequire="ludeon.rimworld.anomaly">  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
 				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
 				<li>  <geneDef>WVC_NeverDead</geneDef><!-- never dead -->  <cost>98</cost>  </li>
 				<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
