@@ -218,7 +218,7 @@
 		  </allowedXenotypes>
 		  <overridedXenotypes>
 			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
-			<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Leper</li> -->
+			<li MayRequire="ludeon.rimworld.anomaly">WVC_Leper</li>
 		  </overridedXenotypes>
 		  <chimeraGeneDefs>
 			<li>WVC_SwarmConnection_Golems</li>

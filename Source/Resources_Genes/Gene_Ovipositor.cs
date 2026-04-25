@@ -119,6 +119,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
 				CompHumanEgg compHumanEgg = thing.TryGetComp<CompHumanEgg>();
+				if (pregnancy.Mother == null && pregnancy.Father == null)
+				{
+					pregnancy.SetParents(pawn, null, pregnancy.geneSet);
+				}
 				compHumanEgg.SetupEgg(pregnancy);
 				int litterSize = GestationUtility.GetLitterSize(pawn);
 				MiscUtility.SpawnItems(pawn, thing, litterSize, Props.showMessageIfOwned, Props.spawnMessage);

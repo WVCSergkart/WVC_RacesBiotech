@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Req rework -->
   <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_SoulReaper</defName>
 	<label>The Soulreaper</label>
@@ -14,6 +15,7 @@
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
 	  </playerFaction>
+	  <showInUI>false</showInUI>
 	  <parts>
 
 		<!-- Config pages -->

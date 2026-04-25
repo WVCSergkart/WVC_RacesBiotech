@@ -16,30 +16,20 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeChance> xenotypeChances = new();
 		public List<XenotypeDef> allowedXenotypes = new();
-		public List<XenotypeDef> overridedXenotypes;
+		public List<string> overridedXenotypes;
 		public List<GeneDef> geneDefs = new();
 		public bool addMechlink = false;
 		public bool nullifyBackstory = false;
 		public bool nullifySkills = false;
-		//public bool embraceTheVoid = false;
 		public bool addSkipEffect = false;
 		public List<GeneDef> chimeraGeneDefs = new();
 		public List<GeneralHolder> chimeraGenesPerBiomeDef;
-		//public GeneDef chimeraEvolveGeneDef;
-		//public bool saveOldChimeraGeneSet = false;
-		//[Obsolete]
-		//public int startingMutations = 0;
 		public int startingDuplicates = 0;
 		public IntRange additionalChronoAge = new(0, 0);
 		public Gender gender = Gender.None;
 		public bool startingPawnsIsPregnant = false;
 		public ThingDef humanEggDef;
 		public IntRange humanEggsCount = new(3, 5);
-		//public bool scatterCorpses = false;
-		//public bool newGamePlus = false;
-		//public QuestScriptDef questScriptDef = null;
-		//public List<GeneDef> hybridGenes;
-		//public XenotypeDef hybridXenotype;
 		public PrefabDef prefabDef;
 		public List<SkillRange> skills;
 		public List<TraitDefHolder> forcedTraits;
@@ -47,54 +37,28 @@ namespace WVC_XenotypesAndGenes
 		public bool archiveAllPawns = false;
 		public bool isResurrected = false;
 
+		//private List<string> startingXenotypes;
+		//public List<string> StartingXenotypes
+		//{
+		//	get
+		//	{
+		//		if (startingXenotypes == null)
+		//		{
+		//			return new();
+		//		}
+		//		return startingXenotypes;
+		//	}
+		//}
 
 		//public override void ExposeData()
 		//{
-		//    base.ExposeData();
-		//    Scribe_Values.Look(ref addMechlink, "addMechlink", false);
-		//    Scribe_Values.Look(ref nullifyBackstory, "nullifyBackstory", false);
-		//    Scribe_Values.Look(ref nullifySkills, "nullifySkills", false);
-		//    Scribe_Values.Look(ref startingMutations, "startingMutations", 0);
-		//    Scribe_Values.Look(ref addMechlink, "addMechlink", false);
+		//	base.ExposeData();
+		//	Scribe_Collections.Look(ref startingXenotypes, "startingXenotypes", LookMode.Value);
+		//	//Scribe_Values.Look(ref addMechlink, "addMechlink", false);
+		//	//Scribe_Values.Look(ref nullifyBackstory, "nullifyBackstory", false);
+		//	//Scribe_Values.Look(ref nullifySkills, "nullifySkills", false);
+		//	//Scribe_Values.Look(ref addMechlink, "addMechlink", false);
 		//}
-
-		//public override void PostIdeoChosen()
-		//{
-		//    if (!newGamePlus || StaticCollectionsClass.voidLinkNewGamePlusPawn == null)
-		//    {
-		//        return;
-		//    }
-		//    try
-		//    {
-		//        Pawn voidLinkNewGamePlusPawn = StaticCollectionsClass.voidLinkNewGamePlusPawn;
-		//        DuplicateUtility.CopyPawn(voidLinkNewGamePlusPawn, Find.GameInitData.startingAndOptionalPawns.RandomElement());
-		//    }
-		//    catch
-		//    {
-		//        Log.Warning("Failed generate new game plus pawn.");
-		//    }
-		//}
-
-		//public List<XenotypeCount> GetXenotypeChances()
-		//{
-		//    List<XenotypeCount> list = new();
-		//    foreach (XenotypeChance xenos in xenotypeChances)
-		//    {
-		//        XenotypeCount count = new();
-		//        count.xenotype = xenos.xenotype;
-		//        count.requiredAtStart = true;
-		//        list.Add(count);
-		//    }
-		//    foreach (XenotypeDef xenos in allowedXenotypes)
-		//    {
-		//        XenotypeCount count = new();
-		//        count.xenotype = xenos;
-		//        count.requiredAtStart = true;
-		//        list.Add(count);
-		//    }
-		//    return list;
-		//}
-
 
 		protected override void ModifyNewPawn(Pawn p)
 		{
@@ -105,15 +69,25 @@ namespace WVC_XenotypesAndGenes
 			SetGender(p);
 			AddMechlink(p);
 			NullifyBackstory(p);
-			//ChimeraEvolve(p);
-			//Void(p);
 			ChimeraGenes(p);
-			//Mutations(p);
 			AgeCorrection(p);
 			Skills(p);
 			SetPregnant(p);
 			MiscUtility.Notify_DebugPawn(p);
+			//ScribeInfo(p);
 		}
+
+		//private void ScribeInfo(Pawn pawn)
+		//{
+		//	if (pawn.genes != null)
+		//	{
+		//		if (startingXenotypes == null)
+		//		{
+		//			startingXenotypes = new();
+		//		}
+		//		startingXenotypes.AddSafe(pawn.genes.XenotypeLabel.UncapitalizeFirst());
+		//	}
+		//}
 
 		private void SetTraits(Pawn pawn)
 		{
@@ -136,20 +110,6 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetPregnant(Pawn pawn)
 		{
-			//if (humanEggDef != null && pawn.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null)
-			//{
-			//	//Pawn pawn = Find.GameInitData.startingAndOptionalPawns.Take(Find.GameInitData.startingPawnCount).First();
-			//	Thing thing = ThingMaker.MakeThing(humanEggDef);
-			//	thing.stackCount = humanEggsCount.RandomInRange;
-			//	CompHumanEgg egg = thing.TryGetComp<CompHumanEgg>();
-			//	if (egg != null)
-			//	{
-			//		egg.SetupEgg(pawn);
-			//	}
-			//	//pawn.inventory.TryAddAndUnforbid(thing);
-			//	//Find.GameInitData.startingPossessions[pawn].Add(new ThingDefCount(possession.key, Mathf.Clamp(possession.value.RandomInRange, 1, possession.key.stackLimit)))
-			//	return;
-			//}
 			if (!startingPawnsIsPregnant)
 			{
 				GestationUtility.TryUpdChildGenes(pawn);
@@ -174,26 +134,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		//private void Void(Pawn p)
-		//{
-		//    if (!embraceTheVoid && !ModsConfig.AnomalyActive)
-		//    {
-		//        return;
-		//    }
-		//    if (Find.Storyteller.difficulty.AnomalyPlaystyleDef.generateMonolith)
-		//    {
-		//        Find.Storyteller.difficulty.AnomalyPlaystyleDef = WVC_GenesDefOf.AmbientHorror;
-		//    }
-		//    p.health.AddHediff(HediffDefOf.VoidTouched);
-		//    p.health.AddHediff(HediffDefOf.Inhumanized);
-		//}
-
 		public override void PostMapGenerate(Map map)
 		{
-			//if (Find.GameInitData == null || !hideOffMap || !context.Includes(PawnGenerationContext.PlayerStarter))
-			//{
-			//    return;
-			//}
 			if (Find.GameInitData == null || !context.Includes(PawnGenerationContext.PlayerStarter))
 			{
 				return;
@@ -211,19 +153,6 @@ namespace WVC_XenotypesAndGenes
 			DupePawns();
 			ArchivePawns();
 			MarkAsResurrected();
-			//if (prefabDef != null)
-			//{
-			//    PrefabUtility.SpawnPrefab(prefabDef, map, map.Center, Rot4.North, Faction.OfPlayer, null, null, null, false);
-			//}
-			//ScatterCorpses(map);
-			//if (questScriptDef != null)
-			//{
-			//    Quest quest = QuestUtility.GenerateQuestAndMakeAvailable(questScriptDef, 10);
-			//    if (!quest.hidden && questScriptDef.sendAvailableLetter)
-			//    {
-			//        QuestUtility.SendLetterQuestAvailable(quest);
-			//    }
-			//}
 		}
 
 		private void MarkAsResurrected()
@@ -311,67 +240,6 @@ namespace WVC_XenotypesAndGenes
 			archiver.pawn.genes?.GetFirstGeneOfType<Gene_Archiver_SkillsSync>()?.SyncSkills();
 		}
 
-		//private void ScatterCorpses(Map map)
-		//{
-		//    if (!scatterCorpses)
-		//    {
-		//        return;
-		//    }
-		//    float tryCount = 0;
-		//    foreach (IntVec3 cell in map.AllCells.Where((cell) => cell.InBounds(map) && !cell.GetTerrain(map).IsWater))
-		//    {
-		//        tryCount++;
-		//    }
-		//    tryCount = tryCount / 10000 * 0.6f;
-		//    for (int g = 0; g < tryCount; g++)
-		//    {
-		//        IntVec3 loc = map.AllCells.Where((cell) => cell.InBounds(map) && !cell.GetTerrain(map).IsWater).RandomElement();
-		//        int randomInRange = new IntRange(1, 4).RandomInRange;
-		//        for (int i = 0; i < randomInRange; i++)
-		//        {
-		//            if (CellFinder.TryFindRandomCellNear(loc, map, 4, (IntVec3 c) => c.Standable(map), out var result))
-		//            {
-		//                FilthMaker.TryMakeFilth(result, map, ThingDefOf.Filth_Blood);
-		//            }
-		//        }
-		//        int randomInRange3 = new IntRange(1, 3).RandomInRange;
-		//        for (int k = 0; k < randomInRange3; k++)
-		//        {
-		//            if (CellFinder.TryFindRandomCellNear(loc, map, 4, (IntVec3 c) => c.Standable(map), out var result3))
-		//            {
-		//                Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Drifter, forcedXenotype: XenotypeDefOf.Baseliner));
-		//                //ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
-		//                pawn.health.SetDead();
-		//                pawn.apparel.DestroyAll();
-		//                pawn.equipment.DestroyAllEquipment();
-		//                Find.WorldPawns.PassToWorld(pawn);
-		//                Corpse corpse = pawn.MakeCorpse(null, null);
-		//                corpse.Age = Mathf.RoundToInt(new IntRange(50, 200).RandomInRange * 60000);
-		//                corpse.GetComp<CompRottable>().RotProgress += corpse.Age;
-		//                GenSpawn.Spawn(pawn.Corpse, result3, map);
-		//                //if (ModsConfig.AnomalyActive && Rand.Chance(0.02f))
-		//                //{
-		//                //    MutantUtility.SetPawnAsMutantInstantly(pawn, MutantDefOf.Shambler);
-		//                //}
-		//            }
-		//        }
-		//    }
-		//    bool rainPossible = false;
-		//    foreach (WeatherCommonalityRecord weather in map.Biome.baseWeatherCommonalities)
-		//    {
-		//        if (weather.weather == WeatherDefOf.FoggyRain)
-		//        {
-		//            rainPossible = true;
-		//            Log.Error("rainPossible");
-		//            break;
-		//        }
-		//    }
-		//    if (rainPossible)
-		//    {
-		//        map.weatherManager.TransitionTo(WeatherDefOf.FoggyRain);
-		//    }
-		//}
-
 		private void Skills(Pawn p)
 		{
 			if (nullifySkills)
@@ -449,15 +317,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		//private void ChimeraEvolve(Pawn p)
-		//{
-		//    if (chimeraEvolveGeneDef == null)
-		//    {
-		//        return;
-		//    }
-		//    XaG_GeneUtility.ImplantChimeraEvolveGeneSet(p, chimeraEvolveGeneDef, saveOldChimeraGeneSet);
-		//}
-
 		private void SetGenes(Pawn p)
 		{
 			if (geneDefs.NullOrEmpty())
@@ -472,15 +331,6 @@ namespace WVC_XenotypesAndGenes
 				}
 				p.genes.AddGene(geneDef, xenogene: !p.genes.Xenotype.inheritable);
 			}
-			//if (hybridGenes == null || hybridXenotype == null)
-			//{
-			//    return;
-			//}
-			//p.genes.SetXenotypeDirect(hybridXenotype);
-			//foreach (GeneDef geneDef in hybridGenes)
-			//{
-			//    p.genes.AddGene(geneDef, xenogene: !hybridXenotype.inheritable);
-			//}
 		}
 
 		private void NullifyBackstory(Pawn p)
@@ -517,14 +367,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotypeChances.TryRandomElementByWeight((XenotypeChance xenoChance) => xenoChance.chance, out XenotypeChance xenotypeChance))
 			{
-				//int index = StartingPawnUtility.PawnIndex(p);
-				//PawnGenerationRequest request = StartingPawnUtility.GetGenerationRequest(index);
-				//request.ForcedXenotype = xenotypeChance.xenotype;
-				//if (gender != Gender.None)
-				//{
-				//	request.FixedGender = gender;
-				//}
-				//StartingPawnUtility.SetGenerationRequest(index, request);
 				ReimplanterUtility.SetXenotype_DoubleXenotype(p, xenotypeChance.xenotype);
 			}
 		}
@@ -536,7 +378,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XenotypeDef overridedXenotype = p.genes.Xenotype;
-			if (overridedXenotypes.Contains(overridedXenotype))
+			if (overridedXenotypes.Contains(overridedXenotype.defName))
 			{
 				XenotypeDef xenotypeDef = xenotypeChances?.RandomElementByWeight(xenos => xenos.chance)?.xenotype;
 				if (xenotypeDef.inheritable)
@@ -565,88 +407,61 @@ namespace WVC_XenotypesAndGenes
 
 		public override string Summary(Scenario scen)
 		{
-			if (cachedDesc == null)
+			try
 			{
-				StringBuilder stringBuilder = new();
-				if (!xenotypeChances.NullOrEmpty())
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : ""));
-				}
-				if (addMechlink)
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_AddMechlink".Translate().CapitalizeFirst());
-				}
-				if (nullifyBackstory)
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
-				}
-				if (nullifySkills)
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifySkills".Translate().CapitalizeFirst());
-				}
-				//if (embraceTheVoid)
-				//{
-				//    stringBuilder.AppendLine();
-				//    stringBuilder.AppendLine("WVC_XaG_ScenPart_EmbraceTheVoid".Translate().CapitalizeFirst());
-				//}
-				if (!geneDefs.NullOrEmpty())
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-				}
-				//if (chimeraGenesPerBiomeDef != null)
-				//{
-				//    stringBuilder.AppendLine();
-				//    int count = -1;
-				//    foreach (GeneralHolder generalHolder in chimeraGenesPerBiomeDef)
-				//    {
-				//        count++;
-				//        if (count > 0)
-				//        {
-				//            stringBuilder.AppendLine();
-				//        }
-				//        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome".Translate(generalHolder.biomeDefs.Select((BiomeDef def) => def.label).ToCommaList(useAnd: true).CapitalizeFirst()).CapitalizeFirst() + ":\n" + generalHolder.genes.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-				//    }
-				//    if (chimeraGeneDefs != null)
-				//    {
-				//        stringBuilder.AppendLine();
-				//        stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenesPerBiome_None".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-				//    }
-				//}
-				if (!chimeraGeneDefs.NullOrEmpty())
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-				}
-				//if (chimeraEvolveGeneDef != null)
-				//{
-				//    stringBuilder.AppendLine();
-				//    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
-				//}
-				//if (startingMutations > 0)
-				//{
-				//    stringBuilder.AppendLine();
-				//    stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
-				//}
-				if (additionalChronoAge.max > 0)
-				{
-					stringBuilder.AppendLine();
-					stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
-				}
-				//if (questScriptDef?.GetModExtension<GeneExtension_General>()?.questDescription != null)
-				//{
-				//    stringBuilder.AppendLine();
-				//    stringBuilder.AppendLine(questScriptDef.GetModExtension<GeneExtension_General>().questDescription.Translate().CapitalizeFirst());
-				//}
-				cachedDesc = stringBuilder.ToString();
+				ScenarioSummary();
+			}
+			catch
+			{
+				cachedDesc = "";
 			}
 			return cachedDesc;
 		}
 
+		private void ScenarioSummary()
+		{
+			if (cachedDesc != null)
+			{
+				return;
+			}
+			StringBuilder stringBuilder = new();
+			if (!xenotypeChances.NullOrEmpty())
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : ""));
+			}
+			if (addMechlink)
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_AddMechlink".Translate().CapitalizeFirst());
+			}
+			if (nullifyBackstory)
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
+			}
+			if (nullifySkills)
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifySkills".Translate().CapitalizeFirst());
+			}
+			if (!geneDefs.NullOrEmpty())
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+			}
+			if (!chimeraGeneDefs.NullOrEmpty())
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+			}
+			if (additionalChronoAge.max > 0)
+			{
+				stringBuilder.AppendLine();
+				stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
+			}
+			cachedDesc = stringBuilder.ToString();
+		}
 	}
 
 }
