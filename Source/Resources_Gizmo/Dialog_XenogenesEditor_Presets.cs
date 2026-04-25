@@ -7,13 +7,13 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChimeraPresetsList_Load : Dialog_FileList
+	public class Dialog_XenogenesEditor_Presets : Dialog_FileList
 	{
 
 		public Dialog_XenogenesEditor xenogenesEditor;
 		public List<GeneSetPreset> Presets => xenogenesEditor.gene.GeneSetPresets;
 
-		public Dialog_ChimeraPresetsList_Load(Dialog_XenogenesEditor dialog)
+		public Dialog_XenogenesEditor_Presets(Dialog_XenogenesEditor dialog)
 		{
 			this.xenogenesEditor = dialog;
 			interactButLabel = "LoadGameButton".Translate();
@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 					Rect rect5 = new(8f, 0f, rect4.x - 8f - 4f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
 					Text.Font = GameFont.Small;
-					string fileNameWithoutExtension = file.name;
+					string fileNameWithoutExtension = file.name.CapitalizeFirst();
 					Widgets.Label(rect5, fileNameWithoutExtension.Truncate(rect5.width * 1.8f));
 					GUI.color = Color.white;
 					Text.Anchor = TextAnchor.UpperLeft;

@@ -3,7 +3,7 @@
 
   <!-- Dev Name: Abomination -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Undeads">
-	<defName>WVC_Abomination</defName>
+	<defName>WVC_Leper</defName>
 	<!-- abominated, abomination, abominatkin, sickerkin, leper, leperkin -->
 	<label>leper</label>
 	<!-- <label>abomination</label> -->

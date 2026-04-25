@@ -71,12 +71,13 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_Shapeshift_TrueForm</defName>
-	<label>shift form</label>
+	<label>true form</label>
 	<description>Carriers of this gene can always return to their true form at any time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshift_TrueForm</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_TrueForm_v0</iconPath> -->
 	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_TrueForm</iconPath>
 	<displayOrderInCategory>180</displayOrderInCategory>
+	<prerequisite></prerequisite>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Shapeshift&lt;/color&gt; into a xenotype with this gene &lt;color=#8a8ae6&gt;does not require cd&lt;/color&gt;.</li>

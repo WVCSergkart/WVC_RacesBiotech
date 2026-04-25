@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeChance> xenotypeChances = new();
 		public List<XenotypeDef> allowedXenotypes = new();
+		public List<XenotypeDef> overridedXenotypes;
 		public List<GeneDef> geneDefs = new();
 		public bool addMechlink = false;
 		public bool nullifyBackstory = false;
@@ -99,6 +100,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			SetTraits(p);
 			SetXenotype(p);
+			OverrideXenotype(p);
 			SetGenes(p);
 			SetGender(p);
 			AddMechlink(p);
@@ -524,6 +526,38 @@ namespace WVC_XenotypesAndGenes
 				//}
 				//StartingPawnUtility.SetGenerationRequest(index, request);
 				ReimplanterUtility.SetXenotype_DoubleXenotype(p, xenotypeChance.xenotype);
+			}
+		}
+
+		private void OverrideXenotype(Pawn p)
+		{
+			if (overridedXenotypes.NullOrEmpty())
+			{
+				return;
+			}
+			XenotypeDef overridedXenotype = p.genes.Xenotype;
+			if (overridedXenotypes.Contains(overridedXenotype))
+			{
+				XenotypeDef xenotypeDef = xenotypeChances?.RandomElementByWeight(xenos => xenos.chance)?.xenotype;
+				if (xenotypeDef.inheritable)
+				{
+					ReimplanterUtility.SetXenotype_DoubleXenotype(p, xenotypeDef);
+				}
+				else
+				{
+					ReimplanterUtility.SetXenotype_Safe(p, xenotypeDef);
+				}
+				foreach (GeneDef geneDef in overridedXenotype.genes)
+				{
+					if (geneDef.IsGeneDefOfType<Gene_Shapeshifter>())
+					{
+						if (XaG_GeneUtility.TryRemoveAllConflicts(p, geneDef))
+						{
+							p.genes.AddGene(geneDef, false);
+							break;
+						}
+					}
+				}
 			}
 		}
 

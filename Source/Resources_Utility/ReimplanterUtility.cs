@@ -568,6 +568,11 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
+		public static void SetXenotype_Safe(Pawn pawn, XenotypeDef xenotypeDef, bool removeXenogenes = false, bool doPostDebug = true)
+		{
+			SetXenotype_Safe(pawn, new XenotypeHolder(xenotypeDef), removeXenogenes, doPostDebug);
+		}
+
 		public static void SetXenotype_Safe(Pawn pawn, XenotypeHolder xenotypeHolder, bool removeXenogenes = false, bool doPostDebug = true)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;

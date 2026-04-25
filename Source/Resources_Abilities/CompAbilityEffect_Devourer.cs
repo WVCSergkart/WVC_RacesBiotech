@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 				victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 				phase = "message";
-				Messages.Message("WVC_XaG_GeneManeater_VictimEated".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
+				Messages.Message("WVC_XaG_GeneDevourer_Message".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 			catch (Exception arg)
 			{

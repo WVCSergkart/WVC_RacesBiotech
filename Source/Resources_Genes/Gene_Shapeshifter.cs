@@ -195,7 +195,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryOffsetResource(Gene gene)
 		{
-			return TryOffsetResource((gene.def.biostatCpx * 0.5f) + (gene.def.biostatArc * 0.2f));
+			return TryOffsetResource((gene.def.biostatCpx * 0.5f) + (gene.def.biostatArc * 1.0f));
 		}
 
 		public bool TryConsumeResource(int count)

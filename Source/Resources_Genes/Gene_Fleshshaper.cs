@@ -22,6 +22,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			UnlockXenotype(pawn.genes.XenotypeLabel);
+		}
+
 		private List<string> unlockedXenotypes;
 		public override List<XenotypeHolder> Xenotypes
 		{
@@ -29,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return base.Xenotypes.Where(holder =>
 				{
-					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.Label);
+					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.Label.ToString().UncapitalizeFirst());
 					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
 					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
@@ -100,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				unlockedXenotypes = new();
 			}
-			unlockedXenotypes.AddSafe(xenotypeName);
+			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
 		}
 
 		public void AddGene_Editor(GeneDef geneDef)
@@ -135,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				//pawn.genes.Xenogenes.TryRandomElement(out Gene gene)
-				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(5))
+				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene))
 				{
 					//RemoveGene_Safe(gene);
 					pawn.genes.RemoveGene(gene);

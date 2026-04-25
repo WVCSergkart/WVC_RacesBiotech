@@ -885,7 +885,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!gene.GeneSetPresets.NullOrEmpty())
 				{
-					Find.WindowStack.Add(new Dialog_ChimeraPresetsList_Load(this));
+					Find.WindowStack.Add(new Dialog_XenogenesEditor_Presets(this));
 				}
 				else
 				{
@@ -1178,7 +1178,7 @@ namespace WVC_XenotypesAndGenes
 			selectedGenes = this.pawnXenoGenes;
 			if (gene is IGeneXenogenesContainer container && container.XenotypeHolder != null)
 			{
-				selectedGenes = container.XenotypeHolder.genes;
+				selectedGenes = container.XenotypeHolder.genes.ToList();
 			}
 			UpdateSearchResults();
 		}

@@ -213,7 +213,13 @@
 		  </xenotypeChances>
 		  <allowedXenotypes>
 			<li>WVC_Shadoweater</li>
+			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+			<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Leper</li> -->
 		  </allowedXenotypes>
+		  <overridedXenotypes>
+			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+			<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Leper</li> -->
+		  </overridedXenotypes>
 		  <chimeraGeneDefs>
 			<li>WVC_SwarmConnection_Golems</li>
 			<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>

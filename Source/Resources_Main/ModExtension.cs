@@ -421,11 +421,11 @@ namespace WVC_XenotypesAndGenes
 		public override void ResolveReferences(Def parentDef)
 		{
 			base.ResolveReferences(parentDef);
-			if (!WVC_Biotech.settings.EnableLegacyMode)
-			{
-				parentDef.label = parentDef.label + " " + "WVC_XaG_GeneExtension_Obsolete_Label".Translate().Resolve();
-				parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GeneExtension_Obsolete_Desc".Translate().Resolve();
-			}
+			//if (!WVC_Biotech.settings.EnableLegacyMode)
+			//{
+			//}
+			parentDef.label = parentDef.label + " " + "WVC_XaG_GeneExtension_Obsolete_Label".Translate().Resolve();
+			parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GeneExtension_Obsolete_Desc".Translate().Resolve();
 			if (parentDef is GeneDef geneDef)
 			{
 				geneDef.selectionWeight = 0;
