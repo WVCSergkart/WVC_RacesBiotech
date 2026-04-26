@@ -46,7 +46,10 @@ namespace WVC_XenotypesAndGenes
 						casterFood.CurLevel += victimFood.CurLevel;
 						for (int i = 0; i < victimFood.CurLevel; i++)
 						{
-							gene_Chimera?.GetRandomGene();
+							if (Rand.Chance(0.25f))
+							{
+								gene_Chimera?.GetRandomGene();
+							}
 						}
 					}
 					phase = "add hediff";

@@ -51,6 +51,7 @@
 	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <violent>true</violent>
+	  <warmupTime>2</warmupTime>
 	  <targetParams>
 		<canTargetAnimals>true</canTargetAnimals>
 		<canTargetMechs>true</canTargetMechs>

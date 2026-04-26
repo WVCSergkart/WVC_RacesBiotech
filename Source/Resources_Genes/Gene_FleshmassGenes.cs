@@ -398,7 +398,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshmassImmunity : Gene_AddOrRemoveHediff
 	{
 
-		private List<HediffDef> immunizedHediffs = new();
+		private List<HediffDef> immunizedHediffs;
 		public List<HediffDef> ImmunizedHediffs => immunizedHediffs;
 
 		public void ImmunizeHediff(HediffDef hediffDef)
@@ -407,31 +407,40 @@ namespace WVC_XenotypesAndGenes
 			{
 				immunizedHediffs = new();
 			}
-			if (!immunizedHediffs.Contains(hediffDef))
+			//if (!immunizedHediffs.Contains(hediffDef))
+			//{
+			//	immunizedHediffs.Add(hediffDef);
+			//}
+			immunizedHediffs.AddSafe(hediffDef);
+		}
+
+		private void ResetSubHediffs()
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
 			{
-				immunizedHediffs.Add(hediffDef);
-				foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+				if (hediff is Hediff_FleshmassImmunity fleshmass)
 				{
-					if (hediff is Hediff_FleshmassImmunity fleshmass)
-					{
-						fleshmass.Reset();
-					}
+					fleshmass.Reset();
 				}
 			}
 		}
 
-		private int nextTick = 6000;
+		//private int nextTick = 6000;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			nextTick = 6000;
-		}
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	nextTick = 6000;
+		//}
 
 		public override void TickInterval(int delta)
 		{
 			base.TickInterval(delta);
-			if (GeneResourceUtility.CanTick(ref nextTick, 66966, delta))
+			//if (GeneResourceUtility.CanTick(ref nextTick, 66966, delta))
+			//{
+			//	TryImmunizeNewHediffs();
+			//}
+			if (pawn.IsHashIntervalTick(66966, delta))
 			{
 				TryImmunizeNewHediffs();
 			}
@@ -457,17 +466,23 @@ namespace WVC_XenotypesAndGenes
 			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
 			{
 				HediffComp_Immunizable hediffComp_Immunizable = hediff.TryGetComp<HediffComp_Immunizable>();
-				if (hediffComp_Immunizable != null)
+				if (hediffComp_Immunizable != null && hediffComp_Immunizable is not HediffComp_ImmunizableToxic)
 				{
 					ImmunizeHediff(hediff.def);
+					ImmunityRecord immunityRecord = base.pawn.health?.immunity?.GetImmunityRecord(hediff.def);
+					if (immunityRecord != null && immunityRecord.immunity < 0.9f)
+					{
+						immunityRecord.immunity = 0.9f;
+					}
 				}
 			}
+			ResetSubHediffs();
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref nextTick, "nextTick", -1);
+			//Scribe_Values.Look(ref nextTick, "nextTick", -1);
 			Scribe_Collections.Look(ref immunizedHediffs, "immunizedHediffs", LookMode.Def);
 			if (Scribe.mode == LoadSaveMode.LoadingVars && immunizedHediffs != null && immunizedHediffs.RemoveAll((HediffDef x) => x == null) > 0)
 			{

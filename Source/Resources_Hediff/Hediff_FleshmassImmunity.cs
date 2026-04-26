@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		//public int cachedGenes = 0;
-		public int nextTick = 182;
+		//public int nextTick = 182;
 
 		private HediffStage curStage;
 
@@ -23,15 +23,14 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public override void PostAdd(DamageInfo? dinfo)
-		{
-			base.PostAdd(dinfo);
-			Reset();
-		}
+		//public override void PostAdd(DamageInfo? dinfo)
+		//{
+		//	base.PostAdd(dinfo);
+		//	Reset();
+		//}
 
 		[Unsaved(false)]
 		private Gene_FleshmassImmunity cachedGene;
-
 		public Gene_FleshmassImmunity Immunity
 		{
 			get
@@ -59,20 +58,28 @@ namespace WVC_XenotypesAndGenes
 
 		public void Reset()
 		{
-			curStage = null;
 			if (Immunity == null)
 			{
 				pawn.health.RemoveHediff(this);
 			}
+			else
+			{
+				curStage = null;
+			}
 		}
 
+		private bool shouldUpdate = true;
 		public override void TickInterval(int delta)
 		{
-			if (!GeneResourceUtility.CanTick(ref nextTick, 114568, delta))
+			//if (!GeneResourceUtility.CanTick(ref nextTick, 114568, delta))
+			//{
+			//	return;
+			//}
+			if (shouldUpdate)
 			{
-				return;
+				shouldUpdate = false;
+				Reset();
 			}
-			Reset();
 		}
 
 		public override void PostRemoved()

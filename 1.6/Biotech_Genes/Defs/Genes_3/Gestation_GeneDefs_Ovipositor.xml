@@ -104,7 +104,7 @@
 	</stages>
 	<comps>
 		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>60000~62000</disappearsAfterTicks>
+			<disappearsAfterTicks>120000~210000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
 	</comps>
