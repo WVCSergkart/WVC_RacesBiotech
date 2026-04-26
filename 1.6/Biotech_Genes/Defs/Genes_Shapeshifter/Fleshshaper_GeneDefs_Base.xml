@@ -46,7 +46,6 @@
 				<li>  <geneDef>WVC_ReimplanterArchite_Xenogenes</geneDef><!-- xenogerm implanter -->  <cost>22</cost>  </li>
 				<li>  <geneDef>WVC_ReimplanterArchite_RiseXenogenes</geneDef><!-- post xeno-implanter -->  <cost>31</cost>  </li>
 				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
 				<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  </li>
 				<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  </li>
 				<li>  <geneDef>WVC_SelfdevourStomach</geneDef><!-- self-devour stomach -->  <cost>56</cost>  </li>

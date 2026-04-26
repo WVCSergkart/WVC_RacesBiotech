@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 		public void TryGiveMutation()
 		{
 			//float shapeshifterResourceOffset = 0;
-			if (HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+			if (Rand.Chance(0.9f) && HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
 				cachedRegen = null;
 				if (PawnUtility.ShouldSendNotificationAbout(pawn))

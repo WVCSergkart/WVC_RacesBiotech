@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				SpawnHatchee(hatcheeParent, otherParent, xenotypeHolder, parent, parent.stackCount, "WVC_XaG_HumanEggHatchLabel", "WVC_XaG_HumanEggHatchDesc");
+				SpawnHatchee(hatcheeParent, otherParent, xenotypeHolder, geneSet, parent, parent.stackCount, "WVC_XaG_HumanEggHatchLabel", "WVC_XaG_HumanEggHatchDesc");
 			}
 			catch (Exception arg)
 			{
@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 			parent.Destroy(DestroyMode.QuestLogic);
 		}
 
-		public static void SpawnHatchee(Pawn mother, Pawn father, XenotypeHolder xenotypeHolder, Thing parent, int stackCount, string letterLabel, string letterDesc)
+		public static void SpawnHatchee(Pawn mother, Pawn father, XenotypeHolder xenotypeHolder, GeneSet geneSet, Thing parent, int stackCount, string letterLabel, string letterDesc)
 		{
 			Pawn pawn = mother ?? father;
 			if (pawn == null && parent is Pawn possiblePawn)
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeDef: XenotypeDefOf.Baseliner, parent2: father != null && father != pawn ? father : null);
 				//AgelessUtility.SetAge();
-				ReimplanterUtility.SetCustomGenes(child, xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
+				ReimplanterUtility.SetCustomGenes(child, geneSet?.GenesListForReading ?? xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
 				ReimplanterUtility.TryFixPawnXenotype_Beta(child);
 				if (mother?.genes?.Xenotype == father?.genes?.Xenotype || AnyParentIsNull())
 				{

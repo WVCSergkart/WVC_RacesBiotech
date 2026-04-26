@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				CompHumanEgg.SpawnHatchee(mother, father, xenotypeHolder, pawn, litterSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
+				CompHumanEgg.SpawnHatchee(mother, father, xenotypeHolder, GeneSet, pawn, litterSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
 			}
 			catch (Exception arg)
 			{

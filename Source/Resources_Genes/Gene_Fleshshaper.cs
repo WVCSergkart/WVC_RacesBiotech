@@ -73,8 +73,8 @@ namespace WVC_XenotypesAndGenes
 
 		//public StatDef ChimeraLimitStatDef => Giver.statDef;
 
-		public int ArchiteLimit => pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatArc);
-		public int ComplexityLimit => pawn.genes.GenesListForReading.Sum(gene => gene.def.biostatCpx);
+		public int ArchiteLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatArc);
+		public int ComplexityLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatCpx);
 
 		// Disabled for this gene
 		//public List<GeneSetPresets> geneSetPresets = new();
