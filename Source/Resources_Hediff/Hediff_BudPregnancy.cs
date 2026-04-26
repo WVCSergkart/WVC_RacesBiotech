@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 						new CurvePoint(1.0f, 0.22f)
 					};
 					curStage.painOffset = curve.Evaluate(0.08f * litterSize);
-					curStage.hungerRateFactor = 1f + (litterSize * 0.06f);
+					curStage.hungerRateFactor = 1f + (litterSize * 0.09f);
 				}
 				return curStage;
 			}
@@ -68,13 +68,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual int MaxLitterSize => 5;
 		public void IncreaseLitterSize()
 		{
-			curStage = null;
-			litterSize += GestationUtility.GetLitterSize(pawn);
-			if (litterSize > 5)
+			if (litterSize < MaxLitterSize)
 			{
-				litterSize = 5;
+				curStage = null;
+				litterSize += GestationUtility.GetLitterSize(pawn);
+				gestateProgress *= 0.75f;
+				if (litterSize > MaxLitterSize)
+				{
+					litterSize = MaxLitterSize;
+				}
 			}
 		}
 

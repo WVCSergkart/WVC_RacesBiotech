@@ -7,6 +7,7 @@
 	  <value>
 		<nullifyingGenes>
 		  <li>WVC_FleshmassNucleus</li>
+		  <li>WVC_FleshmassHeart</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>

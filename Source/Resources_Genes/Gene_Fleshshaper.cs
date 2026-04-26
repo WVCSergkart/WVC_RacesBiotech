@@ -171,13 +171,18 @@ namespace WVC_XenotypesAndGenes
 				List<Gene> archite = new();
 				List<Gene> nonCosmetic = new();
 				List<Gene> cosmetic = new();
+				List<Gene> subGenes = new();
 				foreach (Gene pawnGene in pawn.genes.Xenogenes)
 				{
 					if (pawnGene == this || PreservedGeneDefs.Contains(pawnGene.def))
 					{
 						continue;
 					}
-					if (pawnGene.def.biostatArc != 0)
+					if (pawnGene.def.prerequisite != null)
+					{
+						subGenes.Add(pawnGene);
+					}
+					else if (pawnGene.def.biostatArc != 0)
 					{
 						archite.Add(pawnGene);
 					}
@@ -189,6 +194,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						nonCosmetic.Add(pawnGene);
 					}
+				}
+				if (!subGenes.NullOrEmpty() && subGenes.Where(gene => !pawn.genes.Xenogenes.Any(pawnGene => pawnGene.def.prerequisite == gene.def)).TryRandomElement(out gene))
+				{
+					return gene != null;
 				}
 				if (!archite.Empty())
 				{
