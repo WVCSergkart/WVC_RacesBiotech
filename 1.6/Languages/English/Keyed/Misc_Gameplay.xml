@@ -119,7 +119,7 @@
 	<WVC_XaG_Tip>&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt;</WVC_XaG_Tip>
 	<WVC_XaG_Tips>&lt;color=#f5ffa2&gt;Tips:&lt;/color&gt;</WVC_XaG_Tips>
 	<WVC_XaG_GenesSettings_DescTip>Use the &lt;color=#8a8ae6&gt;genes settings&lt;/color&gt; gizmo to control the gene.</WVC_XaG_GenesSettings_DescTip>
-	<WVC_XaG_IGeneCustomGraphic_DescTip>Style can be changed using the &lt;color=#8a8ae6&gt;shapeshifter, chimera, or chameleon&lt;/color&gt; genes.</WVC_XaG_IGeneCustomGraphic_DescTip>
+	<WVC_XaG_IGeneCustomGraphic_DescTip>Style can be changed using the &lt;color=#8a8ae6&gt;shapeshifter, fleshshaper, chimera, or chameleon&lt;/color&gt; genes.</WVC_XaG_IGeneCustomGraphic_DescTip>
 	<WVC_XaG_GeneCustomHair_DescTip>Supports changing style on &lt;color=#8a8ae6&gt;styling station&lt;/color&gt;.</WVC_XaG_GeneCustomHair_DescTip>
 
 	<WVC_XaG_ScarsSkin_ResourceOffset>{PAWN_nameDef} received {1} genetic materials from scarification.</WVC_XaG_ScarsSkin_ResourceOffset>
@@ -788,7 +788,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch>
 
-	<WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter>This person can gestate any xenotype due to its genetic characteristics.</WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter>
+	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter>This person can gestate any xenotype due to its genetic characteristics.</WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter> -->
 
 	<WVC_XaG_GeneXenoGestator_GestationWarning>The gestation process will take time. During this time, the pawn will experience severe hunger and increased fatigue.</WVC_XaG_GeneXenoGestator_GestationWarning>
 

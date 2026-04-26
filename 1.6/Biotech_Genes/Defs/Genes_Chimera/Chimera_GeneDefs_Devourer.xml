@@ -46,7 +46,8 @@
 	<description>Dismantle the target into atoms, absorbing the genetic code and converting the victim into nutrient reserves.</description>
 	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
 	<showWhenDrafted>true</showWhenDrafted>
-	<cooldownTicksRange>35000</cooldownTicksRange>
+	<!-- <cooldownTicksRange>35000</cooldownTicksRange> -->
+	<cooldownTicksRange>105000</cooldownTicksRange>
 	<hostile>true</hostile>
 	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
 	<verbProperties>
