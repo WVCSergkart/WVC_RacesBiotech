@@ -53,6 +53,23 @@
 				<li>  <geneDef>WVC_FleshmassSkin</geneDef><!-- flesh-eye skin -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 				<li>  <geneDef>WVC_FleshmassNucleus</geneDef><!-- fleshmass nucleus -->  <cost>99</cost>  </li>
 				<li>  <geneDef>WVC_FleshmassHeart</geneDef><!-- fleshmass heart -->  <cost>72</cost>  </li>
+			  <!-- v2 -->
+			  <li>  <geneDef>WVC_Chimera_Devourer</geneDef><!-- devourer -->  <cost>50</cost>  </li>
+			  <li>  <geneDef>WVC_FleshmassBuilder</geneDef><!-- deadlife builder -->  <cost>67</cost>  </li>
+			  <li>  <geneDef>WVC_FlycatcherSkin</geneDef><!-- flycatcher skin -->  <cost>22</cost>  </li>
+			  <li>  <geneDef>WVC_LongTentacleTail</geneDef><!-- long tentacle tail -->  <cost>8</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_TentacleHands</geneDef><!-- tentacle hands -->  <cost>7</cost>  </li>
+			  <li>  <geneDef>WVC_TentacleTail</geneDef><!-- tentacle tail -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_FleshmassReproduction</geneDef><!-- fleshmass reproduction -->  <cost>44</cost>  </li>
+			  <li>  <geneDef>WVC_FleshmassAging</geneDef><!-- fleshmass aging -->  <cost>11</cost>  </li>
+			  <li>  <geneDef>WVC_Incrementer</geneDef><!-- incrementer -->  <cost>41</cost>  </li>
+			  <li>  <geneDef>WVC_SkinColor_FleshPink</geneDef><!-- flesh pink skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_SkinColor_FleshRed</geneDef><!-- flesh red skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_SheerWhite</geneDef><!-- sheer white skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_HeadBoneCurveHorns</geneDef><!-- curved horns -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_HeadTentacles0c</geneDef><!-- head tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_BodyTentacles</geneDef><!-- body tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_Wings_TentacleWings</geneDef><!-- tentacle wings -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 			</geneDefWithChances>
 		</li>
 	</modExtensions>

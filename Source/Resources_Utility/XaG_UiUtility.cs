@@ -809,6 +809,37 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//	Log.Error(log);
 			//}
+			//if (listingStandard.ButtonText("DEV: Log converted defs"))
+			//{
+			//	List<GeneDef> withExtension = new();
+			//	foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)  //.Where((def) => !humanGenes.Contains(def))
+			//	{
+			//		if (item.defName != "WVC_Chimera_GenelineFleshmass")
+			//		{
+			//			continue;
+			//		}
+			//		List<GeneDef> geneDefs = item?.GetModExtension<GeneExtension_Giver>()?.geneDefs;
+			//		if (geneDefs != null)
+			//		{
+			//			withExtension.AddRangeSafe(geneDefs);
+			//			break;
+			//		}
+			//	}
+			//	string log = "\n";
+			//	foreach (GeneDef item in withExtension)
+			//	{
+			//		GeneExtension_Giver geneExtension_Undead = item.GetModExtension<GeneExtension_Giver>();
+			//		log += "\n" + "  <li>";
+			//		log += "  " + "<geneDef>" + item.defName + "</geneDef>" + "<!-- " + item.label + " -->";
+			//		log += "  " + "<cost>" + 55 + "</cost>";
+			//		if (item.displayCategory != null)
+			//		{
+			//			log += "  " + "<displayCategory>" + item.displayCategory + "</displayCategory>";
+			//		}
+			//		log += "  </li>";
+			//	}
+			//	Log.Error(log);
+			//}
 		}
 
 	}
