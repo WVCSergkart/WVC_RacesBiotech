@@ -1,14 +1,15 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
+using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : XaG_Gene, IGeneInspectInfo
+	public class Gene_FleshmassNucleus : XaG_Gene, IGeneInspectInfo, IGeneDevourer
 	{
 
 		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -271,6 +272,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToStringByStyle(stat.toStringStyle), stat.description, stat.displayPriorityInCategory);
 			}
+		}
+
+		public void Notify_DevouredHuman(Pawn victim)
+		{
+
+		}
+
+		public void Notify_DevouredFlesh(Pawn victim)
+		{
+			TryGiveMutation();
 		}
 
 	}

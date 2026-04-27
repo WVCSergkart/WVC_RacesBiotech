@@ -1,7 +1,7 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor
+	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public bool IsContainer => false;
+		//public bool IsContainer => false;
 
 		public List<GeneDef> AllGenes
 		{
@@ -734,15 +734,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
-
-		// Info Only
-		public int ComplexityLimit
-		{
-			get
-			{
-				return (int)pawn.GetStatValue(ChimeraLimitStatDef);
-			}
-		}
+		public int ComplexityLimit => (int)pawn.GetStatValue(ChimeraLimitStatDef);
 
 		public AcceptanceReport CanBeUsed
 		{
@@ -802,6 +794,17 @@ namespace WVC_XenotypesAndGenes
 		public void DoEffects(Pawn pawn)
 		{
 			DoEffects();
+		}
+
+		public void Notify_DevouredHuman(Pawn victim)
+		{
+			TryAddGenesFromList(victim.genes.GenesListForReading);
+			TryAddGenesFromList(victim.genes.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
+		}
+
+		public void Notify_DevouredFlesh(Pawn victim)
+		{
+
 		}
 
 		// =================

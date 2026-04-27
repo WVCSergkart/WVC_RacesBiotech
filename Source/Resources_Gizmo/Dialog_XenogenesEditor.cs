@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public IGeneXenogenesEditor gene;
+		public IGeneXenogenesContainer geneXenogenesContainer;
 
 		public List<GeneDef> selectedGenes = new();
 
@@ -104,7 +105,11 @@ namespace WVC_XenotypesAndGenes
 				collapsedCategories.Add(allDef, value: false);
 			}
 			limitDisabled = !Gene_Chimera.ChimeraGenesLimit || (gene.ComplexityLimit == 999 && gene.ArchiteLimit == 999);
-			isContainer = gene.IsContainer;
+			if (gene is IGeneXenogenesContainer container)
+			{
+				isContainer = true;
+				geneXenogenesContainer = container;
+			}
 			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
@@ -1017,10 +1022,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void SimpleChange()
 		{
-			if (gene is IGeneXenogenesContainer container)
-			{
-				container.ResetContainer();
-			}
+			//if (gene is IGeneXenogenesContainer container)
+			//{
+			//}
+			geneXenogenesContainer?.ResetContainer();
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				try
@@ -1176,9 +1181,9 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 			selectedGenes = this.pawnXenoGenes;
-			if (gene is IGeneXenogenesContainer container && container.XenotypeHolder != null)
+			if (geneXenogenesContainer != null && geneXenogenesContainer.XenotypeHolder != null)
 			{
-				selectedGenes = container.XenotypeHolder.genes.ToList();
+				selectedGenes = geneXenogenesContainer.XenotypeHolder.genes.ToList();
 			}
 			UpdateSearchResults();
 		}

@@ -241,7 +241,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Cellular : Gene_AddOrRemoveHediff, IGeneFloatMenuOptions, IGeneDeathless
+	public class Gene_Cellular : Gene_AddOrRemoveHediff, IGeneFloatMenuOptions
 	{
 
 		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();

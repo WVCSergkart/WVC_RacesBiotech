@@ -6,7 +6,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Fleshshaper : Gene_Shapeshifter, IGeneXenogenesEditor
+	public class Gene_Fleshshaper : Gene_Shapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool IsContainer => false;
+		//public bool IsContainer => false;
 
 		public void UpdateCache()
 		{
@@ -141,16 +141,20 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				//pawn.genes.Xenogenes.TryRandomElement(out Gene gene)
-				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene))
+				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene, 2f))
 				{
 					//RemoveGene_Safe(gene);
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
 				}
+				else
+				{
+					TryOffsetResource(4);
+				}
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Failed remove shapeshifter random gene. Reason: " + arg.Message);
+				Log.Error("Failed remove random gene. Reason: " + arg.Message);
 			}
 
 			static void Message(Pawn pawn, Gene gene)
@@ -164,54 +168,25 @@ namespace WVC_XenotypesAndGenes
 			bool TryRandomGene(Pawn pawn, out Gene gene)
 			{
 				gene = null;
-				if (pawn.genes.Xenogenes.Empty())
+				List<Gene> xenogenes = pawn.genes.Xenogenes;
+				if (xenogenes.Empty())
 				{
 					return false;
 				}
-				List<Gene> archite = new();
-				List<Gene> nonCosmetic = new();
-				List<Gene> cosmetic = new();
-				List<Gene> subGenes = new();
-				foreach (Gene pawnGene in pawn.genes.Xenogenes)
+				List<Gene> genes = new();
+				foreach (Gene pawnGene in xenogenes)
 				{
 					if (pawnGene == this || PreservedGeneDefs.Contains(pawnGene.def))
 					{
 						continue;
 					}
-					if (pawnGene.def.prerequisite != null)
+					if (xenogenes.Any(g => g.def.prerequisite == pawnGene.def))
 					{
-						subGenes.Add(pawnGene);
+						continue;
 					}
-					else if (pawnGene.def.biostatArc != 0)
-					{
-						archite.Add(pawnGene);
-					}
-					else if (XaG_GeneUtility.IsCosmeticGene(pawnGene.def))
-					{
-						cosmetic.Add(pawnGene);
-					}
-					else
-					{
-						nonCosmetic.Add(pawnGene);
-					}
+					genes.Add(pawnGene);
 				}
-				if (!subGenes.NullOrEmpty() && subGenes.Where(gene => !pawn.genes.Xenogenes.Any(pawnGene => pawnGene.def.prerequisite == gene.def)).TryRandomElement(out gene))
-				{
-					return gene != null;
-				}
-				if (!archite.Empty())
-				{
-					gene = archite.RandomElement();
-				}
-				else if (!nonCosmetic.Empty())
-				{
-					gene = nonCosmetic.RandomElement();
-				}
-				else if (!cosmetic.Empty())
-				{
-					gene = cosmetic.RandomElement();
-				}
-				return gene != null;
+				return genes.TryRandomElement(out gene);
 			}
 		}
 
@@ -246,6 +221,16 @@ namespace WVC_XenotypesAndGenes
 			//		geneSetPresets = new();
 			//	}
 			//}
+		}
+
+		public void Notify_DevouredHuman(Pawn victim)
+		{
+			UnlockXenotype(victim.genes.XenotypeLabel.UncapitalizeFirst());
+		}
+
+		public void Notify_DevouredFlesh(Pawn victim)
+		{
+
 		}
 
 	}

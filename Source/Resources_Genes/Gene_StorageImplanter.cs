@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 		public bool DisableSubActions => true;
 		public bool UseGeneline => false;
 
-		public bool IsContainer => true;
+		//public bool IsContainer => true;
 
 		public void ResetContainer()
 		{

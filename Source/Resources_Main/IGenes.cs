@@ -329,7 +329,7 @@ namespace WVC_XenotypesAndGenes
 		bool ReqCooldown { get; }
 		bool DisableSubActions { get; }
 		bool UseGeneline { get; }
-		bool IsContainer {  get; }
+		//bool IsContainer {  get; }
 
 		void UpdSubHediffs();
 		void UpdateCache();
@@ -337,12 +337,12 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	//InDev
-	public interface IGeneDeathless
-	{
+	//public interface IGeneDeathless
+	//{
 
 
 
-	}
+	//}
 
 	public interface IGeneMechanitorUI
 	{
@@ -368,4 +368,12 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
+	public interface IGeneDevourer
+	{
+
+		void Notify_DevouredHuman(Pawn victim);
+		void Notify_DevouredFlesh(Pawn victim);
+		//void Notify_DevouredMech();
+
+	}
 }

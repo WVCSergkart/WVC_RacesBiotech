@@ -28,12 +28,11 @@ namespace WVC_XenotypesAndGenes
 			string phase = "start";
 			try
 			{
-				Gene_Chimera gene_Chimera = ChimeraGene;
 				Pawn caster = parent.pawn;
-				if (victim.IsHuman())
-				{
-					IfVictimIsHuman(victim, gene_Chimera, caster, ref phase);
-				}
+				//if (victim.IsHuman())
+				//{
+				//}
+				IfVictimIsHumanlike(victim, caster, ref phase);
 				//else
 				//{
 
@@ -44,13 +43,13 @@ namespace WVC_XenotypesAndGenes
 					if (victim.TryGetNeedFood(out Need_Food victimFood) && caster.TryGetNeedFood(out Need_Food casterFood))
 					{
 						casterFood.CurLevel += victimFood.CurLevel;
-						for (int i = 0; i < victimFood.CurLevel; i++)
-						{
-							if (Rand.Chance(0.25f))
-							{
-								gene_Chimera?.GetRandomGene();
-							}
-						}
+						//for (int i = 0; i < victimFood.CurLevel; i++)
+						//{
+						//	if (Rand.Chance(0.25f))
+						//	{
+						//		gene_Chimera?.GetRandomGene();
+						//	}
+						//}
 					}
 					phase = "add hediff";
 					if (Props.hediffDef != null)
@@ -67,8 +66,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
 					}
-					phase = "try fleshmass overgrow";
-					caster.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.TryGiveMutation();
+					phase = "Notify_DevouredFlesh";
+					Notify_DevouredFlesh(caster, victim);
+					//phase = "try fleshmass overgrow";
+					//caster.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.TryGiveMutation();
 				}
 				phase = "kill and destroy";
 				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
@@ -82,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void IfVictimIsHuman(Pawn victim, Gene_Chimera gene_Chimera, Pawn caster, ref string phase)
+		private void IfVictimIsHumanlike(Pawn victim, Pawn caster, ref string phase)
 		{
 			phase = "change goodwill";
 			if (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger())
@@ -94,28 +95,60 @@ namespace WVC_XenotypesAndGenes
 				}
 				victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
 			}
-			float genesFactor = 0.01f;
-			if (victim.genes != null)
+			//float genesFactor = 0.01f;
+			if (victim.IsHuman())
 			{
-				phase = "try copy pawn genes";
-				gene_Chimera?.TryAddGenesFromList(victim.genes.GenesListForReading);
-				phase = "try copy chimera genes";
-				gene_Chimera?.TryAddGenesFromList(victim.genes?.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
-				phase = "unlock xenotype for fleshshaper gene";
-				caster.genes?.GetFirstGeneOfType<Gene_Fleshshaper>()?.UnlockXenotype(victim.genes.XenotypeLabel.UncapitalizeFirst());
+				phase = "Notify_DevourerHuman";
+				Notify_DevouredHuman(caster, victim);
 				phase = "reset xenotype";
-				genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
+				float genesFactor = victim.genes.GenesListForReading.Count * 0.01f;
 				ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
-			}
-			phase = "copy skills";
-			CopySkillsExp(caster, victim, genesFactor);
-			phase = "inhumanize";
-			if (Rand.Chance(caster.relations.OpinionOf(victim) * 0.01f))
-			{
-				Gene_Inhumanized.Inhumanize(caster);
+				phase = "copy skills";
+				CopySkillsExp(caster, victim, genesFactor);
+				phase = "inhumanize";
+				if (Rand.Chance(caster.relations.OpinionOf(victim) * 0.01f))
+				{
+					Gene_Inhumanized.Inhumanize(caster);
+				}
 			}
 			phase = "drop apparel";
 			victim.apparel?.DropAll(victim.Position, true, false);
+		}
+
+		private void Notify_DevouredHuman(Pawn caster, Pawn victim)
+		{
+			foreach (Gene gene in caster.genes.GenesListForReading)
+			{
+				try
+				{
+					if (gene is IGeneDevourer geneDevourer && gene.Active)
+					{
+						geneDevourer.Notify_DevouredHuman(victim);
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed Notify_DevouredHuman. Gene: " + gene.def.defName + ". Reason: " + arg.Message);
+				}
+			}
+		}
+
+		private void Notify_DevouredFlesh(Pawn caster, Pawn victim)
+		{
+			foreach (Gene gene in caster.genes.GenesListForReading)
+			{
+				try
+				{
+					if (gene is IGeneDevourer geneDevourer && gene.Active)
+					{
+						geneDevourer.Notify_DevouredFlesh(victim);
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed Notify_DevouredFlesh. Gene: " + gene.def.defName + ". Reason: " + arg.Message);
+				}
+			}
 		}
 
 		private void CopySkillsExp(Pawn casterPawn, Pawn victimPawn, float factor)

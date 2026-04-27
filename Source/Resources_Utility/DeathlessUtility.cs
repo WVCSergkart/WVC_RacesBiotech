@@ -28,50 +28,50 @@ namespace WVC_XenotypesAndGenes
 		/// A bit more testing is needed to identify any flaws.
 		/// </summary>
 
-		private static HashSet<Pawn> cachedDeathlessPawns;
-		public static HashSet<Pawn> DeathlessPawns
-		{
-			get
-			{
-				if (cachedDeathlessPawns == null)
-				{
-					List<Pawn> list = new();
-					foreach (Pawn pawn in PawnsFinder.AllMapsAndWorld_Alive)
-					{
-						if (pawn?.genes?.GenesListForReading?.Any(gene => gene is IGeneDeathless && gene.Active) == true)
-						{
-							list.Add(pawn);
-						}
-					}
-					//Log.Error(list.Select((pawn) => pawn.Name.ToString()).ToLineList(" - "));
-					cachedDeathlessPawns = [.. list];
-				}
-				return cachedDeathlessPawns;
-			}
-		}
+		//private static HashSet<Pawn> cachedDeathlessPawns;
+		//public static HashSet<Pawn> DeathlessPawns
+		//{
+		//	get
+		//	{
+		//		if (cachedDeathlessPawns == null)
+		//		{
+		//			List<Pawn> list = new();
+		//			foreach (Pawn pawn in PawnsFinder.AllMapsAndWorld_Alive)
+		//			{
+		//				if (pawn?.genes?.GenesListForReading?.Any(gene => gene is IGeneDeathless && gene.Active) == true)
+		//				{
+		//					list.Add(pawn);
+		//				}
+		//			}
+		//			//Log.Error(list.Select((pawn) => pawn.Name.ToString()).ToLineList(" - "));
+		//			cachedDeathlessPawns = [.. list];
+		//		}
+		//		return cachedDeathlessPawns;
+		//	}
+		//}
 
-		public static void ResetCollection()
-		{
-			cachedDeathlessPawns = null;
-		}
+		//public static void ResetCollection()
+		//{
+		//	cachedDeathlessPawns = null;
+		//}
 
-		private static bool hasActiveGeneDeathlessHookPatched = false;
-		public static void HarmonyPatch()
-		{
-			if (hasActiveGeneDeathlessHookPatched)
-			{
-				return;
-			}
-			try
-			{
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HasActiveGene"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.DeathlessHook))));
-			}
-			catch (Exception arg)
-			{
-				Log.Warning("Non-critical error. Failed apply deathless hook. Reason: " + arg.Message);
-			}
-			hasActiveGeneDeathlessHookPatched = true;
-		}
+		//private static bool hasActiveGeneDeathlessHookPatched = false;
+		//public static void HarmonyPatch()
+		//{
+		//	if (hasActiveGeneDeathlessHookPatched)
+		//	{
+		//		return;
+		//	}
+		//	try
+		//	{
+		//		HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HasActiveGene"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.DeathlessHook))));
+		//	}
+		//	catch (Exception arg)
+		//	{
+		//		Log.Warning("Non-critical error. Failed apply deathless hook. Reason: " + arg.Message);
+		//	}
+		//	hasActiveGeneDeathlessHookPatched = true;
+		//}
 
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
