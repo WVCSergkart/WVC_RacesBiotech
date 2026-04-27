@@ -268,18 +268,19 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddMissingGeneAbilities(Pawn item, List<AbilityDef> pawnAbilities, Gene gene)
 		{
-			if (gene.def?.abilities != null)
+			if (gene.def.abilities.NullOrEmpty() || pawnAbilities == null)
 			{
-				foreach (AbilityDef ability in gene.def.abilities)
+				return;
+			}
+			foreach (AbilityDef ability in gene.def.abilities)
+			{
+				if (!pawnAbilities.Contains(ability))
 				{
-					if (!pawnAbilities.Contains(ability))
+					if (item.mutant?.Def?.abilityWhitelist != null && !item.mutant.Def.abilityWhitelist.Contains(ability))
 					{
-						if (item.mutant?.Def?.abilityWhitelist != null && !item.mutant.Def.abilityWhitelist.Contains(ability))
-						{
-							continue;
-						}
-						item.abilities.GainAbility(ability);
+						continue;
 					}
+					item.abilities.GainAbility(ability);
 				}
 			}
 		}

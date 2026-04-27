@@ -88,6 +88,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void FixGeneTraits(Pawn pawn, List<Gene> pawnGenes)
 		{
+			if (pawn.story?.traits?.allTraits == null)
+			{
+				return;
+			}
 			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
 			{
 				if (trait.sourceGene != null && !pawnGenes.Contains(trait.sourceGene))

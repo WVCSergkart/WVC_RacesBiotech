@@ -365,12 +365,19 @@ namespace WVC_XenotypesAndGenes
 
 		public static void PostImplantDebug(Pawn pawn)
 		{
+			string phase = "init";
 			try
 			{
-				List<AbilityDef> pawnAbilities = pawn.abilities.abilities.ConvertToDefs();
+				if (pawn?.genes == null)
+				{
+					return;
+				}
+				phase = "get pawn lists";
+				List<AbilityDef> pawnAbilities = pawn.abilities?.abilities?.ConvertToDefs();
 				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 				List<Gene> endogenes = pawn.genes.Endogenes;
 				List<Gene> xenogenes = pawn.genes.Xenogenes;
+				phase = "override conflicts";
 				foreach (Gene xenogene in xenogenes)
 				{
 					if (xenogene.Overridden)
@@ -389,6 +396,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
+				phase = "remove null overrides and add missing gene-abilities";
 				foreach (Gene item in genesListForReading)
 				{
 					if (item.overriddenByGene != null && !genesListForReading.Contains(item.overriddenByGene))
@@ -398,10 +406,11 @@ namespace WVC_XenotypesAndGenes
 					XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
 					NotifyGenesChanged(item);
 				}
-				//XaG_GameComponent.AddMissingGeneAbilities(pawn);
+				phase = "remove/add/fix pawn gene-traits";
 				TraitsUtility.FixGeneTraits(pawn, genesListForReading);
-				//NotifyGenesChanged(pawn);
+				phase = "reset human component cache";
 				XaG_GeneUtility.ResetGenesInspectString(pawn);
+				phase = "reset ideology cache";
 				GeneshiftUtility.ResetXenotypesCollection();
 				if (DebugSettings.ShowDevGizmos)
 				{
@@ -410,7 +419,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Failed do post implant debug. Reason: " + arg);
+				Log.Error("Failed do post implant debug. On phase: " + phase + ". Reason: " + arg);
 			}
 		}
 
