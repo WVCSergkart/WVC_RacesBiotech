@@ -11,7 +11,7 @@
 	<displayOrderInCategory>101</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Each pawn with this gene get a +999 to &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; about carriers of this gene.</li>
-		<li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, the size of which is the number of pawns in the harem.</li>
+		<li>Each carrier get a bonus to &lt;color=#8a8ae6&gt;mood&lt;/color&gt; depending on the harem's mood + 5.</li>
 		<li>The death of any member of the harem will have a temporary negative effect on the pawns that were in the harem.</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>

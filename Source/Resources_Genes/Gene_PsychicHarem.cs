@@ -115,6 +115,7 @@ namespace WVC_XenotypesAndGenes
 				Log.Warning("Failed update psychic harem. Reason: " + arg.Message);
 			}
 			shouldUpdate = false;
+			Thought_PsychicHarem.cachedMoodOffset = null;
 		}
 
 		public override void PostRemove()

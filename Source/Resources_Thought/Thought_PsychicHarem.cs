@@ -14,10 +14,35 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (badMoodTicks > Find.TickManager.TicksGame)
 			{
-				return -10;
+				return -Mood;
 			}
-			int count = Gene_PsychicHarem.Harem.Count;
-			return count > 1 ? 10 + count : 0;
+			return Mood;
+		}
+
+		public static float? cachedMoodOffset;
+		public static float Mood
+		{
+			get
+			{
+				if (cachedMoodOffset == null)
+				{
+					float totalMood = 0f;
+					int countedPawns = 0;
+					foreach (Pawn pawn in Gene_PsychicHarem.Harem)
+					{
+						if (pawn.needs?.mood == null)
+						{
+							continue;
+						}
+						countedPawns++;
+						totalMood += pawn.needs.mood.CurLevel;
+					}
+					totalMood = (totalMood * 5) / countedPawns;
+					totalMood += 5f;
+					cachedMoodOffset = totalMood;
+				}
+				return cachedMoodOffset.Value;
+			}
 		}
 
 		public override void ExposeData()
