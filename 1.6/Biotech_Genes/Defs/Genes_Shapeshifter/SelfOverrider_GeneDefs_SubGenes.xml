@@ -19,6 +19,7 @@
 	<label>overrider</label>
 	<description>Carriers of this gene have a wider range of metabolic possibilities.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Overrider</geneClass>
+	<minAgeActive>0</minAgeActive>
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<prerequisite></prerequisite>

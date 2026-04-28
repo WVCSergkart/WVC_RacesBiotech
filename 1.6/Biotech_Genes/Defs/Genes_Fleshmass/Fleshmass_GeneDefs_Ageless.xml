@@ -11,6 +11,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
+	<minAgeActive>18</minAgeActive>
 	<displayOrderInCategory>340</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Passively rejuvenates or ages to the chosen age.</li>

@@ -93,6 +93,195 @@ namespace WVC_XenotypesAndGenes
 
 	// Exten
 
+	//public class GeneExtension : DefModExtension
+	//{
+
+	//	// Thing Spawner
+	//	public ThingDef thingDefToSpawn;
+	//	public List<ThingDef> thingDefsToSpawn;
+	//	public int stackCount = 1;
+	//	public IntRange spawnIntervalRange = new(120000, 300000);
+	//	public string spawnMessage = "MessageCompSpawnerSpawnedItem";
+	//	public bool showMessageIfOwned = true;
+	//	public HediffDef initialHediffDef;
+	//	//public bool useMatchPercentFromSettings = false;
+	//	// WIP
+	//	public bool customizable = false;
+	//	public float stackPercent = 0.1f;
+	//	public StuffCategoryDef stuffCategoryDef;
+	//	// Pawn Spawner
+	//	public IntRange summonRange = new(1, 5);
+	//	public HediffDef gestationHediffDef;
+	//	public HediffDef cooldownHediffDef;
+	//	public float matchPercent = 0.4f;
+	//	public float gestationPeriodFactor = 0.5f;
+	//	public float xenotypeComplexityFactor = 0.1f;
+	//	public int cooldownDays = 15;
+	//	public bool showInspectInfoIfOwned = true;
+	//	//incidents
+	//	public IncidentDef incidentDef;
+	//	public int specialTreesMax = 3;
+	//	public int specialTreesMin = 1;
+	//	// Gauranlen
+	//	public PawnKindDef defaultDryadPawnKindDef;
+	//	public StatDef dryadsStatLimit;
+	//	public HediffDef postGestationSickness;
+	//	public ThoughtDef dryadDiedMemoryDef;
+	//	//BloodyGrowths
+	//	public float hemogenPerThing = 0.2f;
+	//	public ThingStyleDef styleDef = null;
+	//	// GeneDigester
+	//	public float chance = 0.66f;
+	//	public SoundDef soundDef;
+	//	// Golems
+	//	public List<GolemModeDef> golemModeDefs;
+	//	//public GolemlinkModeDef defaultGolemlinkModeDef;
+	//	// Golems
+	//	public IntRange durationIntervalRange = new(240000, 300000);
+	//	// Void
+	//	public HediffDef mechanitorHediff;
+	//	public HediffDef mechHediff;
+	//	public StatDef voidMechsLimit_StatDef;
+	//	public StatDef voidDamageChance_StatDef;
+	//	public StatDef voidMaxResource_StatDef;
+	//	// Mechs
+	//	public List<MechWeightClassDef> allowedMechWeightClasses;
+	//	// Human egg
+	//	public JobDef jobDef;
+	//	//
+	//	// Undead
+	//	public List<HediffDef> hediffDefs;
+	//	public BackstoryDef childhoodDef;
+	//	public BackstoryDef adulthoodDef;
+	//	public bool ignoreHediffs = false;
+	//	public IntRange additionalDelay = new(6000, 9000);
+	//	// Reincarnation
+	//	public QuestScriptDef summonQuest;
+	//	// Shapeshifter
+	//	public SoundDef soundDefOnImplant;
+	//	public List<HediffDef> duplicateHediffs;
+	//	public List<HediffDef> blockingHediffs;
+	//	// Special Food
+	//	// GeneticThief
+	//	public XenotypeDef xenotypeDef;
+	//	// Regen
+	//	public float regeneration = -1f;
+	//	// Chimera
+	//	public List<GeneDef> chimeraGenesTools;
+	//	public List<GeneralHolder> chimeraConditionalGenes;
+	//	//Chimera
+	//	public List<GeneDef> geneDefs;
+	//	//
+	//	public HediffDef hediffDefName;
+	//	public HediffDef hediffDef;
+	//	public HediffDef dupeHediffDef;
+	//	public List<BodyPartDef> bodyparts;
+	//	public BackstoryDef childBackstoryDef;
+	//	public BackstoryDef adultBackstoryDef;
+	//	public XenotypeDef xenotypeForcerDef = null;
+	//	public bool xenotypeIsInheritable = true;
+	//	// Scarifier
+	//	//public int scarsCount = 0;
+	//	public StatDef scarsStatDef;
+	//	// Special Food
+	//	public List<ThingDef> specialFoodDefs;
+	//	public Gender gender = Gender.None;
+	//	public IntRange intervalRange = new(120000, 300000);
+	//	public string message = "WVC_XaG_Extreme_GeneticInstabilityMessage";
+	//	public SimpleCurve curve;
+	//	// Bloodeater
+	//	public float nutritionPerBite = 0.8f;
+	//	public JobDef bloodeaterFeedingJobDef;
+	//	// Photosynthesis
+	//	public float passivelyReplenishedNutrition = 0.04f;
+	//	// Bloodfeeder
+	//	public int ticksToDisappear = 60000;
+	//	// Energy
+	//	public bool foodPoisoningFromFood = false;
+	//	public JobDef rechargeableStomachJobDef;
+	//	public JobDef repairJobDef;
+	//	public ThingDef xenoChargerDef;
+	//	public float chargeSpeedFactor = 1f;
+	//	// Colorable Eyes
+	//	public List<GeneralHolder> holofaces;
+	//	public Color defaultColor;
+	//	//Morpher
+	//	public float match = 1f;
+	//	public GeneDef morpherTriggerGene;
+	//	public List<GeneDef> morpherTriggerGenes;
+	//	public JobDef morpherTriggerChangeJob;
+	//	public List<XenotypeDef> morpherXenotypeDefs;
+	//	public List<XenotypeChance> morpherXenotypeChances;
+	//	public Type morpherTriggerGeneClass;
+	//	//Voidlink
+	//	//public float maxVoidEnergyOffset = 0f;
+	//	//Subhumans
+	//	public MutantDef mutantDef;
+	//	//
+	//	public StatDef statDef;
+	//	//
+	//	//public List<AbilityDef> abilityDefs;
+	//	//public List<AbilityDef> abilityDefs;
+	//	//public bool chimeraCanEatGenes = true;
+	//	public List<NeedDef> needDefs;
+	//	public List<GeneralHolder> geneDefWithChances;
+	//	public List<GeneCategoryDef> geneCategoryDefs;
+	//	public List<GeneDef> excludedGeneDefs;
+	//	// Size
+	//	//public float factor = 1f;
+	//	// Fleshshaper
+	//	public List<string> xenotypeDefs;
+	//	//
+	//	public ThoughtDef thoughtDef;
+	//	//public ThoughtDef myOpinionDef;
+	//	public ThoughtDef packMemberLost;
+	//	public ThoughtDef AboutMeThoughtDef;
+	//	public ThoughtDef MeAboutThoughtDef;
+	//	public ThoughtDef myTargetInGeneralThought;
+	//	public bool targetShouldBePsySensitive = false;
+	//	public bool targetShouldBeFamily = false;
+	//	public bool ignoreIfHasGene = false;
+	//	public bool onlySameXenotype = false;
+	//	public ThoughtDef sameAsMe_AboutMeThoughtDef;
+	//	// Unoverridable
+	//	public bool nonexcludable = false;
+
+	//	public override void ResolveReferences(Def parentDef)
+	//	{
+	//		base.ResolveReferences(parentDef);
+	//		if (parentDef is not GeneDef geneDef)
+	//		{
+	//			return;
+	//		}
+	//		if (nonexcludable)
+	//		{
+	//			geneDef.exclusionTags = null;
+	//			if (geneDef.customEffectDescriptions == null)
+	//			{
+	//				geneDef.customEffectDescriptions = new();
+	//			}
+	//			geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
+	//		}
+	//	}
+
+	//	public static GeneExtension GetModGeneExtension(Def def)
+	//	{
+	//		GeneExtension geneExtension = null;
+	//		if (def?.modExtensions != null)
+	//		{
+	//			foreach (DefModExtension ext in def.modExtensions)
+	//			{
+	//				if (ext is GeneExtension newExtension)
+	//				{
+	//					geneExtension = newExtension;
+	//				}
+	//			}
+	//		}
+	//		return geneExtension;
+	//	}
+
+	//}
+
 	public class GeneExtension_Spawner : DefModExtension
 	{
 		// Thing Spawner
@@ -109,6 +298,7 @@ namespace WVC_XenotypesAndGenes
 		public float stackPercent = 0.1f;
 		public StuffCategoryDef stuffCategoryDef;
 		// Pawn Spawner
+		[Obsolete]
 		public QuestScriptDef summonQuest;
 		public IntRange summonRange = new(1, 5);
 		public HediffDef gestationHediffDef;
@@ -117,6 +307,7 @@ namespace WVC_XenotypesAndGenes
 		public float gestationPeriodFactor = 0.5f;
 		public float xenotypeComplexityFactor = 0.1f;
 		public int cooldownDays = 15;
+		[Obsolete]
 		public List<GeneDef> canGestateAnyIfHas;
 		public bool showInspectInfoIfOwned = true;
 		//incidents
@@ -127,8 +318,10 @@ namespace WVC_XenotypesAndGenes
 		// public float skipChance = 0.5f;
 		// Gauranlen
 		// public List<GauranlenTreeModeDef> blacklistedGauranlenTreeModeDefs;
+		[Obsolete]
 		public int connectedDryadsLimit = 6;
 		public PawnKindDef defaultDryadPawnKindDef;
+		[Obsolete]
 		public ThingDef defaultDryadThingDef;
 		public StatDef dryadsStatLimit;
 		public HediffDef postGestationSickness;
@@ -137,10 +330,12 @@ namespace WVC_XenotypesAndGenes
 		public float hemogenPerThing = 0.2f;
 		public ThingStyleDef styleDef = null;
 		// GeneDigester
+		[Obsolete]
 		public IntRange digestRange = new(1, 2);
 		public float chance = 0.66f;
 		public SoundDef soundDef;
 		// Golems
+		[Obsolete]
 		public List<PawnKindDef> mechTypes;
 		public List<GolemModeDef> golemModeDefs;
 		//public GolemlinkModeDef defaultGolemlinkModeDef;
@@ -237,6 +432,7 @@ namespace WVC_XenotypesAndGenes
 		public bool onlySameXenotype = false;
 		public ThoughtDef sameAsMe_AboutMeThoughtDef;
 		//Recluse
+		[Obsolete]
 		public int colonistsLimit = 1;
 	}
 

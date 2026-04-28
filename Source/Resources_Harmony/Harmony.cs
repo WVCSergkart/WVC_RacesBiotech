@@ -882,6 +882,7 @@ namespace WVC_XenotypesAndGenes
 					//{
 					//	CompHumanlike?.SetLastNewGenes(__instance.def);
 					//}
+					PreferredXenotypesUtility.UpdCollection();
 				}
 				catch (Exception arg)
 				{

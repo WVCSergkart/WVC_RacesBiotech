@@ -11,6 +11,7 @@
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>2</biostatArc>
+	<minAgeActive>0</minAgeActive>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<displayCategory>WVC_Chimera</displayCategory>
 	<descriptionHyperlinks>

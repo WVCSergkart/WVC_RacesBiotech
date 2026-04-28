@@ -25,6 +25,7 @@
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
+	<minAgeActive>0</minAgeActive>
 	<exclusionTags>
 	  <li>WVC_ShapeshifterGene</li>
 	</exclusionTags>
