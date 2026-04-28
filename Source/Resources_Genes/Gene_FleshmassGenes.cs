@@ -72,51 +72,6 @@ namespace WVC_XenotypesAndGenes
 			Construct(60);
 		}
 
-		//private static int? cachedBuildEfficiency;
-		//public static int GetBuildEfficiency
-		//{
-		//	get
-		//	{
-		//		if (!cachedBuildEfficiency.HasValue)
-		//		{
-		//			Recache();
-		//		}
-		//		return cachedBuildEfficiency.Value;
-
-		//	}
-		//}
-
-		//private static Pawn cachedCaster;
-		//public static Pawn CurrentCaster
-		//{
-		//	get
-		//	{
-		//		if (!cachedBuildEfficiency.HasValue)
-		//		{
-		//			Recache();
-		//		}
-		//		return cachedCaster;
-
-		//	}
-		//}
-
-		//private static void Recache()
-		//{
-		//	int buildEfficiency = 0;
-		//	foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
-		//	{
-		//		if (pawn.genes?.GetFirstGeneOfType<Gene_FleshmassBuilder>() != null)
-		//		{
-		//			if (pawn.Map != null)
-		//			{
-		//				cachedCaster = pawn;
-		//			}
-		//			buildEfficiency++;
-		//		}
-		//	}
-		//	cachedBuildEfficiency = buildEfficiency;
-		//}
-
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
@@ -156,18 +111,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Construct(int tick)
 		{
-			//if (!pawn.Faction.IsPlayer || CurrentCaster != pawn)
-			//{
-			//	nextTick = 60000;
-			//	return;
-			//}
-			//if (pawn.Map == null)
-			//{
-			//	nextTick = 60000;
-			//	Recache();
-			//	return;
-			//}
-			if (XaG_GeneUtility.FactionMap(pawn))
+			if (XaG_GeneUtility.FactionMap(pawn) || pawn.IsSlave)
 			{
 				nextTick = 60000;
 				return;

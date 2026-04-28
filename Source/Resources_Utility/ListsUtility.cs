@@ -1,8 +1,9 @@
+using RimWorld;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -11,11 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
-		public static List<Pawn> AllPlayerPawns_MapsOrCaravans_Alive
+		public static IEnumerable<Pawn> AllPlayerPawns_MapsOrCaravans_Alive
 		{
 			get
 			{
-				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive?.Where((pawn) => pawn.Faction == Faction.OfPlayerSilentFail)?.ToList() ?? new();
+				return PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive.Where((pawn) => pawn.Faction == Faction.OfPlayerSilentFail);
 			}
 		}
 

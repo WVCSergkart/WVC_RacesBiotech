@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			def.biostatMet = 0;
 			int metabol = 0;
-			List<Pawn> allPlayerPawns_MapsOrCaravans_Alive = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive;
+			IEnumerable<Pawn> allPlayerPawns_MapsOrCaravans_Alive = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive;
 			List<Pawn> sharedPawns = new();
 			foreach (Pawn item in allPlayerPawns_MapsOrCaravans_Alive)
 			{

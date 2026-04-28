@@ -12,6 +12,24 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => !WVC_Biotech.settings.hideGeneHediffs;
 
+		public SimpleCurve flammabilityCurve = new()
+		{
+			new CurvePoint(50, 1.0f),
+			new CurvePoint(60, 0.9f),
+			new CurvePoint(70, 0.6f),
+			new CurvePoint(100, 0.20f),
+			new CurvePoint(120, 0f)
+		};
+
+		public SimpleCurve vacResCurve = new()
+		{
+			new CurvePoint(-50, 0.0f),
+			new CurvePoint(-60, 0.2f),
+			new CurvePoint(-70, 0.6f),
+			new CurvePoint(-100, 0.90f),
+			new CurvePoint(-150, 1.0f)
+		};
+
 		private HediffStage curStage;
 		public override HediffStage CurStage
 		{
@@ -29,7 +47,24 @@ namespace WVC_XenotypesAndGenes
 						Caravan caravan = pawn.GetCaravan();
 						if (pawn.MapHeld != null)
 						{
-							SetStatMod(ref statModifier, pawn.PositionHeld.GetTemperature(pawn.MapHeld));
+							float currentTemp = pawn.PositionHeld.GetTemperature(pawn.MapHeld);
+							SetStatMod(ref statModifier, currentTemp);
+							if (currentTemp > 50)
+							{
+								StatModifier statFlammability = new StatModifier();
+								statFlammability.stat = StatDefOf.Flammability;
+								statFlammability.value = (float)Math.Round(flammabilityCurve.Evaluate(currentTemp), 2);
+								curStage.statFactors = new();
+								curStage.statFactors.Add(statFlammability);
+							}
+							else if (currentTemp < -50 && ModsConfig.OdysseyActive)
+							{
+								curStage.preventVacuumBurns = true;
+								StatModifier statVacuumResistance = new StatModifier();
+								statVacuumResistance.stat = StatDefOf.VacuumResistance;
+								statVacuumResistance.value = (float)Math.Round(vacResCurve.Evaluate(currentTemp), 2);
+								curStage.statOffsets.Add(statVacuumResistance);
+							}
 						}
 						else if (caravan != null)
 						{

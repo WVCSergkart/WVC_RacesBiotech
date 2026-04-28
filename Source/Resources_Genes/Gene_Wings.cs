@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedWingedPawns == null)
 				{
 					List<Pawn> list = new();
-					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive)
+					foreach (Pawn pawn in ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive) // PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
 					{
 						if (pawn?.genes?.GetFirstGeneOfType<Gene_Wings>()?.IgnoreMovementCost == true)
 						{
