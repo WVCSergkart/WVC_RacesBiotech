@@ -70,6 +70,10 @@
 			  <li>  <geneDef>WVC_HeadTentacles0c</geneDef><!-- head tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 			  <li>  <geneDef>WVC_BodyTentacles</geneDef><!-- body tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 			  <li>  <geneDef>WVC_Wings_TentacleWings</geneDef><!-- tentacle wings -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <!-- v3 -->
+			  <li>  <geneDef>Sterile</geneDef> <cost>1</cost>  </li>
+			  <li>  <geneDef>Fertile</geneDef> <cost>1</cost>  </li>
+			  <li>  <geneDef>WVC_FleshmassFertility</geneDef> <cost>2</cost>  </li>
 			</geneDefWithChances>
 		</li>
 	</modExtensions>

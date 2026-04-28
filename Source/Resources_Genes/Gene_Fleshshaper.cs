@@ -9,18 +9,20 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Fleshshaper : Gene_Shapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Extension_Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Extension_Undead
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Undead == null)
+		//		{
+		//			cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		}
+		//		return cachedGeneExtension_Undead;
+		//	}
+		//}
+
+		public GeneExtension_Undead Extension_Undead => Props;
 
 		public override void PostAdd()
 		{

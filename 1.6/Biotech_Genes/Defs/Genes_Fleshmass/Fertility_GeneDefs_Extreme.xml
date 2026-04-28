@@ -45,12 +45,17 @@
 		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
 	  </targetParams>
 	</verbProperties>
-	<confirmationDialogText>This action will initiate the target's pregnancy. The fetus's genes will contain a combination of endogenes from both parents, regardless of their xenotype. If the target is already pregnant, the fetus's genes will be updated.</confirmationDialogText>
+	<confirmationDialogText>This action will initiate the target's pregnancy. The fetus's genes will contain a combination of endogenes from both parents, regardless of their xenotype.</confirmationDialogText>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Impregnate</compClass>
 		<opinionDef>WVC_FleshmassFertility_ForcedMe</opinionDef>
 		<memoryDef>WVC_FleshmassFertility_Impregnated</memoryDef>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_FleshmassFertility</li>
+		</anyOfGenes>
 	  </li>
 	</comps>
   </AbilityDef>
