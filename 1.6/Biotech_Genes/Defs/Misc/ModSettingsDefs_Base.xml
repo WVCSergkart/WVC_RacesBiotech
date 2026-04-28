@@ -9,6 +9,27 @@
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_Advanced</defName>
+	<label>advanced</label>
+	<description>Advanced settings for experienced players. Do not use this preset if you do not understand the mod's mechanics.</description>
+	<presetOrder>5</presetOrder>
+	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
+	<hideGeneHediffs>true</hideGeneHediffs>
+	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
+	<duplicator_ReplaceVanillaDuplicator>True</duplicator_ReplaceVanillaDuplicator>
+	<bloodeater_HideAbilitiesByDefault>True</bloodeater_HideAbilitiesByDefault>
+	<generateSkillGenes>false</generateSkillGenes>
+	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+  <!-- <WVC_XenotypesAndGenes.SettingsDef ParentName="WVC_SettingsDef_AdvancedPreset"> -->
+	<!-- <defName>WVC_Difficult</defName> -->
+	<!-- <label>increased difficulty</label> -->
+	<!-- <description>Advanced settings for experienced players. Do not use this preset if you do not understand the mod's mechanics.</description> -->
+	<!-- <presetOrder>10</presetOrder> -->
+  <!-- </WVC_XenotypesAndGenes.SettingsDef> -->
+
+  <WVC_XenotypesAndGenes.SettingsDef>
 	<defName>WVC_MyChoice</defName>
 	<label>dev choice</label>
 	<description>These are the mod developer's preferred settings. This preset is focused on testing new mechanics and changes from update to update. Please note that this preset may not suit your playstyle.</description>
@@ -71,6 +92,7 @@
 	<disableXenotypes_Mechalike>true</disableXenotypes_Mechalike>
 	<disableXenotypes_Psycasters>true</disableXenotypes_Psycasters>
 	<disableXenotypes_Undeads>true</disableXenotypes_Undeads>
+	<disableXenotypes_Hivemind>true</disableXenotypes_Hivemind>
 	<disableXenotypes_Misc>true</disableXenotypes_Misc>
 	<!-- <disableXenotypes_MutantMakers>true</disableXenotypes_MutantMakers> -->
   </WVC_XenotypesAndGenes.SettingsDef>
@@ -129,10 +151,12 @@
 	<!-- public bool learningTelepathWorkForBothSides = false; -->
 	<!-- public float learning_CyclicallySelfLearning_MaxSkillLevel = 20f; -->
 	<!-- // Info -->
+	<!-- public bool harmony_EnableGenesMechanicsTriggers = true; -->
 	<!-- public bool enable_xagHumanComponent = true; -->
 	<!-- public bool enable_StartingFoodPolicies = true; -->
 	<!-- // Fix -->
 	<!-- public bool harmony_vanillaFixesTweaksAndCompatability = true; -->
+	<!-- public bool hediffs_checkImmunizationAndRemove = true; -->
 	<!-- public bool resetGenesOnLoad = false; -->
 	<!-- public bool fixGeneAbilitiesOnLoad = false; -->
 	<!-- public bool fixGeneTypesOnLoad = false; -->
@@ -143,9 +167,10 @@
 	<!-- public bool enable_pregnancyForAllGenders = false; -->
 	<!-- // Reincarnation -->
 	<!-- public float reincarnation_MinChronoAge = 200f; -->
-	<!-- public float reincarnation_Chance = 0.12f; -->
+	<!-- public float reincarnation_Chance = 1.0f; -->
+	<!-- public float reincarnation_DelayDays = 15f; -->
 	<!-- // Hemogenic -->
-	<!-- public bool harmony_EnableGenesMechanicsTriggers = true; -->
+	<!-- public bool bloodeater_HideAbilitiesByDefault = false; -->
 	<!-- public bool bloodfeeder_AutoBloodfeed = false; -->
 	<!-- public float hemogenic_ImplanterFangsChanceFactor = 1f; -->
 	<!-- // Thralls -->
@@ -186,6 +211,7 @@
 	<!-- public float duplicator_RandomOutcomeChance = 0.66f; -->
 	<!-- public float duplicator_RandomGeneChance = 0.12f; -->
 	<!-- public bool duplicator_abilityCastForSourceOnly = false; -->
+	<!-- public bool duplicator_ReplaceVanillaDuplicator = false; -->
 	<!-- // Fleshmass -->
 	<!-- public float fleshmass_MaxMutationsLevel = 5f; -->
 	<!-- public bool fleshmass_HideBodypartHediffs = false; -->
@@ -213,6 +239,5 @@
 	<!-- // ExtraSettings -->
 	<!-- public float generalGenesRarity_Divisor = 0f; -->
 	<!-- public bool offsetMarketPriceFromGenes = false; -->
-	<!-- //public bool enable_HideMechanitorButtonsPatch = false; -->
 
 </Defs>

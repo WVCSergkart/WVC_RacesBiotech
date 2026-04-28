@@ -261,12 +261,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			hediff = (HediffAddedPart_FleshmassNucleus)Activator.CreateInstance(typeof(HediffAddedPart_FleshmassNucleus));
-			hediff.def = def;
-			hediff.pawn = pawn;
-			hediff.Part = partRecord;
-			hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
-			hediff.PostMake();
+			hediff = new HediffAddedPart_FleshmassNucleus(def, pawn, partRecord);
+			//hediff.def = def;
+			//hediff.pawn = pawn;
+			//hediff.Part = partRecord;
+			//hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
+			//hediff.PostMake();
 			return true;
 		}
 

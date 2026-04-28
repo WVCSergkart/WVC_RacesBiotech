@@ -9,7 +9,7 @@ using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : XaG_Gene, IGeneInspectInfo, IGeneDevourer
+	public class Gene_FleshmassNucleus : XaG_Gene, IGeneInspectInfo, IGeneDevourer, IGeneOverriddenBy
 	{
 
 		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 					float regen = 0f;
 					foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
 					{
-						if (hediff is HediffAddedPart_FleshmassNucleus fleshmassHediff)
+						if (hediff is IHediffFleshmassOvergrow fleshmassHediff)
 						{
 							regen += (fleshmassHediff.CurrentLevel * 2f);
 						}
@@ -127,25 +127,40 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			ResetCache();
+		}
+
+		public void Notify_Override()
+		{
+			ResetCache();
+		}
+
+		private void ResetCache()
+		{
+			cachedRegen = null;
+		}
+
 		public void TryGiveMutation()
 		{
 			//float shapeshifterResourceOffset = 0;
 			if (Rand.Chance(0.9f) && HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
-				cachedRegen = null;
+				ResetCache();
 				if (PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
 					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 				//shapeshifterResourceOffset = 12;
 			}
-			else if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+			else if (TryGetWeakerPawnMutation(out IHediffFleshmassOvergrow hediffWithComps_FleshmassHeart))
 			{
 				hediffWithComps_FleshmassHeart.LevelUp();
-				cachedRegen = null;
+				ResetCache();
 				if (PawnUtility.ShouldSendNotificationAbout(pawn))
 				{
-					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 				//shapeshifterResourceOffset = 9;
 			}
@@ -159,13 +174,13 @@ namespace WVC_XenotypesAndGenes
 			//Gene_Shapeshifter.OffsetResource(pawn, shapeshifterResourceOffset);
 		}
 
-		private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
+		private bool TryGetWeakerPawnMutation(out IHediffFleshmassOvergrow hediffWithComps_FleshmassHeart)
 		{
 			hediffWithComps_FleshmassHeart = null;
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CurrentLevel < Fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is IHediffFleshmassOvergrow massHediff && massHediff.CurrentLevel < Fleshmass_MaxMutationsLevel).OrderBy((hediff) => hediff is IHediffFleshmassOvergrow massHediff ? massHediff.CurrentLevel : 0f).ToList();
 			foreach (Hediff hediff in hediffs)
 			{
-				if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
+				if (hediff is IHediffFleshmassOvergrow massHediff)
 				{
 					hediffWithComps_FleshmassHeart = massHediff;
 					break;
@@ -239,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: FleshmassLevelUp",
 					action = delegate
 					{
-						if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+						if (TryGetWeakerPawnMutation(out IHediffFleshmassOvergrow hediffWithComps_FleshmassHeart))
 						{
 							hediffWithComps_FleshmassHeart.LevelUp();
 						}

@@ -19,6 +19,7 @@
 	<customEffectDescriptions>
 		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
 		<li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
+		<li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 1 day.</li>
 		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li>
 	</customEffectDescriptions>
 	<modExtensions>

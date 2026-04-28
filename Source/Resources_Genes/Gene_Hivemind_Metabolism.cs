@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				def.biostatMet = count.Value;
 				def.cachedDescription = null;
-				GeneResourceUtility.UpdMetabolism(pawn);
+				//GeneResourceUtility.UpdMetabolism(pawn);
 			}
 			updated = true;
 		}
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 			def.biostatMet = 0;
 			int metabol = 0;
 			List<Pawn> allPlayerPawns_MapsOrCaravans_Alive = ListsUtility.AllPlayerPawns_MapsOrCaravans_Alive;
-			int pawnsCount = 0;
+			List<Pawn> sharedPawns = new();
 			foreach (Pawn item in allPlayerPawns_MapsOrCaravans_Alive)
 			{
 				if (item?.genes?.GetFirstGeneOfType<Gene_SharedMetabolism>() == null)
@@ -136,11 +136,14 @@ namespace WVC_XenotypesAndGenes
 					}
 					metabol += gene.def.biostatMet;
 				}
-				pawnsCount++;
+				sharedPawns.Add(item);
 			}
-			def.biostatMet = metabol / pawnsCount;
+			def.biostatMet = metabol / sharedPawns.Count;
 			def.cachedDescription = null;
-			GeneResourceUtility.UpdMetabolism(pawn);
+			//foreach (Pawn item in sharedPawns)
+			//{
+			//	GeneResourceUtility.UpdMetabolism(item);
+			//}
 		}
 
 		private void ResetCache()

@@ -10,4 +10,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IHediffFleshmassOvergrow
+	{
+
+		int CurrentLevel { get; }
+		void LevelUp();
+		string LabelCap { get; }
+
+	}
+
 }

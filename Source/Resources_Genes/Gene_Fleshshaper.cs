@@ -148,10 +148,16 @@ namespace WVC_XenotypesAndGenes
 					//RemoveGene_Safe(gene);
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
+					// Small and medium colony only
+					if (StaticCollectionsClass.cachedPlayerPawnsCount < 10)
+					{
+						ReimplanterUtility.PostImplantDebug(pawn);
+					}
 				}
 				else
 				{
 					TryOffsetResource(4);
+					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 1);
 				}
 			}
 			catch (Exception arg)

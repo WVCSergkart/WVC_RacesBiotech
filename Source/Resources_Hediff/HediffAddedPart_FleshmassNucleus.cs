@@ -7,12 +7,28 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffAddedPart_FleshmassNucleus : Hediff_AddedPart
+	public class HediffAddedPart_FleshmassNucleus : Hediff_AddedPart, IHediffFleshmassOvergrow
 	{
 
 		private int mutationLevel = 0;
 
 		//public int maxMutationLevel = 5;
+
+		// Save/Load
+		public HediffAddedPart_FleshmassNucleus()
+		{
+
+		}
+
+		// Hediff maker
+		public HediffAddedPart_FleshmassNucleus(HediffDef def, Pawn pawn, BodyPartRecord partRecord)
+		{
+			this.def = def;
+			this.pawn = pawn;
+			this.Part = partRecord;
+			this.loadID = Find.UniqueIDsManager.GetNextHediffID();
+			this.PostMake();
+		}
 
 		public static List<StatDef> IgnoredStatDefs = new()
 		{

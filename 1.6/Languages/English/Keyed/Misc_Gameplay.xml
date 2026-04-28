@@ -45,7 +45,8 @@
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
-	<WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc>
+	<!-- <WVC_XaG_IGeneMetabolism_Desc>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</WVC_XaG_IGeneMetabolism_Desc> -->
+	<WVC_XaG_IGeneMetabolism_Desc>&lt;color=#8a8ae6&gt;Slowly dynamically&lt;/color&gt; changes &lt;color=#8a8ae6&gt;hunger factor&lt;/color&gt; depending on metabolism.</WVC_XaG_IGeneMetabolism_Desc>
 
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
 	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>

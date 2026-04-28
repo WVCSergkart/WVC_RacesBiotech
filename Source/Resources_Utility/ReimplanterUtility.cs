@@ -71,6 +71,19 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
+		public static void ReduceXenogermReplicationTick(Pawn pawn, int days = 1)
+		{
+			Hediff hediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (hediff != null)
+			{
+				HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear - (60000 * days));
+				}
+			}
+		}
+
 		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange)
 		{
 			XenogermReplicating_WithCustomDuration(pawn, durationIntervalRange, pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));

@@ -176,6 +176,7 @@
     <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
     <Compile Include="Resources_Hediff\Hediff_FaultyShapeDisease.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_AdaptiveTemperature.cs" />
     <Compile Include="Resources_Hediff\Hediff_HivemindHatred.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
