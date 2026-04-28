@@ -137,6 +137,7 @@ namespace WVC_XenotypesAndGenes
 		public bool ReqCooldown => false;
 		public bool DisableSubActions => true;
 		public bool UseGeneline => false;
+		public List<GeneDef> GenelineGenes => [];
 
 		//public bool IsContainer => true;
 

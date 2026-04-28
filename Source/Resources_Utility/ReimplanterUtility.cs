@@ -640,7 +640,7 @@ namespace WVC_XenotypesAndGenes
 		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, Gene_Shapeshifter shapeshiferGene, bool removeXenogenes = true, bool doPostDebug = false)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || removeXenogenes)
+			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || removeXenogenes || recipientGenes.Xenotype.inheritable)
 			{
 				SetXenotypeDirect(pawn, xenotypeHolder);
 			}

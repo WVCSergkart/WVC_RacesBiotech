@@ -1149,9 +1149,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			subActionsDisabled = gene.DisableSubActions;
 			GetCustomEater();
-			//selectedGenes = new();
 			cachedGeneDefsInOrder = new();
-			List<GeneDef> genelinedGenes = null;
 			if (isContainer)
 			{
 				this.pawnEndoGenes = new();
@@ -1159,63 +1157,56 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				ConvertToDefsAndGetGeneline(gene.Pawn.genes.Endogenes, out List<GeneDef> pawnEndoGenes, ref genelinedGenes);
-				ConvertToDefsAndGetGeneline(gene.Pawn.genes.Xenogenes, out List<GeneDef> pawnXenoGenes, ref genelinedGenes);
-				this.pawnEndoGenes = pawnEndoGenes;
-				this.pawnXenoGenes = pawnXenoGenes;
+				this.pawnEndoGenes = gene.Pawn.genes.Endogenes.ConvertToDefs();
+				this.pawnXenoGenes = gene.Pawn.genes.Xenogenes.ConvertToDefs();
 			}
-			if (genelinedGenes == null)
+			if (gene.UseGeneline)
 			{
-				allGenes = gene.CollectedGenes;
+				allGenes = gene.GenelineGenes;
 			}
 			else
 			{
-				allGenes = genelinedGenes;
+				allGenes = gene.CollectedGenes;
 			}
-			//nonPassedGenes = new();
-			//foreach (GeneDef item in allGenes)
-			//{
-			//	if (!item.passOnDirectly)
-			//	{
-			//		nonPassedGenes.Add(item);
-			//	}
-			//}
-			selectedGenes = this.pawnXenoGenes;
 			if (geneXenogenesContainer != null && geneXenogenesContainer.XenotypeHolder != null)
 			{
 				selectedGenes = geneXenogenesContainer.XenotypeHolder.genes.ToList();
 			}
+			else
+			{
+				selectedGenes = this.pawnXenoGenes;
+			}
 			UpdateSearchResults();
 		}
 
-		private void ConvertToDefsAndGetGeneline(List<Gene> pawnGenes, out List<GeneDef> geneDefs, ref List<GeneDef> genelinedGenes)
-		{
-			geneDefs = new();
-			foreach (Gene item in pawnGenes)
-			{
-				geneDefs.Add(item.def);
-				if (!gene.UseGeneline || item is not Gene_ChimeraGeneline geneline)
-				{
-					continue;
-				}
-				if (genelinedGenes == null)
-				{
-					genelinedGenes = geneline.GenelineGenes;
-				}
-				else
-				{
-					//genelinedGenes.AddRange(geneline.GenelineGenes);
-					foreach (GeneDef geneDef in geneline.GenelineGenes)
-					{
-						if (genelinedGenes.Contains(geneDef))
-						{
-							continue;
-						}
-						genelinedGenes.Add(geneDef);
-					}
-				}
-			}
-		}
+		//private void ConvertToDefsAndGetGeneline(List<Gene> pawnGenes, out List<GeneDef> geneDefs, ref List<GeneDef> genelinedGenes)
+		//{
+		//	geneDefs = new();
+		//	foreach (Gene item in pawnGenes)
+		//	{
+		//		geneDefs.Add(item.def);
+		//		if (!gene.UseGeneline || item is not Gene_ChimeraGeneline geneline)
+		//		{
+		//			continue;
+		//		}
+		//		if (genelinedGenes == null)
+		//		{
+		//			genelinedGenes = geneline.GenelineGenes;
+		//		}
+		//		else
+		//		{
+		//			//genelinedGenes.AddRange(geneline.GenelineGenes);
+		//			foreach (GeneDef geneDef in geneline.GenelineGenes)
+		//			{
+		//				if (genelinedGenes.Contains(geneDef))
+		//				{
+		//					continue;
+		//				}
+		//				genelinedGenes.Add(geneDef);
+		//			}
+		//		}
+		//	}
+		//}
 
 		private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
 		{

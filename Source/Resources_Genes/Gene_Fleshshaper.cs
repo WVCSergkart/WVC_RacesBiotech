@@ -45,26 +45,35 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> AllGenes => CollectedGenes;
+		public List<GeneDef> AllGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				geneDefs.AddRangeSafe(CollectedGenes);
+				geneDefs.AddRangeSafe(GenelineGenes);
+				return geneDefs;
+			}
+		}
 
-		private List<GeneDef> cachedGeneDefs;
+		private List<GeneDef> collectedGeneDefs;
 		public List<GeneDef> CollectedGenes
 		{
 			get
 			{
-				if (cachedGeneDefs == null)
+				if (collectedGeneDefs == null)
 				{
-					cachedGeneDefs = XenotypesGenes;
+					collectedGeneDefs = new();
 				}
-				return cachedGeneDefs;
+				return collectedGeneDefs;
 			}
 		}
 
-		//public bool IsContainer => false;
+		public List<GeneDef> GenelineGenes => XenotypesGenes;
 
 		public void UpdateCache()
 		{
-			cachedGeneDefs = null;
+			//collectedGeneDefs = null;
 		}
 
 		public List<GeneDef> DisabledGenes => [];
@@ -73,13 +82,9 @@ namespace WVC_XenotypesAndGenes
 		public Pawn Pawn => pawn;
 		public GeneDef Def => def;
 
-		//public StatDef ChimeraLimitStatDef => Giver.statDef;
-
 		public int ArchiteLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatArc);
 		public int ComplexityLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatCpx);
 
-		// Disabled for this gene
-		//public List<GeneSetPresets> geneSetPresets = new();
 		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
@@ -95,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange ReqMetRange => new(-15, 15);
 		public bool ReqCooldown => false;
 		public bool DisableSubActions => true;
-		public bool UseGeneline => false;
+		public bool UseGeneline => true;
 
 		public void Debug_RemoveDupes()
 		{
@@ -113,10 +118,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void AddGene_Editor(GeneDef geneDef)
 		{
-			//if (!this.def.ConflictsWith(geneDef))
-			//{
-			//	pawn.genes.AddGene(geneDef, true);
-			//}
+			AddGene_Safe(geneDef, false);
+		}
+
+		public override void AddGene_Genetic(GeneDef geneDef, bool inheritable)
+		{
+			CollectedGenes.AddSafe(geneDef);
 			AddGene_Safe(geneDef, false);
 		}
 
@@ -125,6 +132,7 @@ namespace WVC_XenotypesAndGenes
 			if (oldShapeshifter is Gene_Fleshshaper gene_Fleshshaper)
 			{
 				this.unlockedXenotypes = gene_Fleshshaper.unlockedXenotypes;
+				this.collectedGeneDefs = gene_Fleshshaper.CollectedGenes;
 			}
 			base.CopyFrom(oldShapeshifter);
 		}
@@ -142,10 +150,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				//pawn.genes.Xenogenes.TryRandomElement(out Gene gene)
 				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene, 2f))
 				{
-					//RemoveGene_Safe(gene);
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
 					// Small and medium colony only
@@ -184,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 				List<Gene> genes = new();
 				foreach (Gene pawnGene in xenogenes)
 				{
-					if (pawnGene == this || PreservedGeneDefs.Contains(pawnGene.def))
+					if (pawnGene == this || CollectedGenes.Contains(pawnGene.def))
 					{
 						continue;
 					}
@@ -222,13 +228,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
-			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			//{
-			//	if (geneSetPresets == null)
-			//	{
-			//		geneSetPresets = new();
-			//	}
-			//}
+			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Value);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && collectedGeneDefs != null && collectedGeneDefs.RemoveAll((GeneDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
 		}
 
 		public void Notify_DevouredHuman(Pawn victim)

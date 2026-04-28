@@ -83,6 +83,22 @@ namespace WVC_XenotypesAndGenes
 
 		//public bool IsContainer => false;
 
+		public List<GeneDef> GenelineGenes
+		{
+			get
+			{
+				List<GeneDef> genes = new();
+				foreach (Gene gene in pawn.genes.GenesListForReading)
+				{
+					if (gene is Gene_ChimeraGeneline gene_ChimeraGeneline && gene.Active)
+					{
+						genes.AddRangeSafe(gene_ChimeraGeneline.GenelineGenes);
+					}
+				}
+				return genes;
+			}
+		}
+
 		public List<GeneDef> AllGenes
 		{
 			get

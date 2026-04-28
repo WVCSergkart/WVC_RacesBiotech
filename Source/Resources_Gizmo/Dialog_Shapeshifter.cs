@@ -253,6 +253,8 @@ namespace WVC_XenotypesAndGenes
 				+ "\n\n" + selectedXenoHolder.Description,
 				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				num = 5;
+				geneShapeshifter.UpdateMetabolism();
+				num = 6;
 				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
 				return true;
 			}

@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 		protected virtual void SetupAvailableGenes(Gene gene)
 		{
 			List<GeneDefWithChance> allGenes = new();
-			foreach (GeneralHolder item in gene_Shapeshifter.Giver.geneDefWithChances)
+			foreach (GeneralHolder item in gene_Shapeshifter.GeneticGenes)
 			{
 				if (item.geneDef.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.geneDef.prerequisite, gene.pawn))
 				{
@@ -278,7 +278,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (gene_Shapeshifter.TryConsumeResource(geneDefWithChance.Cost))
 				{
-					gene_Shapeshifter.TryForceGene(geneDefWithChance.geneDef, inheritable);
+					gene_Shapeshifter.AddGene_Genetic(geneDefWithChance.geneDef, inheritable);
 				}
 			}
 			ReimplanterUtility.PostImplantDebug(gene.pawn);

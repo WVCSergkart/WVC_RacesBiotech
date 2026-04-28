@@ -388,7 +388,17 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					Pawn pawn = Pawn;
-					ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+					Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+					if (gene_Shapeshifter != null)
+					{
+						// Safe for shapeshifters
+						//Dialog_Shapeshifter.TryShapeshift(gene_Shapeshifter, false, true, false, new(pawn.genes.Xenotype));
+						ReimplanterUtility.SetXenotype(pawn, new(pawn.genes.Xenotype), gene_Shapeshifter, true, true);
+					}
+					else
+					{
+						ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+					}
 				}
 			};
 			yield return new Command_Action

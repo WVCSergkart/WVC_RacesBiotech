@@ -300,6 +300,7 @@ namespace WVC_XenotypesAndGenes
 		List<GeneDef> CollectedGenes { get; }
 		List<GeneDef> DisabledGenes { get; }
 		List<GeneDef> DestroyedGenes { get; }
+		List<GeneDef> GenelineGenes { get; }
 
 		Pawn Pawn { get; }
 		GeneDef Def { get; }

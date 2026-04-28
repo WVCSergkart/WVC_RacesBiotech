@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -13,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool DisableGenesRegrowing => false;
 
+		[Obsolete]
 		public virtual List<GeneDef> PreservedGeneDefs => null;
 
 		private GeneExtension_Giver cachedGeneExtension;
@@ -66,10 +68,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_Shapeshifter_PreservedGenes : Gene_ShapeshifterDependant
 	{
 
 		private List<GeneDef> cachedPreservedGenes;
+
+		[Obsolete]
 		public override List<GeneDef> PreservedGeneDefs
 		{
 			get

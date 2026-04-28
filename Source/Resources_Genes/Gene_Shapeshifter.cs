@@ -38,6 +38,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual List<GeneralHolder> GeneticGenes => Giver.geneDefWithChances;
 		public virtual List<XenotypeHolder> Xenotypes => ListsUtility.GetAllXenotypesHolders();
 		public virtual List<GeneDef> XenotypesGenes
 		{
@@ -216,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.genes?.GetFirstGeneOfType<Gene_Shapeshifter>()?.TryOffsetResource(resourceOffset);
 		}
 
-		public void TryForceGene(GeneDef geneDef, bool inheritable)
+		public virtual void AddGene_Genetic(GeneDef geneDef, bool inheritable)
 		{
 			if (!geneDef.ConflictsWith(this.def) && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
 			{
@@ -226,9 +227,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Reimplanter
-
 		private List<GeneDef> cachedPreservedGenes;
-		public List<GeneDef> PreservedGeneDefs
+		public virtual List<GeneDef> PreservedGeneDefs
 		{
 			get
 			{
@@ -240,13 +240,6 @@ namespace WVC_XenotypesAndGenes
 						// Legacy
 						if (item is Gene_ShapeshifterDependant dependant && dependant.PreservedGeneDefs != null && dependant.Active)
 						{
-							//foreach (GeneDef geneDef in dependant.PreservedGeneDefs)
-							//{
-							//	if (!newList.Contains(geneDef))
-							//	{
-							//		newList.Add(geneDef);
-							//	}
-							//}
 							newList.AddRangeSafe(dependant.PreservedGeneDefs);
 						}
 						// Legacy
@@ -362,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				GeneResourceUtility.Notify_PostShapeshift(this);
 			}
-			UpdateMetabolism();
+			//UpdateMetabolism();
 			cachedPreservedGenes = null;
 		}
 

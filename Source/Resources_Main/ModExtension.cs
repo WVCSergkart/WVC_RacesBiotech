@@ -639,7 +639,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				if (!WVC_Biotech.settings.hideXaGGenes && !WVC_Biotech.settings.EnableLegacyMode)
+				if (!WVC_Biotech.settings.hideXaGGenes) //  && !WVC_Biotech.settings.EnableLegacyMode
 				{
 					HarmonyUtility.Harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_HideObsoleteGenes))));
 				}
