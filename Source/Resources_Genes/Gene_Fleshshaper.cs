@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
-			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Value);
+			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Def);
 			if (Scribe.mode == LoadSaveMode.LoadingVars && collectedGeneDefs != null && collectedGeneDefs.RemoveAll((GeneDef x) => x == null) > 0)
 			{
 				Log.Warning("Removed null geneDef(s)");
