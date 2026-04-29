@@ -131,6 +131,21 @@ namespace WVC_XenotypesAndGenes
 							allHairColors.Add(color);
 						}
 					}
+					if (pawn.genes.GenesListForReading.Any(gene => gene.def.skinIsHairColor))
+					{
+						foreach (GeneDef allDef in DefDatabase<GeneDef>.AllDefsListForReading)
+						{
+							if (!allDef.skinColorOverride.HasValue)
+							{
+								continue;
+							}
+							Color color = allDef.skinColorOverride.Value;
+							if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+							{
+								allHairColors.Add(color);
+							}
+						}
+					}
 					allHairColors.SortByColor((Color x) => x);
 				}
 				return allHairColors;

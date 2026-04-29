@@ -97,8 +97,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public IntRange ReqMetRange => new(-15, 15);
-		public bool ReqCooldown => false;
+		public IntRange ReqMetRange => new(-5, 999);
+		public bool ReqCooldown => true;
 		public bool DisableSubActions => true;
 		public bool UseGeneline => true;
 
@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 				else
 				{
 					TryOffsetResource(4);
-					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 1);
+					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 5);
 				}
 			}
 			catch (Exception arg)

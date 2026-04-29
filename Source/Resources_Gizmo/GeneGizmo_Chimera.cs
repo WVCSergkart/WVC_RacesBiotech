@@ -141,14 +141,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					gene.UpdateCache();
 					gene.UpdSubHediffs();
-					if (gene.CanBeUsed)
-					{
-						Find.WindowStack.Add(new Dialog_XenogenesEditor(gene));
-					}
-					else
-					{
-						Messages.Message(gene.CanBeUsed.Reason, null, MessageTypeDefOf.RejectInput, historical: false);
-					}
+					//if (gene.CanBeUsed)
+					//{
+					//}
+					//else
+					//{
+					//	Messages.Message(gene.CanBeUsed.Reason, null, MessageTypeDefOf.RejectInput, historical: false);
+					//}
+					Find.WindowStack.Add(new Dialog_XenogenesEditor(gene));
 				}
 			}
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneGeneticThief_Desc".Translate());

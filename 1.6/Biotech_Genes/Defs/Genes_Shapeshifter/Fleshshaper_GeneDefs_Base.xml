@@ -19,7 +19,7 @@
 	<customEffectDescriptions>
 		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
 		<li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
-		<li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 1 day.</li>
+		<li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 5 days.</li>
 		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li>
 	</customEffectDescriptions>
 	<modExtensions>
@@ -75,6 +75,19 @@
 			  <li>  <geneDef>Sterile</geneDef> <cost>1</cost>  </li>
 			  <li>  <geneDef>Fertile</geneDef> <cost>1</cost>  </li>
 			  <li>  <geneDef>WVC_FleshmassFertility</geneDef> <cost>2</cost>  </li>
+			  <li>  <geneDef>WVC_PsychicHarem</geneDef> <cost>8</cost>  </li>
+			  <li>  <geneDef>WVC_Beauty_AbominationallyUgly</geneDef> <cost>5</cost>  </li>
+			  <li>  <geneDef>WVC_Ovipositor</geneDef> <cost>33</cost>  </li>
+			  <li>  <geneDef>WVC_Budding</geneDef> <cost>33</cost>  </li>
+			  <li>  <geneDef>WVC_Traitless</geneDef> <cost>50</cost>  </li>
+			  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_MinMaxTemp_Adaptive</geneDef> <cost>77</cost>  </li>
+			  <li>  <geneDef>Skin_InkBlack</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_SlateGray</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_PaleRed</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_PaleYellow</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_Green</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>Skin_Orange</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+			  <li>  <geneDef>WVC_HairColoredSkin</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 			</geneDefWithChances>
 		</li>
 	</modExtensions>

@@ -1000,6 +1000,11 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_ChimeraBadMetabol_Message".Translate(reqMetRange.TrueMin, reqMetRange.TrueMax, met), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
+			if (gene.ReqCooldown && gene.Pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				Messages.Message("WVC_XaG_IGeneXenogenesEditor_InCooldown".Translate(gene.LabelCap), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
 			return true;
 		}
 

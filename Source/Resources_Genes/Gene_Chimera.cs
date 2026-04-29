@@ -752,22 +752,22 @@ namespace WVC_XenotypesAndGenes
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
 		public int ComplexityLimit => (int)pawn.GetStatValue(ChimeraLimitStatDef);
 
-		public AcceptanceReport CanBeUsed
-		{
-			get
-			{
-				if (!ReqCooldown || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-				{
-					//if (ComplexityLimit > 0)
-					//{
-					//	return true;
-					//}
-					//return "WVC_XaG_Gene_Chimera_LimitToLow".Translate();
-					return true;
-				}
-				return "WVC_XaG_Gene_Chimera_InCooldown".Translate();
-			}
-		}
+		//public AcceptanceReport CanBeUsed
+		//{
+		//	get
+		//	{
+		//		if (!ReqCooldown || !pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+		//		{
+		//			//if (ComplexityLimit > 0)
+		//			//{
+		//			//	return true;
+		//			//}
+		//			//return "WVC_XaG_Gene_Chimera_LimitToLow".Translate();
+		//			return true;
+		//		}
+		//		return "WVC_XaG_Gene_Chimera_InCooldown".Translate();
+		//	}
+		//}
 
 		public Pawn Pawn => pawn;
 		public GeneDef Def => def;
