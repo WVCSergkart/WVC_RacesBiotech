@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_EditShiftGenes : Window
+	public class Dialog_ShaperEditor : Window
 	{
 
 		public Gene gene;
@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected GeneMatStatData[] geneMatStats = null;
 
-		public Dialog_EditShiftGenes(Gene pawnGene)
+		public Dialog_ShaperEditor(Gene pawnGene)
 		{
 			this.gene = pawnGene;
 			if (pawnGene is Gene_Shapeshifter gene_Shapeshifter)
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 		protected virtual void SetupAvailableGenes(Gene gene)
 		{
 			List<GeneDefWithChance> allGenes = new();
-			foreach (GeneralHolder item in gene_Shapeshifter.GeneticGenes)
+			foreach (GeneralHolder item in gene_Shapeshifter.ShaperGenes)
 			{
 				if (item.geneDef.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.geneDef.prerequisite, gene.pawn))
 				{
@@ -608,7 +608,7 @@ namespace WVC_XenotypesAndGenes
 			var saveGenelineRect = new Rect(textInputRect.xMax + 10, textInputRect.y, 150, 32);
 			var cannotReasonRect = new Rect(saveGenelineRect.xMax + 10, rect.y,
 				rect.width - (textInputRect.width + saveGenelineRect.width + 20), 50);
-			if (Widgets.ButtonText(saveGenelineRect, "WVC_XaG_ChimeraApply_Implant".Translate()) && CanAccept(true))
+			if (Widgets.ButtonText(saveGenelineRect, "Apply".Translate().CapitalizeFirst()) && CanAccept(true))
 			{
 				if (genesConflict)
 				{

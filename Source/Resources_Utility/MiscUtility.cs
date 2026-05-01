@@ -14,6 +14,20 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		// string converter
+		public static List<T> ConvertToDefs<T>(this List<string> list) where T : Def
+		{
+			List<T> geneDefs = new();
+			foreach (T item in DefDatabase<T>.AllDefsListForReading)
+			{
+				if (list.Contains(item.defName))
+				{
+					geneDefs.Add(item);
+				}
+			}
+			return geneDefs;
+		}
+
 		public static void ClearOrSetPawnAsMutantInstantly(Pawn pawn, MutantDef mutant)
 		{
 			if (mutant == null)

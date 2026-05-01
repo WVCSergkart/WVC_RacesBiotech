@@ -372,10 +372,10 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture ReqTex = new("WVC/UI/XaG_General/TraitsTex_Req");
 		public static readonly CachedTexture HasTex = new("WVC/UI/XaG_General/TraitsTex_Has");
 
-		private readonly Dialog_EditShiftGenes.GeneMatStatData[] NewStats = new Dialog_EditShiftGenes.GeneMatStatData[2]
+		private readonly Dialog_ShaperEditor.GeneMatStatData[] NewStats = new Dialog_ShaperEditor.GeneMatStatData[2]
 		{
-			new Dialog_EditShiftGenes.GeneMatStatData("WVC_XaG_Traitshifter_MaxTraits", "WVC_XaG_Traitshifter_MaxTraitsDesc", HasTex.Texture),
-			new Dialog_EditShiftGenes.GeneMatStatData("WVC_XaG_Traitshifter_SelectedTraits", "WVC_XaG_Traitshifter_SelectedTraitsDesc", ReqTex.Texture),
+			new Dialog_ShaperEditor.GeneMatStatData("WVC_XaG_Traitshifter_MaxTraits", "WVC_XaG_Traitshifter_MaxTraitsDesc", HasTex.Texture),
+			new Dialog_ShaperEditor.GeneMatStatData("WVC_XaG_Traitshifter_SelectedTraits", "WVC_XaG_Traitshifter_SelectedTraitsDesc", ReqTex.Texture),
 		};
 
 		protected Dictionary<string, string> truncateCache = new();

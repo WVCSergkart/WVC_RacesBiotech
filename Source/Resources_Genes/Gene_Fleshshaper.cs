@@ -24,6 +24,26 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Extension_Undead => Props;
 
+		//public override List<GeneralHolder> ShaperGenes
+		//{
+		//	get
+		//	{
+		//		List<GeneralHolder> holders = new();
+		//		foreach (ShaperGeneSetDef fleshshaperGeneSetDef in DefDatabase<ShaperGeneSetDef>.AllDefsListForReading)
+		//		{
+		//			if (fleshshaperGeneSetDef.Allowed(pawn, this))
+		//			{
+		//				holders.AddRange(fleshshaperGeneSetDef.geneSets);
+		//			}
+		//		}
+		//		if (!holders.Empty())
+		//		{
+		//			return holders;
+		//		}
+		//		return base.ShaperGenes;
+		//	}
+		//}
+
 		public override void PostAdd()
 		{
 			base.PostAdd();

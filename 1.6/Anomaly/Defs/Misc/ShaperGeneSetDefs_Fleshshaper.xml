@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ShaperGeneSetDef>
+	<defName>WVC_Fleshshaper</defName>
+	<label>fleshshaper</label>
+	<workerClass>WVC_XenotypesAndGenes.ShaperGeneSet</workerClass>
+	<allowedShifterDefs>
+	  <li>WVC_Fleshshaper</li>
+	</allowedShifterDefs>
+	<geneSets>
+		<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
+		<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
+		<li>  <geneDef>WVC_Shapeshift_Deathless</geneDef><!-- cellular -->  <cost>88</cost>  </li>
+		<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+		<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
+		<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
+		<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
+		<li>  <geneDef>WVC_ReimplanterArchite_RiseEndogenes</geneDef><!-- post endo-implanter -->  <cost>36</cost>  </li>
+		<li>  <geneDef>WVC_ReimplanterArchite_Xenogenes</geneDef><!-- xenogerm implanter -->  <cost>22</cost>  </li>
+		<li>  <geneDef>WVC_ReimplanterArchite_RiseXenogenes</geneDef><!-- post xeno-implanter -->  <cost>31</cost>  </li>
+	  <li>  <geneDef>Sterile</geneDef> <cost>1</cost>  </li>
+	  <li>  <geneDef>Fertile</geneDef> <cost>1</cost>  </li>
+	  <li>  <geneDef>WVC_Ovipositor</geneDef> <cost>33</cost>  </li>
+	  <li>  <geneDef>WVC_Traitless</geneDef> <cost>50</cost>  </li>
+	  <li>  <geneDef>Skin_InkBlack</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_SlateGray</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_PaleRed</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_PaleYellow</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_Green</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_Orange</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_HairColoredSkin</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	</geneSets>
+  </WVC_XenotypesAndGenes.ShaperGeneSetDef>
+
+</Defs>

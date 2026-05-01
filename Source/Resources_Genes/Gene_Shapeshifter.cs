@@ -38,7 +38,31 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual List<GeneralHolder> GeneticGenes => Giver.geneDefWithChances;
+		public virtual List<GeneralHolder> ShaperGenes
+		{
+			get
+			{
+				List<GeneralHolder> holders = new();
+				foreach (ShaperGeneSetDef geneSetDef in DefDatabase<ShaperGeneSetDef>.AllDefsListForReading)
+				{
+					if (geneSetDef.Allowed(pawn, this))
+					{
+						foreach (GeneralHolder geneSet in geneSetDef.geneSets)
+						{
+							if (holders.Any(holder => holder.ConflictWith(geneSet)))
+							{
+								continue;
+							}
+							holders.Add(geneSet);
+						}
+						//holders.AddRange(geneSetDef.geneSets);
+					}
+				}
+				return holders;
+				//return Giver.geneDefWithChances;
+			}
+		}
+
 		public virtual List<XenotypeHolder> Xenotypes => ListsUtility.GetAllXenotypesHolders();
 		public virtual List<GeneDef> XenotypesGenes
 		{

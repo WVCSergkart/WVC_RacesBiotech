@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return "WVC_XaG_ChimeraApply_Implant".Translate().CapitalizeFirst();
+				return "Apply".Translate().CapitalizeFirst();
 			}
 		}
 

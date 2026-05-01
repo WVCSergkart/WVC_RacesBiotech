@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					Find.WindowStack.Add(new Dialog_EditShiftGenes(gene));
+					Find.WindowStack.Add(new Dialog_ShaperEditor(gene));
 				}
 			}
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_ShapeshifterGenesImplant_Desc".Translate(gene.GeneticMaterial));

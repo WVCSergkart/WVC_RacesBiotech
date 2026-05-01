@@ -7,7 +7,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Dialog_FeatheredAgelessGenes : Dialog_EditShiftGenes
+	public class Dialog_FeatheredAgelessGenes : Dialog_ShaperEditor
 	{
 
 		private Gene_FeatheredAgeless gene_FeatheredAgeless;

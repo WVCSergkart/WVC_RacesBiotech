@@ -972,7 +972,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	return true;
 			//}
-			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn))
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn, true))
 			{
 				return false;
 			}

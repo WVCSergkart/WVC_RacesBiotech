@@ -60,6 +60,21 @@ namespace WVC_XenotypesAndGenes
 		public bool copyStatOffsets = true;
 		public bool copySymbolPack = true;
 
+		//public bool Contains(GeneDef geneDef)
+		//{
+		//	return this.geneDef == geneDef;
+		//}
+
+		//public bool Contains(List<GeneralHolder> list)
+		//{
+		//	return list.Any(holder => this.Contains(holder.geneDef));
+		//}
+
+		public bool ConflictWith(GeneralHolder otherHolder)
+		{
+			return this.geneDef == otherHolder.geneDef;
+		}
+
 		public bool CanAddGene(Pawn pawn, Gene_Chimera chimera)
 		{
 			if (genes == null)

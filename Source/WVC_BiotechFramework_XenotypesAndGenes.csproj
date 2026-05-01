@@ -87,8 +87,10 @@
     <Compile Include="Obsolete_0\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
+    <Compile Include="Resources_DefWorkers\ShaperGeneSet.cs" />
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
+    <Compile Include="Resources_Defs\ShaperGeneSetDef.cs" />
     <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
     <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
     <Compile Include="Resources_Genes\Gene_Attachments.cs" />
@@ -187,7 +189,7 @@
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_EditShiftGenes.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ShaperEditor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Traitshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />

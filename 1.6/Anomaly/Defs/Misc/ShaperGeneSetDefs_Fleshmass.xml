@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ShaperGeneSetDef>
+	<defName>WVC_Fleshmass</defName>
+	<label>fleshmass</label>
+	<workerClass>WVC_XenotypesAndGenes.ShaperGeneSet</workerClass>
+	<geneCategoryDefs>
+	  <li>WVC_Fleshmass</li>
+	</geneCategoryDefs>
+	<allowedShifterDefs>
+	  <li>WVC_Fleshshaper</li>
+	</allowedShifterDefs>
+	<geneSets>
+		<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
+		<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  </li>
+		<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  </li>
+		<li>  <geneDef>WVC_SelfdevourStomach</geneDef><!-- self-devour stomach -->  <cost>56</cost>  </li>
+		<li>  <geneDef>WVC_FleshmassBrain</geneDef><!-- fleshmass thinker -->  <cost>56</cost>  </li>
+		<li>  <geneDef>WVC_FleshmassSkin</geneDef><!-- flesh-eye skin -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+		<li>  <geneDef>WVC_FleshmassNucleus</geneDef><!-- fleshmass nucleus -->  <cost>99</cost>  </li>
+		<li>  <geneDef>WVC_FleshmassHeart</geneDef><!-- fleshmass heart -->  <cost>72</cost>  </li>
+	  <li>  <geneDef>WVC_Chimera_Devourer</geneDef><!-- devourer -->  <cost>50</cost>  </li>
+	  <li>  <geneDef>WVC_FleshmassBuilder</geneDef><!-- deadlife builder -->  <cost>67</cost>  </li>
+	  <li>  <geneDef>WVC_FlycatcherSkin</geneDef><!-- flycatcher skin -->  <cost>22</cost>  </li>
+	  <li>  <geneDef>WVC_LongTentacleTail</geneDef><!-- long tentacle tail -->  <cost>8</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_TentacleHands</geneDef><!-- tentacle hands -->  <cost>7</cost>  </li>
+	  <li>  <geneDef>WVC_TentacleTail</geneDef><!-- tentacle tail -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_FleshmassReproduction</geneDef><!-- fleshmass reproduction -->  <cost>44</cost>  </li>
+	  <li>  <geneDef>WVC_FleshmassAging</geneDef><!-- fleshmass aging -->  <cost>11</cost>  </li>
+	  <li>  <geneDef>WVC_Incrementer</geneDef><!-- incrementer -->  <cost>41</cost>  </li>
+	  <li>  <geneDef>WVC_SkinColor_FleshPink</geneDef><!-- flesh pink skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_SkinColor_FleshRed</geneDef><!-- flesh red skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>Skin_SheerWhite</geneDef><!-- sheer white skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_HeadBoneCurveHorns</geneDef><!-- curved horns -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_HeadTentacles0c</geneDef><!-- head tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_BodyTentacles</geneDef><!-- body tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_Wings_TentacleWings</geneDef><!-- tentacle wings -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li>  <geneDef>WVC_FleshmassFertility</geneDef> <cost>2</cost>  </li>
+	  <li>  <geneDef>WVC_Beauty_AbominationallyUgly</geneDef> <cost>5</cost>  </li>
+	  <li>  <geneDef>WVC_Budding</geneDef> <cost>33</cost>  </li>
+	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_MinMaxTemp_Adaptive</geneDef> <cost>77</cost>  </li>
+	  <li>  <geneDef>WVC_PsychicHarem</geneDef> <cost>8</cost>  </li>
+	</geneSets>
+  </WVC_XenotypesAndGenes.ShaperGeneSetDef>
+
+</Defs>

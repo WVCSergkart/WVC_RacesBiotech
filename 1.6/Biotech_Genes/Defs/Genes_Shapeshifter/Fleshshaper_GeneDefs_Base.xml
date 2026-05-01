@@ -20,7 +20,8 @@
 		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
 		<li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
 		<li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 5 days.</li>
-		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant unique genes, the list of which depends on endogenes.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
@@ -35,60 +36,7 @@
 			  <li>WVC_Fleshmass</li>
 			  <!-- <li>WVC_HiveMind</li> -->
 			</geneCategoryDefs>
-			<geneDefWithChances>
-				<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
-				<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
-				<li>  <geneDef>WVC_Shapeshift_Deathless</geneDef><!-- cellular -->  <cost>88</cost>  </li>
-				<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-				<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
-				<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
-				<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
-				<li>  <geneDef>WVC_ReimplanterArchite_RiseEndogenes</geneDef><!-- post endo-implanter -->  <cost>36</cost>  </li>
-				<li>  <geneDef>WVC_ReimplanterArchite_Xenogenes</geneDef><!-- xenogerm implanter -->  <cost>22</cost>  </li>
-				<li>  <geneDef>WVC_ReimplanterArchite_RiseXenogenes</geneDef><!-- post xeno-implanter -->  <cost>31</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  </li>
-				<li>  <geneDef>WVC_SelfdevourStomach</geneDef><!-- self-devour stomach -->  <cost>56</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassBrain</geneDef><!-- fleshmass thinker -->  <cost>56</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassSkin</geneDef><!-- flesh-eye skin -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-				<li>  <geneDef>WVC_FleshmassNucleus</geneDef><!-- fleshmass nucleus -->  <cost>99</cost>  </li>
-				<li>  <geneDef>WVC_FleshmassHeart</geneDef><!-- fleshmass heart -->  <cost>72</cost>  </li>
-			  <!-- v2 -->
-			  <li>  <geneDef>WVC_Chimera_Devourer</geneDef><!-- devourer -->  <cost>50</cost>  </li>
-			  <li>  <geneDef>WVC_FleshmassBuilder</geneDef><!-- deadlife builder -->  <cost>67</cost>  </li>
-			  <li>  <geneDef>WVC_FlycatcherSkin</geneDef><!-- flycatcher skin -->  <cost>22</cost>  </li>
-			  <li>  <geneDef>WVC_LongTentacleTail</geneDef><!-- long tentacle tail -->  <cost>8</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_TentacleHands</geneDef><!-- tentacle hands -->  <cost>7</cost>  </li>
-			  <li>  <geneDef>WVC_TentacleTail</geneDef><!-- tentacle tail -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_FleshmassReproduction</geneDef><!-- fleshmass reproduction -->  <cost>44</cost>  </li>
-			  <li>  <geneDef>WVC_FleshmassAging</geneDef><!-- fleshmass aging -->  <cost>11</cost>  </li>
-			  <li>  <geneDef>WVC_Incrementer</geneDef><!-- incrementer -->  <cost>41</cost>  </li>
-			  <li>  <geneDef>WVC_SkinColor_FleshPink</geneDef><!-- flesh pink skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_SkinColor_FleshRed</geneDef><!-- flesh red skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_SheerWhite</geneDef><!-- sheer white skin -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_HeadBoneCurveHorns</geneDef><!-- curved horns -->  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_HeadTentacles0c</geneDef><!-- head tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_BodyTentacles</geneDef><!-- body tentacles -->  <cost>7</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_Wings_TentacleWings</geneDef><!-- tentacle wings -->  <cost>22</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <!-- v3 -->
-			  <li>  <geneDef>Sterile</geneDef> <cost>1</cost>  </li>
-			  <li>  <geneDef>Fertile</geneDef> <cost>1</cost>  </li>
-			  <li>  <geneDef>WVC_FleshmassFertility</geneDef> <cost>2</cost>  </li>
-			  <li>  <geneDef>WVC_PsychicHarem</geneDef> <cost>8</cost>  </li>
-			  <li>  <geneDef>WVC_Beauty_AbominationallyUgly</geneDef> <cost>5</cost>  </li>
-			  <li>  <geneDef>WVC_Ovipositor</geneDef> <cost>33</cost>  </li>
-			  <li>  <geneDef>WVC_Budding</geneDef> <cost>33</cost>  </li>
-			  <li>  <geneDef>WVC_Traitless</geneDef> <cost>50</cost>  </li>
-			  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_MinMaxTemp_Adaptive</geneDef> <cost>77</cost>  </li>
-			  <li>  <geneDef>Skin_InkBlack</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_SlateGray</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_PaleRed</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_PaleYellow</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_Green</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>Skin_Orange</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			  <li>  <geneDef>WVC_HairColoredSkin</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-			</geneDefWithChances>
+			<!-- geneDefWithChances Moved to Misc. See Anomaly/Misc/ShaperGeneSetDef_Fleshshaper -->
 		</li>
 	</modExtensions>
   </GeneDef>

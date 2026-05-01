@@ -22,15 +22,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedXenotypeDefs == null)
 				{
-					List<XenotypeDef> list = new();
-					foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
-					{
-						if (xenotypeDefs.Contains(item.defName))
-						{
-							list.Add(item);
-						}
-					}
-					cachedXenotypeDefs = list;
+					//List<XenotypeDef> list = new();
+					//foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
+					//{
+					//	if (xenotypeDefs.Contains(item.defName))
+					//	{
+					//		list.Add(item);
+					//	}
+					//}
+					cachedXenotypeDefs = xenotypeDefs.ConvertToDefs<XenotypeDef>();
 				}
 				return cachedXenotypeDefs;
 			}
