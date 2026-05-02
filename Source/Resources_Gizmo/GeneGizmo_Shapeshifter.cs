@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => true;
 
-		public virtual TaggedString GizmoTip => "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.GeneticMaterial);
+		public virtual TaggedString GizmoTip => "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.ShaperResource);
 
 		public GeneGizmo_Shapeshifter(Gene_Shapeshifter geneShapeshifter)
 			: base()
@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ShaperEditor(gene));
 				}
 			}
-			TooltipHandler.TipRegion(rect4, "WVC_XaG_ShapeshifterGenesImplant_Desc".Translate(gene.GeneticMaterial));
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_ShapeshifterGenesImplant_Desc".Translate(gene.ShaperResource));
 		}
 
 		//protected void ButtonGenesSettings(Rect rect4)

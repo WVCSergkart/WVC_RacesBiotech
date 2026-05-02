@@ -37,6 +37,12 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- <shaper_stat1_labelKey>WVC_XaG_GeneticMaterial_FeatherAge</shaper_stat1_labelKey> -->
+			<!-- <shaper_stat1_descKey>WVC_XaG_GeneticMaterial_FeatherAgeDesc</shaper_stat1_descKey> -->
+			<!-- <shaper_stat1_texturePath>WVC/UI/XaG_General/GenMatTex_FeathersHas</shaper_stat1_texturePath> -->
+			<!-- <shaper_stat2_labelKey>WVC_XaG_GeneticMaterial_FeatherReq</shaper_stat2_labelKey> -->
+			<!-- <shaper_stat2_descKey>WVC_XaG_GeneticMaterial_FeatherReqDesc</shaper_stat2_descKey> -->
+			<!-- <shaper_stat2_texturePath>WVC/UI/XaG_General/GenMatTex_FeathersReq</shaper_stat2_texturePath> -->
 			<geneDefs>
 			  <!-- misc -->
 			  <li>WVC_Dustogenic_Blesslink</li>

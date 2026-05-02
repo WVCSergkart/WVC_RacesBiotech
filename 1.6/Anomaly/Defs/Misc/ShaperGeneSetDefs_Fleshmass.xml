@@ -2,7 +2,7 @@
 <Defs>
 
   <WVC_XenotypesAndGenes.ShaperGeneSetDef>
-	<defName>WVC_Fleshmass</defName>
+	<defName>WVC_Fleshshaper_Fleshmass</defName>
 	<label>fleshmass</label>
 	<workerClass>WVC_XenotypesAndGenes.ShaperGeneSet</workerClass>
 	<geneCategoryDefs>

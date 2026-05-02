@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> DisabledGenes => [];
 		public List<GeneDef> DestroyedGenes => [];
 
-		public Pawn Pawn => pawn;
+		//public Pawn Pawn => pawn;
 		public GeneDef Def => def;
 
 		public int ArchiteLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatArc);

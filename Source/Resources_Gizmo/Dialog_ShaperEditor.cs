@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -11,26 +12,29 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ShaperEditor : Window
 	{
 
-		public Gene gene;
+		public IGeneShaperEditor gene;
 		public List<GeneDef> pawnGenes;
 		public bool inheritable;
 
-		private Gene_Shapeshifter gene_Shapeshifter;
+		//private Gene_Shapeshifter gene_Shapeshifter;
 
 		protected GeneMatStatData[] geneMatStats = null;
 
-		public Dialog_ShaperEditor(Gene pawnGene)
+		protected CachedTexture reqTex;
+		protected CachedTexture hasTex;
+
+		public Dialog_ShaperEditor(IGeneShaperEditor pawnGene)
 		{
 			this.gene = pawnGene;
-			if (pawnGene is Gene_Shapeshifter gene_Shapeshifter)
-			{
-				this.gene_Shapeshifter = gene_Shapeshifter;
-			}
+			//if (pawnGene is Gene_Shapeshifter gene_Shapeshifter)
+			//{
+			//	this.gene_Shapeshifter = gene_Shapeshifter;
+			//}
 			//this.callback = callback;
-			pawnGenes = XaG_GeneUtility.ConvertToDefs(pawnGene.pawn.genes.GenesListForReading);
+			pawnGenes = XaG_GeneUtility.ConvertToDefs(pawnGene.Pawn.genes.GenesListForReading);
 			selectedGenes = new();
 			allGenes = new();
-			inheritable = !pawnGene.pawn.genes.IsXenogene(pawnGene);
+			inheritable = !pawnGene.Pawn.genes.IsXenogene(pawnGene.Gene);
 			SetupAvailableGenes(pawnGene);
 			forcePause = true;
 			absorbInputAroundWindow = true;
@@ -39,20 +43,23 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
-			geneMatStats = new GeneMatStatData[2]
-			{
-				new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", ReqTex.Texture),
-				new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", HasTex.Texture),
-			};
+			//geneMatStats = new GeneMatStatData[2]
+			//{
+			//	new GeneMatStatData("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", ReqTex.Texture),
+			//	new GeneMatStatData("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", HasTex.Texture),
+			//};
+			geneMatStats = gene.GeneMatStats;
+			reqTex = geneMatStats[0].cachedTexture;
+			hasTex = geneMatStats[1].cachedTexture;
 			OnGenesChanged();
 		}
 
-		protected virtual void SetupAvailableGenes(Gene gene)
+		protected virtual void SetupAvailableGenes(IGeneShaperEditor gene)
 		{
 			List<GeneDefWithChance> allGenes = new();
-			foreach (GeneralHolder item in gene_Shapeshifter.ShaperGenes)
+			foreach (GeneralHolder item in gene.ShaperGenes)
 			{
-				if (item.geneDef.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.geneDef.prerequisite, gene.pawn))
+				if (item.geneDef.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.geneDef.prerequisite, gene.Pawn))
 				{
 					continue;
 				}
@@ -78,42 +85,6 @@ namespace WVC_XenotypesAndGenes
 				allGenes.Add(geneDefWithChance);
 			}
 			this.allGenes = allGenes;
-			//List<GeneDef> withExtension = new();
-			//foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)
-			//{
-			//	if (item?.GetModExtension<GeneExtension_Undead>()?.reqGeneMat > 0)
-			//	{
-			//		withExtension.Add(item);
-			//	}
-			//}
-			//foreach (GeneDef item in withExtension)
-			//{
-			//	if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
-			//	{
-			//		continue;
-			//	}
-			//	GeneDefWithChance geneDefWithChance = new();
-			//	geneDefWithChance.geneDef = item;
-			//	geneDefWithChance.disabled = pawnGenes.Contains(item);
-			//	GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
-			//	if (geneExtension_Undead.overrideGeneCategory == null)
-			//	{
-			//		geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
-			//	}
-			//	else
-			//	{
-			//		geneDefWithChance.displayCategory = geneExtension_Undead.overrideGeneCategory;
-			//	}
-			//	if (DebugSettings.ShowDevGizmos)
-			//	{
-			//		geneDefWithChance.Cost = 0;
-			//	}
-			//	else
-			//	{
-			//		geneDefWithChance.Cost = geneExtension_Undead.reqGeneMat;
-			//	}
-			//	allGenes.Add(geneDefWithChance);
-			//}
 		}
 
 		protected float scrollHeight;
@@ -145,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		protected static readonly Vector2 ButSize = new(150f, 38f);
 
 		public virtual int ReqGeneMat => selectedGenes.Sum(x => x.Cost);
-		public virtual int AllGeneMat => gene_Shapeshifter.GeneticMaterial;
+		public virtual int AllGeneMat => gene.ShaperResource;
 
 		public override void DoWindowContents(Rect rect)
 		{
@@ -178,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_DialogEditShiftGenes_ChangeTypeWarning".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), delegate
 				{
-					gene_Shapeshifter.ChangeType_GermlineXenogerm();
+					gene.ChangeType_GermlineXenogerm();
 					Close();
 				});
 				Find.WindowStack.Add(window);
@@ -195,16 +166,21 @@ namespace WVC_XenotypesAndGenes
 
 		private static float cachedWidth;
 
-		public virtual CachedTexture ReqTex => XaG_UiUtility.ShapeshifterGenMatReqTex;
-		public virtual CachedTexture HasTex => XaG_UiUtility.ShapeshifterGenMatHasTex;
-
 		public struct GeneMatStatData
 		{
 			public string labelKey;
-
 			public string descKey;
 
 			public Texture2D icon;
+			public CachedTexture cachedTexture;
+
+			public GeneMatStatData(string labelKey, string descKey, CachedTexture cachedTexture)
+			{
+				this.labelKey = labelKey;
+				this.descKey = descKey;
+				this.cachedTexture = cachedTexture;
+				this.icon = cachedTexture.Texture;
+			}
 
 			public GeneMatStatData(string labelKey, string descKey, Texture2D icon)
 			{
@@ -212,6 +188,7 @@ namespace WVC_XenotypesAndGenes
 				this.descKey = descKey;
 				this.icon = icon;
 			}
+
 		}
 
 		protected Dictionary<string, string> truncateCache = new();
@@ -270,20 +247,21 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Accept()
 		{
-			foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
-			{
-				if (geneDefWithChance.disabled)
-				{
-					continue;
-				}
-				if (gene_Shapeshifter.TryConsumeResource(geneDefWithChance.Cost))
-				{
-					gene_Shapeshifter.AddGene_Genetic(geneDefWithChance.geneDef, inheritable);
-				}
-			}
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			gene_Shapeshifter.UpdateMetabolism();
-			gene_Shapeshifter.DoEffects();
+			//foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
+			//{
+			//	if (geneDefWithChance.disabled)
+			//	{
+			//		continue;
+			//	}
+			//	if (gene_Shapeshifter.TryConsumeResource(geneDefWithChance.Cost))
+			//	{
+			//		gene_Shapeshifter.AddGene_Genetic(geneDefWithChance.geneDef, inheritable);
+			//	}
+			//}
+			//ReimplanterUtility.PostImplantDebug(gene.pawn);
+			//gene_Shapeshifter.UpdateMetabolism();
+			//gene_Shapeshifter.DoEffects();
+			gene.Action_Shaper(selectedGenes, inheritable);
 			Close();
 		}
 
@@ -494,7 +472,7 @@ namespace WVC_XenotypesAndGenes
 			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
 			if (geneMat > 0)
 			{
-				XaG_UiUtility.DrawStat(iconRect, ReqTex, geneMat.ToString(), num3);
+				XaG_UiUtility.DrawStat(iconRect, reqTex, geneMat.ToString(), num3);
 			}
 			curX += 34f;
 		}
@@ -656,7 +634,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool CanAccept(bool throwMessage = false)
 		{
-			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn, throwMessage))
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn, throwMessage))
 			{
 				return false;
 			}

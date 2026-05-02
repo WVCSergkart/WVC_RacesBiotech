@@ -7,24 +7,24 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Dialog_FeatheredAgelessGenes : Dialog_ShaperEditor
+	public class Dialog_ShaperEditor_Feathered : Dialog_ShaperEditor
 	{
 
 		private Gene_FeatheredAgeless gene_FeatheredAgeless;
 		private bool isArchite;
 
-		public Dialog_FeatheredAgelessGenes(Gene pawnGene) : base(pawnGene)
+		public Dialog_ShaperEditor_Feathered(IGeneShaperEditor pawnGene) : base(pawnGene)
 		{
 			Gene_FeatheredAgeless.ResetCache();
-			geneMatStats = new GeneMatStatData[2]
-			{
-				new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherAge", "WVC_XaG_GeneticMaterial_FeatherAgeDesc", HasTex.Texture),
-				new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherReq", "WVC_XaG_GeneticMaterial_FeatherReqDesc", ReqTex.Texture),
-			};
+			//geneMatStats = new GeneMatStatData[2]
+			//{
+			//	new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherAge", "WVC_XaG_GeneticMaterial_FeatherAgeDesc", HasTex.Texture),
+			//	new GeneMatStatData("WVC_XaG_GeneticMaterial_FeatherReq", "WVC_XaG_GeneticMaterial_FeatherReqDesc", ReqTex.Texture),
+			//};
 		}
 
-		public override CachedTexture HasTex => XaG_UiUtility.FeatheredGenMatHasTex;
-		public override CachedTexture ReqTex => XaG_UiUtility.FeatheredGenMatReqTex;
+		//public override CachedTexture HasTex => XaG_UiUtility.FeatheredGenMatHasTex;
+		//public override CachedTexture ReqTex => XaG_UiUtility.FeatheredGenMatReqTex;
 
 		//public override int ReqGeneMat => base.ReqGeneMat;
 
@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 		//		return cachedGeneMat.Value;
 		//	}
 		//}
-		public override int AllGeneMat => gene_FeatheredAgeless.AllGeneMat;
+		//public override int AllGeneMat => gene_FeatheredAgeless.GeneticMaterial;
 
 		protected override void SwitchButton(Rect rect3)
 		{
@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanAccept(bool throwMessage = false)
 		{
-			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn, throwMessage))
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.Pawn, throwMessage))
 			{
 				return false;
 			}
@@ -175,24 +175,24 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public override void Accept()
-		{
-			foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
-			{
-				if (geneDefWithChance.disabled)
-				{
-					continue;
-				}
-				if (XaG_GeneUtility.TryRemoveAllConflicts(gene.pawn, geneDefWithChance.geneDef))
-				{
-					gene.pawn.genes.AddGene(geneDefWithChance.geneDef, !inheritable);
-				}
-			}
-			ReimplanterUtility.PostImplantDebug(gene.pawn);
-			Close();
-		}
+		//public override void Accept()
+		//{
+		//	foreach (GeneDefWithChance geneDefWithChance in selectedGenes)
+		//	{
+		//		if (geneDefWithChance.disabled)
+		//		{
+		//			continue;
+		//		}
+		//		if (XaG_GeneUtility.TryRemoveAllConflicts(gene.pawn, geneDefWithChance.geneDef))
+		//		{
+		//			gene.pawn.genes.AddGene(geneDefWithChance.geneDef, !inheritable);
+		//		}
+		//	}
+		//	ReimplanterUtility.PostImplantDebug(gene.pawn);
+		//	Close();
+		//}
 
-		protected override void SetupAvailableGenes(Gene gene)
+		protected override void SetupAvailableGenes(IGeneShaperEditor gene)
 		{
 			if (gene is Gene_FeatheredAgeless ageless)
 			{
@@ -203,30 +203,20 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			isArchite = pawnGenes.Any(def => def.biostatArc != 0);
-			//List<GeneDef> pawnGenes = gene.pawn.genes.GenesListForReading.ConvertToDefs();
 			foreach (GeneDef item in gene_FeatheredAgeless.Undead.geneDefs)
 			{
 				if (!isArchite && item.biostatArc != 0)
 				{
 					continue;
 				}
-				if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.pawn))
+				if (item.prerequisite != null && !XaG_GeneUtility.HasActiveGene(item.prerequisite, gene.Pawn))
 				{
 					continue;
 				}
 				GeneDefWithChance geneDefWithChance = new();
 				geneDefWithChance.geneDef = item;
 				geneDefWithChance.disabled = pawnGenes.Contains(item);
-				//GeneExtension_Undead geneExtension_Undead = item.GetModExtension<GeneExtension_Undead>();
 				geneDefWithChance.displayCategory = item.displayCategory;
-				//if (item.biostatArc == 0)
-				//{
-				//	geneDefWithChance.displayCategory = GeneCategoryDefOf.Miscellaneous;
-				//}
-				//else
-				//{
-				//	geneDefWithChance.displayCategory = GeneCategoryDefOf.Archite;
-				//}
 				geneDefWithChance.Cost = GetGeneCost(geneDefWithChance);
 				allGenes.Add(geneDefWithChance);
 			}

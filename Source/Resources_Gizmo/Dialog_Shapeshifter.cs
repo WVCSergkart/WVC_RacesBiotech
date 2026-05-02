@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 				new CurvePoint(50, 25),
 				new CurvePoint(100, 30)
 			};
-			float geneticMaterial = geneticCurve.Evaluate(gene.GeneticMaterial);
+			float geneticMaterial = geneticCurve.Evaluate(gene.ShaperResource);
 			foreach (XenotypeHolder item in xenotypes)
 			{
 				foreach (GeneDef geneDef in item.genes)

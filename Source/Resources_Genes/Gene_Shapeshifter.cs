@@ -1,15 +1,17 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using static WVC_XenotypesAndGenes.Dialog_ShaperEditor;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter
+	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter, IGeneShaperEditor
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -202,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 
 		private float geneticMaterial = 0;
 
-		public int GeneticMaterial => (int)geneticMaterial;
+		public int ShaperResource => (int)geneticMaterial;
 
 		public bool TryOffsetResource(float count)
 		{
@@ -272,6 +274,45 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedPreservedGenes;
 			}
+		}
+
+		public Pawn Pawn => pawn;
+		public Gene Gene => this;
+
+		public Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats
+		{
+			get
+			{
+				GeneMatStatData[] geneMatStats = new GeneMatStatData[2]
+				{
+					new("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", new CachedTexture("WVC/UI/XaG_General/GenMatTex_Req")),
+					new("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", new CachedTexture("WVC/UI/XaG_General/GenMatTex_Has")),
+					//new(Props.shaper_stat1_labelKey, Props.shaper_stat1_descKey, new(Props.shaper_stat1_texturePath)),
+					//new(Props.shaper_stat2_labelKey, Props.shaper_stat2_descKey, new(Props.shaper_stat2_texturePath)),
+				};
+				return geneMatStats;
+			}
+		}
+
+		//public virtual CachedTexture ReqTex_Shaper => XaG_UiUtility.ShapeshifterGenMatReqTex;
+		//public virtual CachedTexture HasTex_Shaper => XaG_UiUtility.ShapeshifterGenMatHasTex;
+
+		public void Action_Shaper(List<GeneDefWithChance> list, bool inheritable)
+		{
+			foreach (GeneDefWithChance geneDefWithChance in list)
+			{
+				if (geneDefWithChance.disabled)
+				{
+					continue;
+				}
+				if (TryConsumeResource(geneDefWithChance.Cost))
+				{
+					AddGene_Genetic(geneDefWithChance.geneDef, inheritable);
+				}
+			}
+			ReimplanterUtility.PostImplantDebug(pawn);
+			UpdateMetabolism();
+			DoEffects();
 		}
 
 		public virtual void AddGene_Safe(GeneDef geneDef, bool inheritable)

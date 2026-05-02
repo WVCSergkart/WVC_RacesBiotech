@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					//Log.Error("0");
 					StringBuilder stringBuilder = new();
-					stringBuilder.AppendLineTagged("WVC_XaG_FleshshaperGizmoTip".Translate(gene.GeneticMaterial));
+					stringBuilder.AppendLineTagged("WVC_XaG_FleshshaperGizmoTip".Translate(gene.ShaperResource));
 					if (Gene_Chimera.ChimeraGenesLimit)
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(xenogenesEditor.ComplexityLimit, xenogenesEditor.ArchiteLimit));
@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_XenogenesEditor(xenogenesEditor));
 				}
 			}
-			TooltipHandler.TipRegion(rect4, "WVC_XaG_Fleshshaper_XenogenesEditorTip".Translate(gene.GeneticMaterial));
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_Fleshshaper_XenogenesEditorTip".Translate(gene.ShaperResource));
 		}
 
 	}

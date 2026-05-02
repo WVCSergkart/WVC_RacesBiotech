@@ -431,6 +431,13 @@ namespace WVC_XenotypesAndGenes
 		//[Obsolete]
 		//public List<GeneDef> removedGenes;
 		//public List<GeneralHolder> featheredAgelessGenes;
+		// IGeneShaperEditor
+		//public string shaper_stat1_labelKey;
+		//public string shaper_stat1_descKey;
+		//public string shaper_stat1_texturePath;
+		//public string shaper_stat2_labelKey;
+		//public string shaper_stat2_descKey;
+		//public string shaper_stat2_texturePath;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

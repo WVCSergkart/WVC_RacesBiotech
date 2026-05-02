@@ -35,6 +35,12 @@
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 			</blockingHediffs>
+			<!-- <shaper_stat1_labelKey>WVC_XaG_GeneticMaterial_Shifter</shaper_stat1_labelKey> -->
+			<!-- <shaper_stat1_descKey>WVC_XaG_GeneticMaterial_ShifterDesc</shaper_stat1_descKey> -->
+			<!-- <shaper_stat1_texturePath>WVC/UI/XaG_General/GenMatTex_Req</shaper_stat1_texturePath> -->
+			<!-- <shaper_stat2_labelKey>WVC_XaG_GeneticMaterial_Genes</shaper_stat2_labelKey> -->
+			<!-- <shaper_stat2_descKey>WVC_XaG_GeneticMaterial_GenesDesc</shaper_stat2_descKey> -->
+			<!-- <shaper_stat2_texturePath>WVC/UI/XaG_General/GenMatTex_Has</shaper_stat2_texturePath> -->
 		</li>
 	</modExtensions>
   </GeneDef>

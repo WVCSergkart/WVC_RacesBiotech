@@ -337,6 +337,24 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneShaperEditor
+	{
+		Pawn Pawn { get; }
+		Gene Gene { get; }
+		List<GeneralHolder> ShaperGenes { get; }
+		Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats { get; }
+		//int AllGeneMat {  get; }
+		int ShaperResource { get; }
+		void ChangeType_GermlineXenogerm();
+		void Action_Shaper(List<GeneDefWithChance> list, bool inheritable);
+
+		string LabelCap { get; }
+
+		//CachedTexture ReqTex_Shaper { get; }
+		//CachedTexture HasTex_Shaper { get; }
+
+	}
+
 	//InDev
 	//public interface IGeneDeathless
 	//{

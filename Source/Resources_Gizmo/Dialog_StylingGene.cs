@@ -126,10 +126,7 @@ namespace WVC_XenotypesAndGenes
 							continue;
 						}
 						Color color = allDef.hairColorOverride.Value;
-						if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
-						{
-							allHairColors.Add(color);
-						}
+						AddColor_FromGene(color);
 					}
 					if (pawn.genes.GenesListForReading.Any(gene => gene.def.skinIsHairColor))
 					{
@@ -140,15 +137,20 @@ namespace WVC_XenotypesAndGenes
 								continue;
 							}
 							Color color = allDef.skinColorOverride.Value;
-							if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
-							{
-								allHairColors.Add(color);
-							}
+							AddColor_FromGene(color);
 						}
 					}
 					allHairColors.SortByColor((Color x) => x);
 				}
 				return allHairColors;
+
+				void AddColor_FromGene(Color color)
+				{
+					if (!allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
+					{
+						allHairColors.Add(color);
+					}
+				}
 			}
 		}
 
