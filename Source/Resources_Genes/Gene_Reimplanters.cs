@@ -9,6 +9,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class Gene_XenotypeForcer : XaG_Gene
 	{
 
@@ -20,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 			RandomXenotype(pawn, this, Xenotype);
 		}
 
+		[Obsolete]
 		public static void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
 		{
 			if (pawn.genes.IsXenogene(gene))
@@ -64,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void XenotypeForcer_SimpleVersion(Pawn pawn, XenotypeDef xenotype)
 		{
 			Pawn_GeneTracker genes = pawn.genes;

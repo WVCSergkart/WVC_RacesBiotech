@@ -153,10 +153,10 @@ namespace WVC_XenotypesAndGenes
 			//cachedHolders = null;
 			try
 			{
-				if (!newHolder.inheritable || pawn.genes.Xenogenes.NullOrEmpty())
-				{
-					ReimplanterUtility.SetXenotypeDirect(pawn, newHolder);
-				}
+				//if (!newHolder.inheritable || pawn.genes.Xenogenes.NullOrEmpty() || pawn.genes.Xenotype.inheritable)
+				//{
+				//}
+				ReimplanterUtility.SetXenotypeDirect(pawn, newHolder, pawn.genes.Xenogenes);
 				if (Inheritable)
 				{
 					SetXenotype(newHolder, pawn.genes.Endogenes);

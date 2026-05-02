@@ -122,13 +122,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetXenotypeDirect(Pawn pawn, XenotypeHolder xenotypeHolder)
+		public static void SetXenotypeDirect(Pawn pawn, XenotypeHolder xenotypeHolder, List<Gene> xenogenes, bool removeXenogenes = false)
 		{
-			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
-			if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
+			if (xenogenes.NullOrEmpty() || !xenotypeHolder.inheritable || pawn.genes.Xenotype.inheritable || removeXenogenes)
 			{
-				pawn.genes.xenotypeName = xenotypeHolder.name;
-				pawn.genes.iconDef = xenotypeHolder.iconDef;
+				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
+				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
+				{
+					pawn.genes.xenotypeName = xenotypeHolder.name;
+					pawn.genes.iconDef = xenotypeHolder.iconDef;
+				}
+			}
+		}
+
+		public static void SetXenotypeDirect(Pawn caster, Pawn recipient, bool xenotypeIsXeno, Pawn_GeneTracker recipientGenes, List<Gene> xenogenes)
+		{
+			if (xenogenes.NullOrEmpty() || xenotypeIsXeno || recipientGenes.Xenotype.inheritable)
+			{
+				SetXenotypeDirect(caster, recipient);
 			}
 		}
 
@@ -310,35 +321,13 @@ namespace WVC_XenotypesAndGenes
 		public static void GeneralReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool xenogerm = true)
 		{
 			Pawn_GeneTracker recipientGenes = recipient.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
-			{
-				SetXenotypeDirect(caster, recipient);
-			}
-			//else if (recipientGenes.Xenogenes.NullOrEmpty())
-			//{
-			//	if (caster.genes.Xenotype.inheritable || caster.genes.UniqueXenotype)
-			//	{
-			//		SetXenotypeDirect(caster, recipient);
-			//	}
-			//	else
-			//	{
-			//		SetXenotypeDirect(null, null, caster.GetXenotype(false));
-			//	}
-			//}
+			SetXenotypeDirect(caster, recipient, xenogenes, recipientGenes, recipientGenes.Xenogenes);
 			if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
 			{
-				// foreach (Gene item in recipientGenes.Xenogenes.ToList())
-				// {
-				// recipient.genes?.RemoveGene(item);
-				// }
 				recipientGenes.Xenogenes.RemoveAllGenes();
 			}
 			if (endogenes && !recipientGenes.Endogenes.NullOrEmpty())
 			{
-				// foreach (Gene item in recipientGenes.Endogenes.ToList())
-				// {
-				// recipient.genes?.RemoveGene(item);
-				// }
 				recipientGenes.Endogenes.RemoveAllGenes();
 			}
 			if (endogenes)
@@ -363,8 +352,6 @@ namespace WVC_XenotypesAndGenes
 				}
 				UpdateXenogermReplication_WithComa(recipient);
 			}
-			//XaG_GameComponent.AddMissingGeneAbilities(recipient);
-			//FixGeneTraits(recipient);
 			ReimplanterUtility.PostImplantDebug(recipient);
 		}
 
@@ -598,10 +585,11 @@ namespace WVC_XenotypesAndGenes
 		public static void SetXenotype_Safe(Pawn pawn, XenotypeHolder xenotypeHolder, bool removeXenogenes = false, bool doPostDebug = true)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || removeXenogenes)
-			{
-				SetXenotypeDirect(pawn, xenotypeHolder);
-			}
+			//if (recipientGenes.Xenogenes.NullOrEmpty() || removeXenogenes)
+			//{
+			//	SetXenotypeDirect(pawn, xenotypeHolder);
+			//}
+			ReimplanterUtility.SetXenotypeDirect(pawn, xenotypeHolder, recipientGenes.Xenogenes);
 			if (removeXenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
 				recipientGenes.Xenogenes.RemoveAllGenes(!removeXenogenes ? xenotypeHolder.genes : null);
@@ -640,10 +628,11 @@ namespace WVC_XenotypesAndGenes
 		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder, Gene_Shapeshifter shapeshiferGene, bool removeXenogenes = true, bool doPostDebug = false)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || removeXenogenes || recipientGenes.Xenotype.inheritable)
-			{
-				SetXenotypeDirect(pawn, xenotypeHolder);
-			}
+			//if (recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList().NullOrEmpty() || removeXenogenes || recipientGenes.Xenotype.inheritable)
+			//{
+			//	SetXenotypeDirect(pawn, xenotypeHolder);
+			//}
+			ReimplanterUtility.SetXenotypeDirect(pawn, xenotypeHolder, recipientGenes.Xenogenes.Where((gene) => gene != shapeshiferGene).ToList(), removeXenogenes);
 			if (removeXenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
 				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
