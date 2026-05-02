@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Rechargeable : XaG_Gene, IGeneRemoteControl
+	public class Gene_Rechargeable : XaG_Gene, IGeneRemoteControl, IGeneDevourer
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
@@ -257,6 +257,27 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref autoFeed, "autoFeed", defaultValue: true);
 			Scribe_References.Look(ref currentCharger, "currentCharger");
+		}
+
+		public void Notify_DevouredHuman(Pawn victim)
+		{
+
+		}
+
+		public void Notify_DevouredFlesh(Pawn victim)
+		{
+
+		}
+
+		public void Notify_DevouredMech(Pawn victim)
+		{
+			Need_MechEnergy energy = victim.needs?.energy;
+			if (energy != null)
+			{
+				//GeneResourceUtility.OffsetNeedFood(pawn, energy.CurLevel);
+				chargingTick = 0;
+				Notify_Charging(energy.CurLevel, 1);
+			}
 		}
 
 	}

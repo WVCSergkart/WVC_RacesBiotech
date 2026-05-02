@@ -71,6 +71,12 @@ namespace WVC_XenotypesAndGenes
 					//phase = "try fleshmass overgrow";
 					//caster.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.TryGiveMutation();
 				}
+				else
+				{
+					phase = "EMP BOOM";
+					Notify_DevouredMech(caster, victim);
+					GenExplosion.DoExplosion(victim.PositionHeld, victim.MapHeld, 5f, DamageDefOf.EMP, victim);
+				}
 				phase = "kill and destroy";
 				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 				victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
@@ -113,6 +119,24 @@ namespace WVC_XenotypesAndGenes
 			}
 			phase = "drop apparel";
 			victim.apparel?.DropAll(victim.Position, true, false);
+		}
+
+		private void Notify_DevouredMech(Pawn caster, Pawn victim)
+		{
+			foreach (Gene gene in caster.genes.GenesListForReading)
+			{
+				try
+				{
+					if (gene is IGeneDevourer geneDevourer && gene.Active)
+					{
+						geneDevourer.Notify_DevouredMech(victim);
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed Notify_DevouredMech. Gene: " + gene.def.defName + ". Reason: " + arg.Message);
+				}
+			}
 		}
 
 		private void Notify_DevouredHuman(Pawn caster, Pawn victim)

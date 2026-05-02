@@ -299,6 +299,11 @@ namespace WVC_XenotypesAndGenes
 			TryGiveMutation();
 		}
 
+		public void Notify_DevouredMech(Pawn victim)
+		{
+
+		}
+
 	}
 
 	public class Gene_FleshmassHeart : Gene_FleshmassNucleus

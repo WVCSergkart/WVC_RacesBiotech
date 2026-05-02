@@ -265,6 +265,11 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public void Notify_DevouredMech(Pawn victim)
+		{
+
+		}
+
 	}
 
 }
