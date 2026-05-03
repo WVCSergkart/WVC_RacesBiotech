@@ -16,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual TaggedString GizmoTip => "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.ShaperResource);
 
+		protected virtual CachedTexture Shapeshifter_MenuIcon => XaG_UiUtility.Shapeshifter_MenuIcon;
+
 		public GeneGizmo_Shapeshifter(Gene_Shapeshifter geneShapeshifter)
 			: base()
 		{
@@ -25,6 +27,12 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		protected float uncollapsedSize = 140;
+
+		protected int nextRecache = 2;
+		protected virtual void RecacheTick()
+		{
+
+		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
 		{
@@ -44,10 +52,10 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
-			ButtonMenu(rect4);
+			Button1c(rect4);
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
-			ButtonGenes(rect5);
+			Button2c(rect5);
 			// Button
 			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
 			XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
@@ -61,10 +69,10 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
-			ButtonMenu(rect4);
+			Button1c(rect4);
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
-			ButtonGenes(rect5);
+			Button2c(rect5);
 		}
 
 		protected Rect LabelAndTip(Vector2 topLeft, float maxWidth)
@@ -87,9 +95,10 @@ namespace WVC_XenotypesAndGenes
 			return rect2;
 		}
 
-		protected void ButtonMenu(Rect rect4)
+		// Shapeshifter menu
+		protected virtual void Button1c(Rect rect4)
 		{
-			Widgets.DrawTextureFitted(rect4, XaG_UiUtility.Shapeshifter_MenuIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect4, Shapeshifter_MenuIcon.Texture, 1f);
 			if (Mouse.IsOver(rect4))
 			{
 				Widgets.DrawHighlight(rect4);
@@ -101,7 +110,8 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneShapeshifter_Desc".Translate());
 		}
 
-		protected void ButtonGenes(Rect rect4)
+		// Shaper menu
+		protected virtual void Button2c(Rect rect4)
 		{
 			Widgets.DrawTextureFitted(rect4, XaG_UiUtility.Shapeshifter_BonusGenesIcon.Texture, 1f);
 			if (Mouse.IsOver(rect4))

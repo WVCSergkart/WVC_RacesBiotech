@@ -83,4 +83,20 @@
 
 	<WVC_XaG_FaultyShapeDisease>{0} lost the {1} gene due to genetic overload.</WVC_XaG_FaultyShapeDisease>
 
+	<!-- ==================== ENERGYSHIFTER ==================== -->
+	<!-- ==================== ENERGYSHIFTER ==================== -->
+	<!-- ==================== ENERGYSHIFTER ==================== -->
+
+<!-- Energyshifter allows to change a pawn's &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; at almost any time. The starting set of xenotypes is limited to &lt;color=#8a8ae6&gt;metalkin&lt;/color&gt; xenotypes; more xenotypes can be unlocked with subgenes. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (xenotype change) triggers &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; and consumes all of the pawn's &lt;color=#8a8ae6&gt;nutrients&lt;/color&gt;. -->
+
+<!-- A gene &lt;color=#8a8ae6&gt;passively&lt;/color&gt; consumes nutrients every hour, at a rate of 1%, regardless of the total. Consumption can be modified by subgenes. -->
+
+	<WVC_XaG_EnergyshaperGizmoTip>Energyshifter allows to change a pawn's &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; at almost any time. The starting set of xenotypes is limited to &lt;color=#8a8ae6&gt;metalkin&lt;/color&gt; xenotypes; more xenotypes can be unlocked with subgenes. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (xenotype change) triggers &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; and consumes all of the pawn's &lt;color=#8a8ae6&gt;nutrients&lt;/color&gt;.\n\nA gene &lt;color=#8a8ae6&gt;passively&lt;/color&gt; consumes nutrients every hour, at a rate of 1%, regardless of the total. Consumption can be modified by subgenes. If a pawn's &lt;color=#8a8ae6&gt;food need&lt;/color&gt; is disabled, the gene cannot be used.</WVC_XaG_EnergyshaperGizmoTip>
+
+<!-- Displays the &lt;color=#8a8ae6&gt;genetic energy&lt;/color&gt; reserve in sync with the pawn's food requirement. If the entire battery is filled with yellow, it means the genetic match with all available xenotypes is 100%. -->
+
+<!-- It also allows to adjust energy consumption by disabling/enabling subgenes. -->
+
+	<WVC_XaG_GeneEnergyshifter_BarTip>Displays the &lt;color=#8a8ae6&gt;genetic energy&lt;/color&gt; reserve in sync with the pawn's food requirement. If the entire battery is filled with yellow, it means the genetic match with all available xenotypes is 100%.\n\nIt also allows to adjust energy consumption by disabling/enabling subgenes.</WVC_XaG_GeneEnergyshifter_BarTip>
+
 </LanguageData>

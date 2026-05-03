@@ -271,5 +271,4 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
 }

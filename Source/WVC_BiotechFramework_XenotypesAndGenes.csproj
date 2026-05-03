@@ -96,6 +96,7 @@
     <Compile Include="Resources_Genes\Gene_Attachments.cs" />
     <Compile Include="Resources_Genes\Gene_CustomHair.cs" />
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
+    <Compile Include="Resources_Genes\Gene_Energyshifter.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
@@ -171,8 +172,10 @@
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ActivityManager.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ShaperEditor_Feathered.cs" />
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Energyshifter.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Fleshshaper.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
@@ -255,7 +258,7 @@
     <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
     <Compile Include="Resources_Genes\Gene_Anomaly.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera.cs" />
-    <Compile Include="Resources_Genes\Gene_Energy.cs" />
+    <Compile Include="Resources_Genes\Gene_Rechargeable.cs" />
     <Compile Include="Resources_Genes\Gene_Furskin.cs" />
     <Compile Include="Resources_Genes\Gene_Dryad.cs" />
     <Compile Include="Resources_Genes\Gene_Gauranlen.cs" />

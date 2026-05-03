@@ -355,6 +355,17 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneDisconnectable
+	{
+
+		string LabelCap { get; }
+		void Switch();
+		Type MasterClass { get; }
+		float ResourceConsumption { get; }
+		bool Active { get; }
+
+	}
+
 	//InDev
 	//public interface IGeneDeathless
 	//{

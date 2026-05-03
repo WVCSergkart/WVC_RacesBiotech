@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 			yield return gizmo;
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
 			cachedGenesRegrow = null;
@@ -144,7 +144,7 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
 		}
 
-		public void Notify_Override()
+		public virtual void Notify_Override()
 		{
 			UpdateMetabolism();
 			cachedGenesRegrow = null;
@@ -202,11 +202,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private float geneticMaterial = 0;
+		protected float geneticMaterial = 0;
 
 		public int ShaperResource => (int)geneticMaterial;
+		public float ShaperResource_Raw => geneticMaterial;
 
-		public bool TryOffsetResource(float count)
+		public virtual float GeneticMatchOffset
+		{
+			get
+			{
+				SimpleCurve geneticCurve = new()
+				{
+					new CurvePoint(0, 0),
+					new CurvePoint(20, 10),
+					new CurvePoint(50, 25),
+					new CurvePoint(100, 30)
+				};
+				float geneticMaterial = geneticCurve.Evaluate(ShaperResource) * 0.01f;
+				return geneticMaterial;
+			}
+		}
+
+		public virtual bool TryOffsetResource(float count)
 		{
 			if (!EnableGenesRegrowing && count > 0f)
 			{
@@ -424,7 +441,7 @@ namespace WVC_XenotypesAndGenes
 			cachedPreservedGenes = null;
 		}
 
-		public void Notify_GenesRecache(Gene changedGene)
+		public virtual void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedGenesRegrow = null;
 			cachedPreservedGenes = null;

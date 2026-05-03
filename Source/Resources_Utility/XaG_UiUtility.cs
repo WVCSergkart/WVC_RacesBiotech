@@ -153,9 +153,9 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 		}
 
-		public static void StyleButton_WithoutRect(Rect rect5, Pawn pawn, Gene gene, bool unlocked)
+		public static void StyleButton_WithoutRect(Rect rect5, Pawn pawn, Gene gene, bool unlocked, CachedTexture cachedTexture = null)
 		{
-			Widgets.DrawTextureFitted(rect5, StyleIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect5, cachedTexture?.Texture ?? StyleIcon.Texture, 1f);
 			if (Mouse.IsOver(rect5))
 			{
 				Widgets.DrawHighlight(rect5);

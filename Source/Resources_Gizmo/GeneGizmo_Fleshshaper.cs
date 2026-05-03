@@ -48,8 +48,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int nextRecache = 2;
-		private void RecacheTick()
+		protected override void RecacheTick()
 		{
 			if (nextRecache > 0)
 			{
@@ -57,7 +56,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			cachedDescription = null;
-			//nextRecache = 240;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -71,10 +69,10 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
-			ButtonMenu(rect4);
+			Button1c(rect4);
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
-			ButtonGenes(rect5);
+			Button2c(rect5);
 			// Button
 			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
 			ButtonXenogenesEditor(rect6);
