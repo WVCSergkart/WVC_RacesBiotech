@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using RimWorld;
@@ -27,6 +28,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		[Obsolete]
 		public static void HybridForcerGenes(List<GeneDef> geneDefList)
 		{
 			if (!WVC_Biotech.settings.generateXenotypeForceGenes)
@@ -225,7 +227,7 @@ namespace WVC_XenotypesAndGenes
 
 		// XenoForcers
 
-		//[Obsolete]
+		[Obsolete]
 		public static GeneDef GetFromTemplate_XenotypeForcer(XenotypeForcerGeneTemplateDef template, XenotypeDef def, int displayOrderBase)
 		{
 			GeneDef geneDef = new()

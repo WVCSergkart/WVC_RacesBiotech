@@ -104,9 +104,9 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				List<GeneDef> genes = new();
-				genes.AddRange(consumedGenes);
-				genes.AddRange(collectedGenes);
-				genes.AddRange(destroyedGenes);
+				genes.AddRangeSafe(consumedGenes);
+				genes.AddRangeSafe(collectedGenes);
+				genes.AddRangeSafe(destroyedGenes);
 				return genes;
 			}
 		}
@@ -261,28 +261,14 @@ namespace WVC_XenotypesAndGenes
 						GetRandomGene();
 					}
 				};
-				// yield return new Command_Action
-				// {
-				// defaultLabel = "DEV: GetAllGenes",
-				// action = delegate
-				// {
-				// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
-				// {
-				// AddGene(geneDef);
-				// }
-				// }
-				// };
 			}
 		}
-
-		//private int lastGeneObtainedTick = -1;
 
 		public bool TryAddGene(GeneDef geneDef)
 		{
 			if (!AllGenes.Contains(geneDef))
 			{
-				collectedGenes.Add(geneDef);
-				//lastGeneObtainedTick = Find.TickManager.TicksGame;
+				collectedGenes.AddSafe(geneDef);
 				return true;
 			}
 			return false;
@@ -300,10 +286,6 @@ namespace WVC_XenotypesAndGenes
 		}
 		public void RemoveCollectedGene(GeneDef geneDef)
 		{
-			//if (collectedGenes.Contains(geneDef))
-			//{
-			//	collectedGenes.Remove(geneDef);
-			//}
 			collectedGenes.RemoveAll(gene => gene == geneDef);
 		}
 		public void DestroyGene(GeneDef geneDef)

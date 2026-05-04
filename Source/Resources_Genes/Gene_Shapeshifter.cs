@@ -79,6 +79,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		private bool? cachedGenesRegrow;
 		[Obsolete]
 		public bool EnableGenesRegrowing
@@ -135,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			RemoveHediffs();
-			cachedGenesRegrow = null;
+			UpdateCache();
 		}
 
 		public void RemoveHediffs()
@@ -147,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual void Notify_Override()
 		{
 			UpdateMetabolism();
-			cachedGenesRegrow = null;
+			UpdateCache();
 		}
 
 		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
@@ -424,7 +425,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void PreShapeshift(bool genesRegrowing)
 		{
-			cachedPreservedGenes = null;
+			UpdateCache();
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PreShapeshift(this);
@@ -437,11 +438,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				GeneResourceUtility.Notify_PostShapeshift(this);
 			}
-			//UpdateMetabolism();
-			cachedPreservedGenes = null;
+			//UpdateCache();
 		}
 
 		public virtual void Notify_GenesRecache(Gene changedGene)
+		{
+			UpdateCache();
+		}
+
+		public virtual void UpdateCache()
 		{
 			cachedGenesRegrow = null;
 			cachedPreservedGenes = null;

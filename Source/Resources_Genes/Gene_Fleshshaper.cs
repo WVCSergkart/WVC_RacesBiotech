@@ -9,6 +9,36 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Fleshshaper : Gene_Shapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
+		private static List<Gene_Fleshshaper> cachedFleshshaperGenes;
+		public static List<Gene_Fleshshaper> FleshshaperGenes
+		{
+			get
+			{
+				if (cachedFleshshaperGenes == null)
+				{
+					List<Gene_Fleshshaper> list = new();
+					foreach (Pawn pawn in PawnsFinder.AllMapsAndWorld_Alive)
+					{
+						//if (pawn?.genes == null)
+						//{
+						//	continue;
+						//}
+						//foreach (Gene gene in pawn.genes.GenesListForReading)
+						//{
+						//	if (gene is Gene_Fleshshaper item && gene.Active)
+						//	{
+						//		list.Add(item);
+						//		break;
+						//	}
+						//}
+						list.AddSafe(pawn?.genes?.GetFirstGeneOfType<Gene_Fleshshaper>());
+					}
+					cachedFleshshaperGenes = list;
+				}
+				return cachedFleshshaperGenes;
+			}
+		}
+
 		//private GeneExtension_Undead cachedGeneExtension_Undead;
 		//public GeneExtension_Undead Extension_Undead
 		//{
@@ -91,9 +121,11 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> GenelineGenes => XenotypesGenes;
 
-		public void UpdateCache()
+		public override void UpdateCache()
 		{
+			base.UpdateCache();
 			//collectedGeneDefs = null;
+			cachedFleshshaperGenes = null;
 		}
 
 		public List<GeneDef> DisabledGenes => [];

@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				Update(false, Consumption);
+				Update(false, (Consumption / 60000) * 2500);
 				if (pawn.IsNestedHashIntervalTick(2500, 15000))
 				{
 					TickSubGenes();
@@ -111,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedConsumption == null)
 				{
-					float newConsumption = 0.01f;
+					float newConsumption = 0.1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
 						if (geneDisconnectable.Active)
@@ -141,36 +141,37 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void ResetCache()
+		public override void UpdateCache()
 		{
+			base.UpdateCache();
 			disabled = false;
 			cachedSubGenes = null;
 			cachedConsumption = null;
 		}
 
-		public override void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			ResetCache();
-			base.Notify_OverriddenBy(overriddenBy);
-		}
+		//public override void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	UpdateCache();
+		//	base.Notify_OverriddenBy(overriddenBy);
+		//}
 
-		public override void Notify_Override()
-		{
-			ResetCache();
-			base.Notify_Override();
-		}
+		//public override void Notify_Override()
+		//{
+		//	UpdateCache();
+		//	base.Notify_Override();
+		//}
 
-		public override void Notify_GenesRecache(Gene changedGene)
-		{
-			ResetCache();
-			base.Notify_GenesRecache(changedGene);
-		}
+		//public override void Notify_GenesRecache(Gene changedGene)
+		//{
+		//	UpdateCache();
+		//	base.Notify_GenesRecache(changedGene);
+		//}
 
-		public override void PostShapeshift(bool genesRegrowing)
-		{
-			base.PostShapeshift(genesRegrowing);
-			ResetCache();
-		}
+		//public override void PostShapeshift(bool genesRegrowing)
+		//{
+		//	base.PostShapeshift(genesRegrowing);
+		//	UpdateCache();
+		//}
 
 		public void UnlockXenotype(string xenotypeName)
 		{

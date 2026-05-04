@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public float ResourceConsumption => 0.01f;
+		public float ResourceConsumption => 0.05f;
 
 		public List<GeneDef> AllGenes => GenelineGenes;
 
@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedShapeshifterGene = null;
 			cachedGeneline = null;
-			Shapeshifter?.ResetCache();
+			Shapeshifter?.UpdateCache();
 		}
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)

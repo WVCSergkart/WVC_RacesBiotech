@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			uncollapsedSize = 184f;
 		}
 
-		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate();
+		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.Consumption);
 
 		protected override void RecacheTick()
 		{
@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene_Energyshifter));
 				}
 			}
-			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate());
+			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(gene_Energyshifter.Consumption));
 		}
 
 	}

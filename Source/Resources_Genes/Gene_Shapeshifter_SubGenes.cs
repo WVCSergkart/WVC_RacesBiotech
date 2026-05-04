@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		[Obsolete]
 		public virtual bool DisableGenesRegrowing => false;
 
 		[Obsolete]
@@ -101,49 +102,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant
 	{
-
+		[Obsolete]
 		public override bool DisableGenesRegrowing => true;
-
-		//private bool? savedBool;
-
-		//public override void PostAdd()
-		//{
-		//	base.PostAdd();
-		//	if (Shapeshifter != null)
-		//	{
-		//		savedBool = Shapeshifter.genesRegrowAfterShapeshift;
-		//		Shapeshifter.genesRegrowAfterShapeshift = false;
-		//	}
-		//}
-
-		//public override void PostRemove()
-		//{
-		//	base.PostRemove();
-		//	if (Shapeshifter != null && savedBool.HasValue)
-		//	{
-		//		Shapeshifter.genesRegrowAfterShapeshift = savedBool.Value;
-		//	}
-		//}
-		//public override void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
-		//{
-		//	if (savedBool.HasValue)
-		//	{
-		//		shapeshiftGene.genesRegrowAfterShapeshift = savedBool.Value;
-		//	}
-		//}
-
-		//public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
-		//{
-
-		//}
-
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Values.Look(ref savedBool, "savedGenesRegrowStatus");
-		//}
 
 	}
 

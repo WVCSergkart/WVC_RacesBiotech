@@ -101,6 +101,7 @@
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
+    <Compile Include="Resources_Genes\Gene_Fleshshaper_Metabolism.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
@@ -247,7 +248,7 @@
     <Compile Include="Resources_Main\IngestionOutcomeDoer_HumanEgg.cs" />
     <Compile Include="Resources_Main\ITab_GenesCustomPregnancy.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
-    <Compile Include="Resources_Defs\XenotypeForcerGeneTemplateDef.cs" />
+    <Compile Include="Obsolete_0\XenotypeForcerGeneTemplateDef.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Attachments.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Bodyparts.cs" />

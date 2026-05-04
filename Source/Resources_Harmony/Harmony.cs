@@ -159,7 +159,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				List<GeneDef> geneDefList = values.ToList();
 				GeneratorUtility.Aptitudes(geneDefList);
+#pragma warning disable CS0612 // Type or member is obsolete
 				GeneratorUtility.HybridForcerGenes(geneDefList);
+#pragma warning restore CS0612 // Type or member is obsolete
 				//GeneratorUtility.Spawners(geneDefList);
 				//GeneratorUtility.AutoColorGenes(geneDefList);
 				GeneratorUtility.GauranlenTreeModeDef();

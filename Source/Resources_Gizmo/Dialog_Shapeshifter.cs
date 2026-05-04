@@ -232,29 +232,30 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshift
 		private bool TryShapeshift(Gene_Shapeshifter geneShapeshifter)
 		{
-			int num = 0;
+			string phase = "start";
 			try
 			{
-				num = 1;
+				phase = "PreShapeshift";
 				geneShapeshifter.PreShapeshift(disabled);
-				num = 2;
+				phase = "Shapeshift";
 				geneShapeshifter.Shapeshift(selectedXenoHolder, disabled || clearXenogenes, xenotypeHybridization && !disabled);
-				num = 3;
+				phase = "PostShapeshift";
 				geneShapeshifter.PostShapeshift(disabled);
-				num = 4;
+				phase = "ReceiveLetter";
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), selectedXenoHolder.Label)
 				+ "\n\n" + selectedXenoHolder.Description,
 				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
-				num = 5;
+				phase = "UpdateMetabolism";
 				geneShapeshifter.UpdateMetabolism();
-				num = 6;
+				phase = "UpdateCache";
+				geneShapeshifter.UpdateCache();
+				phase = "PostImplantDebug";
 				ReimplanterUtility.PostImplantDebug(geneShapeshifter.pawn);
 				return true;
 			}
 			catch (Exception arg)
 			{
-				// Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
-				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {num}: {arg} (Gene: " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName + ")");
+				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {phase}: {arg} (Gene: {geneShapeshifter.LabelCap} | {geneShapeshifter.def.defName})");
 			}
 			return false;
 		}

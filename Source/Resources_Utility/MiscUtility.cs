@@ -74,6 +74,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddSafe<T>(this List<T> set, T item)
 		{
+			if (item == null)
+			{
+				return;
+			}
 			if (!set.Contains(item))
 			{
 				set.Add(item);
