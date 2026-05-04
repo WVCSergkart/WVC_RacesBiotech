@@ -99,4 +99,6 @@
 
 	<WVC_XaG_GeneEnergyshifter_BarTip>Displays the &lt;color=#8a8ae6&gt;genetic energy&lt;/color&gt; reserve in sync with the pawn's food requirement. If the entire battery is filled with yellow, it means the genetic match with all available xenotypes is 100%.\n\nIt also allows to adjust energy consumption by disabling/enabling subgenes.\n\n -  &lt;color=#8076ff&gt;Nutrients consumption&lt;/color&gt;: {0}%/day</WVC_XaG_GeneEnergyshifter_BarTip>
 
+	<WVC_XaG_EnergyshifterSubGenesOffset>&lt;color=#8076ff&gt;Nutrients offset&lt;/color&gt;: {0}%/day</WVC_XaG_EnergyshifterSubGenesOffset>
+
 </LanguageData>

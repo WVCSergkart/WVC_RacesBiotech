@@ -79,4 +79,91 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// Basic disconnectable
+	public class Gene_Disconnectable : XaG_Gene, IGeneDisconnectable, IGeneOverriddenBy
+	{
+
+		private GeneExtension_Giver cachedGeneExtension;
+		public GeneExtension_Giver Giver
+		{
+			get
+			{
+				if (cachedGeneExtension == null)
+				{
+					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension;
+			}
+		}
+
+
+		private GeneExtension_Undead cachedGeneExtension_Undead;
+		public GeneExtension_Undead Undead
+		{
+			get
+			{
+				if (cachedGeneExtension_Undead == null)
+				{
+					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+				}
+				return cachedGeneExtension_Undead;
+			}
+		}
+
+		public override bool Active
+		{
+			get
+			{
+				if (Disabled)
+				{
+					return false;
+				}
+				return base.Active;
+			}
+		}
+
+		protected bool disabled = false;
+		public virtual bool Disabled
+		{
+			get
+			{
+				return disabled;
+			}
+			set
+			{
+				disabled = !disabled;
+			}
+		}
+
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			UpdateCache();
+		}
+
+		public virtual void Notify_Override()
+		{
+			UpdateCache();
+		}
+
+		public virtual Type MasterClass => typeof(Gene);
+		public virtual float ResourceConsumption => def.resourceLossPerDay;
+
+		public virtual void TickMasterGene(int delay)
+		{
+
+		}
+
+		public virtual void UpdateCache()
+		{
+
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref disabled, "disabled", false);
+		}
+
+	}
+
 }

@@ -6,10 +6,11 @@
 	<label>overrided hivemind</label>
 	<description>Carriers of this gene can connect and disconnect themselves from the hivemind.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Overrider</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SelfOverrider</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_Hivemind</iconPath>
 	<displayOrderInCategory>600</displayOrderInCategory>
 	<prerequisite></prerequisite>
-	<biostatMet>-1</biostatMet>
+	<!-- <biostatMet>-1</biostatMet> -->
+	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<minAgeActive>0</minAgeActive>
 	<customEffectDescriptions>
 		<li>Allows itself to be &lt;color=#8a8ae6&gt;overridden&lt;/color&gt; at any time, which causes &lt;color=#8a8ae6&gt;hivemind sync&lt;/color&gt;hronization.</li>
@@ -23,11 +24,11 @@
 		<li><symbol>mind</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<reqGeneMat>44</reqGeneMat>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <reqGeneMat>44</reqGeneMat> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

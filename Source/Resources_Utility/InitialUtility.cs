@@ -270,6 +270,7 @@ namespace WVC_XenotypesAndGenes
 			if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
 			{
 				geneDef.exclusionTags = null;
+				//geneDef.customEffectDescriptions.Add("WVC_XaG_EnergyshifterSubGenesOffset".Translate(geneDef.resourceLossPerDay * -100).ToString());
 				geneDef.customEffectDescriptions.Add("WVC_XaG_Gene_OverriderDependantDesc".Translate().ToString());
 			}
 			if (geneDef.IsGeneDefOfType<IGeneHivemind>())

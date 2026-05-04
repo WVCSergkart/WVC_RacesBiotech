@@ -39,24 +39,25 @@
 		<li>  <geneDef>WVC_Generemover</geneDef><!-- generemover -->  <cost>23</cost>  </li>
 		<li>  <geneDef>WVC_Skillshifter</geneDef><!-- skillshifter -->  <cost>77</cost>  </li>
 		<li>  <geneDef>WVC_Traitshifter</geneDef><!-- traitshifter -->  <cost>48</cost>  </li>
-		<li>  <geneDef>WVC_Overrider</geneDef><!-- overrider -->  <cost>89</cost>  </li>
-		<li>  <geneDef>WVC_Pain_Overrider</geneDef><!-- overrided pain -->  <cost>34</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_WoundHealing_Overrider</geneDef><!-- overrided healing -->  <cost>66</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_PerfectImmunity_Overrider</geneDef><!-- overrided immunity -->  <cost>46</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Health_Overrider</geneDef><!-- overrided health -->  <cost>22</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_OverallAdaptation_Overrider</geneDef><!-- overrided adaptation -->  <cost>57</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Stomach_Overrider</geneDef><!-- overrided stomach -->  <cost>55</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Tough_Overrider</geneDef><!-- overrided tough -->  <cost>75</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Wimp_Overrider</geneDef><!-- overrided wimp -->  <cost>30</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Learning_Overrider</geneDef><!-- overrided learning -->  <cost>61</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_NoLearning_Overrider</geneDef><!-- overrided no-learning -->  <cost>59</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Ageless_Overrider</geneDef><!-- overrided ageless -->  <cost>24</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Aging_Overrider</geneDef><!-- overrided aging -->  <cost>33</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li>  <geneDef>WVC_Solar_Overrider</geneDef><!-- overrided solar -->  <cost>48</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
-		<li MayRequire="ludeon.rimworld.ideology">  <geneDef>WVC_Scars_Overrider</geneDef><!-- overrided scars -->  <cost>77</cost>  <displayCategory>WVC_Energy</displayCategory>  </li>
 		<li>  <geneDef>WVC_PostShapeshift_Regeneration</geneDef><!-- preshift healing -->  <cost>28</cost>  </li>
 		<li MayRequire="ludeon.rimworld.ideology">  <geneDef>WVC_PostShapeshift_Scarred</geneDef><!-- postshift scarred -->  <cost>14</cost>  </li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
+
+	<!-- <li>  <geneDef>WVC_Overrider</geneDef>  <cost>89</cost>  </li> -->
+	<!-- <li>  <geneDef>WVC_Pain_Overrider</geneDef> <cost>34</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_WoundHealing_Overrider</geneDef> <cost>66</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_PerfectImmunity_Overrider</geneDef> <cost>46</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Health_Overrider</geneDef> <cost>22</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_OverallAdaptation_Overrider</geneDef> <cost>57</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Stomach_Overrider</geneDef> <cost>55</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Tough_Overrider</geneDef> <cost>75</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Wimp_Overrider</geneDef> <cost>30</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Learning_Overrider</geneDef> <cost>61</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_NoLearning_Overrider</geneDef> <cost>59</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Ageless_Overrider</geneDef> <cost>24</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Aging_Overrider</geneDef> <cost>33</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li>  <geneDef>WVC_Solar_Overrider</geneDef> <cost>48</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
+	<!-- <li MayRequire="ludeon.rimworld.ideology">  <geneDef>WVC_Scars_Overrider</geneDef> <cost>77</cost>  <displayCategory>WVC_Energy</displayCategory>  </li> -->
 
 </Defs>

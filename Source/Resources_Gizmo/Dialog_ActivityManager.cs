@@ -15,10 +15,10 @@ namespace WVC_XenotypesAndGenes
 
 		public Dialog_ActivityManager(Pawn pawn, Gene masterGene)
 		{
-			UpdGenes(pawn);
 			forcePause = true;
 			doCloseButton = true;
 			this.masterGene = masterGene;
+			UpdGenes(pawn);
 		}
 
 		private void UpdGenes(Pawn pawn)
@@ -26,9 +26,16 @@ namespace WVC_XenotypesAndGenes
 			this.genes = new();
 			foreach (Gene item in pawn.genes.GenesListForReading)
 			{
-				if (item is IGeneDisconnectable controller && masterGene.def.IsGeneDefOfType(controller.MasterClass))
+				try
 				{
-					genes.Add(controller);
+					if (item is IGeneDisconnectable controller && masterGene.def.IsGeneDefOfType(controller.MasterClass))
+					{
+						genes.Add(controller);
+					}
+				}
+				catch
+				{
+					Log.Error(item.def.defName);
 				}
 			}
 		}
@@ -52,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 				if (controller is Gene gene && num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
 					Rect rect = new(0f, num2, vector.x, vector.y);
+					TooltipHandler.TipRegion(rect, gene.def.DescriptionFull);
 					if (num3 % 2 == 0)
 					{
 						Widgets.DrawAltRect(rect);
@@ -60,12 +68,12 @@ namespace WVC_XenotypesAndGenes
 					GUI.color = Color.white;
 					Text.Font = GameFont.Small;
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
-					if (Widgets.ButtonText(rect3, controller.LabelCap))
+					if (Widgets.ButtonText(rect3, XaG_UiUtility.OnOrOff(!controller.Disabled)))
 					{
 						controller.Disabled = !controller.Disabled;
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
-						UpdGenes(gene.pawn);
 						controller.UpdateCache();
+						UpdGenes(gene.pawn);
 						break;
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
@@ -80,6 +88,12 @@ namespace WVC_XenotypesAndGenes
 				num3++;
 			}
 			Widgets.EndScrollView();
+		}
+
+		public override void Close(bool doCloseSound = true)
+		{
+			base.Close(doCloseSound);
+			ReimplanterUtility.NotifyGenesChanged(masterGene.pawn);
 		}
 
 	}

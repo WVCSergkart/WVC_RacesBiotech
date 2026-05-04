@@ -97,6 +97,7 @@
     <Compile Include="Resources_Genes\Gene_CustomHair.cs" />
     <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter.cs" />
+    <Compile Include="Resources_Genes\Gene_Energyshifter_SubGene.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter_XenogenesEditor.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />

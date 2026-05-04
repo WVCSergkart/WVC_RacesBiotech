@@ -8,7 +8,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Energyshifter</iconPath>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Energyshifter</resourceGizmoType>
-	<displayOrderInCategory>-1</displayOrderInCategory>
+	<displayOrderInCategory>1</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
 		<!-- <li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li> -->
@@ -16,20 +16,20 @@
 		<!-- <li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 5 days.</li> -->
 		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li> -->
 		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant unique genes, the list of which depends on endogenes.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active subgenes.</li>
+		<li>Allows to turn &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt; on and off.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Energyshifter</li>
+	  <li>WVC_XaG_EternalHunger</li>
+	</exclusionTags>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <birthQualityOffset>-0.05</birthQualityOffset> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<xenotypeDefs>
 			  <li>WVC_GeneThrower</li>
 			  <li>WVC_Ferrkind</li>
 			  <li>WVC_Rustkind</li>
 			</xenotypeDefs>
-			<!-- <geneCategoryDefs> -->
-			  <!-- <li>WVC_Energy</li> -->
-			<!-- </geneCategoryDefs> -->
 		</li>
 	</modExtensions>
   </GeneDef>
