@@ -359,10 +359,12 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		string LabelCap { get; }
-		void Switch();
+		bool Disabled { get; set; }
 		Type MasterClass { get; }
 		float ResourceConsumption { get; }
 		bool Active { get; }
+		void UpdateCache();
+		void TickMasterGene(int delay);
 
 	}
 

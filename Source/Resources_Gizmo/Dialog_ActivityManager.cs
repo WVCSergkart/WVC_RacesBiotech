@@ -62,9 +62,10 @@ namespace WVC_XenotypesAndGenes
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
 					if (Widgets.ButtonText(rect3, controller.LabelCap))
 					{
-						controller.Switch();
+						controller.Disabled = !controller.Disabled;
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
 						UpdGenes(gene.pawn);
+						controller.UpdateCache();
 						break;
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);

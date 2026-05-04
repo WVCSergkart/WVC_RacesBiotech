@@ -88,6 +88,19 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
 				Update(false, Consumption);
+				if (pawn.IsNestedHashIntervalTick(2500, 15000))
+				{
+					TickSubGenes();
+				}
+			}
+		}
+
+		private void TickSubGenes()
+		{
+			foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
+			{
+				// 15000 / 2500 = 6
+				geneDisconnectable.TickMasterGene(6);
 			}
 		}
 
