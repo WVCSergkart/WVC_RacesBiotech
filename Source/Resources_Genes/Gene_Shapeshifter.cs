@@ -195,18 +195,19 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void CopyFrom(Gene_Shapeshifter oldShapeshifter)
 		{
-			geneticMaterial = oldShapeshifter.geneticMaterial;
-			gizmoCollapse = oldShapeshifter.gizmoCollapse;
+			this.geneticMaterial = oldShapeshifter.geneticMaterial;
+			this.gizmoCollapse = oldShapeshifter.gizmoCollapse;
+			this.unlockedXenotypes = oldShapeshifter.unlockedXenotypes;
+			this.collectedGeneDefs = oldShapeshifter.collectedGeneDefs;
 		}
 
 		public void ChangeType_GermlineXenogerm()
 		{
-			bool xenogene = pawn.genes.IsXenogene(this);
 			if (!XaG_GeneUtility.TryRemoveAllConflicts(pawn, def))
 			{
 				return;
 			}
-			pawn.genes.AddGene(def, !xenogene);
+			pawn.genes.AddGene(def, !pawn.genes.IsXenogene(this));
 			Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
 			if (gene_Shapeshifter != null)
 			{
@@ -310,6 +311,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn Pawn => pawn;
 		public Gene Gene => this;
+		public GeneDef Def => def;
 
 		public Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats
 		{

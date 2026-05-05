@@ -60,6 +60,7 @@ namespace WVC_XenotypesAndGenes
 			Update(false, 1f);
 			base.PreShapeshift(genesRegrowing);
 		}
+
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
@@ -139,39 +140,6 @@ namespace WVC_XenotypesAndGenes
 			disabled = false;
 			cachedSubGenes = null;
 			cachedConsumption = null;
-		}
-
-		//public override void Notify_OverriddenBy(Gene overriddenBy)
-		//{
-		//	UpdateCache();
-		//	base.Notify_OverriddenBy(overriddenBy);
-		//}
-
-		//public override void Notify_Override()
-		//{
-		//	UpdateCache();
-		//	base.Notify_Override();
-		//}
-
-		//public override void Notify_GenesRecache(Gene changedGene)
-		//{
-		//	UpdateCache();
-		//	base.Notify_GenesRecache(changedGene);
-		//}
-
-		//public override void PostShapeshift(bool genesRegrowing)
-		//{
-		//	base.PostShapeshift(genesRegrowing);
-		//	UpdateCache();
-		//}
-
-		public override void CopyFrom(Gene_Shapeshifter oldShapeshifter)
-		{
-			if (oldShapeshifter is Gene_Energyshifter gene_Fleshshaper)
-			{
-				this.unlockedXenotypes = gene_Fleshshaper.unlockedXenotypes;
-			}
-			base.CopyFrom(oldShapeshifter);
 		}
 
 		public override bool TryOffsetResource(float count)

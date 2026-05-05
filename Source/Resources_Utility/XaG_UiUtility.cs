@@ -840,6 +840,19 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//	Log.Error(log);
 			//}
+			if (listingStandard.ButtonText("DEV: Log energy category"))
+			{
+				string log = "\n";
+				foreach (GeneDef item in DefDatabase<GeneDef>.AllDefsListForReading)
+				{
+					if (item.displayCategory.defName != "WVC_Energy")
+					{
+						continue;
+					}
+					log += "\n defName: " + item.defName + " | geneClass: " + item.geneClass;
+				}
+				Log.Error(log);
+			}
 		}
 
 	}

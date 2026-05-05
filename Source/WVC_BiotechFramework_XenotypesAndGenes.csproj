@@ -171,7 +171,6 @@
     <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
     <Compile Include="Resources_Genes\Gene_Hivemind.cs" />
     <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
-    <Compile Include="Resources_Genes\Gene_Skinshaper.cs" />
     <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\XaG_Gene.cs" />

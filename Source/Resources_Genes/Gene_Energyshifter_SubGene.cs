@@ -3,10 +3,25 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Energyshifter_SubGene : Gene_Disconnectable
+	public class Gene_Energyshifter_SubGene : Gene_Disconnectable, IGeneRecacheable
 	{
 
-		[Unsaved(false)]
+		//public override bool Active
+		//{
+		//	get
+		//	{
+		//		if (Disabled)
+		//		{
+		//			return false;
+		//		}
+		//		if (Shapeshifter == null)
+		//		{
+		//			return false;
+		//		}
+		//		return Shapeshifter.Active;
+		//	}
+		//}
+
 		private Gene_Energyshifter cachedShapeshifterGene;
 		public Gene_Energyshifter Shapeshifter
 		{
@@ -15,6 +30,10 @@ namespace WVC_XenotypesAndGenes
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
+					//if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
+					//{
+					//	Disabled = true;
+					//}
 				}
 				return cachedShapeshifterGene;
 			}
@@ -31,6 +50,11 @@ namespace WVC_XenotypesAndGenes
 		public override void TickInterval(int delta)
 		{
 
+		}
+
+		public virtual void Notify_GenesRecache(Gene changedGene)
+		{
+			cachedShapeshifterGene = null;
 		}
 
 	}

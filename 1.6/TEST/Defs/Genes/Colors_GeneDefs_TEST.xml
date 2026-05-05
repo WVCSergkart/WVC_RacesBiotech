@@ -56,4 +56,10 @@
     <!-- <skinColorOverride>(250, 220, 240)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_IndustrialYellow</defName> -->
+	<!-- <label>inustrial yellow skin</label> -->
+	<!-- <skinColorOverride>(230,150,50)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
 </Defs>

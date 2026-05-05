@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- TEST -->
+  <GeneDef>
+	<defName>WVC_IndustrialPlates</defName>
+	<label>TEST metal plates</label>
+	<description>Carriers of this gene have archites that completely transform the external appearance of the body, making it look like a mechanoid one.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Bodyparts</geneClass>
+	<selectionWeight>0.00125</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<marketValueFactor>1.0</marketValueFactor>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>201</displayOrderInCategory>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_Bodyparts</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Body</workerClass>
+		<baseLayer>3</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Custom</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<overlayOverApparel>false</overlayOverApparel>
+		<useSkinShader>false</useSkinShader>
+		<color>(0, 0, 0, 0.5)</color>
+		<bodyTypeGraphicPaths>
+		  <Male>WVC/Bodies/MecaGene_Body/Naked_Male</Male>
+		  <Female>WVC/Bodies/MecaGene_Body/Naked_Female</Female>
+		  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
+		  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
+		  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
+		</bodyTypeGraphicPaths>
+	  </li>
+	</renderNodeProperties>
+	<!-- <missingGeneRomanceChanceFactor>0.95</missingGeneRomanceChanceFactor> -->
+	<exclusionTags>
+	  <li>WVC_ChestBodyParts_Mechaskin</li>
+	  <li>WVC_ChestBodyParts_Tentacles</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>135</styleId>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+</Defs>

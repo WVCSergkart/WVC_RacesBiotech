@@ -61,6 +61,10 @@
 	<uniqueStyleId>125</uniqueStyleId>
 	<texPath>WVC/Bodies/NodeGene_Body/Naked_Male</texPath>
 	<!-- <noGraphic>true</noGraphic> -->
+	<allowedStyles>
+	  <li>125</li>
+	  <li>135</li>
+	</allowedStyles>
   </WVC_XenotypesAndGenes.StyleGeneDef>
 
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Mechaskin">
@@ -205,6 +209,7 @@
 	<defName>WVC_NoGraphic</defName>
 	<noGraphic>true</noGraphic>
 	<allowedStyles>
+	  <li>135</li>
 	  <li>5005</li>
 	  <li>5010</li>
 	  <li>2351</li>

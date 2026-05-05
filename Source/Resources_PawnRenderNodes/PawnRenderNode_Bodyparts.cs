@@ -19,7 +19,11 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string TexPathFor(Pawn pawn)
 		{
-			if (gene is Gene_Bodyparts styleGene && styleGene.StyleGeneDef != null)
+			if (gene is not Gene_Bodyparts styleGene)
+			{
+				return base.TexPathFor(pawn);
+			}
+			if (styleGene.StyleGeneDef?.bodyTypeGraphicPaths != null)
 			{
 				foreach (BodyTypeGraphicData bodyTypeGraphicPath in styleGene.StyleGeneDef.bodyTypeGraphicPaths)
 				{
@@ -29,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			return base.TexPathFor(pawn);
+			return null;
 		}
 
 

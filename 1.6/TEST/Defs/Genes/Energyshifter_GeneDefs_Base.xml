@@ -11,13 +11,8 @@
 	<displayOrderInCategory>1</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
-		<!-- <li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li> -->
-		<!-- <li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li> -->
-		<!-- <li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 5 days.</li> -->
-		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li> -->
-		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant unique genes, the list of which depends on endogenes.</li> -->
-		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active subgenes.</li>
-		<li>Allows to turn &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt; on and off.</li>
+		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; and &lt;color=#8a8ae6&gt;energy&lt;/color&gt; genes.</li>
+		<li>Allows to turn &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; (and &lt;color=#8a8ae6&gt;energy&lt;/color&gt; genes) on and off.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Energyshifter</li>

@@ -123,9 +123,6 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> DisabledGenes => [];
 		public List<GeneDef> DestroyedGenes => [];
 
-		//public Pawn Pawn => pawn;
-		public GeneDef Def => def;
-
 		public int ArchiteLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatArc);
 		public int ComplexityLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatCpx);
 
@@ -160,16 +157,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			CollectedGenes.AddSafe(geneDef);
 			AddGene_Safe(geneDef, false);
-		}
-
-		public override void CopyFrom(Gene_Shapeshifter oldShapeshifter)
-		{
-			if (oldShapeshifter is Gene_Fleshshaper gene_Fleshshaper)
-			{
-				this.unlockedXenotypes = gene_Fleshshaper.unlockedXenotypes;
-				this.collectedGeneDefs = gene_Fleshshaper.CollectedGenes;
-			}
-			base.CopyFrom(oldShapeshifter);
 		}
 
 		public override void TickInterval(int delta)

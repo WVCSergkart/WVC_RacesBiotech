@@ -65,6 +65,11 @@
 	<label>energy</label>
 	<displayPriorityInXenotype>507.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_Overrider</defName>
+	<label>overrider</label>
+	<displayPriorityInXenotype>506.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
 
   <GeneCategoryDef>
 	<defName>WVC_RandomGenes</defName>

@@ -5,13 +5,14 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_OverriderDependant</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_SelfOverrider_Energy</iconPath>
+	<displayCategory>WVC_Overrider</displayCategory>
 	<displayOrderInCategory>500</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
-	<minAgeActive>3</minAgeActive>
+	<minAgeActive>0</minAgeActive>
 	<!-- <prerequisite>WVC_Overrider</prerequisite> -->
 	<!-- <prerequisite>WVC_Energyshifter</prerequisite> -->
 	<prerequisite></prerequisite>
