@@ -43,12 +43,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			UnlockXenotype(pawn.genes.XenotypeLabel);
-		}
-
 		public override float GeneticMatchOffset
 		{
 			get
@@ -66,8 +60,6 @@ namespace WVC_XenotypesAndGenes
 			Update(false, 1f);
 			base.PreShapeshift(genesRegrowing);
 		}
-
-		private List<string> unlockedXenotypes;
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
@@ -173,15 +165,6 @@ namespace WVC_XenotypesAndGenes
 		//	UpdateCache();
 		//}
 
-		public void UnlockXenotype(string xenotypeName)
-		{
-			if (unlockedXenotypes == null)
-			{
-				unlockedXenotypes = new();
-			}
-			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
-		}
-
 		public override void CopyFrom(Gene_Shapeshifter oldShapeshifter)
 		{
 			if (oldShapeshifter is Gene_Energyshifter gene_Fleshshaper)
@@ -196,15 +179,17 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
-		}
-
 		public void Notify_Charging(float chargePerTick, int tick, float factor)
 		{
 			Update(true);
+		}
+
+		public override void DoEffects()
+		{
+			if (pawn.SpawnedOrAnyParentSpawned)
+			{
+				MiscUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+			}
 		}
 
 	}

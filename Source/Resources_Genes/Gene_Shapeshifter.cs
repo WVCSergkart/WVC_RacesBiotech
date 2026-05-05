@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Props
+		public GeneExtension_Undead Undead
 		{
 			get
 			{
@@ -64,6 +64,19 @@ namespace WVC_XenotypesAndGenes
 				//return Giver.geneDefWithChances;
 			}
 		}
+
+
+		protected List<string> unlockedXenotypes;
+		public virtual void UnlockXenotype(string xenotypeName)
+		{
+			if (unlockedXenotypes == null)
+			{
+				unlockedXenotypes = new();
+			}
+			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
+		}
+
+		protected List<GeneDef> collectedGeneDefs;
 
 		public virtual List<XenotypeHolder> Xenotypes => ListsUtility.GetAllXenotypesHolders();
 		public virtual List<GeneDef> XenotypesGenes
@@ -116,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			UpdateMetabolism();
+			UnlockXenotype(pawn.genes.XenotypeLabel);
 		}
 
 		private Gizmo gizmo;
@@ -405,10 +419,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
-			if (!Props.soundDefOnImplant.NullOrUndefined())
-			{
-				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
-			}
+			//if (!Undead.soundDefOnImplant.NullOrUndefined())
+			//{
+			//}
+			Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(pawn));
 		}
 
 		public void DoEffects(Pawn pawn)
@@ -458,6 +472,12 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial", 0);
 			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
+			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
+			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && collectedGeneDefs != null && collectedGeneDefs.RemoveAll((GeneDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
 		}
 
 	}

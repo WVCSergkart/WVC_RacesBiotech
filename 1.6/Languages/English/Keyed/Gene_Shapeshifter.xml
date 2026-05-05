@@ -2,7 +2,7 @@
 <LanguageData>
 
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
-	<WVC_XaG_GeneShapeshifter_Desc>Allows to change the pawn's xenotype to any desired one, provided there is sufficient genetic compatibility or genetic materials.</WVC_XaG_GeneShapeshifter_Desc>
+	<WVC_XaG_GeneShapeshifter_Desc>Allows to change the pawn's xenotype to any desired one, provided there is sufficient genetic compatibility or genetic materials.\n\n&lt;color=#8a8ae6&gt;Some xenotypes may be unavailable&lt;/color&gt;, regardless of whether they have been unlocked. This is primarily determined by the direct &lt;color=#8a8ae6&gt;conflict and incompatibility&lt;/color&gt; of these xenotypes with the {0} gene.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<!-- <WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent> -->
 	<WVC_XaG_GeneShapeshifter_MinMatchPercent>The genetic match to the selected xenotype is too low. Minimum match should be {0}%.</WVC_XaG_GeneShapeshifter_MinMatchPercent>

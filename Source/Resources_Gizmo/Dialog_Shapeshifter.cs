@@ -37,7 +37,15 @@ namespace WVC_XenotypesAndGenes
 			//absorbInputAroundWindow = true;
 			//alwaysUseFullBiostatsTableHeight = true;
 			//searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			allXenotypes = gene.Xenotypes;
+			try
+			{
+				allXenotypes = gene.Xenotypes.Where(XenotypeIsAllowed).ToList();
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed to filter out incompatible xenotypes. Reason: " + arg.Message);
+				allXenotypes = gene.Xenotypes;
+			}
 			minGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
 			SetupAvailableHolders(allXenotypes);
 			if (allXenotypes.Any(xenos => xenos.xenotypeDef == gene.pawn.genes.Xenotype))
@@ -52,6 +60,22 @@ namespace WVC_XenotypesAndGenes
 			disabled = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			//GetMatchForAllXenos();
 			OnGenesChanged();
+		}
+
+		private bool XenotypeIsAllowed(XenotypeHolder xenotypeHolder)
+		{
+			foreach (GeneDef geneDef in xenotypeHolder.genes)
+			{
+				if (geneDef == gene.def)
+				{
+					continue;
+				}
+				if (geneDef.ConflictsWith(gene.def))
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		private void SetupAvailableHolders(List<XenotypeHolder> xenotypes)

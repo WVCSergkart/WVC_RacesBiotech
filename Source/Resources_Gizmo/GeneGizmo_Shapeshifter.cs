@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_Shapeshifter(gene));
 				}
 			}
-			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneShapeshifter_Desc".Translate());
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneShapeshifter_Desc".Translate(gene.Label));
 		}
 
 		// Shaper menu

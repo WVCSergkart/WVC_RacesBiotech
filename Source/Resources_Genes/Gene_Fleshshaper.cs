@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public GeneExtension_Undead Extension_Undead => Props;
+		public GeneExtension_Undead Extension_Undead => Undead;
 
 		//public override List<GeneralHolder> ShaperGenes
 		//{
@@ -74,13 +74,6 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			UnlockXenotype(pawn.genes.XenotypeLabel);
-		}
-
-		private List<string> unlockedXenotypes;
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
@@ -106,7 +99,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private List<GeneDef> collectedGeneDefs;
 		public List<GeneDef> CollectedGenes
 		{
 			get
@@ -157,15 +149,6 @@ namespace WVC_XenotypesAndGenes
 		public void Debug_RemoveDupes()
 		{
 			// Dev
-		}
-
-		public void UnlockXenotype(string xenotypeName)
-		{
-			if (unlockedXenotypes == null)
-			{
-				unlockedXenotypes = new();
-			}
-			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
 		}
 
 		public void AddGene_Editor(GeneDef geneDef)
@@ -274,17 +257,6 @@ namespace WVC_XenotypesAndGenes
 		public void UpdSubHediffs()
 		{
 
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
-			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Def);
-			if (Scribe.mode == LoadSaveMode.LoadingVars && collectedGeneDefs != null && collectedGeneDefs.RemoveAll((GeneDef x) => x == null) > 0)
-			{
-				Log.Warning("Removed null geneDef(s)");
-			}
 		}
 
 		public void Notify_DevouredHuman(Pawn victim)
