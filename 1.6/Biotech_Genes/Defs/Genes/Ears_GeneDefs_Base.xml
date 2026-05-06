@@ -100,38 +100,6 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
-	<defName>WVC_Mecha_EarsCat</defName>
-	<label>cat ears</label>
-	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
-	<renderNodeProperties>
-	  <li>
-		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-		<texPaths>
-			<li>WVC/BodyParts/MecaGene_Ears/CatEars</li>
-			<li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li>
-		</texPaths>
-		<colorType>Hair</colorType>
-		<parentTagDef>Head</parentTagDef>
-		<useSkinShader>false</useSkinShader>
-		<useRottenColor>true</useRottenColor>
-		<rotDrawMode>Fresh, Rotting</rotDrawMode>
-		<drawData>
-		  <defaultData>
-			<layer>70</layer>
-		  </defaultData>
-		</drawData>
-	  </li>
-	</renderNodeProperties>
-	<capMods>
-	  <li>
-		<capacity>Hearing</capacity>
-		<offset>0.25</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_RedFormerEarsDouble</defName>
 	<label>spikelike ears</label>
 	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>

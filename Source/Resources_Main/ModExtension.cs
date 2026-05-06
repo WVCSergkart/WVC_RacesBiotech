@@ -2,6 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using WVC_XenotypesAndGenes.HarmonyPatches;
@@ -514,6 +515,16 @@ namespace WVC_XenotypesAndGenes
 		//public bool isBloodfeed = false;
 		//Hivemind
 		//public bool isDormant = false;
+		public bool addShapeshifterTip = false;
+
+		public override void ResolveReferences(Def parentDef)
+		{
+			base.ResolveReferences(parentDef);
+			if (addShapeshifterTip)
+			{
+				parentDef.description += "\n\n" + "WVC_XaG_ShapeshifterPreceptTip".Translate(DefDatabase<GeneDef>.AllDefsListForReading.Where(def => def.IsGeneDefOfType<IGeneShapeshifter>()).Select((GeneDef x) => x.label).ToCommaList(useAnd: true).CapitalizeFirst()).Resolve();
+			}
+		}
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+	<!-- ==================== TIPS ==================== -->
+
+	<WVC_XaG_ShapeshifterPreceptTip>&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Several genes are suitable for shapeshifter conditions: &lt;color=#8a8ae6&gt;{0}&lt;/color&gt;.</WVC_XaG_ShapeshifterPreceptTip>
+
+	<!-- ==================== TIPS ==================== -->
+
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
 	<WVC_XaG_GeneShapeshifter_Desc>Allows to change the pawn's xenotype to any desired one, provided there is sufficient genetic compatibility or genetic materials.\n\n&lt;color=#8a8ae6&gt;Some xenotypes may be unavailable&lt;/color&gt;, regardless of whether they have been unlocked. This is primarily determined by the direct &lt;color=#8a8ae6&gt;conflict and incompatibility&lt;/color&gt; of these xenotypes with the {0} gene.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>

@@ -11,3 +11,4 @@
 4015 - Demon horns
 4020 - Headspikes
 4021 - Head antenna
+4022 - Mecha cat ears

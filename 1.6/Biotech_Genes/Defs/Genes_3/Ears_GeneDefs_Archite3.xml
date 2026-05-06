@@ -85,4 +85,42 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
+	<defName>WVC_Mecha_EarsCat</defName>
+	<label>cat ears</label>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Attachments</geneClass>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_AttachmentsHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/CatEars</li>
+			<li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.25</offset>
+	  </li>
+	</capMods>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>4022</styleId>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

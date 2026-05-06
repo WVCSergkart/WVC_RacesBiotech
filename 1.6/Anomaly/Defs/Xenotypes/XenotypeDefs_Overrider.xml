@@ -40,7 +40,7 @@
 		<li>WVC_ArchiteTelepathy</li>
 		<!-- <li>WVC_NaturalTelepathy</li> -->
 		<li>MaxTemp_LargeIncrease</li>
-		<li>WVC_Overrider</li>
+		<!-- <li>WVC_Overrider</li> -->
 		<li>WVC_Ageless_Overrider</li>
 		<li>WVC_Health_Overrider</li>
 		<li>WVC_Tough_Overrider</li>

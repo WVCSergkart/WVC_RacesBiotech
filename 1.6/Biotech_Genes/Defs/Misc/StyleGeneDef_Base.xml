@@ -205,6 +205,23 @@
 
   <!-- ======================================== -->
 
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaCatEars" Abstract="True" >
+	<uniqueStyleId>4022</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaCatEars">
+	<defName>WVC_MechaCatEars0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/CatEars</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaCatEars">
+	<defName>WVC_MechaCatEars1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/FourCatEars</texPath>
+	<selectionWeight>11.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
   <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
 	<defName>WVC_NoGraphic</defName>
 	<noGraphic>true</noGraphic>
@@ -217,6 +234,7 @@
 	  <li>1000011</li>
 	  <li>4020</li>
 	  <li>4021</li>
+	  <li>4022</li>
 	</allowedStyles>
   </WVC_XenotypesAndGenes.StyleGeneDef>
 
