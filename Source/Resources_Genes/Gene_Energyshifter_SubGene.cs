@@ -10,15 +10,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (Disabled)
+				if (base.Active)
 				{
-					return false;
+					return Shapeshifter != null;
 				}
-				if (Shapeshifter == null)
-				{
-					return false;
-				}
-				return base.Active;
+				return false;
 			}
 		}
 
@@ -55,6 +51,19 @@ namespace WVC_XenotypesAndGenes
 		public virtual void Notify_GenesRecache(Gene changedGene)
 		{
 			cachedShapeshifterGene = null;
+		}
+
+	}
+
+	public class Gene_Energyshifter_Regen : Gene_Energyshifter_SubGene
+	{
+
+		public override void TickInterval(int delta)
+		{
+			if (pawn.IsHashIntervalTick(1511, delta))
+			{
+				HealingUtility.Regeneration(pawn, 100, 1511);
+			}
 		}
 
 	}

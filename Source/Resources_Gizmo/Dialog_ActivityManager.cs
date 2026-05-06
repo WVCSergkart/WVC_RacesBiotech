@@ -12,12 +12,14 @@ namespace WVC_XenotypesAndGenes
 
 		public List<IGeneDisconnectable> genes;
 		private Gene masterGene;
+		private Pawn pawn;
 
 		public Dialog_ActivityManager(Pawn pawn, Gene masterGene)
 		{
 			forcePause = true;
 			doCloseButton = true;
 			this.masterGene = masterGene;
+			this.pawn = pawn;
 			UpdGenes(pawn);
 		}
 
@@ -71,9 +73,9 @@ namespace WVC_XenotypesAndGenes
 					if (Widgets.ButtonText(rect3, XaG_UiUtility.OnOrOff(!controller.Disabled)))
 					{
 						controller.Disabled = !controller.Disabled;
-						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
+						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
 						controller.UpdateCache();
-						UpdGenes(gene.pawn);
+						UpdGenes(pawn);
 						break;
 					}
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
@@ -93,7 +95,8 @@ namespace WVC_XenotypesAndGenes
 		public override void Close(bool doCloseSound = true)
 		{
 			base.Close(doCloseSound);
-			ReimplanterUtility.NotifyGenesChanged(masterGene.pawn);
+			MiscUtility.Notify_DebugPawn(pawn);
+			//ReimplanterUtility.NotifyGenesChanged(pawn);
 		}
 
 	}

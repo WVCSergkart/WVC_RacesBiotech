@@ -14,13 +14,11 @@
 	<label>TestTemplate</label>
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
 	<genes>
+		<!-- main -->
 		<li>WVC_Energyshifter</li>
+		<li>WVC_StasisStomach</li>
 		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_MecaBodyParts_Lung</li>
-		<li>WVC_MecaBodyParts_Kidney</li>
-		<li>WVC_MecaBodyParts_Liver</li>
-		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
-		<li>WVC_Rejuvenator</li>
+		<!-- graphic -->
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_SyntSkin</li>
 		<li>WVC_MechaSkin</li>
@@ -28,6 +26,17 @@
 		<li>WVC_HairColor_Slate</li>
 		<li>Skin_PaleRed</li>
 		<li>WVC_SkinColor_OldBones</li>
+		<!-- misc -->
+		<li>WVC_MecaBodyParts_Lung</li>
+		<!-- <li>WVC_MecaBodyParts_Kidney</li> -->
+		<li>WVC_Energyshifter_Immunity</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<li>WVC_Energyshifter_Rejuvenator</li>
+		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_Energyshifter_Regeneration</li>
+		<li>WVC_Energyshifter_ArmoredSkin</li>
+		<li>WVC_Incrementer</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

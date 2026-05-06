@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1446570681
+CRC: 4150867194
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 044cea0474afec5cdaa5274265ca3686
+    Hash: d74acb610c846e4aac18bbff21273234
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 821ffba05e8bca019a9ef661e9d869a1
+    Hash: 6953e82d8651d8275f45586e88650553
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -555,6 +555,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FurskinC_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/Archite2.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/StoneGene_Body/Naked_Male_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Rejuvenator.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PerfectShape_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Random_Hand_v0.png
@@ -672,6 +673,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemHunter_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/Crown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Shapeshifter_Body/Naked_Thin_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Armor.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/AnomalySerum_Morpher_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Armor_A_v0.png
@@ -721,6 +723,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Shapeshifter_PreservedCellular.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PowerSource_Stable.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/FoxEars_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Stomach_Hungerless.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PsyDull_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Transparent_Body/Naked_Male_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Female_north.png
@@ -762,6 +765,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Hulk_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/RunicGene_Head/Head_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Blindness_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Immunity.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Eyes/Female_Eye_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Eyes/HoloEyeMeca.png
@@ -1394,6 +1398,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/ScarifierSkills_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshmass_Rejuvenator.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/XenoTree_Moss/Cluster_A_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Regeneration.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Transparent_Body/Naked_Fat_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/ScarifierSkills_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_StorageGestator.png

@@ -83,4 +83,20 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_StasisStomach</defName>
+	<label>stasis stomach</label>
+	<stages>
+	  <li>
+		<hungerRateFactorOffset>-9.99</hungerRateFactorOffset>
+		<hungerRateFactor>0.0</hungerRateFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
 </Defs>

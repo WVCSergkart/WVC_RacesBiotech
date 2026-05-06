@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private float geneticMaterial;
-		public void TickMasterGene(int delay)
+		public void TickMasterGene(int delay, int outTicks)
 		{
 			geneticMaterial += delay;
 			if (geneticMaterial < 0f)

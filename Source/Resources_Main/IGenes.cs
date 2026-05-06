@@ -364,7 +364,7 @@ namespace WVC_XenotypesAndGenes
 		float ResourceConsumption { get; }
 		bool Active { get; }
 		void UpdateCache();
-		void TickMasterGene(int delay);
+		void TickMasterGene(int factorDelayTicks, int outTicks);
 
 	}
 

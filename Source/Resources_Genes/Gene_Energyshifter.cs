@@ -47,11 +47,21 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (ShaperResource_Raw >= 1f)
+				Update(true);
+				SimpleCurve geneticCurve = new()
 				{
-					return 1f;
-				}
-				return 0f;
+					new CurvePoint(0f, -100),
+					new CurvePoint(0.2f, -100),
+					new CurvePoint(0.5f, -70),
+					new CurvePoint(0.7f, 0),
+					new CurvePoint(1f, 100)
+				};
+				return geneticCurve.Evaluate(ShaperResource_Raw) * 0.01f;
+				//if (ShaperResource_Raw >= 1f)
+				//{
+				//	return 1f;
+				//}
+				//return 0f;
 			}
 		}
 
@@ -93,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 			foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 			{
 				// 15000 / 2500 = 6
-				geneDisconnectable.TickMasterGene(6);
+				geneDisconnectable.TickMasterGene(6, 15000);
 			}
 		}
 

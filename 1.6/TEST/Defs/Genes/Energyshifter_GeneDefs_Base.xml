@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" MayRequire="ludeon.rimworld.anomaly">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene">
 	<defName>WVC_Energyshifter</defName>
 	<label>energyshifter</label>
 	<description>Carriers of this gene have archites that are capable of rewriting and editing their owners' genetic code within certain limits, using the body's nutrients as energy.</description>
@@ -27,6 +27,19 @@
 			</xenotypeDefs>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_SubGene</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<prerequisite>WVC_Energyshifter</prerequisite>
+	<minAgeActive>0</minAgeActive>
+	<resourceLossPerDay>0.10</resourceLossPerDay>
   </GeneDef>
 
 </Defs>

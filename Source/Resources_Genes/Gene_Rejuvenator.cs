@@ -120,4 +120,26 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Energyshifter_Ageless : Gene_Energyshifter_SubGene
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Gene_Ageless.InitAgeless(this);
+		}
+
+		public override void TickMasterGene(int factorDelayTicks, int outTicks)
+		{
+			if (pawn.IsNestedHashIntervalTick(15000, 60000))
+			{
+				if (AgelessUtility.CanAgeReverse(pawn, 18))
+				{
+					AgelessUtility.AgeReverse(pawn);
+				}
+			}
+		}
+
+	}
+
 }

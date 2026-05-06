@@ -46,6 +46,7 @@
 	  <prefixSymbols>
 		<li><symbol>cat</symbol></li>
 		<li><symbol>neko</symbol></li>
+		<li><symbol>mata</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>

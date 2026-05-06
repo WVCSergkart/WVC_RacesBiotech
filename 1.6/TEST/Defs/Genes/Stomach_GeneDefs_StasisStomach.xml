@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base">
+	<defName>WVC_StasisStomach</defName>
+	<label>stasis stomach</label>
+	<description>Carriers of this gene have archites that greatly slow down the body's natural utilization of nutrients.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Stomach_Hungerless</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <displayOrderInCategory>-4.5</displayOrderInCategory> -->
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+	  <li>Hunger rate factor x0%</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stasis</symbol></li>
+		<li><symbol>stoma</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_StasisStomach</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
