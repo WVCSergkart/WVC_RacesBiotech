@@ -11,8 +11,8 @@
 	<displayOrderInCategory>1</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; and &lt;color=#8a8ae6&gt;energy&lt;/color&gt; genes.</li>
-		<li>Allows to turn &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; (and &lt;color=#8a8ae6&gt;energy&lt;/color&gt; genes) on and off.</li>
+		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt;.</li>
+		<li>Allows to turn &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt; on and off.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Energyshifter</li>

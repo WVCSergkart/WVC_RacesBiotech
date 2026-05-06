@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_SyntSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Syntskin/Naked_Male</Male>
+	  <Female>WVC/Bodies/Syntskin/Naked_Female</Female>
+	  <!-- ??? -->
+	  <!-- <Hulk>WVC/Bodies/Syntskin/Naked_Hulk</Hulk> -->
+	  <!-- <Fat>WVC/Bodies/Syntskin/Naked_Fat</Fat> -->
+	  <!-- <Thin>WVC/Bodies/Syntskin/Naked_Thin</Thin> -->
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <HeadTypeDef ParentName="WVC_XenotypesAndGenes_AverageBase">
+	<defName>WVC_SyntHead0c</defName>
+	<graphicPath>WVC/Heads/Synthead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_SyntSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+</Defs>

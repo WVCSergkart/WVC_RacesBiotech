@@ -113,6 +113,33 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_StandardBody : Gene_GauntSkin
+	{
+
+		public override void ChangeBodyType()
+		{
+			if (!Active)
+			{
+				return;
+			}
+			if (pawn?.gender == Gender.Female)
+			{
+				if (pawn?.story?.bodyType != BodyTypeDefOf.Female)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Female;
+				}
+			}
+			else if (pawn?.gender == Gender.Male)
+			{
+				if (pawn?.story?.bodyType != BodyTypeDefOf.Male)
+				{
+					pawn.story.bodyType = BodyTypeDefOf.Male;
+				}
+			}
+		}
+
+	}
+
 	// WIP
 	// [Obsolete]
 	//public class Gene_BodySize : XaG_Gene

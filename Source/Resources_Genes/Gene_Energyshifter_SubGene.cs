@@ -6,21 +6,21 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter_SubGene : Gene_Disconnectable, IGeneRecacheable
 	{
 
-		//public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (Disabled)
-		//		{
-		//			return false;
-		//		}
-		//		if (Shapeshifter == null)
-		//		{
-		//			return false;
-		//		}
-		//		return Shapeshifter.Active;
-		//	}
-		//}
+		public override bool Active
+		{
+			get
+			{
+				if (Disabled)
+				{
+					return false;
+				}
+				if (Shapeshifter == null)
+				{
+					return false;
+				}
+				return base.Active;
+			}
+		}
 
 		private Gene_Energyshifter cachedShapeshifterGene;
 		public Gene_Energyshifter Shapeshifter
@@ -30,10 +30,10 @@ namespace WVC_XenotypesAndGenes
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
-					//if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
-					//{
-					//	Disabled = true;
-					//}
+					if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
+					{
+						Disabled = true;
+					}
 				}
 				return cachedShapeshifterGene;
 			}

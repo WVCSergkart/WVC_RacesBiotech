@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Genepack spawner -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_Genemaker</defName>
+	<label>genemaker</label>
+	<description>Carriers of this gene have archites that replicate their genetic code, and then form metallic growths on the body, recording a fragment of the code there. After some time, the growth detaches from the body, and the carrier experiences a short-term effect of xenogerm replication.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Genemaker</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Genemaker_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<marketValueFactor>1.2</marketValueFactor>
+	<minAgeActive>3</minAgeActive>
+	<biostatArc>2</biostatArc>
+	<biostatCpx>0</biostatCpx>
+	<customEffectDescriptions>
+		<li>Every (*DateTime)5-9 days(/DateTime) a &lt;color=#8a8ae6&gt;genepack&lt;/color&gt; spawns containing one &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of the carrier or a &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; 80% similar to it.</li>
+		<li>After spawning, the carrier receives (*DateTime)4-6 days(/DateTime) of &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;.</li>
+		<li>&lt;color=#ffec85&gt;Turns on manually.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Effect cannot be disabled.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+			<matchPercent>0.8</matchPercent>
+			<durationIntervalRange><min>240000</min><max>360000</max></durationIntervalRange>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_GenepackCrystal</styleDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

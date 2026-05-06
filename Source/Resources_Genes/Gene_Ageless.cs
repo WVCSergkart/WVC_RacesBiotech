@@ -13,11 +13,15 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			List<Gene> endogenes = pawn.genes.Endogenes;
-			if (endogenes.Contains(this))
+			InitAgeless(this);
+		}
+
+		public static void InitAgeless(Gene gene)
+		{
+			List<Gene> endogenes = gene.pawn.genes.Endogenes;
+			if (endogenes.Contains(gene))
 			{
-				//AgelessUtility.Rejuvenation(pawn);
-				AgelessUtility.InitialRejuvenation(pawn);
+				AgelessUtility.InitialRejuvenation(gene.pawn);
 			}
 		}
 

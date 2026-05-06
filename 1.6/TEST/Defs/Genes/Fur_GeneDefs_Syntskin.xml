@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Syntskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_SyntSkin</defName>
+	<label>syntskin</label>
+	<description>Carriers of this gene have subcutaneous plasteel plates that make them more resilient. The joints between these plates create a mechanical appearance, which can be off-putting to others.</description>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_StandardBody</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_SyntHead0c</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<bodyType>Standard</bodyType>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+	</statOffsets>
+	<statFactors>
+	  <MeatAmount>0.9</MeatAmount>
+	</statFactors>
+	<fur>WVC_SyntSkin</fur>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Standard bodies only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>synt</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>robo</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
