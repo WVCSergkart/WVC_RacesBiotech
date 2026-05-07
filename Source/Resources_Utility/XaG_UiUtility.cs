@@ -109,6 +109,15 @@ namespace WVC_XenotypesAndGenes
 			return "Off".Translate().Colorize(ColorLibrary.RedReadable);
 		}
 
+		public static string ClickTo(bool on)
+		{
+			if (on)
+			{
+				return "WVC_ClickToDisable".Translate().Colorize(ColoredText.SubtleGrayColor);
+			}
+			return "WVC_ClickToEnable".Translate().Colorize(ColoredText.SubtleGrayColor);
+		}
+
 		public static void FlickSound(bool flick)
 		{
 			if (flick)

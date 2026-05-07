@@ -549,6 +549,24 @@ namespace WVC_XenotypesAndGenes
 			return geneDef.geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDef.geneClass);
 		}
 
+		public static bool ConflictWith_Cyclic(GeneDef targetDef, GeneDef callerDef, int hop = 1)
+		{
+			hop++;
+			if (hop > 100)
+			{
+				return false;
+			}
+			if (callerDef.ConflictsWith(targetDef))
+			{
+				return true;
+			}
+			if (callerDef.prerequisite != null)
+			{
+				return ConflictWith_Cyclic(targetDef, callerDef.prerequisite, hop);
+			}
+			return false;
+		}
+
 		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
 		{
 			foreach (GeneDef item in geneDefs)

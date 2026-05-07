@@ -129,7 +129,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			UpdateMetabolism();
-			UnlockXenotype(pawn.genes.XenotypeLabel);
+			if (MiscUtility.GameNotStarted())
+			{
+				UnlockXenotype(pawn.genes.XenotypeLabel);
+			}
 		}
 
 		private Gizmo gizmo;

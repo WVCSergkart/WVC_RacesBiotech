@@ -115,13 +115,16 @@ namespace WVC_XenotypesAndGenes
 				if (cachedConsumption == null)
 				{
 					float newConsumption = 0.1f;
+					float factor = 1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
 						if (geneDisconnectable.Active)
 						{
-							newConsumption += geneDisconnectable.ResourceConsumption;
+							newConsumption += geneDisconnectable.ResourceConsumption_Offset;
+							factor *= geneDisconnectable.ResourceConsumption_Factor;
 						}
 					}
+					newConsumption *= factor;
 					cachedConsumption = newConsumption;
 				}
 				return cachedConsumption.Value;

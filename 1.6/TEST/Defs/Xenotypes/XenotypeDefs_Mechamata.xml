@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev Name: Mechamata -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Mechamata</defName>
+	<label>mechamata</label>
+	<description>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
+	<descriptionShort>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
+	<displayPriority>-1024</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_StasisStomach</li>
+		<li>WVC_Energyshifter</li>
+		<li>WVC_Energyshifter_Rejuvenator</li>
+		<li>WVC_Energyshifter_Immunity</li>
+		<li>WVC_Energyshifter_Regeneration</li>
+		<li>WVC_Energyshifter_ArmoredSkin</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_ForeverYoung</li>
+		<li>MoveSpeed_Slow</li>
+		<li>WVC_Unbreakable</li>
+		<li>WVC_Mecha_EarsCat</li>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_SyntSkin</li>
+		<li>WVC_CatTailB</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>Skin_PaleRed</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li>DarkVision</li>
+		<li>WVC_ExpEqualizer</li>
+		<li>WVC_Learning_Stasis</li>
+		<li>WVC_Energyshifter_XenogenesEditor</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

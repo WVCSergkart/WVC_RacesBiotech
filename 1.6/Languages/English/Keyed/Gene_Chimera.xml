@@ -128,5 +128,6 @@
 	<!-- =============== XENOGENES EDITOR =============== -->
 
 	<WVC_XaG_IGeneXenogenesEditor_ApplyWarning>The selected genes will be added to the gene set of gene {0}.</WVC_XaG_IGeneXenogenesEditor_ApplyWarning>
+	<WVC_XaG_IGeneXenogenesEditor_ConflictWithMainGene>One of the selected genes conflicts with the {0} gene.</WVC_XaG_IGeneXenogenesEditor_ConflictWithMainGene>
 
 </LanguageData>

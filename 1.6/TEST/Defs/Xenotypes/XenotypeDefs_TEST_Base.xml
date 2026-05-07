@@ -9,41 +9,43 @@
   </XenotypeDef>
 
   <!-- TestTemplate -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST">
-	<defName>WVC_TestTemplate</defName>
-	<label>TestTemplate</label>
-	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
-	<genes>
-		<!-- main -->
-		<li>WVC_Energyshifter</li>
-		<li>WVC_StasisStomach</li>
-		<li>WVC_MechaPowerSource_Tox</li>
-		<!-- graphic -->
-		<li>WVC_Mecha_EarsCat</li>
-		<li>WVC_SyntSkin</li>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_CatTailB</li>
-		<li>WVC_HairColor_Slate</li>
-		<li>Skin_PaleRed</li>
-		<li>WVC_SkinColor_OldBones</li>
-		<!-- misc -->
-		<li>WVC_MecaBodyParts_Lung</li>
-		<!-- <li>WVC_MecaBodyParts_Kidney</li> -->
-		<li>WVC_Energyshifter_Immunity</li>
-		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
-		<li>WVC_Energyshifter_Rejuvenator</li>
-		<li>WVC_Hivemind_DeafDrone</li>
-		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_Energyshifter_Regeneration</li>
-		<li>WVC_Energyshifter_ArmoredSkin</li>
-		<li>WVC_Incrementer</li>
-	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(247, 255, 133)</defaultColor>
-		</li>
-	</modExtensions>
-  </XenotypeDef>
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
+	<!-- <defName>WVC_TestTemplate</defName> -->
+	<!-- <label>TestTemplate</label> -->
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
+	<!-- <genes> -->
+		<!-- <li>WVC_StasisStomach</li> -->
+		<!-- <li>WVC_Energyshifter</li> -->
+		<!-- <li>WVC_Energyshifter_Rejuvenator</li> -->
+		<!-- <li>WVC_Energyshifter_Immunity</li> -->
+		<!-- <li>WVC_Energyshifter_Regeneration</li> -->
+		<!-- <li>WVC_Energyshifter_ArmoredSkin</li> -->
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
+		<!-- <li>WVC_MecaBodyParts_Lung</li> -->
+		<!-- <li>WVC_Hivemind_DeafDrone</li> -->
+		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_ForeverYoung</li> -->
+		<!-- <li>MoveSpeed_Slow</li> -->
+		<!-- <li>WVC_Unbreakable</li> -->
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<!-- <li>WVC_MechaSkin</li> -->
+		<!-- <li>WVC_SyntSkin</li> -->
+		<!-- <li>WVC_CatTailB</li> -->
+		<!-- <li>WVC_HairColor_Slate</li> -->
+		<!-- <li>Skin_PaleRed</li> -->
+		<!-- <li>WVC_SkinColor_OldBones</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>WVC_ExpEqualizer</li> -->
+		<!-- <li>WVC_Learning_Stasis</li> -->
+		<!-- <li>WVC_Energyshifter_XenogenesEditor</li> -->
+	<!-- </genes> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <defaultColor>(247, 255, 133)</defaultColor> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </XenotypeDef> -->
 
   <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
 	<!-- <defName>WVC_TestTemplateB</defName> -->

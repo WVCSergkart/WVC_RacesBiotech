@@ -8,22 +8,41 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter_XenogenesEditor : Gene_RemoteController, IGeneDisconnectable, IGeneXenogenesEditor
 	{
 
+		public override string RemoteActionName => "Edit".Translate().CapitalizeFirst();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_Energyshaper_XenogenesEditorTip".Translate();
+
 		public Type MasterClass => typeof(Gene_Energyshifter);
 
+		public override string LabelCap => base.LabelCap + " (" + (int)geneticMaterial + ")";
+
 		private Gene_Energyshifter cachedShapeshifterGene;
-		public Gene_Energyshifter Shapeshifter
+		public Gene_Energyshifter Energyshifter
 		{
 			get
 			{
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
+					if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
+					{
+						Disabled = true;
+					}
 				}
 				return cachedShapeshifterGene;
 			}
 		}
 
-		public float ResourceConsumption => 0.05f;
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (MiscUtility.GameNotStarted())
+			{
+				geneticMaterial = new IntRange(1, 20).RandomInRange;
+			}
+		}
+
+		public float ResourceConsumption_Offset => def.resourceLossPerDay;
+		public float ResourceConsumption_Factor => 1f;
 
 		public List<GeneDef> AllGenes => GenelineGenes;
 
@@ -39,9 +58,9 @@ namespace WVC_XenotypesAndGenes
 				if (cachedGeneline == null)
 				{
 					cachedGeneline = new();
-					if (Shapeshifter != null)
+					if (Energyshifter != null)
 					{
-						cachedGeneline.AddRangeSafe(Shapeshifter.XenotypesGenes);
+						cachedGeneline.AddRangeSafe(Energyshifter.XenotypesGenes);
 					}
 				}
 				return cachedGeneline;
@@ -68,15 +87,16 @@ namespace WVC_XenotypesAndGenes
 		public int ArchiteLimit => 3;
 		public int ComplexityLimit => (int)geneticMaterial;
 
+		public List<GeneSetPreset> geneSetPresets = new();
 		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{
-				return null;
+				return geneSetPresets;
 			}
 			set
 			{
-
+				geneSetPresets = value;
 			}
 		}
 
@@ -90,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public IntRange ReqMetRange => new(-5, 999);
+		public IntRange ReqMetRange => new(-5, 5);
 
 		public bool ReqCooldown => true;
 		public bool DisableSubActions => true;
@@ -98,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void AddGene_Editor(GeneDef geneDef)
 		{
-			Shapeshifter?.AddGene_Safe(geneDef, false);
+			Energyshifter?.AddGene_Safe(geneDef, false);
 			if (geneDef.biostatArc != 0)
 			{
 				geneticMaterial = 0f;
@@ -119,6 +139,10 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				if (Disabled)
+				{
+					return false;
+				}
+				if (Energyshifter == null)
 				{
 					return false;
 				}
@@ -144,6 +168,14 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref disabled, "disabled", false);
 			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial");
+			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				if (geneSetPresets == null)
+				{
+					geneSetPresets = new();
+				}
+			}
 		}
 
 		public bool TryDisableGene(GeneDef geneDef) => false;
@@ -154,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedShapeshifterGene = null;
 			cachedGeneline = null;
-			Shapeshifter?.UpdateCache();
+			Energyshifter?.UpdateCache();
 		}
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)

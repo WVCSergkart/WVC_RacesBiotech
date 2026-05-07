@@ -1005,6 +1005,14 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_IGeneXenogenesEditor_InCooldown".Translate(gene.LabelCap), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
+			if (!isContainer)
+			{
+				if (selectedGenes.Any(geneDef => geneDef != gene.Def && XaG_GeneUtility.ConflictWith_Cyclic(geneDef, gene.Def)))
+				{
+					Messages.Message("WVC_XaG_IGeneXenogenesEditor_ConflictWithMainGene".Translate(gene.LabelCap), null, MessageTypeDefOf.RejectInput, historical: false);
+					return false;
+				}
+			}
 			return true;
 		}
 
@@ -1012,7 +1020,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (isContainer)
 			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_IGeneXenogenesEditor_ApplyWarning".Translate(gene.LabelCap), SimpleChange));
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_IGeneXenogenesEditor_ApplyWarning".Translate(gene.LabelCap), StartChange_Container));
 				return;
 			}
 			if (selectedGenes.NullOrEmpty())
@@ -1025,7 +1033,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void SimpleChange()
+		public void StartChange_Container()
 		{
 			//if (gene is IGeneXenogenesContainer container)
 			//{

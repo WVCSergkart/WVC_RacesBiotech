@@ -146,7 +146,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public virtual Type MasterClass => typeof(Gene);
-		public virtual float ResourceConsumption => def.resourceLossPerDay;
+		public virtual float ResourceConsumption_Offset => def.resourceLossPerDay;
+		public virtual float ResourceConsumption_Factor => 1f;
 
 		public virtual void TickMasterGene(int factorDelayTicks, int outTicks)
 		{

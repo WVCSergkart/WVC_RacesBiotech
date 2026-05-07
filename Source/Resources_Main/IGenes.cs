@@ -361,7 +361,8 @@ namespace WVC_XenotypesAndGenes
 		string LabelCap { get; }
 		bool Disabled { get; set; }
 		Type MasterClass { get; }
-		float ResourceConsumption { get; }
+		float ResourceConsumption_Offset { get; }
+		float ResourceConsumption_Factor { get; }
 		bool Active { get; }
 		void UpdateCache();
 		void TickMasterGene(int factorDelayTicks, int outTicks);

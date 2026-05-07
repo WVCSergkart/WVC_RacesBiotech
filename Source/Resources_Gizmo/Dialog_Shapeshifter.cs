@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public Gene_Shapeshifter gene;
+		public float reqGenesMatch;
 		public float minGenesMatch;
 
 		protected override string Header => gene.LabelCap;
@@ -46,7 +47,8 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed to filter out incompatible xenotypes. Reason: " + arg.Message);
 				allXenotypes = gene.Xenotypes;
 			}
-			minGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
+			reqGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
+			minGenesMatch = 0.5f * WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
 			SetupAvailableHolders(allXenotypes);
 			if (allXenotypes.Any(xenos => xenos.xenotypeDef == gene.pawn.genes.Xenotype))
 			{
@@ -94,8 +96,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!item.isTrueShiftForm)
 				{
-					item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, minGenesMatch, out float matchPercent, true, geneticMaterial);
-					item.matchPercent = matchPercent;
+					item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, reqGenesMatch, out float matchPercent, true, geneticMaterial);
+					item.matchPercent = Mathf.Clamp(matchPercent, 0f, 1f);
 				}
 			}
 			try
@@ -117,10 +119,10 @@ namespace WVC_XenotypesAndGenes
 			tries++;
 			if (xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
 			{
-				minGenesMatch -= 0.05f;
+				reqGenesMatch -= 0.05f;
 				if (DebugSettings.ShowDevGizmos)
 				{
-					Log.Warning("Required genes match decreased. New required match: " + minGenesMatch);
+					Log.Warning("Required genes match decreased. New required match: " + reqGenesMatch);
 				}
 				UpdHoldersOverride(xenotypes, tries);
 			}
@@ -128,12 +130,22 @@ namespace WVC_XenotypesAndGenes
 
 		private void UpdHoldersOverride(List<XenotypeHolder> xenotypes, int tries)
 		{
+			bool stop = false;
+			if (reqGenesMatch <= minGenesMatch)
+			{
+				reqGenesMatch = minGenesMatch;
+				stop = true;
+			}
 			foreach (XenotypeHolder item in xenotypes)
 			{
-				if (item.isOverriden && item.matchPercent >= minGenesMatch)
+				if (item.isOverriden && item.matchPercent >= reqGenesMatch)
 				{
 					item.isOverriden = false;
 				}
+			}
+			if (stop)
+			{
+				return;
 			}
 			UpdGenesMatchUpToMinOneXenotype(xenotypes, tries);
 		}
@@ -177,7 +189,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (selectedXenoHolder.isOverriden)
 			{
-				DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100));
+				DisabledText(rect, "WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(reqGenesMatch * 100));
 			}
 			//else
 			//{
@@ -231,7 +243,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (selectedXenoHolder.isOverriden)
 			{
-				Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(minGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
+				Messages.Message("WVC_XaG_GeneShapeshifter_MinMatchPercent".Translate(reqGenesMatch * 100), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
 			if (disabled)

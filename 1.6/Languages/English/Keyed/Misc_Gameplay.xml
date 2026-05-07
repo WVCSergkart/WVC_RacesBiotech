@@ -19,6 +19,11 @@
 	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
 	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
 
+	<Edit>edit</Edit>
+
+	<WVC_ClickToEnable>Click to enable</WVC_ClickToEnable>
+	<WVC_ClickToDisable>Click to disable</WVC_ClickToDisable>
+
 	<Apply>apply</Apply>
 
 	<WVC_None>None</WVC_None>

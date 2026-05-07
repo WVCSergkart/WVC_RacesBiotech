@@ -12,14 +12,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (base.Active)
 				{
-					return Shapeshifter != null;
+					return Energyshifter != null;
 				}
 				return false;
 			}
 		}
 
 		private Gene_Energyshifter cachedShapeshifterGene;
-		public Gene_Energyshifter Shapeshifter
+		public Gene_Energyshifter Energyshifter
 		{
 			get
 			{
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public override void UpdateCache()
 		{
 			base.UpdateCache();
-			Shapeshifter?.UpdateCache();
+			Energyshifter?.UpdateCache();
 		}
 
 		public override void TickInterval(int delta)
