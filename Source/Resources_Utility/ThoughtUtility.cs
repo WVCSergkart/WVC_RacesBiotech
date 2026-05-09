@@ -38,13 +38,18 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (showEffect)
 				{
-					Find.TickManager.slower.SignalForceNormalSpeedShort();
-					SoundDefOf.PsychicPulseGlobal.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
-					FleckMaker.AttachedOverlay(parent, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+					PulseEffect(parent);
 				}
 				pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(thoughtDef);
 				// pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(thoughtDef);
 			}
+		}
+
+		public static void PulseEffect(Thing parent)
+		{
+			Find.TickManager.slower.SignalForceNormalSpeedShort();
+			SoundDefOf.PsychicPulseGlobal.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+			FleckMaker.AttachedOverlay(parent, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 		}
 
 		// ============================= GENE OPINION =============================

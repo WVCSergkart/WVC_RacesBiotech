@@ -38,6 +38,8 @@
 		<li>WVC_ExpEqualizer</li>
 		<li>WVC_Learning_Stasis</li>
 		<li>WVC_Energyshifter_XenogenesEditor</li>
+		<li>WVC_Energyshifter_XenotypesUnlocker</li>
+		<li>WVC_Replacer</li>
 	</genes>
   </XenotypeDef>
 

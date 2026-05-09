@@ -873,6 +873,18 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		public static bool HasAllGenes(List<GeneDef> xenotypeGenes, List<GeneDef> collectedGenes)
+		{
+			foreach (GeneDef geneDef in xenotypeGenes)
+			{
+				if (!collectedGenes.Contains(geneDef))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 		public static bool HasAnyGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
 			if (geneDefs.NullOrEmpty() || pawn?.genes == null)

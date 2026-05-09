@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_Replacer</defName>
+	<label>replacer</label>
+	<description>Carriers of this gene have archites that can replace a target with a fairly accurate, though not perfect, copy of the carrier.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<abilities>
+	  <li>WVC_Replacer</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Replacer</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Replaces the target's &lt;color=#8076ff&gt;backstory, appearance, traits, skills, and genes&lt;/color&gt; with those of the caster.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+		<li>Cooldown: 30 days</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Replacer</defName>
+	<label>replacer</label>
+	<description>Replace the target with a copy of the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<cooldownTicksRange>1800000</cooldownTicksRange>
+	<warmupEffecter>ControlMech</warmupEffecter>
+	<jobDef></jobDef>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <warmupTime>3</warmupTime>
+	  <range>9</range>
+	  <requireLineOfSight>False</requireLineOfSight>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Replacer</compClass>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_Replacer</li>
+		</anyOfGenes>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

@@ -44,9 +44,25 @@ namespace WVC_XenotypesAndGenes
 		public float ResourceConsumption_Offset => def.resourceLossPerDay;
 		public float ResourceConsumption_Factor => 1f;
 
-		public List<GeneDef> AllGenes => GenelineGenes;
+		public List<GeneDef> AllGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				geneDefs.AddRangeSafe(GenelineGenes);
+				geneDefs.AddRangeSafe(CollectedGenes);
+				return geneDefs;
+			}
+		}
 
-		public List<GeneDef> CollectedGenes => new();
+		public List<GeneDef> CollectedGenes
+		{
+			get
+			{
+				return Energyshifter?.CollectedGenes ?? new();
+			}
+		}
+
 		public List<GeneDef> DisabledGenes => new();
 		public List<GeneDef> DestroyedGenes => new();
 
@@ -61,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 					if (Energyshifter != null)
 					{
 						cachedGeneline.AddRangeSafe(Energyshifter.XenotypesGenes);
+						cachedGeneline.AddRangeSafe(Energyshifter.CollectedGenes);
 					}
 				}
 				return cachedGeneline;
@@ -107,6 +124,10 @@ namespace WVC_XenotypesAndGenes
 			if (geneticMaterial < 0f)
 			{
 				geneticMaterial = 0f;
+			}
+			else if (geneticMaterial > 100f)
+			{
+				geneticMaterial = 100f;
 			}
 		}
 

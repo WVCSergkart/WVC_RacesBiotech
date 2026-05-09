@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -64,6 +65,45 @@ namespace WVC_XenotypesAndGenes
 			{
 				HealingUtility.Regeneration(pawn, 100, 1511);
 			}
+		}
+
+	}
+
+	public class Gene_Energyshifter_Solar : Gene_Energyshifter_SubGene
+	{
+
+		public override void TickInterval(int delta)
+		{
+			if (pawn.IsHashIntervalTick(2500, delta))
+			{
+				UpdatePower();
+			}
+		}
+
+		private float? cachedPowerFactor;
+		public override float ResourceConsumption_Factor
+		{
+			get
+			{
+				if (cachedPowerFactor == null)
+				{
+					if (pawn.MapHeld == null)
+					{
+						cachedPowerFactor = 0.5f;
+					}
+					else
+					{
+						cachedPowerFactor = Mathf.Clamp(1f - pawn.MapHeld.glowGrid.GroundGlowAt(pawn.PositionHeld), 0f, 1f);
+					}
+				}
+				return cachedPowerFactor.Value;
+			}
+		}
+
+		private void UpdatePower()
+		{
+			cachedPowerFactor = null;
+			Energyshifter?.UpdateConsumption();
 		}
 
 	}

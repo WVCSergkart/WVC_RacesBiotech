@@ -73,6 +73,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantGeneDef.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Impregnate.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_NewImplanter.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_Replacer.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_SwitchImplanter.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Resources_Genes\Gene_Energyshifter.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter_SubGene.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter_XenogenesEditor.cs" />
+    <Compile Include="Resources_Genes\Gene_Energyshifter_XenotypesUnlocker.cs" />
     <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />

@@ -43,6 +43,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public List<GeneDef> CollectedGenes
+		{
+			get
+			{
+				if (collectedGeneDefs == null)
+				{
+					collectedGeneDefs = new();
+				}
+				return collectedGeneDefs;
+			}
+		}
+
 		public override float GeneticMatchOffset
 		{
 			get
@@ -71,6 +83,7 @@ namespace WVC_XenotypesAndGenes
 			base.PreShapeshift(genesRegrowing);
 		}
 
+		public List<string> UnlcokedXenotypes => unlockedXenotypes;
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
@@ -84,6 +97,19 @@ namespace WVC_XenotypesAndGenes
 				}).ToList();
 			}
 		}
+
+		//private static List<XenotypeHolder> cachedXenotypeHolders;
+		//public List<XenotypeHolder> XenotypeHolders
+		//{
+		//	get
+		//	{
+		//		if (cachedXenotypeHolders == null)
+		//		{
+		//			cachedXenotypeHolders = base.Xenotypes;
+		//		}
+		//		return cachedXenotypeHolders;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -114,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedConsumption == null)
 				{
-					float newConsumption = 0.1f;
+					float newConsumption = 0.02f;
 					float factor = 1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
@@ -129,6 +155,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedConsumption.Value;
 			}
+		}
+
+		public void UpdateConsumption()
+		{
+			cachedConsumption = null;
 		}
 
 		public void Update(bool direct, float percentageOffset = 0.01f)

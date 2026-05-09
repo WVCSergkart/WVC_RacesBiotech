@@ -76,7 +76,16 @@ namespace WVC_XenotypesAndGenes
 			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
 		}
 
+
 		protected List<GeneDef> collectedGeneDefs;
+		public virtual void UnlockGeneDef(GeneDef geneDef)
+		{
+			if (collectedGeneDefs == null)
+			{
+				collectedGeneDefs = new();
+			}
+			collectedGeneDefs.AddSafe(geneDef);
+		}
 
 		public virtual List<XenotypeHolder> Xenotypes => ListsUtility.GetAllXenotypesHolders();
 		public virtual List<GeneDef> XenotypesGenes

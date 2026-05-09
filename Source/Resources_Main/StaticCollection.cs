@@ -85,6 +85,15 @@ namespace WVC_XenotypesAndGenes
 			//Thought_PsychicHarem.badMoodTicks = -1;
 		}
 
+		//public static void ResetPerSpawn()
+		//{
+		//	Gene_Energyshifter_XenotypesUnlocker.cachedPawns = null;
+		//	if (MiscUtility.GameStarted())
+		//	{
+		//		Gene_Energyshifter_XenotypesUnlocker.shouldUpdate = true;
+		//	}
+		//}
+
 		//public static void AddHideMechanitors(Pawn pawn)
 		//{
 		//	if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
