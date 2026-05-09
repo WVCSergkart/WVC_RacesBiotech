@@ -347,7 +347,7 @@
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_Corpse.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
-    <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />
+    <Compile Include="Resources_Things\CompProperties_CustomFloatMenu.cs" />
     <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
@@ -367,6 +367,7 @@
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_LayHumanEgg.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_OpenStylingStationDialog.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_SummonBackupPawns.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_XaGJob_General.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
@@ -378,6 +379,7 @@
     <Compile Include="Resources_Thought\Thought_PsychicHarem.cs" />
     <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
     <Compile Include="Resources_Utility\DeathlessUtility.cs" />
+    <Compile Include="Resources_Utility\EffectsUtility.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />

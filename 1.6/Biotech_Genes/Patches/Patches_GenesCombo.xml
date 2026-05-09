@@ -68,6 +68,17 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="CommsConsole"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+		  <compClass>WVC_XenotypesAndGenes.CompBackupSummonPawns</compClass>
+		  <jobDef>WVC_SummonBackupPawns</jobDef>
+		  <iconPath>WVC/UI/Genes3/Gene_Backup</iconPath>
+		</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>bloodeater_SafeBloodfeed</settingName> -->
 		<!-- <caseTrue Class="PatchOperationSequence"> -->

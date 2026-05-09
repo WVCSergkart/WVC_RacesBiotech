@@ -293,6 +293,61 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool CanStartPregnancy(Pawn pawn, GeneExtension_Giver giver = null, bool throwMessage = true)
+		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn, throwMessage))
+			{
+				return false;
+			}
+			if (!WVC_Biotech.settings.enable_pregnancyForAllGenders && giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return CanStartPregnancy(pawn, throwMessage);
+		}
+
+		public static bool CanStartPregnancy(Pawn pawn, bool throwMessage)
+		{
+			if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
+			{
+				if (throwMessage)
+				{
+					Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
+			{
+				if (throwMessage)
+				{
+					Messages.Message("PawnIsTooYoung".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
+		}
+
+		public static bool IsSterile(this Pawn pawn, bool throwMessage)
+		{
+			//if (!CanStartPregnancy(pawn, throwMessage))
+			//{
+			//	return false;
+			//}
+			if (pawn.Sterile())
+			{
+				if (throwMessage)
+				{
+					Messages.Message("PawnIsSterile".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return true;
+			}
+			return false;
+		}
+
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========

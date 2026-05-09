@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_MinMaxTemp_Adaptive</defName>
+	<label>temperature adaptive</label>
+	<labelShortAdj>adaptive</labelShortAdj>
+	<description>Carriers of this gene are able to quickly adapt to the surrounding temperature.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes3/Gene_DynamicTemp_Fleshmass</iconPath>
+	<displayOrderInCategory>190</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-4</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Dynamically changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; every few hours relative to the &lt;color=#8a8ae6&gt;baseliner temperature&lt;/color&gt; sensitivity.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>MinTemperature</li>
+	  <li>MaxTemperature</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ice</symbol></li>
+		<li><symbol>hot</symbol></li>
+		<li><symbol>heat</symbol></li>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>sweat</symbol></li>
+		<li><symbol>bake</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_MinMaxTemp_Adaptive</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_MinMaxTemp_Adaptive</defName>
+	<label>temperature adaptation</label>
+	<description>Dynamic adaptation to ambient temperature.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_AdaptiveTemperature</hediffClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

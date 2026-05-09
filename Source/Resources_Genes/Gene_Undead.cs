@@ -506,4 +506,82 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Backup : XaG_Gene, IGeneRecacheable, IGeneOverriddenBy, IGeneNotifyLifeStageStarted
+	{
+
+		private static HashSet<Pawn> cachedPawns;
+		public static HashSet<Pawn> BackupPawns
+		{
+			get
+			{
+				if (cachedPawns == null)
+				{
+					List<Pawn> list = new();
+					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
+					{
+						if (pawn.HomeFaction != Faction.OfPlayer)
+						{
+							continue;
+						}
+						if (pawn?.genes?.GetFirstGeneOfType<Gene_Backup>() != null)
+						{
+							list.Add(pawn);
+						}
+					}
+					cachedPawns = [.. list];
+				}
+				return cachedPawns;
+			}
+		}
+
+		public static void ResetCache()
+		{
+			cachedPawns = null;
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetCache();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			ResetCache();
+		}
+
+		public void Notify_GenesRecache(Gene changedGene)
+		{
+			ResetCache();
+		}
+
+		public void Notify_LifeStageStarted()
+		{
+			ResetCache();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			ResetCache();
+		}
+
+		public void Notify_Override()
+		{
+			ResetCache();
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			base.Notify_PawnDied(dinfo, culprit);
+			if (!Active)
+			{
+				return;
+			}
+			EffectsUtility.SkipBodyFromMap(pawn);
+			//ResetCache();
+		}
+
+	}
+
 }

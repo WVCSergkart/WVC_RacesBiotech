@@ -19,4 +19,10 @@
 	<reportString>repairing TargetA.</reportString>
   </JobDef>
 
+  <JobDef>
+	<defName>WVC_SummonBackupPawns</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_SummonBackupPawns</driverClass>
+	<reportString>summoning backup.</reportString>
+  </JobDef>
+
 </Defs>

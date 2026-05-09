@@ -108,4 +108,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// DEV
+	public class Gene_Energyshifter_Learning : Gene_Energyshifter_SubGene
+	{
+
+		public override void TickMasterGene(int factorDelayTicks, int outTicks)
+		{
+
+		}
+
+	}
+
 }

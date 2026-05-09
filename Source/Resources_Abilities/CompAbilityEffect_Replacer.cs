@@ -19,8 +19,8 @@ namespace WVC_XenotypesAndGenes
 				if (victim != null)
 				{
 					DuplicateUtility.CopyPawn(caster, victim);
-					MiscUtility.DoSkipEffects(caster.PositionHeld, caster.MapHeld);
-					MiscUtility.DoSkipEffects(victim.PositionHeld, victim.MapHeld);
+					EffectsUtility.DoSkipEffects(caster.PositionHeld, caster.MapHeld);
+					EffectsUtility.DoSkipEffects(victim.PositionHeld, victim.MapHeld);
 				}
 			}
 			catch (Exception arg)

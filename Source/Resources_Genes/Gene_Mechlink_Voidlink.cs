@@ -69,16 +69,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!MiscUtility.TryGetAndDestroyCorpse_WithPosition(pawn, out Map mapHeld, out IntVec3 positionHeld))
+			if (EffectsUtility.SkipBodyFromMap(pawn))
 			{
-				return;
+				ScenPart_PawnModifier_IceWorld.lastDeadVoidPawn = pawn;
 			}
-			ScenPart_PawnModifier_IceWorld.lastDeadVoidPawn = pawn;
-			if (mapHeld == null)
-			{
-				return;
-			}
-			MiscUtility.DoSkipEffects(positionHeld, mapHeld);
 		}
 
 		public void Notify_PawnKilled()
@@ -407,7 +401,7 @@ namespace WVC_XenotypesAndGenes
 				selectedMechs.Remove(mechKind);
 				Pawn mech = TryGetNewMech(mechKind, ref phase);
 				phase = "effects and spawn";
-				MiscUtility.DoSkipEffects(spawnCell, pawn.MapHeld);
+				EffectsUtility.DoSkipEffects(spawnCell, pawn.MapHeld);
 				//if (mech.Spawned)
 				//{
 				//    MiscUtility.DoSkipEffects(mech.Position, pawn.MapHeld);

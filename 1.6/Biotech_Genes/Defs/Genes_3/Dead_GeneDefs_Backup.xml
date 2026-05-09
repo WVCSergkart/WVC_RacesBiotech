@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_Backup</defName>
+	<label>backup</label>
+	<description>Carriers of this gene have a strong psychic connection with the mechanoid fleet. Upon death, their body skips to the nearest ship, where they undergo regeneration and can then return.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Backup</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Backup</iconPath>
+	<displayOrderInCategory>-115</displayOrderInCategory>
+	<selectionWeight>0.00001</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Destroys&lt;/color&gt; the pawn's body upon death.</li>
+		<li>The pawn can be recalled through the &lt;color=#8a8ae6&gt;console&lt;/color&gt;, &lt;color=#8a8ae6&gt;summoned&lt;/color&gt; as a boss mechanoid.</li>
+		<li>This &lt;color=#8a8ae6&gt;summoning&lt;/color&gt; returns all pawns that died with this gene, if they still &lt;color=#8a8ae6&gt;exist&lt;/color&gt;.</li>
+		<li>&lt;color=#ff8585&gt;Only a mechanitor can summon.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

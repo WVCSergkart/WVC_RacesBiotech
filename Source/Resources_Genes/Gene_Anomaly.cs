@@ -58,10 +58,7 @@ namespace WVC_XenotypesAndGenes
 			// compMetalhorror.FindOrCreateEmergedLord();
 			Find.BattleLog.Add(new BattleLogEntry_Event(infected, RulePackDefOf.Event_MetalhorrorEmerged, horror));
 			horror.stances.stunner.StunFor(60, null, addBattleLog: false);
-			// return pawn2;
-			// GeneFeaturesUtility.TrySpawnBloodFilth(pawn2, new(3,4));
-			//WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(horror, horror.Map).Trigger(horror, null);
-			MiscUtility.DoShapeshiftEffects_OnPawn(horror);
+			EffectsUtility.DoShapeshiftEffects_OnPawn(horror);
 		}
 
 		public override void ExposeData()

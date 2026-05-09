@@ -7,25 +7,26 @@
 	<label>mechamata</label>
 	<description>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
 	<descriptionShort>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
-	<iconPath>WVC/UI/Icons3/Xeno_Metalkin_v0</iconPath>
+	<iconPath>WVC/UI/Icons3/Icon_Mechamata1c</iconPath>
 	<displayPriority>-1024</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
+		<li>WVC_Backup</li>
 		<li>WVC_StasisStomach</li>
 		<li>WVC_Energyshifter</li>
 		<li>WVC_Energyshifter_Rejuvenator</li>
 		<li>WVC_Energyshifter_Immunity</li>
 		<li>WVC_Energyshifter_Regeneration</li>
-		<li>WVC_Energyshifter_ArmoredSkin</li>
+		<!-- <li>WVC_Energyshifter_ArmoredSkin</li> -->
 		<li>WVC_MechaPowerSource_Tox</li>
 		<li>WVC_MecaBodyParts_Lung</li>
 		<li>WVC_Hivemind_DeafDrone</li>
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_ForeverYoung</li>
-		<li>MoveSpeed_Slow</li>
+		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_Unbreakable</li>
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_MechaSkin</li>
@@ -35,8 +36,8 @@
 		<li>Skin_PaleRed</li>
 		<li>WVC_SkinColor_OldBones</li>
 		<li>DarkVision</li>
-		<li>WVC_ExpEqualizer</li>
-		<li>WVC_Learning_Stasis</li>
+		<!-- <li>WVC_ExpEqualizer</li> -->
+		<!-- <li>WVC_Learning_Stasis</li> -->
 		<li>WVC_Energyshifter_XenogenesEditor</li>
 		<li>WVC_Energyshifter_XenotypesUnlocker</li>
 		<li>WVC_Replacer</li>

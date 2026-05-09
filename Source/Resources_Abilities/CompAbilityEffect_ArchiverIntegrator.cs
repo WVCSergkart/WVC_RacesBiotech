@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 				if (Archiver.TryArchiveSelectedPawn(victim, parent.pawn, Archiver))
 				{
 					phase = "meat boom";
-					MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
+					EffectsUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
 					phase = "message";
 					Messages.Message("WVC_XaG_GeneArchiverIntegrator_Succes".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
 				}

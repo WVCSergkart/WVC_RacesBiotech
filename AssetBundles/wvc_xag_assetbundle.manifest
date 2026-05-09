@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 4150867194
+CRC: 1141066621
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d74acb610c846e4aac18bbff21273234
+    Hash: 64fc00d4f9b432a422d114ccab4cfa8b
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6953e82d8651d8275f45586e88650553
+    Hash: 19bc05c2203ce60b7e9830f3f06086a7
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -58,6 +58,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/HalfBones/Naked_Hulk_west.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_BloodHarvester_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/AntennaTail_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Replacer.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsA_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Xeno_Ferrkind_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_TemperatureAdaptation_v0.png
@@ -111,6 +112,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/XenotypesCharger/XenoRecharger_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemConstructor_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Aptitudes_Social.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_SwitchLearning.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_HeadTentacles0c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Chimera_GeneNetwork.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Fat_east.png
@@ -129,6 +131,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/DryadMedicinemaker_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_CrossPlate_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_MorpherSubGene_DearhRefusal.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Mechamata0c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_XenogenesEditor.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_PsychicallyAlmostDeaf_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_SelfeaterStomach_v0.png
@@ -163,6 +166,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_GeneDatabase.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_SharedMetabolism.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Male_eastm.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Mechamata1c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/SkillUp.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Cyberskin_Body/Naked_Female_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Wimp_C.png
@@ -483,6 +487,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WildnessB_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/MaleBody_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/Bone_Head/BoneHeadEyes_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Mechamata2c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/XenoTree_Seed/Seeds_A.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Wimp.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/HalfBones/MaleBody_east.png
@@ -617,6 +622,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Thin_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_MorpherSubGene_RandXenos.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/DryadMedicinemaker_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Backup.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Cyberskin_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_VeryWeakImmunity.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_SelfRepairWoundHealing_v0.png
@@ -1416,6 +1422,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/GeneBackground_XenoArchiteGene.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/TentaclesChestFat_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DeathrestSubGenes_FastRest.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_SolarCharge.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/BoneWings_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/HalfBones/MaleBody_west.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DecreasedVoidLimit_v0.png

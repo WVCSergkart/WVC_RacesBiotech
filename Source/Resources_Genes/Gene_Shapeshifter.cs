@@ -432,7 +432,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
+			EffectsUtility.DoShapeshiftEffects_OnPawn(pawn);
 			//if (!Undead.soundDefOnImplant.NullOrUndefined())
 			//{
 			//}

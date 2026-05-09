@@ -70,4 +70,20 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Mechamata -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata2c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata3c</texPath>
+  </XenotypeIconDef>
+
 </Defs>

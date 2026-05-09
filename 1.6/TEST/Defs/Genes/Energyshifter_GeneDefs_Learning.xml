@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_Learning</defName>
+	<label>TEST optional learning</label>
+	<description>Carriers of this gene cannot learn new skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_Learning</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_SwitchLearning</iconPath>
+	<displayOrderInCategory>230</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<resourceLossPerDay>-0.10</resourceLossPerDay>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
+	<!-- <forcedTraits> -->
+	  <!-- <li MayRequire="Ludeon.RimWorld.Anomaly"> -->
+		<!-- <def>PerfectMemory</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+  </GeneDef>
+
+</Defs>

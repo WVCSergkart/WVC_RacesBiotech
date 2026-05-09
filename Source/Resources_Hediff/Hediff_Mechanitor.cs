@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 			Voidlink?.UpdHediff();
 			if (pawn.Corpse?.MapHeld != null)
 			{
-				MiscUtility.DoSkipEffects(pawn.Corpse.PositionHeld, pawn.Corpse.MapHeld);
+				EffectsUtility.DoSkipEffects(pawn.Corpse.PositionHeld, pawn.Corpse.MapHeld);
 				pawn.Corpse?.Destroy();
 			}
 			Voidlink?.CacheReset(false);

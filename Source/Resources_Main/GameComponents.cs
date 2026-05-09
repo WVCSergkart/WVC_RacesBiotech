@@ -122,10 +122,13 @@ namespace WVC_XenotypesAndGenes
 		//}
 
 		public List<ReincarnationSet> reincarnations;
+		public bool backup_shouldSummon = false;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref reincarnations, "reincarnations", LookMode.Deep);
+			Scribe_Values.Look(ref backup_shouldSummon, "backup_shouldSummon", false);
 		}
 
 		public override void GameComponentTick()
@@ -157,9 +160,58 @@ namespace WVC_XenotypesAndGenes
 			//}
 			//HealingUtility.UpdRegenCollection();
 			TryReincarnate();
+			TrySummon();
 		}
 
-		public void TryReincarnate()
+		private void TrySummon()
+		{
+			if (!backup_shouldSummon)
+			{
+				return;
+			}
+			string phase = "";
+			try
+			{
+				List<Map> homeMaps = Find.Maps.Where(map => map.IsPlayerHome).ToList();
+				if (homeMaps.NullOrEmpty())
+				{
+					return;
+				}
+				Gene_Backup.ResetCache();
+				if (Gene_Backup.BackupPawns.NullOrEmpty())
+				{
+					return;
+				}
+				List<Thing> summonList = new();
+				foreach (Pawn pawn in Gene_Backup.BackupPawns)
+				{
+					if (pawn.HomeFaction != Faction.OfPlayer)
+					{
+						continue;
+					}
+					if (!pawn.Dead || pawn.Corpse != null)
+					{
+						continue;
+					}
+					if (ResurrectionUtility.TryResurrect(pawn))
+					{
+						summonList.Add(pawn);
+					}
+				}
+				if (MiscUtility.TrySummonDropPod(homeMaps.RandomElement(), summonList))
+				{
+					//Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(), LetterDefOf.PositiveEvent, new LookTargets(summonList));
+					Messages.Message("WVC_XaG_GeneBackup_Message".Translate(), new LookTargets(summonList), MessageTypeDefOf.NegativeEvent);
+				}
+				backup_shouldSummon = false;
+			}
+			catch (Exception arg)
+			{
+				Log.Error($"Failed summon pawn. On phase {phase}. Reason: {arg.Message}");
+			}
+		}
+
+		private void TryReincarnate()
 		{
 			if (reincarnations == null)
 			{

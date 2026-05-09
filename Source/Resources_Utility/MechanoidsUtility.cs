@@ -119,12 +119,12 @@ namespace WVC_XenotypesAndGenes
 			return ((24f * WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick) / 100f / (energy / 100)).ToStringPercent();
 		}
 
-		public static bool HasEnoughGolembond(Pawn mechanitor, float additionalBond = 0)
-		{
-			float maxBond = TotalGolembond(mechanitor);
-			float consumedBond = GetConsumedGolembond(mechanitor) + additionalBond;
-			return maxBond >= consumedBond;
-		}
+		//public static bool HasEnoughGolembond(Pawn mechanitor, float additionalBond = 0)
+		//{
+		//	float maxBond = TotalGolembond(mechanitor);
+		//	float consumedBond = GetConsumedGolembond(mechanitor) + additionalBond;
+		//	return maxBond >= consumedBond;
+		//}
 
 		public static List<PawnKindDef> GetAllControlledGolems_PawnKinds(Pawn mechanitor)
 		{
@@ -208,14 +208,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool IsGolemlike(this PawnKindDef pawnkind)
-		{
-			if (pawnkind.race.race.IsMechanoid)
-			{
-				return pawnkind.race.GetCompProperties<CompProperties_Golem>() != null;
-			}
-			return false;
-		}
+		//public static bool IsGolemlike(this PawnKindDef pawnkind)
+		//{
+		//	if (pawnkind.race.race.IsMechanoid)
+		//	{
+		//		return pawnkind.race.GetCompProperties<CompProperties_Golem>() != null;
+		//	}
+		//	return false;
+		//}
 
 		// public static bool GetGolemistGene(this Pawn pawn, out Gene_MechlinkWithGizmo mechlinkWithGizmo)
 		// {
@@ -262,10 +262,10 @@ namespace WVC_XenotypesAndGenes
 		// return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
 		// }
 
-		public static bool MechanitorIsGolemist(Pawn mechanitor)
-		{
-			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Golemlink>() != null;
-		}
+		//public static bool MechanitorIsGolemist(Pawn mechanitor)
+		//{
+		//	return mechanitor?.genes?.GetFirstGeneOfType<Gene_Golemlink>() != null;
+		//}
 
 		// Ideo
 

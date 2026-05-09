@@ -304,86 +304,6 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.NotifyGenesChanged(pawn);
 		}
 
-		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
-		{
-			if (ModsConfig.AnomalyActive)
-			{
-				//HediffUtility.MutationMeatSplatter(pawn, false, FleshbeastUtility.MeatExplosionSize.Small);
-				MiscUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Small);
-			}
-			MainDefOf.WVC_ShapeshiftBurst.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
-		}
-
-		public static void MeatSplatter(Pawn pawn, FleshbeastUtility.MeatExplosionSize size, int bloodDropSize = 3)
-		{
-			for (int i = 0; i < bloodDropSize; i++)
-			{
-				pawn.health.DropBloodFilth();
-			}
-			FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld, size);
-		}
-
-		public static void DoSkipEffects(IntVec3 spawnCell, Map map)
-		{
-			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(spawnCell, map), spawnCell, 60);
-			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(spawnCell, map));
-		}
-
-		public static bool CanStartPregnancy(Pawn pawn, GeneExtension_Giver giver = null, bool throwMessage = true)
-		{
-			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(pawn, throwMessage))
-			{
-				return false;
-			}
-			if (!WVC_Biotech.settings.enable_pregnancyForAllGenders && giver != null && giver.gender != Gender.None && giver.gender != pawn.gender)
-			{
-				if (throwMessage)
-				{
-					Messages.Message("WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return false;
-			}
-			return CanStartPregnancy(pawn, throwMessage);
-		}
-
-		public static bool CanStartPregnancy(Pawn pawn, bool throwMessage)
-		{
-			if (HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) != null)
-			{
-				if (throwMessage)
-				{
-					Messages.Message("WVC_XaG_Gene_SimpleGestatorFailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return false;
-			}
-			if ((pawn.ageTracker?.CurLifeStage?.reproductive) == false)
-			{
-				if (throwMessage)
-				{
-					Messages.Message("PawnIsTooYoung".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return false;
-			}
-			return true;
-		}
-
-		public static bool IsSterile(this Pawn pawn, bool throwMessage)
-		{
-			//if (!CanStartPregnancy(pawn, throwMessage))
-			//{
-			//	return false;
-			//}
-			if (pawn.Sterile())
-			{
-				if (throwMessage)
-				{
-					Messages.Message("PawnIsSterile".Translate(pawn.Named("PAWN")).Resolve(), null, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return true;
-			}
-			return false;
-		}
-
 		public static void MakeCustomJob(Pawn pawn, Thing target, JobDef jobDef, GeneDef geneDef = null, bool allStack = false, float factor = 1f)
 		{
 			XaG_Job xaG_Job = new(JobMaker.MakeJob(jobDef, target));
@@ -825,6 +745,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Researchs
 
+		[Obsolete]
 		public static bool AllProjectsFinished(List<ResearchProjectDef> researchProjects, out ResearchProjectDef nonResearched)
 		{
 			nonResearched = null;
@@ -910,11 +831,11 @@ namespace WVC_XenotypesAndGenes
 		//	return mult;
 		//}
 
-		[Obsolete]
-		public static void CountAllPlayerControlledPawns_StaticCollection()
-		{
-			UpdateStaticCollection();
-		}
+		//[Obsolete]
+		//public static void CountAllPlayerControlledPawns_StaticCollection()
+		//{
+		//	UpdateStaticCollection();
+		//}
 
 		//public static void UpdateStaticCollection(bool updAllCollections = false)
 		//{

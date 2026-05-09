@@ -245,7 +245,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Spawned)
 			{
-				MiscUtility.MeatSplatter(pawn, size);
+				EffectsUtility.MeatSplatter(pawn, size);
 			}
 		}
 

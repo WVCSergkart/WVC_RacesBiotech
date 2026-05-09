@@ -146,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (startingAndOptionalPawn.Spawned)
 					{
-						MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
+						EffectsUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
 					}
 				}
 			}

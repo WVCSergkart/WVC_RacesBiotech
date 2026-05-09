@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 						newGolem.Name = dryad.Name;
 					}
 					newGolem.Rotation = dryad.Rotation;
-					MiscUtility.DoShapeshiftEffects_OnPawn(dryad);
+					EffectsUtility.DoShapeshiftEffects_OnPawn(dryad);
 					dryad.Destroy();
 					Messages.Message("WVC_XaG_GolemCreatedFromRandomDryad_Message".Translate(newGolem.Name.ToString()), newGolem, MessageTypeDefOf.PositiveEvent);
 					return true;

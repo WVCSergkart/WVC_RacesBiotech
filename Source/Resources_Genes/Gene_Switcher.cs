@@ -174,7 +174,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (pawn.SpawnedOrAnyParentSpawned)
 				{
-					MiscUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+					EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 				}
 			}
 			catch (Exception arg)

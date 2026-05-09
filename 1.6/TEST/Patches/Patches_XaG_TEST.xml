@@ -9,29 +9,29 @@
 
 	<!-- Mushkin integration patch -->
 	<!-- To-Do: Added to main after dormant drone gene release -->
-	<Operation Class="PatchOperationFindMod">
-		<mods>
-			<li>Biomes! Genetics: Mushkin</li>
-		</mods>
-		<match Class="PatchOperationAdd">
-		  <xpath>/Defs/XenotypeDef[@Name="BGM_BaseMush"]/genes</xpath>
-		  <success>Always</success>
-		  <value>
-			<li>WVC_Hivemind_DormantDrone</li>
-		  </value>
-		</match>
-	</Operation>
+	<!-- <Operation Class="PatchOperationFindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>Biomes! Genetics: Mushkin</li> -->
+		<!-- </mods> -->
+		<!-- <match Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/XenotypeDef[@Name="BGM_BaseMush"]/genes</xpath> -->
+		  <!-- <success>Always</success> -->
+		  <!-- <value> -->
+			<!-- <li>WVC_Hivemind_DormantDrone</li> -->
+		  <!-- </value> -->
+		<!-- </match> -->
+	<!-- </Operation> -->
 
 	<!-- ============================================================ -->
 
 	<!-- health affects genes regrowing -->
 	<!-- To-Do: do more tests -->
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps</xpath>
-	  <value>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_XenogermReplicating"/>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps</xpath> -->
+	  <!-- <value> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_XenogermReplicating"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- Featherdust Rework Part 2 -->
 	<!-- <Operation Class="PatchOperationRemove"> -->

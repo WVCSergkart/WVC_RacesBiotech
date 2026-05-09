@@ -260,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			MiscUtility.DoShapeshiftEffects_OnPawn(pawn);
+			EffectsUtility.DoShapeshiftEffects_OnPawn(pawn);
 		}
 
 		public void DoEffects(Pawn pawn)

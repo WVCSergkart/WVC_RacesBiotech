@@ -38,13 +38,6 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'DarkVision')]]]/nullifyingGenes</xpath>
-	  <value>
-		  <li>WVC_FleshmassSkin</li>
-	  </value>
-	</Operation>
-
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="DeathPall" or defName="GrayPall" or defName="DeadlifeDust"]</xpath>
 	  <safetyDepth>1</safetyDepth>
@@ -62,16 +55,6 @@
 	  <value>
 		<nullifyingGenes>
 		  <li>WVC_DarknessExposure</li>
-		</nullifyingGenes>
-	  </value>
-	</Operation>
-
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="ApparelDamaged" or defName="DeadMansApparel"]</xpath>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<nullifyingGenes>
-		  <li>WVC_FleshmassArmor</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>

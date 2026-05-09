@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 					phase = "meat boom";
 					if (ModsConfig.AnomalyActive)
 					{
-						MiscUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
+						EffectsUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
 					}
 					phase = "Notify_DevouredFlesh";
 					Notify_DevouredFlesh(caster, victim);
