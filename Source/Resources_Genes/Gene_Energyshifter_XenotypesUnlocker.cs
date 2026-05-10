@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 						break;
 					}
 				}
-				phase = "unlock researched xenotypes";
+				phase = "unlock researched xenotype";
 				if (newXenotypeName != null)
 				{
 					Energyshifter.UnlockXenotype(newXenotypeName);

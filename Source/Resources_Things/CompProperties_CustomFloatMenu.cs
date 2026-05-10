@@ -197,7 +197,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (!list.Any())
 					{
-						list.Add(new FloatMenuOption("WVC_None".Translate(), null));
+						list.Add(new FloatMenuOption("WVC_XaG_GeneBackup_NeedMechanitor".Translate(), null));
 					}
 					Find.WindowStack.Add(new FloatMenu(list));
 				}

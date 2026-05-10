@@ -222,7 +222,8 @@
 	<WVC_XaG_GeneBackup_Summon>Summon backuped pawns</WVC_XaG_GeneBackup_Summon>
 	<WVC_XaG_GeneBackup_SummonDesc>Summons pawns with the backup gene if any still exist. 30-day cooldown.</WVC_XaG_GeneBackup_SummonDesc>
 	<WVC_XaG_GeneBackup_Message>Backup is on the way!</WVC_XaG_GeneBackup_Message>
-	<WVC_XaG_GeneBackup_Cooldown>Cannot be used now. {0}</WVC_XaG_GeneBackup_Cooldown>
+	<WVC_XaG_GeneBackup_Cooldown>Cannot be used now. Cooldown {0}.</WVC_XaG_GeneBackup_Cooldown>
+	<WVC_XaG_GeneBackup_NeedMechanitor>No mechanitors in reach.</WVC_XaG_GeneBackup_NeedMechanitor>
 
 	<!-- ============================ BiosculpterPod ============================ -->
 

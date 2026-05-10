@@ -83,7 +83,18 @@ namespace WVC_XenotypesAndGenes
 			base.PreShapeshift(genesRegrowing);
 		}
 
-		public List<string> UnlcokedXenotypes => unlockedXenotypes;
+		public List<string> UnlcokedXenotypes
+		{
+			get
+			{
+				if (unlockedXenotypes == null)
+				{
+					unlockedXenotypes = [ "baseliner" ];
+				}
+				return unlockedXenotypes;
+			}
+		}
+
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
