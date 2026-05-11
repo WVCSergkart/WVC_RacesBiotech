@@ -132,6 +132,7 @@
 	<defName>WVC_ForeverYoung</defName>
 	<label>very slow aging</label>
 	<description>Carriers of this gene mature very slowly, which is why they remain young for a very long time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ElfAging</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Ageless_ForeverYoung_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>

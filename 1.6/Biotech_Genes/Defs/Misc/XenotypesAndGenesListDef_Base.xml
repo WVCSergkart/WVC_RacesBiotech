@@ -366,6 +366,9 @@
 		<li>WVC_Wings_BoneWings</li>	<!-- bone wings -->
 		<li>WVC_Wings_TentacleWings</li>	<!-- tentacle wings -->
 		<!-- From log -->
+		<!-- = -->
+		<li>WVC_StasisAging</li>
+		<li>WVC_ForeverYoung</li>
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>

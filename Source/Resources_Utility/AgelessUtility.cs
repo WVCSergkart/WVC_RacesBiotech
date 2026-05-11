@@ -17,6 +17,11 @@ namespace WVC_XenotypesAndGenes
 		public static void AddAge(Pawn pawn, int age)
 		{
 			pawn.ageTracker.AgeBiologicalTicks += age;
+			AddChronoAge(pawn, age);
+		}
+
+		public static void AddChronoAge(Pawn pawn, int age)
+		{
 			pawn.ageTracker.AgeChronologicalTicks += age;
 		}
 

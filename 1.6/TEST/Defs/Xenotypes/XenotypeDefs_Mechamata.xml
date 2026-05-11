@@ -25,7 +25,8 @@
 		<li>WVC_Hivemind_DeafDrone</li>
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_ForeverYoung</li>
+		<li>WVC_StasisAging</li>
+		<!-- <li>WVC_ForeverYoung</li> -->
 		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_Unbreakable</li>
 		<li>WVC_Mecha_EarsCat</li>

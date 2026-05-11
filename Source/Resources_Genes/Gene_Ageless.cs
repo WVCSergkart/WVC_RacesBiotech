@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -125,6 +126,32 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref ticksToAgeReversal, "ticksToAgeReversal", 0);
 		}
+	}
+
+	public class Gene_ElfAging : Gene_Ageless
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			SetupChronoAge(pawn, this);
+		}
+
+		public static void SetupChronoAge(Pawn pawn, Gene gene)
+		{
+			try
+			{
+				if (MiscUtility.GameNotStarted() && gene.Active)
+				{
+					AgelessUtility.AddChronoAge(pawn, (int)(pawn.ageTracker.AgeBiologicalYears / Mathf.Clamp(gene.def.biologicalAgeTickFactorFromAgeCurve.Evaluate(pawn.ageTracker.AgeBiologicalYears), 0.1f, 999f)));
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error($"Failed correct chrono age. Reason: {arg.Message}");
+			}
+		}
+
 	}
 
 }

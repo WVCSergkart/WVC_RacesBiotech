@@ -83,10 +83,10 @@ namespace WVC_XenotypesAndGenes
 				phase = "unlcok new gene";
 				Energyshifter.UnlockGeneDef(newGeneDef);
 				string newXenotypeName = null;
-				phase = "research xenotypes";
+				phase = "try get new xenotype";
 				foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders().Where(xenos => !Energyshifter.UnlcokedXenotypes.Contains(xenos.Label)))
 				{
-					phase = "check genes: " + xenotypeHolder.Label;
+					phase = "check holder genes: " + xenotypeHolder.Label;
 					if (XaG_GeneUtility.HasAllGenes(xenotypeHolder.genes, Energyshifter.CollectedGenes))
 					{
 						newXenotypeName = xenotypeHolder.Label;
