@@ -21,11 +21,11 @@
 		<li>WVC_Energyshifter_Regeneration</li>
 		<!-- <li>WVC_Energyshifter_ArmoredSkin</li> -->
 		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_Energyshifter_SolarCharger</li>
 		<li>WVC_Hivemind_DeafDrone</li>
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_StasisAging</li>
+		<li>WVC_Energyshifter_SlowAging</li>
 		<!-- <li>WVC_ForeverYoung</li> -->
 		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_Unbreakable</li>
@@ -41,7 +41,14 @@
 		<!-- <li>WVC_Learning_Stasis</li> -->
 		<li>WVC_Energyshifter_XenogenesEditor</li>
 		<li>WVC_Energyshifter_XenotypesUnlocker</li>
-		<li>WVC_Replacer</li>
+		<!-- <li>WVC_Replacer</li> -->
+		<li>WVC_MecaBodyParts_Lung</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
+		<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
+		<!-- <li>WVC_MaxTemp_ArchiteIncrease</li> -->
+		<li>Aggression_DeadCalm</li>
+		<li>Neversleep</li>
 	</genes>
   </XenotypeDef>
 

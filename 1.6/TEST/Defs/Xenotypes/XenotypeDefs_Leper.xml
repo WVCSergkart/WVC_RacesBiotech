@@ -25,7 +25,6 @@
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
 		<li>WVC_Chimera_Devourer</li>
-		<!-- <li>WVC_Shapeshifter</li> -->
 		<li>WVC_Fleshshaper</li>
 		<li>WVC_SharedMetabolism</li>
 		<li>WVC_Agevenator</li>
@@ -48,13 +47,9 @@
 		<!-- <li>WVC_SkinColor_FleshPink</li> -->
 		<!-- <li>WVC_SkinColor_FleshRed</li> -->
 		<li>Skin_SheerWhite</li>
+		<!-- <li>WVC_SkinColor_Devourer</li> -->
 		<!-- <li>WVC_SkinColor_PinkWhite</li> -->
 		<li>Inbred</li>
-		<!-- test -->
-		<!-- <li>WVC_Skinshaper</li> -->
-		<!-- space? -->
-		<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
-		<!-- <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li> -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

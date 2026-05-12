@@ -367,20 +367,26 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)
 		{
-			//if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
-			//{
-			//	return false;
-			//}
-			//float chance = GetFoodPoisonChance(pawn, thing);
 			float chance = FoodUtility.GetFoodPoisonChanceFactor(pawn);
-			//Log.Error(chance.ToString());
 			if (Rand.Chance(chance))
 			{
-				//Log.Error("1");
 				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
 				return true;
 			}
 			return false;
+		}
+
+		public static bool TryAddFoodPoisoningHediff_Safe(Pawn pawn, Thing thing)
+		{
+			if (thing.def.ingestible?.foodType == FoodTypeFlags.Fluid)
+			{
+				return false;
+			}
+			if (!thing.def.IsDrug)
+			{
+				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
+			}
+			return true;
 		}
 
 		//public static bool TryGetFoodPoisoningChanceFactorFromTraits(Pawn pawn, Thing ingestible, out float poisonChanceOverride)

@@ -62,4 +62,10 @@
 	<!-- <skinColorOverride>(230,150,50)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_Devourer</defName> -->
+	<!-- <label>devourer skin</label> -->
+	<!-- <skinColorOverride>(140,130,124)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
 </Defs>

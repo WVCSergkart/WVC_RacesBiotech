@@ -19,7 +19,7 @@
 		<li>Adding &lt;color=#8a8ae6&gt;new xenogenes&lt;/color&gt; consumes genetic material depending on the &lt;color=#8a8ae6&gt;complexity&lt;/color&gt; of the genes.</li>
 		<li>&lt;color=#8a8ae6&gt;Archite&lt;/color&gt; genes always consume all genetic material.</li>
 		<li>The amount of genetic material can be seen on the gene label.</li>
-		<li>&lt;color=#8076ff&gt;Nutrients offset&lt;/color&gt;: -6%/day</li>
+		<!-- <li>&lt;color=#8076ff&gt;Nutrients offset&lt;/color&gt;: -6%/day</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Energyshifter_XenogenesEditor</li>

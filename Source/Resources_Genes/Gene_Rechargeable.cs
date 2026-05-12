@@ -237,19 +237,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			//IngestibleProperties ingestible = thing?.def?.ingestible;
-			//if (ingestible != null && ingestible.CachedNutrition > 0f)
-			//{
-			//	GeneResourceUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
-			//}
-			if (thing.def.ingestible?.foodType == FoodTypeFlags.Fluid)
-			{
-				return;
-			}
-			if (!thing.def.IsDrug)
-			{
-				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
-			}
+			MiscUtility.TryAddFoodPoisoningHediff_Safe(pawn, thing);
 		}
 
 		public override void ExposeData()

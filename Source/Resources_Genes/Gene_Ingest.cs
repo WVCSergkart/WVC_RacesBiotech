@@ -113,4 +113,17 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class Gene_StasisStomach : Gene_AddOrRemoveHediff
+	//{
+
+	//	public override void Notify_IngestedThing(Thing thing, int numTaken)
+	//	{
+	//		if (Active)
+	//		{
+	//			MiscUtility.TryAddFoodPoisoningHediff_Safe(pawn, thing);
+	//		}
+	//	}
+
+	//}
+
 }

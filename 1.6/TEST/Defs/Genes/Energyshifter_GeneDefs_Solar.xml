@@ -2,15 +2,20 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
-	<defName>WVC_Energyshifter_Solar</defName>
-	<label>solar</label>
+	<defName>WVC_Energyshifter_SolarCharger</defName>
+	<label>solar charger</label>
 	<description>Carriers of this gene do not lose nutrients in bright light from the energyshifter gene, but they lose significantly more nutrients overall.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_Solar</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_SolarCharger</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_SolarCharge</iconPath>
 	<displayOrderInCategory>235</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Reduces &lt;color=#8a8ae6&gt;resource consumption&lt;/color&gt; relative to ambient light &lt;color=#8a8ae6&gt;brightness&lt;/color&gt;.</li>
+		<li>Replenishes 60% of &lt;color=#8a8ae6&gt;resource&lt;/color&gt; per day when exposed to &lt;color=#8a8ae6&gt;sunlight&lt;/color&gt;.</li>
+		<li>Triggers &lt;color=#8a8ae6&gt;rechargeable&lt;/color&gt; sub-genes. Weak effect.</li>
+	</customEffectDescriptions>
 	<resourceLossPerDay>0.20</resourceLossPerDay>
   </GeneDef>
 

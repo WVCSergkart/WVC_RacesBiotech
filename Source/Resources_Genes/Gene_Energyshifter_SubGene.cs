@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RimWorld;
+using RimWorld.Planet;
+using System;
 using UnityEngine;
 using Verse;
 
@@ -69,13 +71,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Energyshifter_Solar : Gene_Energyshifter_SubGene
+	public class Gene_Energyshifter_SolarCharger : Gene_Energyshifter_SubGene, IGeneDevourer
 	{
 
 		public override void TickInterval(int delta)
 		{
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
+				Charge();
 				UpdatePower();
 			}
 		}
@@ -106,6 +109,54 @@ namespace WVC_XenotypesAndGenes
 			Energyshifter?.UpdateConsumption();
 		}
 
+		private void Charge()
+		{
+			if (!pawn.TryGetNeedFood(out Need_Food need_Food))
+			{
+				return;
+			}
+			if (pawn.MapHeld == null)
+			{
+				if (pawn.GetCaravan()?.NightResting == true)
+				{
+					need_Food.CurLevelPercentage += 0.05f;
+					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.05f, 1, 1f);
+				}
+				else
+				{
+					need_Food.CurLevelPercentage += 0.01f;
+					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.001f, 1, 1f);
+				}
+			}
+			else
+			{
+				if (pawn.PositionHeld.InSunlight(pawn.MapHeld))
+				{
+					need_Food.CurLevelPercentage += 0.025f;
+					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.025f, 1, 1f);
+				}
+			}
+		}
+
+		public void Notify_DevouredHuman(Pawn victim)
+		{
+
+		}
+
+		public void Notify_DevouredFlesh(Pawn victim)
+		{
+
+		}
+
+		public void Notify_DevouredMech(Pawn victim)
+		{
+			Need_MechEnergy energy = victim.needs?.energy;
+			if (energy != null)
+			{
+				GeneResourceUtility.OffsetNeedFood(pawn, energy.CurLevel);
+			}
+		}
+
 	}
 
 	// DEV
@@ -115,6 +166,17 @@ namespace WVC_XenotypesAndGenes
 		public override void TickMasterGene(int factorDelayTicks, int outTicks)
 		{
 
+		}
+
+	}
+
+	public class Gene_Energyshifter_SlowAging : Gene_Energyshifter_SubGene
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Gene_ElfAging.SetupChronoAge(pawn, this);
 		}
 
 	}

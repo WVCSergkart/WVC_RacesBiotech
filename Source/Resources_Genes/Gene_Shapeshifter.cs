@@ -215,11 +215,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void ChangeType_GermlineXenogerm()
 		{
+			bool isXenogene = pawn.genes.IsXenogene(this);
 			if (!XaG_GeneUtility.TryRemoveAllConflicts(pawn, def))
 			{
 				return;
 			}
-			pawn.genes.AddGene(def, !pawn.genes.IsXenogene(this));
+			pawn.genes.AddGene(def, !isXenogene);
 			Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
 			if (gene_Shapeshifter != null)
 			{

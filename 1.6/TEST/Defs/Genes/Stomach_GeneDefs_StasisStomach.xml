@@ -5,6 +5,7 @@
 	<defName>WVC_StasisStomach</defName>
 	<label>stasis stomach</label>
 	<description>Carriers of this gene have archites that greatly slow down the body's natural utilization of nutrients.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_StasisStomach</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Stomach_Hungerless</iconPath>
 	<biostatCpx>3</biostatCpx>
@@ -15,6 +16,7 @@
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 	  <li>Hunger rate factor x0%</li>
+	  <!-- <li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any food sources.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

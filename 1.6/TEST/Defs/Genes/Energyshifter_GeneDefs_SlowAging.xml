@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- DEV -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
-	<defName>WVC_StasisAging</defName>
-	<label>stasis aging</label>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_SlowAging</defName>
+	<label>energy-saving aging</label>
 	<description>Carriers of this gene age incredibly slowly.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ElfAging</geneClass>
-	<iconPath>WVC/UI/Genes3/Gene_StasisAging</iconPath>
-	<biostatCpx>-1</biostatCpx>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_SlowAging</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_SlowAging</iconPath>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<resourceLossPerDay>-0.12</resourceLossPerDay>
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
 		<li>(0, 0.2)</li>

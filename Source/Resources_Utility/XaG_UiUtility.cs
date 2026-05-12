@@ -100,6 +100,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static string ToStringPlusMinus(this float value)
+		{
+			if (value > 0)
+			{
+				return "+" + value.ToString();
+			}
+			return value.ToString();
+		}
+
 		public static string OnOrOff(bool on)
 		{
 			if (on)
