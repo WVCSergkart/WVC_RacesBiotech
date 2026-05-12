@@ -73,11 +73,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGenelineGenes == null)
 				{
-					cachedGenelineGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where((def) => !def.IsAndroid()).ToList();
+					cachedGenelineGenes = Database.ToList();
 				}
 				return cachedGenelineGenes;
 			}
 		}
+
+		public static IEnumerable<GeneDef> Database => DefDatabase<GeneDef>.AllDefsListForReading.Where((def) => !def.IsAndroid());
 
 	}
 

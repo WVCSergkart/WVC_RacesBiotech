@@ -19,6 +19,8 @@
 	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
 	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
 
+	<WVC_TotalMetabolism>Total genetic metabolism: {0}</WVC_TotalMetabolism>
+
 	<Edit>edit</Edit>
 
 	<WVC_ClickToEnable>Click to enable</WVC_ClickToEnable>

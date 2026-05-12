@@ -275,7 +275,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (geneDef.resourceLossPerDay != 0 && geneDef.IsGeneDefOfType<IGeneDisconnectable>())
 			{
-				geneDef.customEffectDescriptions.Add("WVC_XaG_EnergyshifterSubGenesOffset".Translate((geneDef.resourceLossPerDay * -100).ToStringPlusMinus()).ToString());
+				geneDef.customEffectDescriptions.Add("WVC_XaG_EnergyshifterSubGenesOffset".Translate(geneDef.resourceLossPerDay.ToStringResource()).ToString());
 			}
 			if (geneDef.IsGeneDefOfType<IGeneHivemind>())
 			{

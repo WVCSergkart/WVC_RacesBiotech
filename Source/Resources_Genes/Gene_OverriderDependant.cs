@@ -12,21 +12,10 @@ namespace WVC_XenotypesAndGenes
 
 		// public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
 
-		public override TaggedString RemoteActionDesc
-		{
-			get
-			{
-				string text = base.RemoteActionDesc;
-				text += "\n\n" + "Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + def.biostatCpx.ToStringWithSign();
-				text += "\n" + "Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + def.biostatMet.ToStringWithSign();
-				text += "\n" + "ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + def.biostatArc.ToStringWithSign();
-				return text;
-			}
-		}
+		public override TaggedString RemoteActionDesc => def.DescriptionFull + "\n\n" + XaG_UiUtility.ClickTo(overriddenByGene == null);
 
 		[Unsaved(false)]
 		private Gene_Overrider cachedGene;
-
 		public Gene_Overrider Energy
 		{
 			get

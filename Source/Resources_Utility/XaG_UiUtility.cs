@@ -6,6 +6,7 @@ using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using static RimWorld.FleshTypeDef;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -100,8 +101,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static string ToStringPlusMinus(this float value)
+		public static string ToStringResource(this float value)
 		{
+			return (value * -100).ToStringPlusMinus(0);
+		}
+
+		public static string ToStringPlusMinus(this float value, int round = 2)
+		{
+			value = (float)Math.Round(value, round);
 			if (value > 0)
 			{
 				return "+" + value.ToString();

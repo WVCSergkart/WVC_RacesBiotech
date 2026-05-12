@@ -139,6 +139,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 			{
+				if (!geneDisconnectable.Active)
+				{
+					continue;
+				}
 				// 15000 / 2500 = 6
 				geneDisconnectable.TickMasterGene(6, 15000);
 			}
@@ -151,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedConsumption == null)
 				{
-					float newConsumption = 0.02f;
+					float newConsumption = def.resourceLossPerDay + (TotalMetabolism * -0.01f);
 					float factor = 1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
@@ -167,6 +171,8 @@ namespace WVC_XenotypesAndGenes
 				return cachedConsumption.Value;
 			}
 		}
+
+		public int TotalMetabolism => pawn.genes.GenesListForReading.Where(gene => !gene.Overridden).Sum(gene => gene.def.biostatMet);
 
 		public void UpdateConsumption()
 		{
@@ -194,7 +200,7 @@ namespace WVC_XenotypesAndGenes
 			base.UpdateCache();
 			disabled = false;
 			cachedSubGenes = null;
-			cachedConsumption = null;
+			UpdateConsumption();
 		}
 
 		public override bool TryOffsetResource(float count)

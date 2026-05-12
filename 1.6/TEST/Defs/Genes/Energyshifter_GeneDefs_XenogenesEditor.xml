@@ -24,6 +24,17 @@
 	<exclusionTags>
 	  <li>WVC_Energyshifter_XenogenesEditor</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- default genes -->
+			<geneCategoryDefs>
+			  <li>WVC_Overrider</li>
+			</geneCategoryDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

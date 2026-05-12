@@ -28,7 +28,43 @@ namespace WVC_XenotypesAndGenes
 			uncollapsedSize = 184f;
 		}
 
-		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.Consumption * 100);
+		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.Consumption.ToStringResource(), XenotypesMatch);
+
+		private string cachedSources = null;
+		public TaggedString Sources
+		{
+			get
+			{
+				if (cachedSources == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLineTagged(" -  " + gene_Energyshifter.LabelCap + ": " + gene.def.resourceLossPerDay.ToStringResource() + "%");
+					foreach (IGeneDisconnectable geneDisconnectable in gene_Energyshifter.SubGenes)
+					{
+						if (geneDisconnectable.Active)
+						{
+							stringBuilder.AppendLineTagged(" -  " + geneDisconnectable.LabelCap + ": " + geneDisconnectable.ResourceConsumption_Offset.ToStringResource() + "%");
+						}
+					}
+					stringBuilder.AppendLineTagged(" -  " + "WVC_TotalMetabolism".Translate(((float)gene_Energyshifter.TotalMetabolism).ToStringPlusMinus(0)) + "%");
+					cachedSources = stringBuilder.ToString().TrimEndNewlines();
+				}
+				return cachedSources;
+			}
+		}
+
+		private string cachedMatchOffset = null;
+		public TaggedString XenotypesMatch
+		{
+			get
+			{
+				if (cachedMatchOffset == null)
+				{
+					cachedMatchOffset = (gene_Energyshifter.GeneticMatchOffset > 0 ? "+" : "") + gene_Energyshifter.GeneticMatchOffset.ToStringPercent();
+				}
+				return cachedMatchOffset;
+			}
+		}
 
 		protected override void RecacheTick()
 		{
@@ -38,6 +74,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			nextRecache = 60;
+			cachedSources = null;
+			cachedMatchOffset = null;
 			gene_Energyshifter.Update(true);
 		}
 
@@ -97,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene_Energyshifter));
 				}
 			}
-			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(gene_Energyshifter.Consumption * 100));
+			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(Sources, gene_Energyshifter.Consumption.ToStringResource(), XenotypesMatch));
 		}
 
 	}

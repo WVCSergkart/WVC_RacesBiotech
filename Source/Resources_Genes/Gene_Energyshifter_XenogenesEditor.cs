@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Energyshifter_XenogenesEditor : Gene_RemoteController, IGeneDisconnectable, IGeneXenogenesEditor
+	public class Gene_Energyshifter_XenogenesEditor : Gene_RemoteController, IGeneDisconnectable, IGeneXenogenesEditor, IGeneWithEffects
 	{
 
 		public override string RemoteActionName => "Edit".Translate().CapitalizeFirst();
@@ -79,8 +80,27 @@ namespace WVC_XenotypesAndGenes
 						cachedGeneline.AddRangeSafe(Energyshifter.XenotypesGenes);
 						cachedGeneline.AddRangeSafe(Energyshifter.CollectedGenes);
 					}
+					cachedGeneline.AddRangeSafe(OverridedGenes);
 				}
 				return cachedGeneline;
+			}
+		}
+
+		private static List<GeneDef> cachedOverridedGenes;
+		public List<GeneDef> OverridedGenes
+		{
+			get
+			{
+				if (cachedOverridedGenes == null)
+				{
+					List<GeneDef> other = new();
+					if (Extension_Giver != null)
+					{
+						other = Gene_Chimera_GeneDatabase.Database.Where(geneDef => Extension_Giver.geneCategoryDefs.Contains(geneDef.displayCategory)).ToList();
+					}
+					cachedOverridedGenes = other;
+				}
+				return cachedOverridedGenes;
 			}
 		}
 
@@ -98,6 +118,20 @@ namespace WVC_XenotypesAndGenes
 					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
 				}
 				return cachedGeneExtension_Undead;
+			}
+		}
+
+
+		private GeneExtension_Giver cachedGeneExtension_Giver;
+		public GeneExtension_Giver Extension_Giver
+		{
+			get
+			{
+				if (cachedGeneExtension_Giver == null)
+				{
+					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGeneExtension_Giver;
 			}
 		}
 
@@ -221,6 +255,16 @@ namespace WVC_XenotypesAndGenes
 		public void UpdSubHediffs()
 		{
 
+		}
+
+		public void DoEffects()
+		{
+			Energyshifter?.DoEffects();
+		}
+
+		public void DoEffects(Pawn pawn)
+		{
+			DoEffects();
 		}
 
 	}

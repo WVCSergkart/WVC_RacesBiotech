@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1141066621
+CRC: 3074549344
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 64fc00d4f9b432a422d114ccab4cfa8b
+    Hash: 74794e99ff07ac7c99e1a4d69bdfb35f
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 19bc05c2203ce60b7e9830f3f06086a7
+    Hash: b71912d3858e818028d90d4c9db48bec
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -1156,6 +1156,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/DemonTailC_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Chimera_GeneEaterStomach_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_HunterB_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_SlowAging.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/TentaclesChestThin_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_MetLimit_0x0c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Construction/SkillUp_Equal.png
@@ -1330,6 +1331,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ExtremePsychicAbility_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/ShortDemonTailA_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/Naked_Hulk_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_StasisAging.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Headbone_Bighorns.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Hulk_southm.png
