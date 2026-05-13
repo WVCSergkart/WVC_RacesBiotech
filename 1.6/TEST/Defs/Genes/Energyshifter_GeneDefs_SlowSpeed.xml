@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_SlowSpeed</defName>
+	<label>energy-efficient runner</label>
+	<description>Carriers of this gene move very slowly.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_SuperSlow</iconPath>
+	<displayOrderInCategory>235</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<resourceLossPerDay>0.16</resourceLossPerDay>
+	<statOffsets>
+	  <MoveSpeed>-1.5</MoveSpeed>
+	</statOffsets>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

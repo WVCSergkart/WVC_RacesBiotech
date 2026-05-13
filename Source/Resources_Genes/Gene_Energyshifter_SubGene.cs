@@ -71,91 +71,94 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Energyshifter_SolarCharger : Gene_Energyshifter_SubGene, IGeneDevourer
+	public class Gene_Energyshifter_SolarCharger : Gene_Energyshifter_SubGene
 	{
 
 		public override void TickInterval(int delta)
 		{
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				Charge();
-				UpdatePower();
+				Energyshifter?.UpdateConsumption();
 			}
 		}
 
-		private float? cachedPowerFactor;
-		public override float ResourceConsumption_Factor
+		public override float ResourceConsumption_Offset
 		{
 			get
 			{
-				if (cachedPowerFactor == null)
+				if (pawn.MapHeld != null)
 				{
-					if (pawn.MapHeld == null)
+					SimpleCurve curve = new()
 					{
-						cachedPowerFactor = 0.5f;
-					}
-					else
-					{
-						cachedPowerFactor = Mathf.Clamp(1f - pawn.MapHeld.glowGrid.GroundGlowAt(pawn.PositionHeld), 0f, 1f);
-					}
+						new CurvePoint(0f, def.resourceLossPerDay),
+						new CurvePoint(0.5f, def.resourceLossPerDay),
+						new CurvePoint(1f, -0.6f)
+					};
+					return curve.Evaluate(pawn.MapHeld.glowGrid.GroundGlowAt(pawn.PositionHeld));
 				}
-				return cachedPowerFactor.Value;
+				return base.ResourceConsumption_Offset;
 			}
 		}
 
-		private void UpdatePower()
+		public override float ResourceConsumption_Factor => 1f;
+
+		public override void TickMasterGene(int factorDelayTicks, int outTicks)
 		{
-			cachedPowerFactor = null;
-			Energyshifter?.UpdateConsumption();
+			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Mathf.Clamp(Energyshifter.Consumption, 0f, 999f), 1, 0.5f);
 		}
 
-		private void Charge()
-		{
-			if (!pawn.TryGetNeedFood(out Need_Food need_Food))
-			{
-				return;
-			}
-			if (pawn.MapHeld == null)
-			{
-				if (pawn.GetCaravan()?.NightResting == true)
-				{
-					need_Food.CurLevelPercentage += 0.05f;
-					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.05f, 1, 1f);
-				}
-				else
-				{
-					need_Food.CurLevelPercentage += 0.01f;
-					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.001f, 1, 1f);
-				}
-			}
-			else
-			{
-				if (pawn.PositionHeld.InSunlight(pawn.MapHeld))
-				{
-					need_Food.CurLevelPercentage += 0.025f;
-					Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.025f, 1, 1f);
-				}
-			}
-		}
+		//private void UpdatePower()
+		//{
+		//	Energyshifter?.UpdateConsumption();
+		//}
 
-		public void Notify_DevouredHuman(Pawn victim)
-		{
+		//private void Charge()
+		//{
+		//	if (!pawn.TryGetNeedFood(out Need_Food need_Food))
+		//	{
+		//		return;
+		//	}
+		//	if (pawn.MapHeld == null)
+		//	{
+		//		if (pawn.GetCaravan()?.NightResting == true)
+		//		{
+		//			need_Food.CurLevelPercentage += 0.05f;
+		//			Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.05f, 1, 1f);
+		//		}
+		//		else
+		//		{
+		//			need_Food.CurLevelPercentage += 0.01f;
+		//			Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.001f, 1, 1f);
+		//		}
+		//	}
+		//	else
+		//	{
+		//		if (pawn.PositionHeld.InSunlight(pawn.MapHeld))
+		//		{
+		//			need_Food.CurLevelPercentage += 0.025f;
+		//			Gene_Rechargeable.NotifySubGenes_Charging(pawn, 0.025f, 1, 1f);
+		//		}
+		//	}
+		//}
 
-		}
+		//public void Notify_DevouredHuman(Pawn victim)
+		//{
 
-		public void Notify_DevouredFlesh(Pawn victim)
-		{
+		//}
 
-		}
+		//public void Notify_DevouredFlesh(Pawn victim)
+		//{
 
-		public void Notify_DevouredMech(Pawn victim)
-		{
-			Need_MechEnergy energy = victim.needs?.energy;
-			if (energy != null)
-			{
-				GeneResourceUtility.OffsetNeedFood(pawn, energy.CurLevel);
-			}
-		}
+		//}
+
+		//public void Notify_DevouredMech(Pawn victim)
+		//{
+		//	Need_MechEnergy energy = victim.needs?.energy;
+		//	if (energy != null)
+		//	{
+		//		GeneResourceUtility.OffsetNeedFood(pawn, energy.CurLevel);
+		//	}
+		//}
 
 	}
 

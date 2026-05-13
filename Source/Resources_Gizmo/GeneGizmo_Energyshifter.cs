@@ -47,9 +47,26 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 					stringBuilder.AppendLineTagged(" -  " + "WVC_TotalMetabolism".Translate(((float)gene_Energyshifter.TotalMetabolism).ToStringPlusMinus(0)) + "%");
+					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceFactorTip".Translate("x" + Factor.ToStringPercent()));
 					cachedSources = stringBuilder.ToString().TrimEndNewlines();
 				}
 				return cachedSources;
+			}
+		}
+
+		private float Factor
+		{
+			get
+			{
+				float factor = 1f;
+				foreach (IGeneDisconnectable geneDisconnectable in gene_Energyshifter.SubGenes)
+				{
+					if (geneDisconnectable.Active)
+					{
+						factor *= geneDisconnectable.ResourceConsumption_Factor;
+					}
+				}
+				return factor;
 			}
 		}
 

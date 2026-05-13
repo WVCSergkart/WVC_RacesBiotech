@@ -227,22 +227,23 @@
 	<WVC_XaG_GeneBackup_Cooldown>Cannot be used now. Cooldown {0}.</WVC_XaG_GeneBackup_Cooldown>
 	<WVC_XaG_GeneBackup_NeedMechanitor>No mechanitors in reach.</WVC_XaG_GeneBackup_NeedMechanitor>
 
+	<WVC_XaG_XenoHolder_GenesMatch>Genetic match</WVC_XaG_XenoHolder_GenesMatch>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
-	<!-- <WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted> -->
+	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
 
-	<!-- <WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo> -->
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>
 
-	<!-- <WVC_XaG_XenoHolder_GenesMatch>Genetic match</WVC_XaG_XenoHolder_GenesMatch> -->
-	<!-- <WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc> -->
+	<WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc>
 
-	<!-- <WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden> -->
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
 
-	<!-- <WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>No xenotypes available.</WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes> -->
+	<WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>No xenotypes available.</WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>
 
-	<!-- <WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog> -->
+	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
 
-	<!-- <WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc> -->
+	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
 
 	<!-- ============================ HIVEMIND ============================ -->
 

@@ -559,6 +559,15 @@
 		  <li>WVC_Nociokin</li>
 		</xenotypeDefs>
 	  </li>
+	  <li>
+		<!-- if_any_shapeshifter -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Shapeshifter</workerClass>
+		<chance>0.01</chance>
+		<xenotypeDefs>
+		  <li>WVC_Leper</li>
+		  <li>WVC_Mechamata</li>
+		</xenotypeDefs>
+	  </li>
 	</xenotypeGetterDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
