@@ -13,11 +13,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			StringBuilder stringBuilder = new();
 			WVC_Biotech mod = LoadedModManager.GetMod<WVC_Biotech>();
-			stringBuilder.AppendLine("Xenotypes and Genes is initialized successfully. Getting mod status:");
+			stringBuilder.AppendLine("[WVC - XaG] Xenotypes and Genes is initialized successfully. Getting mod status:");
 			if (mod != null)
 			{
 				stringBuilder.AppendLine(" - Mod version: " + mod.Content.ModMetaData.ModVersion);
-				stringBuilder.AppendLine(" - Steam status: " + (mod.Content.SteamAppId == 2886992038).ToStringTrueFalse_Debug());
+				//stringBuilder.AppendLine(" - Steam status: " + (mod.F ).ToStringTrueFalse_Debug());
 			}
 			stringBuilder.AppendLine(" - Compatability mode: " + WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability.ToStringTrueFalse_Debug(true));
 			stringBuilder.AppendLine(" - Human component status: " + WVC_Biotech.settings.enable_xagHumanComponent.ToStringTrueFalse_Debug());
