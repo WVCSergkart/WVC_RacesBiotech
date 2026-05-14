@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3074549344
+CRC: 155774087
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 74794e99ff07ac7c99e1a4d69bdfb35f
+    Hash: 357325625ec5dcae5d126c570ea3cb58
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: b71912d3858e818028d90d4c9db48bec
+    Hash: f9600b17ba5f7aa1d284086688a8d912
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -682,6 +682,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Armor.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/AnomalySerum_Morpher_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_SuperSlow.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Armor_A_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_BaselinerFertility.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Inhuman_v1.png

@@ -22,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 			stringBuilder.AppendLine(" - Compatability mode: " + WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability.ToStringTrueFalse_Debug(true));
 			stringBuilder.AppendLine(" - Human component status: " + WVC_Biotech.settings.enable_xagHumanComponent.ToStringTrueFalse_Debug());
 			stringBuilder.AppendLine(" - Mod graphic: " + (!WVC_Biotech.settings.disableAllGraphic).ToStringTrueFalse_Debug(true));
+			stringBuilder.AppendLine(" - Genes hidded: " + WVC_Biotech.settings.hideXaGGenes.ToStringTrueFalse_Debug());
 			stringBuilder.AppendLine(" - Xenotypes in factions (Obsolete): " + WVC_Biotech.settings.enable_spawnXenotypesInFactions.ToStringTrueFalse_Debug(true));
 			stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
 			stringBuilder.AppendLine(" - Aptitudes: " + WVC_Biotech.settings.generateSkillGenes.ToStringTrueFalse_Debug(true));
