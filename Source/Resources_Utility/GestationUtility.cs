@@ -253,6 +253,11 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		/// <summary>
+		/// Helper
+		/// </summary>
+		/// <param name="pawn"></param>
+		/// <returns></returns>
 		public static int GetLitterSize(Pawn pawn)
 		{
 			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));

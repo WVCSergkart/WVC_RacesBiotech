@@ -125,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 		protected void EnergyBar(Rect rect6)
 		{
 			CachedTexture cachedTexture = EnergyBarIcon;
+			// I can do better. But this much faster.
 			switch (gene.ShaperResource_Raw)
 			{
 				case >= 1.00f:

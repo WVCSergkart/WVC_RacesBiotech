@@ -519,6 +519,33 @@ namespace WVC_XenotypesAndGenes
 			return b ? "True" : "False";
 		}
 
+		public static string ToStringModsCount(int modsCount)
+		{
+			string text = "";
+			switch (modsCount)
+			{
+				case >= 500:
+					text = "Your mother big as your modlist";
+					break;
+				case > 350:
+					text = "Love playing debug game, huh?";
+					break;
+				case > 275:
+					text = "Very big";
+					break;
+				case > 170:
+					text = "Big";
+					break;
+				case > 120:
+					text = "Medium";
+					break;
+				case > 0:
+					text = "Perfect";
+					break;
+			}
+			return text + " (" + modsCount + ")";
+		}
+
 
 		public static void DevOptions(Listing_Standard listingStandard, Mod mod)
 		{

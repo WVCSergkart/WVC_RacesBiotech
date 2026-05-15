@@ -51,8 +51,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (hediff is Hediff_Pregnant pregnancy)
 			{
+				hatcheeParent = pregnancy.Mother ?? pregnancy.pawn;
 				otherParent = pregnancy.Father;
-				hatcheeParent = pregnancy.Mother;
 				geneSet = pregnancy.geneSet;
 				xenotypeHolder = new(otherParent, hatcheeParent, pregnancy.geneSet.GenesListForReading);
 			}
@@ -146,11 +146,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, parent2: father != null && father != pawn ? father : null, ignoreImplantPhase: true);
 				//AgelessUtility.SetAge();
-				ReimplanterUtility.SetCustomGenes(child, geneSet?.GenesListForReading ?? xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
+				ReimplanterUtility.SetCustomGenes(child, geneSet?.GenesListForReading ?? xenotypeHolder.genes, null, null, true);
 				//ReimplanterUtility.TryFixPawnXenotype_Beta(child);
 				if (mother?.genes?.Xenotype == father?.genes?.Xenotype || AnyParentIsNull())
 				{
 					child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
+					if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+					{
+						child.genes.xenotypeName = pawn.genes.xenotypeName;
+						child.genes.iconDef = pawn.genes.iconDef;
+					}
 				}
 				if (!AnyParentIsNull())
 				{

@@ -96,6 +96,8 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			this.genes = genes;
+			//this.name = parent2.genes.xenotypeName;
+			//this.iconDef = parent2.genes.iconDef;
 			this.inheritable = true;
 		}
 

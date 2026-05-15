@@ -60,8 +60,8 @@ namespace WVC_XenotypesAndGenes
 			if (hediff is Hediff_Pregnant pregnancy)
 			{
 				curStage = null;
+				mother = pregnancy.Mother ?? pregnancy.pawn;
 				father = pregnancy.Father;
-				mother = pregnancy.Mother;
 				geneSet = pregnancy.geneSet;
 				xenotypeHolder = new(father, mother, pregnancy.geneSet.GenesListForReading);
 				litterSize = GestationUtility.GetLitterSize(pawn);
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				CompHumanEgg.SpawnHatchee(mother, father, xenotypeHolder, GeneSet, pawn, litterSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
+				CompHumanEgg.SpawnHatchee(mother ?? pawn, father, xenotypeHolder, GeneSet, pawn, litterSize, "WVC_XaG_HumanBudHatchLabel", "WVC_XaG_HumanBudHatchDesc");
 			}
 			catch (Exception arg)
 			{
@@ -131,20 +131,20 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.Drafted)
 			{
 				yield return XaG_UiUtility.ITab_InspectBabyGenes();
-				if (mother != null && mother != pawn)
-				{
-					yield return new Command_Action
-					{
-						defaultLabel = "Mother".Translate() + "...",
-						defaultDesc = "WVC_SelectParent".Translate(),
-						icon = GeneSetHolderBase.GeneticInfoTex.Texture,
-						action = delegate
-						{
-							Find.Selector.ClearSelection();
-							Find.Selector.Select(mother);
-						}
-					};
-				}
+				//if (mother != null && mother != pawn)
+				//{
+				//	yield return new Command_Action
+				//	{
+				//		defaultLabel = "Mother".Translate() + "...",
+				//		defaultDesc = "WVC_SelectParent".Translate(),
+				//		icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+				//		action = delegate
+				//		{
+				//			Find.Selector.ClearSelection();
+				//			Find.Selector.Select(mother);
+				//		}
+				//	};
+				//}
 				if (father != null && father != pawn)
 				{
 					yield return new Command_Action
