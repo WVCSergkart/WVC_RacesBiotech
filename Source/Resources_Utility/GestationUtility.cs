@@ -123,24 +123,27 @@ namespace WVC_XenotypesAndGenes
 			return new(pawnKind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 		}
 
-		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null, XenotypeHolder xenotypeHolder = null, Pawn parent2 = null)
+		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null, XenotypeHolder xenotypeHolder = null, Pawn parent2 = null, bool ignoreImplantPhase = false)
 		{
 			newBorn = PawnGenerator.GeneratePawn(generateNewBornPawn);
-			if (xenotypeHolder != null)
+			if (!ignoreImplantPhase)
 			{
-				if (!xenotypeHolder.CustomXenotype)
+				if (xenotypeHolder != null)
 				{
-					xenotypeDef = xenotypeHolder.xenotypeDef;
+					if (!xenotypeHolder.CustomXenotype)
+					{
+						xenotypeDef = xenotypeHolder.xenotypeDef;
+					}
+					else
+					{
+						xenotypeDef = null;
+						ReimplanterUtility.SetCustomXenotype(newBorn, xenotypeHolder);
+					}
 				}
-				else
+				if (xenotypeDef != null)
 				{
-					xenotypeDef = null;
-					ReimplanterUtility.SetCustomXenotype(newBorn, xenotypeHolder);
+					ReimplanterUtility.SetXenotype_DoubleXenotype(newBorn, xenotypeDef);
 				}
-			}
-			if (xenotypeDef != null)
-			{
-				ReimplanterUtility.SetXenotype_DoubleXenotype(newBorn, xenotypeDef);
 			}
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(newBorn, motherOrEgg))
 			{
@@ -173,7 +176,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						Log.Warning("Failed BringBabyToSafetyUnforced job.");
 					}
-					if (xenotypeDef == null && xenotypeHolder == null)
+					if (!ignoreImplantPhase && xenotypeDef == null && xenotypeHolder == null)
 					{
 						ReimplanterUtility.GeneralReimplant(parent, newBorn, endogene, xenogene, false);
 					}

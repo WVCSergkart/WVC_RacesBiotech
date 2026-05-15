@@ -30,6 +30,7 @@
 	  <li>  <geneDef>Skin_Green</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 	  <li>  <geneDef>Skin_Orange</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 	  <li>  <geneDef>WVC_HairColoredSkin</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_FleshshapedStomach</geneDef> <cost>71</cost>  </li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 

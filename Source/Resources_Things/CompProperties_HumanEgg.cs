@@ -99,6 +99,15 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		public override string TransformLabel(string label)
+		{
+			if (hatcheeParent != null)
+			{
+				return "WVC_HumanEggName".Translate(hatcheeParent);
+			}
+			return base.TransformLabel(label);
+		}
+
 		public override void CompTickInterval(int delta)
 		{
 			if (!TemperatureDamaged)
@@ -135,10 +144,10 @@ namespace WVC_XenotypesAndGenes
 			bool shouldNotify = true;
 			for (int i = 0; i < stackCount; i++)
 			{
-				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, xenotypeDef: XenotypeDefOf.Baseliner, parent2: father != null && father != pawn ? father : null);
+				GestationUtility.TrySpawnHatchedOrBornPawn(pawn, parent, GestationUtility.NewBornRequest(pawn.kindDef, pawn.Faction), out Pawn child, parent2: father != null && father != pawn ? father : null, ignoreImplantPhase: true);
 				//AgelessUtility.SetAge();
 				ReimplanterUtility.SetCustomGenes(child, geneSet?.GenesListForReading ?? xenotypeHolder.genes, xenotypeHolder.iconDef, xenotypeHolder.name, true);
-				ReimplanterUtility.TryFixPawnXenotype_Beta(child);
+				//ReimplanterUtility.TryFixPawnXenotype_Beta(child);
 				if (mother?.genes?.Xenotype == father?.genes?.Xenotype || AnyParentIsNull())
 				{
 					child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
@@ -294,6 +303,34 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						gestateProgress -= 0.1f;
+					}
+				};
+			}
+			if (hatcheeParent != null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "Mother".Translate() + "...",
+					defaultDesc = "WVC_SelectParent".Translate(),
+					icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+					action = delegate
+					{
+						Find.Selector.ClearSelection();
+						Find.Selector.Select(hatcheeParent);
+					}
+				};
+			}
+			if (otherParent != null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "Father".Translate() + "...",
+					defaultDesc = "WVC_SelectParent".Translate(),
+					icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+					action = delegate
+					{
+						Find.Selector.ClearSelection();
+						Find.Selector.Select(otherParent);
 					}
 				};
 			}

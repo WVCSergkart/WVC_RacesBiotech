@@ -131,6 +131,34 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.Drafted)
 			{
 				yield return XaG_UiUtility.ITab_InspectBabyGenes();
+				if (mother != null && mother != pawn)
+				{
+					yield return new Command_Action
+					{
+						defaultLabel = "Mother".Translate() + "...",
+						defaultDesc = "WVC_SelectParent".Translate(),
+						icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+						action = delegate
+						{
+							Find.Selector.ClearSelection();
+							Find.Selector.Select(mother);
+						}
+					};
+				}
+				if (father != null && father != pawn)
+				{
+					yield return new Command_Action
+					{
+						defaultLabel = "Father".Translate() + "...",
+						defaultDesc = "WVC_SelectParent".Translate(),
+						icon = GeneSetHolderBase.GeneticInfoTex.Texture,
+						action = delegate
+						{
+							Find.Selector.ClearSelection();
+							Find.Selector.Select(father);
+						}
+					};
+				}
 			}
 		}
 

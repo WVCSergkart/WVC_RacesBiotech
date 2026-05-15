@@ -19,6 +19,9 @@
 	<WVC_SetIdeo>Set ideo</WVC_SetIdeo>
 	<WVC_IdeoChanged>Ideo changed</WVC_IdeoChanged>
 
+	<WVC_HumanEggName>{0_nameDef}`s egg</WVC_HumanEggName>
+	<WVC_SelectParent>Select one of the parents.</WVC_SelectParent>
+
 	<WVC_TotalMetabolism>Total genetic metabolism: {0}</WVC_TotalMetabolism>
 
 	<Edit>edit</Edit>

@@ -730,7 +730,7 @@ namespace WVC_XenotypesAndGenes
 		//	return true;
 		//}
 
-		public static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
+		public static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable, bool postImplantDebug = true)
 		{
 			Pawn_GeneTracker geneTracker = pawn.genes;
 			geneTracker.Xenogenes.RemoveAllGenes();
@@ -746,7 +746,10 @@ namespace WVC_XenotypesAndGenes
 				geneTracker.AddGene(geneDef, !inheritable);
 			}
 			TrySetSkinAndHairGenes(pawn);
-			ReimplanterUtility.PostImplantDebug(pawn);
+			if (postImplantDebug)
+			{
+				ReimplanterUtility.PostImplantDebug(pawn);
+			}
 		}
 
 		// Ideology Hook

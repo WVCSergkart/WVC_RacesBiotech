@@ -1,9 +1,10 @@
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
+using static HarmonyLib.Code;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -231,6 +232,33 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		//protected override void DrawSearchRect(Rect rect)
+		//{
+		//	base.DrawSearchRect(rect);
+		//	Rect button1 = new(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y);
+		//	//if (Widgets.ButtonText(button1, "Load".Translate()))
+		//	//{
+		//	//	if (!gene.GeneSetPresets.NullOrEmpty())
+		//	//	{
+		//	//		Find.WindowStack.Add(new Dialog_XenogenesEditor_Presets(this));
+		//	//	}
+		//	//	else
+		//	//	{
+		//	//		Messages.Message("WVC_XaG_CreateChimera_PresetsIsNull".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+		//	//	}
+		//	//}
+		//	Widgets.DrawTextureFitted(button1, XaG_UiUtility.ShapeshifterGeneSwitcher.Texture, 1f);
+		//	if (Mouse.IsOver(button1))
+		//	{
+		//		Widgets.DrawHighlight(button1);
+		//		if (Widgets.ButtonInvisible(button1))
+		//		{
+		//			// Action
+		//		}
+		//	}
+		//	TooltipHandler.TipRegion(button1, "WVC_XaG_GeneShapeshifter_SwitchGene".Translate(gene.Label));
+		//}
+
 		protected override bool CanAccept()
 		{
 			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
@@ -291,7 +319,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {phase}: {arg} (Gene: {geneShapeshifter.LabelCap} | {geneShapeshifter.def.defName})");
+				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {phase}: {arg.Message} (Gene: {geneShapeshifter.LabelCap} | {geneShapeshifter.def.defName})");
 			}
 			return false;
 		}

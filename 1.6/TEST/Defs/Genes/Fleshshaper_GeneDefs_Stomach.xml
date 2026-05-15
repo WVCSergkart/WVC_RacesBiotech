@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshshaper_SubGenes" MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_FleshshapedStomach</defName>
+	<label>fleshshaped stomach</label>
+	<description>Carriers of this gene have archites that link the owners' metabolism with fleshshaper genes across the rimworld, via microscopic skip gates.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Fleshshaper_Metabolism</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_FleshshapedStomach</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.00025</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>150</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Slowly changes gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; relative to all existing &lt;color=#8a8ae6&gt;fleshshapers&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>flesh</symbol></li>
+		<li><symbol>met</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Fleshshaper_Metabolism</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>
