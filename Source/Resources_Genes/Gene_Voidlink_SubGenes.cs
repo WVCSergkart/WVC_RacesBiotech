@@ -143,16 +143,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			float value = 0.2f / 60000 * tick;
 			foreach (Pawn mech in pawn.mechanitor.ControlledPawns)
 			{
 				Need_MechEnergy need_MechEnergy = mech.needs?.energy;
 				if (need_MechEnergy != null)
 				{
-					float value = Mathf.Clamp(0.20f / 60000 * tick, 0f, need_MechEnergy.MaxLevel - need_MechEnergy.CurLevel);
-					need_MechEnergy.CurLevel += value;
-					MasterGene?.OffsetResource(-value);
+					//float value = Mathf.Clamp((0.20f / 60000) * tick, 0f, need_MechEnergy.MaxLevel);
+					//need_MechEnergy.CurLevel += value;
+					//MasterGene?.OffsetResource(-value);
+					need_MechEnergy.CurLevelPercentage += value;
 				}
 			}
+			MasterGene?.OffsetResource(-value);
 		}
 
 		private bool charge = false;
