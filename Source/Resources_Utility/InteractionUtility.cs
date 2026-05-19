@@ -10,13 +10,13 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneInteractionsUtility
 	{
 
-		public static bool TryRecruitMute(Pawn pawn, Gene gene)
+		public static bool TryRecruitMute(Pawn pawn, Gene gene, List<Pawn> pawns = null)
 		{
 			if (!CanInitiateInteraction_General(pawn, true))
 			{
 				return false;
 			}
-			List<Pawn> prisoners = pawn.Map?.mapPawns?.PrisonersOfColonySpawned;
+			List<Pawn> prisoners = pawns ?? pawn.Map?.mapPawns?.PrisonersOfColonySpawned;
 			if (prisoners.NullOrEmpty())
 			{
 				return false;
@@ -105,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)
 		{
-			return TryInteractRandomly(pawn, pawn.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction)?.Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn && colonist.Spawned)?.ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
+			return TryInteractRandomly(pawn, pawn.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction)?.Where((Pawn colonist) => colonist.RaceProps.Humanlike && colonist != pawn)?.ToList(), psychicInteraction, ignoreTalking, closeTarget, out otherPawn, shouldHaveGeneOfType, interactionDef);
 		}
 
 		public static bool TryInteractRandomly(Pawn pawn, List<Pawn> workingList, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null, InteractionDef interactionDef = null)

@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (onlySameXenotype && !GeneUtility.SameXenotype(pawn, other))
+			if (onlySameXenotype && !PreferredXenotypesUtility.IsSameXenotype(pawn, other))
 			{
 				return false;
 			}

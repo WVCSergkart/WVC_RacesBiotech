@@ -1,8 +1,10 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
+using static UnityEngine.GraphicsBuffer;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -262,11 +264,13 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval(new(7200, 22000));
 		}
 
+		private IEnumerable<Pawn> MapPawns => pawn.Map?.mapPawns?.AllHumanlikeSpawned.Where(target => target != pawn && PreferredXenotypesUtility.IsSameXenotype(pawn, target));
+
 		public override void TryInteract()
 		{
-			if (Rand.Chance(0.50f) || !GeneInteractionsUtility.TryRecruitMute(pawn, this))
+			if (Rand.Chance(0.50f) || !GeneInteractionsUtility.TryRecruitMute(pawn, this, MapPawns?.Where(target => target.IsPrisoner).ToList()))
 			{
-				GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, false, out _, this);
+				GeneInteractionsUtility.TryInteractRandomly(pawn, MapPawns?.Where(target => target.Faction == pawn.Faction).ToList(), false, true, false, out _, this);
 			}
 			ResetInterval(new(7200, 22000));
 		}

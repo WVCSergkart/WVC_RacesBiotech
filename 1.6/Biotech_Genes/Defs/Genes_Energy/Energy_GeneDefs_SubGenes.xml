@@ -98,7 +98,7 @@
 	  </li>
 	</capMods>
 	<customEffectDescriptions>
-	  <li>Carriers can initiate only &lt;color=#8a8ae6&gt;random social interactions&lt;/color&gt;, and only with carriers of the gene.</li>
+	  <li>Carriers can initiate only &lt;color=#8a8ae6&gt;random social interactions&lt;/color&gt;, and only with carriers of the &lt;color=#8a8ae6&gt;gene&lt;/color&gt; and the &lt;color=#8a8ae6&gt;same xenotype&lt;/color&gt;.</li>
 	  <!-- <li>Carrier can initiate random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any pawn on the map, if target have &lt;color=#8a8ae6&gt;same gene&lt;/color&gt;.</li> -->
 	  <li>&lt;color=#8a8ae6&gt;Ignores distance&lt;/color&gt; and has a small chance of attempting to &lt;color=#8a8ae6&gt;recruit&lt;/color&gt; a prisoner with this gene.</li>
 	</customEffectDescriptions>
