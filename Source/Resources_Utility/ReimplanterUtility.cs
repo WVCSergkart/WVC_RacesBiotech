@@ -406,7 +406,7 @@ namespace WVC_XenotypesAndGenes
 					XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
 					NotifyGenesChanged(item);
 				}
-				phase = "remove/add/fix pawn gene-traits";
+				phase = "remove/fix pawn gene-traits";
 				TraitsUtility.FixGeneTraits(pawn, genesListForReading);
 				phase = "reset human component cache";
 				XaG_GeneUtility.ResetGenesInspectString(pawn);

@@ -1201,6 +1201,40 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
+		public static bool GenesIsMatch(List<Gene> callerGenes, List<Gene> targetGenes, float percent)
+		{
+			bool callerGenesIsNull = callerGenes.NullOrEmpty();
+			bool targetGenesIsNull = targetGenes.NullOrEmpty();
+			if (percent <= 0f || callerGenesIsNull && targetGenesIsNull)
+			{
+				return true;
+			}
+			if (callerGenesIsNull || targetGenesIsNull)
+			{
+				return false;
+			}
+			//int passedGenes = 0;
+			List<GeneDef> matchingGenes = new();
+			foreach (Gene item in callerGenes)
+			{
+				if (!item.def.passOnDirectly)
+				{
+					//passedGenes++;
+					continue;
+				}
+				if (targetGenes.Any(gene => gene.def == item.def))
+				{
+					matchingGenes.Add(item.def);
+				}
+			}
+			if (matchingGenes.Count >= targetGenes.Count * percent)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		// public static bool PawnIsBaseliner(Pawn pawn)
 		// {
 		// if (pawn.genes == null)
@@ -1345,13 +1379,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			List<Gene> genes = new();
-			foreach (Gene item in pawnGenes)
-			{
-				genes.Add(item);
-			}
+			//List<Gene> genes = new();
+			//foreach (Gene item in pawnGenes)
+			//{
+			//	genes.Add(item);
+			//}
 			List<GeneDef> geneDef = new();
-			foreach (Gene item in genes)
+			foreach (Gene item in pawnGenes)
 			{
 				if (xenotypeGenes.Contains(item.def))
 				{
@@ -1360,6 +1394,27 @@ namespace WVC_XenotypesAndGenes
 			}
 			return geneDef;
 		}
+
+		//public static List<GeneDef> GetMatchingGenesList(List<Gene> callerGenes, List<Gene> targetGenes)
+		//{
+		//	if (callerGenes.NullOrEmpty() || targetGenes.NullOrEmpty())
+		//	{
+		//		return null;
+		//	}
+		//	List<GeneDef> geneDef = new();
+		//	foreach (Gene item in callerGenes)
+		//	{
+		//		if (!item.def.passOnDirectly)
+		//		{
+		//			continue;
+		//		}
+		//		if (targetGenes.Any(gene => gene.def == item.def))
+		//		{
+		//			geneDef.Add(item.def);
+		//		}
+		//	}
+		//	return geneDef;
+		//}
 
 		public static List<GeneDef> GetMatchingGenesList(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes)
 		{

@@ -472,6 +472,21 @@ namespace WVC_XenotypesAndGenes
 						stringBuild.AppendLine(xenos.LabelCap + " genes match: " + (matchedGenes / xenos.genes.Count * 100) + "%");
 					}
 					Log.Error(stringBuild.ToString());
+					// Same xenotypes
+					//StringBuilder stringBuild2 = new();
+					//foreach (Pawn target in pawn.Map.mapPawns.AllHumanlike)
+					//{
+					//	if (target == pawn)
+					//	{
+					//		continue;
+					//	}
+					//	if (PreferredXenotypesUtility.IsSameXenotype(pawn, target))
+					//	{
+					//		stringBuild2.AppendLine(target.Name + " is same as caller.");
+					//	}
+					//}
+					//Log.Error(stringBuild2.ToString());
+					PreferredXenotypesUtility.Debug_LogAllSameXenotypes();
 				}
 			};
 			yield return new Command_Action

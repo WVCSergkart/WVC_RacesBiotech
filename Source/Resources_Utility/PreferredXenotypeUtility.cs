@@ -1,6 +1,9 @@
-﻿using System;
+﻿using RimWorld;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using RimWorld;
+using System.Linq;
+using System.Text;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -112,83 +115,135 @@ namespace WVC_XenotypesAndGenes
 		{
 			preferredPawns = new();
 			notPreferredPawns = new();
-			//cachedSameXenotypes = null;
+			cachedSameXenotypes = new();
 		}
 
-		//private static List<SameXenotype> cachedSameXenotypes = new();
 
-		//public static bool IsSameXenotype(Pawn caller, Pawn other)
-		//{
-		//	if (cachedSameXenotypes == null)
-		//	{
-		//		InitSameXenotypes();
-		//	}
-		//	if (IsSameXenotype(cachedSameXenotypes, caller, other))
-		//	{
-		//		return true;
-		//	}
-		//	return false;
-		//}
+		private static List<SameXenotype> cachedSameXenotypes = new();
 
-		//private static void InitSameXenotypes()
-		//{
-		//	cachedSameXenotypes = new();
-		//	foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders())
-		//	{
-		//		SameXenotype sameXenotype = new();
-		//		sameXenotype.xenotypeHolder = xenotypeHolder;
-		//		sameXenotype.pawns = new();
-		//		cachedSameXenotypes.Add(sameXenotype);
-		//	}
-		//}
+		public static bool IsSameXenotype(Pawn caller, Pawn target, int hop = 0)
+		{
+			if (hop > 2)
+			{
+				return false;
+			}
+			if (caller?.genes == null || target?.genes == null)
+			{
+				return caller?.def == target?.def;
+			}
+			bool initNewHolder = true;
+			foreach (SameXenotype sameXenotype in cachedSameXenotypes)
+			{
+				if (!sameXenotype.Contains(caller))
+				{
+					continue;
+				}
+				initNewHolder = false;
+				if (sameXenotype.IsSame(caller, target))
+				{
+					return true;
+				}
+			}
+			if (initNewHolder)
+			{
+				cachedSameXenotypes.Add(new(caller));
+				return IsSameXenotype(caller, target, hop++);
+			}
+			return false;
+		}
 
-		//private static bool IsSameXenotype(List<SameXenotype> list, Pawn caller, Pawn other)
-		//{
-		//	foreach (SameXenotype item in list)
-		//	{
-		//		if (item.TryAdd(caller) && item.Contains(other))
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+		public static void Debug_LogAllSameXenotypes()
+		{
+			IReadOnlyList<Pawn> allMapsCaravansAndTravellingTransporters_AliveSpawned = PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned;
+			foreach (Pawn target in allMapsCaravansAndTravellingTransporters_AliveSpawned)
+			{
+				foreach (Pawn target2 in allMapsCaravansAndTravellingTransporters_AliveSpawned)
+				{
+					PreferredXenotypesUtility.IsSameXenotype(target2, target);
+					PreferredXenotypesUtility.IsSameXenotype(target, target2);
+				}
+			}
+			StringBuilder stringBuild2 = new();
+			int num = 0;
+			foreach (SameXenotype target in cachedSameXenotypes)
+			{
+				stringBuild2.AppendLine(num.ToString());
+				foreach (Pawn pawn in target.pawns)
+				{
+					stringBuild2.AppendLine(pawn.Name.ToStringShort);
+				}
+				stringBuild2.AppendLine();
+				num++;
+			}
+			Log.Error(stringBuild2.ToString());
+		}
 
-		//public class SameXenotype
-		//{
+		public class SameXenotype
+		{
 
-		//	public XenotypeHolder xenotypeHolder;
-		//	public List<Pawn> pawns;
+			private List<GeneDef> geneDefs = new();
+			public List<Pawn> pawns = new();
 
-		//	public bool Contains(Pawn pawn)
-		//	{
-		//		if (pawns != null)
-		//		{
-		//			return pawns.Contains(pawn);
-		//		}
-		//		return false;
-		//	}
+			//public SameXenotype()
+			//{
 
-		//	public bool TryAdd(Pawn pawn)
-		//	{
-		//		if (Contains(pawn))
-		//		{
-		//			return true;
-		//		}
-		//		if (!pawn.genes.UniqueXenotype && xenotypeHolder.xenotypeDef == pawn.genes.Xenotype)
-		//		{
-		//			pawns.Add(pawn);
-		//			return true;
-		//		}
-		//		if (XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, xenotypeHolder.genes, 1f))
-		//		{
-		//			pawns.Add(pawn);
-		//			return true;
-		//		}
-		//		return false;
-		//	}
+			//}
 
-		//}
+			public SameXenotype(Pawn pawn)
+			{
+				geneDefs = pawn.genes.GenesListForReading.Where(gene => gene.def.passOnDirectly).ToList().ConvertToDefs();
+				pawns.Add(pawn);
+			}
+
+			public bool IsSame(Pawn caller, Pawn target)
+			{
+				bool containsCaller = pawns.Contains(caller);
+				bool containsTarget = pawns.Contains(target);
+				if (containsCaller && containsTarget)
+				{
+					return true;
+				}
+				if (geneDefs.Empty())
+				{
+					if (IsSame_Baseliner(containsCaller, target) || IsSame_Baseliner(containsTarget, caller))
+					{
+						return true;
+					}
+					return false;
+				}
+				if (IsSame_Sub(containsCaller, target) || IsSame_Sub(containsTarget, caller))
+				{
+					return true;
+				}
+				return false;
+
+				bool IsSame_Sub(bool contains, Pawn pawn)
+				{
+					if (contains && XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, geneDefs, ReqMatch))
+					{
+						pawns.Add(pawn);
+						return true;
+					}
+					return false;
+				}
+
+				bool IsSame_Baseliner(bool contains, Pawn pawn)
+				{
+					if (contains && !pawn.genes.GenesListForReading.Any(gene => gene.def.passOnDirectly))
+					{
+						pawns.Add(pawn);
+						return true;
+					}
+					return false;
+				}
+			}
+
+			public bool Contains(Pawn pawn)
+			{
+				return pawns.Contains(pawn);
+			}
+
+		}
 
 	}
 

@@ -64,7 +64,7 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<WVC_Label_preferredXenotypes_enableTweak>Enable preferred xenotypes tweak</WVC_Label_preferredXenotypes_enableTweak>
 	<WVC_ToolTip_preferredXenotypes_enableTweak>If enabled, the preferred xenotype check will evaluate gene match percentages, meaning pawns that match at least {0} of their preferred xenotypes will be considered preferred. (Req. genes triggers options)\n\nThis option also optimizes this check by adding cache where possible.\n\nA restart is required.</WVC_ToolTip_preferredXenotypes_enableTweak>
 
-	<WVC_Label_preferredXenotypes_RequiredMinMatch>Preferred match: {0}</WVC_Label_preferredXenotypes_RequiredMinMatch>
-	<WVC_ToolTip_preferredXenotypes_RequiredMinMatch>The required level of genetic matching. The lower the level, the more pawns will match.\n\nA reload is required.</WVC_ToolTip_preferredXenotypes_RequiredMinMatch>
+	<WVC_Label_preferredXenotypes_RequiredMinMatch>Preferred/same xenotype match: {0}</WVC_Label_preferredXenotypes_RequiredMinMatch>
+	<WVC_ToolTip_preferredXenotypes_RequiredMinMatch>The required level of genetic matching. The lower the level, the more pawns will match.\n\nIt is strongly recommended not to set the match higher than 95%, as the game automatically generates hidden genes after loading saves or some checks, this may affect the match.\n\nA reload is required.</WVC_ToolTip_preferredXenotypes_RequiredMinMatch>
 
 </LanguageData>

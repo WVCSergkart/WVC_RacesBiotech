@@ -294,4 +294,46 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Trait : XaG_Gene, IGeneOverriddenBy
+	{
+
+		private void Local_AddTraits()
+		{
+			TraitsUtility.AddGeneTraits(pawn, this);
+		}
+
+		private void Local_RemoveTraits()
+		{
+			TraitsUtility.RemoveGeneTraits(pawn, this);
+		}
+
+		//public virtual void Notify_LifeStageStarted()
+		//{
+		//	Local_AddTraits();
+		//}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Local_AddTraits();
+		}
+
+		public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Local_RemoveTraits();
+		}
+
+		public virtual void Notify_Override()
+		{
+			Local_AddTraits();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Local_RemoveTraits();
+		}
+
+	}
+
 }

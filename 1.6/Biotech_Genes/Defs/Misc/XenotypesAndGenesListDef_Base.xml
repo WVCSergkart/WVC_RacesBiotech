@@ -369,6 +369,8 @@
 		<!-- = -->
 		<li>WVC_StasisAging</li>
 		<li>WVC_ForeverYoung</li>
+		<li>WVC_FleshshapedStomach</li>
+		<li>WVC_Learning_Stasis</li>
 	</anomalyXenoGenesExceptions>
 	<!-- Ignored mutants. Required any MutantDefs -->
 	<xenoGenesMutantsExceptions>
