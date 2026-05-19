@@ -300,8 +300,8 @@ namespace WVC_XenotypesAndGenes
 			pawn.skills?.DirtyAptitudes();
 			pawn.Notify_DisabledWorkTypesChanged();
 			XaG_GeneUtility.ResetGenesInspectString(pawn);
-			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 			ReimplanterUtility.NotifyGenesChanged(pawn);
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		public static void MakeCustomJob(Pawn pawn, Thing target, JobDef jobDef, GeneDef geneDef = null, bool allStack = false, float factor = 1f)

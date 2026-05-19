@@ -5,8 +5,12 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_Mechamata</defName>
 	<label>mechamata</label>
-	<description>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</description>
-	<descriptionShort>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+	<description>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream. They are incredibly resilient and have extremely strong natural armor. They easily regrow lost limbs and are immune to virtually all diseases. They are able to disable some of their genes and thus manipulate their metabolism. But their main advantage is the ability to passively research encountered xenotypes and utilize their genes.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Undead):&lt;/color&gt; After death, it can be summoned (resurrected) using the comm-console by a mechanitor.</description>
+	<descriptionShort>Mechamatas are ageless super-humans powered by archotech-created archites in the bloodstream. They are incredibly resilient and have extremely strong natural armor. They easily regrow lost limbs and are immune to virtually all diseases. They are able to disable some of their genes and thus manipulate their metabolism. But their main advantage is the ability to passively research encountered xenotypes and utilize their genes.</descriptionShort>
 	<iconPath>WVC/UI/Icons3/Icon_Mechamata1c</iconPath>
 	<displayPriority>-1024</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
@@ -19,15 +23,11 @@
 		<li>WVC_Energyshifter_Rejuvenator</li>
 		<li>WVC_Energyshifter_Immunity</li>
 		<li>WVC_Energyshifter_Regeneration</li>
-		<!-- <li>WVC_Energyshifter_ArmoredSkin</li> -->
 		<li>WVC_MechaPowerSource_Tox</li>
-		<!-- <li>WVC_Energyshifter_SolarCharger</li> -->
 		<li>WVC_Hivemind_DeafDrone</li>
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_Energyshifter_SlowAging</li>
-		<!-- <li>WVC_ForeverYoung</li> -->
-		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_Unbreakable</li>
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_MechaSkin</li>
@@ -37,8 +37,6 @@
 		<li>Skin_PaleRed</li>
 		<li>WVC_SkinColor_OldBones</li>
 		<li>DarkVision</li>
-		<!-- <li>WVC_ExpEqualizer</li> -->
-		<!-- <li>WVC_Learning_Stasis</li> -->
 		<li>WVC_Energyshifter_XenogenesEditor</li>
 		<li>WVC_Energyshifter_XenotypesUnlocker</li>
 		<!-- <li>WVC_Replacer</li> -->
@@ -47,7 +45,8 @@
 		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
 		<li>WVC_MinTemp_ArchiteDecrease</li>
 		<li>WVC_MaxTemp_ArchiteIncrease</li>
-		<li>Aggression_DeadCalm</li>
+		<li ReplaceTag="StasisLearning">WVC_Learning_ExtremeSlow</li>
+		<!-- <li>Aggression_DeadCalm</li> -->
 		<li>Neversleep</li>
 	</genes>
   </XenotypeDef>

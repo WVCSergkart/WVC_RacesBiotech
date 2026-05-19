@@ -85,6 +85,7 @@
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	  <li>WVC_XaG_Rechargeable</li>
 	  <li>WVC_XaG_EternalHunger</li>
+	  <li>WVC_XaG_StasisStomach</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

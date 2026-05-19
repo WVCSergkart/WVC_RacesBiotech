@@ -24,6 +24,9 @@
 		<li><symbol>stoma</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_XaG_StasisStomach</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_StasisStomach</hediffDefName>

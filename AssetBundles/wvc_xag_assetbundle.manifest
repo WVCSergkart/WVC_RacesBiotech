@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 155774087
+CRC: 3281351161
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 357325625ec5dcae5d126c570ea3cb58
+    Hash: 0525431093692805cff585a08b6b318f
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: f9600b17ba5f7aa1d284086688a8d912
+    Hash: 7e3eccc48bf656e54fe6984a68041421
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -230,6 +230,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Corpsefeeder.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_EternalHunger_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FleshmassArmor_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_FleshshapedStomach.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno24.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno14.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_HiveMind_SyncNode.png

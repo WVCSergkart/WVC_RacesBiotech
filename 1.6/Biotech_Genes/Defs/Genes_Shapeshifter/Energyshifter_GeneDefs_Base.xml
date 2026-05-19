@@ -12,7 +12,7 @@
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Consumes nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; and total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Offsets nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; and total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
 		<li>Allows to turn &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; on and off.</li>
 	</customEffectDescriptions>
 	<exclusionTags>

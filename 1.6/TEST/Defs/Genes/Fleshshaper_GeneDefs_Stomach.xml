@@ -11,7 +11,6 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.00025</selectionWeight>
-	<displayCategory>WVC_Miscellaneous</displayCategory>
 	<displayOrderInCategory>150</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Slowly changes gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; relative to all existing &lt;color=#8a8ae6&gt;fleshshapers&lt;/color&gt;.</li>
