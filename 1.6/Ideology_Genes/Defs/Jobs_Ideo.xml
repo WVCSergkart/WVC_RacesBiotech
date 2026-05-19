@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <JobDef>
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
 	<defName>WVC_OpenStylingStationDialog</defName>
 	<driverClass>WVC_XenotypesAndGenes.JobDriver_OpenStylingStationDialog</driverClass>
 	<reportString>changing genetic style at TargetA.</reportString>

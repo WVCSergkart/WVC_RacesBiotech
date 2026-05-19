@@ -168,7 +168,7 @@
 
   <!-- ================================== -->
 
-  <JobDef>
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
 	<defName>WVC_LayHumanEgg</defName>
 	<driverClass>WVC_XenotypesAndGenes.JobDriver_LayHumanEgg</driverClass>
 	<reportString>laying egg.</reportString>

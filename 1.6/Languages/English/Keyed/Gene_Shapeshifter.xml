@@ -118,6 +118,6 @@
 	<WVC_XaG_GeneResearchedMessage>{0} researched the {1} gene.</WVC_XaG_GeneResearchedMessage>
 	<WVC_XaG_XenotypeResearchedMessage>{0} researched the {1} xenotype.</WVC_XaG_XenotypeResearchedMessage>
 
-	<WVC_XaG_Energyshaper_ResourceFactorTip>Total sub-genes factor: {0}</WVC_XaG_Energyshaper_ResourceFactorTip>
+	<WVC_XaG_Energyshaper_ResourceFactorTip>Total sub-genes factor {0}</WVC_XaG_Energyshaper_ResourceFactorTip>
 
 </LanguageData>

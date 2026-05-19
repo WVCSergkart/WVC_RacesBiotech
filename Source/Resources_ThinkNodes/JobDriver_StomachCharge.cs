@@ -8,12 +8,14 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_StomachCharge : JobDriver, IJobCustomEater
+	public class JobDriver_StomachCharge : JobDriver, IJobCustomEater, IEatingDriver
 	{
 		// private const TargetIndex ChargerInd = TargetIndex.A;
 		public virtual bool ShouldFinalize => true;
 
 		public Building_XenoCharger Charger => (Building_XenoCharger)job.targetA.Thing;
+
+		public bool GainingNutritionNow => true;
 
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{

@@ -6,7 +6,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility, IJobCustomEater
+	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility, IJobCustomEater, IEatingDriver
 	{
 
 		public virtual bool Finalize => true;
@@ -25,6 +25,8 @@ namespace WVC_XenotypesAndGenes
 				return (Pawn)target;
 			}
 		}
+
+		public bool GainingNutritionNow => true;
 
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
