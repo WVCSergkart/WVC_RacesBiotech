@@ -19,9 +19,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!anyShapeshiftersInFaction.HasValue)
 				{
+					anyShapeshiftersInFaction = false;
 					foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
 					{
-						anyShapeshiftersInFaction = false;
 						if (IsShapeshifter(item))
 						{
 							anyShapeshiftersInFaction = true;

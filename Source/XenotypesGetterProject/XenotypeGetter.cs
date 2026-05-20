@@ -21,7 +21,11 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual XenotypeDef GetXenotype()
 		{
-			return def.XenotypeDefs.RandomElement();
+			if (def.XenotypeDefs.TryRandomElement(out XenotypeDef xenotypeDef))
+			{
+				return xenotypeDef;
+			}
+			return null;
 		}
 
 		public virtual float Chance()

@@ -8,6 +8,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanFire()
 		{
+			if (MiscUtility.GameNotStarted())
+			{
+				return false;
+			}
 			return GeneshiftUtility.AnyShapeshifters;
 		}
 

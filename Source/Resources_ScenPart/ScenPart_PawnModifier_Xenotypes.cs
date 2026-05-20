@@ -46,20 +46,22 @@ namespace WVC_XenotypesAndGenes
 			XenotypeDef xenotypeDef = null;
 			if (Rand.Chance(DynamicChance))
 			{
-				//List<XenotypeGetterDef> xenotypeGetterDefs = ListsUtility.XenotypeGetterDefs;
-				//xenotypeGetterDefs.Shuffle();
-				//foreach (XenotypeGetterDef xenotypeGetterDef in xenotypeGetterDefs)
-				//{
-				//	if (xenotypeDef != null)
-				//	{
-				//		break;
-				//	}
-				//	if (Rand.Chance(xenotypeGetterDef.Worker.Chance() / xenotypeGetterDefs.Count) && xenotypeGetterDef.Worker.CanFire(pawn))
-				//	{
-				//		xenotypeDef = xenotypeGetterDef.Worker.GetXenotype();
-				//	}
-				//}
-				xenotypeDef = ListsUtility.XenotypeGetterDefs?.Where(getter => getter.Worker.CanFire(pawn))?.RandomElementByWeight(getter => getter.Worker.Chance())?.Worker?.GetXenotype();
+				List<XenotypeGetterDef> canFireNowList = new();
+				foreach (XenotypeGetterDef xenotypeGetterDef in ListsUtility.XenotypeGetterDefs)
+				{
+					try
+					{
+						if (xenotypeGetterDef.Worker.CanFire())
+						{
+							canFireNowList.Add(xenotypeGetterDef);
+						}
+					}
+					catch (Exception arg)
+					{
+						Log.Warning($"Cannot fire xenotypeGetter with class: {xenotypeGetterDef.workerClass?.ToStringSafe()}. Reason: {arg.Message}");
+					}
+				}
+				xenotypeDef = canFireNowList.RandomElementByWeight(getter => getter.Worker.Chance()).Worker.GetXenotype();
 			}
 			if (xenotypeDef != null)
 			{
