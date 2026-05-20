@@ -71,6 +71,7 @@
 		<minGrowthForSpawn>0.6</minGrowthForSpawn>
 		<initialGrowthRange>0.2~0.8</initialGrowthRange>
 		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+		<li Class="CompProperties_PlantPreventCutting"/>
 		<!-- <plantsToNotOverwrite> -->
 		  <!-- <li>Plant_PodGauranlen</li> -->
 		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
