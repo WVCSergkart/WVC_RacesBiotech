@@ -80,6 +80,7 @@
 		  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
 		<!-- </plantsToNotOverwrite> -->
 	  </li>
+	  <li Class="CompProperties_PlantPreventCutting"/>
 	</comps>
   </ThingDef>
 

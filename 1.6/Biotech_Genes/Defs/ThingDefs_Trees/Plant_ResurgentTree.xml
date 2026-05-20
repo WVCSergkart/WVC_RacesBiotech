@@ -83,6 +83,7 @@
 		<initialGrowthRange>0.2~0.8</initialGrowthRange>
 		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
 	  </li>
+	  <li Class="CompProperties_PlantPreventCutting"/>
 	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName"> -->
 		<!-- <nameMaker>WVC_XenotypesAndGenes_MushroomTreeNames</nameMaker> -->
 	  <!-- </li> -->
