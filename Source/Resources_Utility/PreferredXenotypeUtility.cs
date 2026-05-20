@@ -183,6 +183,7 @@ namespace WVC_XenotypesAndGenes
 
 			private List<GeneDef> geneDefs = new();
 			public List<Pawn> pawns = new();
+			private List<Pawn> blacklist = new();
 
 			//public SameXenotype()
 			//{
@@ -197,23 +198,38 @@ namespace WVC_XenotypesAndGenes
 
 			public bool IsSame(Pawn caller, Pawn target)
 			{
+				if (blacklist.Contains(caller) || blacklist.Contains(target))
+				{
+					return false;
+				}
 				bool containsCaller = pawns.Contains(caller);
 				bool containsTarget = pawns.Contains(target);
 				if (containsCaller && containsTarget)
 				{
 					return true;
 				}
+				//Log.Error("1");
 				if (geneDefs.Empty())
 				{
 					if (IsSame_Baseliner(containsCaller, target) || IsSame_Baseliner(containsTarget, caller))
 					{
 						return true;
 					}
-					return false;
 				}
-				if (IsSame_Sub(containsCaller, target) || IsSame_Sub(containsTarget, caller))
+				else
 				{
-					return true;
+					if (IsSame_Sub(containsCaller, target) || IsSame_Sub(containsTarget, caller))
+					{
+						return true;
+					}
+				}
+				if (!containsCaller)
+				{
+					blacklist.Add(caller);
+				}
+				if (!containsTarget)
+				{
+					blacklist.Add(target);
 				}
 				return false;
 
