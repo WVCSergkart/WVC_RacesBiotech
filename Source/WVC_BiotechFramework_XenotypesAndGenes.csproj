@@ -327,6 +327,7 @@
     <Compile Include="Resources_RitualAttachableOutcome\RitualAttachableOutcomeEffectWorker_XenotypeRecruit.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_PawnGenes.cs" />
     <Compile Include="Resources_Main\GoodwillSituationWorker_HivemindHatred.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_HivemindWorld.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Beholder.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_IceWorld.cs" />
@@ -477,7 +478,7 @@
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalGestatedDryad.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalShouldFollowConnectedPawn.cs" />
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_LongRunningJoke.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Xenotypes.cs" />
+    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_DynamicXenotypes.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetterDef.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Sanguophage.cs" />

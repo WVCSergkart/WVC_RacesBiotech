@@ -90,6 +90,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn?.DevelopmentalStage != DevelopmentalStage.Adult)
+			{
+				return;
+			}
 			if (pawn?.gender == Gender.Female)
 			{
 				if (pawn?.story?.bodyType == BodyTypeDefOf.Hulk || pawn?.story?.bodyType == BodyTypeDefOf.Fat)
@@ -119,6 +123,10 @@ namespace WVC_XenotypesAndGenes
 		public override void ChangeBodyType()
 		{
 			if (!Active)
+			{
+				return;
+			}
+			if (pawn?.DevelopmentalStage != DevelopmentalStage.Adult)
 			{
 				return;
 			}
