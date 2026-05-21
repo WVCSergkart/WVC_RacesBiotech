@@ -96,6 +96,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						foreach (XenotypeGetterDef xenotypeGetterDef in xenotypesAndGenesListDef.xenotypeGetterDefs)
 						{
+							if (xenotypeGetterDef.Worker.Disabled)
+							{
+								continue;
+							}
 							list.Add(xenotypeGetterDef);
 						}
 					}

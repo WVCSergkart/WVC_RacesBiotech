@@ -31,10 +31,16 @@ namespace WVC_XenotypesAndGenes
 					//	}
 					//}
 					cachedXenotypeDefs = xenotypeDefs.ConvertToDefs<XenotypeDef>();
+					if (cachedXenotypeDefs.Empty())
+					{
+						disabled = true;
+					}
 				}
 				return cachedXenotypeDefs;
 			}
 		}
+
+		public bool disabled = false;
 
 		public float chance = 1.0f;
 

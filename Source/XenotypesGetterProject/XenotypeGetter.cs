@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeGetterDef def;
 
+		public virtual bool Disabled => def.disabled || def.XenotypeDefs.Empty();
+
 		public virtual bool CanFire(Pawn pawn)
 		{
 			return CanFire();
