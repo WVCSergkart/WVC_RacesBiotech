@@ -11,14 +11,15 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneResourceUtility
 	{
 
-		public static void UpdMetabolism(Pawn pawn)
-		{
-			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
-			{
-				metabolism.Reset();
-				//Log.Error("Upd");
-			}
-		}
+		//[Obsolete]
+		//public static void UpdMetabolism(Pawn pawn)
+		//{
+		//	if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
+		//	{
+		//		metabolism.Reset();
+		//		//Log.Error("Upd");
+		//	}
+		//}
 
 		//[Obsolete]
 		//public static int GetThrallsLimit(Pawn caller, float cellsPerDay)

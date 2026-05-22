@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using UnityEngine;
 using Verse;
 
@@ -6,6 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class HediffWithComps_Metabolism : HediffWithComps
 	{
 
@@ -14,11 +16,11 @@ namespace WVC_XenotypesAndGenes
 
 		private HediffStage curStage;
 
-		public override bool ShouldRemove => false;
+		public override bool ShouldRemove => true;
 
 		public override bool Visible => cachedMetabolism != 0f;
 
-		public bool Enabled => WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor;
+		public bool Enabled => WVC_Biotech.settings.enable_dynamicGeneMetabolism;
 
 		public override Color LabelColor => GeneUtility.METColor;
 
@@ -96,20 +98,20 @@ namespace WVC_XenotypesAndGenes
 			curStage = null;
 		}
 
-		public override void PostRemoved()
-		{
-			base.PostRemoved();
-			if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism && gene.Active))
-			{
-				if (HediffUtility.TryAddHediff(def, pawn, null, null))
-				{
-					if (DebugSettings.ShowDevGizmos)
-					{
-						Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
-					}
-				}
-			}
-		}
+		//public override void PostRemoved()
+		//{
+		//	base.PostRemoved();
+		//	if (Enabled && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism && gene.Active))
+		//	{
+		//		if (HediffUtility.TryAddHediff(def, pawn, null, null))
+		//		{
+		//			if (DebugSettings.ShowDevGizmos)
+		//			{
+		//				Log.Warning("Trying to remove " + def.label + " hediff, but " + pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+		//			}
+		//		}
+		//	}
+		//}
 
 		//public override void ExposeData()
 		//{

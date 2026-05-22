@@ -11,7 +11,6 @@
 	  <li>
 		<becomeVisible>false</becomeVisible>
 		<minSeverity>0.0</minSeverity>
-		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
 	  </li>
 	</stages>
 	<comps>
@@ -21,55 +20,11 @@
   </HediffDef>
 
   <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
-	<!-- <defName>WVC_Cellsrest</defName> -->
-	<!-- <label>cellsresting</label> -->
-	<!-- <description>A deep coma-like sleep that lasts several days and restores the body's resources.</description> -->
-	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_Cellsrest</hediffClass> -->
-	<!-- <recordDownedTale>false</recordDownedTale> -->
+	<!-- <defName>WVC_ChimeraMetabolism_HungerFactor</defName> -->
+	<!-- <label>genetic metabolism</label> -->
+	<!-- <description>This creature's hunger varies depending on its genetic metabolism.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Metabolism</hediffClass> -->
 	<!-- <defaultLabelColor>(255, 255, 255)</defaultLabelColor> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <capMods> -->
-		  <!-- <li> -->
-			<!-- <capacity>Consciousness</capacity> -->
-			<!-- <setMax>0.1</setMax> -->
-		  <!-- </li> -->
-		<!-- </capMods> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
   <!-- </HediffDef> -->
-
-  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
-	<!-- <defName>WVC_ShapeshifterDeathless_Disabled</defName> -->
-	<!-- <label>disabled deathless</label> -->
-	<!-- <defaultLabelColor>(255, 255, 255)</defaultLabelColor> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <becomeVisible>false</becomeVisible> -->
-		<!-- <minSeverity>0.0</minSeverity> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-	<!-- <comps> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff"> -->
-			<!-- <compClass>WVC_XenotypesAndGenes.HediffComp_ReplaceWhenRemoved</compClass> -->
-			<!-- <hediffDef>WVC_ShapeshifterDeathless</hediffDef> -->
-			<!-- <geneDefs> -->
-			  <!-- <li>WVC_Shapeshifter</li> -->
-			  <!-- <li>WVC_Shapeshift_Deathless</li> -->
-			<!-- </geneDefs> -->
-		<!-- </li> -->
-	<!-- </comps> -->
-  <!-- </HediffDef> -->
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_ChimeraMetabolism_HungerFactor</defName>
-	<label>genetic metabolism</label>
-	<description>This creature's hunger varies depending on its genetic metabolism.</description>
-	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Metabolism</hediffClass>
-	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
-	<!-- <comps> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
-	<!-- </comps> -->
-  </HediffDef>
 
 </Defs>

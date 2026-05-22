@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 				overrided = true;
 				OverrideBy(this);
 			}
-			GeneResourceUtility.UpdMetabolism(pawn);
+			//GeneResourceUtility.UpdMetabolism(pawn);
 			MiscUtility.Notify_DebugPawn(pawn);
 		}
 

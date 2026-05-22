@@ -309,8 +309,8 @@ namespace WVC_XenotypesAndGenes
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), selectedXenoHolder.Label)
 				+ "\n\n" + selectedXenoHolder.Description,
 				MainDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
-				phase = "UpdateMetabolism";
-				geneShapeshifter.UpdateMetabolism();
+				//phase = "UpdateMetabolism";
+				//geneShapeshifter.UpdateMetabolism();
 				phase = "UpdateCache";
 				geneShapeshifter.UpdateCache();
 				phase = "PostImplantDebug";

@@ -215,13 +215,13 @@ namespace WVC_XenotypesAndGenes
 	/// <summary>
 	/// Metabolism mark. Chimera, shapeshifter, overrider.
 	/// </summary>
-	public interface IGeneMetabolism
-	{
+	//public interface IGeneMetabolism
+	//{
 
-		//[Obsolete]
-		void UpdateMetabolism();
+	//	[Obsolete]
+	//	void UpdateMetabolism();
 
-	}
+	//}
 
 	/// <summary>
 	/// Main hivemind mark. Used for all hivemind genes.

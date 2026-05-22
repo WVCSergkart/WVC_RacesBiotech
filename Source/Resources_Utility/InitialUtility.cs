@@ -99,7 +99,19 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GenesAndMutants()
 		{
-			List<GeneDef> xenogenesGenes = new();
+			if (WVC_Biotech.settings.enable_dynamicGeneMetabolism)
+			{
+				//GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(-100f, 25f));
+				////GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(-5f, 2.25f));
+				////GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(0f, 1f));
+				////GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(5f, 0.5f));
+				//GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(15f, 0f));
+				GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(-100f, 25f));
+				GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(10f, 0.25f));
+				GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(15f, 0.20f));
+				GeneTuning.MetabolismToFoodConsumptionFactorCurve.Add(new CurvePoint(50f, 0f));
+			}
+			List< GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
 				MiscUtility.GetModExtensions(geneDef, out GeneExtension_General geneExtension_General, out GeneExtension_Giver geneExtension_Giver);
@@ -265,10 +277,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneDef.customEffectDescriptions = new();
 			}
-			if (geneDef.IsGeneDefOfType<IGeneMetabolism>())
-			{
-				geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
-			}
+			//if (geneDef.IsGeneDefOfType<IGeneMetabolism>())
+			//{
+			//	geneDef.customEffectDescriptions.Add("WVC_XaG_IGeneMetabolism_Desc".Translate().Resolve());
+			//}
 			if (geneDef.IsGeneDefOfType<Gene_OverriderDependant>())
 			{
 				geneDef.exclusionTags = null;

@@ -5,7 +5,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneMetabolism, IGeneOverriddenBy, IGeneChargeable, IGeneRecacheable, IGeneRemoteControl
+	public class Gene_Overrider : Gene_ShapeshifterDependant, IGeneOverriddenBy, IGeneChargeable, IGeneRecacheable, IGeneRemoteControl
 	{
 		public string RemoteActionName => addPsychicSensitivity ? "WVC_XaG_Increase".Translate() : "WVC_XaG_Decrease".Translate();
 
@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
 
-		public HediffDef MetHediffDef => HediffUtility.MetHediffDef;
+		//public HediffDef MetHediffDef => HediffUtility.MetHediffDef;
 		public HediffDef PsyHediffDef => Giver?.hediffDef;
 
 		public List<HediffDef> Hediffs
@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				List<HediffDef> list = new();
-				list.Add(MetHediffDef);
+				//list.Add(MetHediffDef);
 				list.Add(PsyHediffDef);
 				return list;
 			}
@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
-			UpdateMetabolism();
+			//UpdateMetabolism();
 		}
 
 		public override void PostAdd()
@@ -105,10 +105,10 @@ namespace WVC_XenotypesAndGenes
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
-		public void UpdateMetabolism()
-		{
-			HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
-		}
+		//public void UpdateMetabolism()
+		//{
+		//	HediffUtility.TryAddOrUpdMetabolism(MetHediffDef, pawn, this);
+		//}
 
 		//private int resource = 0;
 
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			isShapeshifter = null;
 			Notify_HediffReset();
-			UpdateMetabolism();
+			//UpdateMetabolism();
 		}
 
 		public void Notify_Charging(float chargePerTick, int tick, float factor)

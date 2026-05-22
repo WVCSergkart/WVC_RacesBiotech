@@ -97,12 +97,34 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (BackstoryDef backstory in pawn.story.AllBackstories)
 			{
-				if (backstory.IsPlayerColonyChildBackstory)
+				if (backstory.requiresSpawnCategory || backstory.IsPlayerColonyChildBackstory)
+				{
+					return true;
+				}
+				if (backstory.spawnCategories == null)
+				{
+					continue;
+				}
+				if (backstory.spawnCategories.Any(val => GetChildBacks().Contains(val)))
 				{
 					return true;
 				}
 			}
 			return false;
+
+			static List<string> GetChildBacks()
+			{
+				List<string> list = new()
+				{
+					"AdultColonist",
+					//"VatGrown",
+					"Newborn",
+					"Child",
+					"ChildTribal",
+					"AdultTribal"
+				};
+				return list;
+			}
 		}
 
 		public static bool CanBleed(this Pawn pawn)

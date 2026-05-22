@@ -1088,10 +1088,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneWithEffects.DoEffects();
 			}
-			if (gene is IGeneMetabolism geneMetabolism)
-			{
-				geneMetabolism.UpdateMetabolism();
-			}
+			//if (gene is IGeneMetabolism geneMetabolism)
+			//{
+			//	geneMetabolism.UpdateMetabolism();
+			//}
 			gene.UpdSubHediffs();
 		}
 

@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 		public bool archiver_transferEquipedWeapon = false;
 		public float traitshifter_MaxTraits = 3f;
 		// Chimera
-		public bool enable_chimeraMetabolismHungerFactor = true;
+		public bool enable_dynamicGeneMetabolism = true;
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
 		public bool enable_chimeraXenogermCD = false;

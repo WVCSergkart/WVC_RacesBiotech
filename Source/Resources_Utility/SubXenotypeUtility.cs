@@ -177,7 +177,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				SetSkinAndHairGenes(firstXenotypeGenes, secondXenotypeGenes, allNewGenes);
-				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneMetabolism))
+				if (WVC_Biotech.settings.enable_dynamicGeneMetabolism)
+				{
+					return true;
+				}
+				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneShapeshifter))
 				{
 					return true;
 				}

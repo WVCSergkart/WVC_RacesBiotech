@@ -23,6 +23,9 @@
 		<!-- <li>(18.5, 1)</li> -->
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<statFactors>
+		<VEF_GrowthPointMultiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">20.0</VEF_GrowthPointMultiplier>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
 	  <li>AG_Aging</li>

@@ -28,7 +28,7 @@
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
+			<!-- <hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName> -->
 			<hediffDef>WVC_Morpher_AutoCast</hediffDef>
 			<morpherTriggerChangeJob>WVC_ChangeMorpherTriggerGene</morpherTriggerChangeJob>
 			<morpherTriggerGenes>

@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor, IGeneDevourer
+	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.PostAdd();
-			UpdateMetabolism();
+			//UpdateMetabolism();
 			if (MiscUtility.GameNotStarted())
 			{
 				StarterPackSetup();
@@ -230,12 +230,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
+			//HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
 		}
 
 		public void Notify_Override()
 		{
-			UpdateMetabolism();
+			//UpdateMetabolism();
 		}
 
 		private Gizmo genesGizmo;
@@ -315,11 +315,11 @@ namespace WVC_XenotypesAndGenes
 			//UpdateMetabolism();
 		}
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
-		}
+		//public override void PostRemove()
+		//{
+		//	base.PostRemove();
+		//	HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
+		//}
 
 		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
 
@@ -770,10 +770,10 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		public virtual void UpdateMetabolism()
-		{
-			HediffUtility.TryAddOrUpdMetabolism(pawn, this);
-		}
+		//public virtual void UpdateMetabolism()
+		//{
+		//	HediffUtility.TryAddOrUpdMetabolism(pawn, this);
+		//}
 
 		public virtual void DoEffects()
 		{

@@ -116,11 +116,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!colonist.Spawned || !colonist.Map.CanEverExit)
-			{
-				return false;
-			}
-			if (!colonist.IsHuman() || colonist.IsMutant || colonist.IsCreepJoiner || colonist.IsColonyChild())
+			if (!colonist.ageTracker.Adult)
 			{
 				return false;
 			}
@@ -128,7 +124,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!colonist.ageTracker.Adult)
+			if (!colonist.Spawned || !colonist.Map.CanEverExit)
+			{
+				return false;
+			}
+			if (!colonist.IsHuman() || colonist.IsMutant || colonist.IsCreepJoiner || colonist.IsColonyChild())
 			{
 				return false;
 			}

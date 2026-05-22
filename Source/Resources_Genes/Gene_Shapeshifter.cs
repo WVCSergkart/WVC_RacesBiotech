@@ -11,7 +11,7 @@ using static WVC_XenotypesAndGenes.Dialog_ShaperEditor;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneMetabolism, IGeneRecacheable, IGeneShapeshifter, IGeneShaperEditor
+	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneShaperEditor
 	{
 
 		private GeneExtension_Undead cachedGeneExtension_Undead;
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			UpdateMetabolism();
+			//UpdateMetabolism();
 			if (MiscUtility.GameNotStarted())
 			{
 				UnlockXenotype(pawn.genes.XenotypeLabel);
@@ -161,19 +161,19 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			RemoveHediffs();
+			//RemoveHediffs();
 			UpdateCache();
 		}
 
-		public void RemoveHediffs()
-		{
-			//HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
-			HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
-		}
+		//public void RemoveHediffs()
+		//{
+		//	//HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+		//	//HediffUtility.TryRemoveHediff(HediffUtility.MetHediffDef, pawn);
+		//}
 
 		public virtual void Notify_Override()
 		{
-			UpdateMetabolism();
+			//UpdateMetabolism();
 			UpdateCache();
 		}
 
@@ -197,7 +197,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediffs();
+			//RemoveHediffs();
 		}
 
 		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
@@ -358,7 +358,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			ReimplanterUtility.PostImplantDebug(pawn);
-			UpdateMetabolism();
+			//UpdateMetabolism();
 			DoEffects();
 		}
 
@@ -445,10 +445,10 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
-		public void UpdateMetabolism()
-		{
-			HediffUtility.TryAddOrUpdMetabolism(pawn, this);
-		}
+		//public void UpdateMetabolism()
+		//{
+		//	HediffUtility.TryAddOrUpdMetabolism(pawn, this);
+		//}
 
 		// Shapeshift
 

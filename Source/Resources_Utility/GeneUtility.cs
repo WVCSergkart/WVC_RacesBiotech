@@ -399,7 +399,7 @@ namespace WVC_XenotypesAndGenes
 					p.TryAddGeneIfNone(geneDef, true);
 				}
 			}
-			chimera.UpdateMetabolism();
+			//chimera.UpdateMetabolism();
 			//ReimplanterUtility.PostImplantDebug(p);
 		}
 

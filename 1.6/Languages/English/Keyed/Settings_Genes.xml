@@ -77,6 +77,11 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
 	<!-- ================================== -->
 
+	<WVC_Label_enable_dynamicGeneMetabolism>Enable dynamic gene metabolism</WVC_Label_enable_dynamicGeneMetabolism>
+	<WVC_ToolTip_enable_dynamicGeneMetabolism>Expands the metabolism effect on hunger, allowing the multiplier to reach 0% at very high metabolism or increase it exponentially at very low metabolism.\n\nIf you have mods that do the same, it is recommended to disable this option.\n\nEnabled by default.\n\nA restart is required.</WVC_ToolTip_enable_dynamicGeneMetabolism>
+
+	<!-- ================================== -->
+
 	<!-- <WVC_Label_reincarnation_EnableMechanic>Enable reincarnation mechanic</WVC_Label_reincarnation_EnableMechanic> -->
 	<!-- <WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic> -->
 

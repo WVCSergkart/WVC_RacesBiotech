@@ -224,6 +224,18 @@ namespace WVC_XenotypesAndGenes
 			//		return forcedGender != null && forcedGender != Gender.None;
 			//	}
 			//}
+			//public static bool Patch_MetabolismToFoodConsumptionFactorCurve(ref SimpleCurve __result)
+			//{
+			//	__result = new SimpleCurve
+			//	{
+			//		new CurvePoint(-100f, 25f),
+			//		new CurvePoint(-5f, 2.25f),
+			//		new CurvePoint(0f, 1f),
+			//		new CurvePoint(5f, 0.5f),
+			//		new CurvePoint(15f, 0f)
+			//	};
+			//	return false;
+			//}
 
 			public static void IdeoUpdTrigger()
 			{
