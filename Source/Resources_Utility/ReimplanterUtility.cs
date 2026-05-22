@@ -403,7 +403,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						item.OverrideBy(null);
 					}
-					XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
+					if (!ModsUtility.VanillaExpandedFrameworkActive)
+					{
+						// VEF can handle it
+						XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
+					}
 					NotifyGenesChanged(item);
 				}
 				phase = "remove/fix pawn gene-traits";

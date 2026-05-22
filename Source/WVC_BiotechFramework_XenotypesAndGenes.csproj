@@ -381,6 +381,7 @@
     <Compile Include="Resources_Utility\DeathlessUtility.cs" />
     <Compile Include="Resources_Utility\EffectsUtility.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
+    <Compile Include="Resources_Utility\ModsUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_Hivemind.cs" />

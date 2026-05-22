@@ -436,7 +436,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
 			{
-				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				if (gene is IGeneShapeshifter_SubGene geneShapeshifter && gene.Active)
 				{
 					geneShapeshifter.Notify_PreShapeshift(shapeshiftGene);
 				}
@@ -447,7 +447,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
 			{
-				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				if (gene is IGeneShapeshifter_SubGene geneShapeshifter && gene.Active)
 				{
 					geneShapeshifter.Notify_PostShapeshift(shapeshiftGene);
 				}

@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public interface IGeneShapeshift
+	public interface IGeneShapeshifter_SubGene
 	{
 
 		void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene);

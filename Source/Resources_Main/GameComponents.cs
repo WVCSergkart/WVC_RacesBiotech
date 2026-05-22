@@ -172,17 +172,20 @@ namespace WVC_XenotypesAndGenes
 			string phase = "";
 			try
 			{
+				phase = "init";
 				List<Map> homeMaps = Find.Maps.Where(map => map.IsPlayerHome).ToList();
 				if (homeMaps.NullOrEmpty())
 				{
 					return;
 				}
+				phase = "reset cache";
 				Gene_Backup.ResetCache();
 				if (Gene_Backup.BackupPawns.NullOrEmpty())
 				{
 					return;
 				}
 				List<Thing> summonList = new();
+				phase = "get possible dead pawns";
 				foreach (Pawn pawn in Gene_Backup.BackupPawns)
 				{
 					if (pawn.HomeFaction != Faction.OfPlayer)
@@ -193,11 +196,14 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
+					phase = "try resurrect: " + pawn.Name;
 					if (ResurrectionUtility.TryResurrect(pawn))
 					{
+						phase = "add in summon list: " + pawn.Name;
 						summonList.Add(pawn);
 					}
 				}
+				phase = "try summon";
 				if (MiscUtility.TrySummonDropPod(homeMaps.RandomElement(), summonList))
 				{
 					//Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(), LetterDefOf.PositiveEvent, new LookTargets(summonList));
