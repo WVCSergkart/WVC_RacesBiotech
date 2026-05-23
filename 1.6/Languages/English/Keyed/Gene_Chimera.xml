@@ -129,5 +129,9 @@
 
 	<WVC_XaG_IGeneXenogenesEditor_ApplyWarning>The selected genes will be added to the gene set of gene {0}.</WVC_XaG_IGeneXenogenesEditor_ApplyWarning>
 	<WVC_XaG_IGeneXenogenesEditor_ConflictWithMainGene>One of the selected genes conflicts with the {0} gene.</WVC_XaG_IGeneXenogenesEditor_ConflictWithMainGene>
+	<WVC_XaG_IGeneXenogenesEditor_DisabledGenes>One of the selected genes is not available.</WVC_XaG_IGeneXenogenesEditor_DisabledGenes>
+	<WVC_XaG_IGeneXenogenesEditor_DisabledGene>This gene is not available.</WVC_XaG_IGeneXenogenesEditor_DisabledGene>
+	<WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes>Display unavailable genes</WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes>
+	<WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>Displays genes that are not currently available.</WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>
 
 </LanguageData>

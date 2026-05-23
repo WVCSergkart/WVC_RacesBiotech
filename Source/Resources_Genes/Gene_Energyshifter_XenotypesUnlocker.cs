@@ -38,6 +38,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public List<GeneDef> GeneDefs => cachedGeneDefs;
+
 		private List<GeneDef> cachedGeneDefs;
 		private int lastCachedResearch = -1;
 		private static int lastMessageTick = -1;

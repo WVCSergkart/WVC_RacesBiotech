@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> DisabledGenes => new();
+		public List<GeneDef> DisabledGenes => pawn.genes.GetFirstGeneOfType<Gene_Energyshifter_XenotypesUnlocker>()?.GeneDefs ?? new();
 		public List<GeneDef> DestroyedGenes => new();
 
 		private List<GeneDef> cachedGeneline;
