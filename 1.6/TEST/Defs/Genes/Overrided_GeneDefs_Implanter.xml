@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_SelfOverrider">
+	<defName>WVC_Implanter_Overrider</defName>
+	<label>overrided implanter</label>
+	<description>Carriers of this gene have archites that allow them to reassemble a target into their own exact genetic copy.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Implanter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<biostatMet>0</biostatMet>
+	<biostatArc>3</biostatArc>
+	<displayOrderInCategory>580</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows to replace the &lt;color=#8a8ae6&gt;target&lt;/color&gt; with a &lt;color=#8a8ae6&gt;duplicate&lt;/color&gt; of the &lt;color=#8a8ae6&gt;caster&lt;/color&gt;.</li>
+		<li>Target can be any &lt;color=#8a8ae6&gt;human&lt;/color&gt;.</li>
+		<li>It is considered an &lt;color=#8a8ae6&gt;execution&lt;/color&gt;.</li>
+		<li>Cooldown: 15 days</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_Implanter_Overrider</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Implanter_Overrider</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Implanter_Overrider</defName>
+	<label>overrided implanter</label>
+	<description>Execute the target and rebuild it into an exact copy of the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+	<showPsycastEffects>true</showPsycastEffects>
+	<!-- <cooldownTicksRange>900000</cooldownTicksRange> -->
+	<verbProperties>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>Using the ability will kill the target and create an anomaly duplicate of the caster. The kill will be treated as an execution.\n\nContinue?</confirmationDialogText>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Overrider</compClass>
+	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_Implanter_Overrider</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
+	</comps>
+  </AbilityDef>
+
+</Defs>

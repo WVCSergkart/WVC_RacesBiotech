@@ -24,6 +24,12 @@
 
 	<WVC_TotalMetabolism>Total genetic metabolism: {0}</WVC_TotalMetabolism>
 
+	<WVC_XaG_OverridedImplant>Override</WVC_XaG_OverridedImplant>
+	<WVC_XaG_OverridedImplant_Desc>Target has been overridden and is now an exact replica of {0_nameDef}. {1_nameDef}'s family and friends won't be happy about this.</WVC_XaG_OverridedImplant_Desc>
+	<WVC_XaG_OverridedImplant_NotActive>The gene is not active.</WVC_XaG_OverridedImplant_NotActive>
+
+	<WVC_Cooldown>Cooldown: {0}.</WVC_Cooldown>
+
 	<Edit>edit</Edit>
 
 	<WVC_ClickToEnable>Click to enable</WVC_ClickToEnable>

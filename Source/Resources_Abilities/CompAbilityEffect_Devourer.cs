@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		//[Unsaved(false)]
 		//private Gene_Chimera cachedChimeraGene;
-		public Gene_Chimera ChimeraGene => parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
+		//public Gene_Chimera ChimeraGene => parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -78,8 +78,7 @@ namespace WVC_XenotypesAndGenes
 					GenExplosion.DoExplosion(victim.PositionHeld, victim.MapHeld, 5f, DamageDefOf.EMP, victim);
 				}
 				phase = "kill and destroy";
-				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
-				victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
+				KillTarget(victim, caster);
 				phase = "message";
 				Messages.Message("WVC_XaG_GeneDevourer_Message".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
@@ -87,6 +86,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed devour target: " + victim.Name + ". On phase: " + phase + ". Reason: " + arg);
 			}
+		}
+
+		public static void KillTarget(Pawn victim, Pawn caster)
+		{
+			victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
+			victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 		}
 
 		private void IfVictimIsHumanlike(Pawn victim, Pawn caster, ref string phase)
