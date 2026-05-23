@@ -132,6 +132,6 @@
 	<WVC_XaG_IGeneXenogenesEditor_DisabledGenes>One of the selected genes is not available.</WVC_XaG_IGeneXenogenesEditor_DisabledGenes>
 	<WVC_XaG_IGeneXenogenesEditor_DisabledGene>This gene is not available.</WVC_XaG_IGeneXenogenesEditor_DisabledGene>
 	<WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes>Display unavailable genes</WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes>
-	<WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>Displays genes that are not currently available.</WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>
+	<WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>Whether to display genes that are currently unavailable. These genes are potentially related to {0} but cannot be implanted for one reason or another.</WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc>
 
 </LanguageData>

@@ -732,16 +732,16 @@ namespace WVC_XenotypesAndGenes
 			Rect rect5 = new(rect2.x + Margin + 10f, num4, rect.width * 0.75f - Margin * 3f - 10f, num3);
 			rect5.yMax = rect4.yMax + num3 + 4f;
 			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, true, maxGCX);
-			float num = rect.width * 0.25f - Margin - 10f;
-			float num2 = num - 24f - 10f;
-			Rect rect6 = new(rect5.xMax + Margin, num4, 32f, 4f);
-			Rect rect7 = new(rect6.xMin, rect6.y + 32f, num, 4f);
-			rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
-			Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
-			Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
-			Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
-			postXenotypeHeight = rect11.yMax - num4;
-			PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
+			//float num = rect.width * 0.25f - Margin - 10f;
+			//float num2 = num - 24f - 10f;
+			//Rect rect6 = new(rect5.xMax + Margin, num4, 32f, 4f);
+			//Rect rect7 = new(rect6.xMin, rect6.y + 32f, num, 4f);
+			//rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
+			//Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
+			//Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
+			//Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
+			//postXenotypeHeight = rect11.yMax - num4;
+			//PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
 			PresetNameField(rect, rect2, num4, rect5);
 			Rect rect12 = rect;
 			rect12.yMin = rect12.yMax - ButSize.y;
@@ -854,6 +854,8 @@ namespace WVC_XenotypesAndGenes
 				TooltipHandler.TipRegion(rect11, text4);
 			}
 			// Presets
+			postXenotypeHeight = rect11.yMax - num4;
+			PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
 		}
 
 		public void SetPreset(GeneSetPreset geneSetPresets)
@@ -1179,6 +1181,10 @@ namespace WVC_XenotypesAndGenes
 		protected bool displayDisabledGenes = false;
 		protected override void PostXenotypeOnGUI(float curX, float curY)
 		{
+			if (isContainer)
+			{
+				return;
+			}
 			//TaggedString taggedString = "WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes".Translate();
 			TaggedString taggedString2 = "WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenes".Translate();
 			float width = Mathf.Max(Text.CalcSize(taggedString2).x) + 4f + 24f;
@@ -1189,7 +1195,7 @@ namespace WVC_XenotypesAndGenes
 			//	Widgets.DrawHighlight(rect);
 			//	TooltipHandler.TipRegion(rect, "WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc".Translate());
 			//}
-			rect.y += Text.LineHeight / 2;
+			rect.y += 5;
 			if (Widgets.ButtonInvisible(rect))
 			{
 				Recache();
@@ -1198,7 +1204,7 @@ namespace WVC_XenotypesAndGenes
 			if (Mouse.IsOver(rect))
 			{
 				Widgets.DrawHighlight(rect);
-				TooltipHandler.TipRegion(rect, "WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc".Translate());
+				TooltipHandler.TipRegion(rect, "WVC_XaG_IGeneXenogenesEditor_DisplayDisabledGenesDesc".Translate(gene.LabelCap));
 			}
 			postXenotypeHeight += rect.yMax - curY;
 		}
