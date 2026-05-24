@@ -888,7 +888,7 @@ namespace WVC_XenotypesAndGenes
 							geneOverridden.Notify_Override();
 						}
 					}
-					if (__instance is IGeneInspectInfo || __instance is IGeneFloatMenuOptions)
+					if (__instance is IGeneInspectInfo or IGeneFloatMenuOptions)
 					{
 						XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
 					}

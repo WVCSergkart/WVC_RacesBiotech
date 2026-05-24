@@ -126,15 +126,20 @@ namespace WVC_XenotypesAndGenes
 		public int ArchiteLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatArc);
 		public int ComplexityLimit => pawn.genes.Endogenes.Sum(gene => gene.def.biostatCpx);
 
+		private static List<GeneSetPreset> geneSetPresets;
 		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{
-				return null;
+				if (geneSetPresets == null)
+				{
+					geneSetPresets = new();
+				}
+				return geneSetPresets;
 			}
 			set
 			{
-
+				geneSetPresets = value;
 			}
 		}
 
@@ -259,6 +264,12 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_DevouredMech(Pawn victim)
 		{
 
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
 		}
 
 	}
