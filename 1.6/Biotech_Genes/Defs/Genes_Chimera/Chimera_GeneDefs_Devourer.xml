@@ -25,6 +25,7 @@
 	</statOffsets>
 	<customEffectDescriptions>
 		<li>Allows to kill any pawn and gaining a long-lasting &lt;color=#8a8ae6&gt;hunger buff&lt;/color&gt;.</li>
+		<li>It is considered an &lt;color=#8a8ae6&gt;execution&lt;/color&gt;.</li>
 		<li>Absorbs all accumulated &lt;color=#8a8ae6&gt;experience&lt;/color&gt; of the target.</li>
 		<li MayRequire="ludeon.rimworld.anomaly">Using the ability can &lt;color=#8a8ae6&gt;inhumanize&lt;/color&gt; the caster.</li>
 		<li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt;: Absorbing all target &lt;color=#8a8ae6&gt;genes&lt;/color&gt;.</li>

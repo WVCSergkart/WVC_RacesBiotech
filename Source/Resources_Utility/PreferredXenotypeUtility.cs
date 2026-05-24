@@ -43,25 +43,17 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsPreferredXenotype(Pawn caller, Ideo ideo)
 		{
-			if (InList(notPreferredPawns, caller, ideo))
-			{
-				return false;
-			}
 			if (InList(preferredPawns, caller, ideo))
 			{
 				return true;
 			}
+			if (InList(notPreferredPawns, caller, ideo))
+			{
+				return false;
+			}
 			List<Gene> genesListForReading = caller.genes.GenesListForReading;
 			foreach (XenotypeDef xenotypeDef in ideo.PreferredXenotypes)
 			{
-				//if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, xenotypeDef.genes, ReqMatch))
-				//{
-				//	notPreferredPawns.Add(caller, ideo);
-				//}
-				//else
-				//{
-				//	preferredPawns.Add(caller, ideo);
-				//}
 				UpdLists(caller, ideo, genesListForReading, xenotypeDef.genes);
 			}
 			foreach (CustomXenotype customXenotype in ideo.PreferredCustomXenotypes)
@@ -73,13 +65,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void UpdLists(Pawn caller, Ideo ideo, List<Gene> genesListForReading, List<GeneDef> genes)
 		{
-			if (!XaG_GeneUtility.GenesIsMatch(genesListForReading, genes, ReqMatch))
+			if (XaG_GeneUtility.GenesIsMatch(genesListForReading, genes, ReqMatch))
 			{
-				Add(notPreferredPawns, caller, ideo);
+				Add(preferredPawns, caller, ideo);
 			}
 			else
 			{
-				Add(preferredPawns, caller, ideo);
+				Add(notPreferredPawns, caller, ideo);
 			}
 
 			static void Add(List<IdeoPawnsHolder> list, Pawn caller, Ideo ideo)
