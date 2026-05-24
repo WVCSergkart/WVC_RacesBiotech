@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3281351161
+CRC: 133367141
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0525431093692805cff585a08b6b318f
+    Hash: 8c671dfe7033e53d80937d8b9b26f2fb
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 7e3eccc48bf656e54fe6984a68041421
+    Hash: 3ef3bf1a1bc46c6778dafa427891afed
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -1190,6 +1190,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Chimera_Converter.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Hulk_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Overrided_Implanter.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/Gene_Energyshifter_ChargeUI5c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Hulk_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Shapeshifter_Body/Naked_Fat_east.png

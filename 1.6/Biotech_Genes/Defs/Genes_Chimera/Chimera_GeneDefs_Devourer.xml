@@ -48,12 +48,15 @@
 	<showWhenDrafted>true</showWhenDrafted>
 	<!-- <cooldownTicksRange>35000</cooldownTicksRange> -->
 	<cooldownTicksRange>105000</cooldownTicksRange>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
 	<hostile>true</hostile>
 	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <violent>true</violent>
 	  <warmupTime>2</warmupTime>
 	  <targetParams>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetEntities>true</canTargetEntities>
 		<canTargetAnimals>true</canTargetAnimals>
 		<canTargetMechs>true</canTargetMechs>
 	  </targetParams>
@@ -61,8 +64,6 @@
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Devourer</compClass>
-		<!-- <allOtherPawnsAboutMe>WVC_OthersAboutManeEater</allOtherPawnsAboutMe> -->
-		<!-- <allOtherPawns>WVC_ManEaterFriendlyFire</allOtherPawns> -->
 		<hediffDef>WVC_Chimera_Devourer</hediffDef>
 	  </li>
 	  <li Class="CompProperties_AbilityFleckOnTarget">

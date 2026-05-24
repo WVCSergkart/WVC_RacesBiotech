@@ -9,17 +9,18 @@ namespace WVC_XenotypesAndGenes
 	{
 		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
 
-		//[Unsaved(false)]
-		//private Gene_Chimera cachedChimeraGene;
-		//public Gene_Chimera ChimeraGene => parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
-
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
 			Pawn victim = target.Pawn;
+			if (target.Thing is Corpse corpse)
+			{
+				victim = corpse.InnerPawn;
+			}
 			if (victim != null)
 			{
 				DevourTarget(victim);
+				parent.StartCooldown((int)(parent.def.cooldownTicksRange.RandomInRange * victim.BodySize));
 			}
 		}
 
@@ -29,36 +30,25 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				Pawn caster = parent.pawn;
-				//if (victim.IsHuman())
-				//{
-				//}
 				IfVictimIsHumanlike(victim, caster, ref phase);
-				//else
-				//{
-
-				//}
 				if (victim.RaceProps.IsFlesh)
 				{
-					phase = "get food";
-					if (victim.TryGetNeedFood(out Need_Food victimFood) && caster.TryGetNeedFood(out Need_Food casterFood))
+					if (victim.Corpse == null || !victim.Corpse.IsNotFresh())
 					{
-						casterFood.CurLevel += victimFood.CurLevel;
-						//for (int i = 0; i < victimFood.CurLevel; i++)
-						//{
-						//	if (Rand.Chance(0.25f))
-						//	{
-						//		gene_Chimera?.GetRandomGene();
-						//	}
-						//}
-					}
-					phase = "add hediff";
-					if (Props.hediffDef != null)
-					{
-						Hediff hediff = caster.health.GetOrAddHediff(Props.hediffDef);
-						HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
-						if (hediffComp_Disappears != null)
+						phase = "get food";
+						if (victim.TryGetNeedFood(out Need_Food victimFood) && caster.TryGetNeedFood(out Need_Food casterFood))
 						{
-							hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear += (int)(60000 * victim.BodySize));
+							casterFood.CurLevel += victimFood.CurLevel;
+						}
+						phase = "add hediff";
+						if (Props.hediffDef != null)
+						{
+							Hediff hediff = caster.health.GetOrAddHediff(Props.hediffDef);
+							HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
+							if (hediffComp_Disappears != null)
+							{
+								hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear += (int)(60000 * victim.BodySize));
+							}
 						}
 					}
 					phase = "meat boom";
@@ -90,14 +80,17 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ExecuteTarget(Pawn victim, Pawn caster)
 		{
-			victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
+			if (!victim.Dead)
+			{
+				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
+			}
 			victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 		}
 
 		private void IfVictimIsHumanlike(Pawn victim, Pawn caster, ref string phase)
 		{
 			phase = "change goodwill";
-			if (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger())
+			if (!victim.Dead && (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger()))
 			{
 				int goodwillChange = (victim.RaceProps.Humanlike ? (-29) : (-21)) * (victim.guilt.IsGuilty ? 1 : 2);
 				if (victim.kindDef.factionHostileOnDeath || victim.kindDef.factionHostileOnKill && !victim.guilt.IsGuilty)
@@ -123,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			phase = "drop apparel";
-			victim.apparel?.DropAll(victim.Position, true, false);
+			victim.apparel?.DropAll(victim.PositionHeld, true, false);
 		}
 
 		private void Notify_DevouredMech(Pawn caster, Pawn victim)
@@ -208,6 +201,10 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = target.Pawn;
 			if (pawn == null)
 			{
+				if (target.Thing is Corpse corpse && corpse.InnerPawn != null)
+				{
+					return base.Valid(target, throwMessages);
+				}
 				return false;
 			}
 			if (parent.pawn.IsQuestLodger())
@@ -218,20 +215,12 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			//if (!pawn.IsHuman())
-			//{
-			//	if (throwMessages)
-			//	{
-			//		Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
-			//	}
-			//	return false;
-			//}
 			return base.Valid(target, throwMessages);
 		}
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
 		{
-			if (target.Pawn.HostileTo(parent.pawn))
+			if (target.Pawn == null || target.Pawn.HostileTo(parent.pawn))
 			{
 				return null;
 			}

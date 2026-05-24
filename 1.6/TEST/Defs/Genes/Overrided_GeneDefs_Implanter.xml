@@ -6,7 +6,7 @@
 	<label>overrided implanter</label>
 	<description>Carriers of this gene have archites that allow them to reassemble a target into their own exact genetic copy.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Implanter</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Overrided_Implanter</iconPath>
 	<biostatMet>-5</biostatMet>
 	<biostatArc>3</biostatArc>
 	<displayOrderInCategory>580</displayOrderInCategory>
@@ -30,7 +30,7 @@
 	<defName>WVC_Implanter_Overrider</defName>
 	<label>overrided implanter</label>
 	<description>Execute the target and rebuild it into an exact copy of the caster.</description>
-	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Overrided_Implanter</iconPath>
 	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
 	<showPsycastEffects>true</showPsycastEffects>
 	<!-- <cooldownTicksRange>900000</cooldownTicksRange> -->

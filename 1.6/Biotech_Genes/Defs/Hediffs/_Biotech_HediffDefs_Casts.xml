@@ -37,7 +37,7 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Chimera_Devourer</defName>
-	<label>maneater nutritions</label>
+	<label>devourer nutritions</label>
 	<description>The nutrients absorbed by archites will significantly reduce the consumption of nutrients in the body.</description>
 	<stages>
 	  <li>
