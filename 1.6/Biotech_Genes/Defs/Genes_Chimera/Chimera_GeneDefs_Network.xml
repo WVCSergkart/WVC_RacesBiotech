@@ -14,7 +14,7 @@
 	<customEffectDescriptions>
 		<li>Target can be any pawn with this gene.</li>
 		<li>Every day one random &lt;color=#8a8ae6&gt;collected gene&lt;/color&gt; is &lt;color=#8a8ae6&gt;shared or copied&lt;/color&gt;.</li>
-		<li>&lt;color=#ff8585&gt;Replaces genes eating with genes share.&lt;/color&gt;</li>
+		<li>Replaces genes &lt;color=#8a8ae6&gt;absorbing&lt;/color&gt; with genes &lt;color=#8a8ae6&gt;share&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">

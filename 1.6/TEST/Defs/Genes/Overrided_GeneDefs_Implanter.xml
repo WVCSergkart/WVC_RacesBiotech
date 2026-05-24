@@ -7,7 +7,7 @@
 	<description>Carriers of this gene have archites that allow them to reassemble a target into their own exact genetic copy.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SelfOverrider_Implanter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
-	<biostatMet>0</biostatMet>
+	<biostatMet>-5</biostatMet>
 	<biostatArc>3</biostatArc>
 	<displayOrderInCategory>580</displayOrderInCategory>
 	<customEffectDescriptions>

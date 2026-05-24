@@ -28,21 +28,17 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			Pawn source = target.Pawn;
+			Pawn victim = target.Pawn;
 			Pawn caster = parent.pawn;
-			if (DuplicateUtility.TryDuplicatePawn(caster, caster, source.PositionHeld, caster.Map, out Pawn duplicatePawn, out _, out _, false, addDuplicate: true))
+			if (DuplicateUtility.TryDuplicatePawn(caster, caster, victim.Position, caster.Map, out Pawn duplicatePawn, out _, out _, false, addDuplicate: true))
 			{
-				//Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
-				//if (ability?.CanCooldown == true)
-				//{
-				//	ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
-				//}
 				Gene.StartCooldown();
 				duplicatePawn.genes?.GetFirstGeneOfType<Gene_SelfOverrider_Implanter>()?.StartCooldown();
-				Find.LetterStack.ReceiveLetter("WVC_XaG_OverridedImplant".Translate(), "WVC_XaG_OverridedImplant_Desc".Translate(caster, source), LetterDefOf.NeutralEvent, duplicatePawn);
+				Find.LetterStack.ReceiveLetter("WVC_XaG_OverridedImplant".Translate(), "WVC_XaG_OverridedImplant_Desc".Translate(caster, victim), LetterDefOf.NeutralEvent, duplicatePawn);
+				ReimplanterUtility.SetXenotype(victim, XenotypeDefOf.Baseliner);
+				victim.apparel?.DropAll(victim.Position, true, false);
+				CompAbilityEffect_Devourer.ExecuteTarget(victim, caster);
 			}
-			ReimplanterUtility.SetXenotype(source, XenotypeDefOf.Baseliner);
-			CompAbilityEffect_Devourer.KillTarget(source, caster);
 		}
 
 		//public override bool CanCast

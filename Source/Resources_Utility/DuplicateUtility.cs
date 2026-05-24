@@ -90,6 +90,7 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Error during duplication of pawn " + originalPawn.NameShortColored.ToString() + ". Reason: " + arg);
+				duplicatePawn = null;
 			}
 			return duplicatePawn != null;
 		}

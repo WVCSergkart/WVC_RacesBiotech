@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 					GenExplosion.DoExplosion(victim.PositionHeld, victim.MapHeld, 5f, DamageDefOf.EMP, victim);
 				}
 				phase = "kill and destroy";
-				KillTarget(victim, caster);
+				ExecuteTarget(victim, caster);
 				phase = "message";
 				Messages.Message("WVC_XaG_GeneDevourer_Message".Translate(victim.NameShortColored), victim, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void KillTarget(Pawn victim, Pawn caster)
+		public static void ExecuteTarget(Pawn victim, Pawn caster)
 		{
 			victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 			victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));

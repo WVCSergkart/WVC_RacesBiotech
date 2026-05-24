@@ -296,7 +296,16 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_DevouredFlesh(Pawn victim)
 		{
-			TryGiveMutation();
+			float bodySize = victim.BodySize;
+			if (bodySize < 0.8f)
+			{
+				nextTick = (int)(nextTick * (1f - bodySize));
+				return;
+			}
+			for (int i = 0; i < (int)bodySize; i++)
+			{
+				TryGiveMutation();
+			}
 		}
 
 		public void Notify_DevouredMech(Pawn victim)
