@@ -144,15 +144,26 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryGiveMutation()
 		{
-			//float shapeshifterResourceOffset = 0;
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+			{
+				if (hediff is IHediffFleshmassOvergrow)
+				{
+					continue;
+				}
+				HediffDef hediffDef = hediff.def;
+				if (HediffUtility.MutationDefs.Contains(hediffDef))
+				{
+					pawn.health.RemoveHediff(hediff);
+					if (HediffUtility.TryGiveFleshmassMutation(pawn, hediffDef, false))
+					{
+						Message(hediffDef);
+					}
+					return;
+				}
+			}
 			if (Rand.Chance(0.9f) && HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
-				ResetCache();
-				if (PawnUtility.ShouldSendNotificationAbout(pawn))
-				{
-					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				}
-				//shapeshifterResourceOffset = 12;
+				Message(mutation);
 			}
 			else if (TryGetWeakerPawnMutation(out IHediffFleshmassOvergrow hediffWithComps_FleshmassHeart))
 			{
@@ -162,16 +173,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
-				//shapeshifterResourceOffset = 9;
 			}
 			else
 			{
-				//hideInspectInfo = true;
 				TrySpawnMeat(pawn);
-				//shapeshifterResourceOffset = 19;
 			}
-			// Direct offset without cache
-			//Gene_Shapeshifter.OffsetResource(pawn, shapeshifterResourceOffset);
+
+			void Message(HediffDef mutation)
+			{
+				ResetCache();
+				if (PawnUtility.ShouldSendNotificationAbout(pawn))
+				{
+					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				}
+			}
 		}
 
 		private bool TryGetWeakerPawnMutation(out IHediffFleshmassOvergrow hediffWithComps_FleshmassHeart)

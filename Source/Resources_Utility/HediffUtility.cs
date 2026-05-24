@@ -58,32 +58,36 @@ namespace WVC_XenotypesAndGenes
 		//}
 
 		private static List<HediffDef> cachedMutationDefs;
+		public static List<HediffDef> MutationDefs
+		{
+			get
+			{
+				if (cachedMutationDefs == null)
+				{
+					cachedMutationDefs = DefDatabase<HediffDef>.AllDefsListForReading.Where(FilterOutMutations).ToList();
+				}
+				return cachedMutationDefs;
+			}
+		}
+
+		private static bool FilterOutMutations(HediffDef hediffDef)
+		{
+			return hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && (BestSolidMutation(hediffDef));
+
+			static bool BestSolidMutation(HediffDef hediffDef)
+			{
+				return hediffDef.defaultInstallPart != null && hediffDef.IsHediffDefOfType<Hediff_AddedPart>();
+			}
+		}
+
 		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
 		{
-			if (cachedMutationDefs == null)
-			{
-				cachedMutationDefs = DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => FilterOutMutations(hediffDef)).ToList();
-			}
 			mutation = null;
-			if (cachedMutationDefs.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+			if (MutationDefs.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
 			{
 				mutation = mutationHediff;
 			}
 			return mutation != null;
-
-			static bool FilterOutMutations(HediffDef hediffDef)
-			{
-				return hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && (BestSolidMutation(hediffDef));
-
-				static bool BestSolidMutation(HediffDef hediffDef)
-				{
-					return hediffDef.defaultInstallPart != null && hediffDef.IsHediffDefOfType<Hediff_AddedPart>();
-				}
-				//static bool BestImplantMutation(HediffDef hediffDef)
-				//{
-				//	return hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && hediffDef.IsHediffDefOfType<Hediff_Implant>();
-				//}
-			}
 		}
 
 		public static void SetMutations(Pawn p, float startingMutations)
