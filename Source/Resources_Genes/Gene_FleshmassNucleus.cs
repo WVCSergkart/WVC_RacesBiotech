@@ -317,6 +317,10 @@ namespace WVC_XenotypesAndGenes
 				nextTick = (int)(nextTick * (1f - bodySize));
 				return;
 			}
+			if (bodySize < 1f)
+			{
+				bodySize = 1f;
+			}
 			for (int i = 0; i < (int)bodySize; i++)
 			{
 				TryGiveMutation();

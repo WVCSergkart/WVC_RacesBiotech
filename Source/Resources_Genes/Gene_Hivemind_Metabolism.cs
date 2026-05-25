@@ -98,10 +98,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static bool updated = false;
+		public virtual bool Updated
+		{
+			get
+			{
+				return updated;
+			}
+			set
+			{
+				updated = value;
+			}
+		}
 
 		public override void TickInterval(int delta)
 		{
-			if (updated)
+			if (Updated)
 			{
 				return;
 			}
@@ -115,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Failed set metabolism: " + def.defName + ". Reason: " + arg.Message);
 			}
-			updated = true;
+			Updated = true;
 		}
 
 		public virtual void SetMetabolism()
