@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 			def.biostatMet = metabol / sharedPawns.Count;
 		}
 
-		private void ResetCache()
+		protected virtual void ResetCache()
 		{
 			updated = false;
 		}

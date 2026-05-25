@@ -20,6 +20,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		protected override void ResetCache()
+		{
+			updated = false;
+		}
+
 		public override void SetMetabolism()
 		{
 			def.biostatMet = Gene_Fleshshaper.FleshshaperGenes.Count;
