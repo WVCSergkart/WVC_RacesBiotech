@@ -2,6 +2,20 @@
 <Defs>
 
   <WVC_XenotypesAndGenes.ShaperGeneSetDef>
+	<defName>WVC_General</defName>
+	<label>general</label>
+	<workerClass>WVC_XenotypesAndGenes.ShaperGeneSet</workerClass>
+	<allowedShifterDefs>
+	  <li>WVC_Shapeshifter</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Fleshshaper</li>
+	</allowedShifterDefs>
+	<geneSets>
+		<li>  <geneDef>WVC_Hair_NonBald</geneDef> <cost>2</cost> <displayCategory>Cosmetic</displayCategory>  </li>
+		<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
+	</geneSets>
+  </WVC_XenotypesAndGenes.ShaperGeneSetDef>
+
+  <WVC_XenotypesAndGenes.ShaperGeneSetDef>
 	<defName>WVC_Basic</defName>
 	<label>basic</label>
 	<workerClass>WVC_XenotypesAndGenes.ShaperGeneSet</workerClass>

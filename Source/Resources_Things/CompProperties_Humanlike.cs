@@ -117,6 +117,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_Debugger()
+		{
+			ResetInspectString();
+			reqDebug = false;
+		}
+
 		public void ResetInspectString()
 		{
 			cachedInfoGenes = null;
@@ -310,6 +316,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				resurrectionDelay += Find.TickManager.TicksGame + Props.resurrectionDelay.RandomInRange;
 			}
+		}
+
+		private bool reqDebug = true;
+		public override void CompTickInterval(int delta)
+		{
+			if (reqDebug)
+			{
+				if (Pawn.Spawned || Pawn.Faction == Faction.OfPlayerSilentFail)
+				{
+					ReimplanterUtility.GeneDebugger(Pawn);
+				}
+				reqDebug = false;
+			}
+		}
+
+		public void ResetDebugger()
+		{
+			reqDebug = true;
 		}
 
 		public override void CompTickRare()

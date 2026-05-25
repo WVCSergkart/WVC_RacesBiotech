@@ -42,103 +42,48 @@ namespace WVC_XenotypesAndGenes
 			public static void HarmonyPatches()
 			{
 				cachedHarmony = new Harmony("wvc.sergkart.races.biotech");
-				//harmony.Patch(AccessTools.Method(typeof(MechanitorUtility), "ShouldBeMechanitor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IsMechanitor))));
 				if (WVC_Biotech.settings.generateXenotypeForceGenes || WVC_Biotech.settings.generateSkillGenes || WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
 				{
 					cachedHarmony.Patch(AccessTools.Method(typeof(GeneDefGenerator), "ImpliedGeneDefs"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDefGenerator_ImpliedGeneDefs))));
 				}
 				if (WVC_Biotech.settings.hideXaGGenes)
 				{
-					//harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
 					cachedHarmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_HideGenes))));
 				}
-				//Log.Error("2");
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
 				{
-					//harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneBasics"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_DrawGeneBasics))));
-					//harmony.Patch(AccessTools.Method(typeof(GeneDef), "GetDescriptionFull"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDef_GetDescriptionFull))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGene))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Xag_DrawGeneDef))));
 				}
-				// Moved to MechanitorUtility
-				//if (WVC_Biotech.settings.enable_HideMechanitorButtonsPatch)
-				//{
-				//	cachedHarmony.Patch(AccessTools.Method(typeof(Pawn_MechanitorTracker), "GetGizmos"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
-				//}
-				//Log.Error("3");
 				if (WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability)
 				{
-					// harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
 					cachedHarmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Immunity_makeImmuneTo))));
-					//harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "CheckForOverrides"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FixOverrides")));
-					cachedHarmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
-					cachedHarmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
+					//cachedHarmony.Patch(AccessTools.Method(typeof(GeneUtility), "ReimplantXenogerm"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicImplanterDebug))));
+					//cachedHarmony.Patch(AccessTools.Method(typeof(GeneUtility), "ImplantXenogermItem"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicXenogermDebug))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GenerateGenes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BasicGenerateGenesDebug))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(AnomalyUtility), "OpenCodexGizmo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(AnomalyCodexNullRefFix))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawnRelations"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerator_GeneratePawnRelations))));
-					//cachedHarmony.Patch(AccessTools.Method(typeof(PawnGenerationRequest), "ValidateAndFix"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_PawnGenerationRequest_ValidateAndFix))));
-					//harmony.Patch(AccessTools.Method(typeof(Gene_Deathrest), "CanBindToBindable"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(NonHemogenDeathrest))));
 				}
-				//Log.Error("4");
-				//if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
-				//{
-				//	harmony.Patch(AccessTools.Method(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(TelepathyGene))));
-				//}
-				//Log.Error("5");
 				if (!WVC_Biotech.settings.disableFurGraphic)
 				{
 					cachedHarmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(FurskinIsSkin))));
-					//harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Head), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HeadIsFurskin))));
-					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
-					//harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Hair), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("GlowingHair")));
 				}
-				//Log.Error("6");
-				// if (WVC_Biotech.settings.enableBodySizeGenes)
-				// {
-				// harmony.Patch(AccessTools.Method(typeof(PawnRenderNodeWorker), "ScaleFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("GraphicSize")));
-				// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeBodyWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BodyGraphicSize")));
-				// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
-				// }
-				// Legacy. To-Do: Remove after 1-2 steam updates.
-				//if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
-				//{
-				//	Gene_PredatorRepellent.HarmonyPatch();
-				//}
-				//Log.Error("7");
 				if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
 				{
 					cachedHarmony.Patch(AccessTools.Method(typeof(GameComponent_PawnDuplicator), "CopyGenes"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(PawnDuplicatorFix))));
 				}
-				//Log.Error("8");
-				// Moved to Gene_IncestLover
-				//if (WVC_Biotech.settings.enableIncestLoverGene)
-				//{
-				//	cachedHarmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Incestuous_Relations))));
-				//	cachedHarmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Incestuous_LovinChanceFactor))));
-				//}
-				//Log.Error("9");
 				if (WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers)
 				{
 					cachedHarmony.Patch(AccessTools.Method(typeof(Gene), "OverrideBy"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(OverrideTrigger))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(LifeStageWorker), "Notify_LifeStageStarted"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Notify_LifeStageStarted))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(SanguophageUtility), "DoBite"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(BloodeaterTrigger))));
-					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "TryAcceptPawn", new Type[] { typeof(Pawn), typeof(CompBiosculpterPod_Cycle) }), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_TryAcceptPawn_Patch")));
-					//harmony.Patch(AccessTools.Method(typeof(CompBiosculpterPod), "OrderToPod"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("XenosculpterPod_OrderToPod_Patch")));
-					//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(MechanitorBandwidthGizmo), "Visible"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(MechanitorHideWithGene))));
 					cachedHarmony.Patch(AccessTools.Method(typeof(ResurrectionUtility), "TryResurrect"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Notify_PostResurrected))));
-					//cachedHarmony.Patch(AccessTools.Method(typeof(TraitSet), "RecacheTraits"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(GainTrait_Hook))));
 					if (ModsConfig.IdeologyActive)
 					{
 						cachedHarmony.Patch(AccessTools.Method(typeof(Pawn_IdeoTracker), "SetIdeo"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
 						cachedHarmony.Patch(AccessTools.Method(typeof(Ideo), "RecachePrecepts"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
 					}
 				}
-				// Dev
-				//if (true)
-				//{
-				//	harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_SkillRecord))));
-				//	//harmony.Patch(AccessTools.Method(typeof(GenHostility), "HostileTo", [typeof(Thing), typeof(Thing)]), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_FleshmassEntity))));
-				//}
 				if (!ModsConfig.AnomalyActive)
 				{
 					return;
@@ -151,7 +96,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					DuplicateUtility.HarmonyPatch();
 				}
-				//Log.Error("10");
 			}
 
 			// Patches
@@ -873,6 +817,20 @@ namespace WVC_XenotypesAndGenes
 
 			// GeneOverride
 
+			private static CompHumanlike cachedHumanlikeComp;
+			private static CompHumanlike GetLastHumanlikeComp(Pawn caller)
+			{
+				if (!WVC_Biotech.settings.enable_xagHumanComponent)
+				{
+					return null;
+				}
+				if (cachedHumanlikeComp == null || cachedHumanlikeComp.Pawn != caller)
+				{
+					cachedHumanlikeComp = caller.HumanComponent();
+				}
+				return cachedHumanlikeComp;
+			}
+
 			public static void OverrideTrigger(Gene __instance, Gene overriddenBy)
 			{
 				try
@@ -888,14 +846,12 @@ namespace WVC_XenotypesAndGenes
 							geneOverridden.Notify_Override();
 						}
 					}
-					if (__instance is IGeneInspectInfo or IGeneFloatMenuOptions)
-					{
-						XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
-					}
-					//if (MiscUtility.GameStarted() && __instance?.def != null)
+					//if (__instance is IGeneInspectInfo or IGeneFloatMenuOptions)
 					//{
-					//	CompHumanlike?.SetLastNewGenes(__instance.def);
+					//	XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
 					//}
+					//GetLastHumanlikeComp(__instance.pawn)?.ResetInspectString();
+					GetLastHumanlikeComp(__instance.pawn)?.ResetDebugger();
 					PreferredXenotypesUtility.UpdCollection();
 				}
 				catch (Exception arg)

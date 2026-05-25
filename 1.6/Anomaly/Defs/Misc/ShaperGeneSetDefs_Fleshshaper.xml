@@ -12,7 +12,6 @@
 		<li>  <geneDef>WVC_DeathRefusal</geneDef><!-- death refusal -->  <cost>85</cost>  </li>
 		<li>  <geneDef>WVC_Undead</geneDef><!-- undead -->  <cost>66</cost>  </li>
 		<li>  <geneDef>WVC_Shapeshift_Deathless</geneDef><!-- cellular -->  <cost>88</cost>  </li>
-		<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 		<li>  <geneDef>WVC_EndogermReimplanter</geneDef><!-- reimplanter -->  <cost>44</cost>  </li>
 		<li>  <geneDef>WVC_Reimplanter_RiseFromTheDead</geneDef><!-- post reimplanter -->  <cost>62</cost>  </li>
 		<li>  <geneDef>WVC_ReimplanterArchite_Endogenes</geneDef><!-- germline implanter -->  <cost>26</cost>  </li>
@@ -30,7 +29,7 @@
 	  <li>  <geneDef>Skin_Green</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 	  <li>  <geneDef>Skin_Orange</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 	  <li>  <geneDef>WVC_HairColoredSkin</geneDef>  <cost>1</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
-	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_FleshshapedStomach</geneDef> <cost>71</cost>  </li>
+	  <li>  <geneDef>WVC_FleshshapedStomach</geneDef> <cost>71</cost>  </li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 

@@ -365,6 +365,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static void PostImplantDebug(Pawn pawn)
 		{
+			GeneDebugger(pawn);
+		}
+
+		public static void GeneDebugger(Pawn pawn)
+		{
 			string phase = "init";
 			try
 			{
@@ -413,12 +418,13 @@ namespace WVC_XenotypesAndGenes
 				phase = "remove/fix pawn gene-traits";
 				TraitsUtility.FixGeneTraits(pawn, genesListForReading);
 				phase = "reset human component cache";
-				XaG_GeneUtility.ResetGenesInspectString(pawn);
+				//XaG_GeneUtility.ResetGenesInspectString(pawn);
+				pawn.HumanComponent()?.Notify_Debugger();
 				phase = "reset ideology cache";
 				GeneshiftUtility.ResetXenotypesCollection();
 				if (DebugSettings.ShowDevGizmos)
 				{
-					Log.Warning("Post implant debug called.");
+					Log.Warning($"Genes debugger called for pawn: {pawn.Name}. If you see this message, then everything is working normally. FUUUUCK");
 				}
 			}
 			catch (Exception arg)
