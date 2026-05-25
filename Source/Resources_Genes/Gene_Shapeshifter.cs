@@ -390,6 +390,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				ReimplanterUtility.UnknownXenotype(pawn, pawn.genes.XenotypeLabel.TrimmedToLength(3) + xenotypeHolder.Label.ToString().Reverse().TrimmedToLength(4).Reverse());
+				ReimplanterUtility.UnknownChimerkin(pawn);
 			}
 			else
 			{
