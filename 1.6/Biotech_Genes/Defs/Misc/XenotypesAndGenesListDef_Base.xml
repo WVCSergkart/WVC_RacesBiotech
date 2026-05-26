@@ -564,11 +564,17 @@
 	  <li>
 		<!-- if_any_shapeshifter -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Shapeshifter</workerClass>
-		<chance>0.01</chance>
+		<chance>0.05</chance>
 		<xenotypeDefs>
 		  <li>WVC_Leper</li>
 		  <li>WVC_Mechamata</li>
 		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- if_one_man_army_mode (pawns <= 1 +- any animals and mechs) -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_SoloLeveling</workerClass>
+		<chance>1.0</chance>
+		<!-- all mod xenotypes -->
 	  </li>
 	</xenotypeGetterDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>

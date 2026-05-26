@@ -493,6 +493,7 @@
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Mechakin.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Metalkin.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Shapeshifter.cs" />
+    <Compile Include="XenotypesGetterProject\XenotypeGetter_SoloLeveling.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Tribal.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Undead.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Nociokin.cs" />

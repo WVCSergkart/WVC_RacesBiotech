@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -9,7 +10,15 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeGetterDef def;
 
-		public virtual bool Disabled => def.disabled || def.XenotypeDefs.Empty();
+		public virtual bool Disabled => def.disabled || XenotypeDefs.Empty();
+
+		public virtual List<XenotypeDef> XenotypeDefs
+		{
+			get
+			{
+				return def.XenotypeDefs;
+			}
+		}
 
 		public virtual bool CanFire(Pawn pawn)
 		{
@@ -23,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual XenotypeDef GetXenotype()
 		{
-			if (def.XenotypeDefs.TryRandomElement(out XenotypeDef xenotypeDef))
+			if (XenotypeDefs.TryRandomElement(out XenotypeDef xenotypeDef))
 			{
 				return xenotypeDef;
 			}

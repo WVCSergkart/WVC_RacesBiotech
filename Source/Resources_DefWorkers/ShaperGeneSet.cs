@@ -30,4 +30,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class FleshshaperGeneSet_SoloLeveling : ShaperGeneSet
+	{
+
+		public override bool Allowed(Pawn pawn)
+		{
+			return StaticCollectionsClass.oneManArmyMode;
+		}
+
+	}
+
 }

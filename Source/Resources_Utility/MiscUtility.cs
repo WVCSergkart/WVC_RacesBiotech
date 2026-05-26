@@ -957,7 +957,7 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
 			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
 			StaticCollectionsClass.cachedDownedColonists = downedColonists;
-			StaticCollectionsClass.oneManArmyMode = activeColonists <= 1;
+			StaticCollectionsClass.oneManArmyMode = activeColonistsDuplicatesDeathresting <= 1;
 
 			void SubHumansCount(Pawn item)
 			{

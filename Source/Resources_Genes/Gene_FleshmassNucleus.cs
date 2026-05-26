@@ -321,7 +321,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				bodySize = 1f;
 			}
-			for (int i = 0; i < (int)bodySize; i++)
+			for (int i = 0; i < Math.Round(bodySize); i++)
 			{
 				TryGiveMutation();
 			}

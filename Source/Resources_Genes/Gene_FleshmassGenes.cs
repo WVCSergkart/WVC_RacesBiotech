@@ -590,4 +590,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_OffspringDevourer : XaG_Gene, IGenePregnantHuman
+	{
+
+		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		{
+			pawn.health.RemoveHediff(pregnancy);
+			pawn.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.TryGiveMutation();
+			return true;
+		}
+
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+
+		}
+
+	}
+
 }

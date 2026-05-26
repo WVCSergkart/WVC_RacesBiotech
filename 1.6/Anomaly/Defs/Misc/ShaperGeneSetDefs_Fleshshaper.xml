@@ -33,4 +33,16 @@
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 
+  <WVC_XenotypesAndGenes.ShaperGeneSetDef>
+	<defName>WVC_OneManArmy</defName>
+	<label>solo leveling</label>
+	<workerClass>WVC_XenotypesAndGenes.FleshshaperGeneSet_SoloLeveling</workerClass>
+	<allowedShifterDefs>
+	  <li>WVC_Fleshshaper</li>
+	</allowedShifterDefs>
+	<geneSets>
+	  <li>  <geneDef>WVC_OffspringDevourer</geneDef> <cost>21</cost>  </li>
+	</geneSets>
+  </WVC_XenotypesAndGenes.ShaperGeneSetDef>
+
 </Defs>
