@@ -107,6 +107,7 @@
     <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper_Metabolism.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
+    <Compile Include="Resources_Genes\Gene_SkinColor.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
     <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
@@ -515,6 +516,7 @@
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_PsychicEntropyTracker.currentPsyfocus" />
     <Publicize Include="Assembly-CSharp:RimWorld.CompHatcher.gestateProgress" />
     <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
+    <Publicize Include="Assembly-CSharp:RimWorld.Pawn_GeneTracker.EnsureCorrectSkinColorOverride" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

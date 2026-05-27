@@ -39,8 +39,10 @@
 	  <li>  <geneDef>WVC_FleshmassFertility</geneDef> <cost>2</cost>  </li>
 	  <li>  <geneDef>WVC_Beauty_AbominationallyUgly</geneDef> <cost>5</cost>  </li>
 	  <li>  <geneDef>WVC_Budding</geneDef> <cost>33</cost>  </li>
-	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_MinMaxTemp_Adaptive</geneDef> <cost>77</cost>  </li>
+	  <li>  <geneDef>WVC_MinMaxTemp_Adaptive</geneDef> <cost>77</cost>  </li>
 	  <li>  <geneDef>WVC_PsychicHarem</geneDef> <cost>8</cost>  </li>
+	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_Fleshmass_ImmunToxRes</geneDef> <cost>27</cost>  </li>
+	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_Fleshmass_MultToxRes</geneDef> <cost>24</cost>  </li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 

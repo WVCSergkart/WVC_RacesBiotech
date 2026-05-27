@@ -20,28 +20,17 @@ namespace WVC_XenotypesAndGenes
 			Other
 		}
 
-		public Pawn pawn;
-
-		public Gene gene;
-
-		public HairDef initialHairDef;
-
-		public BeardDef initialBeardDef;
-
-		public TattooDef initialFaceTattoo;
-
-		public TattooDef initialBodyTattoo;
-
-		public Color desiredHairColor;
-
-		public StylingTab curTab;
-
-		public Vector2 hairScrollPosition;
-
+		protected Pawn pawn;
+		protected Gene gene;
+		protected HairDef initialHairDef;
+		protected BeardDef initialBeardDef;
+		protected TattooDef initialFaceTattoo;
+		protected TattooDef initialBodyTattoo;
+		protected Color desiredHairColor;
+		protected StylingTab curTab;
+		protected Vector2 hairScrollPosition;
 		private Vector2 beardScrollPosition;
-
 		private Vector2 faceTattooScrollPosition;
-
 		private Vector2 bodyTattooScrollPosition;
 
 		// private Vector2 apparelColorScrollPosition;
@@ -75,34 +64,6 @@ namespace WVC_XenotypesAndGenes
 		// private bool DevMode => stylingStation == null;
 
 		public override Vector2 InitialSize => new(950f, 750f);
-
-		// private List<Color> AllColors
-		// {
-		// get
-		// {
-		// if (allColors == null)
-		// {
-		// allColors = new List<Color>();
-		// if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
-		// {
-		// allColors.Add(pawn.Ideo.ApparelColor);
-		// }
-		// if (pawn.story != null && !pawn.DevelopmentalStage.Baby() && pawn.story.favoriteColor.HasValue && !allColors.Any((Color c) => pawn.story.favoriteColor.Value.IndistinguishableFrom(c)))
-		// {
-		// allColors.Add(pawn.story.favoriteColor.Value);
-		// }
-		// foreach (ColorDef colDef in DefDatabase<ColorDef>.AllDefs.Where((ColorDef x) => x.colorType == ColorType.Ideo || x.colorType == ColorType.Misc || (DevMode && !ModsConfig.IdeologyActive && x.colorType == ColorType.Structure)))
-		// {
-		// if (!allColors.Any((Color x) => x.IndistinguishableFrom(colDef.color)))
-		// {
-		// allColors.Add(colDef.color);
-		// }
-		// }
-		// allColors.SortByColor((Color x) => x);
-		// }
-		// return allColors;
-		// }
-		// }
 
 		public virtual List<Color> AllHairColors
 		{

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_Any</defName>
+	<label>colorful skin</label>
+	<description>Carriers of this gene can change their skin color at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SkinColor</geneClass>
+	<!-- <iconColor>(175,175,175)</iconColor> -->
+	<skinColorOverride>(220,220,220)</skinColorOverride>
+	<displayOrderInCategory>999</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows to change the skin color to any available one.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- trade -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Fleshmass_ImmunToxRes</defName>
+	<label>fleshmass anti-tox</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh that rewires the immune system to fight toxins. This makes the carrier immune to toxins but significantly weakens their defenses against disease.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Fleshmass_ToxImmunityA</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<statOffsets>
+	  <ToxicResistance>1</ToxicResistance>
+	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+	</statOffsets>
+	<statFactors>
+	  <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_Fleshmass_ToxRes</li>
+	  <li>ToxResistance</li>
+	  <li>Immunity</li>
+	  <li>ToxicEnvironmentResistance</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- factor -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Fleshmass_MultToxRes</defName>
+	<label>fleshmass tox-boost</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh that greatly enhances existing protection against toxins.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Fleshmass_ToxImmunityB</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>205</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<statFactors>
+	  <ToxicResistance>5</ToxicResistance>
+	  <ToxicEnvironmentResistance>5</ToxicEnvironmentResistance>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Doesn't grant immunity to toxins on its own. However, it increases the effect of any other sources, including negative ones, by x5</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Fleshmass_ToxRes</li>
+	  <li>ToxResistance</li>
+	  <li>ToxicEnvironmentResistance</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

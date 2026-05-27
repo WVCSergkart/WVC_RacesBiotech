@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2926542667
+CRC: 4095392307
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 368e725451a1b4c2632b113cef07857a
+    Hash: abfd2cc43d7db1414dd79d83d1ec1918
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ea858b6b7f910674fffb223992f3a914
+    Hash: d915d2914e4e570976e7b8b52e0701a3
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -719,6 +719,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/HemogenCrystal/HemogenCrystalB_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/ElfEars/PointedEarsB_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshmass_ToxImmunityA.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno7.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Blessedlink_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/FurBall.png
@@ -829,6 +830,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Melee/Archite1.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FamilyByBlood_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_FertileFleshmass.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshmass_ToxImmunityB.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FurskinBones.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Ultra_Genepack/Miscpack_b.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno5.png
