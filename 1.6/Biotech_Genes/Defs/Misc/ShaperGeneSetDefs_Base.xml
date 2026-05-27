@@ -13,6 +13,11 @@
 		<li>  <geneDef>WVC_Hair_NonBald</geneDef> <cost>2</cost> <displayCategory>Cosmetic</displayCategory>  </li>
 		<li>  <geneDef>WVC_Eyes_Colorful</geneDef><!-- colorful eyes -->  <cost>2</cost>  <displayCategory>Cosmetic</displayCategory>  </li>
 		<li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_SkinColor_Any</geneDef> <cost>2</cost> <displayCategory>Cosmetic</displayCategory>  </li>
+		<li>
+		  <geneDef>WVC_Hivemind_DormantDrone</geneDef>
+		  <displayCategory>WVC_HiveMind</displayCategory>
+		  <cost>1</cost>
+		</li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 

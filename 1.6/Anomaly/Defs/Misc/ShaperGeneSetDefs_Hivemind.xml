@@ -55,11 +55,6 @@
 		  <cost>89</cost>
 		</li>
 		<li>
-		  <geneDef>WVC_Hivemind_DormantDrone</geneDef>
-		  <displayCategory>WVC_HiveMind</displayCategory>
-		  <cost>1</cost>
-		</li>
-		<li>
 		  <geneDef>WVC_HiveMind_Drone</geneDef>
 		  <displayCategory>WVC_HiveMind</displayCategory>
 		  <cost>14</cost>

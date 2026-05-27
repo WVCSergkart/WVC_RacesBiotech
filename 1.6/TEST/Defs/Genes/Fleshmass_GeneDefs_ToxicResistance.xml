@@ -45,11 +45,11 @@
 	<biostatMet>0</biostatMet>
 	<immuneToToxGasExposure>true</immuneToToxGasExposure>
 	<statFactors>
-	  <ToxicResistance>5</ToxicResistance>
-	  <ToxicEnvironmentResistance>5</ToxicEnvironmentResistance>
+	  <ToxicResistance>3</ToxicResistance>
+	  <ToxicEnvironmentResistance>3</ToxicEnvironmentResistance>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Doesn't grant immunity to toxins on its own. However, it increases the effect of any other sources, including negative ones, by x5</li>
+		<li>Doesn't grant immunity to toxins on its own. However, it increases the effect of any other sources, including negative ones, by x3</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Fleshmass_ToxRes</li>
