@@ -20,6 +20,11 @@
 		  <cost>20</cost>
 		</li>
 		<li>
+		  <geneDef>WVC_Hivemind_Resyncer</geneDef>
+		  <displayCategory>WVC_HiveMind</displayCategory>
+		  <cost>21</cost>
+		</li>
+		<li>
 		  <geneDef>WVC_Hivemind_DeathChain</geneDef>
 		  <displayCategory>WVC_HiveMind</displayCategory>
 		  <cost>5</cost>
@@ -58,6 +63,11 @@
 		  <geneDef>WVC_HiveMind_Drone</geneDef>
 		  <displayCategory>WVC_HiveMind</displayCategory>
 		  <cost>14</cost>
+		</li>
+		<li>
+		  <geneDef>WVC_Hivemind_EfficiencyNode</geneDef>
+		  <displayCategory>WVC_HiveMind</displayCategory>
+		  <cost>33</cost>
 		</li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
