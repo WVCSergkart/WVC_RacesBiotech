@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations" MayRequire="Ludeon.RimWorld.Odyssey">
+	<defName>WVC_Fleshmass_Breathless</defName>
+	<label>space breath</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh that reacts to vacuum, quickly adapting the host's body to space.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Fleshmass_Breathless</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>210</displayOrderInCategory>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<!-- <immuneToToxGasExposure>true</immuneToToxGasExposure> -->
+	<immuneToVacuumBurns>true</immuneToVacuumBurns>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_InSpace">
+		<statOffsets>
+		  <ToxicEnvironmentResistance>0.2</ToxicEnvironmentResistance>
+		  <VacuumResistance>1</VacuumResistance>
+		  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_Fleshmass_Breathless</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

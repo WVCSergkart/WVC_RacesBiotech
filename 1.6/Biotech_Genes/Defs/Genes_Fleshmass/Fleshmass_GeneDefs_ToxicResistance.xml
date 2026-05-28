@@ -23,6 +23,7 @@
 	  <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
 	</statFactors>
 	<exclusionTags>
+	  <li>WVC_Fleshmass_Breathless</li>
 	  <li>WVC_Fleshmass_ToxRes</li>
 	  <li>ToxResistance</li>
 	  <li>Immunity</li>

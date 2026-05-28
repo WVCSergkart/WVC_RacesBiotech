@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 4095392307
+CRC: 3827923802
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: abfd2cc43d7db1414dd79d83d1ec1918
+    Hash: 13fca53e6fcd823a8b9bf4ed76caa79e
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: d915d2914e4e570976e7b8b52e0701a3
+    Hash: bd86d03b2edbc3a3e4fed5595e29ef85
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -1381,6 +1381,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Window.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/StoneGene_Head/Head_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DryadbondEnchanced_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshmass_Breathless.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Melee/SkillDown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ReimplanterXenotypes_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Medicine/ScarifierSkills_v0.png

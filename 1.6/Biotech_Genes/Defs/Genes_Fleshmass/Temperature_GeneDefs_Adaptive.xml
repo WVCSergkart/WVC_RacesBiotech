@@ -18,6 +18,7 @@
 		<li>Dynamically changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; every few hours relative to the &lt;color=#8a8ae6&gt;baseliner temperature&lt;/color&gt; sensitivity.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
+	  <li>WVC_Fleshmass_Breathless</li>
 	  <li>MinTemperature</li>
 	  <li>MaxTemperature</li>
 	</exclusionTags>

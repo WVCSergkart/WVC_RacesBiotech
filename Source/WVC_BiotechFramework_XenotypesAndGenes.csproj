@@ -89,6 +89,7 @@
     <Compile Include="Obsolete_0\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
+    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_InSpace.cs" />
     <Compile Include="Resources_DefWorkers\ShaperGeneSet.cs" />
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />

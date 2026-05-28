@@ -607,4 +607,20 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class Gene_SpaceBreathless : XaG_Gene
+	//{
+
+	//	public override bool Active
+	//	{
+	//		get
+	//		{
+	//			if (pawn.Ac)
+	//			{
+
+	//			}
+	//			return base.Active;
+	//		}
+	//	}
+	//}
+
 }
