@@ -257,6 +257,11 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public void Notify_DevouredEntity(Pawn victim)
+		{
+
+		}
+
 		public void Notify_DevouredMech(Pawn victim)
 		{
 			Need_MechEnergy energy = victim.needs?.energy;
@@ -267,7 +272,6 @@ namespace WVC_XenotypesAndGenes
 				Notify_Charging(energy.CurLevel, 1);
 			}
 		}
-
 	}
 
 	public class Gene_SegmentedTail : XaG_Gene

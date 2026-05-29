@@ -498,12 +498,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			// base.Notify_IngestedThing(thing, numTaken);
 			if (!Active)
 			{
 				return;
 			}
-			//float chance = MiscUtility.GetFoodPoisonChance(pawn, thing);
 			if (pawn.health.hediffSet.HasHediff(HediffDefOf.FoodPoisoning))
 			{
 				return;
@@ -809,14 +807,20 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public void Notify_DevouredEntity(Pawn victim)
+		{
+			foreach (ChimeraDevourerDef chimeraDevourerDef in DefDatabase<ChimeraDevourerDef>.AllDefsListForReading)
+			{
+				if (chimeraDevourerDef.Worker.CanFire(victim, pawn))
+				{
+					chimeraDevourerDef.Worker.Action(victim, pawn);
+					return;
+				}
+			}
+		}
+
 		// =================
 
 	}
-
-	//[Obsolete]
-	//public class Gene_BloodChimera : Gene_Chimera
-	//{
-
-	//}
 
 }

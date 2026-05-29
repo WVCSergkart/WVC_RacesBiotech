@@ -320,7 +320,10 @@ namespace WVC_XenotypesAndGenes
 			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDefs(item.abilities.AllAbilitiesForReading);
 			foreach (Gene gene in item.genes.GenesListForReading)
 			{
-				AddMissingGeneAbilities(item, pawnAbilities, gene);
+				if (!ModsUtility.VanillaExpandedFrameworkActive || !gene.Overridden)
+				{
+					AddMissingGeneAbilities(item, pawnAbilities, gene);
+				}
 			}
 		}
 

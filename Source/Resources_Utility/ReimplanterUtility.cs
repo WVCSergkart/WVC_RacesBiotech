@@ -408,9 +408,9 @@ namespace WVC_XenotypesAndGenes
 					{
 						item.OverrideBy(null);
 					}
-					if (!ModsUtility.VanillaExpandedFrameworkActive)
+					if (!ModsUtility.VanillaExpandedFrameworkActive || !item.Overridden)
 					{
-						// VEF can handle it
+						// VEF can handle it. Generally
 						XaG_GameComponent.AddMissingGeneAbilities(pawn, pawnAbilities, item);
 					}
 					NotifyGenesChanged(item);

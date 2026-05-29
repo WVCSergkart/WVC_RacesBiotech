@@ -31,6 +31,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				Pawn caster = parent.pawn;
 				IfVictimIsHumanlike(victim, caster, ref phase);
+				if (victim.IsEntity)
+				{
+					phase = "victim is monster";
+					Notify_DevouredEntity(caster, victim);
+				}
 				if (victim.RaceProps.IsFlesh)
 				{
 					if (victim.Corpse == null || !victim.Corpse.IsNotFresh())
@@ -91,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 		private void IfVictimIsHumanlike(Pawn victim, Pawn caster, ref string phase)
 		{
 			phase = "change goodwill";
-			if (!victim.Dead && (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) || victim.IsQuestLodger()))
+			if (!victim.Dead && (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) && victim.HomeFaction.HasGoodwill || victim.IsQuestLodger()))
 			{
 				int goodwillChange = (victim.RaceProps.Humanlike ? (-29) : (-21)) * (victim.guilt.IsGuilty ? 1 : 2);
 				if (victim.kindDef.factionHostileOnDeath || victim.kindDef.factionHostileOnKill && !victim.guilt.IsGuilty)
@@ -118,6 +123,33 @@ namespace WVC_XenotypesAndGenes
 			}
 			phase = "drop apparel";
 			victim.apparel?.DropAll(victim.PositionHeld, true, false);
+		}
+
+		//private void IfVictimIsEntity(Pawn victim, Pawn caster, ref string phase)
+		//{
+		//	if (victim.IsEntity)
+		//	{
+		//		phase = "victim is monster";
+		//		Notify_DevouredEntity(caster, victim);
+		//	}
+		//}
+
+		private void Notify_DevouredEntity(Pawn caster, Pawn victim)
+		{
+			foreach (Gene gene in caster.genes.GenesListForReading)
+			{
+				try
+				{
+					if (gene is IGeneDevourer geneDevourer && gene.Active)
+					{
+						geneDevourer.Notify_DevouredEntity(victim);
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed Notify_DevouredEntity. Gene: " + gene.def.defName + ". Reason: " + arg.Message);
+				}
+			}
 		}
 
 		private void Notify_DevouredMech(Pawn caster, Pawn victim)
@@ -221,11 +253,20 @@ namespace WVC_XenotypesAndGenes
 
 		public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
 		{
-			if (target.Pawn == null || target.Pawn.HostileTo(parent.pawn))
+			Pawn pawn = target.Pawn;
+			if (pawn == null)
 			{
 				return null;
 			}
-			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromDevourer".Translate(target.Pawn.Named("PAWN")), confirmAction, destructive: true);
+			if (pawn.IsEntity)
+			{
+				return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningEntityIsDangerous_Devourer".Translate(parent.pawn.Named("PAWN")), confirmAction, destructive: true);
+			}
+			if (pawn.HostileTo(parent.pawn))
+			{
+				return null;
+			}
+			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromDevourer".Translate(pawn.Named("PAWN")), confirmAction, destructive: true);
 		}
 
 	}

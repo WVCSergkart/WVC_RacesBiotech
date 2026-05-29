@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -6,6 +7,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class JobDriver_DevourEntitie : JobDriver_XaGJob_General
 	{
 
@@ -25,19 +27,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (job is XaG_Job xaG_Job)
 				{
-					//if (xenotypeDef != null)
-					//{
-					//	XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, xenotypeDef);
-					//}
-					//else if (geneDef != null)
-					//{
-					//	XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
-					//}
 					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, Victim.GetComp<CompEntitiesGenes>()?.Props?.xenotypeDef);
-					//XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
 					GeneResourceUtility.OffsetNeedFood(pawn, 100, true);
 				}
-				//HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Destroy();
 			});
 		}

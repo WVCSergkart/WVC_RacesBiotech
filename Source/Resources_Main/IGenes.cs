@@ -407,6 +407,7 @@ namespace WVC_XenotypesAndGenes
 		void Notify_DevouredHuman(Pawn victim);
 		void Notify_DevouredFlesh(Pawn victim);
 		void Notify_DevouredMech(Pawn victim);
+		void Notify_DevouredEntity(Pawn victim);
 
 	}
 }

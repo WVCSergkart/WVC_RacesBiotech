@@ -277,11 +277,15 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public void Notify_DevouredEntity(Pawn victim)
+		{
+
+		}
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
 		}
-
 	}
 }

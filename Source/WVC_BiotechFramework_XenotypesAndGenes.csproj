@@ -90,6 +90,8 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_InSpace.cs" />
+    <Compile Include="Resources_Defs\ChimeraDevourerDef.cs" />
+    <Compile Include="Resources_DefWorkers\ChimeraDevourer.cs" />
     <Compile Include="Resources_DefWorkers\ShaperGeneSet.cs" />
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
@@ -405,7 +407,7 @@
     <Compile Include="Resources_ThinkNodes\JobDriver_ChangeGolemType.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ChangeMorpherTriggerGene.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_DestroyCellularBody.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_DevourEntitie.cs" />
+    <Compile Include="Obsolete_0\JobDriver_DevourEntitie.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_FeedTargetWithOwnBlood.cs" />
     <Compile Include="Obsolete_0\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_StomachCharge.cs" />

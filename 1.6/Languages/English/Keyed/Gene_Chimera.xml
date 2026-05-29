@@ -74,6 +74,8 @@
 
 	<WVC_XaG_WarningPawnWillDieFromDevourer>Warning: {PAWN_nameDef} will be killed and {PAWN_possessive} body will be destroyed. If the pawn is a human, then {PAWN_nameDef}'s genes will be absorbed and {PAWN_possessive} skill experience will be inherited by the caster.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromDevourer>
 
+	<WVC_XaG_WarningEntityIsDangerous_Devourer>Devouring entities can have consequences. Some of them can create a dangerous explosion upon death or summon a large number of monsters.\n\nAre you confident {PAWN_nameDef} can survive the potential danger?</WVC_XaG_WarningEntityIsDangerous_Devourer>
+
 	<WVC_XaG_GeneRipper_GeneCopied>{0} ripped the {1} gene.</WVC_XaG_GeneRipper_GeneCopied>
 
 	<WVC_XaG_GeneRipper_TargetNoParts>The target has no intact body parts.</WVC_XaG_GeneRipper_TargetNoParts>
@@ -115,6 +117,8 @@
 	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
 
 	<WVC_XaG_GeneChimera_ArchiteDevour>Increase chimera archite limit</WVC_XaG_GeneChimera_ArchiteDevour>
+
+	<WVC_XaG_ChimeraDevourWarning>The Chimera has received unique genetic information from the target, and you can choose how to use it.\n\n&lt;color=#6bb6bb&gt;If you choose xenotype&lt;/color&gt;, old germline genes will be replaced or deleted according to the unique xenotype. The deleted genes will be moved to the chimera's gene collection.\n\n&lt;color=#6bb6bb&gt;If you choose genes&lt;/color&gt;, the xenotype's genetic information will be received as genes, which can be implanted later.\n\nThese two &lt;color=#6bb6bb&gt;mutually exclusive actions&lt;/color&gt;. What will you &lt;color=#6bb6bb&gt;choose&lt;/color&gt;?</WVC_XaG_ChimeraDevourWarning>
 
 	<!-- <WVC_Stack>(Stack)</WVC_Stack> -->
 

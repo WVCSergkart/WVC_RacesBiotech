@@ -332,6 +332,11 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public void Notify_DevouredEntity(Pawn victim)
+		{
+
+		}
+
 	}
 
 	public class Gene_FleshmassHeart : Gene_FleshmassNucleus
