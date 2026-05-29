@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Rand.Chance(chance))
+			if (!Rand.Chance(chance) || pawn.HomeFaction != Faction.OfPlayerSilentFail)
 			{
 				return;
 			}
@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Rand.Chance(chance))
+			if (!Rand.Chance(chance) || pawn.HomeFaction != Faction.OfPlayerSilentFail)
 			{
 				return;
 			}

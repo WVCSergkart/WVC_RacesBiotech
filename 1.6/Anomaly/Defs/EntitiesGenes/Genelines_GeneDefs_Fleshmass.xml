@@ -38,6 +38,8 @@
 			  <li>WVC_BodyTentacles</li>
 			  <li>WVC_Wings_TentacleWings</li>
 			  <li>WVC_MinMaxTemp_Adaptive</li>
+			  <li>WVC_Fleshmass_ImmunToxRes</li>
+			  <li>WVC_OffspringDevourer</li>
 			</geneDefs>
 		</li>
 	</modExtensions>

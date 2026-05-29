@@ -92,6 +92,7 @@
 	<WVC_XaG_Fleshshaper_XenogenesEditorTip>Allows editing &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; within certain biostat limits. The complexity and archite limit depends on the total complexity and archite of endogenes; the metabolism limit is always a fixed value.\n\nMost genes implanted this way will be &lt;color=#8a8ae6&gt;lost over time&lt;/color&gt;. However, using &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;, genes can be made permanent.\n\nGenes that will be lost over time have a small &lt;color=#8a8ae6&gt;lock icon&lt;/color&gt; in the upper right corner. Genes without an icon will not be gradually removed, but shapeshifting or other gene manipulation may still remove them. However, they can be safely re-implanted.</WVC_XaG_Fleshshaper_XenogenesEditorTip>
 
 	<WVC_XaG_FaultyShapeDisease>{0} lost the {1} gene due to genetic overload.</WVC_XaG_FaultyShapeDisease>
+	<!-- <WVC_XaG_FaultyShapeDisease_FewPawns>{0} have lost genes due to genetic overload.</WVC_XaG_FaultyShapeDisease_FewPawns> -->
 
 	<!-- ==================== ENERGYSHIFTER ==================== -->
 	<!-- ==================== ENERGYSHIFTER ==================== -->

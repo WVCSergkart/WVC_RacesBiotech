@@ -173,6 +173,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static int nextMessageTick = -1;
 		private void XenogenesRemover()
 		{
 			try
@@ -181,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.genes.RemoveGene(gene);
 					Message(pawn, gene);
-					// Small and medium colony only
+					// Small colony only
 					if (StaticCollectionsClass.cachedPlayerPawnsCount < 10)
 					{
 						ReimplanterUtility.PostImplantDebug(pawn);
@@ -200,9 +201,10 @@ namespace WVC_XenotypesAndGenes
 
 			static void Message(Pawn pawn, Gene gene)
 			{
-				if (PawnUtility.ShouldSendNotificationAbout(pawn))
+				if (PawnUtility.ShouldSendNotificationAbout(pawn) && nextMessageTick < Find.TickManager.TicksGame)
 				{
 					Messages.Message("WVC_XaG_FaultyShapeDisease".Translate(pawn, gene.Label), pawn, MessageTypeDefOf.NegativeEvent);
+					nextMessageTick = Find.TickManager.TicksGame + 120;
 				}
 			}
 
@@ -229,6 +231,15 @@ namespace WVC_XenotypesAndGenes
 				}
 				return genes.TryRandomElement(out gene);
 			}
+		}
+
+		public override bool TryOffsetResource(float count)
+		{
+			if (geneticMaterial >= 999)
+			{
+				return false;
+			}
+			return base.TryOffsetResource(count);
 		}
 
 		public bool TryDisableGene(GeneDef geneDef)

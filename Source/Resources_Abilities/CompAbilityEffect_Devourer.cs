@@ -47,7 +47,8 @@ namespace WVC_XenotypesAndGenes
 							HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 							if (hediffComp_Disappears != null)
 							{
-								hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear += (int)(60000 * victim.BodySize));
+								//hediffComp_Disappears.SetDuration();
+								hediffComp_Disappears.ticksToDisappear += (int)(parent.def.cooldownTicksRange.RandomInRange * victim.BodySize) + 30000;
 							}
 						}
 					}
