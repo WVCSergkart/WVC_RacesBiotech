@@ -24,6 +24,16 @@
 	</Operation>
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Incestuous"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_IncestLover</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
@@ -125,33 +135,5 @@
 			</operations>
 		</match>
 	</Operation>
-
-	<!-- ================================================= -->
-
-	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <exclusionTags> -->
-		  <!-- <li>WVC_DiseaseProgression</li> -->
-		<!-- </exclusionTags> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- ================================================= -->
-
-	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
-
-	<!-- <Operation Class="XmlExtensions.FindMod"> -->
-		<!-- <mods> -->
-			<!-- <li>wvc.wvcmod.wvcspecific</li> -->
-		<!-- </mods> -->
-		<!-- <packageId>true</packageId> -->
-		<!-- <logic>and</logic> -->
-		<!-- <caseTrue> -->
-
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
 
 </Patch>
