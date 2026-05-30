@@ -281,42 +281,13 @@ namespace WVC_XenotypesAndGenes
 			return geneDef.skinColorBase != null || geneDef.skinColorOverride != null;
 		}
 
+		[Obsolete]
 		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, GeneDef geneDef, bool saveOldGeneSet = true)
 		{
-			//List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;
-			//List<GeneDef> addedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.addedGenes;
-			//if (addedGenes == null || removedGenes == null)
-			//{
-			//	return;
-			//}
-			//Gene_Chimera chimera = pawn.genes?.GetFirstGeneOfType<Gene_Chimera>();
-			//if (chimera == null)
-			//         {
-			//	return;
-			//}
-			//foreach (Gene gene in pawn.genes.Endogenes.ToList())
-			//{
-			//	if (removedGenes.Contains(gene.def))
-			//	{
-			//		if (saveOldGeneSet)
-			//		{
-			//			chimera.TryAddGene(gene.def);
-			//		}
-			//		pawn.genes.RemoveGene(gene);
-			//	}
-			//}
-			//foreach (GeneDef addedGeneDef in addedGenes)
-			//{
-			//	pawn.genes.AddGene(addedGeneDef, false);
-			//}
-			//if (pawn.SpawnedOrAnyParentSpawned)
-			//{
-			//	chimera.DoEffects();
-			//	Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-			//}
 			ImplantChimeraEvolveGeneSet(pawn, geneDef?.GetModExtension<GeneExtension_Undead>()?.xenotypeDef, saveOldGeneSet);
 		}
 
+		[Obsolete]
 		public static void AddGene(this Pawn pawn, GeneDef geneDef, bool xenogene, Gene caller = null)
 		{
 			if (caller != null && caller.def.ConflictsWith(geneDef))
@@ -329,6 +300,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void RemoveGene(this Pawn pawn, Gene gene, Gene caller = null)
 		{
 			if (gene == caller)
@@ -358,12 +330,18 @@ namespace WVC_XenotypesAndGenes
 					{
 						chimera.TryAddGene(gene.def);
 					}
-					pawn.genes.RemoveGene(gene);
+					if (gene != chimera)
+					{
+						pawn.genes.RemoveGene(gene);
+					}
 				}
 			}
 			foreach (GeneDef addedGeneDef in xenotypeDef.genes)
 			{
-				pawn.genes.AddGene(addedGeneDef, false);
+				if (TryRemoveAllConflicts(pawn, addedGeneDef))
+				{
+					pawn.genes.AddGene(addedGeneDef, !xenotypeDef.inheritable);
+				}
 			}
 			if (pawn.SpawnedOrAnyParentSpawned)
 			{
@@ -403,6 +381,7 @@ namespace WVC_XenotypesAndGenes
 			//ReimplanterUtility.PostImplantDebug(p);
 		}
 
+		[Obsolete]
 		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())
 		{
 			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
@@ -425,6 +404,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Gene Restoration
 
+		[Obsolete]
 		public static bool ContainsAll(List<GeneDef> genesToCheck, List<GeneDef> genesContainer)
 		{
 			foreach (GeneDef item in genesToCheck)
@@ -591,6 +571,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool TryRemoveAllConflicts(Pawn pawn, GeneDef geneDef, bool xenogene, List<GeneDef> exceptions = null)
 		{
 			try
@@ -1108,6 +1089,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool GenesIsMatchForPawns(List<Pawn> pawns, List<GeneDef> xenotypeGenes, float percent)
 		{
 			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
@@ -1291,6 +1273,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{
 			if (pawns.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
@@ -1433,6 +1416,7 @@ namespace WVC_XenotypesAndGenes
 			return geneDef;
 		}
 
+		[Obsolete]
 		public static GeneDef GetAnyActiveGeneFromList(List<GeneDef> geneDefs, Pawn pawn)
 		{
 			for (int i = 0; i < geneDefs.Count; i++)
@@ -1453,6 +1437,7 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		[Obsolete]
 		public static void DevGetMatchingList(Pawn pawn, float percent = 0.6f)
 		{
 			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
@@ -1479,6 +1464,7 @@ namespace WVC_XenotypesAndGenes
 		//	return genesCount;
 		//}
 
+		[Obsolete]
 		public static List<XenotypeDef> GetXenotypeAndDoubleXenotypes(XenotypeDef xenotypeDef)
 		{
 			List<XenotypeDef> xenotypes = new();
@@ -1531,6 +1517,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genesListForReading = xenotypeDef.genes;

@@ -25,11 +25,11 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Legacy
-			if (thing.IsDustogenicFood())
-			{
-				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
-				MiscUtility.TryFinalizeAllIngestJobs(pawn);
-			}
+			//if (thing.IsDustogenicFood())
+			//{
+			//	GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
+			//	MiscUtility.TryFinalizeAllIngestJobs(pawn);
+			//}
 			// Legacy
 			if (thing.def.ingestible != null)
 			{
