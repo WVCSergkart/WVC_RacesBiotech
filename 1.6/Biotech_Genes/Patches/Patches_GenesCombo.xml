@@ -69,7 +69,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/ThingDef[defName="CommsConsole"]/comps</xpath>
+	  <xpath>/Defs/ThingDef/comps[li[@Class="CompProperties_Useable_CallBossgroup"]]</xpath>
 	  <value>
 		<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
 		  <compClass>WVC_XenotypesAndGenes.CompBackupSummonPawns</compClass>
