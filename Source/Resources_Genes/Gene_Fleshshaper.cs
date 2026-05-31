@@ -118,6 +118,7 @@ namespace WVC_XenotypesAndGenes
 			base.UpdateCache();
 			//collectedGeneDefs = null;
 			cachedFleshshaperGenes = null;
+			cachedOverloadLevel = null;
 		}
 
 		public List<GeneDef> DisabledGenes => [];
@@ -173,25 +174,45 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int? cachedOverloadLevel;
+		public int OverloadLevel
+		{
+			get
+			{
+				if (cachedOverloadLevel == null)
+				{
+					cachedOverloadLevel = pawn.genes.Endogenes.Count / 21;
+				}
+				return cachedOverloadLevel.Value;
+			}
+		}
+
 		private static int nextMessageTick = -1;
 		private void XenogenesRemover()
 		{
 			try
 			{
-				if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene, 2f))
+				List<GeneDef> removedGeneDefs = new();
+				for (int i = 0; i < OverloadLevel; i++)
 				{
-					pawn.genes.RemoveGene(gene);
-					Message(pawn, gene);
-					// Small colony only
+					if (TryRandomGene(pawn, out Gene gene) && TryOffsetResource(gene, 2f))
+					{
+						pawn.genes.RemoveGene(gene);
+						removedGeneDefs.Add(gene.def);
+					}
+				}
+				if (removedGeneDefs.NullOrEmpty())
+				{
+					TryOffsetResource(4);
+					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 5);
+				}
+				else
+				{
+					Message(removedGeneDefs);
 					if (StaticCollectionsClass.cachedPlayerPawnsCount < 10)
 					{
 						ReimplanterUtility.PostImplantDebug(pawn);
 					}
-				}
-				else
-				{
-					TryOffsetResource(4);
-					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 5);
 				}
 			}
 			catch (Exception arg)
@@ -199,11 +220,18 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed remove random gene. Reason: " + arg.Message);
 			}
 
-			static void Message(Pawn pawn, Gene gene)
+			void Message(List<GeneDef> removedGeneDefs)
 			{
 				if (PawnUtility.ShouldSendNotificationAbout(pawn) && nextMessageTick < Find.TickManager.TicksGame)
 				{
-					Messages.Message("WVC_XaG_FaultyShapeDisease".Translate(pawn, gene.Label), pawn, MessageTypeDefOf.NegativeEvent);
+					if (removedGeneDefs.Count > 1)
+					{
+						Messages.Message("WVC_XaG_FaultyShapeDisease_FewGenes".Translate(pawn, removedGeneDefs.Select(def => def.label).ToLineList()), pawn, MessageTypeDefOf.NegativeEvent);
+					}
+					else
+					{
+						Messages.Message("WVC_XaG_FaultyShapeDisease".Translate(pawn, removedGeneDefs.FirstOrDefault().label), pawn, MessageTypeDefOf.NegativeEvent);
+					}
 					nextMessageTick = Find.TickManager.TicksGame + 120;
 				}
 			}

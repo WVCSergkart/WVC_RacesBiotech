@@ -10,12 +10,17 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public IGeneXenogenesEditor xenogenesEditor;
+		private Gene_Fleshshaper gene_Fleshshaper;
 
 		public GeneGizmo_Fleshshaper(Gene_Shapeshifter geneShapeshifter) : base(geneShapeshifter)
 		{
 			if (geneShapeshifter is IGeneXenogenesEditor xenogenesEditor)
 			{
 				this.xenogenesEditor = xenogenesEditor;
+			}
+			if (geneShapeshifter is Gene_Fleshshaper gene_Fleshshaper)
+			{
+				this.gene_Fleshshaper = gene_Fleshshaper;
 			}
 			uncollapsedSize = 184f;
 		}
@@ -31,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					//Log.Error("0");
 					StringBuilder stringBuilder = new();
-					stringBuilder.AppendLineTagged("WVC_XaG_FleshshaperGizmoTip".Translate(gene.ShaperResource));
+					stringBuilder.AppendLineTagged("WVC_XaG_FleshshaperGizmoTip".Translate(gene.ShaperResource, gene_Fleshshaper.OverloadLevel));
 					if (Gene_Chimera.ChimeraGenesLimit)
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(xenogenesEditor.ComplexityLimit, xenogenesEditor.ArchiteLimit));

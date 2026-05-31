@@ -83,7 +83,22 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
 		{
 			mutation = null;
-			if (MutationDefs.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+			List<HediffDef> allowedMutations = new();
+			foreach (BodyPartRecord bodyPart in pawn.health.hediffSet.GetNotMissingParts())
+			{
+				foreach (HediffDef hediffDef in MutationDefs)
+				{
+					if (hediffDef.defaultInstallPart == bodyPart.def)
+					{
+						allowedMutations.Add(hediffDef);
+					}
+				}
+			}
+			//if (allowedMutations.TryRandomElement(out HediffDef mutationHediff))
+			//{
+			//	mutation = mutationHediff;
+			//}
+			if (allowedMutations.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
 			{
 				mutation = mutationHediff;
 			}
