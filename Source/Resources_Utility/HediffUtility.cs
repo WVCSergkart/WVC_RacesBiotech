@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -83,24 +84,37 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
 		{
 			mutation = null;
-			List<HediffDef> allowedMutations = new();
-			foreach (BodyPartRecord bodyPart in pawn.health.hediffSet.GetNotMissingParts())
+			try
 			{
-				foreach (HediffDef hediffDef in MutationDefs)
+				List<HediffDef> allowedMutations = new();
+				IEnumerable<Hediff> solidHediffs = pawn.health.hediffSet.hediffs.Where(hediff => hediff.def.addedPartProps?.solid == true);
+				foreach (BodyPartRecord bodyPart in pawn.def.race.body.AllParts)
 				{
-					if (hediffDef.defaultInstallPart == bodyPart.def)
+					if (solidHediffs.Any(hediff => hediff.Part == bodyPart))
 					{
-						allowedMutations.Add(hediffDef);
+						continue;
+					}
+					foreach (HediffDef hediffDef in MutationDefs)
+					{
+						if (hediffDef.defaultInstallPart == bodyPart.def)
+						{
+							allowedMutations.Add(hediffDef);
+						}
 					}
 				}
+				if (allowedMutations.Any())
+				{
+					if (allowedMutations.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out mutation) || allowedMutations.TryRandomElement(out mutation))
+					{
+						return true;
+					}
+					mutation = allowedMutations.FirstOrDefault();
+				}
 			}
-			//if (allowedMutations.TryRandomElement(out HediffDef mutationHediff))
-			//{
-			//	mutation = mutationHediff;
-			//}
-			if (allowedMutations.TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+			catch (Exception arg)
 			{
-				mutation = mutationHediff;
+				Log.Warning($"Failed get best mutation hediffDef for pawn: {pawn.Name.ToStringSafe()}. Reason: {arg.Message}");
+				return false;
 			}
 			return mutation != null;
 		}
