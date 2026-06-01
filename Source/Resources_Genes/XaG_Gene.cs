@@ -13,13 +13,32 @@ namespace WVC_XenotypesAndGenes
 
 		// Cache?
 		//public bool? cachedActivity;
+
+		//private static int errorsCatch;
 		//public override bool Active
 		//{
 		//	get
 		//	{
 		//		if (cachedActivity == null)
 		//		{
-		//			cachedActivity = base.Active;
+		//			try
+		//			{
+		//				if (MiscUtility.GameNotStarted())
+		//				{
+		//					return base.Active;
+		//				}
+		//				cachedActivity = base.Active && (pawn?.mutant == null || InitialUtility.DisabledForMutant(pawn.mutant.Def, def));
+		//			}
+		//			catch (Exception arg)
+		//			{
+		//				cachedActivity = null;
+		//				errorsCatch++;
+		//				if (errorsCatch > 100)
+		//				{
+		//					Log.Error("Error in activity. Reason: " + arg.Message);
+		//				}
+		//				return base.Active;
+		//			}
 		//		}
 		//		return cachedActivity.Value;
 		//	}

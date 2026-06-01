@@ -846,6 +846,10 @@ namespace WVC_XenotypesAndGenes
 							geneOverridden.Notify_Override();
 						}
 					}
+					//if (__instance is XaG_Gene xaG_Gene)
+					//{
+					//	xaG_Gene.cachedActivity = null;
+					//}
 					//if (__instance is IGeneInspectInfo or IGeneFloatMenuOptions)
 					//{
 					//	XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);

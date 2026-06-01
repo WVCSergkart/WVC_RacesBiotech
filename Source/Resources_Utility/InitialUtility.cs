@@ -354,6 +354,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//private static Dictionary<MutantDef, List<GeneDef>> cachedDisabledGenes;
+		//public static bool DisabledForMutant(MutantDef mutantDef, GeneDef geneDef)
+		//{
+		//	foreach (var val in cachedDisabledGenes)
+		//	{
+		//		if (val.Key == mutantDef && val.Value.Contains(geneDef))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
 		private static void MutantsPatch(List<GeneDef> xenogenesGenes)
 		{
 			List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
@@ -403,6 +416,18 @@ namespace WVC_XenotypesAndGenes
 				{
 					mutantDef.disablesGenes.Add(geneDef);
 				}
+				//if (cachedDisabledGenes == null)
+				//{
+				//	cachedDisabledGenes = new();
+				//}
+				//if (cachedDisabledGenes.TryGetValue(mutantDef, out List<GeneDef> geneDefs))
+				//{
+				//	geneDefs.AddSafe(geneDef);
+				//}
+				//else
+				//{
+				//	cachedDisabledGenes[mutantDef] = new() { geneDef };
+				//}
 			}
 
 			//static void AddSubGenes(MutantDef mutantDef)

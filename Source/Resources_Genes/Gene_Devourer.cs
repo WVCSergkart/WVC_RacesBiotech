@@ -50,6 +50,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				if (!target.RaceProps.Animal)
+				{
+					continue;
+				}
+				if (!target.RaceProps.canBePredatorPrey)
+				{
+					continue;
+				}
 				if (target.IsForbidden(pawn) || !pawn.CanReserveAndReach(target, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;
@@ -60,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			animals.SortBy(x => x.BodySize);
+			animals.SortBy(x => -x.BodySize);
 			foreach (Pawn target in animals)
 			{
 				if (target.BodySize > 0.8f)
