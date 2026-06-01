@@ -403,7 +403,7 @@
     <Compile Include="Resources_Utility\HivemindUtility.cs" />
     <Compile Include="Resources_Utility\TraitsUtility.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_AbsorbGenogerm.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_BiteTarget.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_CastAbilityMelee.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ChangeGolemType.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ChangeMorpherTriggerGene.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_DestroyCellularBody.cs" />

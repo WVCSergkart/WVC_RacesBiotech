@@ -14,6 +14,17 @@
 	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
   </JobDef>
 
+  <!-- simple cast with reserve -->
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_CastAbilityMelee</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_CastAbilityMelee</driverClass>
+	<casualInterruptible>false</casualInterruptible>
+	<collideWithPawns>false</collideWithPawns>
+	<neverShowWeapon>true</neverShowWeapon>
+	<tryStartFlying>true</tryStartFlying>
+	<overrideFlyChance>1</overrideFlyChance>
+  </JobDef>
+
   <!-- General absorb job. Hardcoded. -->
   <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
 	<defName>WVC_AbsorbTargetGenes</defName>

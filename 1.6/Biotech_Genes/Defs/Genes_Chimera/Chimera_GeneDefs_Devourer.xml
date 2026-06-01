@@ -7,6 +7,7 @@
 	<defName>WVC_Chimera_Devourer</defName>
 	<label>devourer</label>
 	<description>Carriers of this gene have corrupted archites capable of disassembling a person into atoms in seconds, absorbing the genetic code and converting the victim into reserves of nutrients.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Devourer</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>
@@ -52,6 +53,7 @@
 	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
 	<hostile>true</hostile>
 	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<jobDef>WVC_XaG_CastAbilityMelee</jobDef>
 	<verbProperties>
 	  <violent>true</violent>
 	  <warmupTime>2</warmupTime>

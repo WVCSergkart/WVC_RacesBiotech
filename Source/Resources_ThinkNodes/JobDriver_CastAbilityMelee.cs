@@ -6,7 +6,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility, IJobCustomEater, IEatingDriver
+	public class JobDriver_CastAbilityMelee : Verse.AI.JobDriver_CastAbilityMelee, IJobCustomEater, IEatingDriver
 	{
 
 		public virtual bool Finalize => true;
@@ -36,16 +36,31 @@ namespace WVC_XenotypesAndGenes
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			this.FailOn(() => !job.ability.CanCast && !job.ability.Casting || !Victim.Dead && Victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss));
+			this.FailOn(() => FailOn());
 			Ability ability = ((Verb_CastAbility)job.verbToUse).ability;
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOn(() => !ability.CanApplyOn(job.targetA));
 			yield return Toils_Combat.CastVerb(TargetIndex.A, TargetIndex.B, canHitNonTargetPawns: false);
 		}
 
-		public override void Notify_Starting()
+		public virtual bool FailOn()
 		{
-			base.Notify_Starting();
-			job.ability?.Notify_StartedCasting();
+			return !job.ability.CanCast && !job.ability.Casting;
+		}
+
+		//public override void Notify_Starting()
+		//{
+		//	base.Notify_Starting();
+		//	job.ability?.Notify_StartedCasting();
+		//}
+
+	}
+
+	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbilityMelee
+	{
+
+		public override bool FailOn()
+		{
+			return base.FailOn() || !Victim.Dead && Victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss);
 		}
 
 	}

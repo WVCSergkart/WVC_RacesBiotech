@@ -31,14 +31,16 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing = true, bool queue = false, bool reqHemogen = false)
 		{
+			return TryHunForFood(pawn, abilityDef, requestQueueing, queue, reqHemogen, MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn));
+		}
+
+		public static bool TryHunForFood(Pawn pawn, AbilityDef abilityDef, bool requestQueueing, bool queue, bool reqHemogen, List<Pawn> pawns)
+		{
 			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, MainDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
 			{
 				return false;
 			}
-			// =
-			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
-			// =
-			foreach (Pawn colonist in targets)
+			foreach (Pawn colonist in pawns)
 			{
 				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist, reqHemogen))
 				{
@@ -48,10 +50,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-				//{
-				//	continue;
-				//}
 				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, abilityDef, out Job job))
 				{
 					continue;
@@ -62,7 +60,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
-
 	}
 
 }

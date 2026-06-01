@@ -73,8 +73,8 @@
 	<WVC_XaG_GeneDevourer_Message>{0} was devoured!</WVC_XaG_GeneDevourer_Message>
 
 	<WVC_XaG_WarningPawnWillDieFromDevourer>Warning: {PAWN_nameDef} will be killed and {PAWN_possessive} body will be destroyed. If the pawn is a human, then {PAWN_nameDef}'s genes will be absorbed and {PAWN_possessive} skill experience will be inherited by the caster.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromDevourer>
-
 	<WVC_XaG_WarningEntityIsDangerous_Devourer>Devouring entities can have consequences. Some of them can create a dangerous explosion upon death or summon a large number of monsters.\n\nAre you confident {PAWN_nameDef} can survive the potential danger?</WVC_XaG_WarningEntityIsDangerous_Devourer>
+	<WVC_XaG_GeneDevourer_AutoCast>If enabled, the pawn will attempt to use the ability once per day if possible. The ability will only be used on wild animals with a body size greater than 0.8</WVC_XaG_GeneDevourer_AutoCast>
 
 	<WVC_XaG_GeneRipper_GeneCopied>{0} ripped the {1} gene.</WVC_XaG_GeneRipper_GeneCopied>
 
