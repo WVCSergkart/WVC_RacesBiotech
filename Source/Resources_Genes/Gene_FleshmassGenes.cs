@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
-				foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
+				foreach (Thing thing in pawn.MapHeld.listerBuildings.allBuildingsColonist.ToList())
 				{
 					phase = "search buildings";
 					if (thing is Frame frame && frame.IsCompleted())
@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 						//phase = "try build frame: " + thing.def.defName;
 						cycleTry++;
 						phase = "spawn gas and do effects";
-						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
+						thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 						phase = "learn skill";
 						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 						//	positionHeld = rect.ClosestCellTo(positionHeld);
 						//}
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
+						thing.MapHeld.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.Position, tick);
 						phase = "learn skill";
 						if (pawn.skills != null)
 						{

@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					try
 					{
-						hediff.TickInterval(5000);
+						hediff.TickInterval(delta);
 					}
 					catch
 					{
@@ -72,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					try
 					{
-						gene.TickInterval(5000);
+						gene.TickInterval(delta);
 					}
 					catch
 					{

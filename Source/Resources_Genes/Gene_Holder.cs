@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Holder : Gene_RemoteController, IGeneFloatMenuOptions
+	public class Gene_Holder : Gene_RemoteController, IGeneFloatMenuOptions, IGeneOverriddenBy
 	{
 
 		private GeneExtension_Giver cachedGeneExtension_Giver;
@@ -20,6 +20,24 @@ namespace WVC_XenotypesAndGenes
 					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
 				}
 				return cachedGeneExtension_Giver;
+			}
+		}
+
+		private static List<Gene_Holder> cachedHolderGenes;
+		public static List<Gene_Holder> HolderGenes
+		{
+			get
+			{
+				if (cachedHolderGenes == null)
+				{
+					List<Gene_Holder> list = new();
+					foreach (Pawn pawn in PawnsFinder.AllMaps_FreeColonistsSpawned)
+					{
+						list.AddSafe(pawn?.genes?.GetFirstGeneOfType<Gene_Holder>());
+					}
+					cachedHolderGenes = list;
+				}
+				return cachedHolderGenes;
 			}
 		}
 
@@ -56,6 +74,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				autoRelease = !autoRelease;
 			}, orderInPriority: 999));
+			list.Add(new FloatMenuOption("WVC_ReleaseAll".Translate(), delegate
+			{
+				DropContainer();
+			}, orderInPriority: -150));
+			list.Add(new FloatMenuOption("WVC_ReleaseAllMaps".Translate(), delegate
+			{
+				foreach (Gene_Holder gene_Holder in HolderGenes)
+				{
+					if (gene_Holder.Active)
+					{
+						gene_Holder.DropContainer();
+					}
+				}
+			}, orderInPriority: -155));
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
@@ -82,6 +114,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					GenSpawn.Spawn(nextPawn, pawn.PositionHeld, pawn.MapHeld, pawn.Rotation);
 				}
+				nextPawn.genes?.GetFirstGeneOfType<Gene_Holded>()?.SetDelay();
 			}
 			RemoveSetHolder(target);
 			HediffUtility.TryRemoveHediff(Giver.hediffDef, target.holded);
@@ -112,6 +145,16 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Notify_PawnDied(dinfo, culprit);
 			DropContainer();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			DropContainer();
+		}
+
+		public void Notify_Override()
+		{
+
 		}
 
 		public override void PostRemove()
@@ -148,17 +191,21 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	gene.TickInterval(5000);
 				//}
-				container.DoTick(5000);
+				container.DoTick(2500);
 			}
 		}
 
 		private void TryRelease()
 		{
+			if (!autoRelease)
+			{
+				return;
+			}
 			if (pawn.Drafted || pawn.Downed)
 			{
 				return;
 			}
-			if (pawn.Map == null || pawn.Map.mapPawns.FreeColonistsSpawned.Contains(pawn))
+			if (pawn.Map == null || pawn.mindState.IsIdle)
 			{
 				return;
 			}
@@ -189,7 +236,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (pawn.IsQuestLodger())
+			if (pawn.IsQuestLodger() || selPawn.IsQuestLodger())
 			{
 				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
 				yield break;
@@ -220,6 +267,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private bool autoHold = true;
+		private int lastHoldingTicks = 0;
 
 		public override string RemoteActionName => XaG_UiUtility.OnOrOff(autoHold);
 		public override TaggedString RemoteActionDesc => "WVC_GeneHolded_RCDesc".Translate();
@@ -235,14 +283,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(15555, delta))
+			if (pawn.IsHashIntervalTick(5555, delta))
 			{
 				TryCallHolder();
 			}
 		}
 
+		public void SetDelay(int delay = 3)
+		{
+			lastHoldingTicks = delay;
+		}
+
 		private void TryCallHolder()
 		{
+			if (lastHoldingTicks > 0)
+			{
+				lastHoldingTicks--;
+				return;
+			}
 			if (pawn.Map == null)
 			{
 				return;
@@ -255,7 +313,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.Map.mapPawns.FreeColonistsSpawned.Contains(pawn))
+			if (!pawn.mindState.IsIdle)
 			{
 				return;
 			}
@@ -268,6 +326,10 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				if (target.genes == null)
+				{
+					continue;
+				}
+				if (target.Drafted || target.Downed)
 				{
 					continue;
 				}
@@ -300,7 +362,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (pawn.IsQuestLodger())
+			if (pawn.IsQuestLodger() || selPawn.IsQuestLodger())
 			{
 				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
 				yield break;
