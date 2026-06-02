@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3827923802
+CRC: 3500670929
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 13fca53e6fcd823a8b9bf4ed76caa79e
+    Hash: 17109609c0226301369542052df54122
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: bd86d03b2edbc3a3e4fed5595e29ef85
+    Hash: e17c8ad3940b13b60752b3b7eac44231
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -735,6 +735,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/FoxEars_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Stomach_Hungerless.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PsyDull_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Holder.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Transparent_Body/Naked_Male_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Female_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_GhoulSkin_v0.png
@@ -787,8 +788,8 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Animalfeeder.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Horns/HornsA_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/WVC_BioferriteGrowths.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_RemoveVoidDrainMaster.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_PsychicHarem.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_RemoveVoidDrainMaster.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ChimeraLimit_FromBandwidth.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/PowerSource_Tox.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Leper0c.png
@@ -928,6 +929,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_eastm.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/FurChest_Hulk_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Friend_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Holded.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Animals/ScarifierSkills_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Melee/HalfCrown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_south.png

@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool psychicSensitive = false;
 
-		public string simpleMessage = "ERROR";
+		public string simpleMessage = null;
 
 	}
 

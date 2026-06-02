@@ -29,11 +29,14 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
 			<jobDef>WVC_XaG_DestroyCellularBody</jobDef>
+			<!-- <bodyparts> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyparts> -->
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<regeneration>1</regeneration>
-			<reqGeneMat>88</reqGeneMat>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <regeneration>1</regeneration> -->
+			<!-- <reqGeneMat>88</reqGeneMat> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

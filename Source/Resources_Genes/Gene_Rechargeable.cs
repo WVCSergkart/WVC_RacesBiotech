@@ -8,48 +8,17 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Rechargeable : XaG_Gene, IGeneRemoteControl, IGeneDevourer
+	public class Gene_Rechargeable : Gene_RemoteController, IGeneDevourer
 	{
-		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
+		public override string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
+		public override TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
 
-		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
-
-		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			autoFeed = !autoFeed;
 		}
 
 		public bool autoFeed = true;
-
-		public bool RemoteControl_Hide => !Active;
-
-		public bool RemoteControl_Enabled
-		{
-			get
-			{
-				return enabled;
-			}
-			set
-			{
-				enabled = value;
-				remoteControllerCached = false;
-			}
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-		}
-
-		public bool enabled = true;
-		public bool remoteControllerCached = false;
-
-		public void RemoteControl_Recache()
-		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
-		}
-
 
 		//===========
 
@@ -109,35 +78,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			//if (DebugSettings.ShowDevGizmos)
-			//{
-			//	yield return new Command_Action
-			//	{
-			//		defaultLabel = "DEV: TryRecharge",
-			//		action = delegate
-			//		{
-			//			if (!TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, false))
-			//			{
-			//				Log.Error("Charger is null");
-			//			}
-			//		}
-			//	};
-			//}
-			//if (enabled)
-			//{
-			//	foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
-			//	{
-			//		yield return gizmo;
-			//	}
-			//}
-			if (enabled)
-			{
-				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-			}
 		}
 
 		public static bool TryRecharge(Pawn pawn, JobDef jobDef, ThingDef thingDef, bool requestQueueing = true)

@@ -640,6 +640,8 @@ namespace WVC_XenotypesAndGenes
 		//public float factor = 1f;
 		// Fleshshaper
 		public List<string> xenotypeDefs;
+		// Holder
+		public JobDef tryHoldJobDef;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

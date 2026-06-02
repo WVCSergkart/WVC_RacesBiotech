@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Release>release</Release>
+	<WVC_AutoRelease>Auto-release</WVC_AutoRelease>
+
+	<WVC_GeneHolder_RCDesc>Allows the release of held pawns. If auto-release is enabled, a pawn will release its held pawns every two hours while it is busy with tasks. This will continue until it is idle.</WVC_GeneHolder_RCDesc>
+	<WVC_GeneHolded_RCDesc>If enabled, a pawn with no current tasks will automatically request a random holder to hold it. While held, the pawn's time will be significantly slowed.</WVC_GeneHolded_RCDesc>
+
+	<WVC_GeneHolder_HoldMe>Ask for hold</WVC_GeneHolder_HoldMe>
+	<WVC_GeneHolder_HoldTarget>Try hold target</WVC_GeneHolder_HoldTarget>
+
+</LanguageData>

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -26,6 +29,58 @@ namespace WVC_XenotypesAndGenes
 		public ThingOwner innerContainer;
 
 		public int lastTimeSeenByPlayer = -1;
+
+		public void DoTick(int delta, bool full = false)
+		{
+			if (holded == null)
+			{
+				return;
+			}
+			if (full)
+			{
+				try
+				{
+					innerContainer.DoTick();
+				}
+				catch (Exception arg)
+				{
+					Log.Warning($"Error during tick for pawn: {holded.Name.ToStringSafe()}. Reason: {arg.Message}");
+				}
+			}
+			else
+			{
+				try
+				{
+					holded.abilities.AbilitiesTick();
+				}
+				catch
+				{
+					// silent catch
+				}
+				foreach (Hediff hediff in holded.health.hediffSet.hediffs)
+				{
+					try
+					{
+						hediff.TickInterval(5000);
+					}
+					catch
+					{
+						// silent catch
+					}
+				}
+				foreach (Gene gene in holded.genes.GenesListForReading)
+				{
+					try
+					{
+						gene.TickInterval(5000);
+					}
+					catch
+					{
+						// silent catch
+					}
+				}
+			}
+		}
 
 		public override List<GeneDef> AllGenes
 		{

@@ -7,8 +7,10 @@
 	<description>This creature is unkillable, it remains alive as long as at least a piece of their flesh exists.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
 	<preventsDeath>true</preventsDeath>
+	<!-- <keepOnBodyPartRestoration>true</keepOnBodyPartRestoration> -->
 	<stages>
 	  <li>
+		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
 		<becomeVisible>false</becomeVisible>
 		<minSeverity>0.0</minSeverity>
 	  </li>

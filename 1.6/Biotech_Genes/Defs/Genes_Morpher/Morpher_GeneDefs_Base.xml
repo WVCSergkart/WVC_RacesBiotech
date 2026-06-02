@@ -22,6 +22,7 @@
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>VRE_Morphs</li>
+	  <li>WVC_Morpher</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">

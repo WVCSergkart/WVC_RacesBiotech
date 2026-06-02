@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneHolder_Base" Abstract="True">
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
+	<exclusionTags>
+	  <li>VRE_Morphs</li>
+	  <li>WVC_Morpher</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ====== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHolder_Base">
+	<defName>WVC_Holder</defName>
+	<label>holder</label>
+	<description>Carriers of this gene have archites that are capable of disassembling and reassembling pawns with a specific genetic pattern.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Holder</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Holder</iconPath>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;hold&lt;/color&gt; pawns. Pawn must have the &lt;color=#8a8ae6&gt;holded&lt;/color&gt; gene.</li>
+		<li>Time for held pawns progresses &lt;color=#8a8ae6&gt;unevenly&lt;/color&gt;. Their illnesses can progress and their wounds can heal, but their intellectual abilities are completely frozen.</li>
+		<li>&lt;color=#8a8ae6&gt;Holded pawns cannot die&lt;/color&gt; while they are in the gene. However, if their illnesses progress too much, they may die upon leaving the holder.</li>
+		<li>Pawns can be &lt;color=#8a8ae6&gt;released&lt;/color&gt; at any time.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hold</symbol></li>
+		<li><symbol>holder</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>WVC_Holder_HoldMe</jobDef>
+			<hediffDef>WVC_HoldedPawn</hediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHolder_Base">
+	<defName>WVC_Holded</defName>
+	<label>holded</label>
+	<description>Carriers of this gene have archites that are capable of holding the consciousness of the carriers while they are being held by the holder.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Holded</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Holded</iconPath>
+	<displayOrderInCategory>-45</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<customEffectDescriptions>
+		<li>Pawns with this gene can be held by the &lt;color=#8a8ae6&gt;holder&lt;/color&gt; gene.</li>
+		<li>If the pawns have no tasks, they will &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; look for a holder.</li>
+		<li>While held, only some &lt;color=#8a8ae6&gt;hediffs&lt;/color&gt; and some &lt;color=#8a8ae6&gt;genes&lt;/color&gt; remain active.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hold</symbol></li>
+		<li><symbol>holded</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>WVC_Holder_HoldMe</jobDef>
+			<tryHoldJobDef>WVC_Holder_HoldTarget</tryHoldJobDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================ -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_HoldedPawn</defName>
+	<label>holded</label>
+	<preventsDeath>true</preventsDeath>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <!-- ============================================ -->
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_Holder_HoldMe</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_CallHolder</driverClass>
+	<reportString>calling for hold.</reportString>
+  </JobDef>
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_Holder_HoldTarget</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_TryHoldCaller</driverClass>
+	<reportString>trying to hold.</reportString>
+  </JobDef>
+
+</Defs>

@@ -170,6 +170,7 @@
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ChangeXenotypeHediff</compClass>
 		<hediffDef>WVC_Dustogenic_DelayedReimplanter</hediffDef>
 		<humanityCheck>true</humanityCheck>
+		<simpleMessage>WVC_DelayedImplanter_HediffAddedSuccess</simpleMessage>
 	  </li>
 	  <li Class="CompProperties_AbilityRequiresCapacity">
 		<capacity>Manipulation</capacity>

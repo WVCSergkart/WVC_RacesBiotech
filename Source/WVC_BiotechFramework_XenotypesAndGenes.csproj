@@ -109,6 +109,7 @@
     <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
     <Compile Include="Resources_Genes\Gene_Fleshshaper_Metabolism.cs" />
+    <Compile Include="Resources_Genes\Gene_Holder.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
     <Compile Include="Resources_Genes\Gene_SkinColor.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
@@ -370,6 +371,7 @@
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
     <Compile Include="Obsolete_0\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
+    <Compile Include="Resources_ThinkNodes\JobDriver_CallHolder.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_LayHumanEgg.cs" />
     <Compile Include="Resources_ThinkNodes\JobDriver_OpenStylingStationDialog.cs" />

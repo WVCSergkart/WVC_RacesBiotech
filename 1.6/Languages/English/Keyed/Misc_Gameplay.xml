@@ -51,6 +51,8 @@
 
 	<WVC_XaG_NoDescError>No information available.</WVC_XaG_NoDescError>
 
+	<WVC_DelayedImplanter_HediffAddedSuccess>Implantation has been successfully started.</WVC_DelayedImplanter_HediffAddedSuccess>
+
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
