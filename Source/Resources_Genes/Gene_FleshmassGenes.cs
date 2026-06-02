@@ -192,7 +192,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				cycleTry++;
 				phase = "spawn gas and do effects";
-				thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
+				EffecterDef effecterDef = frame?.ConstructionEffect;
+				if (effecterDef != null)
+				{
+					thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(effecterDef.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
+				}
 				GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 				phase = "learn skill";
 				if (frame.resourceContainer.Count > 0 && pawn.skills != null)
@@ -221,8 +225,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				cycleTry++;
 				phase = "spawn gas and do effects";
+				EffecterDef effecterDef = building.def?.repairEffect;
+				if (effecterDef != null)
+				{
+					thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(effecterDef.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
+				}
 				GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-				thing.MapHeld.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
 				phase = "learn skill";
 				if (pawn.skills != null)
 				{
