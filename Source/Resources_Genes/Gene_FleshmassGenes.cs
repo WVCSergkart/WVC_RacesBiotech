@@ -109,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static List<ThingDef> cachedExceptions;
 		public void Construct(int tick)
 		{
 			if (XaG_GeneUtility.FactionMap(pawn) || pawn.IsSlave)
@@ -136,81 +137,43 @@ namespace WVC_XenotypesAndGenes
 			int cycleTry = 0;
 			bool pause = true;
 			string phase = "";
-			try
+			string thingName = "null";
+			if (cachedExceptions == null)
 			{
-				float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
-				foreach (Thing thing in pawn.MapHeld.listerBuildings.allBuildingsColonist.ToList())
+				cachedExceptions = new();
+			}
+			float statFactor = (pawn?.GetStatValue(StatDefOf.ConstructionSpeed) ?? 0.2f) * 1.7f * tick;
+			foreach (Thing thing in pawn.MapHeld.listerBuildings.allBuildingsColonist.ToList())
+			{
+				if (thing == null || cachedExceptions.Contains(thing.def))
 				{
-					phase = "search buildings";
-					if (thing is Frame frame && frame.IsCompleted())
+					continue;
+				}
+				try
+				{
+					DoBuild(thing, statFactor, tick, ref pause, ref cycleTry, ref phase, ref thingName);
+				}
+				catch (Exception arg)
+				{
+					cachedExceptions.Add(thing.def);
+					if (DebugSettings.ShowDevGizmos)
 					{
-						//phase = "try build frame: " + thing.def.defName;
-						cycleTry++;
-						phase = "spawn gas and do effects";
-						thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
-						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-						phase = "learn skill";
-						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
-						{
-							foreach (Gene_DeadlifeBuilder builder in Builders)
-							{
-								builder.SkillLearn(tick, 0.05f);
-							}
-						}
-						phase = "get work speed";
-						if (frame.Stuff != null)
-						{
-							num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
-						}
-						phase = "do work";
-						float workToBuild = frame.WorkToBuild;
-						frame.workDone += num;
-						if (frame.workDone >= workToBuild)
-						{
-							phase = "CompleteConstruction";
-							frame.CompleteConstruction(pawn);
-						}
-						pause = false;
-					}
-					else if (thing.def.useHitPoints && thing is Building building && building.HitPoints < building.MaxHitPoints)
-					{
-						//phase = "try repair thing: " + thing.def.defName;
-						cycleTry++;
-						phase = "spawn gas and do effects";
-						//IntVec3 positionHeld = thing.PositionHeld;
-						//if (thing.def.passability == Traversability.Impassable)
-						//{
-						//	CellRect rect = thing.OccupiedRect();
-						//	positionHeld = rect.ClosestCellTo(positionHeld);
-						//}
-						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-						thing.MapHeld.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.Position, tick);
-						phase = "learn skill";
-						if (pawn.skills != null)
-						{
-							foreach (Gene_DeadlifeBuilder builder in Builders)
-							{
-								builder.SkillLearn(tick, 0.01f);
-							}
-						}
-						phase = "regen hp";
-						building.HitPoints += (int)(2 * num);
-						building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
-						phase = "Notify_BuildingRepaired";
-						pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
-						pause = false;
-					}
-					if (cycleTry >= (3 * Builders.Count))
-					{
-						break;
+						Log.Error($"Failed build job for thing: {thingName}. On phase: {phase}. Reason: {arg}");
 					}
 				}
+				if (cycleTry >= (3 * Builders.Count))
+				{
+					break;
+				}
 			}
-			catch (Exception arg)
-			{
-				nextTick = 60000;
-				Log.Error("Failed do any build job on phase: " + phase + ". Reason: " + arg);
-			}
+			//try
+			//{
+			//}
+			//catch (Exception arg)
+			//{
+			//	nextTick = 60000;
+			//	Log.Error($"Failed do any build job for thing: {thingName}. On phase: {phase}. Reason: {arg}");
+			//}
 			if (pause)
 			{
 				nextTick = tick * (int)(300 + (StaticCollectionsClass.cachedNonDeathrestingColonistsCount > 0 ? StaticCollectionsClass.cachedNonDeathrestingColonistsCount * 0.6f : 1));
@@ -218,6 +181,62 @@ namespace WVC_XenotypesAndGenes
 			else
 			{
 				nextTick = tick;
+			}
+		}
+
+		private void DoBuild(Thing thing, float statFactor, int tick, ref bool pause, ref int cycleTry, ref string phase, ref string thingName)
+		{
+			phase = "search buildings";
+			thingName = thing.def.defName;
+			if (thing is Frame frame && frame.IsCompleted())
+			{
+				cycleTry++;
+				phase = "spawn gas and do effects";
+				thing.MapHeld?.effecterMaintainer?.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
+				GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+				phase = "learn skill";
+				if (frame.resourceContainer.Count > 0 && pawn.skills != null)
+				{
+					foreach (Gene_DeadlifeBuilder builder in Builders)
+					{
+						builder.SkillLearn(tick, 0.05f);
+					}
+				}
+				phase = "get work speed";
+				if (frame.Stuff != null)
+				{
+					statFactor *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
+				}
+				phase = "do work";
+				float workToBuild = frame.WorkToBuild;
+				frame.workDone += statFactor;
+				if (frame.workDone >= workToBuild)
+				{
+					phase = "CompleteConstruction";
+					frame.CompleteConstruction(pawn);
+				}
+				pause = false;
+			}
+			else if (thing.def.useHitPoints && thing is Building building && building.HitPoints < building.MaxHitPoints)
+			{
+				cycleTry++;
+				phase = "spawn gas and do effects";
+				GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+				thing.MapHeld.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.PositionHeld, thing.MapHeld), thing.PositionHeld, tick);
+				phase = "learn skill";
+				if (pawn.skills != null)
+				{
+					foreach (Gene_DeadlifeBuilder builder in Builders)
+					{
+						builder.SkillLearn(tick, 0.01f);
+					}
+				}
+				phase = "regen hp";
+				building.HitPoints += (int)(2 * statFactor);
+				building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
+				phase = "Notify_BuildingRepaired";
+				pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
+				pause = false;
 			}
 		}
 

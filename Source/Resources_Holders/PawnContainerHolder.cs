@@ -79,6 +79,11 @@ namespace WVC_XenotypesAndGenes
 						// silent catch
 					}
 				}
+				// Slow needs regen
+				foreach (Need need in holded.needs.AllNeeds)
+				{
+					need.CurLevelPercentage++;
+				}
 			}
 		}
 

@@ -80,6 +80,7 @@ namespace WVC_XenotypesAndGenes
 			}, orderInPriority: -150));
 			list.Add(new FloatMenuOption("WVC_ReleaseAllMaps".Translate(), delegate
 			{
+				ResetCache();
 				foreach (Gene_Holder gene_Holder in HolderGenes)
 				{
 					if (gene_Holder.Active)
@@ -150,11 +151,17 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			DropContainer();
+			ResetCache();
 		}
 
 		public void Notify_Override()
 		{
+			ResetCache();
+		}
 
+		public static void ResetCache()
+		{
+			cachedHolderGenes = null;
 		}
 
 		public override void PostRemove()
@@ -179,18 +186,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (PawnContainerHolder container in Containers)
 			{
-				//container.innerContainer.DoTick();
-				//if (container.holded.needs != null)
-				//{
-				//	foreach (Need need in container.holded.needs.AllNeeds)
-				//	{
-				//		need.CurLevelPercentage++;
-				//	}
-				//}
-				//foreach (Gene gene in container.holded.genes.GenesListForReading)
-				//{
-				//	gene.TickInterval(5000);
-				//}
 				container.DoTick(2500);
 			}
 		}
@@ -209,9 +204,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn.needs?.rest?.Resting == true)
+			{
+				return;
+			}
 			if (Containers.TryRandomElement(out PawnContainerHolder holded))
 			{
 				TryDropPawn(holded);
+			}
+		}
+
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			foreach (PawnContainerHolder pawnContainer in Containers)
+			{
+				if (pawnContainer.holded.TryGetNeedFood(out Need_Food food))
+				{
+					food.CurLevel += (thing.def.ingestible.CachedNutrition * numTaken) * 0.2f;
+				}
 			}
 		}
 
