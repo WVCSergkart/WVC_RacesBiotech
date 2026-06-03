@@ -98,6 +98,10 @@ namespace WVC_XenotypesAndGenes
 			if (newHolder.TrySetContainer(pawn, caller))
 			{
 				Containers.Add(newHolder);
+				//if (!HediffUtility.TryAddHediff(Giver.holderHediffDef, pawn, def))
+				//{
+				//	HediffHolder?.Reset();
+				//}
 				HediffUtility.TryAddHediff(Giver.hediffDef, caller, def);
 				EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 				return true;
@@ -105,6 +109,20 @@ namespace WVC_XenotypesAndGenes
 			Log.Error("Failed set pawn container.");
 			return false;
 		}
+
+		//[Unsaved(false)]
+		//private Hediff_GeneHolder cachedHediff;
+		//public Hediff_GeneHolder HediffHolder
+		//{
+		//	get
+		//	{
+		//		if (cachedHediff == null)
+		//		{
+		//			cachedHediff = pawn.health?.hediffSet?.GetFirstHediff<Hediff_GeneHolder>();
+		//		}
+		//		return cachedHediff;
+		//	}
+		//}
 
 		private void TryDropPawn(PawnContainerHolder target)
 		{
@@ -118,6 +136,7 @@ namespace WVC_XenotypesAndGenes
 				nextPawn.genes?.GetFirstGeneOfType<Gene_Holded>()?.SetDelay();
 			}
 			RemoveSetHolder(target);
+			//HediffHolder?.Reset();
 			HediffUtility.TryRemoveHediff(Giver.hediffDef, target.holded);
 			EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 		}
@@ -299,7 +318,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void SetDelay(int delay = 3)
+		public void SetDelay(int delay = 5)
 		{
 			lastHoldingTicks = delay;
 		}

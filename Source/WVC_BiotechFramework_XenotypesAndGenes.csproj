@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compatability\MayRequireVanillaExpandedFrameworkAttribute.cs" />
+    <Compile Include="Compatability\ModsDefOf.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ArchiverIntegrator.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_BloodfeederBite.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ChimeraImplanter.cs" />
@@ -389,7 +391,7 @@
     <Compile Include="Resources_Utility\DeathlessUtility.cs" />
     <Compile Include="Resources_Utility\EffectsUtility.cs" />
     <Compile Include="Resources_Utility\FamilyUtility.cs" />
-    <Compile Include="Resources_Utility\ModsUtility.cs" />
+    <Compile Include="Compatability\ModsUtility.cs" />
     <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_Hivemind.cs" />
