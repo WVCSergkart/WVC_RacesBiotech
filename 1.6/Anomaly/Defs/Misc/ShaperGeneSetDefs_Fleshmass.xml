@@ -12,8 +12,8 @@
 	  <li>WVC_Fleshshaper</li>
 	</allowedShifterDefs>
 	<geneSets>
-	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_Holder</geneDef> <cost>82</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
-	  <li MayRequire="wvc.sergkart.test.tools">  <geneDef>WVC_Holded</geneDef> <cost>12</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
+	  <li>  <geneDef>WVC_Holder</geneDef> <cost>82</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
+	  <li>  <geneDef>WVC_Holded</geneDef> <cost>12</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
 		<li>  <geneDef>WVC_FleshmassArmor</geneDef><!-- fleshmass armor -->  <cost>48</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
 		<li>  <geneDef>WVC_FleshmassImmunity</geneDef><!-- fleshmass immunity -->  <cost>20</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>
 		<li>  <geneDef>WVC_FleshmassRegeneration</geneDef><!-- fleshmass regeneration -->  <cost>66</cost>  <displayCategory>WVC_Fleshmass</displayCategory>  </li>

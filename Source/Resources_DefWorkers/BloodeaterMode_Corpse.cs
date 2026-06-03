@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			// =
-			List<Thing> targets = pawn.Map.listerThings.AllThings.Where((thing) => thing is Corpse corpse && !corpse.IsUnnaturalCorpse()).ToList();
+			IEnumerable<Thing> targets = pawn.Map.listerThings.AllThings.Where((thing) => thing is Corpse corpse && !corpse.IsUnnaturalCorpse());
 			// =
 			foreach (Thing thing in targets)
 			{
