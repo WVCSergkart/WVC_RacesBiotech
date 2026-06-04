@@ -69,6 +69,8 @@ namespace WVC_XenotypesAndGenes
 				phase = "try archive";
 				if (Archiver.TryArchiveSelectedPawn(victim, parent.pawn, Archiver))
 				{
+					//phase = "add similar trigger";
+					//victim.genes.AddGene();
 					phase = "meat boom";
 					EffectsUtility.MeatSplatter(victim, FleshbeastUtility.MeatExplosionSize.Large, 7);
 					phase = "message";

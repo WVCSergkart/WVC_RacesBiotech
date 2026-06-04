@@ -155,6 +155,11 @@ namespace WVC_XenotypesAndGenes
 			if (toHold.genes?.GetFirstGeneOfType<Gene_Archiver>() == null)
 			{
 				toHold.genes.AddGene(archive.def, !toHold.genes.Xenotype.inheritable);
+				GeneDef triggerDef = nextOwner.genes?.GetFirstGeneOfType<Gene_MorpherTrigger>()?.def;
+				if (triggerDef != null && !toHold.genes.GenesListForReading.Any(gene => gene is Gene_MorpherTrigger))
+				{
+					toHold.genes.AddGene(triggerDef, !toHold.genes.Xenotype.inheritable);
+				}
 			}
 			archive.SaveFormID(newHolder);
 			//newHolder.formId = SavedGeneSets.Count + 1;
