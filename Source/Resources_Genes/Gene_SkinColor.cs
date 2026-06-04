@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							continue;
 						}
-						cachedSkinColors.Add(color.Value);
+						cachedSkinColors.AddSafe(color.Value);
 					}
 					cachedSkinColors.SortByColor((Color x) => x);
 				}

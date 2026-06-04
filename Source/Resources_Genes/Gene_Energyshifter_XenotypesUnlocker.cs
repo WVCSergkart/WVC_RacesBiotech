@@ -46,12 +46,12 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResearchXenotype(ref string phase)
 		{
-			if (pawn.Faction != Faction.OfPlayer || pawn.MapHeld == null || Energyshifter == null)
+			if (pawn.Faction != Faction.OfPlayer || pawn.MapHeld == null && cachedGeneDefs == null || Energyshifter == null)
 			{
 				return;
 			}
 			phase = "cache pawns and do effects";
-			if (cachedGeneDefs == null || lastCachedResearch < Find.TickManager.TicksGame)
+			if (cachedGeneDefs == null || lastCachedResearch < Find.TickManager.TicksGame && pawn.MapHeld != null)
 			{
 				if (cachedGeneDefs != null)
 				{
@@ -60,12 +60,13 @@ namespace WVC_XenotypesAndGenes
 				cachedGeneDefs = new();
 				foreach (Pawn spawnedPawn in PawnsFinder.AllMaps_Spawned)
 				{
-					if (spawnedPawn.IsHuman() && spawnedPawn.Map == pawn.MapHeld)
+					if (spawnedPawn.IsHuman()) //  && spawnedPawn.Map == pawn.MapHeld
 					{
 						cachedGeneDefs.AddRangeSafe(spawnedPawn.genes?.GenesListForReading?.ConvertToDefs());
 					}
 				}
 			}
+			cachedGeneDefs.Shuffle();
 			GeneDef newGeneDef = null;
 			phase = "get new gene";
 			foreach (GeneDef item in cachedGeneDefs)
@@ -104,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 					Energyshifter.UnlockXenotype(newXenotypeName);
 				}
 				phase = "send message";
-				if (PawnUtility.ShouldSendNotificationAbout(pawn) && (lastMessageTick < Find.TickManager.TicksGame || newXenotypeName != null))
+				if (PawnUtility.ShouldSendNotificationAbout(pawn) && pawn.Spawned && (lastMessageTick < Find.TickManager.TicksGame || newXenotypeName != null))
 				{
 					if (newXenotypeName == null)
 					{

@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+			Pawn innerPawn = ((Corpse)target.Thing)?.InnerPawn;
 			if (innerPawn == null)
 			{
 				return;

@@ -117,7 +117,7 @@
 
 	<WVC_XaG_EnergyshifterSubGenesOffset>&lt;color=#8076ff&gt;Resource offset&lt;/color&gt;: {0}%/day</WVC_XaG_EnergyshifterSubGenesOffset>
 
-	<WVC_XaG_Energyshaper_XenogenesEditorTip>Allows editing &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; within certain biostat limits. Complexity depends on the amount of accumulated genetic material, archites are always fixed at 3, and metabolism has a limit from -5 to +5.</WVC_XaG_Energyshaper_XenogenesEditorTip>
+	<WVC_XaG_Energyshaper_XenogenesEditorTip>Allows editing &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; within certain biostat limits. Complexity depends on the amount of accumulated &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;, archites depend on the number of xenotypes &lt;color=#8a8ae6&gt;researched&lt;/color&gt;, and metabolism has a limit from -5 to +5.</WVC_XaG_Energyshaper_XenogenesEditorTip>
 
 	<WVC_XaG_GeneResearchedMessage>{0} researched the {1} gene.</WVC_XaG_GeneResearchedMessage>
 	<WVC_XaG_XenotypeResearchedMessage>{0} researched the {1} xenotype.</WVC_XaG_XenotypeResearchedMessage>
