@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (MiscUtility.GameStarted())
 					{
-						cachedDynamicChance = Mathf.Clamp(0.01f * (Find.TickManager.TicksGame / 1000000), 0.01f, 0.12f);
+						cachedDynamicChance = Mathf.Clamp(0.02f * (Find.TickManager.TicksGame / 1000000), 0.01f, 0.22f);
 					}
 					else
 					{

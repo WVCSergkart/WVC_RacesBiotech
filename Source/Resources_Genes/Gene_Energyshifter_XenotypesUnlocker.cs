@@ -40,18 +40,18 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> GeneDefs => cachedGeneDefs;
 
-		private List<GeneDef> cachedGeneDefs;
+		private static List<GeneDef> cachedGeneDefs;
 		private int lastCachedResearch = -1;
 		private static int lastMessageTick = -1;
 
 		private void ResearchXenotype(ref string phase)
 		{
-			if (pawn.Faction != Faction.OfPlayer || pawn.MapHeld == null && cachedGeneDefs == null || Energyshifter == null)
+			if (pawn.Faction != Faction.OfPlayer || Energyshifter == null)
 			{
 				return;
 			}
-			phase = "cache pawns and do effects";
-			if (cachedGeneDefs == null || lastCachedResearch < Find.TickManager.TicksGame && pawn.MapHeld != null)
+			phase = "cache genes and do effects";
+			if (cachedGeneDefs == null || lastCachedResearch < Find.TickManager.TicksGame)
 			{
 				if (cachedGeneDefs != null)
 				{
@@ -65,6 +65,7 @@ namespace WVC_XenotypesAndGenes
 						cachedGeneDefs.AddRangeSafe(spawnedPawn.genes?.GenesListForReading?.ConvertToDefs());
 					}
 				}
+				lastCachedResearch = 60000 + Find.TickManager.TicksGame;
 			}
 			cachedGeneDefs.Shuffle();
 			GeneDef newGeneDef = null;
@@ -119,9 +120,12 @@ namespace WVC_XenotypesAndGenes
 					lastMessageTick = 11000 + Find.TickManager.TicksGame;
 				}
 			}
-			phase = "finalize";
+			else
+			{
+				lastCachedResearch = -1;
+			}
+			//phase = "finalize";
 			//shouldUpdate = false;
-			lastCachedResearch = 60000 + Find.TickManager.TicksGame;
 		}
 	}
 

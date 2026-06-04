@@ -1060,7 +1060,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Error during implantation in def: " + geneDef.defName + ". Reason: " + arg.Message);
 				}
 			}
-			RemoveOverridenGenes(ref implantedGenes);
+			RemoveDuplicatedGenes(ref implantedGenes);
 			ReimplanterUtility.PostImplantDebug(gene.Pawn);
 			UpdateChimeraXenogerm(implantedGenes);
 			UpdateOther();
@@ -1114,26 +1114,27 @@ namespace WVC_XenotypesAndGenes
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
-		private void RemoveOverridenGenes(ref List<GeneDef> implantedGenes)
+		private void RemoveDuplicatedGenes(ref List<GeneDef> implantedGenes)
 		{
 			bool postImplantRemoveMessage = false;
 			foreach (Gene gene in gene.Pawn.genes.Xenogenes.ToList())
 			{
-				if (gene.Overridden && gene.overriddenByGene != null)
-				{
-					gene.pawn.genes.RemoveGene(gene);
-					if (implantedGenes.Contains(gene.def))
-					{
-						implantedGenes.Remove(gene.def);
-					}
-					postImplantRemoveMessage = true;
-				}
+				//if (gene.Overridden && gene.overriddenByGene != null && this.gene.Pawn.genes.Endogenes.Any(endo => endo == gene.overriddenByGene))
+				//{
+				//	gene.pawn.genes.RemoveGene(gene);
+				//	if (implantedGenes.Contains(gene.def))
+				//	{
+				//		implantedGenes.Remove(gene.def);
+				//	}
+				//	postImplantRemoveMessage = true;
+				//}
 				if (pawnEndoGenes.Contains(gene.def))
 				{
 					gene.pawn.genes.RemoveGene(gene);
 					if (implantedGenes.Contains(gene.def))
 					{
 						implantedGenes.Remove(gene.def);
+						postImplantRemoveMessage = true;
 					}
 				}
 			}
