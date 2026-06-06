@@ -491,6 +491,7 @@
     <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_DynamicXenotypes.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetterDef.cs" />
+    <Compile Include="XenotypesGetterProject\XenotypeGetter_Dryads.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Sanguophage.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_GameNotStarted.cs" />
     <Compile Include="XenotypesGetterProject\XenotypeGetter_Deadcat.cs" />

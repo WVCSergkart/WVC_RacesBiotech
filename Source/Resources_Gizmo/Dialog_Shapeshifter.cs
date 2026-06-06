@@ -48,8 +48,8 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed to filter out incompatible xenotypes. Reason: " + arg.Message);
 				allXenotypes = gene.Xenotypes;
 			}
-			reqGenesMatch = WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
-			minGenesMatch = 0.5f * WVC_Biotech.settings.shapeshifer_BaseGenesMatch;
+			reqGenesMatch = WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch;
+			minGenesMatch = 0.5f * WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch;
 			SetupAvailableHolders(allXenotypes);
 			if (allXenotypes.Any(xenos => xenos.xenotypeDef == gene.pawn.genes.Xenotype))
 			{

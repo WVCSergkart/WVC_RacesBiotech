@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -29,6 +30,13 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.DropBloodFilth();
 			}
 			FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld, size);
+		}
+
+		public static void PulseEffect(Thing parent)
+		{
+			//Find.TickManager.slower.SignalForceNormalSpeedShort();
+			//SoundDefOf.PsychicPulseGlobal.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+			FleckMaker.AttachedOverlay(parent, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 		}
 
 		public static bool SkipBodyFromMap(Pawn pawn)

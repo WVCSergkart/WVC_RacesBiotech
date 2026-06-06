@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> GeneDefs => cachedGeneDefs;
 
 		private static List<GeneDef> cachedGeneDefs;
-		private int lastCachedResearch = -1;
+		private static int lastCachedResearch = -1;
 		private static int lastMessageTick = -1;
 
 		private void ResearchXenotype(ref string phase)
@@ -55,14 +55,36 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGeneDefs != null)
 				{
-					ThoughtUtility.PulseEffect(pawn);
+					EffectsUtility.PulseEffect(pawn);
 				}
 				cachedGeneDefs = new();
-				foreach (Pawn spawnedPawn in PawnsFinder.AllMaps_Spawned)
+				//foreach (Pawn spawnedPawn in PawnsFinder.AllMaps_Spawned)
+				//{
+				//	if (spawnedPawn.IsHuman()) //  && spawnedPawn.Map == pawn.MapHeld
+				//	{
+				//		cachedGeneDefs.AddRangeSafe(spawnedPawn.genes?.GenesListForReading?.ConvertToDefs());
+				//	}
+				//}
+				phase = "find maps";
+				foreach (Map map in Find.Maps)
 				{
-					if (spawnedPawn.IsHuman()) //  && spawnedPawn.Map == pawn.MapHeld
+					phase = "add all pawns genes";
+					foreach (Pawn targetPawn in map.mapPawns.AllPawns)
 					{
-						cachedGeneDefs.AddRangeSafe(spawnedPawn.genes?.GenesListForReading?.ConvertToDefs());
+						if (targetPawn.IsHuman())
+						{
+							phase = "add genes from pawn";
+							AddGenesFromPawn(targetPawn);
+						}
+					}
+					phase = "add all corpses genes";
+					foreach (Thing thing in map.spawnedThings)
+					{
+						if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
+						{
+							phase = "add genes from corpse";
+							AddGenesFromPawn(corpse.InnerPawn);
+						}
 					}
 				}
 				lastCachedResearch = 60000 + Find.TickManager.TicksGame;
@@ -91,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 				foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders().Where(xenos => !Energyshifter.UnlcokedXenotypes.Contains(xenos.Label)))
 				{
 					phase = "check holder genes: " + xenotypeHolder.Label;
-					if (XaG_GeneUtility.HasAllGenes(xenotypeHolder.genes, Energyshifter.CollectedGenes))
+					if (xenotypeHolder.genes.Empty() || XaG_GeneUtility.GenesIsMatch(Energyshifter.CollectedGenes, xenotypeHolder.genes, WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch))
 					{
 						newXenotypeName = xenotypeHolder.Label;
 					}
@@ -120,13 +142,22 @@ namespace WVC_XenotypesAndGenes
 					lastMessageTick = 11000 + Find.TickManager.TicksGame;
 				}
 			}
-			else
+
+			static void AddGenesFromPawn(Pawn targetPawn)
 			{
-				lastCachedResearch = -1;
+				List<GeneDef> list = new();
+				foreach (Gene gene in targetPawn.genes.GenesListForReading)
+				{
+					list.Add(gene.def);
+					if (gene is Gene_Energyshifter gene_Energyshifter)
+					{
+						list.AddRange(gene_Energyshifter.CollectedGenes);
+					}
+				}
+				cachedGeneDefs.AddRangeSafe(list);
 			}
-			//phase = "finalize";
-			//shouldUpdate = false;
 		}
+
 	}
 
 }

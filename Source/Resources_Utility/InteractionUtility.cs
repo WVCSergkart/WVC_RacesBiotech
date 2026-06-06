@@ -211,7 +211,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (psychicInteraction)
 			{
-				FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+				EffectsUtility.PulseEffect(pawn);
 			}
 			return true;
 		}

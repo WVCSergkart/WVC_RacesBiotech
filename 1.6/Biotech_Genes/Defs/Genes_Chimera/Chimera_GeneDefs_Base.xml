@@ -25,7 +25,7 @@
 		<!-- <li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li> -->
 		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt; to receive a random gene.</li>
 		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
-		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;Allows to devour some entities.&lt;/color&gt;</li>
+		<li MayRequire="ludeon.rimworld.anomaly">Special effects with &lt;color=#b0bf80&gt;devourer&lt;/color&gt; gene.</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ChimeraLimit>21.0</WVC_ChimeraLimit>
