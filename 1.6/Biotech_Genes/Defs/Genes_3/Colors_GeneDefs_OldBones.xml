@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_OldBones</defName>
-	<label>old bones</label>
+	<label>old bones skin</label>
 	<skinColorOverride>(232,193,143)</skinColorOverride>
   </GeneDef>
 
