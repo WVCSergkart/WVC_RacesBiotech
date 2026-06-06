@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
 	<defName>WVC_Energyshifter_XenotypesUnlocker</defName>
 	<label>xenotypes researcher</label>
-	<description>Carriers of this gene have archites that can freely edit the owner's xenogenes.</description>
+	<description>Carriers of this gene have archites that are able to collect genetic information from surrounding pawns.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_XenotypesUnlocker</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_XenotypesUnlocker</iconPath>
 	<displayOrderInCategory>230</displayOrderInCategory>
@@ -15,9 +15,12 @@
 	<customEffectDescriptions>
 		<li>Slowly researching new xenotypes for the &lt;color=#8a8ae6&gt;energyshifter&lt;/color&gt; gene.</li>
 		<li>&lt;color=#8a8ae6&gt;Xenotypes&lt;/color&gt; are researched relative to &lt;color=#8a8ae6&gt;encountered&lt;/color&gt; pawns.</li>
-		<li>Once a day, the map is scanned and a list of &lt;color=#8a8ae6&gt;pawns for research&lt;/color&gt; is compiled.</li>
+		<!-- <li>Once a day, the map is scanned and a list of &lt;color=#8a8ae6&gt;pawns for research&lt;/color&gt; is compiled.</li> -->
+		<li>Scans the map &lt;color=#8a8ae6&gt;once a day&lt;/color&gt; and compiles a list of possible &lt;color=#8a8ae6&gt;genes for research&lt;/color&gt;.</li>
+		<!-- <li>Scans &lt;color=#8a8ae6&gt;pawns, corpses, and energyshifter genes&lt;/color&gt;. Scans &lt;color=#8a8ae6&gt;all&lt;/color&gt; of the player's current &lt;color=#8a8ae6&gt;maps&lt;/color&gt;.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Pawns, corpses, and energyshifter genes&lt;/color&gt; are supported. Works for &lt;color=#8a8ae6&gt;all maps&lt;/color&gt;.</li>
 		<li>Every few hours, one &lt;color=#8a8ae6&gt;unknown gene&lt;/color&gt; is researched.</li>
-		<li>When a full set of genes is &lt;color=#8a8ae6&gt;collected&lt;/color&gt;, a xenotype is &lt;color=#8a8ae6&gt;unlocked&lt;/color&gt;.</li>
+		<li>When a 70% set of genes is &lt;color=#8a8ae6&gt;collected&lt;/color&gt;, a xenotype is &lt;color=#8a8ae6&gt;unlocked&lt;/color&gt;.</li>
 		<li>Any xenotypes and genes that the &lt;color=#8a8ae6&gt;energyshifter&lt;/color&gt; has not yet received will be researched, regardless of whether they are default.</li>
 		<li>Researched genes can be implanted with the &lt;color=#8a8ae6&gt;xenogenes editor&lt;/color&gt; gene.</li>
 	</customEffectDescriptions>
