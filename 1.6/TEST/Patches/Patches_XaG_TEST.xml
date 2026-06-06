@@ -22,14 +22,6 @@
 		<!-- </match> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/XenotypeDef[defName="WVC_Mechamata"]/genes/li[@ReplaceTag="StasisLearning"]</xpath>
-		<success>Always</success>
-		<value>
-		  <li>WVC_Learning_Stasis</li>
-		</value>
-	</Operation>
-
 	<!-- ============================================================ -->
 
 	<!-- health affects genes regrowing -->
