@@ -37,6 +37,36 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int lastCachedTick = -1;
+		private List<XenotypeGetterDef> cachedXenotypeGetterDefs;
+		public List<XenotypeGetterDef> XenotypeGetterDefs
+		{
+			get
+			{
+				if (cachedXenotypeGetterDefs == null || lastCachedTick < Find.TickManager.TicksGame)
+				{
+					List<XenotypeGetterDef> canFireNowList = new();
+					foreach (XenotypeGetterDef xenotypeGetterDef in ListsUtility.XenotypeGetterDefs)
+					{
+						try
+						{
+							if (xenotypeGetterDef.Worker.CanFire())
+							{
+								canFireNowList.Add(xenotypeGetterDef);
+							}
+						}
+						catch (Exception arg)
+						{
+							Log.Warning($"Cannot fire xenotypeGetter with class: {xenotypeGetterDef.workerClass?.ToStringSafe()}. Reason: {arg.Message}");
+						}
+					}
+					lastCachedTick = Find.TickManager.TicksGame + 40000;
+					cachedXenotypeGetterDefs = canFireNowList;
+				}
+				return cachedXenotypeGetterDefs;
+			}
+		}
+
 		private void GetXenotype(Pawn pawn)
 		{
 			if (pawn.genes == null || !XaG_GeneUtility.PawnIsBaseliner(pawn))
@@ -44,24 +74,9 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XenotypeDef xenotypeDef = null;
-			if (Rand.Chance(DynamicChance))
+			if (Rand.Chance(DynamicChance) && XenotypeGetterDefs.TryRandomElementByWeight(getter => getter.Worker.Chance(), out XenotypeGetterDef result))
 			{
-				List<XenotypeGetterDef> canFireNowList = new();
-				foreach (XenotypeGetterDef xenotypeGetterDef in ListsUtility.XenotypeGetterDefs)
-				{
-					try
-					{
-						if (xenotypeGetterDef.Worker.CanFire())
-						{
-							canFireNowList.Add(xenotypeGetterDef);
-						}
-					}
-					catch (Exception arg)
-					{
-						Log.Warning($"Cannot fire xenotypeGetter with class: {xenotypeGetterDef.workerClass?.ToStringSafe()}. Reason: {arg.Message}");
-					}
-				}
-				xenotypeDef = canFireNowList.RandomElementByWeight(getter => getter.Worker.Chance()).Worker.GetXenotype();
+				xenotypeDef = result.Worker.GetXenotype();
 			}
 			if (xenotypeDef != null)
 			{

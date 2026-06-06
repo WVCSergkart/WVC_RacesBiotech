@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Faction.OfMechanoids?.deactivated == true)
 			{
-				return 3;
+				return 0.3f * base.Chance();
 			}
 			return base.Chance();
 		}

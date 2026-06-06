@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		public FactionDef factionDef;
 
+		public List<string> reqXenotypeDefs;
+
 		public List<string> xenotypeDefs;
 
 		private List<XenotypeDef> cachedXenotypeDefs;

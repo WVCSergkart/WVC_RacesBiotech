@@ -182,6 +182,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneticMaterial -= geneDef.biostatCpx;
 			}
+			if (geneticMaterial < 0)
+			{
+				geneticMaterial = 0;
+			}
 		}
 
 		public void Debug_RemoveDupes()

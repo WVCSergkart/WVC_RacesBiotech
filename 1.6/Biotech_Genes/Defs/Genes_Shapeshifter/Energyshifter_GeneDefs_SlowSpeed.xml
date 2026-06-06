@@ -10,7 +10,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<resourceLossPerDay>0.16</resourceLossPerDay>
+	<resourceLossPerDay>-0.16</resourceLossPerDay>
 	<statOffsets>
 	  <MoveSpeed>-1.5</MoveSpeed>
 	</statOffsets>

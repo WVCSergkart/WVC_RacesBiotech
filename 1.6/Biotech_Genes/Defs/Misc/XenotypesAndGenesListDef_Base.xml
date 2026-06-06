@@ -368,6 +368,7 @@
 		<!-- From log -->
 		<!-- = -->
 		<li>WVC_StasisAging</li>
+		<li>WVC_StasisStomach</li>
 		<li>WVC_ForeverYoung</li>
 		<li>WVC_FleshshapedStomach</li>
 		<li>WVC_Learning_Stasis</li>
@@ -582,6 +583,17 @@
 		<chance>1.0</chance>
 		<xenotypeDefs>
 		  <li>WVC_RuneDryad</li>
+		</xenotypeDefs>
+	  </li>
+	  <li>
+		<!-- if_any_xenotype -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Xenotypes</workerClass>
+		<chance>0.8</chance>
+		<reqXenotypeDefs>
+		  <li>WVC_Mechamata</li>
+		</reqXenotypeDefs>
+		<xenotypeDefs>
+		  <li>WVC_Fleshkind</li>
 		</xenotypeDefs>
 	  </li>
 	</xenotypeGetterDefs>
