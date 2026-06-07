@@ -351,7 +351,10 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
-			pawn.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: killer));
+			if (!pawn.Dead)
+			{
+				pawn.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: killer));
+			}
 		}
 
 		//public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)

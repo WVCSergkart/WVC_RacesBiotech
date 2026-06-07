@@ -155,21 +155,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Faction != Faction.OfPlayer && pawn.Corpse?.Map != null)
+			if (pawn.Faction == Faction.OfPlayer)
 			{
-				foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.genes != null && p.Faction == pawn.Faction && p.genes.GenesListForReading.Any((g) => HivemindUtility.IsHivemindGene(g))).ToList())
-				{
-					if (!hiveMember.Dead)
-					{
-						hiveMember.Kill(null);
-					}
-				}
-				return;
+				Player_Trigger();
 			}
-			if (!pawn.InHivemind())
+			else
 			{
-				return;
+				NPC_Trigger();
 			}
+		}
+
+		private void Player_Trigger()
+		{
 			ResetCollection();
 			foreach (Pawn hiveMember in Hivemind.ToList())
 			{
@@ -178,7 +175,21 @@ namespace WVC_XenotypesAndGenes
 					hiveMember.Kill(null);
 				}
 			}
-			//ResetCollection();
+		}
+
+		private void NPC_Trigger()
+		{
+			if (pawn.Corpse?.Map == null)
+			{
+				return;
+			}
+			foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.genes != null && p.Faction == pawn.Faction && p.genes.GenesListForReading.Any((g) => HivemindUtility.IsHivemindGene(g))).ToList())
+			{
+				if (!hiveMember.Dead)
+				{
+					hiveMember.Kill(null);
+				}
+			}
 		}
 
 	}
