@@ -137,6 +137,7 @@
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Hivemind_SharedNeeds</li>
+	  <li>WVC_Hivemind_SharedFood</li>
 	</exclusionTags>
   </GeneDef>
 

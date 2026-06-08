@@ -300,5 +300,18 @@ namespace WVC_XenotypesAndGenes
 		//	cachedActivePawns = null;
 		//}
 
+		//private static bool? cachedHivemindChimerasShareGenes;
+		//public static bool HivemindChimerasShareGenes
+		//{
+		//	get
+		//	{
+		//		if (cachedHivemindChimerasShareGenes == null)
+		//		{
+		//			cachedHivemindChimerasShareGenes = HivemindPawns.Any(pawn => pawn.genes?.GetFirstGeneOfType<Gene_Chimera_HiveGeneline>() != null);
+		//		}
+		//		return cachedHivemindChimerasShareGenes.Value;
+		//	}
+		//}
+
 	}
 }

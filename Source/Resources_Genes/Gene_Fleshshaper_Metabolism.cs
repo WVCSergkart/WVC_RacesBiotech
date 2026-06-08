@@ -20,10 +20,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		protected override void ResetCache()
-		{
-			updated = false;
-		}
+		//protected override void ResetCache()
+		//{
+		//	updated = false;
+		//}
 
 		public override void SetMetabolism()
 		{

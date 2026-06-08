@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			int? count = Hivemind?.Count;
 			if (count.HasValue)
 			{
-				def.biostatMet = count.Value;
+				def.biostatMet = (int)(count.Value / PsyFactor);
 				def.cachedDescription = null;
 				//GeneResourceUtility.UpdMetabolism(pawn);
 			}
@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected virtual void ResetCache()
 		{
-			updated = false;
+			Updated = false;
 		}
 
 		public override void ExposeData()

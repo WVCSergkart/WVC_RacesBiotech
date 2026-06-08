@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -23,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 				hivemindPawns = Hivemind;
 				Log.Warning("Hivemind pawns count is 0, but the efficiency node was triggered. Trying recache hivemind.");
 			}
-			efficiency += (HivemindUtility.HivemindPsychicSensitivity - 1f) * 1000f * hivemindPawns.Count;
+			efficiency += Mathf.Clamp((HivemindUtility.HivemindPsychicSensitivity - 1f) * 1000f * hivemindPawns.Count, 0f , 999999f);
 			foreach (Pawn hiver in hivemindPawns)
 			{
 				//efficiency += (hiver.GetStatValue(StatDefOf.PsychicSensitivity) - 1f) * 100f;
