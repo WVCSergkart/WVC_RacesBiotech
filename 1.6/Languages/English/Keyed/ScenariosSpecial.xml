@@ -4,4 +4,13 @@
 	<WVC_Label_LongRunningJoke_DoLeave>Give up</WVC_Label_LongRunningJoke_DoLeave>
 	<WVC_Desc_LongRunningJoke_DoLeave>{0} has given up on this community.\n\n{0_pronoun} has decided to leave and pursue a better life elsewhere. You can try to arrest {0_objective} as {0_pronoun} leaves. Otherwise, you may still see {0_objective} again some day.</WVC_Desc_LongRunningJoke_DoLeave>
 
+	<!-- <WVC_Label_MechamataHive_Skip>Skipped!</WVC_Label_MechamataHive_Skip> -->
+	<!-- <WVC_Desc_MechamataHive_Skip>{0_nameDef} was enveloped in a stream of light, and then {0_pronoun} vanished. It's unknown what exactly happened to {0_objective}, but it's clear {0_pronoun} can be presumed dead.</WVC_Desc_MechamataHive_Skip> -->
+
+	<!-- <WVC_Label_InfamousStart>Infamous</WVC_Label_InfamousStart> -->
+	<!-- <WVC_Desc_InfamousStart>{0_nameDef} has a very bad reputation in this rimworld, and {0_possessive} reputation will become a permanent mark on your faction. All factions will have very poor natural goodwill toward you.</WVC_Desc_InfamousStart> -->
+
+	<!-- <WVC_Label_AlertOverpopulation>Overpopulation {0}</WVC_Label_AlertOverpopulation> -->
+	<!-- <WVC_Desc_AlertOverpopulation>Overcrowding in your faction. You can kick out unwanted pawns yourself, otherwise someone will decide to leave on their own.\n\n{0}</WVC_Desc_AlertOverpopulation> -->
+
 </LanguageData>

@@ -642,8 +642,12 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (MiscUtility.GameStarted())
 					{
-						pawn.HumanComponent()?.Notify_Resurrected();
-						ReimplanterUtility.PostImplantDebug(pawn);
+						CompHumanlike compHumanlike = pawn.HumanComponent();
+						if (compHumanlike != null)
+						{
+							compHumanlike.Notify_Resurrected();
+							compHumanlike.ResetDebugger();
+						}
 					}
 				}
 				catch (Exception arg)

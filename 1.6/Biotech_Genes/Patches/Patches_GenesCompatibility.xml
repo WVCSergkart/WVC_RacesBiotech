@@ -125,6 +125,23 @@
 	<!-- </Operation> -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="DeniedJoining" or defName="ColonistBanished"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_OneManArmy</li>
+		</nullifyingGenes>
+		<nullifyingPrecepts>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_OneManArmy</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Duplicates</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Deathwatch</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_FamilyByBlood</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Recluse</li>
+		</nullifyingPrecepts>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
 	  <safetyDepth>1</safetyDepth>
 	  <value>

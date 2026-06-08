@@ -545,6 +545,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (Rand.Chance(0.08f) && MiscUtility.GameStarted())
+			{
+				pawn.HumanComponent()?.SetResurrected();
+			}
 			ResetCache();
 		}
 
