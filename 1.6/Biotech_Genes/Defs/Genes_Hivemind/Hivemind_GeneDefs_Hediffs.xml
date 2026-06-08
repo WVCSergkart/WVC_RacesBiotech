@@ -14,6 +14,7 @@
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#8a8ae6&gt;Learning&lt;/color&gt; rate depends on the number of &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
 		<li>Starting &lt;color=#8a8ae6&gt;from -90%&lt;/color&gt;, increases &lt;color=#8a8ae6&gt;learning&lt;/color&gt; by 18% for each &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn.</li>
+		<!-- <li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>Learning</li>
@@ -45,6 +46,7 @@
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 		<li>Starting &lt;color=#8a8ae6&gt;from -3&lt;/color&gt;, increases &lt;color=#8a8ae6&gt;beauty&lt;/color&gt; by 1 for each &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn.</li>
+		<!-- <li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>Beauty</li>

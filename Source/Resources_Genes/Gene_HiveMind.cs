@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -126,22 +127,52 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Hivemind_Telepathy : Gene_Hivemind_Drone
 	{
 
+		private static int tickBeforeNextRandomHivemindInteraction = -1;
+
 		public override void TickInterval(int delta)
 		{
-			if (!pawn.IsHashIntervalTick(60001, delta))
+			if (!pawn.IsHashIntervalTick(30901, delta))
 			{
 				return;
 			}
-			RandomInteraction();
+			try
+			{
+				RandomInteraction();
+			}
+			catch (Exception arg)
+			{
+				Log.Error($"Failed hivemind interaction. Reason: {arg.Message}");
+				tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + 60000;
+			}
 		}
 
 		public void RandomInteraction()
 		{
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (Find.TickManager.TicksGame < tickBeforeNextRandomHivemindInteraction)
+			{
+				return;
+			}
 			if (!HivemindUtility.InHivemind(pawn))
 			{
 				return;
 			}
-			GeneInteractionsUtility.TryInteractRandomly(pawn, Hivemind.Where((hiver) => hiver != pawn && hiver.Spawned).ToList(), psychicInteraction: true, ignoreTalking: true, closeTarget: false, out _);
+			foreach (Pawn drone in Hivemind)
+			{
+				if (GeneInteractionsUtility.TryInteractRandomly(drone, Hivemind.Where((hiver) => hiver != drone && hiver.Spawned).ToList(), psychicInteraction: false, ignoreTalking: true, closeTarget: false, out Pawn otherPawn))
+				{
+					tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + (int)(10000 / PsyFactor);
+					EffectsUtility.PulseEffect(drone);
+					EffectsUtility.PulseEffect(otherPawn);
+					if (Rand.Chance(0.75f))
+					{
+						break;
+					}
+				}
+			}
 		}
 
 	}
@@ -170,10 +201,7 @@ namespace WVC_XenotypesAndGenes
 			ResetCollection();
 			foreach (Pawn hiveMember in Hivemind.ToList())
 			{
-				if (!hiveMember.Dead)
-				{
-					hiveMember.Kill(null);
-				}
+				hiveMember.Kill();
 			}
 		}
 
@@ -185,10 +213,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn hiveMember in pawn.Corpse.Map.mapPawns.AllHumanlikeSpawned.Where((p) => p.genes != null && p.Faction == pawn.Faction && p.genes.GenesListForReading.Any((g) => HivemindUtility.IsHivemindGene(g))).ToList())
 			{
-				if (!hiveMember.Dead)
-				{
-					hiveMember.Kill(null);
-				}
+				hiveMember.Kill();
 			}
 		}
 

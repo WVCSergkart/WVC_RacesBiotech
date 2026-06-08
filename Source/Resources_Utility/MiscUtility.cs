@@ -14,6 +14,14 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void Kill(this Pawn victim)
+		{
+			if (!victim.Dead)
+			{
+				victim.Kill(null);
+			}
+		}
+
 		// string converter
 		public static List<T> ConvertToDefs<T>(this List<string> list) where T : Def
 		{

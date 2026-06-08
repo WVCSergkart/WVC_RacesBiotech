@@ -554,11 +554,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_DuplicatedFrom(Pawn source)
 		{
 			SetDuplicate(source);
-			//foreach (Gene gene in Pawn.genes.GenesListForReading)
-			//{
-
-			//}
-			//HediffUtility.UpdatePawnGeneHediffs(Pawn);
+			if (source.IsUndead())
+			{
+				SetResurrected();
+			}
 			HediffUtility.ResetGeneHediffs(Pawn);
 		}
 
@@ -610,6 +609,19 @@ namespace WVC_XenotypesAndGenes
 			}
 			//Gene_Wings.ResetCollection();
 			ReimplanterUtility.NotifyGenesChanged(Pawn);
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsDuplcate".Translate(), IsDuplicate.ToStringYesNo(), "WVC_IsDuplcateDesc".Translate(), 100);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsResurrected".Translate(), Undead.ToStringYesNo(), "WVC_IsResurrectedDesc".Translate(), 105);
+			if (HivemindUtility.InHivemind_Safe(Pawn))
+			{
+				List<Pawn> hivemindPawns = HivemindUtility.HivemindPawns;
+				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindTick_Label".Translate(), HivemindUtility.TickRefresh.ToStringTicksToDays(), "WVC_XaG_HivemindTick_Desc".Translate(), 120);
+				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_HivemindPsychicSensitivity".Translate(), HivemindUtility.HivemindPsychicSensitivity.ToStringPercent(), "WVC_HivemindPsychicSensitivityDesc".Translate(), 150, hyperlinks: hivemindPawns.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
+				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), hivemindPawns.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 200, hyperlinks: hivemindPawns.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
+			}
 		}
 
 		public void SetResurrected()

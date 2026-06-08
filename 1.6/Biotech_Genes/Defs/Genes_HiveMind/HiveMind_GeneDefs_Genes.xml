@@ -294,6 +294,7 @@
 	<biostatMet>-6</biostatMet>
 	<customEffectDescriptions>
 		<li>Healing: 4 hp/day * &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_SpecialRegeneration</li>
@@ -342,7 +343,8 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
 	<defName>WVC_Hivemind_Telepathy</defName>
 	<label>hivemind telepathy</label>
-	<description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description>
+	<!-- <description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description> -->
+	<description>Carriers of this gene create a telepathic network that allows hivemind drones to communicate over a distance.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
 	<displayOrderInCategory>105</displayOrderInCategory>
@@ -350,7 +352,10 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>Carrier can enter into random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li>
+		<!-- <li>Carrier can enter into random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li> -->
+		<!-- <li>Can be used by &lt;color=#8a8ae6&gt;psy-deaf&lt;/color&gt; drones.</li> -->
+		<li>From time to time, &lt;color=#8a8ae6&gt;hivemind drones&lt;/color&gt; may engage in &lt;color=#8a8ae6&gt;random social interactions&lt;/color&gt; at a distance, regardless of &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; and the presence of this gene.</li>
+		<li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Telepathy</li>

@@ -125,7 +125,7 @@
 	<!-- </Operation> -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="DeniedJoining" or defName="ColonistBanished"]</xpath>
+	  <xpath>/Defs/ThoughtDef[defName="DeniedJoining" or defName="ColonistBanished" or defName="PrisonerBanishedToDie" or defName="ColonistBanishedToDie"]</xpath>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
 		<nullifyingGenes>

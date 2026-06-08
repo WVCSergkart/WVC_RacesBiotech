@@ -174,7 +174,6 @@ namespace WVC_XenotypesAndGenes
 				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToStringByStyle(stat.toStringStyle), stat.description, stat.displayPriorityInCategory);
 				//yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat);
 			}
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsDuplcate".Translate(), (SourcePawn != pawn || pawn.IsDuplicate).ToStringYesNo(), "WVC_IsDuplcateDesc".Translate(), 500);
 		}
 
 	}

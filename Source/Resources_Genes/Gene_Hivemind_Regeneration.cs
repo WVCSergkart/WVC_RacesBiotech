@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					else if (pawn.InHivemind())
 					{
-						cachedRegenRate = Hivemind.Count * 4;
+						cachedRegenRate = (int)(Hivemind.Count * 4 * PsyFactor);
 					}
 					else
 					{

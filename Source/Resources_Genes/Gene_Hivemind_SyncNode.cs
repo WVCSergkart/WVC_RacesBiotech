@@ -94,8 +94,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			List<Pawn> hivemind = Hivemind;
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), hivemind.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 100, hyperlinks: hivemind.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
+			//List<Pawn> hivemind = Hivemind;
+			// Call hivemind for stats. Stat moved in human component.
+			_ = Hivemind;
+			return base.SpecialDisplayStats();
 		}
 
 		private int cooldownTick = -1;
