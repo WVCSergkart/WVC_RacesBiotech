@@ -10,8 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter_XenotypesUnlocker : Gene_Energyshifter_SubGene
 	{
 
+		//private int nextTick;
 		public override void TickMasterGene(int factorDelayTicks, int outTicks)
 		{
+			//if (nextTick > 0)
+			//{
+			//	nextTick--;
+			//	return;
+			//}
+			//nextTick = 3;
+			if (!pawn.IsNestedHashIntervalTick(outTicks, 45000))
+			{
+				return;
+			}
 			string phase = "init";
 			try
 			{
@@ -23,6 +34,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref nextTick, "tickDelay", defaultValue: -1);
+		//}
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
@@ -32,6 +49,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryResearchXenotype",
 					action = delegate
 					{
+						cachedGeneDefs = null;
 						TickMasterGene(1, 1);
 					}
 				};
