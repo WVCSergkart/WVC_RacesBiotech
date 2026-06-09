@@ -33,6 +33,10 @@ namespace WVC_XenotypesAndGenes
 		{
 
 		}
+		//protected virtual void RecacheUnsafe()
+		//{
+
+		//}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
 		{
@@ -47,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 			return new GizmoResult(GizmoState.Clear);
 		}
 
-		public virtual void Uncollapsed(Vector2 topLeft, float maxWidth)
+		protected virtual void Uncollapsed(Vector2 topLeft, float maxWidth)
 		{
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button
@@ -64,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			//ButtonGenesSettings(rect7);
 		}
 
-		private void Collapsed(Vector2 topLeft, float maxWidth)
+		protected virtual void Collapsed(Vector2 topLeft, float maxWidth)
 		{
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button
@@ -88,6 +92,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.Label(rect3, gene.gizmoCollapse ? gene.def.LabelShortAdj.CapitalizeFirst() : gene.LabelCap);
 			if (Mouse.IsOver(rect3))
 			{
+				//RecacheUnsafe();
 				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + GizmoTip);
 			}
 			// Collapse button

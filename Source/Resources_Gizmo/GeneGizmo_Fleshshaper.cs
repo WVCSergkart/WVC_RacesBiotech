@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 			return base.GizmoOnGUI(topLeft, maxWidth, parms);
 		}
 
-		public override void Uncollapsed(Vector2 topLeft, float maxWidth)
+		protected override void Uncollapsed(Vector2 topLeft, float maxWidth)
 		{
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button

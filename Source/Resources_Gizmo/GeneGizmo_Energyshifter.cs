@@ -28,7 +28,22 @@ namespace WVC_XenotypesAndGenes
 			uncollapsedSize = 184f;
 		}
 
-		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch);
+
+		private string cachedMainTooltip = null;
+		public override TaggedString GizmoTip
+		{
+			get
+			{
+				if (cachedMainTooltip == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLineTagged("WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch));
+					stringBuilder.AppendLineTagged("WVC_XaG_EnergyshaperGizmoTip_UnlockedStuff".Translate(gene_Energyshifter.UnlcokedXenotypes.Count, gene_Energyshifter.CollectedGenes.Count));
+					cachedMainTooltip = stringBuilder.ToString().TrimEndNewlines();
+				}
+				return cachedMainTooltip;
+			}
+		}
 
 		private string cachedSources = null;
 		public TaggedString Sources
@@ -105,17 +120,34 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			nextRecache = 60;
+			cachedMainTooltip = null;
 			cachedSources = null;
 			cachedMatchOffset = null;
 			gene_Energyshifter.Update(true);
 		}
+
+		//protected override void RecacheUnsafe()
+		//{
+		//	if (nextRecache > 0)
+		//	{
+		//		nextRecache--;
+		//		return;
+		//	}
+		//	nextRecache = 60;
+		//	cachedMainTooltip = null;
+		//}
+
+		//protected override void Collapsed(Vector2 topLeft, float maxWidth)
+		//{
+		//	base.Collapsed(topLeft, maxWidth);
+		//}
 
 		//public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
 		//{
 		//	return base.GizmoOnGUI(topLeft, maxWidth, parms);
 		//}
 
-		public override void Uncollapsed(Vector2 topLeft, float maxWidth)
+		protected override void Uncollapsed(Vector2 topLeft, float maxWidth)
 		{
 			Rect rect2 = LabelAndTip(topLeft, maxWidth);
 			// Button

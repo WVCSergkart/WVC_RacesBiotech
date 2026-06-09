@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			MechRepairUtility.RepairTick(pawn, delta);
+			MechRepairUtility.RepairTick(pawn);
 		}
 
 	}
