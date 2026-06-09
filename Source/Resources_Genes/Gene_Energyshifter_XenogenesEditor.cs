@@ -156,6 +156,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.HasGenesRegrowing())
 			{
+				ReimplanterUtility.ReduceXenogermReplicationTick(pawn, outTicks);
+			}
+			else
+			{
 				geneticMaterial += 1;
 				if (geneticMaterial < 0f)
 				{
@@ -165,10 +169,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					geneticMaterial = 100f;
 				}
-			}
-			else
-			{
-				ReimplanterUtility.ReduceXenogermReplicationTick(pawn, outTicks);
 			}
 		}
 
