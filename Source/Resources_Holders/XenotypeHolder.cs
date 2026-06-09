@@ -30,6 +30,7 @@ namespace WVC_XenotypesAndGenes
 
 		public float? matchPercent;
 
+		//public CustomXenotype tempCustomXenotype;
 		//public string customEffectsDesc = null;
 
 		public XenotypeDef XenotypeDef_Safe
@@ -98,6 +99,7 @@ namespace WVC_XenotypesAndGenes
 			this.genes = customXenotype.genes;
 			this.xenotypeDef = XenotypeDefOf.Baseliner;
 			this.inheritable = customXenotype.inheritable;
+			//this.tempCustomXenotype = customXenotype;
 		}
 
 		//public bool PawnIsSameXenotype(Pawn pawn)

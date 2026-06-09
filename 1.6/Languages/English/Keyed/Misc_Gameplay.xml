@@ -997,17 +997,6 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
 	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
 
-	<!-- =============== HUMAN COMP STATS =============== -->
-
-	<WVC_IsDuplcate>Is duplicate</WVC_IsDuplcate>
-	<WVC_IsDuplcateDesc>Whether this pawn is a duplicate of another pawn. Duplicates are bonded to their originals and because of this have some nasty limitations. They can't use some genes, and some effects that affect the original can also affect them.</WVC_IsDuplcateDesc>
-
-	<WVC_IsResurrected>Is resurrected</WVC_IsResurrected>
-	<WVC_IsResurrectedDesc>Whether this pawn is ever resurrected. This could happen off-screen or right before your eyes. Either way, it matters mostly for ideology and, more rarely, for genetics.</WVC_IsResurrectedDesc>
-
-	<WVC_HivemindPsychicSensitivity>Hivemind psy-sensitivity</WVC_HivemindPsychicSensitivity>
-	<WVC_HivemindPsychicSensitivityDesc>The hivemind's overall psy-sensitivity. All hivemind pawns influence this. Psy-deaf pawns also contribute to this, significantly reducing sensitivity. This affects the overall isolation of the hivemind and strengthens or weakens certain genes.</WVC_HivemindPsychicSensitivityDesc>
-
 	<!-- =============== REMOTE CONTROL INTERFACE =============== -->
 
 	<WVC_XaG_RemoteControlBasicDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlBasicDesc>

@@ -129,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 			cachedFloatMenuOptionsGenes = null;
 			//cachedRemoteControlGenes = null;
 			// isBloodeater = null;
+			cachedXenotypesMatchList = null;
 		}
 
 		public override string CompInspectStringExtra()
@@ -485,17 +486,9 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					Pawn pawn = Pawn;
-					StringBuilder stringBuild = new();
-					foreach (XenotypeDef xenos in DefDatabase<XenotypeDef>.AllDefsListForReading)
-					{
-						if (xenos.genes.NullOrEmpty())
-						{
-							continue;
-						}
-						float matchedGenes = XaG_GeneUtility.GetMatchingGenesList(pawn.genes.GenesListForReading, xenos.genes).Count;
-						stringBuild.AppendLine(xenos.LabelCap + " genes match: " + (matchedGenes / xenos.genes.Count * 100) + "%");
-					}
-					Log.Error(stringBuild.ToString());
+					cachedXenotypesMatchList = null;
+					string text = SimpleXenotypesMatch;
+					Log.Error(text);
 					// Same xenotypes
 					//StringBuilder stringBuild2 = new();
 					//foreach (Pawn target in pawn.Map.mapPawns.AllHumanlike)
@@ -547,6 +540,41 @@ namespace WVC_XenotypesAndGenes
 			//		}
 			//	}
 			//};
+		}
+
+		private string cachedXenotypesMatchList;
+		private string SimpleXenotypesMatch
+		{
+			get
+			{
+				if (cachedXenotypesMatchList == null)
+				{
+					try
+					{
+						StringBuilder stringBuild = new();
+						List<XenotypeHolder> xenosCollection = ListsUtility.GetAllXenotypesHolders();
+						xenosCollection.SortBy(xen => xen.Label.ToString());
+						foreach (XenotypeHolder xenos in xenosCollection)
+						{
+							if (xenos.genes.NullOrEmpty())
+							{
+								continue;
+							}
+							float matchedGenes = XaG_GeneUtility.GetMatchingGenesList(Pawn.genes.GenesListForReading, xenos.genes).Count;
+							float percent = Mathf.Clamp(matchedGenes / xenos.genes.Count, 0f, 1f);
+							Ideo ideo = Pawn.ideo?.Ideo;
+							bool isPreferred = ideo != null && (ideo.PreferredXenotypes.Contains(xenos.XenotypeDef_Safe) || ideo.PreferredCustomXenotypes.Any(xen => XaG_GeneUtility.HasAllGenes(xen.genes, xenos.genes))) ? true : false;
+							stringBuild.AppendLineTagged("  - " + xenos.LabelCap.Colorize(isPreferred ? GenColor.FromHex("F1AF81") : xenos.CustomXenotype ? ColorLibrary.LightGreen : ColoredText.GeneColor) + ": " + percent.ToStringPercent().Colorize(PreferredXenotypesUtility.ReqMatch <= percent ? ColorLibrary.Green : Color.white));
+						}
+						cachedXenotypesMatchList = stringBuild.ToString().TrimEndNewlines();
+					}
+					catch
+					{
+						cachedXenotypesMatchList = "";
+					}
+				}
+				return cachedXenotypesMatchList;
+			}
 		}
 
 		// ======================================
@@ -613,6 +641,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_HumanCompStat_Xenotype".Translate(), Pawn.genes.XenotypeLabelCap, "WVC_HumanCompStat_XenotypeDesc".Translate(Pawn, Pawn.genes.XenotypeLabel, SimpleXenotypesMatch).Resolve(), 0);
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsDuplcate".Translate(), IsDuplicate.ToStringYesNo(), "WVC_IsDuplcateDesc".Translate(), 100);
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_IsResurrected".Translate(), Undead.ToStringYesNo(), "WVC_IsResurrectedDesc".Translate(), 105);
 			if (HivemindUtility.InHivemind_Safe(Pawn))

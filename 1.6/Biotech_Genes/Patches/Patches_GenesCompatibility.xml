@@ -101,6 +101,13 @@
 
 	<!-- ======================================================== -->
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps</xpath> -->
+	  <!-- <value> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_XenogermReplicating"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
 		<!-- <operations> -->

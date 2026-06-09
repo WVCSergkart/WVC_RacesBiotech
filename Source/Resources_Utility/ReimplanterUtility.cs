@@ -71,7 +71,12 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
-		public static void ReduceXenogermReplicationTick(Pawn pawn, int days = 1)
+		public static void ReduceXenogermReplicationDays(Pawn pawn, int days = 1)
+		{
+			ReduceXenogermReplicationTick(pawn, 60000 * days);
+		}
+
+		public static void ReduceXenogermReplicationTick(Pawn pawn, int ticks = 1)
 		{
 			Hediff hediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
 			if (hediff != null)
@@ -79,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 				HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 				if (hediffComp_Disappears != null)
 				{
-					hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear - (60000 * days));
+					hediffComp_Disappears.SetDuration(hediffComp_Disappears.ticksToDisappear - ticks);
 				}
 			}
 		}

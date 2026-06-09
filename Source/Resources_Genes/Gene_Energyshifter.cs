@@ -204,7 +204,12 @@ namespace WVC_XenotypesAndGenes
 					//new CurvePoint(100, 1.72f),
 					//new CurvePoint(128, 2.00f)
 				};
-				return geneticCurve.Evaluate(pawn.genes.Endogenes.Count(gene => !gene.IsMelanin()));
+				float factor = geneticCurve.Evaluate(pawn.genes.Endogenes.Count(gene => !gene.IsMelanin()));
+				//if (pawn.HasGenesRegrowing())
+				//{
+				//	factor *= 1.2f;
+				//}
+				return factor;
 			}
 		}
 

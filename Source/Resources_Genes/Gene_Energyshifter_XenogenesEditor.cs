@@ -154,20 +154,27 @@ namespace WVC_XenotypesAndGenes
 		private float geneticMaterial;
 		public void TickMasterGene(int delay, int outTicks)
 		{
-			geneticMaterial += 1;
-			if (geneticMaterial < 0f)
+			if (pawn.HasGenesRegrowing())
 			{
-				geneticMaterial = 0f;
+				geneticMaterial += 1;
+				if (geneticMaterial < 0f)
+				{
+					geneticMaterial = 0f;
+				}
+				else if (geneticMaterial > 100f)
+				{
+					geneticMaterial = 100f;
+				}
 			}
-			else if (geneticMaterial > 100f)
+			else
 			{
-				geneticMaterial = 100f;
+				ReimplanterUtility.ReduceXenogermReplicationTick(pawn, outTicks);
 			}
 		}
 
 		public IntRange ReqMetRange => new(-5, 5);
 
-		public bool ReqCooldown => true;
+		public bool ReqCooldown => false;
 		public bool DisableSubActions => true;
 		public bool UseGeneline => true;
 

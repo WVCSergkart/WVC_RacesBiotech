@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static bool HasGenesRegrowing(this Pawn pawn)
+		{
+			return pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
+		}
+
 		public static void ResetGeneHediffs(Pawn pawn)
 		{
 			if (pawn.genes == null)

@@ -204,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 				if (removedGeneDefs.NullOrEmpty())
 				{
 					TryOffsetResource(4);
-					ReimplanterUtility.ReduceXenogermReplicationTick(pawn, 5);
+					ReimplanterUtility.ReduceXenogermReplicationDays(pawn, 5);
 				}
 				else
 				{
