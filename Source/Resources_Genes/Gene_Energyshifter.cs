@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter : Gene_Shapeshifter, IGeneChargeable
 	{
 
+		public XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
+
 		private List<IGeneDisconnectable> cachedSubGenes;
 		public List<IGeneDisconnectable> SubGenes
 		{
@@ -43,18 +45,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> CollectedGenes
-		{
-			get
-			{
-				if (collectedGeneDefs == null)
-				{
-					collectedGeneDefs = new();
-				}
-				return collectedGeneDefs;
-			}
-		}
-
 		public override float GeneticMatchOffset
 		{
 			get
@@ -77,21 +67,83 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool LocalMode => MechanoidsUtility.CerebrexCoreDefeated;
+
 		public override void PreShapeshift(bool genesRegrowing)
 		{
 			Update(false, 1f);
 			base.PreShapeshift(genesRegrowing);
 		}
 
+		public override void UnlockGeneDef(GeneDef geneDef)
+		{
+			if (LocalMode)
+			{
+				base.UnlockGeneDef(geneDef);
+			}
+			else
+			{
+				GameComponent.UnlockGeneDef(geneDef);
+			}
+		}
+
+		public override void UnlockXenotype(string xenotypeName)
+		{
+			if (LocalMode)
+			{
+				base.UnlockXenotype(xenotypeName);
+			}
+			else
+			{
+				GameComponent.UnlockXenotype(xenotypeName);
+			}
+		}
+
+		public List<GeneDef> CollectedGenes
+		{
+			get
+			{
+				if (LocalMode)
+				{
+					if (collectedGeneDefs == null)
+					{
+						collectedGeneDefs = new();
+					}
+					return collectedGeneDefs;
+				}
+				if (collectedGeneDefs != null && GameComponent != null)
+				{
+					foreach (GeneDef val in collectedGeneDefs)
+					{
+						GameComponent.UnlockGeneDef(val);
+					}
+					collectedGeneDefs = null;
+				}
+				return GameComponent.UnlockedGeneDefs;
+			}
+		}
+
 		public List<string> UnlcokedXenotypes
 		{
 			get
 			{
-				if (unlockedXenotypes == null)
+				if (LocalMode)
 				{
-					unlockedXenotypes = [ "baseliner" ];
+					if (unlockedXenotypes == null)
+					{
+						unlockedXenotypes = new();
+					}
+					return unlockedXenotypes;
 				}
-				return unlockedXenotypes;
+				if (unlockedXenotypes != null && GameComponent != null)
+				{
+					foreach (string val in unlockedXenotypes)
+					{
+						GameComponent.UnlockXenotype(val);
+					}
+					unlockedXenotypes = null;
+				}
+				return GameComponent.UnlcokedXenotypes;
 			}
 		}
 
@@ -103,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
 					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
-					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
+					bool isUnlocked = UnlcokedXenotypes != null && UnlcokedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
 				}).ToList();
 			}

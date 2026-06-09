@@ -237,6 +237,7 @@
 	<WVC_XaG_GeneBackup_Message>Backup is on the way!</WVC_XaG_GeneBackup_Message>
 	<WVC_XaG_GeneBackup_Cooldown>Cannot be used now. Cooldown {0}.</WVC_XaG_GeneBackup_Cooldown>
 	<WVC_XaG_GeneBackup_NeedMechanitor>No mechanitors in reach.</WVC_XaG_GeneBackup_NeedMechanitor>
+	<WVC_XaG_GeneBackup_CerebrexCoreDefeated_Message>The mechanoid hive is not responding. Backup is not possible.</WVC_XaG_GeneBackup_CerebrexCoreDefeated_Message>
 
 	<WVC_XaG_XenoHolder_GenesMatch>Genetic match</WVC_XaG_XenoHolder_GenesMatch>
 

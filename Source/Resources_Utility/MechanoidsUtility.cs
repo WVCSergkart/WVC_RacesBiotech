@@ -512,5 +512,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
+		public static bool CerebrexCoreDefeated
+		{
+			get
+			{
+				if (!ModsConfig.OdysseyActive)
+				{
+					return false;
+				}
+				if (Faction.OfMechanoids != null)
+				{
+					return Faction.OfMechanoids.deactivated;
+				}
+				return false;
+			}
+		}
+
 	}
 }

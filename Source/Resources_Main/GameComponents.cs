@@ -69,67 +69,85 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			StaticCollectionsClass.ResetStaticCache_PerSave();
-			//HivemindUtility.ResetSafeCollection();
 			HivemindUtility.ResetCollection();
-			//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
 			GeneshiftUtility.ResetXenotypesCollection();
-			//UpdateSavedVersion();
-			//StaticCollectionsClass.currentGameComponent = this;
 			DevFixes();
-			//StaticCollectionsClass.ResetCollection();
 		}
 
-		//public List<ReferencableXenotypeHolder> knownXenotypeDefs = new() { new(XenotypeDefOf.Baseliner) };
+		// ========================================
 
-		//public bool HasKnownXenotype(XenotypeDef xenotypeDef)
-		//{
-		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
-		//	{
-		//		if (holder.XenotypeIsSameXenotype(xenotypeDef))
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+		protected List<string> unlockedXenotypes;
 
-		//public bool HasKnownXenotype(CustomXenotype xenotypeDef)
-		//{
-		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
-		//	{
-		//		if (holder.XenotypeIsSameXenotype(xenotypeDef))
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+		public void UnlockXenotype(string xenotypeName)
+		{
+			if (unlockedXenotypes == null)
+			{
+				unlockedXenotypes = new();
+			}
+			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
+		}
 
-		//public void TryUpdateKnownXenotype(Pawn pawn)
-		//{
-		//	bool addXenotype = true;
-		//	foreach (ReferencableXenotypeHolder holder in knownXenotypeDefs)
-		//	{
-		//		if (holder.PawnIsSameXenotype(pawn))
-		//		{
-		//			addXenotype = false;
-		//		}
-		//	}
-		//	if (addXenotype)
-		//	{
-		//		knownXenotypeDefs.Add(new(pawn));
-		//	}
-		//}
+		public List<string> UnlcokedXenotypes
+		{
+			get
+			{
+				if (unlockedXenotypes == null)
+				{
+					unlockedXenotypes = ["baseliner"];
+				}
+				return unlockedXenotypes;
+			}
+		}
+
+		protected List<string> collectedGeneDefs;
+		public void UnlockGeneDef(GeneDef geneDef)
+		{
+			if (collectedGeneDefs == null)
+			{
+				collectedGeneDefs = new();
+			}
+			collectedGeneDefs.AddSafe(geneDef.defName);
+			cachedUnlockedGeneDefs = null;
+		}
+
+		private List<GeneDef> cachedUnlockedGeneDefs;
+		public List<GeneDef> UnlockedGeneDefs
+		{
+			get
+			{
+				if (cachedUnlockedGeneDefs == null)
+				{
+					cachedUnlockedGeneDefs = collectedGeneDefs.ConvertToDefs<GeneDef>();
+				}
+				return cachedUnlockedGeneDefs;
+			}
+		}
 
 		public List<ReincarnationSet> reincarnations;
-		public bool backup_shouldSummon = false;
+
+		private bool backup_shouldSummon = false;
+		private int backup_GeneCooldown = -1;
+
+		public bool BackupOnCooldown => backup_GeneCooldown > Find.TickManager.TicksGame;
+		public int BackupCooldownTicks => backup_GeneCooldown - Find.TickManager.TicksGame;
+
+		public void Backup_InitSummon()
+		{
+			backup_shouldSummon = true;
+			backup_GeneCooldown = Find.TickManager.TicksGame + 1800000;
+		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref reincarnations, "reincarnations", LookMode.Deep);
 			Scribe_Values.Look(ref backup_shouldSummon, "backup_shouldSummon", false);
+			Scribe_Values.Look(ref backup_GeneCooldown, "backup_GeneCooldown", -1);
+			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
+			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Value);
 		}
+
+		// ========================================
 
 		public override void GameComponentTick()
 		{
@@ -148,17 +166,6 @@ namespace WVC_XenotypesAndGenes
 		public void XaG_General()
 		{
 			MiscUtility.UpdateStaticCollection();
-			//StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
-			//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
-			//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
-			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
-			//nextSecondRecache++;
-			//if (nextSecondRecache >= 2)
-			//{
-			//	MiscUtility.ForeverAloneDevelopmentPoints();
-			//	nextSecondRecache = 1;
-			//}
-			//HealingUtility.UpdRegenCollection();
 			TryReincarnate();
 			TrySummon();
 		}
@@ -167,6 +174,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!backup_shouldSummon)
 			{
+				return;
+			}
+			if (MechanoidsUtility.CerebrexCoreDefeated)
+			{
+				backup_shouldSummon = false;
+				Messages.Message("WVC_XaG_GeneBackup_CerebrexCoreDefeated_Message".Translate(), MessageTypeDefOf.NegativeEvent);
 				return;
 			}
 			string phase = "";
@@ -207,7 +220,7 @@ namespace WVC_XenotypesAndGenes
 				if (MiscUtility.TrySummonDropPod(homeMaps.RandomElement(), summonList))
 				{
 					//Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(), LetterDefOf.PositiveEvent, new LookTargets(summonList));
-					Messages.Message("WVC_XaG_GeneBackup_Message".Translate(), new LookTargets(summonList), MessageTypeDefOf.NegativeEvent);
+					Messages.Message("WVC_XaG_GeneBackup_Message".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 				}
 				backup_shouldSummon = false;
 			}
@@ -260,22 +273,7 @@ namespace WVC_XenotypesAndGenes
 		public void DelayRecache(int delay = 1500)
 		{
 			nextRecache += delay;
-			//if (delay > 26666)
-			//{
-			//	nextSecondRecache++;
-			//}
 		}
-
-		//private string savedModVersion = null;
-
-		//public void UpdateSavedVersion(bool sendLetter = false)
-		//{
-		//	if (sendLetter && !savedModVersion.Contains(WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion))
-		//          {
-
-		//          }
-		//	savedModVersion = WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion;
-		//}
 
 		// DEV
 		public void DevFixes()

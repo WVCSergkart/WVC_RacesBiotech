@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (cooldown > Find.TickManager.TicksGame)
+			if (StaticCollectionsClass.GameComponent?.BackupOnCooldown == true)
 			{
 				return false;
 			}
@@ -169,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			if (!CanSummon())
+			if (!CanSummon() || StaticCollectionsClass.GameComponent == null)
 			{
 				yield break;
 			}
@@ -178,8 +178,8 @@ namespace WVC_XenotypesAndGenes
 				defaultLabel = "WVC_XaG_GeneBackup_Summon".Translate(),
 				defaultDesc = "WVC_XaG_GeneBackup_SummonDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(Props.iconPath),
-				disabledReason = "WVC_XaG_GeneBackup_Cooldown".Translate((cooldown - Find.TickManager.TicksGame).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor)),
-				Disabled = cooldown > Find.TickManager.TicksGame,
+				disabledReason = "WVC_XaG_GeneBackup_Cooldown".Translate((StaticCollectionsClass.GameComponent.BackupCooldownTicks).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor)),
+				Disabled = StaticCollectionsClass.GameComponent.BackupOnCooldown,
 				action = delegate
 				{
 					List<FloatMenuOption> list = new();
@@ -206,16 +206,15 @@ namespace WVC_XenotypesAndGenes
 
 		public void InitSummon()
 		{
-			Current.Game?.GetComponent<XaG_GameComponent>()?.backup_shouldSummon = true;
-			cooldown = Find.TickManager.TicksGame + 1800000;
+			StaticCollectionsClass.GameComponent?.Backup_InitSummon();
 		}
 
-		private static int cooldown = -1;
-		public override void PostExposeData()
-		{
-			base.PostExposeData();
-			Scribe_Values.Look(ref cooldown, "cooldown", -1);
-		}
+		//private static int cooldown = -1;
+		//public override void PostExposeData()
+		//{
+		//	base.PostExposeData();
+		//	Scribe_Values.Look(ref cooldown, "cooldown", -1);
+		//}
 
 	}
 

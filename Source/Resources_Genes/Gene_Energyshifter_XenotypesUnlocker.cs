@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			//	return;
 			//}
 			//nextTick = 3;
-			if (!pawn.IsNestedHashIntervalTick(outTicks, 45000))
+			if (!pawn.IsNestedHashIntervalTick(outTicks, 75000))
 			{
 				return;
 			}
@@ -34,11 +34,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		//public override void ExposeData()
-		//{
-		//	base.ExposeData();
-		//	Scribe_Values.Look(ref nextTick, "tickDelay", defaultValue: -1);
-		//}
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				lastCachedResearch = -1;
+				lastMessageTick = -1;
+				cachedGeneDefs = null;
+			}
+		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -86,22 +91,30 @@ namespace WVC_XenotypesAndGenes
 				phase = "find maps";
 				foreach (Map map in Find.Maps)
 				{
-					phase = "add all pawns genes";
-					foreach (Pawn targetPawn in map.mapPawns.AllPawns)
+					//phase = "add all pawns genes";
+					//foreach (Pawn targetPawn in map.mapPawns.AllPawns)
+					//{
+					//	if (targetPawn.IsHuman())
+					//	{
+					//		phase = "add genes from pawn";
+					//		AddGenesFromPawn(targetPawn);
+					//	}
+					//}
+					//phase = "add all corpses genes";
+					//foreach (Thing thing in map.spawnedThings)
+					//{
+					//	if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
+					//	{
+					//		phase = "add genes from corpse";
+					//		AddGenesFromPawn(corpse.InnerPawn);
+					//	}
+					//}
+					phase = "add all genes from all dead pawns";
+					foreach (Pawn item in PawnsFinder.All_AliveOrDead)
 					{
-						if (targetPawn.IsHuman())
+						if (item.MapHeld != null && item.IsHuman() && item.MapHeld.mapPawns.AllHumanlikeSpawned.Any(humanlike => humanlike.Faction == Faction.OfPlayer && humanlike.genes?.GetFirstGeneOfType<Gene_Energyshifter>() != null))
 						{
-							phase = "add genes from pawn";
-							AddGenesFromPawn(targetPawn);
-						}
-					}
-					phase = "add all corpses genes";
-					foreach (Thing thing in map.spawnedThings)
-					{
-						if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
-						{
-							phase = "add genes from corpse";
-							AddGenesFromPawn(corpse.InnerPawn);
+							AddGenesFromPawn(item);
 						}
 					}
 				}
@@ -167,10 +180,10 @@ namespace WVC_XenotypesAndGenes
 				foreach (Gene gene in targetPawn.genes.GenesListForReading)
 				{
 					list.Add(gene.def);
-					if (gene is Gene_Energyshifter gene_Energyshifter)
-					{
-						list.AddRange(gene_Energyshifter.CollectedGenes);
-					}
+					//if (gene is Gene_Energyshifter gene_Energyshifter)
+					//{
+					//	list.AddRange(gene_Energyshifter.CollectedGenes);
+					//}
 				}
 				cachedGeneDefs.AddRangeSafe(list);
 			}

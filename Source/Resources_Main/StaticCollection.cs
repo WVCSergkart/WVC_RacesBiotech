@@ -9,39 +9,35 @@ namespace WVC_XenotypesAndGenes
 	public static class StaticCollectionsClass
 	{
 
+		private static XaG_GameComponent cachedGameComponent;
+		public static XaG_GameComponent GameComponent
+		{
+			get
+			{
+				if (cachedGameComponent == null)
+				{
+					cachedGameComponent = Current.Game?.GetComponent<XaG_GameComponent>();
+				}
+				return cachedGameComponent;
+			}
+		}
+
 		public static int cachedDuplicatesCount = 0;
 		public static int cachedPlayerPawnsCount = 0;
 		public static int cachedDeathrestingColonistsCount = 0;
 		public static int cachedNonDeathrestingColonistsCount = 0;
 		public static int cachedColonistsDuplicatesDeathrestingCount = 0;
-		//public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
 		public static int cachedColonyMechsCount = 0;
 		public static bool haveAssignedWork = false;
 		public static int cachedDownedColonists = 0;
 
-		//[Obsolete]
-		//public static int cachedColonistsCount => cachedNonDeathrestingColonistsCount;
-		//public static bool leaderIsUndead = false;
-		//public static bool leaderIsShapeshifter = false;
-		//public static bool presentUndead = false;
-		//public static bool presentShapeshifter = false;
-
-		//public static bool shapeshifterAppear = false;
 		public static bool oneManArmyMode = false;
-
-		//public static Pawn voidLinkNewGamePlusPawn;
-
-		//public static List<XenotypeDef> knownXenotypeDefs = new() { XenotypeDefOf.Baseliner };
-
-		//public static XaG_GameComponent currentGameComponent;
 
 		public static bool HideMechanitor(Pawn pawn)
 		{
 			return MechanoidsUtility.NonMechanitorGUIPawns.Contains(pawn);
 		}
-
-		//public static List<DuplicateSet> duplicatesSets = new();
 
 		public static void ResetCollection()
 		{
@@ -59,12 +55,9 @@ namespace WVC_XenotypesAndGenes
 			MechanoidsUtility.ResetCollection();
 			Gene_Wings.ResetCollection();
 			Gene_PredatorRepellent.ResetCollection();
-			//duplicates = new();
 			ThoughtWorker_Precept_Social_Duplicates.duplicatePawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.ignoredPawns = new();
 			ThoughtWorker_Precept_Social_Duplicates.duplicateSets = new();
-			//ThoughtWorker_Precept_Family.families = new();
-			//ThoughtWorker_Precept_WithCollectionCheck.UpdCollection();
 			GeneshiftUtility.ResetXenotypesCollection();
 			HealingUtility.UpdRegenCollection();
 			GeneResourceUtility.UpdUndeads();
@@ -82,99 +75,9 @@ namespace WVC_XenotypesAndGenes
 			Gene_PackMentality.ResetCache();
 			Gene_Recluse.lastRecacheTick = -1;
 			CompStylingStation.cachedPawns = null;
-			//Thought_PsychicHarem.badMoodTicks = -1;
+			cachedGameComponent = null;
 		}
 
-		//public static void ResetPerSpawn()
-		//{
-		//	Gene_Energyshifter_XenotypesUnlocker.cachedPawns = null;
-		//	if (MiscUtility.GameStarted())
-		//	{
-		//		Gene_Energyshifter_XenotypesUnlocker.shouldUpdate = true;
-		//	}
-		//}
-
-		//public static void AddHideMechanitors(Pawn pawn)
-		//{
-		//	if (!StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-		//	{
-		//		StaticCollectionsClass.hideMechanitorButton.Add(pawn);
-		//	}
-		//}
-
-		//public static void AddOrRemoveHideMechanitors(Pawn pawn)
-		//{
-		//	if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-		//	{
-		//		StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
-		//	}
-		//	else
-		//	{
-		//		StaticCollectionsClass.hideMechanitorButton.Add(pawn);
-		//	}
-		//}
-
-		//public static void RemoveHideMechanitors(Pawn pawn)
-		//{
-		//	if (StaticCollectionsClass.hideMechanitorButton.Contains(pawn))
-		//	{
-		//		StaticCollectionsClass.hideMechanitorButton.Remove(pawn);
-		//	}
-		//}
-
-		//private static List<Pawn> mechanitors = new();
-
-		//public static bool IsGeneticMechanitor(this Pawn pawn)
-		//{
-		//	return mechanitors.Contains(pawn);
-		//}
-		//public static void AddMechanitor(Pawn pawn)
-		//{
-		//	if (!mechanitors.Contains(pawn))
-		//	{
-		//		Gene gene = pawn.genes.GetFirstGeneOfType<Gene_Mechlink>();
-		//		if (gene != null)
-		//		{
-		//			mechanitors.Add(pawn);
-		//			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
-		//		}
-		//	}
-		//}
-		//public static void RemoveMechanitor(Pawn pawn)
-		//{
-		//	if (mechanitors.Contains(pawn))
-		//	{
-		//		Gene gene = pawn.genes.GetFirstGeneOfType<Gene_Mechlink>();
-		//		if (gene == null)
-		//		{
-		//			mechanitors.Remove(pawn);
-		//			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
-		//		}
-		//	}
-		//}
-
 	}
-
-	//public class ITab_EggGenes : ITab_Genes
-	//{
-
-	//	public override bool IsVisible => true;
-
-	//	public GeneSet UnbornBabyHediffGeneset()
-	//	{
-	//		CompHumanEgg compHumanEgg = base.SelThing.TryGetComp<CompHumanEgg>();
-	//		if (compHumanEgg != null)
-	//		{
-	//			return compHumanEgg.geneSet;
-	//		}
-	//		return null;
-	//	}
-
-	//	protected override void FillTab()
-	//	{
-	//		GeneUIUtility.DrawGenesInfo(new Rect(0f, 20f, size.x, size.y - 20f), null, 550f, ref size, ref scrollPosition, UnbornBabyHediffGeneset());
-	//	}
-
-	//}
 
 }

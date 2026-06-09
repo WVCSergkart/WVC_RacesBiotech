@@ -97,6 +97,8 @@
 		<li>&lt;color=#8a8ae6&gt;Summon mechs&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
 		<!-- <li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li> -->
 		<li>&lt;color=#ff8585&gt;Increases the gestation time of mechs by x20&lt;/color&gt;</li>
+		<!-- At the moment this is a lie ;D -->
+		<li MayRequire="ludeon.rimworld.odyssey">Summon will fail if mechhive is deactivated.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0.5</MechBandwidth>
