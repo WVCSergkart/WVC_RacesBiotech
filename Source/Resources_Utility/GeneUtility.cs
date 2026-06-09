@@ -237,6 +237,16 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		public static bool IsMelanin(this Gene gene)
+		{
+			return gene.def.IsMelanin();
+		}
+
+		public static bool IsMelanin(this GeneDef geneDef)
+		{
+			return geneDef.endogeneCategory == EndogeneCategory.Melanin;
+		}
+
 		public static void Notify_GenesConflicts(Pawn pawn, GeneDef geneDef, Gene thisGene = null)
 		{
 			foreach (Gene gene in pawn.genes.GenesListForReading)

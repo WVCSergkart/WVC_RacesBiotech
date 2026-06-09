@@ -127,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 			base.TickInterval(delta);
 			if (pawn.IsHashIntervalTick(2500, delta))
 			{
-				Update(false, (Consumption / 60000) * 2500);
+				Update(false, (TotalOffset / 60000) * 2500);
 				if (pawn.IsNestedHashIntervalTick(2500, 15000))
 				{
 					TickSubGenes();
@@ -148,27 +148,63 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private float? cachedConsumption;
-		public float Consumption
+		private float? cachedResourceOffset;
+		public float TotalOffset
 		{
 			get
 			{
-				if (cachedConsumption == null)
+				if (cachedResourceOffset == null)
 				{
-					float newConsumption = def.resourceLossPerDay + (TotalMetabolism * -0.01f);
-					float factor = 1f;
+					float newOffset = def.resourceLossPerDay + (TotalMetabolism * -0.01f);
+					//float factor = 1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
 						if (geneDisconnectable.Active)
 						{
-							newConsumption += geneDisconnectable.ResourceConsumption_Offset;
-							factor *= geneDisconnectable.ResourceConsumption_Factor;
+							newOffset += geneDisconnectable.ResourceConsumption_Offset;
+							//factor *= geneDisconnectable.ResourceConsumption_Factor;
 						}
 					}
-					newConsumption *= factor;
-					cachedConsumption = newConsumption;
+					//newOffset *= factor;
+					if (newOffset > 0)
+					{
+						newOffset *= GenesFactor;
+					}
+					else
+					{
+						newOffset /= GenesFactor;
+					}
+					cachedResourceOffset = newOffset;
 				}
-				return cachedConsumption.Value;
+				return cachedResourceOffset.Value;
+			}
+		}
+
+		public float GenesFactor
+		{
+			get
+			{
+				//float factor = 1f;
+				//foreach (IGeneDisconnectable geneDisconnectable in gene_Energyshifter.SubGenes)
+				//{
+				//	if (geneDisconnectable.Active)
+				//	{
+				//		factor *= geneDisconnectable.ResourceConsumption_Factor;
+				//	}
+				//}
+				SimpleCurve geneticCurve = new()
+				{
+					new CurvePoint(21, 0.9f),
+					new CurvePoint(28, 1f),
+					new CurvePoint(29, 1.01f),
+					new CurvePoint(35, 1.07f),
+					new CurvePoint(36, 1.09f),
+					new CurvePoint(42, 1.20f),
+					new CurvePoint(200, 3.00f)
+					//new CurvePoint(100, 1.72f),
+					//new CurvePoint(128, 2.00f)
+				};
+				return geneticCurve.Evaluate(pawn.genes.Endogenes.Count(gene => !gene.IsMelanin()));
 			}
 		}
 
@@ -176,7 +212,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void UpdateConsumption()
 		{
-			cachedConsumption = null;
+			cachedResourceOffset = null;
 		}
 
 		public void Update(bool direct, float percentageOffset = 0.01f)

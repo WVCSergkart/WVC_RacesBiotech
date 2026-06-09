@@ -545,7 +545,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Rand.Chance(0.08f) && MiscUtility.GameStarted())
+			if (Rand.Chance(0.08f) && MiscUtility.GameNotStarted())
 			{
 				pawn.HumanComponent()?.SetResurrected();
 			}

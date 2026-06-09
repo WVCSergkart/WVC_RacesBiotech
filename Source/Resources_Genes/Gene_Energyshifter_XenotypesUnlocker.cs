@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 						Messages.Message("WVC_XaG_XenotypeResearchedMessage".Translate(Energyshifter.LabelCap, newXenotypeName), pawn, MessageTypeDefOf.PositiveEvent);
 					}
 					// Anti-spam tick
-					lastMessageTick = 11000 + Find.TickManager.TicksGame;
+					lastMessageTick = 2500 + Find.TickManager.TicksGame;
 				}
 			}
 

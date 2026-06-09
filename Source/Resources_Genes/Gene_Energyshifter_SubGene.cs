@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickMasterGene(int factorDelayTicks, int outTicks)
 		{
-			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Mathf.Clamp(Energyshifter.Consumption, 0f, 999f), 1, 0.5f);
+			Gene_Rechargeable.NotifySubGenes_Charging(pawn, Mathf.Clamp(Energyshifter.TotalOffset, 0f, 999f), 1, 0.5f);
 		}
 
 		//private void UpdatePower()

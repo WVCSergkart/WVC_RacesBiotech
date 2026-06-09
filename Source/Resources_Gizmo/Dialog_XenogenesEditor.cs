@@ -508,7 +508,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return overridenGenes.Contains(geneDef);
 			}
-			if (geneDef.endogeneCategory == EndogeneCategory.Melanin)
+			if (geneDef.IsMelanin())
 			{
 				return true;
 			}
@@ -525,7 +525,7 @@ namespace WVC_XenotypesAndGenes
 
 		private bool IsDisabledGene(GeneDef geneDef)
 		{
-			return disabledGenes.Contains(geneDef) && !allGenes.Contains(geneDef);
+			return disabledGenes.Contains(geneDef) && !allGenes.Contains(geneDef) && !pawnXenoGenes.Contains(geneDef);
 		}
 
 		private string GeneTip(GeneDef geneDef, bool selectedSection)
@@ -544,7 +544,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					text = "WVC_XaG_ChimeraDialog_PawnHasEndogene".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor);
 				}
-				else if (geneDef.endogeneCategory == EndogeneCategory.Melanin)
+				else if (geneDef.IsMelanin())
 				{
 					text = "WVC_XaG_ChimeraDialog_NonPassGene".Translate(geneDef.label).Colorize(ColoredText.TipSectionTitleColor);
 				}

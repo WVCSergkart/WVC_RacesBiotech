@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			uncollapsedSize = 184f;
 		}
 
-		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.Consumption.ToStringResource(), XenotypesMatch);
+		public override TaggedString GizmoTip => "WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch);
 
 		private string cachedSources = null;
 		public TaggedString Sources
@@ -47,28 +47,42 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 					stringBuilder.AppendLineTagged(" -  " + "WVC_TotalMetabolism".Translate(((float)gene_Energyshifter.TotalMetabolism).ToStringPlusMinus(0)) + "%");
-					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceFactorTip".Translate("x" + Factor.ToStringPercent()));
+					Color color = Color.white;
+					float genesFactor = gene_Energyshifter.GenesFactor;
+					switch (genesFactor)
+					{
+						case 1f:
+							color = Color.white;
+							break;
+						case > 1f:
+							color = ColorLibrary.RedReadable;
+							break;
+						case < 1f:
+							color = ColorLibrary.Green;
+							break;
+					}
+					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceFactorTip".Translate(("x" + genesFactor.ToStringPercent()).Colorize(color)));
 					cachedSources = stringBuilder.ToString().TrimEndNewlines();
 				}
 				return cachedSources;
 			}
 		}
 
-		private float Factor
-		{
-			get
-			{
-				float factor = 1f;
-				foreach (IGeneDisconnectable geneDisconnectable in gene_Energyshifter.SubGenes)
-				{
-					if (geneDisconnectable.Active)
-					{
-						factor *= geneDisconnectable.ResourceConsumption_Factor;
-					}
-				}
-				return factor;
-			}
-		}
+		//private float Factor
+		//{
+		//	get
+		//	{
+		//		float factor = 1f;
+		//		foreach (IGeneDisconnectable geneDisconnectable in gene_Energyshifter.SubGenes)
+		//		{
+		//			if (geneDisconnectable.Active)
+		//			{
+		//				factor *= geneDisconnectable.ResourceConsumption_Factor;
+		//			}
+		//		}
+		//		return factor;
+		//	}
+		//}
 
 		private string cachedMatchOffset = null;
 		public TaggedString XenotypesMatch
@@ -153,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene_Energyshifter));
 				}
 			}
-			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(Sources, gene_Energyshifter.Consumption.ToStringResource(), XenotypesMatch));
+			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(Sources, gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch));
 		}
 
 	}
