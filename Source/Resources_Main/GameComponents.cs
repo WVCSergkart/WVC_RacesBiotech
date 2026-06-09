@@ -117,6 +117,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedUnlockedGeneDefs == null)
 				{
+					if (collectedGeneDefs == null)
+					{
+						collectedGeneDefs = new();
+					}
 					cachedUnlockedGeneDefs = collectedGeneDefs.ConvertToDefs<GeneDef>();
 				}
 				return cachedUnlockedGeneDefs;
