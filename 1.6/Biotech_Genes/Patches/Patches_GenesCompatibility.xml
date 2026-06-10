@@ -140,7 +140,7 @@
 		</nullifyingGenes>
 		<nullifyingPrecepts>
 		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_OneManArmy</li>
-		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Duplicates</li>
+		  <li MayRequire="ludeon.rimworld.ideology, ludeon.rimworld.anomaly">WVC_Shapeshifters_Duplicates</li>
 		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Deathwatch</li>
 		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_FamilyByBlood</li>
 		  <li MayRequire="ludeon.rimworld.ideology">WVC_Shapeshifters_Recluse</li>
