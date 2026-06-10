@@ -27,6 +27,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//DevMode
+		public bool devMode = false;
+
 		// Main
 		// Graphic
 		public bool hideXaGGenes = false;
@@ -155,6 +158,7 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref firstModLaunch, "firstModLaunch", defaultValue: true, forceSave: true);
 			// Scribe_Values.Look(ref advancedDevMode, "advancedDevMode", defaultValue: false);
+			Scribe_Values.Look(ref devMode, "devMode", defaultValue: false);
 			// Main
 			// Graphic
 			Scribe_Values.Look(ref hideXaGGenes, "hideXaGGenes", defaultValue: false);
@@ -643,6 +647,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 			listingStandard.Gap();
 			// =============== Dev ===============
+			listingStandard.CheckboxLabeled("DevMode", ref settings.devMode, "Dev-mode.");
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.resetGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());

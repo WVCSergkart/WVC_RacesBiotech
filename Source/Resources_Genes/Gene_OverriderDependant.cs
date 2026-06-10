@@ -332,7 +332,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!skillRecord.TotallyDisabled)
 				{
-					skillRecord.Learn(skillRecord.XpRequiredForLevelUp * (1f / (60000 * 12) * 37194), false, true);
+					skillRecord.Learn(skillRecord.XpRequiredForLevelUp * (1f / (60000 * 20) * 37194), false, true);
 				}
 			}
 		}
@@ -423,7 +423,7 @@ namespace WVC_XenotypesAndGenes
 			Need_Joy recreation = pawn.needs.joy;
 			if (recreation != null)
 			{
-				recreation.CurLevelPercentage += 0.33f / 60000 * 11345;
+				recreation.CurLevelPercentage += 0.66f / 60000 * 11345;
 			}
 		}
 
@@ -508,7 +508,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				StartCooldown();
 			}

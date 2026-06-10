@@ -305,7 +305,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameNotStarted() && Rand.Chance(0.2f))
+			if (ModsUtility.GameNotStarted() && Rand.Chance(0.2f))
 			{
 				AddDeathRefusal(pawn);
 			}

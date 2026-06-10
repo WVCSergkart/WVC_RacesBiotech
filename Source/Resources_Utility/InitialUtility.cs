@@ -11,25 +11,38 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GetModStatus()
 		{
-			StringBuilder stringBuilder = new();
-			WVC_Biotech mod = LoadedModManager.GetMod<WVC_Biotech>();
-			stringBuilder.AppendLine("[WVC - XaG] Xenotypes and Genes is initialized successfully. Getting mod status:");
-			if (mod != null)
+			try
 			{
-				stringBuilder.AppendLine(" - Mod version: " + mod.Content.ModMetaData.ModVersion);
-				//stringBuilder.AppendLine(" - Steam status: " + (mod.F ).ToStringTrueFalse_Debug());
+				StringBuilder stringBuilder = new();
+				WVC_Biotech mod = LoadedModManager.GetMod<WVC_Biotech>();
+				stringBuilder.AppendLine("[WVC - XaG] Xenotypes and Genes is initialized successfully. Getting mod status:");
+				if (mod != null)
+				{
+					stringBuilder.AppendLine(" - Mod version: " + mod.Content.ModMetaData.ModVersion);
+					//stringBuilder.AppendLine(" - Steam status: " + (mod.F ).ToStringTrueFalse_Debug());
+				}
+				stringBuilder.AppendLine(" - Compatability mode: " + WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability.ToStringTrueFalse_Debug(true));
+				stringBuilder.AppendLine(" - Human component status: " + WVC_Biotech.settings.enable_xagHumanComponent.ToStringTrueFalse_Debug());
+				stringBuilder.AppendLine(" - Mod graphic: " + (!WVC_Biotech.settings.disableAllGraphic).ToStringTrueFalse_Debug(true));
+				stringBuilder.AppendLine(" - Genes hidded: " + WVC_Biotech.settings.hideXaGGenes.ToStringTrueFalse_Debug());
+				stringBuilder.AppendLine(" - Modlist size: " + XaG_UiUtility.ToStringModsCount(LoadedModManager.RunningModsListForReading.Count));
+				bool devMode = WVC_Biotech.settings.devMode;
+				stringBuilder.AppendLine(" - DevMode: " + devMode.ToStringTrueFalse_Debug(true));
+				if (devMode)
+				{
+					stringBuilder.AppendLine("    * This is my personal playground. Why are you here?");
+				}
+				stringBuilder.AppendLine(" - Xenotypes in factions (Obsolete): " + WVC_Biotech.settings.enable_spawnXenotypesInFactions.ToStringTrueFalse_Debug(true));
+				stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
+				stringBuilder.AppendLine(" - Aptitudes: " + WVC_Biotech.settings.generateSkillGenes.ToStringTrueFalse_Debug(true));
+				stringBuilder.AppendLine(" - Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
+				stringBuilder.AppendLine(" - Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug(true));
+				Log.Message(stringBuilder.ToString().TrimEndNewlines());
 			}
-			stringBuilder.AppendLine(" - Compatability mode: " + WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability.ToStringTrueFalse_Debug(true));
-			stringBuilder.AppendLine(" - Human component status: " + WVC_Biotech.settings.enable_xagHumanComponent.ToStringTrueFalse_Debug());
-			stringBuilder.AppendLine(" - Mod graphic: " + (!WVC_Biotech.settings.disableAllGraphic).ToStringTrueFalse_Debug(true));
-			stringBuilder.AppendLine(" - Genes hidded: " + WVC_Biotech.settings.hideXaGGenes.ToStringTrueFalse_Debug());
-			stringBuilder.AppendLine(" - Modlist size: " + XaG_UiUtility.ToStringModsCount(LoadedModManager.RunningModsListForReading.Count));
-			stringBuilder.AppendLine(" - Xenotypes in factions (Obsolete): " + WVC_Biotech.settings.enable_spawnXenotypesInFactions.ToStringTrueFalse_Debug(true));
-			stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
-			stringBuilder.AppendLine(" - Aptitudes: " + WVC_Biotech.settings.generateSkillGenes.ToStringTrueFalse_Debug(true));
-			stringBuilder.AppendLine(" - Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
-			stringBuilder.AppendLine(" - Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug(true));
-			Log.Message(stringBuilder.ToString().TrimEndNewlines());
+			catch
+			{
+				Log.Error("[WVC - XaG] Xenotypes and Genes were not initialized correctly. Unauthorized interference detected.");
+			}
 		}
 
 		//private static WVC_Biotech cachedThisMod;

@@ -177,16 +177,6 @@ namespace WVC_XenotypesAndGenes
 			return pawn.MapHeld?.Biome?.inVacuum == true;
 		}
 
-		public static bool GameStarted()
-		{
-			return !GameNotStarted();
-		}
-
-		public static bool GameNotStarted()
-		{
-			return Current.ProgramState != ProgramState.Playing;
-		}
-
 		//public static void BackCompatability()
 		//{
 		//	foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())

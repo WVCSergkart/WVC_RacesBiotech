@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void InitialRejuvenation(Pawn pawn)
 		{
-			if (MiscUtility.GameNotStarted())
+			if (ModsUtility.GameNotStarted())
 			{
 				AgelessUtility.Rejuvenation(pawn);
 			}

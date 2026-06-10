@@ -351,7 +351,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Update(int tick)
 		{
-			if (MiscUtility.GameStarted() && lastRecacheTick < Find.TickManager.TicksGame)
+			if (ModsUtility.GameStarted() && lastRecacheTick < Find.TickManager.TicksGame)
 			{
 				MiscUtility.UpdateStaticCollection();
 				lastRecacheTick = Find.TickManager.TicksGame + 2500;

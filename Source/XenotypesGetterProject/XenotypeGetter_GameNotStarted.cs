@@ -5,7 +5,7 @@
 
 		public override bool CanFire()
 		{
-			return MiscUtility.GameNotStarted();
+			return ModsUtility.GameNotStarted();
 		}
 
 	}

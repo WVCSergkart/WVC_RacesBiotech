@@ -307,7 +307,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<XenotypeDef> list = new();
 			List<XenotypeDef> devXenotypes = GetDevXenotypeDefs();
-			bool gameStarted = MiscUtility.GameStarted();
+			bool gameStarted = ModsUtility.GameStarted();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
 				if (devXenotypes.Contains(item))

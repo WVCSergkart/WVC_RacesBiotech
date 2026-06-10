@@ -365,7 +365,7 @@
 	  </li>
 	</forcedTraits>
 	<customEffectDescriptions>
-	  <li>Guaranteed to teach &lt;color=#8a8ae6&gt;1 level&lt;/color&gt; in each skill every 12 days.</li>
+	  <li>Guaranteed to teach &lt;color=#8a8ae6&gt;1 level&lt;/color&gt; in each skill every 20 days.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -396,7 +396,7 @@
 	<biostatMet>4</biostatMet>
 	<resourceLossPerDay>-0.04</resourceLossPerDay>
 	<customEffectDescriptions>
-	  <li>Recreation: 33 %/day</li>
+	  <li>Recreation: 66 %/day</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <GlobalLearningFactor>0</GlobalLearningFactor>

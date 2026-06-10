@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanFire()
 		{
-			if (MiscUtility.GameNotStarted())
+			if (ModsUtility.GameNotStarted())
 			{
 				return false;
 			}

@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 			if (xenotypes.Where((holder) => !holder.isOverriden && !holder.shouldSkip && !holder.isTrueShiftForm).ToList().Count <= 1)
 			{
 				reqGenesMatch -= 0.05f;
-				if (DebugSettings.ShowDevGizmos)
+				if (ModsUtility.DevMode)
 				{
 					Log.Warning("Required genes match decreased. New required match: " + reqGenesMatch);
 				}

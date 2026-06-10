@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			base.PostAdd();
 			//UpdateMetabolism();
-			if (MiscUtility.GameNotStarted())
+			if (ModsUtility.GameNotStarted())
 			{
 				StarterPackSetup();
 				NPC_RandomGeneSetSetup();

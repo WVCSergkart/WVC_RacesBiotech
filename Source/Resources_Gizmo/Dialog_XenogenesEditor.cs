@@ -1231,24 +1231,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Warning("Error during genes removing. Broken PostRemove() in some gene?");
 			}
-			//ReimplanterUtility.NotifyGenesChanged(gene.pawn);
-			ReimplanterUtility.PostImplantDebug(gene.Pawn);
 		}
 
 		public void ClearXenogenes()
 		{
-			// gene.ClearChimeraXenogerm();
 			ClearGenes();
-			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
 			ReimplanterUtility.PostImplantDebug(gene.Pawn);
-			//if (gene is IGeneWithEffects geneWithEffects)
-			//{
-			//	geneWithEffects.DoEffects();
-			//}
-			//if (gene is IGeneMetabolism geneMetabolism)
-			//{
-			//	geneMetabolism.UpdateMetabolism();
-			//}
 			UpdateOther();
 			Close(doCloseSound: false);
 		}

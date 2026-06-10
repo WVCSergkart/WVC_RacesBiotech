@@ -830,7 +830,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			if (DebugSettings.ShowDevGizmos)
+			if (ModsUtility.DevMode)
 			{
 				DevGetErrorList("conflictingWithSelectedTrait", conflictingWithSelectedTrait);
 				DevGetErrorList("conflictingTraits", conflictingTraits);

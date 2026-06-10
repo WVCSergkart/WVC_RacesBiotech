@@ -126,4 +126,9 @@
 
 	<WVC_XaG_Energyshaper_ResourceFactorTip>Genetic post-process {0}</WVC_XaG_Energyshaper_ResourceFactorTip>
 
+	<!-- ==================== XENO RESEARCHER ==================== -->
+
+	<WVC_XaG_XenoResearcher_Progress>Research progress</WVC_XaG_XenoResearcher_Progress>
+	<WVC_XaG_XenoResearcher_ProgressDesc>Roughly reflects the progress of research into new genes and xenotypes.</WVC_XaG_XenoResearcher_ProgressDesc>
+
 </LanguageData>

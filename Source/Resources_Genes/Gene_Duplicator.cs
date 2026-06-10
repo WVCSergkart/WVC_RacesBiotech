@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameStarted() && SourcePawn != pawn)
+			if (ModsUtility.GameStarted() && SourcePawn != pawn)
 			{
 				SourcePawn.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.Notify_GenesRecache(null);
 			}

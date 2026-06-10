@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void BackstoryChanger(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null)
 		{
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				return;
 			}

@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				nextTick = Spawner.spawnIntervalRange.RandomInRange;
 			}

@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetCache();
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				nextTick = Cooldown;
 			}

@@ -10,19 +10,46 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter_XenotypesUnlocker : Gene_Energyshifter_SubGene
 	{
 
-		//private int nextTick;
+		// In Dev
+		public int ReqProgress
+		{
+			get
+			{
+				if (StaticCollectionsClass.oneManArmyMode)
+				{
+					return 2;
+				}
+				return 4;
+			}
+		}
+		// In Dev
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (ModsUtility.GameNotStarted())
+			{
+				nextTick = new IntRange(1, ReqProgress).RandomInRange;
+			}
+			else
+			{
+				nextTick = ReqProgress;
+			}
+		}
+
+		private int nextTick;
 		public override void TickMasterGene(int factorDelayTicks, int outTicks)
 		{
-			//if (nextTick > 0)
-			//{
-			//	nextTick--;
-			//	return;
-			//}
-			//nextTick = 3;
-			if (!pawn.IsNestedHashIntervalTick(outTicks, 75000))
+			if (nextTick > 0)
 			{
+				nextTick--;
 				return;
 			}
+			nextTick = ReqProgress;
+			//if (!pawn.IsNestedHashIntervalTick(outTicks, 75000))
+			//{
+			//	return;
+			//}
 			string phase = "init";
 			try
 			{
@@ -37,12 +64,18 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "researchProgress", -1);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				lastCachedResearch = -1;
 				lastMessageTick = -1;
 				cachedGeneDefs = null;
 			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_XenoResearcher_Progress".Translate().CapitalizeFirst(), (1f - (nextTick / ReqProgress)).ToStringPercent(), "WVC_XaG_XenoResearcher_ProgressDesc".Translate(), 670);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -91,33 +124,33 @@ namespace WVC_XenotypesAndGenes
 				phase = "find maps";
 				foreach (Map map in Find.Maps)
 				{
-					//phase = "add all pawns genes";
-					//foreach (Pawn targetPawn in map.mapPawns.AllPawns)
-					//{
-					//	if (targetPawn.IsHuman())
-					//	{
-					//		phase = "add genes from pawn";
-					//		AddGenesFromPawn(targetPawn);
-					//	}
-					//}
-					//phase = "add all corpses genes";
-					//foreach (Thing thing in map.spawnedThings)
-					//{
-					//	if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
-					//	{
-					//		phase = "add genes from corpse";
-					//		AddGenesFromPawn(corpse.InnerPawn);
-					//	}
-					//}
-					phase = "add all genes from all dead pawns";
-					foreach (Pawn item in PawnsFinder.All_AliveOrDead)
+					phase = "add all pawns genes";
+					foreach (Pawn targetPawn in map.mapPawns.AllPawns)
 					{
-						if (item.MapHeld != null && item.IsHuman() && item.MapHeld.mapPawns.AllHumanlikeSpawned.Any(humanlike => humanlike.Faction == Faction.OfPlayer && humanlike.genes?.GetFirstGeneOfType<Gene_Energyshifter>() != null))
+						if (targetPawn.IsHuman())
 						{
-							AddGenesFromPawn(item);
+							phase = "add genes from pawn";
+							AddGenesFromPawn(targetPawn);
+						}
+					}
+					phase = "add all corpses genes";
+					foreach (Thing thing in map.spawnedThings)
+					{
+						if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
+						{
+							phase = "add genes from corpse";
+							AddGenesFromPawn(corpse.InnerPawn);
 						}
 					}
 				}
+				//phase = "add all genes from all dead pawns";
+				//foreach (Pawn item in PawnsFinder.All_AliveOrDead)
+				//{
+				//	if (item.MapHeld != null && item.IsHuman() && item.MapHeld.mapPawns.AllHumanlikeSpawned.Any(humanlike => humanlike.Faction == Faction.OfPlayer && humanlike.genes?.GetFirstGeneOfType<Gene_Energyshifter>() != null))
+				//	{
+				//		AddGenesFromPawn(item);
+				//	}
+				//}
 				lastCachedResearch = 60000 + Find.TickManager.TicksGame;
 			}
 			cachedGeneDefs.Shuffle();

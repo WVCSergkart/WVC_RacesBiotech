@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts, parent.Severity))
 				{
-					if (DebugSettings.ShowDevGizmos)
+					if (ModsUtility.DevMode)
 					{
 						Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
 					}

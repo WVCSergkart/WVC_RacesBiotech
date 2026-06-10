@@ -100,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				nextTick = (pawn.Faction == Faction.OfPlayer ? 60000 : new IntRange(0, 60000).RandomInRange) * 15;
 			}

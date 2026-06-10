@@ -6,6 +6,22 @@ namespace WVC_XenotypesAndGenes
 	public static class ModsUtility
 	{
 
+		public static bool DevMode => WVC_Biotech.settings.devMode && DebugSettings.ShowDevGizmos;
+
+		public static bool GameStarted()
+		{
+			return !GameNotStarted();
+		}
+
+		public static bool GameNotStarted()
+		{
+			return Current.ProgramState != ProgramState.Playing;
+		}
+
+		// ======================== OTHER_MODS ========================
+		// ======================== OTHER_MODS ========================
+		// ======================== OTHER_MODS ========================
+
 		private static bool? cachedVanillaExpandedFrameworkActive;
 		public static bool VanillaExpandedFrameworkActive
 		{

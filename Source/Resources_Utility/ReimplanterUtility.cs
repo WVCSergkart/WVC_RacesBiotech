@@ -427,7 +427,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.HumanComponent()?.Notify_Debugger();
 				phase = "reset ideology cache";
 				GeneshiftUtility.ResetXenotypesCollection();
-				if (DebugSettings.ShowDevGizmos)
+				if (ModsUtility.DevMode)
 				{
 					Log.Warning($"Genes debugger called for pawn: {pawn.Name}. If you see this message, then everything is working normally. FUUUUCK");
 				}

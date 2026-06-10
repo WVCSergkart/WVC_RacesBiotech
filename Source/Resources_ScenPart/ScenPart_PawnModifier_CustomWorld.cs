@@ -227,7 +227,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				if (MiscUtility.GameNotStarted())
+				if (ModsUtility.GameNotStarted())
 				{
 					SetXenotype(pawn, xenotype);
 					return false;

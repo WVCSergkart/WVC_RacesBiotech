@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
-					if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
+					if (cachedShapeshifterGene == null && ModsUtility.GameStarted())
 					{
 						Disabled = true;
 					}
@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (MiscUtility.GameNotStarted())
+			if (ModsUtility.GameNotStarted())
 			{
 				geneticMaterial = new IntRange(1, 20).RandomInRange;
 			}

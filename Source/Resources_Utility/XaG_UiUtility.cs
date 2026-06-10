@@ -524,9 +524,9 @@ namespace WVC_XenotypesAndGenes
 			string text = "";
 			switch (modsCount)
 			{
-				case >= 500:
-					text = "Your mother big as your modlist";
-					break;
+				//case >= 500:
+				//	text = "Your mother big as your modlist";
+				//	break;
 				case > 350:
 					text = "Love playing debug game, huh?";
 					break;

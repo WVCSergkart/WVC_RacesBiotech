@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
-					if (cachedShapeshifterGene == null && MiscUtility.GameStarted())
+					if (cachedShapeshifterGene == null && ModsUtility.GameStarted())
 					{
 						Disabled = true;
 					}

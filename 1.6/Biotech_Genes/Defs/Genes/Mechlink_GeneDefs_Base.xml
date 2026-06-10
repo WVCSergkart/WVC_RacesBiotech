@@ -98,7 +98,7 @@
 		<!-- <li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li> -->
 		<li>&lt;color=#ff8585&gt;Increases the gestation time of mechs by x20&lt;/color&gt;</li>
 		<!-- At the moment this is a lie ;D -->
-		<li MayRequire="ludeon.rimworld.odyssey">Summon will fail if mechhive is deactivated.</li>
+		<li MayRequire="ludeon.rimworld.odyssey">&lt;color=#ff8585&gt;Summon will fail if mechhive is deactivated.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0.5</MechBandwidth>

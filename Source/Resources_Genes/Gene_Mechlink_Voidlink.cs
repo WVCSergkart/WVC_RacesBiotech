@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			Local_AddOrRemoveHediff();
-			if (MiscUtility.GameStarted())
+			if (ModsUtility.GameStarted())
 			{
 				return;
 			}

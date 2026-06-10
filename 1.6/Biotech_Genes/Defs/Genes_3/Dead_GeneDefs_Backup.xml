@@ -18,7 +18,7 @@
 		<li>The pawn can be recalled through the &lt;color=#8a8ae6&gt;console&lt;/color&gt;, &lt;color=#8a8ae6&gt;summoned&lt;/color&gt; as a boss mechanoid.</li>
 		<li>This &lt;color=#8a8ae6&gt;summoning&lt;/color&gt; returns all pawns that died with this gene, if they still &lt;color=#8a8ae6&gt;exist&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Only a mechanitor can summon.&lt;/color&gt;</li>
-		<li MayRequire="ludeon.rimworld.odyssey">Summon will fail if mechhive is deactivated.</li>
+		<li MayRequire="ludeon.rimworld.odyssey">&lt;color=#ff8585&gt;Summon will fail if mechhive is deactivated.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

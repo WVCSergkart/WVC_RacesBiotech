@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 					GetRandomHeadFromSet(pawn);
 				}
-				if (MiscUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
+				if (ModsUtility.GameNotStarted() && pawn.Name is NameTriple nameTriple)
 				{
 					pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
 				}

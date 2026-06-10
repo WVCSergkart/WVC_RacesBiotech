@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				if (MiscUtility.GameNotStarted() && gene.Active)
+				if (ModsUtility.GameNotStarted() && gene.Active)
 				{
 					AgelessUtility.AddChronoAge(pawn, (int)(pawn.ageTracker.AgeBiologicalYears / Mathf.Clamp(gene.def.biologicalAgeTickFactorFromAgeCurve.Evaluate(pawn.ageTracker.AgeBiologicalYears), 0.1f, 999f)));
 				}

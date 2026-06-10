@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static void IdeoUpdTrigger()
 			{
-				if (MiscUtility.GameStarted())
+				if (ModsUtility.GameStarted())
 				{
 					MiscUtility.UpdateStaticCollection();
 					GeneshiftUtility.ResetXenotypesCollection();
@@ -605,7 +605,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static void Notify_LifeStageStarted(ref Pawn pawn)
 			{
-				if (MiscUtility.GameNotStarted())
+				if (ModsUtility.GameNotStarted())
 				{
 					return;
 				}
@@ -640,7 +640,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						return;
 					}
-					if (MiscUtility.GameStarted())
+					if (ModsUtility.GameStarted())
 					{
 						CompHumanlike compHumanlike = pawn.HumanComponent();
 						if (compHumanlike != null)

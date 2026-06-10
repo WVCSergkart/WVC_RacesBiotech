@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			//UpdateMetabolism();
-			if (MiscUtility.GameNotStarted())
+			if (ModsUtility.GameNotStarted())
 			{
 				UnlockXenotype(pawn.genes.XenotypeLabel);
 			}
