@@ -178,7 +178,7 @@ namespace WVC_XenotypesAndGenes
 				//		break;
 				//	}
 				//}
-				xenotypeDef = UnknownXenotypeDef(recipient.genes.Endogenes.ConvertToDefs());
+				xenotypeDef = UnknownXenotypeDef(recipient.genes.Endogenes);
 			}
 			if (xenotypeDef != null)
 			{
@@ -186,18 +186,49 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static XenotypeDef UnknownXenotypeDef(List<GeneDef> genes)
+		public static void FixXenotypeFlag(Pawn pawn)
+		{
+			if (pawn.genes.UniqueXenotype)
+			{
+				return;
+			}
+			if (!XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, pawn.genes.Xenotype.genes, PreferredXenotypesUtility.ReqMatch))
+			{
+				XenotypeDef xenotypeDef = UnknownXenotypeDef(pawn.genes.GenesListForReading);
+				if (xenotypeDef != null && xenotypeDef != XenotypeDefOf.Baseliner)
+				{
+					SetXenotypeDirect(null, pawn, xenotypeDef);
+					if (ModsUtility.DevMode)
+					{
+						Log.Warning($"Fixed xenotype flag for pawn: {pawn.Name?.ToStringSafe()}");
+					}
+				}
+			}
+		}
+
+		public static XenotypeDef UnknownXenotypeDef(List<GeneDef> genes, float minMatch = 1f)
 		{
 			XenotypeDef xenotypeDef = null;
-			if (xenotypeDef == null)
+			foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
 			{
-				foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where((xenotypeDef) => xenotypeDef.inheritable))
+				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch))
 				{
-					if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, 1f))
-					{
-						xenotypeDef = xenos;
-						break;
-					}
+					xenotypeDef = xenos;
+					break;
+				}
+			}
+			return xenotypeDef;
+		}
+
+		public static XenotypeDef UnknownXenotypeDef(List<Gene> genes, float minMatch = 1f)
+		{
+			XenotypeDef xenotypeDef = null;
+			foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
+			{
+				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch))
+				{
+					xenotypeDef = xenos;
+					break;
 				}
 			}
 			return xenotypeDef;
@@ -370,11 +401,6 @@ namespace WVC_XenotypesAndGenes
 
 		public static void PostImplantDebug(Pawn pawn)
 		{
-			GeneDebugger(pawn);
-		}
-
-		public static void GeneDebugger(Pawn pawn)
-		{
 			string phase = "init";
 			try
 			{
@@ -435,6 +461,15 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Failed do post implant debug. On phase: " + phase + ". Reason: " + arg);
+			}
+		}
+
+		public static void GeneDebugger(Pawn pawn)
+		{
+			PostImplantDebug(pawn);
+			if (PreferredXenotypesUtility.Enabled)
+			{
+				ReimplanterUtility.FixXenotypeFlag(pawn);
 			}
 		}
 

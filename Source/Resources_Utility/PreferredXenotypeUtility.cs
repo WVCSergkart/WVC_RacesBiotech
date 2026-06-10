@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 		//private static Dictionary<Pawn, Ideo> preferredPawns = new();
 
 		public static float ReqMatch => WVC_Biotech.settings.preferredXenotypes_RequiredMinMatch;
+		public static bool Enabled => WVC_Biotech.settings.preferredXenotypes_enableTweak;
 
 		private static List<IdeoPawnsHolder> notPreferredPawns = new();
 		private static List<IdeoPawnsHolder> preferredPawns = new();

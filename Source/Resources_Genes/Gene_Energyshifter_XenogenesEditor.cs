@@ -156,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.HasGenesRegrowing())
 			{
-				ReimplanterUtility.ReduceXenogermReplicationTick(pawn, outTicks);
+				ReimplanterUtility.ReduceXenogermReplicationTick(pawn, (outTicks * 2));
 			}
 			else
 			{

@@ -36,6 +36,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static bool? cachedTrueXenotypesActive;
+		public static bool TrueXenotypesActive
+		{
+			get
+			{
+				if (cachedTrueXenotypesActive == null)
+				{
+					cachedTrueXenotypesActive = LoadedModManager.RunningModsListForReading.Any(mod => mod.PackageId == "wvc.sergkart.biotech.truexenotypes");
+				}
+				return cachedTrueXenotypesActive.Value;
+			}
+		}
+
 		//private static void GetMods()
 		//{
 		//	cachedVanillaExpandedFrameworkActive = false;
