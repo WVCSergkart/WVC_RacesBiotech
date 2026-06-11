@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Sacrificer</defName>
+	<label>sacrificer</label>
+	<labelShortAdj>sacrificer</labelShortAdj>
+	<description>Carriers of this gene have a special psychic connection with the void. They involuntarily act as a beacon for void energy, slowly consuming those around them. However, this comes with a reward.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Sacrificer</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Sacrificer</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Sacrificer</resourceGizmoType>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
+		<li>While the &lt;color=#8a8ae6&gt;monolith and mechhive&lt;/color&gt; is active, it &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt; one sentient pawn every day.</li>
+		<li>The sacrifice is rewarded. The reward can be chosen from three presets: &lt;color=#8a8ae6&gt;biotech, anomaly, and odyssey&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Chimera</li>
+	  <li>WVC_Gene_Sacrificer</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

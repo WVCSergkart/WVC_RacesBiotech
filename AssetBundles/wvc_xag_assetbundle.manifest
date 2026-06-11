@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3500670929
+CRC: 3708087778
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 17109609c0226301369542052df54122
+    Hash: 7e57832dcad42ad98ed2c6bd7240ac0c
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: e17c8ad3940b13b60752b3b7eac44231
+    Hash: a401a59aac7bbf24fe13613efba09ac6
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -76,6 +76,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Male_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/MembranousWings_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/NodeGene_FacelessHead/Head_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_NoSkillLoss.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno17.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_StasisLearning.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Construction/ScarifierSkills_v0.png
@@ -795,9 +796,11 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Leper0c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Mecha_Icons/Xeno_Undead_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Solar.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_XenogenesEditorFleshmass.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ExtremeSlowLearning_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FleshmassBrain_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/UndeadGene_Body/Naked_Fat_east.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_SacrificerSkullIcon.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/ElfEars/PointedEarsC_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Tentacles/Naked_Female_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Mining/SkillDown.png
@@ -1222,6 +1225,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/MushroomTreeBulbs/Bulb_B/Bulb_B.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/DragonTail_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/W_Genepack/Genepack_d.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Sacrificer.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Syntskin/Naked_Female_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Fat_east.png

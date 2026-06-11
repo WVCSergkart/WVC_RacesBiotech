@@ -12,48 +12,6 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneFeaturesUtility
 	{
 
-		// ============================= GENE THRALL =============================
-
-		//public static bool CanCellsFeedNowWith(Pawn biter, Pawn victim)
-		//{
-		//	if (MiscUtility.BasicTargetValidation(biter, victim))
-		//	{
-		//		Gene_Resurgent cells = victim.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-		//		if (cells == null)
-		//		{
-		//			return false;
-		//		}
-		//		if (cells.ValuePercent < 0.20f)
-		//		{
-		//			return false;
-		//		}
-		//		return true;
-		//	}
-		//	return false;
-		//}
-
-		//public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor)
-		//{
-		//	float cells = daysGain * cellsConsumeFactor;
-		//	int ticks = (int)(daysGain * (victim.BodySize * 60000));
-		//	GeneResourceUtility.OffsetInstabilityTick(biter, ticks);
-		//	GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
-		//}
-
-		public static bool TrySpawnBloodFilth(Pawn victim, IntRange bloodFilthToSpawnRange)
-		{
-			if (victim?.Map == null)
-			{
-				return false;
-			}
-			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
-			for (int i = 0; i < randomInRange; i++)
-			{
-				victim?.health?.DropBloodFilth();
-			}
-			return true;
-		}
-
 		// ============================= GENE Learning Telepath =============================
 
 		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f, bool shareSkills = false, int minLvlDiff = 0)
@@ -235,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 				hediff.Severity = targetBloodLoss;
 				victim.health.AddHediff(hediff);
 				SoundDefOf.Execute_Cut.PlayOneShot(victim);
-				TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
+				EffectsUtility.TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
 			}
 		}
 

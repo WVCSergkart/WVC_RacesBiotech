@@ -490,26 +490,26 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MonolithMorph : Gene_AbilityMorph
 	{
 
-		private GameComponent_Anomaly cachedGameComponent;
-		public GameComponent_Anomaly GameComponent
-		{
-			get
-			{
-				if (cachedGameComponent == null)
-				{
-					cachedGameComponent = Current.Game.GetComponent<GameComponent_Anomaly>();
-				}
-				return cachedGameComponent;
-			}
-		}
+		//private GameComponent_Anomaly cachedGameComponent;
+		//public GameComponent_Anomaly GameComponent
+		//{
+		//	get
+		//	{
+		//		if (cachedGameComponent == null)
+		//		{
+		//			cachedGameComponent = Current.Game.GetComponent<GameComponent_Anomaly>();
+		//		}
+		//		return cachedGameComponent;
+		//	}
+		//}
 
 		public override bool CanMorph()
 		{
-			if (GameComponent.AmbientHorrorMode)
+			if (Find.Anomaly.AmbientHorrorMode)
 			{
 				return true;
 			}
-			return GameComponent.LevelDef == MonolithLevelDefOf.Embraced;
+			return Find.Anomaly.LevelDef == MonolithLevelDefOf.Embraced;
 		}
 
 	}

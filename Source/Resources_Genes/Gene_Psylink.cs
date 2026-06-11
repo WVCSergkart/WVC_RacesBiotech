@@ -13,13 +13,12 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			GeneResourceUtility.AddPsylink(pawn);
+			HediffUtility.AddPsylink(pawn);
 		}
 
 		public override void TickInterval(int delta)
 		{
-			//base.Tick();
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
+			HediffUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
 		//public void Notify_OverriddenBy(Gene overriddenBy)
@@ -117,14 +116,14 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			GeneResourceUtility.AddPsylink(pawn);
+			HediffUtility.AddPsylink(pawn);
 		}
 
 		public override void TickInterval(int delta)
 		{
 			base.TickInterval(delta);
 			PsyfocusOffset(delta);
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
+			HediffUtility.TryAddPsylinkRandomly(pawn, delta, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
 		public void PsyfocusOffset(int delta)

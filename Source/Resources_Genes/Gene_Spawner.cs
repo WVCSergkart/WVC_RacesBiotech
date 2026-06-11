@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 				SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount, styleDef: Props.styleDef);
 				Hemogen.Value -= Props.hemogenPerThing * Props.stackCount;
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(1, 2));
+				EffectsUtility.TrySpawnBloodFilth(pawn, new(1, 2));
 				return true;
 			}
 			return false;

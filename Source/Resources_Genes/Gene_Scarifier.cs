@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-			GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2, 3));
+			EffectsUtility.TrySpawnBloodFilth(pawn, new(2, 3));
 		}
 
 		private static void Notify_SubGenes(Pawn pawn)

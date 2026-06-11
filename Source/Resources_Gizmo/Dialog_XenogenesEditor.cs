@@ -65,6 +65,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private List<GeneDef> collectedGenes;
 		private List<GeneDef> allGenes;
 		private List<GeneDef> pawnEndoGenes;
 		private List<GeneDef> pawnXenoGenes;
@@ -467,7 +468,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				result = true;
 			}
-			if (!gene.CollectedGenes.Contains(geneDef))
+			if (!collectedGenes.Contains(geneDef))
 			{
 				Rect genelineRect = new(rect.xMax - 25f, rect.yMax - 72f, 22f, 22f);
 				Widgets.DrawTextureFitted(genelineRect, XaG_UiUtility.GenelineIconMark.Texture, 1f, 1f);
@@ -1159,13 +1160,14 @@ namespace WVC_XenotypesAndGenes
 				this.pawnEndoGenes = gene.Pawn.genes.Endogenes.ConvertToDefs();
 				this.pawnXenoGenes = gene.Pawn.genes.Xenogenes.ConvertToDefs();
 			}
+			collectedGenes = gene.CollectedGenes;
 			if (gene.UseGeneline)
 			{
 				allGenes = gene.GenelineGenes;
 			}
 			else
 			{
-				allGenes = gene.CollectedGenes;
+				allGenes = collectedGenes;
 			}
 			if (geneXenogenesContainer != null && geneXenogenesContainer.XenotypeHolder != null)
 			{

@@ -326,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 		public Gene Gene => this;
 		public GeneDef Def => def;
 
-		public Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats
+		public virtual Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats
 		{
 			get
 			{

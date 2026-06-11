@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev Name: Sacrifice -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+	<defName>WVC_Sacrifice</defName>
+	<!-- progress by anomaly quest -->
+	<!-- unknown => corrupted => sacrifice -->
+	<label>sacrifice</label>
+	<!-- lvl 1 -->
+	<description>Sacrifices are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. They can freely change their genetic. They are harbingers of what has already arrived, slowly influencing everything around them. Their main distinguishing factor is their "sacrifice," an ability they cannot control but which is rewarded by their patron.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype always kills other pawns.</description>
+	<descriptionShort>Sacrifices are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. They can freely change their genetic. They are harbingers of what has already arrived, slowly influencing everything around them. Their main distinguishing factor is their "sacrifice," an ability they cannot control but which is rewarded by their patron.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Mechamata2c</iconPath>
+	<displayPriority>-1025</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_DeathRefusal</li>
+		<!-- <li>WVC_Backup</li> -->
+		<!-- <li>WVC_StasisStomach</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassHeart</li>
+		<!-- <li>WVC_FleshmassRegeneration</li> -->
+		<li>WVC_FleshmassImmunity</li>
+		<li>WVC_Fleshmass_MultToxRes</li>
+		<li>WVC_Fleshmass_Breathless</li>
+		<li>WVC_Agevenator</li>
+		<li>WVC_Sacrificer</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>WVC_Immunity_VeryWeak</li>
+		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li>Neversleep</li>
+		<li>WVC_Tough</li>
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<li>WVC_MechaSkin</li>
+		<li>WVC_SyntSkin</li>
+		<li>WVC_LongTentacleTail</li>
+		<li>Hair_DarkBlack</li>
+		<!-- <li>WVC_HairColor_Slate</li> -->
+		<li>Skin_PaleRed</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li>DarkVision</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Learning_Stasis</li> -->
+		<li>WVC_Shapeshift_FalseForm</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Chameleon</li> -->
+		<li>WVC_NoLearning</li>
+		<li>WVC_MechaAI_Base</li> <!-- no skill loss -->
+		<li>WVC_BodySize_Large</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

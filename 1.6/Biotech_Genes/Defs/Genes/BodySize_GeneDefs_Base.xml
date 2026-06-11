@@ -21,7 +21,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 	<defName>WVC_BodySize_Small</defName>
 	<label>small size</label>
-	<description>Carriers of this gene are slightly smaller than baseline humans.</description>
+	<description>Carriers of this gene are smaller than baseline humans.</description>
 	<displayOrderInCategory>220</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/BodySize_Small</iconPath>
 	<biostatCpx>1</biostatCpx>
@@ -72,7 +72,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 	<defName>WVC_BodySize_Large</defName>
 	<label>large size</label>
-	<description>Carriers of this gene are slightly larger than baseline humans.</description>
+	<description>Carriers of this gene are larger than baseline humans.</description>
 	<displayOrderInCategory>240</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/BodySize_Large</iconPath>
 	<biostatCpx>1</biostatCpx>

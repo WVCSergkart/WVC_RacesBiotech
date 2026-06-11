@@ -3,6 +3,14 @@
 
 	<!-- <WVC_XaG_ModUpdatedLetter>{0} has gestated new pawn.</WVC_XaG_ModUpdatedLetter> -->
 
+	<!-- general words -->
+	<Biotech>biotech</Biotech>
+	<Anomaly>anomaly</Anomaly>
+	<Odyssey>odyssey</Odyssey>
+
+	<Apply>apply</Apply>
+	<Edit>edit</Edit>
+
 	<!-- ================================== -->
 
 
@@ -30,12 +38,9 @@
 
 	<WVC_Cooldown>Cooldown: {0}.</WVC_Cooldown>
 
-	<Edit>edit</Edit>
 
 	<WVC_ClickToEnable>Click to enable</WVC_ClickToEnable>
 	<WVC_ClickToDisable>Click to disable</WVC_ClickToDisable>
-
-	<Apply>apply</Apply>
 
 	<WVC_None>None</WVC_None>
 

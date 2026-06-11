@@ -346,7 +346,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (addMechlink)
 			{
-				GeneResourceUtility.TryAddMechlink(p);
+				HediffUtility.TryAddMechlink(p);
 			}
 		}
 

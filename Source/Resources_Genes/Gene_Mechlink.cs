@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			GeneResourceUtility.TryAddMechlink(pawn);
+			HediffUtility.TryAddMechlink(pawn);
 			//if (Active)
 			//{
 			//    StaticCollectionsClass.AddMechanitor(pawn);
@@ -47,8 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void TickInterval(int delta)
 		{
-			//base.Tick();
-			GeneResourceUtility.TryAddMechlinkRandomly(pawn, delta, WVC_Biotech.settings.mechlink_HediffFromGeneChance);
+			HediffUtility.TryAddMechlinkRandomly(pawn, delta, WVC_Biotech.settings.mechlink_HediffFromGeneChance);
 		}
 
 		public bool CanDoOrbitalSummon()

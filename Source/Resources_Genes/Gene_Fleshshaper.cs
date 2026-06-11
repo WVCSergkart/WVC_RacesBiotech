@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using static WVC_XenotypesAndGenes.Dialog_ShaperEditor;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -268,6 +269,19 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return base.TryOffsetResource(count);
+		}
+
+		public override Dialog_ShaperEditor.GeneMatStatData[] GeneMatStats
+		{
+			get
+			{
+				GeneMatStatData[] geneMatStats = new GeneMatStatData[2]
+				{
+					new("WVC_XaG_GeneticMaterial_Shifter", "WVC_XaG_GeneticMaterial_ShifterDesc", new CachedTexture("WVC/UI/XaG_General/GenMatTex_Flesh_Req")),
+					new("WVC_XaG_GeneticMaterial_Genes", "WVC_XaG_GeneticMaterial_GenesDesc", new CachedTexture("WVC/UI/XaG_General/GenMatTex_Flesh_Has")),
+				};
+				return geneMatStats;
+			}
 		}
 
 		public bool TryDisableGene(GeneDef geneDef)

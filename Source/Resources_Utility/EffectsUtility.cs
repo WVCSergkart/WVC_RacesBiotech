@@ -52,6 +52,48 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		// ============================= GENE THRALL =============================
+
+		//public static bool CanCellsFeedNowWith(Pawn biter, Pawn victim)
+		//{
+		//	if (MiscUtility.BasicTargetValidation(biter, victim))
+		//	{
+		//		Gene_Resurgent cells = victim.genes?.GetFirstGeneOfType<Gene_Resurgent>();
+		//		if (cells == null)
+		//		{
+		//			return false;
+		//		}
+		//		if (cells.ValuePercent < 0.20f)
+		//		{
+		//			return false;
+		//		}
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
+		//public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor)
+		//{
+		//	float cells = daysGain * cellsConsumeFactor;
+		//	int ticks = (int)(daysGain * (victim.BodySize * 60000));
+		//	GeneResourceUtility.OffsetInstabilityTick(biter, ticks);
+		//	GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
+		//}
+
+		public static bool TrySpawnBloodFilth(Pawn victim, IntRange bloodFilthToSpawnRange)
+		{
+			if (victim?.Map == null)
+			{
+				return false;
+			}
+			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
+			for (int i = 0; i < randomInRange; i++)
+			{
+				victim?.health?.DropBloodFilth();
+			}
+			return true;
+		}
+
 	}
 
 }

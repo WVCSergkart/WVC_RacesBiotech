@@ -113,6 +113,7 @@
     <Compile Include="Resources_Genes\Gene_Fleshshaper_Metabolism.cs" />
     <Compile Include="Resources_Genes\Gene_Holder.cs" />
     <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
+    <Compile Include="Resources_Genes\Gene_Sacrificer.cs" />
     <Compile Include="Resources_Genes\Gene_SkinColor.cs" />
     <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
     <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Energyshifter.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Fleshshaper.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Sacrificer.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
     <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />

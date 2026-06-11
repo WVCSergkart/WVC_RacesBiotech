@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 						Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
 						hediff.Severity = 0.2f * partRecord.coverage;
 						victim.health.AddHediff(hediff);
-						GeneFeaturesUtility.TrySpawnBloodFilth(victim, new(2, 3));
+						EffectsUtility.TrySpawnBloodFilth(victim, new(2, 3));
 					}
 					victim.health.AddHediff(HediffDefOf.MissingBodyPart, partRecord);
 				}

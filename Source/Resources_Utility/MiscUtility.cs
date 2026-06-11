@@ -14,6 +14,22 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool MonolithIsActive
+		{
+			get
+			{
+				if (!ModsConfig.AnomalyActive)
+				{
+					return true;
+				}
+				if (Find.Anomaly.AmbientHorrorMode)
+				{
+					return true;
+				}
+				return Find.Anomaly.LevelDef.anomalyThreatTier > 0;
+			}
+		}
+
 		public static void Kill(this Pawn victim)
 		{
 			if (!victim.Dead)
@@ -631,6 +647,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SpawnItems(ThingDef thingDef, int stack, IntVec3 cell, Map map)
+		{
+			Thing thing = ThingMaker.MakeThing(thingDef);
+			thing.stackCount = stack;
+			GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, null, null, default);
+		}
+
 		// Food
 
 		public static Thing GetSpecialFood(Pawn pawn, ThingDef foodDef)
@@ -956,6 +979,7 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.cachedColonyMechsCount = colonyMechs;
 			StaticCollectionsClass.cachedDownedColonists = downedColonists;
 			StaticCollectionsClass.oneManArmyMode = activeColonistsDuplicatesDeathresting <= 1;
+			Gene_Sacrificer.sacrificerIsActive = MonolithAndCerebrexCoreCheck();
 
 			void SubHumansCount(Pawn item)
 			{
@@ -992,8 +1016,19 @@ namespace WVC_XenotypesAndGenes
 				}
 				activeColonistsDuplicatesDeathresting++;
 			}
-			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
-			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
+		}
+
+		public static bool MonolithAndCerebrexCoreCheck()
+		{
+			if (!MiscUtility.MonolithIsActive)
+			{
+				return false;
+			}
+			if (MechanoidsUtility.CerebrexCoreDefeated)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		public static void ForeverAloneDevelopmentPoints()

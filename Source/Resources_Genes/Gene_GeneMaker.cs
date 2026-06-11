@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
 				catchString = "blood";
-				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0, 1));
+				EffectsUtility.TrySpawnBloodFilth(pawn, new(0, 1));
 				if (showMessage)
 				{
 					Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);

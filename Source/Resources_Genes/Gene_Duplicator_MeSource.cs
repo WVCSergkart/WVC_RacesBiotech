@@ -257,12 +257,12 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.PostAdd();
-			GeneResourceUtility.AddPsylink(pawn);
+			HediffUtility.AddPsylink(pawn);
 		}
 
 		public override void TickInterval(int delta)
 		{
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn, delta);
+			HediffUtility.TryAddPsylinkRandomly(pawn, delta);
 			PsyfocusOffset(delta);
 		}
 

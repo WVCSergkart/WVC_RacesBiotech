@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				parent.pawn.health.AddHediff(Props.casterHediffDef);
 				pawn.health.AddHediff(Props.mechHediffDef);
-				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0, 1));
+				EffectsUtility.TrySpawnBloodFilth(pawn, new(0, 1));
 			}
 		}
 

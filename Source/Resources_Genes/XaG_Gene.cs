@@ -186,4 +186,99 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_XenogenesEditor : XaG_Gene, IGeneXenogenesEditor
+	{
+
+		public virtual List<GeneDef> AllGenes => [];
+		public virtual List<GeneDef> CollectedGenes => [];
+		public virtual List<GeneDef> DisabledGenes => [];
+		public virtual List<GeneDef> DestroyedGenes => [];
+		public virtual List<GeneDef> GenelineGenes => [];
+
+		public Pawn Pawn => pawn;
+		public GeneDef Def => def;
+
+
+
+		private GeneExtension_Undead cachedGeneExtension_Undead;
+		public GeneExtension_Undead Extension_Undead
+		{
+			get
+			{
+				if (cachedGeneExtension_Undead == null)
+				{
+					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+				}
+				return cachedGeneExtension_Undead;
+			}
+		}
+
+		public virtual int ArchiteLimit => 999;
+		public virtual int ComplexityLimit => 999;
+
+		public virtual List<GeneSetPreset> GeneSetPresets
+		{
+			get
+			{
+				if (geneSetPresets == null)
+				{
+					geneSetPresets = new();
+				}
+				return geneSetPresets;
+			}
+			set
+			{
+				geneSetPresets = value;
+			}
+		}
+
+		protected List<GeneSetPreset> geneSetPresets;
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
+		}
+
+		public virtual IntRange ReqMetRange => new(-999, 999);
+		public virtual bool ReqCooldown => false;
+		public virtual bool DisableSubActions => true;
+		public virtual bool UseGeneline => false;
+
+		public virtual void AddGene_Editor(GeneDef geneDef)
+		{
+
+		}
+
+		public virtual void Debug_RemoveDupes()
+		{
+
+		}
+
+		public virtual bool TryDisableGene(GeneDef geneDef)
+		{
+			return false;
+		}
+
+		public virtual bool TryGetToolGene()
+		{
+			return false;
+		}
+
+		public virtual bool TryGetUniqueGene()
+		{
+			return false;
+		}
+
+		public virtual void UpdateCache()
+		{
+
+		}
+
+		public virtual void UpdSubHediffs()
+		{
+
+		}
+
+	}
+
 }

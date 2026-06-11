@@ -31,7 +31,6 @@
 	</statFactors>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
@@ -39,54 +38,65 @@
 	</hediffGiversCannotGive>
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
+	  <li>VRE_SkillGenes</li>
+	  <li>SkillGenes</li>
 	</exclusionTags>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <noSkillDecay>true</noSkillDecay> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.Genes.GeneExtension">
+			<globalSkillLossMultiplier>0</globalSkillLossMultiplier>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_Base</defName>
-	<label>excellent memory</label> 
+	<label>no skill loss</label> 
 	<description>Carriers of this gene never forget their skills.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
-	<iconColor>(184, 198, 203)</iconColor>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes3/Gene_NoSkillLoss</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>29</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
 	</customEffectDescriptions>
-	<capMods>
-	  <li>
-		<capacity>Consciousness</capacity>
-		<offset>0.05</offset>
-	  </li>
-	</capMods>
-	<statFactors>
-	  <SocialImpact>0.8</SocialImpact>
-	</statFactors>
-	<hediffGiversCannotGive>
-	  <li>Dementia</li>
-	  <li>Alzheimers</li>
-	  <li>TraumaSavant</li>
-	</hediffGiversCannotGive>
+	<!-- <capMods> -->
+	  <!-- <li> -->
+		<!-- <capacity>Consciousness</capacity> -->
+		<!-- <offset>0.05</offset> -->
+	  <!-- </li> -->
+	<!-- </capMods> -->
+	<!-- <statFactors> -->
+	  <!-- <SocialImpact>0.8</SocialImpact> -->
+	<!-- </statFactors> -->
+	<!-- <hediffGiversCannotGive> -->
+	  <!-- <li>Dementia</li> -->
+	  <!-- <li>Alzheimers</li> -->
+	  <!-- <li>TraumaSavant</li> -->
+	<!-- </hediffGiversCannotGive> -->
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
+	  <li>VRE_SkillGenes</li>
+	  <li>VRE_Curiosity</li>
+	  <li>Curiosity</li>
+	  <li>SkillGenes</li>
 	</exclusionTags>
+	<modExtensions>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.Genes.GeneExtension">
+			<globalSkillLossMultiplier>0</globalSkillLossMultiplier>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
-	<!-- <customEffectDescriptions> -->
-	  <!-- <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;unknown&lt;/color&gt;. Does not work if the carrier is spawned.</li> -->
-	<!-- </customEffectDescriptions> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
@@ -181,17 +191,17 @@
 	  <li>Alzheimers</li>
 	</hediffGiversCannotGive>
 	<exclusionTags>
-	  <!-- <li>Learning</li> -->
 	  <li>WVC_ExcellentMemory</li>
+	  <li>VRE_SkillGenes</li>
+	  <li>SkillGenes</li>
 	</exclusionTags>
 	<modExtensions Inherit="False">
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <noSkillDecay>true</noSkillDecay> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
-			<!-- <scarsCount>-2</scarsCount> -->
+		</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.Genes.GeneExtension">
+			<globalSkillLossMultiplier>0</globalSkillLossMultiplier>
 		</li>
 	</modExtensions>
   </GeneDef>

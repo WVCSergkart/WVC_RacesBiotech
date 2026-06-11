@@ -31,11 +31,12 @@
 			<!-- <statDef>WVC_ChimeraLimit</statDef> -->
 			<xenotypeDefs>
 			  <li>WVC_Fleshkind</li>
+			  <li>WVC_Beholdkind</li>
+			  <li>WVC_Overrider</li>
 			</xenotypeDefs>
-			<geneCategoryDefs>
-			  <li>WVC_Fleshmass</li>
-			  <!-- <li>WVC_HiveMind</li> -->
-			</geneCategoryDefs>
+			<!-- <geneCategoryDefs> -->
+			  <!-- <li>WVC_Fleshmass</li> -->
+			<!-- </geneCategoryDefs> -->
 			<!-- geneDefWithChances Moved to Misc. See Anomaly/Misc/ShaperGeneSetDef_Fleshshaper -->
 		</li>
 	</modExtensions>
