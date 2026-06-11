@@ -330,8 +330,10 @@ namespace WVC_XenotypesAndGenes
 		public static void AddDeathRefusal(Pawn pawn, bool ignoreLimit = false, Gene gene = null)
 		{
 			Hediff_DeathRefusal firstHediff = pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
+			bool limitReached = false;
 			if (firstHediff != null)
 			{
+				limitReached = !ignoreLimit && firstHediff.MaxUses == firstHediff.UsesLeft;
 				firstHediff.SetUseAmountDirect(firstHediff.UsesLeft + 1, ignoreLimit);
 			}
 			else
@@ -340,7 +342,7 @@ namespace WVC_XenotypesAndGenes
 				hediff_DeathRefusal.SetUseAmountDirect(1);
 				pawn.health.AddHediff(hediff_DeathRefusal);
 			}
-			if (gene != null && PawnUtility.ShouldSendNotificationAbout(pawn))
+			if (!limitReached && gene != null && PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message("WVC_XaG_AddedDeathRefusalAttempt".Translate(pawn.NameShortColored, gene.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
