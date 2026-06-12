@@ -266,7 +266,7 @@ namespace WVC_XenotypesAndGenes
 					}, delegate (HairDef h)
 					{
 						pawn.story.hairDef = h;
-					}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockTattoos);
+					}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, (StyleItemDef h) => PawnStyleItemChooser.WantsToUseStyle(pawn, h), doColors: unlockTattoos);
 					break;
 				case StylingTab.Beard:
 					DrawStylingItemType(rect, ref beardScrollPosition, delegate (Rect r, BeardDef b)
@@ -277,7 +277,7 @@ namespace WVC_XenotypesAndGenes
 					}, delegate (BeardDef b)
 					{
 						pawn.style.beardDef = b;
-					}, (StyleItemDef b) => pawn.style.beardDef == b, (StyleItemDef b) => initialBeardDef == b);
+					}, (StyleItemDef b) => pawn.style.beardDef == b, (StyleItemDef b) => initialBeardDef == b, extraValidator: (StyleItemDef b) => PawnStyleItemChooser.WantsToUseStyle(pawn, b));
 					break;
 				case StylingTab.TattooFace:
 					DrawStylingItemType(rect, ref faceTattooScrollPosition, delegate (Rect r, TattooDef t)
@@ -286,7 +286,7 @@ namespace WVC_XenotypesAndGenes
 					}, delegate (TattooDef t)
 					{
 						pawn.style.FaceTattoo = t;
-					}, (StyleItemDef t) => pawn.style.FaceTattoo == t, (StyleItemDef t) => initialFaceTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Face);
+					}, (StyleItemDef t) => pawn.style.FaceTattoo == t, (StyleItemDef t) => initialFaceTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Face && PawnStyleItemChooser.WantsToUseStyle(pawn, t));
 					break;
 				case StylingTab.TattooBody:
 					DrawStylingItemType(rect, ref bodyTattooScrollPosition, delegate (Rect r, TattooDef t)
@@ -295,7 +295,7 @@ namespace WVC_XenotypesAndGenes
 					}, delegate (TattooDef t)
 					{
 						pawn.style.BodyTattoo = t;
-					}, (StyleItemDef t) => pawn.style.BodyTattoo == t, (StyleItemDef t) => initialBodyTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Body);
+					}, (StyleItemDef t) => pawn.style.BodyTattoo == t, (StyleItemDef t) => initialBodyTattoo == t, (StyleItemDef t) => ((TattooDef)t).tattooType == TattooType.Body && PawnStyleItemChooser.WantsToUseStyle(pawn, t));
 					break;
 				case StylingTab.Other:
 					// Do nothing
@@ -336,7 +336,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//Log.Error("1");
 				cachedStyleItems = new();
-				cachedStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.AllowedForStyle(currentStyleId))));
+				cachedStyleItems.AddRange(DefDatabase<T>.AllDefsListForReading.Where((T x) => devEditMode || hadStyleItem(x) || (extraValidator == null || extraValidator(x)) && (x is not StyleGeneDef styleGeneDef || styleGeneDef.AllowedForStyle(currentStyleId))));
 				cachedStyleItems.SortBy((StyleItemDef x) => 0f - PawnStyleItemChooser.FrequencyFromGender(x, pawn));
 			}
 			if (cachedStyleItems.NullOrEmpty())
