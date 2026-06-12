@@ -154,9 +154,9 @@ namespace WVC_XenotypesAndGenes
 				return base.Xenotypes.Where(holder =>
 				{
 					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
-					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
+					//bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
 					bool isUnlocked = UnlcokedXenotypes != null && UnlcokedXenotypes.Contains(holder.Label);
-					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
+					return holder.Baseliner || isUnlocked || isSpecifiedXenotype;
 				}).ToList();
 			}
 		}
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedResourceOffset == null)
 				{
-					float newOffset = def.resourceLossPerDay + (TotalMetabolism * -0.01f);
+					float newOffset = def.resourceLossPerDay + (TotalMetabolism * -0.01f) + (OverridenByMe * 0.01f);
 					//float factor = 1f;
 					foreach (IGeneDisconnectable geneDisconnectable in SubGenes)
 					{
@@ -250,9 +250,9 @@ namespace WVC_XenotypesAndGenes
 					new CurvePoint(28, 1f),
 					new CurvePoint(29, 1.01f),
 					new CurvePoint(35, 1.07f),
-					new CurvePoint(36, 1.09f),
-					new CurvePoint(42, 1.20f),
-					new CurvePoint(200, 3.00f)
+					new CurvePoint(36, 1.20f),
+					new CurvePoint(42, 2.00f),
+					new CurvePoint(200, 5.00f)
 					//new CurvePoint(100, 1.72f),
 					//new CurvePoint(128, 2.00f)
 				};
@@ -265,6 +265,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public int OverridenByMe => pawn.genes.GenesListForReading.Count(gene => gene.overriddenByGene == this) * 5;
 		public int TotalMetabolism => pawn.genes.GenesListForReading.Where(gene => !gene.Overridden).Sum(gene => gene.def.biostatMet);
 
 		public void UpdateConsumption()

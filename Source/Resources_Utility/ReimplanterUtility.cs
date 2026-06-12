@@ -770,6 +770,45 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
+		public static void GeneSetCleaner(Pawn pawn, bool applyRegrow = false)
+		{
+			if (pawn.genes == null)
+			{
+				return;
+			}
+			List<GeneDef> endogenes = pawn.genes.Endogenes.ConvertToDefs();
+			int cpx = 0;
+			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			{
+				if (endogenes.Contains(gene.def))
+				{
+					cpx++;
+					pawn.genes.RemoveGene(gene);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Endogenes.ToList())
+			{
+				if (gene.Overridden && gene.overriddenByGene != null)
+				{
+					cpx++;
+					pawn.genes.RemoveGene(gene);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			{
+				if (gene.Overridden && gene.overriddenByGene != null)
+				{
+					cpx++;
+					pawn.genes.RemoveGene(gene);
+				}
+			}
+			if (applyRegrow)
+			{
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new(cpx * 50000, cpx * 70000));
+			}
+			// Debugged by component
+		}
+
 		//public static bool TrySetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
 		//{
 		//	if (!pawn.IsHuman())
@@ -813,17 +852,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(RimWorld.HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
-			}
-		}
-
-		public static void FleckAndLetter(Pawn caster, Pawn victim)
-		{
-			FleckMaker.AttachedOverlay(victim, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
-			if (PawnUtility.ShouldSendNotificationAbout(caster) || PawnUtility.ShouldSendNotificationAbout(victim))
-			{
-				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-				int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "LetterTextGenesImplanted".Translate(caster.Named("CASTER"), victim.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(caster, victim));
 			}
 		}
 

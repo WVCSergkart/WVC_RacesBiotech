@@ -10,16 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ActivityManager : Window
 	{
 
-		public List<IGeneDisconnectable> genes;
+		public List<Gene> genes;
+		//public List<Gene> genesForOverride;
 		private Gene masterGene;
 		private Pawn pawn;
+		private List<GeneCategoryDef> geneCategoryDefs = null;
 
-		public Dialog_ActivityManager(Pawn pawn, Gene masterGene)
+		public Dialog_ActivityManager(Pawn pawn, Gene masterGene, List<GeneCategoryDef> geneCategoryDefs = null)
 		{
 			forcePause = true;
 			doCloseButton = true;
 			this.masterGene = masterGene;
 			this.pawn = pawn;
+			this.geneCategoryDefs = geneCategoryDefs;
 			UpdGenes(pawn);
 		}
 
@@ -30,9 +33,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				try
 				{
-					if (item is IGeneDisconnectable controller && masterGene.def.IsGeneDefOfType(controller.MasterClass))
+					if (item is IGeneDisconnectable controller)
 					{
-						genes.Add(controller);
+						if (masterGene.def.IsGeneDefOfType(controller.MasterClass))
+						{
+							genes.Add(item);
+						}
+					}
+					else if (geneCategoryDefs != null && geneCategoryDefs.Contains(item.def.displayCategory) && (!item.Overridden || item.overriddenByGene == masterGene))
+					{
+						genes.Add(item);
 					}
 				}
 				catch
@@ -40,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error(item.def.defName);
 				}
 			}
+			genes.SortBy(item => item is not IGeneDisconnectable);
 		}
 
 		protected Vector2 scrollPosition;
@@ -56,40 +67,68 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (IGeneDisconnectable controller in genes)
+			foreach (Gene gene in genes)
 			{
-				if (controller is Gene gene && num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
+				if (num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
-					Rect rect = new(0f, num2, vector.x, vector.y);
-					TooltipHandler.TipRegion(rect, gene.def.DescriptionFull + "\n\n" + XaG_UiUtility.ClickTo(!controller.Disabled));
-					if (num3 % 2 == 0)
+					if (DrawGenes(vector, num2, num3, gene))
 					{
-						Widgets.DrawAltRect(rect);
-					}
-					Widgets.BeginGroup(rect);
-					GUI.color = Color.white;
-					Text.Font = GameFont.Small;
-					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
-					if (Widgets.ButtonText(rect3, XaG_UiUtility.OnOrOff(!controller.Disabled)))
-					{
-						controller.Disabled = !controller.Disabled;
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
-						controller.UpdateCache();
 						UpdGenes(pawn);
 						break;
 					}
-					Rect rect4 = new(40f, 0f, 200f, rect.height);
-					Text.Anchor = TextAnchor.MiddleLeft;
-					Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 1.8f));
-					Text.Anchor = TextAnchor.UpperLeft;
-					Rect rect5 = new(0f, 0f, 36f, 36f);
-					XaG_UiUtility.XaG_DefIcon(rect5, gene.def, 1.2f);
-					Widgets.EndGroup();
 				}
 				num2 += vector.y;
 				num3++;
 			}
 			Widgets.EndScrollView();
+		}
+
+		private bool DrawGenes(Vector2 vector, float num2, int num3, Gene gene)
+		{
+			IGeneDisconnectable controller = gene is IGeneDisconnectable ? gene as IGeneDisconnectable : null;
+			Rect rect = new(0f, num2, vector.x, vector.y);
+			TooltipHandler.TipRegion(rect, gene.def.DescriptionFull + "\n\n" + XaG_UiUtility.ClickTo(controller != null ? !controller.Disabled : !gene.Overridden));
+			if (num3 % 2 == 0)
+			{
+				Widgets.DrawAltRect(rect);
+			}
+			Widgets.BeginGroup(rect);
+			GUI.color = Color.white;
+			Text.Font = GameFont.Small;
+			Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
+			if (controller != null)
+			{
+				if (Widgets.ButtonText(rect3, XaG_UiUtility.OnOrOff(!controller.Disabled)))
+				{
+					controller.Disabled = !controller.Disabled;
+					controller.UpdateCache();
+					return true;
+				}
+			}
+			else
+			{
+				if (Widgets.ButtonText(rect3, XaG_UiUtility.OverrideOrUnoverride(!gene.Overridden)))
+				{
+					if (gene.Overridden)
+					{
+						gene.OverrideBy(null);
+					}
+					else
+					{
+						gene.OverrideBy(masterGene);
+					}
+					return true;
+				}
+			}
+			Rect rect4 = new(40f, 0f, 200f, rect.height);
+			Text.Anchor = TextAnchor.MiddleLeft;
+			Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 1.8f));
+			Text.Anchor = TextAnchor.UpperLeft;
+			Rect rect5 = new(0f, 0f, 36f, 36f);
+			XaG_UiUtility.XaG_DefIcon(rect5, gene.def, 1.2f);
+			Widgets.EndGroup();
+			return false;
 		}
 
 		public override void Close(bool doCloseSound = true)

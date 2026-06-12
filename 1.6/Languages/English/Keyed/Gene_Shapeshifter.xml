@@ -124,6 +124,8 @@
 	<WVC_XaG_GeneResearchedMessage>{0} researched the {1} gene.</WVC_XaG_GeneResearchedMessage>
 	<WVC_XaG_XenotypeResearchedMessage>{0} researched the {1} xenotype.</WVC_XaG_XenotypeResearchedMessage>
 
+	<WVC_XaG_Energyshaper_OverridenByMe>From overrides: {0}</WVC_XaG_Energyshaper_OverridenByMe>
+
 	<WVC_XaG_Energyshaper_ResourceFactorTip>Genetic post-process {0}</WVC_XaG_Energyshaper_ResourceFactorTip>
 
 	<!-- ==================== XENO RESEARCHER ==================== -->

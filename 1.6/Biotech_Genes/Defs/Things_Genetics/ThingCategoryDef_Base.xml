@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingCategoryDef WVC_XaG_Tag_ForMassiveRemove="ThingDefs">
+	<defName>WVC_XenotypeSerums</defName>
+	<label>xenotype serums</label>
+	<parent>Items</parent>
+  </ThingCategoryDef>
+
+</Defs>

@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3708087778
+CRC: 3035037637
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7e57832dcad42ad98ed2c6bd7240ac0c
+    Hash: 9beb2b52acd510a9af663d87cbb19afc
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: a401a59aac7bbf24fe13613efba09ac6
+    Hash: b0c035681516d902ca9e2ca6dc4f0f65
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -877,6 +877,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Reimplanter_Xeno_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Gauntskin_Body/Naked_Thin_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/StoneGene_Body/Naked_Fat_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/GeneSetCleanerSerum.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Hivemind_SkillsSync.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Mecha_Genepack/Archopack_d.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter.png

@@ -13,8 +13,9 @@
 	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Offsets nutrients&lt;/color&gt; as a % of maximum. Dependent on active &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; and total &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt;.</li>
-		<li>The amount of &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; affects the final &lt;color=#8a8ae6&gt;post-process&lt;/color&gt; of offset. From x0.9 to x3.00</li>
+		<li>The amount of &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt; affects the final &lt;color=#8a8ae6&gt;post-process&lt;/color&gt; of offset. From x0.9 to x5.00</li>
 		<li>Allows to turn &lt;color=#8a8ae6&gt;sub-genes&lt;/color&gt; on and off.</li>
+		<li>Allows override of &lt;color=#8a8ae6&gt;energy&lt;/color&gt; and &lt;color=#8a8ae6&gt;overrider&lt;/color&gt; genes at the cost of increased resource consumption.</li>
 		<li MayRequire="ludeon.rimworld.odyssey">If &lt;color=#8a8ae6&gt;mechhive&lt;/color&gt; is active, then share the &lt;color=#8a8ae6&gt;database&lt;/color&gt; with other genes.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -28,6 +29,10 @@
 			  <li>WVC_Ferrkind</li>
 			  <li>WVC_Rustkind</li>
 			</xenotypeDefs>
+			<geneCategoryDefs>
+			  <li>WVC_Energy</li>
+			  <li>WVC_Overrider</li>
+			</geneCategoryDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

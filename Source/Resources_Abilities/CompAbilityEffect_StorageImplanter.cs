@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 				//ReimplanterUtility.UnknownChimerkin(pawn);
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 				ReimplanterUtility.ExtractXenogerm(parent.pawn);
-				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
+				EffectsUtility.FleckAndLetter(parent.pawn, pawn);
 				//Gene.ResetContainer();
 			}
 		}

@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			if (ReimplanterUtility.TryReimplant(caster, pawn, implantEndogenes, implantXenogenes))
 			{
 				Notify_Reimplanted(pawn, caster);
-				ReimplanterUtility.FleckAndLetter(caster, pawn);
+				EffectsUtility.FleckAndLetter(caster, pawn);
 			}
 		}
 

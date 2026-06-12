@@ -11,6 +11,9 @@
 	<Apply>apply</Apply>
 	<Edit>edit</Edit>
 
+	<Override>override</Override>
+	<Unoverride>unoverride</Unoverride>
+
 	<!-- ================================== -->
 
 

@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
 			ReimplanterUtility.ExtractXenogerm(victim);
-			ReimplanterUtility.FleckAndLetter(victim, caster);
+			EffectsUtility.FleckAndLetter(victim, caster);
 			//Gene.SetXenotypes(caster.genes.Xenotype, victim.genes.Xenotype);
 		}
 
@@ -149,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(caster);
 				ReimplanterUtility.UpdateXenogermReplication_WithComa(victim);
 			}
-			ReimplanterUtility.FleckAndLetter(victim, caster);
+			EffectsUtility.FleckAndLetter(victim, caster);
 		}
 
 	}

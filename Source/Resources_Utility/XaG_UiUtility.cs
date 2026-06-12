@@ -118,6 +118,15 @@ namespace WVC_XenotypesAndGenes
 			return value.ToString();
 		}
 
+		public static string OverrideOrUnoverride(bool on)
+		{
+			if (on)
+			{
+				return "Override".Translate().CapitalizeFirst().Colorize(ColorLibrary.Green);
+			}
+			return "Unoverride".Translate().CapitalizeFirst().Colorize(ColorLibrary.RedReadable);
+		}
+
 		public static string OnOrOff(bool on)
 		{
 			if (on)

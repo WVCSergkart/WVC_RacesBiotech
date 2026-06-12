@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GenesetCleansingSerum</defName>
+	<label>geneset cleansing serum</label>
+	<description>A one-use super-dose of mechanites tuned to cleanse the user's gene set. After use, all overridden genes and xenogenes duplicating endogenes will be removed.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneSetCleanerSerum</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>970</MarketValue>
+	</statBases>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_GeneRestoration</li>
+		<li>Archogenetics</li>
+	  </researchPrerequisites>
+	</recipeMaker>
+	<costList>
+	  <!-- <Plasteel>25</Plasteel> -->
+	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	</costList>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneSetCleaner</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

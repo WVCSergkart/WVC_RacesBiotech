@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.UpdateXenogermReplication_WithComa(target);
 			ReimplanterUtility.ExtractXenogerm(caster);
 			CompAbilityEffect_NewImplanter.Notify_Reimplanted(target, caster);
-			ReimplanterUtility.FleckAndLetter(caster, target);
+			EffectsUtility.FleckAndLetter(caster, target);
 		}
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)

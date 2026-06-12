@@ -24,6 +24,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompUseEffect_GeneSetCleaner : CompUseEffect_GeneRestoration
+	{
+
+		public override void DoEffect(Pawn pawn)
+		{
+			ReimplanterUtility.GeneSetCleaner(pawn, true);
+		}
+
+	}
+
 	public class CompUseEffect_GiveHediffIfHasGene : CompUseEffect
 	{
 		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;

@@ -527,17 +527,11 @@ namespace WVC_XenotypesAndGenes
 			};
 			//yield return new Command_Action
 			//{
-			//	defaultLabel = "DEV: IsSubGeneOfThis TEST",
+			//	defaultLabel = "DEV: CleanupGeneSet",
+			//	icon = ContentFinder<Texture2D>.Get("WVC/Things/XaG_Items/Serums_Single/GeneSetCleanerSerum"),
 			//	action = delegate
 			//	{
-			//		if (XaG_GeneUtility.IsSubGeneOfThisCycly(DefDatabase<GeneDef>.GetNamed("Hemogenic"), DefDatabase<GeneDef>.GetNamed("WVC_Psyfeeder")))
-			//		{
-			//			Log.Error("YES");
-			//		}
-			//		else
-			//		{
-			//			Log.Error("NO");
-			//		}
+			//		ReimplanterUtility.GeneSetCleaner(Pawn);
 			//	}
 			//};
 		}

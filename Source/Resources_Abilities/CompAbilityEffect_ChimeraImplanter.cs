@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (TryReimplant(parent.pawn, pawn))
 				{
-					ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
+					EffectsUtility.FleckAndLetter(parent.pawn, pawn);
 				}
 			}
 		}

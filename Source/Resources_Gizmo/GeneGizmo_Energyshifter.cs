@@ -61,6 +61,7 @@ namespace WVC_XenotypesAndGenes
 							stringBuilder.AppendLineTagged(" -  " + geneDisconnectable.LabelCap + ": " + geneDisconnectable.ResourceConsumption_Offset.ToStringResource() + "%");
 						}
 					}
+					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_OverridenByMe".Translate(-gene_Energyshifter.OverridenByMe) + "%");
 					stringBuilder.AppendLineTagged(" -  " + "WVC_TotalMetabolism".Translate(((float)gene_Energyshifter.TotalMetabolism).ToStringPlusMinus(0)) + "%");
 					Color color = Color.white;
 					float genesFactor = gene_Energyshifter.GenesFactor;
@@ -196,7 +197,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect6);
 				if (Widgets.ButtonInvisible(rect6))
 				{
-					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene_Energyshifter));
+					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene_Energyshifter, gene_Energyshifter.Giver.geneCategoryDefs));
 				}
 			}
 			TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneEnergyshifter_BarTip".Translate(Sources, gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch));
