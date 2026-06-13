@@ -194,7 +194,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, pawn.genes.Xenotype.genes, PreferredXenotypesUtility.ReqMatch))
 			{
-				XenotypeDef xenotypeDef = UnknownXenotypeDef(pawn.genes.GenesListForReading);
+				XenotypeDef xenotypeDef = UnknownXenotypeDef(pawn.genes.GenesListForReading, PreferredXenotypesUtility.ReqMatch);
 				if (xenotypeDef != null && xenotypeDef != XenotypeDefOf.Baseliner)
 				{
 					SetXenotypeDirect(null, pawn, xenotypeDef);
@@ -778,25 +778,41 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<GeneDef> endogenes = pawn.genes.Endogenes.ConvertToDefs();
 			int cpx = 0;
-			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			List<GeneDef> xenogenesToRemove = new();
+			List<GeneDef> endogenesToRemove = new();
+			foreach (Gene gene in pawn.genes.Xenogenes)
 			{
 				if (endogenes.Contains(gene.def))
 				{
 					cpx++;
+					xenogenesToRemove.Add(gene.def);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Endogenes)
+			{
+				if (gene.Overridden)
+				{
+					cpx++;
+					endogenesToRemove.Add(gene.def);
+				}
+			}
+			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+			{
+				if (xenogenesToRemove.Contains(gene.def))
+				{
 					pawn.genes.RemoveGene(gene);
 				}
 			}
 			foreach (Gene gene in pawn.genes.Endogenes.ToList())
 			{
-				if (gene.Overridden && gene.overriddenByGene != null)
+				if (endogenesToRemove.Contains(gene.def) && !xenogenesToRemove.Contains(gene.def))
 				{
-					cpx++;
 					pawn.genes.RemoveGene(gene);
 				}
 			}
 			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
 			{
-				if (gene.Overridden && gene.overriddenByGene != null)
+				if (gene.Overridden)
 				{
 					cpx++;
 					pawn.genes.RemoveGene(gene);

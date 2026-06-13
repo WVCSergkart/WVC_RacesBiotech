@@ -92,9 +92,9 @@ namespace WVC_XenotypesAndGenes
 			SetCorpse(PawnCanResurrect, Giver.additionalDelay.RandomInRange);
 		}
 
-		public void SafeWorkSettings()
+		public void SaveWorkSettings()
 		{
-			if (pawn.workSettings == null)
+			if (pawn.workSettings == null || !pawn.workSettings.EverWork)
 			{
 				return;
 			}
@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void SetWorkSettings()
 		{
-			if (pawn.workSettings == null || workSettings.NullOrEmpty())
+			if (pawn.workSettings == null || !pawn.workSettings.EverWork || workSettings.NullOrEmpty())
 			{
 				return;
 			}
@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_PawnKilled()
 		{
-			SafeWorkSettings();
+			SaveWorkSettings();
 		}
 
 		//public void Notify_PawnResurrected()
