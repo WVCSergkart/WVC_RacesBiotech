@@ -100,6 +100,69 @@ namespace WVC_XenotypesAndGenes
 		private static int lastCachedResearch = -1;
 		private static int lastMessageTick = -1;
 
+		private static HashSet<string> cachedUnlockedXenotypesDefs;
+		private HashSet<string> cachedUnlockedXenotypesDefs_Local;
+		private HashSet<string> UnlockedXenotypesDefs
+		{
+			get
+			{
+				if (Energyshifter.LocalMode)
+				{
+					if (cachedUnlockedXenotypesDefs_Local == null)
+					{
+						cachedUnlockedXenotypesDefs_Local = [.. Energyshifter.UnlockedXenotypes];
+					}
+					return cachedUnlockedXenotypesDefs_Local;
+				}
+				else
+				{
+					if (cachedUnlockedXenotypesDefs == null)
+					{
+						cachedUnlockedXenotypesDefs = [.. Energyshifter.UnlockedXenotypes];
+					}
+					return cachedUnlockedXenotypesDefs;
+				}
+			}
+		}
+
+		private static HashSet<GeneDef> cachedCollectedGeneDefs;
+		private HashSet<GeneDef> cachedCollectedGeneDefs_Local;
+		private HashSet<GeneDef> CollectedGeneDefs
+		{
+			get
+			{
+				if (Energyshifter.LocalMode)
+				{
+					if (cachedCollectedGeneDefs_Local == null)
+					{
+						cachedCollectedGeneDefs_Local = [.. Energyshifter.CollectedGenes];
+					}
+					return cachedCollectedGeneDefs_Local;
+				}
+				else
+				{
+					if (cachedCollectedGeneDefs == null)
+					{
+						cachedCollectedGeneDefs = [.. Energyshifter.CollectedGenes];
+					}
+					return cachedCollectedGeneDefs;
+				}
+			}
+		}
+
+		public static void ResetCollectedCache()
+		{
+			cachedCollectedGeneDefs = null;
+			cachedUnlockedXenotypesDefs = null;
+		}
+
+		private void ResetCollectedCache_Local()
+		{
+			cachedCollectedGeneDefs_Local = null;
+			cachedUnlockedXenotypesDefs_Local = null;
+			ResetCollectedCache();
+		}
+
 		private void ResearchXenotype(ref string phase)
 		{
 			if (pawn.Faction != Faction.OfPlayer || Energyshifter == null)
@@ -162,7 +225,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					break;
 				}
-				if (Energyshifter.CollectedGenes.Contains(item))
+				if (CollectedGeneDefs.Contains(item))
 				{
 					continue;
 				}
@@ -170,14 +233,17 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (newGeneDef != null)
 			{
+				phase = "reset cached unlocked genes and";
+				ResetCollectedCache_Local();
 				phase = "unlcok new gene";
 				Energyshifter.UnlockGeneDef(newGeneDef);
 				string newXenotypeName = null;
 				phase = "try get new xenotype";
-				foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders().Where(xenos => !Energyshifter.UnlcokedXenotypes.Contains(xenos.Label)))
+				List<GeneDef> pawnGenes = [.. CollectedGeneDefs];
+				foreach (XenotypeHolder xenotypeHolder in ListsUtility.GetAllXenotypesHolders().Where(xenos => !UnlockedXenotypesDefs.Contains(xenos.Label)))
 				{
 					phase = "check holder genes: " + xenotypeHolder.Label;
-					if (xenotypeHolder.genes.Empty() || XaG_GeneUtility.GenesIsMatch(Energyshifter.CollectedGenes, xenotypeHolder.genes, WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch))
+					if (xenotypeHolder.genes.Empty() || XaG_GeneUtility.GenesIsMatch(pawnGenes, xenotypeHolder.genes, WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch))
 					{
 						newXenotypeName = xenotypeHolder.Label;
 					}

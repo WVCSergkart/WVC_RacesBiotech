@@ -67,7 +67,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool LocalMode => MechanoidsUtility.CerebrexCoreDefeated;
+		// In Dev?
+		//private static bool? cachedLocalMode;
+		public bool LocalMode
+		{
+			get
+			{
+				//if (cachedLocalMode == null)
+				//{
+				//	cachedLocalMode = MechanoidsUtility.CerebrexCoreDefeated;
+				//}
+				//return cachedLocalMode.Value;
+				return MechanoidsUtility.CerebrexCoreDefeated;
+			}
+		}
 
 		public override void PreShapeshift(bool genesRegrowing)
 		{
@@ -123,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<string> UnlcokedXenotypes
+		public List<string> UnlockedXenotypes
 		{
 			get
 			{
@@ -155,7 +168,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
 					//bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
-					bool isUnlocked = UnlcokedXenotypes != null && UnlcokedXenotypes.Contains(holder.Label);
+					bool isUnlocked = UnlockedXenotypes != null && UnlockedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || isUnlocked || isSpecifiedXenotype;
 				}).ToList();
 			}

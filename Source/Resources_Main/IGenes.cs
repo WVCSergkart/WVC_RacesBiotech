@@ -295,7 +295,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneXenogenesEditor
 	{
 
-		List<GeneDef> AllGenes { get; }
+		//HashSet<GeneDef> AllGenes { get; }
 
 		List<GeneDef> CollectedGenes { get; }
 		List<GeneDef> DisabledGenes { get; }

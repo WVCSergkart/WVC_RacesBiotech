@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public int ArchiteLimit => Energyshifter?.UnlcokedXenotypes?.Count ?? 3;
+		public int ArchiteLimit => Energyshifter?.UnlockedXenotypes?.Count ?? 3;
 		public int ComplexityLimit => (int)geneticMaterial;
 
 		public List<GeneSetPreset> geneSetPresets = new();

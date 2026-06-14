@@ -511,7 +511,6 @@ namespace WVC_XenotypesAndGenes
 			return def.HasComp<CompMechRepairable>();
 		}
 
-
 		public static bool CerebrexCoreDefeated
 		{
 			get

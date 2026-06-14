@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					StringBuilder stringBuilder = new();
 					stringBuilder.AppendLineTagged("WVC_XaG_EnergyshaperGizmoTip".Translate(gene_Energyshifter.TotalOffset.ToStringResource(), XenotypesMatch));
-					stringBuilder.AppendLineTagged("WVC_XaG_EnergyshaperGizmoTip_UnlockedStuff".Translate(gene_Energyshifter.UnlcokedXenotypes.Count, gene_Energyshifter.CollectedGenes.Count));
+					stringBuilder.AppendLineTagged("WVC_XaG_EnergyshaperGizmoTip_UnlockedStuff".Translate(gene_Energyshifter.UnlockedXenotypes.Count, gene_Energyshifter.CollectedGenes.Count));
 					cachedMainTooltip = stringBuilder.ToString().TrimEndNewlines();
 				}
 				return cachedMainTooltip;

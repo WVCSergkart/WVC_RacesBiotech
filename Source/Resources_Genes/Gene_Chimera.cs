@@ -99,15 +99,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> AllGenes
+		private HashSet<GeneDef> cachedAllGenes;
+		public HashSet<GeneDef> AllGenes
 		{
 			get
 			{
-				List<GeneDef> genes = new();
-				genes.AddRangeSafe(consumedGenes);
-				genes.AddRangeSafe(collectedGenes);
-				genes.AddRangeSafe(destroyedGenes);
-				return genes;
+				if (cachedAllGenes == null)
+				{
+					HashSet<GeneDef> genes = new();
+					genes.AddRange(consumedGenes);
+					genes.AddRange(collectedGenes);
+					genes.AddRange(destroyedGenes);
+					cachedAllGenes = genes;
+				}
+				return cachedAllGenes;
 			}
 		}
 
@@ -269,6 +274,7 @@ namespace WVC_XenotypesAndGenes
 			if (!AllGenes.Contains(geneDef))
 			{
 				collectedGenes.AddSafe(geneDef);
+				cachedAllGenes = null;
 				return true;
 			}
 			return false;
@@ -287,6 +293,7 @@ namespace WVC_XenotypesAndGenes
 		public void RemoveCollectedGene(GeneDef geneDef)
 		{
 			collectedGenes.RemoveAll(gene => gene == geneDef);
+			cachedAllGenes = null;
 		}
 		public void DestroyGene(GeneDef geneDef)
 		{
@@ -296,6 +303,7 @@ namespace WVC_XenotypesAndGenes
 				//consumedGenes.Remove(geneDef);
 			}
 			consumedGenes.RemoveAll(gene => gene == geneDef);
+			cachedAllGenes = null;
 		}
 		public void RemoveDestroyedGene(GeneDef geneDef)
 		{
@@ -388,6 +396,7 @@ namespace WVC_XenotypesAndGenes
 			collectedGenes = new();
 			consumedGenes = new();
 			destroyedGenes = new();
+			cachedAllGenes = null;
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

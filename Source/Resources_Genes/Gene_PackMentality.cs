@@ -22,14 +22,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static List<Pawn> cachedPackPawns;
-		public static List<Pawn> ThePack
+		private static HashSet<Pawn> cachedPackPawns;
+		public static HashSet<Pawn> ThePack
 		{
 			get
 			{
 				if (cachedPackPawns == null)
 				{
-					List<Pawn> list = new();
+					HashSet<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
 					{
 						Gene_PackMentality packGene = pawn.genes?.GetFirstGeneOfType<Gene_PackMentality>();
@@ -154,14 +154,14 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ColdBlooded : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
-		private static List<Pawn> cachedColdBloodedPawns;
-		public static List<Pawn> ColdBloodedPawns
+		private static HashSet<Pawn> cachedColdBloodedPawns;
+		public static HashSet<Pawn> ColdBloodedPawns
 		{
 			get
 			{
 				if (cachedColdBloodedPawns == null)
 				{
-					List<Pawn> list = new();
+					HashSet<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
 					{
 						if (pawn?.genes?.GetFirstGeneOfType<Gene_ColdBlooded>() != null)
@@ -207,14 +207,14 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Pheromones : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
-		private static List<Pawn> cachedPheromonesPawns;
-		public static List<Pawn> PheromonesPawns
+		private static HashSet<Pawn> cachedPheromonesPawns;
+		public static HashSet<Pawn> PheromonesPawns
 		{
 			get
 			{
 				if (cachedPheromonesPawns == null)
 				{
-					List<Pawn> list = new();
+					HashSet<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.All_AliveOrDead)
 					{
 						if (pawn?.genes?.GetFirstGeneOfType<Gene_Pheromones>() != null)
