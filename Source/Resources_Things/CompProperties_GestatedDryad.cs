@@ -145,11 +145,13 @@ namespace WVC_XenotypesAndGenes
 			dryadMaster = master;
 		}
 
+		public int cocoonTimer = -1;
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_Defs.Look(ref currentMode, "currentMode_" + Props.uniqueTag);
 			Scribe_References.Look(ref dryadMaster, "dryadMaster_" + Props.uniqueTag);
+			Scribe_Values.Look(ref cocoonTimer, "cocoonTimer_" + Props.uniqueTag, defaultValue: -1);
 		}
 
 	}

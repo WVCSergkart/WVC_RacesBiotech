@@ -33,6 +33,7 @@ namespace WVC_XenotypesAndGenes
 			if (innerContainer.Count > 0)
 			{
 				dryadRef = (Pawn)innerContainer[0];
+				DryadComp?.cocoonTimer = tickComplete;
 			}
 			else if (dryadRef != null)
 			{
@@ -168,6 +169,17 @@ namespace WVC_XenotypesAndGenes
 			base.TryAcceptPawn(p);
 			p.Rotation = Rot4.South;
 			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
+			if (DryadComp != null)
+			{
+				if (DryadComp.cocoonTimer < 0)
+				{
+					DryadComp.cocoonTimer = tickComplete;
+				}
+				else
+				{
+					tickComplete = DryadComp.cocoonTimer;
+				}
+			}
 			tickExpire = -1;
 			dryadKind = DryadComp.DryadKind;
 		}
@@ -299,6 +311,17 @@ namespace WVC_XenotypesAndGenes
 			base.TryAcceptPawn(p);
 			p.Rotation = Rot4.South;
 			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
+			if (DryadComp != null)
+			{
+				if (DryadComp.cocoonTimer < 0)
+				{
+					DryadComp.cocoonTimer = tickComplete;
+				}
+				else
+				{
+					tickComplete = DryadComp.cocoonTimer;
+				}
+			}
 			tickExpire = -1;
 		}
 
