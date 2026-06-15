@@ -14,11 +14,11 @@
 	<resourceLossPerDay>0.06</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
-		<li>Slowly accumulates &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
-		<li>Genetic material is used to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
+		<li>Slowly accumulates &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;. The amount of genetic material can be seen on the gene label.</li>
+		<li>Complexity depends on the amount of accumulated &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;, archites depend on the number of xenotypes &lt;color=#8a8ae6&gt;researched&lt;/color&gt;, and metabolism has a limit from -5 to +5.</li>
 		<li>Adding &lt;color=#8a8ae6&gt;new xenogenes&lt;/color&gt; consumes genetic material depending on the &lt;color=#8a8ae6&gt;complexity&lt;/color&gt; of the genes.</li>
 		<li>&lt;color=#8a8ae6&gt;Archite&lt;/color&gt; genes always consume all genetic material.</li>
-		<li>The amount of genetic material can be seen on the gene label.</li>
+		<!-- <li>The amount of genetic material can be seen on the gene label.</li> -->
 		<li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; then genetic material stops accumulating, instead the duration of genes regrowing &lt;color=#8a8ae6&gt;decreases&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
