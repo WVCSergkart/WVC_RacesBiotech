@@ -36,6 +36,8 @@ namespace WVC_XenotypesAndGenes
 
 		//public override bool BlockChimeraEat => true;
 
+		private static int lastShareTick;
+
 		public override void TickInterval(int delta)
 		{
 			//base.TickInterval(delta);
@@ -47,16 +49,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (lastShareTick > Find.TickManager.TicksGame)
+			{
+				return;
+			}
 			ShareGenes();
 		}
 
 		public void ShareGenes()
 		{
-			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.Where((target) => target != pawn && target.IsHuman() && XaG_GeneUtility.HasActiveGene(def, target))?.ToList();
-			if (pawns.NullOrEmpty())
+			IEnumerable<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target != pawn && target.genes != null);
+			if (!pawns.Any())
 			{
 				return;
 			}
+			lastShareTick = Find.TickManager.TicksGame + 30000;
+			List<GeneDef> collectedGenes = Chimera.CollectedGenes;
 			foreach (Pawn item in pawns)
 			{
 				Gene_ChimeraNetwork network = item.genes.GetFirstGeneOfType<Gene_ChimeraNetwork>();
@@ -68,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
-				else if (network.Chimera.TryGetGene(Chimera.CollectedGenes, out GeneDef result2))
+				else if (network.Chimera.TryGetGene(collectedGenes, out GeneDef result2))
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(item.NameShortColored, result2.label), item, MessageTypeDefOf.NeutralEvent, historical: false);
 				}

@@ -266,6 +266,15 @@ namespace WVC_XenotypesAndGenes
 						GetRandomGene();
 					}
 				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GetAllGenes",
+					action = delegate
+					{
+						collectedGenes = DefDatabase<GeneDef>.AllDefsListForReading;
+						cachedAllGenes = null;
+					}
+				};
 			}
 		}
 

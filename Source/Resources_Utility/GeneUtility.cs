@@ -639,14 +639,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private static HashSet<GeneDef> cachedAndroidGenes;
-		public static HashSet<GeneDef> AndroidGenes
+		private static List<GeneDef> cachedAndroidGenes;
+		public static List<GeneDef> AndroidGenes
 		{
 			get
 			{
 				if (cachedAndroidGenes == null)
 				{
-					HashSet<GeneDef> list = new();
+					List<GeneDef> list = new();
 					List<GeneDef> dataBase = DefDatabase<GeneDef>.AllDefsListForReading;
 					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 					{
@@ -713,7 +713,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsAndroid(this Pawn pawn)
 		{
-			if (pawn?.genes == null || AndroidGenes.NullOrEmpty())
+			if (pawn?.genes == null || AndroidGenes.Empty())
 			{
 				return false;
 			}
@@ -734,7 +734,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsAndroid(this XenotypeDef xenotypeDef)
 		{
-			if (AndroidGenes.NullOrEmpty())
+			if (AndroidGenes.Empty())
 			{
 				return false;
 			}
@@ -759,7 +759,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsAndroid(this CustomXenotype xenotypeDef)
 		{
-			if (AndroidGenes.NullOrEmpty())
+			if (AndroidGenes.Empty())
 			{
 				return false;
 			}

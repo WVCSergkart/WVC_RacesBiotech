@@ -266,7 +266,11 @@ namespace WVC_XenotypesAndGenes
 				phase = "debug genes";
 				UpdSkinAndHair();
 				UpdToolGenes();
-				ReimplanterUtility.PostImplantDebug(pawn);
+				// Small colony only. Fot big one used HumanComp debugger
+				if (StaticCollectionsClass.cachedPlayerPawnsCount < 15)
+				{
+					ReimplanterUtility.PostImplantDebug(pawn);
+				}
 				phase = "post morph";
 				PostMorph();
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
