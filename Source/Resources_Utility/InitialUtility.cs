@@ -127,6 +127,21 @@ namespace WVC_XenotypesAndGenes
 			List< GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
+				if (geneDef.foodPoisoningChanceFactor < 1f)
+				{
+					if (geneDef.customEffectDescriptions == null)
+					{
+						geneDef.customEffectDescriptions = new();
+					}
+					if (geneDef.foodPoisoningChanceFactor <= 0f)
+					{
+						geneDef.customEffectDescriptions.Add("WVC_FoodPoisoningImmune_GeneralTip".Translate().ToString());
+					}
+					else
+					{
+						geneDef.customEffectDescriptions.Add("WVC_FoodPoisoningChanceFactor_GeneralTip".Translate((1f - geneDef.foodPoisoningChanceFactor).ToStringPercent()).ToString());
+					}
+				}
 				MiscUtility.GetModExtensions(geneDef, out GeneExtension_General geneExtension_General, out GeneExtension_Giver geneExtension_Giver);
 				if (geneExtension_General != null)
 				{
