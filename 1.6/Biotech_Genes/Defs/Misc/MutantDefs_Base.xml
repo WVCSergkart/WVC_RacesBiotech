@@ -5,6 +5,7 @@
 	<consideredSubhuman>false</consideredSubhuman>
 	<showInScenarioEditor>false</showInScenarioEditor>
 	<clearMutantStatusOnDeath>true</clearMutantStatusOnDeath>
+	<canBeCapturedToHoldingPlatform>false</canBeCapturedToHoldingPlatform>
   </MutantDef>
 
   <!-- =================================== -->

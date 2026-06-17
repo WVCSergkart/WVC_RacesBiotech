@@ -186,7 +186,7 @@
 	<displayCategory>WVC_Aptitudes</displayCategory>
 	<displayOrderInCategory>-999</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
-		<li>Nullifying all aptitudes.</li>
+		<li>Conflicts with all aptitudes.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>WVC_DisabledWork_Useless</li> -->

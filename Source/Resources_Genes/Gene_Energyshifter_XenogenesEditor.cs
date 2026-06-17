@@ -80,27 +80,27 @@ namespace WVC_XenotypesAndGenes
 						cachedGeneline.AddRangeSafe(Energyshifter.XenotypesGenes);
 						cachedGeneline.AddRangeSafe(Energyshifter.CollectedGenes);
 					}
-					cachedGeneline.AddRangeSafe(OverridedGenes);
+					cachedGeneline.AddRangeSafe(DefaultGenes);
 				}
 				return cachedGeneline;
 			}
 		}
 
-		private static List<GeneDef> cachedOverridedGenes;
-		public List<GeneDef> OverridedGenes
+		private static List<GeneDef> cachedDefaultGenes;
+		public List<GeneDef> DefaultGenes
 		{
 			get
 			{
-				if (cachedOverridedGenes == null)
+				if (cachedDefaultGenes == null)
 				{
 					List<GeneDef> other = new();
 					if (Extension_Giver != null)
 					{
 						other = Gene_Chimera_GeneDatabase.Database.Where(geneDef => Extension_Giver.geneCategoryDefs.Contains(geneDef.displayCategory)).ToList();
 					}
-					cachedOverridedGenes = other;
+					cachedDefaultGenes = other;
 				}
-				return cachedOverridedGenes;
+				return cachedDefaultGenes;
 			}
 		}
 

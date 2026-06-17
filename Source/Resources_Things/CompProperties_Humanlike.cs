@@ -527,6 +527,25 @@ namespace WVC_XenotypesAndGenes
 			};
 			//yield return new Command_Action
 			//{
+			//	defaultLabel = "DEV: SetAsMutant",
+			//	icon = ContentFinder<Texture2D>.Get("WVC/UI/Genes/Gene_Duplicator_v0"),
+			//	action = delegate
+			//	{
+			//		List<FloatMenuOption> list = new();
+			//		List<MutantDef> mutants = DefDatabase<MutantDef>.AllDefsListForReading;
+			//		for (int i = 0; i < mutants.Count; i++)
+			//		{
+			//			MutantDef def = mutants[i];
+			//			list.Add(new FloatMenuOption(def.LabelCap, delegate
+			//			{
+			//				MutantUtility.SetPawnAsMutantInstantly(Pawn, def);
+			//			}, orderInPriority: 0 - i));
+			//		}
+			//		Find.WindowStack.Add(new FloatMenu(list));
+			//	}
+			//};
+			//yield return new Command_Action
+			//{
 			//	defaultLabel = "DEV: CleanupGeneSet",
 			//	icon = ContentFinder<Texture2D>.Get("WVC/Things/XaG_Items/Serums_Single/GeneSetCleanerSerum"),
 			//	action = delegate

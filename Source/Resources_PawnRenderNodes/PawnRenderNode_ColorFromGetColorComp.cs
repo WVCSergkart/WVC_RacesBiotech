@@ -41,38 +41,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class PawnRenderNode_Golemnoid : PawnRenderNode_AnimalPart
-	{
-
-		public CompSpawnOnDeath_GetColor colorComp;
-
-		public PawnRenderNode_Golemnoid(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
-			: base(pawn, props, tree)
-		{
-		}
-
-		public override Graphic GraphicFor(Pawn pawn)
-		{
-			if (pawn.TryGetComp(out colorComp))
-			{
-				Graphic graphic = pawn.ageTracker.CurKindLifeStage.bodyGraphicData.Graphic;
-				return GraphicDatabase.Get<Graphic_Multi>(graphic.path, ShaderDatabase.Cutout, graphic.drawSize, ColorFor(pawn));
-			}
-			return base.GraphicFor(pawn);
-		}
-
-		public override Color ColorFor(Pawn pawn)
-		{
-			ThingDef rockDef = colorComp?.StoneChunk;
-			if (rockDef == null)
-			{
-				return Color.white;
-			}
-			return rockDef.graphic.data.color;
-		}
-
-	}
-
 	//public class PawnRenderNode_FromTarget : PawnRenderNode_AnimalPart
 	//{
 

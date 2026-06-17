@@ -197,6 +197,7 @@
     <Compile Include="Resources_Hediff\Hediff_FaultyShapeDisease.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_AdaptiveTemperature.cs" />
     <Compile Include="Resources_Hediff\Hediff_HivemindHatred.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_DeadlifeDust.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Attachments.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Bodyparts.cs" />
+    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Golemnoid.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
     <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_WandererJoin_WalkIn.cs" />
@@ -332,7 +334,7 @@
     <Compile Include="Resources_Main\Misc.cs" />
     <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorableEyes.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
+    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromGetColorComp.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_GlowingHair.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualAttachableOutcomeEffectWorker_XenotypeRecruit.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_PawnGenes.cs" />
@@ -383,6 +385,7 @@
     <Compile Include="Resources_ThinkNodes\JobDriver_XaGJob_General.cs" />
     <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
     <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
+    <Compile Include="Resources_TEST\ThinkNode_InitWorkSettings.cs" />
     <Compile Include="Resources_ThinkNodes\XaG_Job.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_ArtificialBeauty.cs" />
     <Compile Include="Resources_Thought\Thought_HivemindSize.cs" />
