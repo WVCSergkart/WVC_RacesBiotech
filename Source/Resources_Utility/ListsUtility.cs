@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					List<GeneDef> list = new();
 					List<GeneDef> dataBase = DefDatabase<GeneDef>.AllDefsListForReading;
-					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 					{
 						if (item.hivemindGenes.NullOrEmpty())
 						{
@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedHivemindGeneTypes == null)
 				{
 					List<Type> list = new();
-					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 					{
 						if (item.hivemindGeneTypes.NullOrEmpty())
 						{
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedXenotypeGetterDefs == null)
 				{
 					List<XenotypeGetterDef> list = new();
-					foreach (XenotypesAndGenesListDef xenotypesAndGenesListDef in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading.Where(def => def.xenotypeGetterDefs != null))
+					foreach (UtilityDef xenotypesAndGenesListDef in DefDatabase<UtilityDef>.AllDefsListForReading.Where(def => def.xenotypeGetterDefs != null))
 					{
 						foreach (XenotypeGetterDef xenotypeGetterDef in xenotypesAndGenesListDef.xenotypeGetterDefs)
 						{
@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 				return cachedBasicGeneDefs;
 			}
 			List<GeneDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				if (item.humanGeneDefs.NullOrEmpty())
 				{
@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<BackstoryDef> GetBlackListedBackstoryForChanger()
 		{
 			List<BackstoryDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				if (item.blackListedBackstoryForChanger.NullOrEmpty())
 				{
@@ -175,7 +175,7 @@ namespace WVC_XenotypesAndGenes
 		private static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
 		{
 			List<string> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				if (item.blackListedXenotypesForSerums.NullOrEmpty())
 				{
@@ -220,7 +220,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (addFromResurrectorFilter)
 			{
-				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 				{
 					if (item.whiteListedXenotypesForResurrectorSerums.NullOrEmpty())
 					{
@@ -286,7 +286,7 @@ namespace WVC_XenotypesAndGenes
 			if (allDevXenotypeDefs == null)
 			{
 				allDevXenotypeDefs = new();
-				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 				{
 					if (item.devXenotypeDefs.NullOrEmpty())
 					{
@@ -342,12 +342,12 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//	list.AddRange(item.anomalyXenoGenesExceptions);
 			//}
-			XenotypesAndGenesListDef.AnomalyXenoGenesExceptions;
+			UtilityDef.AnomalyXenoGenesExceptions;
 
 		public static List<MutantDef> GetMutantsExceptions()
 		{
 			List<MutantDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				if (item.xenoGenesMutantsExceptions.NullOrEmpty())
 				{
@@ -361,7 +361,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<GauranlenTreeModeDef> GetGauranlenTreeModeDefExceptions()
 		{
 			List<GauranlenTreeModeDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				if (item.ignoredGauranlenTreeModeDefs.NullOrEmpty())
 				{

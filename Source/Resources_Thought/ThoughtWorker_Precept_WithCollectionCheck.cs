@@ -14,8 +14,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (lastRecacheTick < Find.TickManager.TicksGame)
 			{
-				//Log.Error("ShouldHaveThought Tick");
-				MiscUtility.UpdateStaticCollection();
+				StaticCollectionsClass.UpdateStaticCollection();
 				lastRecacheTick = Find.TickManager.TicksGame + 6000;
 			}
 		}

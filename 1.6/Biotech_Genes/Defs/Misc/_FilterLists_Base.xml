@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.UtilityDef>
+	<defName>WVC_RacesBiotech_XenotypesAndGenes</defName>
+	<!-- Xenotypes not selected for random serum. Any string -->
+	<blackListedXenotypesForSerums>
+		<li>Baseliner</li>
+		<li>WVC_Beholdkind</li>
+		<li>WVC_Nociokin</li>
+		<!-- An undead xenotype has a separate serum mechanic. -->
+		<!-- <li>WVC_Undead</li> -->
+		<!-- Only undead resurrection -->
+		<!-- <li>WVC_Featherdust</li> -->
+		<!-- <li>WVC_Resurgent</li> -->
+		<!-- <li>WVC_Ashen</li> -->
+		<!-- Random -->
+		<li>WVC_Thrall</li>
+		<li>WVC_Hybrid</li>
+		<li>WVC_Shapeshifter</li>
+		<li>WVC_RandomHybrid</li>
+		<li>WVC_RandomHybrid_Blankind</li>
+		<!-- Other -->
+		<li>AG_RandomCustom</li>
+		<li>VREA_AndroidBasic</li>
+		<li>VREA_AndroidAwakened</li>
+		<li>VREA_</li>
+	</blackListedXenotypesForSerums>
+	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
+	<whiteListedXenotypesForResurrectorSerums>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Undead</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Featherdust</li>
+		<li WVC_XaG_XenotypeRemoveTag="General">WVC_Resurgent</li>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="General" MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
+	</whiteListedXenotypesForResurrectorSerums>
+	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
+	<blackListedBackstoryForChanger>
+		<li>Newborn79</li>
+		<li>Colonist97</li>
+		<li>ColonyChild59</li>
+		<li>Child27</li>
+		<li>ChildTribal</li>
+		<li>TribeChild19</li>
+		<li>TribeMember57</li>
+		<li>VatgrownChild11</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownChildhood</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownAdulthood</li>
+	</blackListedBackstoryForChanger>
+	<!-- Words that should not be in the defName of Mechanoids. Used to random summon mechanoids. Required any string -->
+	<mechDefNameShouldNotContain>
+		<li>TEST</li>
+		<li>NonPlayer</li>
+		<li>NonPlayable</li>
+		<li>Unplayable</li>
+		<li>Random</li>
+		<li>Golem_</li>
+		<li>Zombie_</li>
+		<li>Undead_</li>
+		<li>Corpse_</li>
+		<li>Android_</li>
+		<li>Medieval_</li>
+	</mechDefNameShouldNotContain>
+	<!-- Work only for WVC -XaG CompSpawnSubplant. Required thing defNames -->
+	<!-- WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants or WVC_XenotypesAndGenes.CompSpawnSubplantDuration -->
+	<plantsToNotOverwrite_SpawnSubplant>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_PodGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
+	  <li MayRequire="ludeon.rimworld.odyssey">Plant_TreeArchean</li>
+	</plantsToNotOverwrite_SpawnSubplant>
+	<!-- XaG genes that will work with mutants. Required any GeneDef string -->
+	<anomalyXenoGenesExceptions>
+		<li>WVC_Ageless_Overrider</li>	<!-- overrided ageless -->
+		<li>WVC_Agevenator</li>	<!-- agevenator -->
+		<li>WVC_Aging_Overrider</li>	<!-- overrided aging -->
+		<li>WVC_ArchiteMechlink</li>	<!-- mechlink -->
+		<li>WVC_ArchitePsylink</li>	<!-- archite psylink -->
+		<li>WVC_Beauty_AbominationallyUgly</li>	<!-- abominationally ugly -->
+		<li>WVC_BioferriteGrowths</li>	<!-- bioferrite tentacles -->
+		<li>WVC_BleedStopper</li>	<!-- bleed stopper -->
+		<li>WVC_BodySize_Average</li>	<!-- average size -->
+		<li>WVC_BodySize_Large</li>	<!-- large size -->
+		<li>WVC_BodySize_Small</li>	<!-- small size -->
+		<li>WVC_BodyTentacles</li>	<!-- body tentacles -->
+		<li>WVC_BoneTailA</li>	<!-- bone tail -->
+		<li>WVC_CatEarsA</li>	<!-- cat ears -->
+		<li>WVC_CatTailA</li>	<!-- cat-like tail -->
+		<li>WVC_CatTailB</li>	<!-- double cat tail -->
+		<li>WVC_Chameleon</li>	<!-- chameleon -->
+		<li>WVC_ChestFur</li>	<!-- chest fur -->
+		<li>WVC_CyclicallySelfLearning</li>	<!-- cyclically self-learning -->
+		<li>WVC_DarknessExposure</li>	<!-- darkness adaptation -->
+		<li>WVC_DeadStomach</li>	<!-- dead stomach -->
+		<li>WVC_DeathRefusal</li>	<!-- death refusal -->
+		<li>WVC_DemonTailA</li>	<!-- demon tail -->
+		<li>WVC_DragonTailA</li>	<!-- spiked tail -->
+		<li>WVC_Dustogenic</li>	<!-- bottomless belly -->
+		<li>WVC_Dustogenic_Ageless</li>	<!-- feathered ageless -->
+		<li>WVC_Dustogenic_AngelBeauty</li>	<!-- artificial beauty -->
+		<li>WVC_Dustogenic_Clotting</li>	<!-- downed clotting -->
+		<li>WVC_Dustogenic_Metabolism</li>	<!-- photosynthetic metabolism -->
+		<li>WVC_Ears_DoublePointedA</li>	<!-- double ears -->
+		<li>WVC_Ears_PointedA</li>	<!-- elf ears -->
+		<li>WVC_Ears_PointedB</li>	<!-- short elf ears -->
+		<li>WVC_ExpEqualizer</li>	<!-- experience equalizer -->
+		<li>WVC_Eyes_Colorful</li>	<!-- colorful eyes -->
+		<li>WVC_Eyes_Holoeyes</li>	<!-- holoeyes -->
+		<li>WVC_FeatherSkin</li>	<!-- feathers -->
+		<li>WVC_FemaleOnly</li>	<!-- Monogender (Female) -->
+		<li>WVC_Feminine</li>	<!-- feminine body -->
+		<li>WVC_FleshmassAging</li>	<!-- fleshmass aging -->
+		<li>WVC_FleshmassArmor</li>	<!-- fleshmass armor -->
+		<li>WVC_FleshmassHeart</li>	<!-- fleshmass heart -->
+		<li>WVC_FleshmassNucleus</li>	<!-- fleshmass nucleus -->
+		<li>WVC_FleshmassRegeneration</li>	<!-- fleshmass regeneration -->
+		<li>WVC_FleshshapedStomach</li>	<!-- fleshshaped stomach -->
+		<li>WVC_FlycatcherSkin</li>	<!-- flycatcher skin -->
+		<li>WVC_ForeverYoung</li>	<!-- very slow aging -->
+		<li>WVC_FoxEarsA</li>	<!-- spikelike ears -->
+		<li>WVC_GenderMorph</li>	<!-- gender morph -->
+		<li>WVC_Genemaker</li>	<!-- genemaker -->
+		<li>WVC_Generemover</li>	<!-- generemover -->
+		<li>WVC_GeneSavant</li>	<!-- savant -->
+		<li>WVC_GeneticStability</li>	<!-- genetic stability -->
+		<li>WVC_Hair_NonBald</li>	<!-- never bald -->
+		<li>WVC_Hair_PunkOnly</li>	<!-- punk-haired -->
+		<li>WVC_Hair_TribalOnly</li>	<!-- tribal-haired -->
+		<li>WVC_HairColor_b4c8ff_HEX</li>	<!-- bright blue hair -->
+		<li>WVC_HairColor_b4fff0_HEX</li>	<!-- bright cian hair -->
+		<li>WVC_HairColor_c8b4ff_HEX</li>	<!-- bright purple hair -->
+		<li>WVC_HairColor_c8ffb4_HEX</li>	<!-- bright green hair -->
+		<li>WVC_HairColor_Coral</li>	<!-- coral hair -->
+		<li>WVC_HairColor_ffb4b4_HEX</li>	<!-- bright red hair -->
+		<li>WVC_HairColor_ffb4dc_HEX</li>	<!-- bright pink hair -->
+		<li>WVC_HairColor_ffdcb4_HEX</li>	<!-- bright orange hair -->
+		<li>WVC_HairColor_fffab4_HEX</li>	<!-- bright yellow hair -->
+		<li>WVC_HairColor_GlacialIce</li>	<!-- glacial hair -->
+		<li>WVC_HairColor_Granite</li>	<!-- granite hair -->
+		<li>WVC_HairColor_Limestone</li>	<!-- limestone hair -->
+		<li>WVC_HairColor_Marble</li>	<!-- marble hair -->
+		<li>WVC_HairColor_Sand</li>	<!-- sand hair -->
+		<li>WVC_HairColor_Sandstone</li>	<!-- sandstone hair -->
+		<li>WVC_HairColor_Slate</li>	<!-- slate hair -->
+		<li>WVC_HairColor_Undead</li>	<!-- undead hair -->
+		<li>WVC_HalfBone</li>	<!-- halfbone -->
+		<li>WVC_HeadBoneBighorns</li>	<!-- bighorns -->
+		<li>WVC_HeadBoneCurveHorns</li>	<!-- curved horns -->
+		<li>WVC_HeadBoneDoubleHorn</li>	<!-- double horn -->
+		<li>WVC_HeadBoneHorns</li>	<!-- horns -->
+		<li>WVC_HeadSkinHornB</li>	<!-- single mini horn -->
+		<li>WVC_HeadSkinHorns</li>	<!-- skin horns -->
+		<li>WVC_HeadTentacles0c</li>	<!-- head tentacles -->
+		<li>WVC_HealingStomach</li>	<!-- healing stomach -->
+		<li>WVC_Health_Overrider</li>	<!-- overrided health -->
+		<li>WVC_IncestLover</li>	<!-- incest lover -->
+		<li>WVC_Inhumanized</li>	<!-- inhuman -->
+		<li>WVC_Invisibility</li>	<!-- invisibility -->
+		<li>WVC_Learning_ExtremeSlow</li>	<!-- meaningless study -->
+		<li>WVC_Learning_Overrider</li>	<!-- overrided learning -->
+		<li>WVC_Learning_Scarifier</li>	<!-- scarifier study -->
+		<li>WVC_Learning_SlowNoSkillDecay</li>	<!-- stubborn study -->
+		<li>WVC_Learning_Stasis</li>	<!-- stasis study -->
+		<li>WVC_LizardTailA</li>	<!-- short spiked tail -->
+		<li>WVC_LongTentacleTail</li>	<!-- long tentacle tail -->
+		<li>WVC_MaleOnly</li>	<!-- Monogender (Male) -->
+		<li>WVC_MecaBodyParts_Claws</li>	<!-- archite claws -->
+		<li>WVC_MecaBodyParts_Heart</li>	<!-- archite-clotting -->
+		<li>WVC_MecaBodyParts_Kidney</li>	<!-- machine wound healing -->
+		<li>WVC_MecaBodyParts_Liver</li>	<!-- machine senescent -->
+		<li>WVC_MecaBodyParts_Lung</li>	<!-- overall adaptation -->
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>	<!-- regeneration sleep -->
+		<li>WVC_Mecha_AntennaTail</li>	<!-- segmented tail -->
+		<li>WVC_Mecha_ConnectorTail</li>	<!-- connector tail -->
+		<li>WVC_Mecha_EarsCat</li>	<!-- cat ears -->
+		<li>WVC_Mecha_RedFormerEarsDouble</li>	<!-- spikelike ears -->
+		<li>WVC_Mecha_RedFormerSpikesDouble</li>	<!-- headspikes -->
+		<li>WVC_Mecha_ScytheTail</li>	<!-- scythe tail -->
+		<li>WVC_Mecha_YellowFormerAntennaDouble</li>	<!-- head antenna -->
+		<li>WVC_MechaAI_Base</li>	<!-- no skill loss -->
+		<li>WVC_MechaAI_SoftwareManipulation</li>	<!-- horror plating -->
+		<li>WVC_MechaHidden_ArchiteForge</li>	<!-- total healing -->
+		<li>WVC_MechaSkin</li>	<!-- metalskin -->
+		<li>WVC_MechSummon_Heavy</li>	<!-- heavy mech summon -->
+		<li>WVC_MechSummon_Light</li>	<!-- light mech summon -->
+		<li>WVC_MechSummon_Medium</li>	<!-- medium mech summon -->
+		<li>WVC_MechSummon_UltraHeavy</li>	<!-- ultra mech summon -->
+		<li>WVC_NaturalAgeless</li>	<!-- natural ageless -->
+		<li>WVC_NaturalBodyParts_Claws</li>	<!-- kitty claws -->
+		<li>WVC_NaturalMechlink</li>	<!-- natural mechlink -->
+		<li>WVC_NaturalPsylink</li>	<!-- natural psylink -->
+		<li>WVC_NeverDead</li>	<!-- never dead -->
+		<li>WVC_NodeSkin</li>	<!-- eyeless -->
+		<li>WVC_NoLearning</li>	<!-- arrested study -->
+		<li>WVC_NoLearning_Overrider</li>	<!-- overrided no-learning -->
+		<li>WVC_OverallAdaptation_Overrider</li>	<!-- overrided adaptation -->
+		<li>WVC_Overrider</li>	<!-- overrided psychic -->
+		<li>WVC_Pain_Overrider</li>	<!-- overrided pain -->
+		<li>WVC_PerfectImmunity_Overrider</li>	<!-- overrided immunity -->
+		<li>WVC_PredatorPrey_NotTasty</li>	<!-- not tasty -->
+		<li>WVC_PredatorPrey_Tasty</li>	<!-- tasty -->
+		<li>WVC_RandomGeneticSpeciality</li>	<!-- genetic speciality -->
+		<li>WVC_RandomHands</li>	<!-- unstable hands -->
+		<li>WVC_RandomImmunity</li>	<!-- unstable immunity -->
+		<li>WVC_RandomLearning</li>	<!-- unstable learning -->
+		<li>WVC_RandomMetabolism</li>	<!-- unstable metabolism -->
+		<li>WVC_RandomMoveSpeed</li>	<!-- unstable runner -->
+		<li>WVC_RandomPsychicAbility</li>	<!-- unstable psychic sensitivity -->
+		<li>WVC_RandomWoundHealing</li>	<!-- unstable wound healing -->
+		<li>WVC_Rehumanized</li>	<!-- rehuman -->
+		<li>WVC_Rejuvenator</li>	<!-- rejuvenator -->
+		<li>WVC_RepairSkin</li>	<!-- repair skin -->
+		<li>WVC_Scarifier</li>	<!-- scarifier -->
+		<li>WVC_Scarifier_ArchiteScarstomach</li>	<!-- scarstomach -->
+		<li>WVC_Scarifier_Clotting</li>	<!-- scarifier clotting -->
+		<li>WVC_Scarifier_GeneticStability</li>	<!-- scarifier stability -->
+		<li>WVC_Scarifier_Scarshield</li>	<!-- scarshield -->
+		<li>WVC_Scarifier_Scarstomach</li>	<!-- scarstomach -->
+		<li>WVC_Scarifier_StrongMelee</li>	<!-- scarifier melee -->
+		<li>WVC_Scars_Overrider</li>	<!-- overrided scars -->
+		<li>WVC_SelfdevourStomach</li>	<!-- self-devour stomach -->
+		<li>WVC_Shapeshift_Deathless</li>	<!-- cellular -->
+		<li>WVC_SharedMetabolism</li>	<!-- shared metabolism -->
+		<li>WVC_Skillshifter</li>	<!-- skillshifter -->
+		<li>WVC_SkinColor_b4c8ff_HEX</li>	<!-- bright blue skin -->
+		<li>WVC_SkinColor_b4fff0_HEX</li>	<!-- bright cian skin -->
+		<li>WVC_SkinColor_c8b4ff_HEX</li>	<!-- bright purple skin -->
+		<li>WVC_SkinColor_c8ffb4_HEX</li>	<!-- bright green skin -->
+		<li>WVC_SkinColor_Coral</li>	<!-- coral skin -->
+		<li>WVC_SkinColor_DarkBlue</li>	<!-- dark blue skin -->
+		<li>WVC_SkinColor_DemonRed</li>	<!-- demonic red skin -->
+		<li>WVC_SkinColor_ffb4b4_HEX</li>	<!-- bright red skin -->
+		<li>WVC_SkinColor_ffb4dc_HEX</li>	<!-- bright pink skin -->
+		<li>WVC_SkinColor_ffdcb4_HEX</li>	<!-- bright orange skin -->
+		<li>WVC_SkinColor_fffab4_HEX</li>	<!-- bright yellow skin -->
+		<li>WVC_SkinColor_FleshPink</li>	<!-- flesh pink skin -->
+		<li>WVC_SkinColor_FleshRed</li>	<!-- flesh red skin -->
+		<li>WVC_SkinColor_GlacialIce</li>	<!-- glacial skin -->
+		<li>WVC_SkinColor_Granite</li>	<!-- granite skin -->
+		<li>WVC_SkinColor_Limestone</li>	<!-- limestone skin -->
+		<li>WVC_SkinColor_Marble</li>	<!-- marble skin -->
+		<li>WVC_SkinColor_Metal</li>	<!-- old-metal skin -->
+		<li>WVC_SkinColor_MilkWhite</li>	<!-- milk white skin -->
+		<li>WVC_SkinColor_OldBones</li>	<!-- old bones skin -->
+		<li>WVC_SkinColor_Rusted</li>	<!-- rusted skin -->
+		<li>WVC_SkinColor_Sand</li>	<!-- sand skin -->
+		<li>WVC_SkinColor_Sandstone</li>	<!-- sandstone skin -->
+		<li>WVC_SkinColor_Slate</li>	<!-- slate skin -->
+		<li>WVC_SkinColor_Undead</li>	<!-- undead skin -->
+		<li>WVC_SkinnyTailA</li>	<!-- skinny tail -->
+		<li>WVC_SleepyStomach</li>	<!-- sleepy stomach -->
+		<li>WVC_Solar_Overrider</li>	<!-- overrided solar -->
+		<li>WVC_StasisAging</li>	<!-- stasis aging -->
+		<li>WVC_StasisStomach</li>	<!-- stasis stomach -->
+		<li>WVC_Stomach_Overrider</li>	<!-- overrided stomach -->
+		<li>WVC_StoneChunkSpawner_Granite</li>	<!-- granite molt -->
+		<li>WVC_StoneChunkSpawner_Limestone</li>	<!-- limestone molt -->
+		<li>WVC_StoneChunkSpawner_Marble</li>	<!-- marble molt -->
+		<li>WVC_StoneChunkSpawner_Sandstone</li>	<!-- sandstone molt -->
+		<li>WVC_StoneChunkSpawner_Slate</li>	<!-- slate molt -->
+		<li>WVC_StoneStomach</li>	<!-- stone stomach -->
+		<li>WVC_SuperStomach</li>	<!-- super stomach -->
+		<li>WVC_TentacleTail</li>	<!-- tentacle tail -->
+		<li>WVC_Tough_Overrider</li>	<!-- overrided tough -->
+		<li>WVC_Toughspike</li>	<!-- toughspike -->
+		<li>WVC_Traitless</li>	<!-- traitless -->
+		<li>WVC_Traitshifter</li>	<!-- traitshifter -->
+		<li>WVC_Undead</li>	<!-- undead -->
+		<li>WVC_UVSensitivity_Deadly</li>	<!-- deadly UV sensitivity -->
+		<li>WVC_VoiceAnimals_BigCat</li>	<!-- big cat voice -->
+		<li>WVC_VoiceAnimals_Cat</li>	<!-- cat voice -->
+		<li>WVC_VoiceDryadBarkskin</li>	<!-- barkskin voice -->
+		<li>WVC_VoiceDryadBasic</li>	<!-- basic dryad voice -->
+		<li>WVC_VoiceDryadBerrymaker</li>	<!-- berrymaker voice -->
+		<li>WVC_VoiceDryadCarrier</li>	<!-- carrier voice -->
+		<li>WVC_VoiceDryadClawer</li>	<!-- clawer voice -->
+		<li>WVC_VoiceDryadGaumaker</li>	<!-- gaumaker voice -->
+		<li>WVC_VoiceDryadMedicinemaker</li>	<!-- medicinemaker voice -->
+		<li>WVC_VoiceDryadWoodmaker</li>	<!-- woodmaker voice -->
+		<li>WVC_VoiceMechaAgrihand</li>	<!-- agrihand voice -->
+		<li>WVC_VoiceMechaApocriton</li>	<!-- apocriton voice -->
+		<li>WVC_VoiceMechaCentipede</li>	<!-- centipede voice -->
+		<li>WVC_VoiceMechaCenturion</li>	<!-- centurion voice -->
+		<li>WVC_VoiceMechaCleansweeper</li>	<!-- cleansweeper voice -->
+		<li>WVC_VoiceMechaConstructoid</li>	<!-- constructoid voice -->
+		<li>WVC_VoiceMechaDiabolus</li>	<!-- diabolus voice -->
+		<li>WVC_VoiceMechaFabricor</li>	<!-- fabricor voice -->
+		<li>WVC_VoiceMechaLegionary</li>	<!-- legionary voice -->
+		<li>WVC_VoiceMechaLifter</li>	<!-- lifter voice -->
+		<li>WVC_VoiceMechaMilitor</li>	<!-- militor voice -->
+		<li>WVC_VoiceMechaParamedic</li>	<!-- paramedic voice -->
+		<li>WVC_VoiceMechaPikeman</li>	<!-- pikeman voice -->
+		<li>WVC_VoiceMechaScorcher</li>	<!-- scorcher voice -->
+		<li>WVC_VoiceMechaScyther</li>	<!-- scyther voice -->
+		<li>WVC_VoiceMechaTermite</li>	<!-- termite voice -->
+		<li>WVC_VoiceMechaTesseron</li>	<!-- tesseron voice -->
+		<li>WVC_VoiceMechaTunneler</li>	<!-- tunneler voice -->
+		<li>WVC_VoiceMechaUrchin</li>	<!-- urchin voice -->
+		<li>WVC_VoiceMechaWarqueen</li>	<!-- queen voice -->
+		<li>WVC_Wimp_Overrider</li>	<!-- overrided wimp -->
+		<li>WVC_Wings_BoneWings</li>	<!-- bone wings -->
+		<li>WVC_Wings_FeatheredWings</li>	<!-- feathered wings -->
+		<li>WVC_Wings_Levitation</li>	<!-- levitation -->
+		<li>WVC_Wings_MembranousWings</li>	<!-- membranous wings -->
+		<li>WVC_Wings_TentacleWings</li>	<!-- tentacle wings -->
+		<li>WVC_WoundHealing_Overrider</li>	<!-- overrided healing -->
+		<li>WVC_WoundHealing_SelfRepair</li>	<!-- self-repair wound healing -->
+		<li>WVC_WoundHealing_Unnatural</li>	<!-- unnatural wound healing -->
+		<li>WVC_WoundHealing_UnrealFast</li>	<!-- unrealfast wound healing -->
+		<li>WVC_XenotypesAndGenes_RandomEndotypeForcer</li>	<!-- random endotype -->
+		<li>WVC_XenotypesAndGenes_RandomXenotypeForcer</li>	<!-- random xenotype -->
+	</anomalyXenoGenesExceptions>
+	<!-- Ignored mutants. Required any MutantDefs -->
+	<xenoGenesMutantsExceptions>
+		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mechanoid</li> -->
+		<li>WVC_Thrall</li>
+		<li>WVC_Skeleton</li>
+	</xenoGenesMutantsExceptions>
+	<!-- Ignored dryad modes by dryad queen gene. Required any GauranlenTreeModeDefs -->
+	<ignoredGauranlenTreeModeDefs>
+		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
+		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
+	</ignoredGauranlenTreeModeDefs>
+	<!-- Xenotypes ignored by the mod's base filter.  -->
+	<!-- Used to filter out xenotypes that are not xenotypes in the standard sense. For example, Thralls. -->
+	<!-- Required any XenotypeDefs -->
+	<devXenotypeDefs>
+		<!-- <li WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">WVC_Thrall</li> -->
+		<!-- <li WVC_XaG_XenotypeRemoveTag="DevXenotypes">WVC_Mergekin</li> -->
+		<!-- <li MayRequire="wvc.sergkart.test.tools">WVC_Mergekin</li> -->
+	</devXenotypeDefs>
+	<!-- Required any GeneDefs. Used by Chimera gene for basic human genes lists. -->
+	<humanGeneDefs>
+	  <li>WVC_Mecha_NoTail</li>
+	  <li>Ears_Human</li>
+	  <li>Nose_Human</li>
+	  <li>Jaw_Baseline</li>
+	  <li>Hands_Human</li>
+	  <li>Headbone_Human</li>
+	  <li>Voice_Human</li>
+	  <li>WVC_BodySize_Average</li>
+	</humanGeneDefs>
+	<!-- Required any Android genes (string). Genes with these defNames will be considered flags for the filter. Pawns and xenotypes with these genes will not be considered humans. -->
+	<androidGenes>
+	  <li>VREA_SyntheticBody</li>
+	  <li>PMP_PersonaMechanoid</li>
+	</androidGenes>
+	<!-- Hivemind geneDefs. Any string -->
+	<hivemindGenes>
+		<!-- <li>MOD_SomeHivemindGene</li> -->
+	</hivemindGenes>
+	<!-- Hivemind geneClasses. Any gene Type (Class) -->
+	<hivemindGeneTypes>
+		<!-- <li MayRequire="biomesteam.biomesgeneticsmushkin">BiomesGeneticsMushkin.MushkinGene</li> -->
+	</hivemindGeneTypes>
+  </WVC_XenotypesAndGenes.UtilityDef>
+
+  <!-- ======================================================================= -->
+
+  <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android">
+	<defName>WVC_RacesBiotech_AndroidConvertableGenes</defName>
+	<geneCategories>
+		<li>WVC_Cosmetic</li>
+		<li>WVC_CosmeticVoices</li>
+	</geneCategories>
+  </VREAndroids.AndroidConvertableGenesDef>
+
+</Defs>

@@ -6,7 +6,7 @@ using Verse;
 // namespace WVC
 namespace WVC_XenotypesAndGenes
 {
-	public class XenotypesAndGenesListDef : Def
+	public class UtilityDef : Def
 	{
 		public List<string> blackListedXenotypesForSerums = new();
 		// public List<XenotypeDef> blackListedXenotypesForSingleSerums;
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				List<GeneDef> database = DefDatabase<GeneDef>.AllDefsListForReading;
 				List<GeneDef> geneDefs = new();
-				foreach (XenotypesAndGenesListDef listDef in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				foreach (UtilityDef listDef in DefDatabase<UtilityDef>.AllDefsListForReading)
 				{
 					if (listDef.anomalyXenoGenesExceptions == null)
 					{
@@ -78,4 +78,12 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeGetterDef> xenotypeGetterDefs;
 
 	}
+
+	// Remove after 1.7 update
+	[Obsolete("XenotypesAndGenesListDef is obsolete, use UtilityDef instead.")]
+	public class XenotypesAndGenesListDef : UtilityDef
+	{
+
+	}
+
 }

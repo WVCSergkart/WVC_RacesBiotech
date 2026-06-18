@@ -108,7 +108,7 @@ namespace WVC_XenotypesAndGenes
 					letterDef = LetterDefOf.PositiveEvent;
 					return;
 				}
-				MiscUtility.UpdateStaticCollection();
+				StaticCollectionsClass.UpdateStaticCollection();
 				RandomOutcomes(caster, originalPawn, duplicatePawn, ref customLetter, ref letterDef, ref phase);
 				//try
 				//{

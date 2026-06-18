@@ -648,7 +648,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					List<GeneDef> list = new();
 					List<GeneDef> dataBase = DefDatabase<GeneDef>.AllDefsListForReading;
-					foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+					foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 					{
 						if (item.androidGenes.NullOrEmpty())
 						{

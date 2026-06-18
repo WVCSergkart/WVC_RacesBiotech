@@ -846,6 +846,12 @@ namespace WVC_XenotypesAndGenes
 				}
 				Log.Error("Style IDs:" + "\n" + log);
 			}
+			if (listingStandard.ButtonText("DEV: LogAllMutantAllowedGenes"))
+			{
+				List<GeneDef> geneDefs = UtilityDef.AnomalyXenoGenesExceptions;
+				geneDefs.SortBy(def => def.defName);
+				Log.Error("AnomalyXenoGenesExceptions:" + "\n" + geneDefs.Select((GeneDef x) => "<li>" + x.defName + "</li>" + "	<!-- " + x.label + " -->").ToLineList("		"));
+			}
 			// Converter
 			//if (listingStandard.ButtonText("DEV: Log all style ids"))
 			//{

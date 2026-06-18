@@ -353,7 +353,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (ModsUtility.GameStarted() && lastRecacheTick < Find.TickManager.TicksGame)
 			{
-				MiscUtility.UpdateStaticCollection();
+				StaticCollectionsClass.UpdateStaticCollection();
 				lastRecacheTick = Find.TickManager.TicksGame + 2500;
 			}
 			Thought_RecluseMemory.baseMoodOffset = null;

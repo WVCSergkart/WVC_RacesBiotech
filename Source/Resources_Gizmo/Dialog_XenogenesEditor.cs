@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void GenesEater()
 		{
-			MiscUtility.UpdateStaticCollection();
+			StaticCollectionsClass.UpdateStaticCollection();
 			if (geneCustomChimeraEater != null)
 			{
 				geneCustomChimeraEater.ChimeraEater(ref selectedGenes);

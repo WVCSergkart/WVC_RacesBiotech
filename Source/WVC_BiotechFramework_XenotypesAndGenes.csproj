@@ -93,6 +93,7 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_InSpace.cs" />
     <Compile Include="Resources_Defs\ChimeraDevourerDef.cs" />
+    <Compile Include="Resources_Defs\XaG_MutantDef.cs" />
     <Compile Include="Resources_DefWorkers\ChimeraDevourer.cs" />
     <Compile Include="Resources_DefWorkers\ShaperGeneSet.cs" />
     <Compile Include="Resources_Defs\StyleGeneDef.cs" />
@@ -197,7 +198,7 @@
     <Compile Include="Resources_Hediff\Hediff_FaultyShapeDisease.cs" />
     <Compile Include="Resources_Hediff\HediffWithComps_AdaptiveTemperature.cs" />
     <Compile Include="Resources_Hediff\Hediff_HivemindHatred.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_DeadlifeDust.cs" />
+    <Compile Include="Resources_Hediff\HediffWithComps_FleshmassDuplicate.cs" />
     <Compile Include="Resources_Holders\ReincarnationSet.cs" />
     <Compile Include="Resources_Main\IAbility.cs" />
     <Compile Include="Resources_Main\IHediffs.cs" />
@@ -249,7 +250,7 @@
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_OrganDecay.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_RandomBackstory.cs" />
     <Compile Include="Resources_DefWorkers\DuplicatorOutcome_RandomTrait.cs" />
-    <Compile Include="Resources_Defs\XenotypesAndGenesListDef.cs" />
+    <Compile Include="Resources_Defs\UtilityDef.cs" />
     <Compile Include="Resources_Defs\SettingsDef.cs" />
     <Compile Include="Resources_Defs\DevXenotypeDef.cs" />
     <Compile Include="Resources_Defs\GauranlenGeneModeDef.cs" />

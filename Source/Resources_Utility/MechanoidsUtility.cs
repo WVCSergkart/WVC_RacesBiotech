@@ -488,7 +488,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool MechDefNameContainsBannedWords(string defName)
 		{
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
 			{
 				foreach (string name in item.mechDefNameShouldNotContain)
 				{

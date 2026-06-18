@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetEfficiency()
 		{
-			MiscUtility.UpdateStaticCollection();
+			StaticCollectionsClass.UpdateStaticCollection();
 			float efficiency = 0;
 			List<Pawn> hivemindPawns = Hivemind;
 			if (hivemindPawns.Count <= 0)

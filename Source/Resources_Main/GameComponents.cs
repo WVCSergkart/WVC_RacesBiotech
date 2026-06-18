@@ -171,7 +171,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void XaG_General()
 		{
-			MiscUtility.UpdateStaticCollection();
+			StaticCollectionsClass.UpdateStaticCollection();
 			TryReincarnate();
 			TrySummon();
 		}

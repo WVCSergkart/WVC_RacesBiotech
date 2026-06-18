@@ -10,13 +10,34 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
-		public static bool sacrificerIsActive = false;
+		private static bool? sacrificerIsActive;
+
+		public static void ResetCache()
+		{
+			sacrificerIsActive = null;
+		}
+
+		public static bool IsActive
+		{
+			get
+			{
+				if (sacrificerIsActive == null)
+				{
+					if (ModsUtility.GameNotStarted())
+					{
+						return false;
+					}
+					sacrificerIsActive = MiscUtility.MonolithAndCerebrexCoreCheck();
+				}
+				return sacrificerIsActive.Value;
+			}
+		}
 
 		public override bool Active
 		{
 			get
 			{
-				if (sacrificerIsActive)
+				if (IsActive)
 				{
 					return base.Active;
 				}

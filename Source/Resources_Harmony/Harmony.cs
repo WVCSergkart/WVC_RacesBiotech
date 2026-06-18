@@ -185,7 +185,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (ModsUtility.GameStarted())
 				{
-					MiscUtility.UpdateStaticCollection();
+					StaticCollectionsClass.UpdateStaticCollection();
 					GeneshiftUtility.ResetXenotypesCollection();
 					HealingUtility.UpdRegenCollection();
 					//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
