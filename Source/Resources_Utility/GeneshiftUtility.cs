@@ -54,8 +54,8 @@ namespace WVC_XenotypesAndGenes
 			return shapeshifterLeader.Value;
 		}
 
-		private static List<Pawn> chimerkins = new();
-		private static List<Pawn> nonChimerkins = new();
+		private static HashSet<Pawn> chimerkins = new();
+		private static HashSet<Pawn> nonChimerkins = new();
 
 		public static bool IsChimerkin(this Pawn pawn)
 		{
@@ -79,8 +79,8 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private static List<Pawn> shapeshifters = new();
-		private static List<Pawn> nonShapeshifters = new();
+		private static HashSet<Pawn> shapeshifters = new();
+		private static HashSet<Pawn> nonShapeshifters = new();
 
 		public static bool IsShapeshifter(this Pawn pawn)
 		{

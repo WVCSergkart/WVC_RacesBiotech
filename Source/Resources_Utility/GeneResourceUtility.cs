@@ -548,8 +548,8 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
-		private static List<Pawn> nonResurrectedPawns = new();
-		private static List<Pawn> resurrectedPawns = new();
+		private static HashSet<Pawn> nonResurrectedPawns = new();
+		private static HashSet<Pawn> resurrectedPawns = new();
 
 		public static bool AnyUndeads
 		{

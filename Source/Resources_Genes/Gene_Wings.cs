@@ -230,6 +230,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
 				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
+				//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn), "GetPathContext"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.PathGridPatch))));
 			}
 			catch (Exception arg)
 			{

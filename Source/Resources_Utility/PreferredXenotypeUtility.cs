@@ -18,14 +18,14 @@ namespace WVC_XenotypesAndGenes
 		public static float ReqMatch => WVC_Biotech.settings.preferredXenotypes_RequiredMinMatch;
 		public static bool Enabled => WVC_Biotech.settings.preferredXenotypes_enableTweak;
 
-		private static List<IdeoPawnsHolder> notPreferredPawns = new();
-		private static List<IdeoPawnsHolder> preferredPawns = new();
+		private static HashSet<IdeoPawnsHolder> notPreferredPawns = new();
+		private static HashSet<IdeoPawnsHolder> preferredPawns = new();
 
 		public class IdeoPawnsHolder
 		{
 
 			public Ideo ideo;
-			public List<Pawn> pawns = new();
+			public HashSet<Pawn> pawns = new();
 
 			public void Add(Pawn pawn)
 			{
@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 				Add(notPreferredPawns, caller, ideo);
 			}
 
-			static void Add(List<IdeoPawnsHolder> list, Pawn caller, Ideo ideo)
+			static void Add(HashSet<IdeoPawnsHolder> list, Pawn caller, Ideo ideo)
 			{
 				foreach (IdeoPawnsHolder item in list)
 				{
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static bool InList(List<IdeoPawnsHolder> list, Pawn caller, Ideo ideo)
+		private static bool InList(HashSet<IdeoPawnsHolder> list, Pawn caller, Ideo ideo)
 		{
 			foreach (IdeoPawnsHolder item in list)
 			{
@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		private static List<SameXenotype> cachedSameXenotypes = new();
+		private static HashSet<SameXenotype> cachedSameXenotypes = new();
 
 		public static bool IsSameXenotype(Pawn caller, Pawn target, int hop = 0)
 		{
@@ -175,8 +175,8 @@ namespace WVC_XenotypesAndGenes
 		{
 
 			private List<GeneDef> geneDefs = new();
-			public List<Pawn> pawns = new();
-			private List<Pawn> blacklist = new();
+			public HashSet<Pawn> pawns = new();
+			private HashSet<Pawn> blacklist = new();
 
 			//public SameXenotype()
 			//{

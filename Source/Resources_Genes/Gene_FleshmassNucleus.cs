@@ -345,7 +345,7 @@ namespace WVC_XenotypesAndGenes
 		public override void DropPostDeathSpawn(Map mapHeld, IntVec3 positionHeld)
 		{
 			PawnKindDef fingerspike = PawnKindDefOf.Fingerspike;
-			if (pawn.ageTracker.Adult)
+			if (pawn.BodySize >= 1f)
 			{
 				fingerspike = PawnKindDefOf.Toughspike;
 			}

@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (WorkTypeDef workTypeDef in DefDatabase<WorkTypeDef>.AllDefsListForReading)
 			{
-				if (!pawn.workSettings.WorkIsActive(workTypeDef))
+				if (pawn.WorkTypeIsDisabled(workTypeDef))
 				{
 					continue;
 				}

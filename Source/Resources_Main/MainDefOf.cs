@@ -115,6 +115,8 @@ namespace WVC_XenotypesAndGenes
 		public static PawnKindDef Devourer;
 		//
 		public static ThingDef Cat;
+		//
+		//public static PawnTableDef WVC_EntitiesWork;
 	}
 
 	// [DefOf]

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.Noise;
 
 namespace WVC_XenotypesAndGenes
@@ -1169,6 +1170,16 @@ namespace WVC_XenotypesAndGenes
 				}
 				return true;
 			}
+
+			//public static bool PathGridPatch(ref PathingContext __result, Pathing pathing, Pawn __instance)
+			//{
+			//	if (Gene_Wings.WingedPawns.Contains(__instance))
+			//	{
+			//		__result = pathing.Flying;
+			//		return false;
+			//	}
+			//	return true;
+			//}
 
 			//public static void Notify_GotLovin(Pawn pawn, Pawn ___Partner)
 			//{

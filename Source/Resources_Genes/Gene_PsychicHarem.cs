@@ -34,14 +34,14 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		private static List<Pawn> cachedPawns;
-		public static List<Pawn> Harem
+		private static HashSet<Pawn> cachedPawns;
+		public static HashSet<Pawn> Harem
 		{
 			get
 			{
 				if (cachedPawns == null)
 				{
-					List<Pawn> list = new();
+					HashSet<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
 					{
 						if (!pawn.IsPsychicSensitive())

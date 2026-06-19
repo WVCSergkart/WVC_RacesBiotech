@@ -9,8 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public abstract class ThoughtWorker_Precept_Social_Duplicates : ThoughtWorker_Precept_Social
 	{
 
-		public static List<Pawn> ignoredPawns = new();
-		public static List<Pawn> duplicatePawns = new();
+		public static HashSet<Pawn> ignoredPawns = new();
+		public static HashSet<Pawn> duplicatePawns = new();
 
 		public bool IsDuplicate(Pawn duplicate)
 		{

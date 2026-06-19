@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public static class FamilyUtility
 	{
 
-		public static List<Family> families = new();
+		public static HashSet<Family> families = new();
 
 		public class Family
 		{
