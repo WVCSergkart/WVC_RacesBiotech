@@ -117,6 +117,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (target.IsHuman())
 				{
+					if (target.IsMutant)
+					{
+						otherSacrifices++;
+					}
 					humanSacrifices++;
 					bool isArchite = false;
 					foreach (Gene gene in target.genes.GenesListForReading)

@@ -21,10 +21,11 @@
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
 		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt;, &lt;color=#8a8ae6&gt;geneharvest&lt;/color&gt; and &lt;color=#8a8ae6&gt;packharvest&lt;/color&gt; abilities, a random gene of the target is copied.</li>
-		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; with certain limits.</li>
 		<!-- <li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li> -->
 		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt; to receive a random gene.</li>
 		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
+		<li>Can consumes &lt;color=#8a8ae6&gt;archite capsules, hearts and embryos&lt;/color&gt; to increase the limit.</li>
 		<li MayRequire="ludeon.rimworld.anomaly">Special effects with &lt;color=#b0bf80&gt;devourer&lt;/color&gt; gene.</li>
 	</customEffectDescriptions>
 	<statOffsets>
@@ -141,6 +142,14 @@
 				  <li>WVC_Chimera_RandomGenesGen</li>
 				  <li>WVC_Chimera_MarkHarvest</li>
 				  <li>WVC_Chimera_SelfCopy</li>
+				</genes>
+			  </li>
+			  <!-- Rare solo -->
+			  <li ModderHook="RareSolo">
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.07</chance>
+				<genes>
+				  <li>WVC_Chimera_Devourer</li>
 				</genes>
 			  </li>
 			  <!-- Archiver -->

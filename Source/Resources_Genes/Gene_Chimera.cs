@@ -57,6 +57,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int currentComplexityLimit = 0;
+		public int ComplexityLimit
+		{
+			get
+			{
+				return (int)pawn.GetStatValue(ChimeraLimitStatDef) + currentComplexityLimit;
+			}
+		}
+
+		public void AddComplexityLimit(int newLimit = 1)
+		{
+			currentComplexityLimit += newLimit;
+		}
+
 		private int currentArchiteLimit = 1;
 		public int ArchiteLimit
 		{
@@ -344,6 +358,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref currentArchiteLimit, "currentArchiteLimit", 1);
+			Scribe_Values.Look(ref currentComplexityLimit, "currentComplexityLimit", 0);
 			Scribe_Collections.Look(ref consumedGenes, "eatedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref collectedGenes, "stolenGenes", LookMode.Def);
 			Scribe_Collections.Look(ref destroyedGenes, "destroyedGenes", LookMode.Def);
@@ -748,7 +763,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public StatDef ChimeraLimitStatDef => Giver?.statDef;
-		public int ComplexityLimit => (int)pawn.GetStatValue(ChimeraLimitStatDef);
 
 		//public AcceptanceReport CanBeUsed
 		//{

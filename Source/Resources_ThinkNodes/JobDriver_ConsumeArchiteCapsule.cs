@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -6,7 +7,8 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class JobDriver_ConsumeArchiteCapsule : JobDriver_XaGJob_General
+
+	public class JobDriver_ConsumeTarget : JobDriver_XaGJob_General
 	{
 
 		public Thing Target => job.targetA.Thing;
@@ -23,31 +25,18 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.WaitWith(TargetIndex.A, 320, useProgressBar: true).WithEffect(EffecterDefOf.ButcherMechanoid, TargetIndex.A);
 			yield return Toils_General.Do(delegate
 			{
-				if (job is not XaG_Job xaG_Job)
+				if (job is XaG_Job xaG_Job)
 				{
-					return;
-				}
-				Gene_Chimera chimera = pawn.genes?.GetFirstGeneOfType<Gene_Chimera>();
-				if (chimera == null)
-				{
-					return;
-				}
-				if (consumeStack)
-				{
-					chimera.AddArchiteLimit((int)(Target.stackCount * xaG_Job.factor));
-					Target.Destroy();
-				}
-				else
-				{
-					chimera.AddArchiteLimit((int)(1 * xaG_Job.factor));
-					Target.ReduceStack();
-				}
-				if (!chimera.Extension_Undead.soundDefOnImplant.NullOrUndefined())
-				{
-					chimera.Extension_Undead.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
+					Target.TryGetComp<CompChimeraLimit>()?.Action(pawn, Target, consumeStack, xaG_Job.factor);
 				}
 			});
 		}
+
+	}
+
+	[Obsolete]
+	public class JobDriver_ConsumeArchiteCapsule : JobDriver_ConsumeTarget
+	{
 
 	}
 

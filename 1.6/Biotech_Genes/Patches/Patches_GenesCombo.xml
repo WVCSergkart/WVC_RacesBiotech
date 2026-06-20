@@ -163,15 +163,58 @@
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>enable_chimeraXenogenesLimit</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath>
-		  <value>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
-			  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
-			  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
-			  <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description>
-			</li>
-		  </value>
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath> -->
+		  <!-- <value> -->
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu"> -->
+			  <!-- <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass> -->
+			  <!-- <jobDef>WVC_ConsumeArchiteCapsule</jobDef> -->
+			  <!-- <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description> -->
+			<!-- </li> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+					  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
+					  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+					  <!-- <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description> -->
+					  <descriptionTranslated>WVC_XaG_ChimeraConsumesArchiteDesc</descriptionTranslated>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="HumanEmbryo"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+					  <compClass>WVC_XenotypesAndGenes.CompChimeraComplexityLimit</compClass>
+					  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+					  <factor>1</factor>
+					  <descriptionTranslated>WVC_XaG_ChimeraConsumesComplexityDesc</descriptionTranslated>
+					</li>
+				  </value>
+				</li>
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThingDef[defName="Heart"]</xpath>
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<comps>
+					  <li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+						<compClass>WVC_XenotypesAndGenes.CompChimeraComplexityLimit</compClass>
+						<jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+						<factor>1</factor>
+						<descriptionTranslated>WVC_XaG_ChimeraConsumesComplexityDesc</descriptionTranslated>
+					  </li>
+					</comps>
+				  </value>
+				</li>
+			</operations>
 		</caseTrue>
 	</Operation>
 

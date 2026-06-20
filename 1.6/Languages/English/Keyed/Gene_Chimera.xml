@@ -129,6 +129,15 @@
 
 	<WVC_XaG_GeneChimeraDevourNociosphereWarning>Devour will destroy the nociosphere and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourNociosphereWarning>
 
+	<!-- =============== CONSUME LIMIT =============== -->
+
+	<WVC_XaG_ChimeraConsumesArchiteDesc>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</WVC_XaG_ChimeraConsumesArchiteDesc>
+
+	<WVC_XaG_ChimeraConsumesComplexityDesc>It can also be absorbed using the chimera gene in order to increase the complexity limit.</WVC_XaG_ChimeraConsumesComplexityDesc>
+
+	<WVC_XaG_ChimeraCpxLimitMessage>Chimera's complexity limit has been increased.</WVC_XaG_ChimeraCpxLimitMessage>
+	<WVC_XaG_ChimeraArcLimitMessage>Chimera's archite limit has been increased.</WVC_XaG_ChimeraArcLimitMessage>
+
 	<!-- =============== XENOGENES EDITOR =============== -->
 
 	<WVC_XaG_IGeneXenogenesEditor_ApplyWarning>The selected genes will be added to the gene set of gene {0}.</WVC_XaG_IGeneXenogenesEditor_ApplyWarning>

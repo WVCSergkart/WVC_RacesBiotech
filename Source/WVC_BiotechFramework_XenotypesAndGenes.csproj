@@ -359,6 +359,9 @@
     <Compile Include="Resources_ScenPart\StockGenerator_BuyAllSellable.cs" />
     <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
+    <Compile Include="Resources_Things\CompBackupSummonPawns.cs" />
+    <Compile Include="Resources_Things\CompChimeraArchiteLimit.cs" />
+    <Compile Include="Obsolete_0\CompEntitiesGenes.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_Corpse.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
