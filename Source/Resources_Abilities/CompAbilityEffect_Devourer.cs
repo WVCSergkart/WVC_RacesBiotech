@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 			if (victim != null)
 			{
 				DevourTarget(victim);
-				parent.StartCooldown((int)(parent.def.cooldownTicksRange.RandomInRange * victim.BodySize));
+				parent.StartCooldown((int)(parent.def.cooldownTicksRange.RandomInRange * victim.BodySize * WVC_Biotech.settings.devourer_CooldownFactor));
 			}
 		}
 

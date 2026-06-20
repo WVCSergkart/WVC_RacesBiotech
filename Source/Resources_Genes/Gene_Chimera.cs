@@ -545,7 +545,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					GetGeneFromHuman(corpse.InnerPawn);
 				}
-				else if (Rand.Chance(0.18f) && thing.def == MainDefOf.Devourer?.race)
+				else if (Rand.Chance(0.5f) && thing.def == MainDefOf.Devourer?.race)
 				{
 					GeneDef geneDef = DefDatabase<GeneDef>.AllDefsListForReading?.Where((geneDef) => geneDef.IsGeneDefOfType<Gene_Devourer>())?.RandomElement();
 					if (TryAddGene(geneDef))
@@ -825,6 +825,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_DevouredHuman(Pawn victim)
 		{
+			AddComplexityLimit(1);
 			TryAddGenesFromList(victim.genes.GenesListForReading);
 			TryAddGenesFromList(victim.genes.GetFirstGeneOfType<Gene_Chimera>()?.CollectedGenes);
 		}

@@ -115,6 +115,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraXenogermCD = false;
 		public bool enable_chimeraXenogenesLimit = true;
 		public IntRange chimera_defaultReqMetabolismRange = new(-5, 5);
+		// Devourer
+		public float devourer_CooldownFactor = 2f;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		public float duplicator_RandomGeneChance = 0.12f;
@@ -282,6 +284,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_chimeraStartingTools, "enable_chimeraStartingTools", defaultValue: true);
 			Scribe_Values.Look(ref enable_chimeraXenogermCD, "enable_chimeraXenogermCD", defaultValue: false);
 			Scribe_Values.Look(ref enable_chimeraXenogenesLimit, "enable_chimeraXenogenesLimit", defaultValue: true);
+			// Devourer
+			Scribe_Values.Look(ref devourer_CooldownFactor, "devourer_CooldownFactor", defaultValue: 2f);
 			// Duplicator
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
 			Scribe_Values.Look(ref duplicator_RandomGeneChance, "duplicator_RandomGeneChance", defaultValue: 0.12f);
@@ -859,6 +863,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (collapse_genesSettings_Anomaly)
 			{
+				listingStandard.SliderLabeledWithRef("WVC_Label_devourer_CooldownFactor".Translate((settings.devourer_CooldownFactor).ToStringPercent()), ref settings.devourer_CooldownFactor, 0f, 10f, "WVC_ToolTip_devourer_CooldownFactor".Translate(), round: 1);
 				listingStandard.SliderLabeledWithRef("WVC_Label_fleshmass_MaxMutationsLevel".Translate(settings.fleshmass_MaxMutationsLevel), ref settings.fleshmass_MaxMutationsLevel, 0f, 100f, "WVC_ToolTip_fleshmass_MaxMutationsLevel".Translate(), 0);
 				listingStandard.CheckboxLabeled("WVC_Label_fleshmass_HideBodypartHediffs".Translate().Colorize(ColorLibrary.LightBlue), ref settings.fleshmass_HideBodypartHediffs, "WVC_ToolTip_fleshmass_HideBodypartHediffs".Translate());
 			}
@@ -1017,7 +1022,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_dynamicGeneMetabolism = settingsDef.enable_dynamicGeneMetabolism;
 			//WVC_Biotech.settings.chimeraMinGeneCopyChance = settingsDef.chimeraMinGeneCopyChance;
-			WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch = settingsDef.shapeshifer_BaseGenesMatch;
+			WVC_Biotech.settings.shapeshifer_reqMinBaseGenesMatch = settingsDef.shapeshifer_reqMinBaseGenesMatch;
 			WVC_Biotech.settings.shapeshifer_CooldownDurationFactor = settingsDef.shapeshifer_CooldownDurationFactor;
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = settingsDef.shapeshifer_GeneCellularRegeneration;
 			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
@@ -1025,6 +1030,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_chimeraXenogermCD = settingsDef.enable_chimeraXenogermCD;
 			WVC_Biotech.settings.enable_chimeraXenogenesLimit = settingsDef.enable_chimeraXenogenesLimit;
 			WVC_Biotech.settings.chimera_defaultReqMetabolismRange = settingsDef.chimera_defaultReqMetabolismRange;
+			//
+			WVC_Biotech.settings.devourer_CooldownFactor = settingsDef.devourer_CooldownFactor;
 			// =
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
 			WVC_Biotech.settings.duplicator_RandomGeneChance = settingsDef.duplicator_RandomGeneChance;

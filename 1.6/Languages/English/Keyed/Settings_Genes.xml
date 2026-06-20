@@ -22,7 +22,7 @@
 	<WVC_XaGGeneSettings_Energy>Energy (Rechargeable)</WVC_XaGGeneSettings_Energy>
 	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlinks and Psylinks</WVC_XaGGeneSettings_MechAndPsyLinks>
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
-	<WVC_XaGGeneSettings_Fleshmass>Anomaly (Fleshmass)</WVC_XaGGeneSettings_Fleshmass>
+	<WVC_XaGGeneSettings_Fleshmass>Fleshmass nucleus/heart, Devourer</WVC_XaGGeneSettings_Fleshmass>
 	<WVC_XaGGeneSettings_Learning>Learning genes</WVC_XaGGeneSettings_Learning>
 
 	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
@@ -282,5 +282,10 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<WVC_Label_featheredAgeless_GenesCostFactor>Feathered ageless cost factor x{0}</WVC_Label_featheredAgeless_GenesCostFactor>
 	<WVC_ToolTip_featheredAgeless_GenesCostFactor>Affects the gene cost multiplier. The higher the value, the harder it is to obtain genes. Default 1.</WVC_ToolTip_featheredAgeless_GenesCostFactor>
+
+	<!-- ================================== -->
+
+	<WVC_Label_devourer_CooldownFactor>Devourer cooldown factor x{0}</WVC_Label_devourer_CooldownFactor>
+	<WVC_ToolTip_devourer_CooldownFactor>Sets an additional multiplier for the devourer gene's cooldown. The formula is: ability cooldown * target body size * this factor. The higher the multiplier, the longer the cooldown. Default 200%.</WVC_ToolTip_devourer_CooldownFactor>
 
 </LanguageData>

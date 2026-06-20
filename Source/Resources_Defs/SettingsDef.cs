@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_StartingFoodPolicies = true;
 		// Fix
 		public bool harmony_vanillaFixesTweaksAndCompatability = true;
-		public bool hediffs_checkImmunizationAndRemove = true;
+		//public bool hediffs_checkImmunizationAndRemove = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
@@ -86,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 		public bool voidlink_dynamicResourceLimit = true;
 		// Shapeshifter Morpher Archiver Traitshifter
 		public float shapeshifer_GeneCellularRegeneration = 1f;
-		public float shapeshifer_BaseGenesMatch = 0.7f;
+		public float shapeshifer_reqMinBaseGenesMatch = 0.7f;
 		public float shapeshifer_CooldownDurationFactor = 1f;
 		public bool archiver_transferWornApparel = false;
 		public bool archiver_transferEquipedWeapon = false;
@@ -98,6 +98,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraXenogermCD = false;
 		public bool enable_chimeraXenogenesLimit = true;
 		public IntRange chimera_defaultReqMetabolismRange = new(-5, 5);
+		// Devourer
+		public float devourer_CooldownFactor = 2f;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
 		public float duplicator_RandomGeneChance = 0.12f;
