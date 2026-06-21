@@ -10,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Gender : XaG_Gene, IGeneOverriddenBy
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtensionGiver;
 		public GeneExtension_Giver Props
 		{

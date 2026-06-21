@@ -91,9 +91,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				List<GeneDef> geneDefs = new();
-				geneDefs.AddRangeSafe(holded?.genes?.GenesListForReading?.ConvertToDefs());
-				return geneDefs;
+				//List<GeneDef> geneDefs = new();
+				//geneDefs.AddRange(holded?.genes?.GenesListForReading?.ConvertToDefs());
+				return holded?.genes?.GenesListForReading?.ConvertToDefs() ?? new();
 			}
 		}
 

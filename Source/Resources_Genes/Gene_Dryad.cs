@@ -12,9 +12,35 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DryadQueen : XaG_Gene, IGeneInspectInfo, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		[Unsaved(false)]
+		private GeneExtension_Spawner cachedSpawnerExtension;
+		public GeneExtension_Spawner Spawner
+		{
+			get
+			{
+				if (cachedSpawnerExtension == null)
+				{
+					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedSpawnerExtension;
+			}
+		}
+		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		[Unsaved(false)]
+		private GeneExtension_Giver cachedGiverExtension;
+		public GeneExtension_Giver Giver
+		{
+			get
+			{
+				if (cachedGiverExtension == null)
+				{
+					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGiverExtension;
+			}
+		}
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		private List<Pawn> dryads = new();
 
@@ -193,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 				dryad.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
 			}
 			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-			MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, Props.mutantDef);
+			MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, Giver.mutantDef);
 			return dryad;
 		}
 
@@ -381,7 +407,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+				HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, null);
 			}
 			catch (Exception arg)
 			{
@@ -391,7 +417,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
 		}
 
 		public void KillConnectedDryads()

@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneShaperEditor
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Undead cachedGeneExtension_Undead;
 		public GeneExtension_Undead Undead
 		{
@@ -27,6 +28,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension_Giver;
 		public GeneExtension_Giver Giver
 		{
@@ -102,6 +104,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[Obsolete]
+		[Unsaved(false)]
 		private bool? cachedGenesRegrow;
 		[Obsolete]
 		public bool EnableGenesRegrowing
@@ -299,6 +302,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Reimplanter
+		[Unsaved(false)]
 		private List<GeneDef> cachedPreservedGenes;
 		public virtual List<GeneDef> PreservedGeneDefs
 		{

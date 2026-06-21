@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
+		[Unsaved(false)]
 		private static StatDef cachedNucleusStatDef;
 		public StatDef NucleusStatDef
 		{
@@ -93,6 +94,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		[Unsaved(false)]
 		private float? cachedRegen;
 		public float Regeneration
 		{

@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Undead cachedGeneExtension_Undead;
 		public GeneExtension_Undead Extension_Undead
 		{
@@ -25,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension_Giver;
 		public GeneExtension_Giver Giver
 		{
@@ -127,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private HashSet<GeneDef> cachedAllGenes;
 		public HashSet<GeneDef> AllGenes
 		{
@@ -142,6 +145,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedAllGenes;
 			}
+		}
+
+		public void ResetCache_AllGenes()
+		{
+			cachedAllGenes = null;
 		}
 
 		public List<GeneDef> DisabledGenes => consumedGenes;
@@ -184,7 +192,7 @@ namespace WVC_XenotypesAndGenes
 			TryGetToolGene();
 		}
 
-		public void NPC_RandomGeneSetSetup(bool forceSetup = false)
+		private void NPC_RandomGeneSetSetup(bool forceSetup = false)
 		{
 			if (pawn.Faction == Faction.OfPlayerSilentFail)
 			{
@@ -300,7 +308,7 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						collectedGenes = DefDatabase<GeneDef>.AllDefsListForReading;
-						cachedAllGenes = null;
+						ResetCache_AllGenes();
 					}
 				};
 			}
@@ -310,8 +318,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!AllGenes.Contains(geneDef))
 			{
-				collectedGenes.AddSafe(geneDef);
-				cachedAllGenes = null;
+				collectedGenes.Add(geneDef);
+				ResetCache_AllGenes();
 				return true;
 			}
 			return false;
@@ -330,7 +338,7 @@ namespace WVC_XenotypesAndGenes
 		public void RemoveCollectedGene(GeneDef geneDef)
 		{
 			collectedGenes.RemoveAll(gene => gene == geneDef);
-			cachedAllGenes = null;
+			ResetCache_AllGenes();
 		}
 		public void DestroyGene(GeneDef geneDef)
 		{
@@ -340,8 +348,9 @@ namespace WVC_XenotypesAndGenes
 				//consumedGenes.Remove(geneDef);
 			}
 			consumedGenes.RemoveAll(gene => gene == geneDef);
-			cachedAllGenes = null;
+			ResetCache_AllGenes();
 		}
+
 		public void RemoveDestroyedGene(GeneDef geneDef)
 		{
 			//if (destroyedGenes.Contains(geneDef))
@@ -349,6 +358,7 @@ namespace WVC_XenotypesAndGenes
 			//	destroyedGenes.Remove(geneDef);
 			//}
 			destroyedGenes.RemoveAll(gene => gene == geneDef);
+			ResetCache_AllGenes();
 		}
 
 		public override void TickInterval(int delta)
@@ -659,11 +669,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedReqMetRange = null;
 			cachedIsReqCooldown = null;
-			cachedEaterDisabled = null;
+			cachedSubActionsDisabled = null;
 			cachedIsGenelined = null;
 			//cachedIsCustomEater = null;
 		}
 
+		[Unsaved(false)]
 		private bool? cachedIsReqCooldown;
 		public bool ReqCooldown
 		{
@@ -676,18 +687,20 @@ namespace WVC_XenotypesAndGenes
 				return cachedIsReqCooldown.Value;
 			}
 		}
-		private bool? cachedEaterDisabled;
+		[Unsaved(false)]
+		private bool? cachedSubActionsDisabled;
 		public bool DisableSubActions
 		{
 			get
 			{
-				if (!cachedEaterDisabled.HasValue)
+				if (!cachedSubActionsDisabled.HasValue)
 				{
 					UpdateCache();
 				}
-				return cachedEaterDisabled.Value;
+				return cachedSubActionsDisabled.Value;
 			}
 		}
+		[Unsaved(false)]
 		private bool? cachedIsGenelined;
 		public bool UseGeneline
 		{
@@ -700,6 +713,7 @@ namespace WVC_XenotypesAndGenes
 				return cachedIsGenelined.Value;
 			}
 		}
+		[Unsaved(false)]
 		private IntRange? cachedReqMetRange;
 		public IntRange ReqMetRange
 		{
@@ -729,7 +743,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedReqMetRange = WVC_Biotech.settings.chimera_defaultReqMetabolismRange;
 			cachedIsReqCooldown = WVC_Biotech.settings.enable_chimeraXenogermCD;
-			cachedEaterDisabled = false;
+			cachedSubActionsDisabled = false;
 			cachedIsGenelined = false;
 			//cachedIsCustomEater = false;
 			foreach (Gene item in pawn.genes.GenesListForReading)
@@ -740,7 +754,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (subgene.DisableSubActions)
 				{
-					cachedEaterDisabled = true;
+					cachedSubActionsDisabled = true;
 				}
 				if (subgene.EnableCooldown)
 				{

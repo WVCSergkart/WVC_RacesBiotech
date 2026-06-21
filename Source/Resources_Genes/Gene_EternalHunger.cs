@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Gene
 
+		[Unsaved(false)]
 		private float? cachedResourceLossPerDay;
 		public override float ResourceLossPerDay
 		{

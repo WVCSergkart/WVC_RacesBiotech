@@ -10,14 +10,14 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Fleshshaper : Gene_Shapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
-		private static List<Gene_Fleshshaper> cachedFleshshaperGenes;
-		public static List<Gene_Fleshshaper> FleshshaperGenes
+		private static HashSet<Gene_Fleshshaper> cachedFleshshaperGenes;
+		public static HashSet<Gene_Fleshshaper> FleshshaperGenes
 		{
 			get
 			{
 				if (cachedFleshshaperGenes == null)
 				{
-					List<Gene_Fleshshaper> list = new();
+					HashSet<Gene_Fleshshaper> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsAndWorld_Alive)
 					{
 						//if (pawn?.genes == null)
@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 						//		break;
 						//	}
 						//}
-						list.AddSafe(pawn?.genes?.GetFirstGeneOfType<Gene_Fleshshaper>());
+						list.Add(pawn?.genes?.GetFirstGeneOfType<Gene_Fleshshaper>());
 					}
 					cachedFleshshaperGenes = list;
 				}
@@ -89,16 +89,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> AllGenes
-		{
-			get
-			{
-				List<GeneDef> geneDefs = new();
-				geneDefs.AddRangeSafe(CollectedGenes);
-				geneDefs.AddRangeSafe(GenelineGenes);
-				return geneDefs;
-			}
-		}
+		//public List<GeneDef> AllGenes
+		//{
+		//	get
+		//	{
+		//		List<GeneDef> geneDefs = new();
+		//		geneDefs.AddRangeSafe(CollectedGenes);
+		//		geneDefs.AddRangeSafe(GenelineGenes);
+		//		return geneDefs;
+		//	}
+		//}
 
 		public List<GeneDef> CollectedGenes
 		{

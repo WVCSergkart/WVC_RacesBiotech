@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		public XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
 
+		[Unsaved(false)]
 		private List<IGeneDisconnectable> cachedSubGenes;
 		public List<IGeneDisconnectable> SubGenes
 		{
@@ -69,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		// In Dev?
 		//private static bool? cachedLocalMode;
-		public bool LocalMode
+		public static bool LocalMode
 		{
 			get
 			{
@@ -213,6 +214,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private float? cachedResourceOffset;
 		public float TotalOffset
 		{

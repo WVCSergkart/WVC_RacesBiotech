@@ -7,13 +7,13 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SimpleGestator : XaG_Gene, IGeneOverriddenBy, IGeneRemoteControl
+	public class Gene_SimpleGestator : Gene_RemoteController, IGeneOverriddenBy
 	{
-		public virtual string RemoteActionName => "WVC_Start".Translate();
+		public override string RemoteActionName => "WVC_Start".Translate();
 
-		public TaggedString RemoteActionDesc => Desc;
+		public override TaggedString RemoteActionDesc => Desc;
 
-		public virtual void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			if (!Active)
 			{
@@ -37,94 +37,39 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual bool RemoteControl_Hide => !Active;
+		//===========
 
-		public bool RemoteControl_Enabled
+		[Unsaved(false)]
+		private GeneExtension_Spawner cachedSpawnerExtension;
+		public GeneExtension_Spawner Spawner
 		{
 			get
 			{
-				return enabled;
-			}
-			set
-			{
-				enabled = value;
-				remoteControllerCached = false;
+				if (cachedSpawnerExtension == null)
+				{
+					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedSpawnerExtension;
 			}
 		}
 
-		public bool enabled = true;
-		public bool remoteControllerCached = false;
-
-		public void RemoteControl_Recache()
+		[Unsaved(false)]
+		private GeneExtension_Giver cachedGiverExtension;
+		public GeneExtension_Giver Giver
 		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+			get
+			{
+				if (cachedGiverExtension == null)
+				{
+					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGiverExtension;
+			}
 		}
-
-		//===========
-
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
-
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public virtual string Desc => "WVC_XaG_Gene_SimpleGestatorDesc".Translate();
 		public virtual string Warning => "WVC_XaG_Gene_SimpleGestatorWarning".Translate();
 		public virtual bool UseDialogWarning => true;
-
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			//if (XaG_GeneUtility.SelectorDraftedActiveFaction(pawn, this))
-			//{
-			//	yield break;
-			//}
-			//if (DebugSettings.ShowDevGizmos)
-			//{
-			//	yield return new Command_Action
-			//	{
-			//		defaultLabel = "DEV: Spawn NewBornGenes",
-			//		action = delegate
-			//		{
-			//			GestationUtility.GestateChild_WithGenes(pawn);
-			//		}
-			//	};
-			//	yield return new Command_Action
-			//	{
-			//		defaultLabel = "DEV: Spawn NewBornXenotype",
-			//		action = delegate
-			//		{
-			//			GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), null, "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
-			//		}
-			//	};
-			//}
-			//yield return new Command_Action
-			//{
-			//	defaultLabel = LabelCap,
-			//	defaultDesc = Desc,
-			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
-			//	action = delegate
-			//	{
-			//		if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
-			//		{
-			//			if (UseDialogWarning)
-			//			{
-			//				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Warning, delegate
-			//				{
-			//					StartPregnancy();
-			//				});
-			//				Find.WindowStack.Add(window);
-			//			}
-			//			else
-			//			{
-			//				StartPregnancy();
-			//			}
-			//		}
-			//	}
-			//};
-			if (enabled)
-			{
-				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-			}
-		}
 
 		public virtual void StartPregnancy()
 		{
@@ -170,7 +115,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			RemoveHediffs();
-			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+			//XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
 	}

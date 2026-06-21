@@ -7,6 +7,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DuplicatorSubGene : XaG_Gene
 	{
 
+		[Unsaved(false)]
 		private bool? cachedIsDuplicate;
 		public bool IsDuplicate
 		{
@@ -24,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension;
 		public GeneExtension_Giver Giver
 		{

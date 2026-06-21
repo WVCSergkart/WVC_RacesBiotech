@@ -101,12 +101,13 @@ namespace WVC_XenotypesAndGenes
 		private static int lastMessageTick = -1;
 
 		private static HashSet<string> cachedUnlockedXenotypesDefs;
+		[Unsaved(false)]
 		private HashSet<string> cachedUnlockedXenotypesDefs_Local;
 		private HashSet<string> UnlockedXenotypesDefs
 		{
 			get
 			{
-				if (Energyshifter.LocalMode)
+				if (Gene_Energyshifter.LocalMode)
 				{
 					if (cachedUnlockedXenotypesDefs_Local == null)
 					{
@@ -126,12 +127,13 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private static HashSet<GeneDef> cachedCollectedGeneDefs;
+		[Unsaved(false)]
 		private HashSet<GeneDef> cachedCollectedGeneDefs_Local;
 		private HashSet<GeneDef> CollectedGeneDefs
 		{
 			get
 			{
-				if (Energyshifter.LocalMode)
+				if (Gene_Energyshifter.LocalMode)
 				{
 					if (cachedCollectedGeneDefs_Local == null)
 					{

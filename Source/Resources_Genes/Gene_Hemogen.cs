@@ -13,7 +13,6 @@ namespace WVC_XenotypesAndGenes
 
 		[Unsaved(false)]
 		private Gene_Hemogen cachedHemogenGene;
-
 		public Gene_Hemogen Hemogen
 		{
 			get

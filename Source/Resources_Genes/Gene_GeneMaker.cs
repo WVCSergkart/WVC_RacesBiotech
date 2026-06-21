@@ -8,52 +8,37 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Genemaker : XaG_Gene, IGeneInspectInfo, IGeneRemoteControl
+	public class Gene_Genemaker : Gene_RemoteController, IGeneInspectInfo
 	{
-		public string RemoteActionName => XaG_UiUtility.OnOrOff(spawnGenepack);
+		public override string RemoteActionName => XaG_UiUtility.OnOrOff(spawnGenepack);
 
-		public TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlGeneMakerDesc".Translate();
+		public override TaggedString RemoteActionDesc => "WVC_XaG_RemoteControlGeneMakerDesc".Translate();
 
-		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			spawnGenepack = !spawnGenepack;
 		}
 
 		public bool spawnGenepack = false;
 
-		public bool RemoteControl_Hide => !Active;
-
-		public bool RemoteControl_Enabled
-		{
-			get
-			{
-				return enabled;
-			}
-			set
-			{
-				enabled = value;
-				remoteControllerCached = false;
-			}
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-		}
-
-		public bool enabled = true;
-		public bool remoteControllerCached = false;
-
-		public void RemoteControl_Recache()
-		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
-		}
-
 
 		//===========
 
-		public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
+
+		[Unsaved(false)]
+		private GeneExtension_Spawner cachedExtension;
+		public GeneExtension_Spawner Props
+		{
+			get
+			{
+				if (cachedExtension == null)
+				{
+					cachedExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedExtension;
+			}
+		}
+		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
 		public int ticksUntilSpawn;
 
@@ -75,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.ActiveFactionMap(pawn, this) && Props != null)
+			if (!XaG_GeneUtility.FactionMap(pawn) && Props != null)
 			{
 				SpawnItems();
 			}
@@ -110,10 +95,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (enabled)
-			{
-				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-			}
+			//if (enabled)
+			//{
+			//	yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+			//}
 		}
 
 		public void SpawnItems(Pawn pawn, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")

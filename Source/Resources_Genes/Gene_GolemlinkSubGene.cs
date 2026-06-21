@@ -9,6 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GolemlinkSubGene : XaG_Gene
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Spawner cachedGeneExtension_Spawner;
 		public GeneExtension_Spawner Spawner
 		{
@@ -54,6 +55,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Golemlink_DryadPetrifier : Gene_GolemlinkSubGene
 	{
 
+		[Unsaved(false)]
 		private Gene_DryadQueen cachedDryadsQueenGene;
 		public Gene_DryadQueen Gauranlen
 		{

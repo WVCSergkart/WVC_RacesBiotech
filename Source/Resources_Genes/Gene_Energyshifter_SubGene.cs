@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private Gene_Energyshifter cachedShapeshifterGene;
 		public Gene_Energyshifter Energyshifter
 		{

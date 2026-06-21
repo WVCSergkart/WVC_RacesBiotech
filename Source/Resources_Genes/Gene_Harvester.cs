@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
+		[Unsaved(false)]
 		private GeneExtension_Spawner cachedGeneExtension;
 		public GeneExtension_Spawner Props
 		{
@@ -27,8 +28,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int ticksUntilSpawn;
 
-		private Gene_Hemogen cachedHemogenGene = null;
-
+		[Unsaved(false)]
+		private Gene_Hemogen cachedHemogenGene;
 		public Gene_Hemogen Gene_Hemogen
 		{
 			get

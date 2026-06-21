@@ -10,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Holder : Gene_RemoteController, IGeneFloatMenuOptions, IGeneOverriddenBy
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension_Giver;
 		public GeneExtension_Giver Giver
 		{
@@ -23,17 +24,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static List<Gene_Holder> cachedHolderGenes;
-		public static List<Gene_Holder> HolderGenes
+		private static HashSet<Gene_Holder> cachedHolderGenes;
+		public static HashSet<Gene_Holder> HolderGenes
 		{
 			get
 			{
 				if (cachedHolderGenes == null)
 				{
-					List<Gene_Holder> list = new();
+					HashSet<Gene_Holder> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMaps_FreeColonistsSpawned)
 					{
-						list.AddSafe(pawn?.genes?.GetFirstGeneOfType<Gene_Holder>());
+						list.Add(pawn?.genes?.GetFirstGeneOfType<Gene_Holder>());
 					}
 					cachedHolderGenes = list;
 				}
@@ -282,6 +283,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Holded : Gene_RemoteController, IGeneFloatMenuOptions
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension_Giver;
 		public GeneExtension_Giver Giver
 		{

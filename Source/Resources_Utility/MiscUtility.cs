@@ -108,6 +108,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public static void AddSafe<T>(this HashSet<T> set, T item)
+		//{
+		//	if (!set.Contains(item))
+		//	{
+		//		set.Add(item);
+		//	}
+		//}
+
 		public static CompHumanlike HumanComponent(this Pawn pawn)
 		{
 			return pawn.TryGetComp<CompHumanlike>();

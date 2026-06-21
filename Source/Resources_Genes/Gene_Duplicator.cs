@@ -9,6 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Duplicator : XaG_Gene, IGeneRecacheable
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension;
 		public GeneExtension_Giver Giver
 		{
@@ -24,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public override string LabelCap => base.LabelCap + " (" + "WVC_IsDuplcate".Translate((SourcePawn != pawn).ToStringYesNo()) + ")";
 
+		[Unsaved(false)]
 		private Pawn cachedSourcePawn;
 		public Pawn SourcePawn
 		{
@@ -39,6 +41,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool SourceIsAlive => SourcePawn?.Dead == false;
 
+		[Unsaved(false)]
 		private List<Pawn> cachedDuplicates;
 		public List<Pawn> PawnDuplicates
 		{
@@ -52,6 +55,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Unsaved(false)]
 		private List<Pawn> cachedDuplicatesWithSource;
 		public List<Pawn> PawnDuplicates_WithSource
 		{

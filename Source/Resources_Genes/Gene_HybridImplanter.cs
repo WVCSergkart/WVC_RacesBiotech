@@ -5,6 +5,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HybridImplanter : XaG_Gene
 	{
 
+		[Unsaved(false)]
 		private bool? cachedInheritability;
 		public bool IsEndogene
 		{

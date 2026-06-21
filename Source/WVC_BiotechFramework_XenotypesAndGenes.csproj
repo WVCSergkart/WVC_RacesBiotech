@@ -104,7 +104,6 @@
     <Compile Include="Resources_Genes\Gene_Attachments.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraLimits.cs" />
     <Compile Include="Resources_Genes\Gene_CustomHair.cs" />
-    <Compile Include="Resources_Genes\Gene_DynamicMetabolism.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter_SubGene.cs" />
     <Compile Include="Resources_Genes\Gene_Energyshifter_XenogenesEditor.cs" />

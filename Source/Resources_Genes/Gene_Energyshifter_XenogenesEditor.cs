@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override string LabelCap => base.LabelCap + " (" + (int)geneticMaterial + ")";
 
+		[Unsaved(false)]
 		private Gene_Energyshifter cachedShapeshifterGene;
 		public Gene_Energyshifter Energyshifter
 		{
@@ -45,16 +46,16 @@ namespace WVC_XenotypesAndGenes
 		public float ResourceConsumption_Offset => def.resourceLossPerDay;
 		public float ResourceConsumption_Factor => 1f;
 
-		public List<GeneDef> AllGenes
-		{
-			get
-			{
-				List<GeneDef> geneDefs = new();
-				geneDefs.AddRangeSafe(GenelineGenes);
-				geneDefs.AddRangeSafe(CollectedGenes);
-				return geneDefs;
-			}
-		}
+		//public List<GeneDef> AllGenes
+		//{
+		//	get
+		//	{
+		//		List<GeneDef> geneDefs = new();
+		//		geneDefs.AddRangeSafe(GenelineGenes);
+		//		geneDefs.AddRangeSafe(CollectedGenes);
+		//		return geneDefs;
+		//	}
+		//}
 
 		public List<GeneDef> CollectedGenes
 		{
@@ -67,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> DisabledGenes => pawn.genes.GetFirstGeneOfType<Gene_Energyshifter_XenotypesUnlocker>()?.GeneDefs ?? new();
 		public List<GeneDef> DestroyedGenes => new();
 
+		[Unsaved(false)]
 		private List<GeneDef> cachedGeneline;
 		public List<GeneDef> GenelineGenes
 		{

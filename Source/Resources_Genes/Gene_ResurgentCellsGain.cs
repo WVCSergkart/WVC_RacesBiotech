@@ -62,7 +62,6 @@ namespace WVC_XenotypesAndGenes
 
 		[Unsaved(false)]
 		private Gene_Resurgent cachedResurgentGene;
-
 		public Gene_Resurgent Resurgent
 		{
 			get

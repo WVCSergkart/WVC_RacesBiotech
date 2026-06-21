@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Opinion : XaG_Gene
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
 		{
@@ -80,6 +81,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DemonBeauty : XaG_Gene
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
 		{
@@ -139,6 +141,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodfeederBeauty : XaG_Gene, IGeneBloodfeeder
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
 		{
@@ -225,6 +228,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SweetVoice : Gene_Speaker
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
 		{
@@ -312,6 +316,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Recluse : XaG_Gene, IGeneOverriddenBy
 	{
 
+		[Unsaved(false)]
 		private GeneExtension_Opinion cachedExtension;
 		public GeneExtension_Opinion Props
 		{

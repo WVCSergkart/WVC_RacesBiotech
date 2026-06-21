@@ -28,6 +28,7 @@ namespace WVC_XenotypesAndGenes
 
 		//private int nextTick = 1500;
 
+		[Unsaved(false)]
 		private bool? cachedOneTimeMorpher;
 
 		public virtual bool CanMorphNow => true;

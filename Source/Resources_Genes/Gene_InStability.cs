@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension;
 		public GeneExtension_Giver Props
 		{
@@ -82,6 +83,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
+		[Unsaved(false)]
 		private GeneExtension_Giver cachedGeneExtension;
 		public GeneExtension_Giver Props
 		{
