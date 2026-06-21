@@ -77,29 +77,29 @@ namespace WVC_XenotypesAndGenes
 			ticksUntilSpawn = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: SpawnGenepack",
-					defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
-					action = delegate
-					{
-						if (pawn.Map != null && Active)
-						{
-							SpawnItems();
-						}
-						ResetInterval();
-					}
-				};
-			}
-			//if (enabled)
-			//{
-			//	yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-			//}
-		}
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: SpawnGenepack",
+		//			defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
+		//			action = delegate
+		//			{
+		//				if (pawn.Map != null && Active)
+		//				{
+		//					SpawnItems();
+		//				}
+		//				ResetInterval();
+		//			}
+		//		};
+		//	}
+		//	//if (enabled)
+		//	//{
+		//	//	yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+		//	//}
+		//}
 
 		public void SpawnItems(Pawn pawn, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")
 		{

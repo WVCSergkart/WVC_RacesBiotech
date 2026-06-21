@@ -150,8 +150,8 @@ namespace WVC_XenotypesAndGenes
 			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
 		}
 
-		public bool enabled = true;
-		public bool remoteControllerCached = false;
+		private bool enabled = true;
+		private bool remoteControllerCached = false;
 
 		public void RemoteControl_Recache()
 		{

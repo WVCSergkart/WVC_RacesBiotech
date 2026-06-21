@@ -126,24 +126,24 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			//foreach (Gizmo item in base.GetGizmos())
-			//{
-			//	yield return item;
-			//}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryAutoDevourer",
-					action = delegate
-					{
-						TryHunt();
-					}
-				};
-			}
-		}
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	foreach (Gizmo item in base.GetGizmos())
+		//	{
+		//		yield return item;
+		//	}
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: TryAutoDevourer",
+		//			action = delegate
+		//			{
+		//				TryHunt();
+		//			}
+		//		};
+		//	}
+		//}
 
 		public override void ExposeData()
 		{
