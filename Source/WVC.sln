@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11822.322 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WVC_BiotechFramework_XenotypesAndGenes", "WVC_BiotechFramework_XenotypesAndGenes.csproj", "{446F3771-6E21-4958-9805-E2DD6D52DBF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRESaurids", "..\..\VRE-Saurid-Forked\Source\VRESaurids\VRESaurids.csproj", "{7B903872-2FDC-47E4-86F6-9F51F0AE4F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanillaRacesExpanded-Lycanthrope", "..\..\VRE-Lycanthrope-Forked\Source\VanillaRacesExpanded-Lycanthrope\VanillaRacesExpanded-Lycanthrope\VanillaRacesExpanded-Lycanthrope.csproj", "{8281E4EE-FE39-4FAD-BA55-326503AE9284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanillaRacesExpanded-Sanguophage", "..\..\VRE-Sanguophage-Forked\Source\VanillaRacesExpanded-Sanguophage\VanillaRacesExpanded-Sanguophage\VanillaRacesExpanded-Sanguophage.csproj", "{CD05ABFA-7249-49F1-AA0A-2FA449A59685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanillaRacesExpanded-Fungoid", "..\..\VRE-Fungoid-Forked\Source\VanillaRacesExpanded-Fungoid\VanillaRacesExpanded-Fungoid\VanillaRacesExpanded-Fungoid.csproj", "{3216F009-9E41-4175-96F4-13BC1176E9A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +22,22 @@ Global
 		{446F3771-6E21-4958-9805-E2DD6D52DBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{446F3771-6E21-4958-9805-E2DD6D52DBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{446F3771-6E21-4958-9805-E2DD6D52DBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B903872-2FDC-47E4-86F6-9F51F0AE4F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B903872-2FDC-47E4-86F6-9F51F0AE4F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B903872-2FDC-47E4-86F6-9F51F0AE4F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B903872-2FDC-47E4-86F6-9F51F0AE4F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8281E4EE-FE39-4FAD-BA55-326503AE9284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8281E4EE-FE39-4FAD-BA55-326503AE9284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8281E4EE-FE39-4FAD-BA55-326503AE9284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8281E4EE-FE39-4FAD-BA55-326503AE9284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD05ABFA-7249-49F1-AA0A-2FA449A59685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD05ABFA-7249-49F1-AA0A-2FA449A59685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD05ABFA-7249-49F1-AA0A-2FA449A59685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD05ABFA-7249-49F1-AA0A-2FA449A59685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3216F009-9E41-4175-96F4-13BC1176E9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3216F009-9E41-4175-96F4-13BC1176E9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3216F009-9E41-4175-96F4-13BC1176E9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3216F009-9E41-4175-96F4-13BC1176E9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

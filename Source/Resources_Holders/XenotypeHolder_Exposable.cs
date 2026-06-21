@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using RimWorld;
+﻿using RimWorld;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -46,6 +47,15 @@ namespace WVC_XenotypesAndGenes
 		public XenotypeHolder_Exposable()
 		{
 
+		}
+
+		public XenotypeHolder_Exposable(Pawn pawn, bool inheritable, List<GeneDef> genes)
+		{
+			xenotypeDef = pawn.genes.Xenotype;
+			name = pawn.genes.xenotypeName;
+			iconDef = pawn.genes.iconDef;
+			this.genes = genes;
+			this.inheritable = inheritable;
 		}
 
 		public XenotypeHolder_Exposable(XenotypeHolder holder)
