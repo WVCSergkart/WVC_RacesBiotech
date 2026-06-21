@@ -112,9 +112,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
-			limitDisabled = !Gene_Chimera.ChimeraGenesLimit || (gene.ComplexityLimit == 999 && gene.ArchiteLimit == 999);
+			limitDisabled = !Gene_Chimera.XenogenesEditorLimit;
 			if (gene is IGeneXenogenesContainer container)
 			{
+				limitDisabled = true;
 				isContainer = true;
 				geneXenogenesContainer = container;
 			}

@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 					//Log.Error("0");
 					StringBuilder stringBuilder = new();
 					stringBuilder.AppendLineTagged("WVC_XaG_FleshshaperGizmoTip".Translate(gene.ShaperResource, gene_Fleshshaper.OverloadLevel));
-					if (Gene_Chimera.ChimeraGenesLimit)
+					if (Gene_Chimera.XenogenesEditorLimit)
 					{
 						stringBuilder.AppendLineTagged("WVC_XaG_Chimera_GizmoTip_GenesLimit".Translate(xenogenesEditor.ComplexityLimit, xenogenesEditor.ArchiteLimit));
 					}

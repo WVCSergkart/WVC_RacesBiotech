@@ -387,6 +387,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneChimeraLimit
+	{
+
+		float CpxLimitOffset { get; }
+		float CpxLimitFactor { get; }
+		float ArcLimitOffset { get; }
+		float ArcLimitFactor { get; }
+
+	}
+
 	//public interface IGeneLovin
 	//{
 

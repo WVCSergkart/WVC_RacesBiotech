@@ -62,7 +62,21 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return (int)pawn.GetStatValue(ChimeraLimitStatDef) + currentComplexityLimit;
+				float finalValue = pawn.GetStatValue(ChimeraLimitStatDef);
+				float factor = 1f;
+				foreach (Gene gene in pawn.genes.GenesListForReading)
+				{
+					if (gene is IGeneChimeraLimit geneChimeraLimit && gene.Active)
+					{
+						// Used for hivemind size or free bandwidth. Do not use for non-dynamic offsets.
+						finalValue += geneChimeraLimit.CpxLimitOffset;
+						factor *= geneChimeraLimit.CpxLimitFactor;
+					}
+				}
+				//Log.Error("1");
+				finalValue *= factor;
+				finalValue += currentComplexityLimit;
+				return (int)finalValue;
 			}
 		}
 
@@ -750,7 +764,7 @@ namespace WVC_XenotypesAndGenes
 		// =================
 
 		public static bool forcedDisableChimeraLimit = false;
-		public static bool ChimeraGenesLimit
+		public static bool XenogenesEditorLimit
 		{
 			get
 			{
@@ -795,7 +809,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			StatDef stat = ChimeraLimitStatDef;
 			string supportedGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.statFactors != null && x.statFactors.StatListContains(stat) || x.statOffsets != null && x.statOffsets.StatListContains(stat)).Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - ");
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description + "\n\n" + supportedGenes, stat.displayPriorityInCategory);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, ComplexityLimit.ToString(), stat.description + "\n\n" + supportedGenes, stat.displayPriorityInCategory);
 		}
 
 		// =================

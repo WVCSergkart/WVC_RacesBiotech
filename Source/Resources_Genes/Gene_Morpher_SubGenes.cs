@@ -557,4 +557,30 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SpaceMorph : Gene_AbilityMorph
+	{
+
+		public override bool CanMorph()
+		{
+			return pawn.InSpace();
+		}
+
+	}
+
+	public class Gene_ToxicMorph : Gene_MorpherTrigger
+	{
+
+		public override bool CanMorph()
+		{
+			return pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.ToxicBuildup)?.Severity >= 0.5f;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			base.MorpherTrigger(geneSet);
+			HediffUtility.TryRemoveHediff(HediffDefOf.ToxicBuildup, pawn);
+		}
+
+	}
+
 }

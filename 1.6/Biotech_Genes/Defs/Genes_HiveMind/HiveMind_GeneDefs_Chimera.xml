@@ -17,26 +17,22 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 	  <li>Xenogenes limit increases depending on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
-	  <!-- <li>Does not trigger hivemind &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization.</li> -->
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_ChimeraLimit>-20.0</WVC_ChimeraLimit>
 	</statOffsets>
 	<exclusionTags Inherit="False"/>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName>
-		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <isDormant>true</isDormant> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_HiveMind_ChimeraLimit</hediffDefName> -->
 		<!-- </li> -->
-	</modExtensions>
+	<!-- </modExtensions> -->
   </GeneDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Hivemind">
-	<defName>WVC_HiveMind_ChimeraLimit</defName>
-	<label>hivemind</label>
-	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromHiveMind</hediffClass>
-  </HediffDef>
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Hivemind"> -->
+	<!-- <defName>WVC_HiveMind_ChimeraLimit</defName> -->
+	<!-- <label>hivemind</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromHiveMind</hediffClass> -->
+  <!-- </HediffDef> -->
 
 </Defs>

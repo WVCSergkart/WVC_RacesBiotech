@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -31,6 +32,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffWithComps_ChimeraLimitFromBandwidth : HediffWithComps_ChimeraDependant
 	{
 
@@ -83,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffWithComps_ChimeraLimitFromHiveMind : HediffWithComps_ChimeraDependant
 	{
 

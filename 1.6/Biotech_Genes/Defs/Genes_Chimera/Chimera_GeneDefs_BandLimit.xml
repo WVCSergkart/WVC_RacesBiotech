@@ -18,20 +18,20 @@
 	  <WVC_ChimeraLimit>-21.0</WVC_ChimeraLimit>
 	</statOffsets>
 	<exclusionTags Inherit="False"/>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_Chimera_BandwidthLimit</hediffDefName>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_Chimera_BandwidthLimit</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Chimera_BandwidthLimit</defName>
-	<label>bandwidth</label>
-	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromBandwidth</hediffClass>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
-	</comps>
-  </HediffDef>
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Chimera_BandwidthLimit</defName> -->
+	<!-- <label>bandwidth</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_ChimeraLimitFromBandwidth</hediffClass> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
 
 </Defs>
