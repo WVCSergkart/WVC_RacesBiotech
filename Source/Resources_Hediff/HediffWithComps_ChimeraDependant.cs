@@ -10,9 +10,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => false;
 
+		protected HediffStage curStage;
+
 		[Unsaved(false)]
 		private Gene_Chimera cachedChimeraGene;
-
 		public Gene_Chimera Chimera
 		{
 			get
@@ -27,7 +28,54 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Recache()
 		{
+			curStage = null;
+		}
 
+	}
+
+	public class HediffWithComps_DisabledGenes : HediffWithComps_ChimeraDependant
+	{
+
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (curStage == null)
+				{
+					if (ModsUtility.GameNotStarted())
+					{
+						return new();
+					}
+					curStage = new();
+					if (Chimera != null && def is XaG_HediffDef newDef && newDef.statModifiers != null)
+					{
+						if (!newDef.statModifiers.statFactors.NullOrEmpty())
+						{
+							curStage.statFactors = new();
+							foreach (StatModifier item in newDef.statModifiers.statFactors)
+							{
+								StatModifier statModifier = new();
+								statModifier.stat = item.stat;
+								float factor = 1f - (item.value * Chimera.DisabledGenes.Count);
+								statModifier.value = factor > 0f ? factor : 0f;
+								curStage.statFactors.Add(statModifier);
+							}
+						}
+						if (!newDef.statModifiers.statOffsets.NullOrEmpty())
+						{
+							curStage.statOffsets = new();
+							foreach (StatModifier item in newDef.statModifiers.statOffsets)
+							{
+								StatModifier statModifier = new();
+								statModifier.stat = item.stat;
+								statModifier.value = item.value * Chimera.DisabledGenes.Count;
+								curStage.statOffsets.Add(statModifier);
+							}
+						}
+					}
+				}
+				return curStage;
+			}
 		}
 
 	}
@@ -38,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 4;
 
-		private HediffStage curStage;
+		//private HediffStage curStage;
 
 		public override bool ShouldRemove => false;
 
@@ -91,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 22;
 
-		private static HediffStage curStage;
+		private new static HediffStage curStage;
 
 		public override bool ShouldRemove => false;
 

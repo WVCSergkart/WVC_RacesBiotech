@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_GeneticArmor</defName>
+	<label>genetic armor</label>
+	<description>Carriers of this gene have TEST.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneticArmor</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>230</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Armor rating - Blunt +0.6% * &lt;color=#8a8ae6&gt;absorbed genes&lt;/color&gt; count</li>
+		<li>Armor rating - Sharp +0.4% * &lt;color=#8a8ae6&gt;absorbed genes&lt;/color&gt; count</li>
+		<li>Armor rating - Heat +0.7% * &lt;color=#8a8ae6&gt;absorbed genes&lt;/color&gt; count</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Gene_FleshmassArmor</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Chimera_GeneticArmor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+	<defName>WVC_Chimera_GeneticArmor</defName>
+	<label>genetic armor</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_DisabledGenes</hediffClass>
+	<statModifiers>
+	  <statOffsets>
+		<ArmorRating_Blunt>0.006</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.004</ArmorRating_Sharp>
+		<ArmorRating_Heat>0.007</ArmorRating_Heat>
+	  </statOffsets>
+	</statModifiers>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

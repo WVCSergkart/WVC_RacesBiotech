@@ -150,6 +150,7 @@ namespace WVC_XenotypesAndGenes
 		public void ResetCache_AllGenes()
 		{
 			cachedAllGenes = null;
+			UpdSubHediffs();
 		}
 
 		public List<GeneDef> DisabledGenes => consumedGenes;
