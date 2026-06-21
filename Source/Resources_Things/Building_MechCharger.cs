@@ -263,22 +263,22 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Log.Error("0");
 			Gene_Rechargeable gene = selPawn?.genes?.GetFirstGeneOfType<Gene_Rechargeable>();
-			if (gene?.Props?.xenoChargerDef == def)
+			if (gene?.Extension_Giver?.xenoChargerDef == def)
 			{
 				// Log.Error("1");
 				yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceRecharge".Translate(), delegate
 				{
-					Job job = JobMaker.MakeJob(gene.Props.rechargeableStomachJobDef, this);
+					Job job = JobMaker.MakeJob(gene.Extension_Giver.rechargeableStomachJobDef, this);
 					job.overrideFacing = Rot4.South;
 					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
 				}), selPawn, this);
 				Gene_HemogenRecharge gene2 = selPawn?.genes?.GetFirstGeneOfType<Gene_HemogenRecharge>();
-				if (gene2?.Props?.xenoChargerDef == def)
+				if (gene2?.Extension_Giver?.xenoChargerDef == def)
 				{
 					// Log.Error("1");
 					yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceHemogenRecharge".Translate(), delegate
 					{
-						Job job = JobMaker.MakeJob(gene2.Props.rechargeableStomachJobDef, this);
+						Job job = JobMaker.MakeJob(gene2.Extension_Giver.rechargeableStomachJobDef, this);
 						job.overrideFacing = Rot4.South;
 						selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
 					}), selPawn, this);

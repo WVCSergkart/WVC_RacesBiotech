@@ -9,18 +9,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PackMentality : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		private static HashSet<Pawn> cachedPackPawns;
 		public static HashSet<Pawn> ThePack
@@ -80,11 +80,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (member != pawn)
 						{
-							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, member);
-							member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, member);
+							member.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, pawn);
 						}
 					}
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.thoughtDef, null);
 				}
 			}
 			catch (Exception arg)
@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (member != pawn)
 				{
-					member.needs?.mood?.thoughts?.memories.TryGainMemory(Props.packMemberLost, pawn);
+					member.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.packMemberLost, pawn);
 				}
 			}
 		}

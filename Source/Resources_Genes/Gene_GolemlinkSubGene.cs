@@ -9,19 +9,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GolemlinkSubGene : XaG_Gene
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Spawner cachedGeneExtension_Spawner;
-		public GeneExtension_Spawner Spawner
-		{
-			get
-			{
-				if (cachedGeneExtension_Spawner == null)
-				{
-					cachedGeneExtension_Spawner = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedGeneExtension_Spawner;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Spawner cachedGeneExtension_Spawner;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Spawner == null)
+		//		{
+		//			cachedGeneExtension_Spawner = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedGeneExtension_Spawner;
+		//	}
+		//}
 
 		[Unsaved(false)]
 		private Gene_Golemlink cachedGolemlinkGene;
@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override List<GolemModeDef> AllowedGolemModes => Spawner.golemModeDefs;
+		public override List<GolemModeDef> AllowedGolemModes => Extension_Spawner.golemModeDefs;
 
 		//public override void TickInterval(int delta)
 		//{

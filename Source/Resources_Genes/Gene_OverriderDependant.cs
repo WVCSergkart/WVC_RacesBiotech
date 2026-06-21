@@ -230,7 +230,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SelfOverrider_Healing : Gene_OverriderDependant
 	{
 
-		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
 		//private bool? regenerateEyes;
 		//public bool RegenerateEyes
@@ -252,7 +252,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 713);
+			HealingUtility.Regeneration(pawn, regeneration: Extension_Undead.regeneration, tick: 713);
 		}
 
 	}

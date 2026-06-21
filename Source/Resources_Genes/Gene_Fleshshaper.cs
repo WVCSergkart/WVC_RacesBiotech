@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public GeneExtension_Undead Extension_Undead => Undead;
+		//public GeneExtension_Undead Extension_Undead => base.Extension_Undead;
 
 		//public override List<GeneralHolder> ShaperGenes
 		//{
@@ -81,8 +81,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return base.Xenotypes.Where(holder =>
 				{
-					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
-					bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
+					bool isSpecifiedXenotype = Extension_Giver.xenotypeDefs != null && Extension_Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
+					bool inAnyCategory = Extension_Giver.geneCategoryDefs != null && holder.genes.Any(def => Extension_Giver.geneCategoryDefs.Contains(def.displayCategory));
 					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
 				}).ToList();

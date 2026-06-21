@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (dryad.mutant == null)
 			{
-				MutantDef mutantDef = Gene_DryadQueen?.Giver?.mutantDef;
+				MutantDef mutantDef = Gene_DryadQueen?.Extension_Giver?.mutantDef;
 				if (mutantDef != null)
 				{
 					MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, mutantDef);

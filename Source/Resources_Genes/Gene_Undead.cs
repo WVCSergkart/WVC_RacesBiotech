@@ -18,16 +18,16 @@ namespace WVC_XenotypesAndGenes
 
 		private Dictionary<WorkTypeDef, int> workSettings;
 
-		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
-		//[Unsaved(false)]
+		[Unsaved(false)]
 		private List<HediffDef> cachedPreventiveHediffs;
 
 		public bool PawnCanResurrect
 		{
 			get
 			{
-				if (Giver.ignoreHediffs)
+				if (Extension_Undead.ignoreHediffs)
 				{
 					return base.Active;
 				}
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedPreventiveHediffs == null)
 				{
-					cachedPreventiveHediffs = Giver.hediffDefs;
+					cachedPreventiveHediffs = Extension_Undead.hediffDefs;
 				}
 				return cachedPreventiveHediffs;
 			}
@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			base.Notify_PawnDied(dinfo, culprit);
-			SetCorpse(PawnCanResurrect, Giver.additionalDelay.RandomInRange);
+			SetCorpse(PawnCanResurrect, Extension_Undead.additionalDelay.RandomInRange);
 		}
 
 		public void SaveWorkSettings()
@@ -177,7 +177,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Reincarnation : XaG_Gene
 	{
 
-		public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					xaG_GameComponent.reincarnations = new();
 				}
-				ReincarnationSet newSet = new ReincarnationSet(pawn, Spawner.summonQuest, GestationUtility.GetLitterSize(pawn));
+				ReincarnationSet newSet = new ReincarnationSet(pawn, Extension_Undead.summonQuest, GestationUtility.GetLitterSize(pawn));
 				xaG_GameComponent.reincarnations.Add(newSet);
 			}
 			//if (XaG_GameComponent.reincarnations == null)
@@ -246,7 +246,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		// For future sub-genes
 		// [Unsaved(false)]
@@ -295,7 +295,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_CellularDestroyBody".Translate(), delegate
 			{
-				Job job = JobMaker.MakeJob(Giver.jobDef, pawn);
+				Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
 				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 			}), selPawn, pawn);
 		}
@@ -326,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							list.Add(new FloatMenuOption(absorber.LabelShort, delegate
 							{
-								Job job = JobMaker.MakeJob(Giver.jobDef, pawn);
+								Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
 								absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
 							}, absorber, Color.white));
 						}

@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			//searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
 			//allXenotypes = ListsUtility.GetAllXenotypesHolders();
 			gene = thisGene;
-			geneExtension = gene?.def?.GetModExtension<GeneExtension_Spawner>();
+			geneExtension = thisGene.Extension_Spawner;
 			hediffDefName = geneExtension?.gestationHediffDef;
 			cooldownHediffDef = geneExtension?.cooldownHediffDef;
 			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;

@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef Def => def;
 
-		public GeneExtension_Undead Extension_Undead => null;
+		//public GeneExtension_Undead Extension_Undead => null;
 
 		public int ArchiteLimit => 999;
 		public int ComplexityLimit => 999;

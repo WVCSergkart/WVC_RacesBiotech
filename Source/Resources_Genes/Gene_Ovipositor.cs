@@ -12,18 +12,18 @@ namespace WVC_XenotypesAndGenes
 	{
 
 
-		private GeneExtension_Spawner cachedGeneExtension;
-		public GeneExtension_Spawner Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Spawner cachedGeneExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public bool shouldLayEgg = false;
 		private int startTick = -1;
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 				//Caravan();
 				return;
 			}
-			if (Gene_Rechargeable.PawnHaveThisJob(pawn, Props.jobDef))
+			if (Gene_Rechargeable.PawnHaveThisJob(pawn, Extension_Spawner.jobDef))
 			{
 				return;
 			}
@@ -70,10 +70,10 @@ namespace WVC_XenotypesAndGenes
 			XaG_Job job = null;
 			if (pawn.Faction == Faction.OfPlayer)
 			{
-				Thing bestEggBox = GestationUtility.GetBestEggBox(pawn, Props.thingDefToSpawn, peMode, traverseParms);
+				Thing bestEggBox = GestationUtility.GetBestEggBox(pawn, Extension_Spawner.thingDefToSpawn, peMode, traverseParms);
 				if (bestEggBox != null)
 				{
-					job = new(Props.jobDef, bestEggBox)
+					job = new(Extension_Spawner.jobDef, bestEggBox)
 					{
 						gene = this
 					};
@@ -85,8 +85,8 @@ namespace WVC_XenotypesAndGenes
 			//XaG_Job job = new(Props.jobDef, targetInfo);
 			//job.gene = this;
 			//pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
-			Thing thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(Props.thingDefToSpawn), peMode, traverseParms, 30f, (Thing x) => pawn.GetRoom() == null || x.GetRoom() == pawn.GetRoom());
-			job = new(Props.jobDef, thing?.Position ?? RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 5f, null, Danger.Some))
+			Thing thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(Extension_Spawner.thingDefToSpawn), peMode, traverseParms, 30f, (Thing x) => pawn.GetRoom() == null || x.GetRoom() == pawn.GetRoom());
+			job = new(Extension_Spawner.jobDef, thing?.Position ?? RCellFinder.RandomWanderDestFor(pawn, pawn.Position, 5f, null, Danger.Some))
 			{
 				gene = this
 			};
@@ -117,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
+				Thing thing = ThingMaker.MakeThing(Extension_Spawner.thingDefToSpawn);
 				CompHumanEgg compHumanEgg = thing.TryGetComp<CompHumanEgg>();
 				if (pregnancy.Mother == null && pregnancy.Father == null)
 				{
@@ -125,11 +125,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				compHumanEgg.SetupEgg(pregnancy);
 				int litterSize = GestationUtility.GetLitterSize(pawn);
-				MiscUtility.SpawnItems(pawn, thing, litterSize, Props.showMessageIfOwned, Props.spawnMessage);
+				MiscUtility.SpawnItems(pawn, thing, litterSize, Extension_Spawner.showMessageIfOwned, Extension_Spawner.spawnMessage);
 				RemovePregnancy(pawn, pregnancy);
-				if (Props.cooldownHediffDef != null)
+				if (Extension_Spawner.cooldownHediffDef != null)
 				{
-					pawn.health.AddHediff(Props.cooldownHediffDef);
+					pawn.health.AddHediff(Extension_Spawner.cooldownHediffDef);
 				}
 				// Multy preg support
 				if (pawn.health.hediffSet.HasHediff<Hediff_Pregnant>())
@@ -238,22 +238,22 @@ namespace WVC_XenotypesAndGenes
 	{
 
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
-			if (Props?.hediffDef != null)
+			if (Extension_Giver?.hediffDef != null)
 			{
 				Hediff_BudPregnancy firstBud = pawn.health.hediffSet?.GetFirstHediff<Hediff_BudPregnancy>();
 				if (firstBud != null)
@@ -262,7 +262,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					Hediff hediff = HediffMaker.MakeHediff(Props?.hediffDef, pawn);
+					Hediff hediff = HediffMaker.MakeHediff(Extension_Giver?.hediffDef, pawn);
 					if (hediff is Hediff_BudPregnancy hediff_BudPregnancy)
 					{
 						hediff_BudPregnancy.SetupBud(pregnancy);
@@ -303,7 +303,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Props?.hediffDef, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver?.hediffDef, pawn);
 		}
 
 	}

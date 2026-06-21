@@ -10,19 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Flickable : XaG_Gene, IGeneOverriddenBy
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		public bool OnOrOff => pawn.health.hediffSet.HasHediff(Props.hediffDefName);
+		public bool OnOrOff => pawn.health.hediffSet.HasHediff(Extension_Giver.hediffDefName);
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff(pawn, Props.hediffDefName);
+			RemoveHediff(pawn, Extension_Giver.hediffDefName);
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
-			RemoveHediff(pawn, Props.hediffDefName);
+			RemoveHediff(pawn, Extension_Giver.hediffDefName);
 		}
 
 		public void Notify_Override()
@@ -83,13 +83,13 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = def.LabelCap + ": " + Flick(pawn, Props.hediffDefName),
-				defaultDesc = Props.message.Translate(),
+				defaultLabel = def.LabelCap + ": " + Flick(pawn, Extension_Giver.hediffDefName),
+				defaultDesc = Extension_Giver.message.Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
-					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
-					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Props.hediffDefName));
+					AddOrRemoveHediff(pawn, Extension_Giver.hediffDefName, this);
+					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Extension_Giver.hediffDefName));
 				}
 			};
 		}
@@ -109,15 +109,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = def.LabelCap + ": " + Flick(pawn, Props.hediffDefName),
-				defaultDesc = Props.message.Translate(),
+				defaultLabel = def.LabelCap + ": " + Flick(pawn, Extension_Giver.hediffDefName),
+				defaultDesc = Extension_Giver.message.Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				Disabled = cooldown > Find.TickManager.TicksGame,
 				disabledReason = "WVC_XaG_Gene_InvisibilityCD".Translate(),
 				action = delegate
 				{
-					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
-					Hediff hediff = pawn.health.hediffSet?.GetFirstHediffOfDef(Props.hediffDefName);
+					AddOrRemoveHediff(pawn, Extension_Giver.hediffDefName, this);
+					Hediff hediff = pawn.health.hediffSet?.GetFirstHediffOfDef(Extension_Giver.hediffDefName);
 					if (WVC_Biotech.settings.invisibility_invisBonusTicks > 0)
 					{
 						HediffComp_Disappears hediffComp_Disappears = hediff?.TryGetComp<HediffComp_Disappears>();

@@ -18,18 +18,18 @@ namespace WVC_XenotypesAndGenes
 		[Obsolete]
 		public virtual List<GeneDef> PreservedGeneDefs => null;
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		[Unsaved(false)]
 		private Gene_Shapeshifter cachedShapeshifterGene;
@@ -84,9 +84,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					List<GeneDef> newList = new();
 					newList.Add(def);
-					if (Giver.geneDefs != null)
+					if (Extension_Giver.geneDefs != null)
 					{
-						foreach (GeneDef item in Giver.geneDefs)
+						foreach (GeneDef item in Extension_Giver.geneDefs)
 						{
 							if (!newList.Contains(item))
 							{
@@ -125,11 +125,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
-			Hediff hediff = HediffMaker.MakeHediff(Giver.hediffDefName, pawn);
+			Hediff hediff = HediffMaker.MakeHediff(Extension_Giver.hediffDefName, pawn);
 			HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 			if (hediffComp_Disappears != null)
 			{
-				hediffComp_Disappears.ticksToDisappear = Giver.intervalRange.RandomInRange;
+				hediffComp_Disappears.ticksToDisappear = Extension_Giver.intervalRange.RandomInRange;
 			}
 			pawn.health.AddHediff(hediff);
 		}

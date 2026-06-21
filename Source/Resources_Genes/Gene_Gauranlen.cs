@@ -75,11 +75,11 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GauranlenDryads_AddPermanentHediff : Gene_DryadQueen_Dependant
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		public override void Notify_DryadSpawned(Pawn dryad)
 		{
-			HediffUtility.TryAddHediff(Props.hediffDefName, dryad, null, null);
+			HediffUtility.TryAddHediff(Extension_Giver.hediffDefName, dryad, null, null);
 		}
 
 	}

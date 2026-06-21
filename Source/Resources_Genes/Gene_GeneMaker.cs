@@ -25,19 +25,19 @@ namespace WVC_XenotypesAndGenes
 		//===========
 
 
-		[Unsaved(false)]
-		private GeneExtension_Spawner cachedExtension;
-		public GeneExtension_Spawner Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Spawner cachedExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
 		public int ticksUntilSpawn;
@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.FactionMap(pawn) && Props != null)
+			if (!XaG_GeneUtility.FactionMap(pawn) && Extension_Spawner != null)
 			{
 				SpawnItems();
 			}
@@ -69,12 +69,12 @@ namespace WVC_XenotypesAndGenes
 
 		private void SpawnItems()
 		{
-			SpawnItems(pawn, Props.showMessageIfOwned, Props.spawnMessage);
+			SpawnItems(pawn, Extension_Spawner.showMessageIfOwned, Extension_Spawner.spawnMessage);
 		}
 
 		private void ResetInterval()
 		{
-			ticksUntilSpawn = Props.spawnIntervalRange.RandomInRange;
+			ticksUntilSpawn = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -122,9 +122,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				thing.stackCount = 1;
 				catchString = "style";
-				if (Props.styleDef != null)
+				if (Extension_Spawner.styleDef != null)
 				{
-					thing.SetStyleDef(Props.styleDef);
+					thing.SetStyleDef(Extension_Spawner.styleDef);
 				}
 				catchString = "spawn";
 				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
 				}
 				catchString = "xenogermination";
-				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Props.durationIntervalRange, pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Extension_Spawner.durationIntervalRange, pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 			}
 			catch (Exception arg)
 			{
@@ -146,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 
 		private GeneDef GetGene(Pawn pawn)
 		{
-			List<XenotypeDef> allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), Props.matchPercent);
+			List<XenotypeDef> allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), Extension_Spawner.matchPercent);
 			List<GeneDef> allGenes = XaG_GeneUtility.ConvertToDefs(pawn.genes.GenesListForReading);
 			foreach (XenotypeDef xenoDef in allMatchedXenotypes)
 			{
@@ -158,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			List<CustomXenotype> allMatchedCustomXenotypes = XaG_GeneUtility.GetAllMatchedCustomXenotypes(pawn, ListsUtility.GetCustomXenotypesList(), Props.matchPercent);
+			List<CustomXenotype> allMatchedCustomXenotypes = XaG_GeneUtility.GetAllMatchedCustomXenotypes(pawn, ListsUtility.GetCustomXenotypesList(), Extension_Spawner.matchPercent);
 			if (!allMatchedCustomXenotypes.NullOrEmpty())
 			{
 				foreach (CustomXenotype xenoDef in allMatchedCustomXenotypes)

@@ -195,18 +195,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Hivemind_Thoughts : Gene_Hivemind
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public override void UpdGeneSync()
 		{
@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 				//}
 				foreach (Pawn pawn in Hivemind)
 				{
-					pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+					pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Extension_Opinion.thoughtDef);
 					totalHivemindMood = GetMood(totalHivemindMood, pawn);
 				}
 				SimpleCurve colonyCurve = new()
@@ -242,8 +242,8 @@ namespace WVC_XenotypesAndGenes
 				//Log.Error("Curve:" + totalHivemindMood.ToString());
 				foreach (Pawn pawn in Hivemind)
 				{
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef);
-					Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Props.thoughtDef);
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.thoughtDef);
+					Thought_Memory memory = pawn.needs?.mood?.thoughts?.memories.GetFirstMemoryOfDef(Extension_Opinion.thoughtDef);
 					if (memory != null)
 					{
 						//float psychicSens = pawn.GetStatValue(StatDefOf.PsychicSensitivity);

@@ -22,20 +22,20 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
-		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+		//public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
 		public Building_XenoCharger currentCharger;
 
@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 				OffsetNeedFood();
 				return;
 			}
-			TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
+			TryRecharge(pawn, Extension_Giver.rechargeableStomachJobDef, Extension_Giver.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
 		}
 
 		public static bool TryRecharge(Pawn pawn, JobDef jobDef, ThingDef thingDef, bool requestQueueing = true)
@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void OffsetNeedFood()
 		{
-			if (Props?.foodPoisoningFromFood != false)
+			if (Extension_Giver?.foodPoisoningFromFood != false)
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 0.25f);
 			}
@@ -141,9 +141,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.needs?.food != null)
 			{
-				pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
+				pawn.needs.food.CurLevel += chargePerTick * tick * Extension_Giver.chargeSpeedFactor;
 			}
-			NotifySubGenes_Charging(pawn, chargePerTick, tick, Props.chargeSpeedFactor);
+			NotifySubGenes_Charging(pawn, chargePerTick, tick, Extension_Giver.chargeSpeedFactor);
 		}
 
 		public static void NotifySubGenes_Charging(Pawn pawn, float chargePerTick, int tick, float chargeSpeedFactor)
@@ -160,9 +160,9 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_StopCharging()
 		{
 			currentCharger = null;
-			if (Opinion?.MeAboutThoughtDef != null)
+			if (Extension_Opinion?.MeAboutThoughtDef != null)
 			{
-				pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.MeAboutThoughtDef);
+				pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(Extension_Opinion.MeAboutThoughtDef);
 			}
 			MiscUtility.TryFinalizeAllIngestJobs(pawn);
 		}
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Props?.foodPoisoningFromFood == false)
+			if (Extension_Giver?.foodPoisoningFromFood == false)
 			{
 				return;
 			}
@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SegmentedTail : XaG_Gene
 	{
 
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public override void TickInterval(int delta)
 		{
@@ -257,7 +257,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			//MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-			if (MechanoidsUtility.TrySummonMechanoids(pawn, 1, Spawner.allowedMechWeightClasses, out List<Thing> summonList))
+			if (MechanoidsUtility.TrySummonMechanoids(pawn, 1, Extension_Spawner.allowedMechWeightClasses, out List<Thing> summonList))
 			{
 				Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
 			}
@@ -311,7 +311,7 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		[Unsaved(false)]
 		private Gene_Rechargeable cachedRechargeGene;
@@ -360,7 +360,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_Rechargeable.TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef);
+			Gene_Rechargeable.TryRecharge(pawn, Extension_Giver.rechargeableStomachJobDef, Extension_Giver.xenoChargerDef);
 		}
 
 		public void Notify_Charging(float chargePerTick, int tick, float factor)

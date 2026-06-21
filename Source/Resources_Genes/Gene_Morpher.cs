@@ -216,18 +216,18 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		private GeneExtension_Giver cachedExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
 
@@ -356,15 +356,15 @@ namespace WVC_XenotypesAndGenes
 					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(XenotypeGiver.morpherXenotypeChances, exclude));
 				}
 			}
-			if (xenotypeHolder == null && Giver != null)
+			if (xenotypeHolder == null && Extension_Giver != null)
 			{
-				if (!Giver.morpherXenotypeDefs.NullOrEmpty())
+				if (!Extension_Giver.morpherXenotypeDefs.NullOrEmpty())
 				{
-					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(Giver.morpherXenotypeDefs, exclude));
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(Extension_Giver.morpherXenotypeDefs, exclude));
 				}
-				else if (!Giver.morpherXenotypeChances.NullOrEmpty())
+				else if (!Extension_Giver.morpherXenotypeChances.NullOrEmpty())
 				{
-					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Giver.morpherXenotypeChances, exclude));
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Extension_Giver.morpherXenotypeChances, exclude));
 				}
 			}
 			if (xenotypeHolder == null)
@@ -500,9 +500,9 @@ namespace WVC_XenotypesAndGenes
 					SafeAdd(list, triggerGene);
 				}
 			}
-			if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
+			if (Extension_Giver != null && !Extension_Giver.morpherTriggerGenes.NullOrEmpty())
 			{
-				list.AddRangeSafe(Giver.morpherTriggerGenes);
+				list.AddRangeSafe(Extension_Giver.morpherTriggerGenes);
 			}
 			if (XenotypeGiver != null && !XenotypeGiver.morpherTriggerGenes.NullOrEmpty())
 			{

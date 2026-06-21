@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			HediffUtility.TryRemoveHediff(Giver?.hediffDef, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver?.hediffDef, pawn);
 			NotifyDuplicates_RemoveHediff();
 		}
 
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Giver?.hediffDef, pawn, this);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Giver?.hediffDef, pawn, this);
 			}
 			catch (Exception arg)
 			{
@@ -158,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void NotifyDuplicates_RemoveHediff()
 		{
-			if (Giver?.dupeHediffDef == null)
+			if (Extension_Giver?.dupeHediffDef == null)
 			{
 				return;
 			}
@@ -176,7 +176,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn item in Duplicator.PawnDuplicates)
 			{
-				HediffUtility.TryRemoveHediff(Giver.dupeHediffDef, item);
+				HediffUtility.TryRemoveHediff(Extension_Giver.dupeHediffDef, item);
 			}
 		}
 
@@ -196,9 +196,9 @@ namespace WVC_XenotypesAndGenes
 				float bandwidth = 0f;
 				foreach (Pawn item in Duplicator.PawnDuplicates)
 				{
-					HediffUtility.TryRemoveHediff(Giver.dupeHediffDef, item);
+					HediffUtility.TryRemoveHediff(Extension_Giver.dupeHediffDef, item);
 					bandwidth += item.GetStatValue(StatDefOf.MechBandwidth);
-					HediffUtility.TryAddHediff(Giver.dupeHediffDef, item, def);
+					HediffUtility.TryAddHediff(Extension_Giver.dupeHediffDef, item, def);
 				}
 				return bandwidth;
 			}

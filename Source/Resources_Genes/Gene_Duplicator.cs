@@ -9,19 +9,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Duplicator : XaG_Gene, IGeneRecacheable
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		//public override string LabelCap => base.LabelCap + " (" + "WVC_IsDuplcate".Translate((SourcePawn != pawn).ToStringYesNo()) + ")";
 
@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneralHolder> PossibleGenesOutcome => Giver?.geneDefWithChances;
+		public List<GeneralHolder> PossibleGenesOutcome => Extension_Giver?.geneDefWithChances;
 		public bool IsXenogene => pawn.genes.Xenogenes.Contains(this);
 
 		public bool TryAddNewSubGene(bool forDuplicates)
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public StatDef StatDef => Giver.statDef;
+		public StatDef StatDef => Extension_Giver.statDef;
 
 		public void Notify_GenesRecache(Gene changedGene)
 		{

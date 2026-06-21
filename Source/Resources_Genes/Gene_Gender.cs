@@ -10,19 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Gender : XaG_Gene, IGeneOverriddenBy
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtensionGiver;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtensionGiver == null)
-				{
-					cachedGeneExtensionGiver = def?.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtensionGiver;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtensionGiver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtensionGiver == null)
+		//		{
+		//			cachedGeneExtensionGiver = def?.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtensionGiver;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -49,13 +49,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.gender == Props.gender)
+			if (pawn.gender == Extension_Giver.gender)
 			{
 				return;
 			}
-			if (Props.gender != Gender.None)
+			if (Extension_Giver.gender != Gender.None)
 			{
-				SetGender(pawn, Props.gender);
+				SetGender(pawn, Extension_Giver.gender);
 			}
 		}
 

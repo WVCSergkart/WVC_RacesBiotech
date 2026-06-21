@@ -12,19 +12,19 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
-		[Unsaved(false)]
-		private GeneExtension_Spawner cachedGeneExtension;
-		public GeneExtension_Spawner Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Spawner cachedGeneExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public int ticksUntilSpawn;
 
@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map != null && Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && Props != null)
+			if (pawn.Map != null && Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && Extension_Spawner != null)
 			{
 				Harvest();
 			}
@@ -69,12 +69,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			GeneFeaturesUtility.TryHarvest(pawn, Props.thingDefToSpawn, Props.stackCount, styleDef: Props.styleDef);
+			GeneFeaturesUtility.TryHarvest(pawn, Extension_Spawner.thingDefToSpawn, Extension_Spawner.stackCount, styleDef: Extension_Spawner.styleDef);
 		}
 
 		private void ResetInterval()
 		{
-			ticksUntilSpawn = Props.spawnIntervalRange.RandomInRange;
+			ticksUntilSpawn = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Harvest " + Props.thingDefToSpawn.label,
+					defaultLabel = "DEV: Harvest " + Extension_Spawner.thingDefToSpawn.label,
 					defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
 					action = delegate
 					{

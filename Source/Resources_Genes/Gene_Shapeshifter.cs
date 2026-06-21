@@ -14,33 +14,33 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Shapeshifter : XaG_Gene, IGeneOverriddenBy, IGenePregnantHuman, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneShaperEditor
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Undead
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Undead == null)
+		//		{
+		//			cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		}
+		//		return cachedGeneExtension_Undead;
+		//	}
+		//}
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension_Giver;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension_Giver == null)
-				{
-					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension_Giver;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension_Giver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Giver == null)
+		//		{
+		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension_Giver;
+		//	}
+		//}
 
 		public virtual List<GeneralHolder> ShaperGenes
 		{
@@ -442,7 +442,7 @@ namespace WVC_XenotypesAndGenes
 			//if (!Undead.soundDefOnImplant.NullOrUndefined())
 			//{
 			//}
-			Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(pawn));
+			Extension_Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(pawn));
 		}
 
 		public void DoEffects(Pawn pawn)

@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 				SoundDefOf.ClickReject.PlayOneShotOnCamera();
 				return;
 			}
-			if (GestationUtility.CanStartPregnancy(pawn, Giver) && (def.sterilize || !pawn.IsSterile(true)))
+			if (GestationUtility.CanStartPregnancy(pawn, Extension_Giver) && (def.sterilize || !pawn.IsSterile(true)))
 			{
 				if (UseDialogWarning)
 				{
@@ -39,33 +39,33 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
-		[Unsaved(false)]
-		private GeneExtension_Spawner cachedSpawnerExtension;
-		public GeneExtension_Spawner Spawner
-		{
-			get
-			{
-				if (cachedSpawnerExtension == null)
-				{
-					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedSpawnerExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Spawner cachedSpawnerExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedSpawnerExtension == null)
+		//		{
+		//			cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedSpawnerExtension;
+		//	}
+		//}
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGiverExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGiverExtension == null)
-				{
-					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGiverExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGiverExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGiverExtension == null)
+		//		{
+		//			cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGiverExtension;
+		//	}
+		//}
 
 		public virtual string Desc => "WVC_XaG_Gene_SimpleGestatorDesc".Translate();
 		public virtual string Warning => "WVC_XaG_Gene_SimpleGestatorWarning".Translate();
@@ -73,16 +73,16 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void StartPregnancy()
 		{
-			Hediff hediff = HediffMaker.MakeHediff(Spawner.gestationHediffDef, pawn);
+			Hediff hediff = HediffMaker.MakeHediff(Extension_Spawner.gestationHediffDef, pawn);
 			HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
 			if (hediff_GeneCheck != null)
 			{
 				hediff_GeneCheck.geneDef = def;
 			}
 			pawn.health.AddHediff(hediff);
-			if (Spawner.cooldownHediffDef != null)
+			if (Extension_Spawner.cooldownHediffDef != null)
 			{
-				Hediff cooldownHediff = HediffMaker.MakeHediff(Spawner.cooldownHediffDef, pawn);
+				Hediff cooldownHediff = HediffMaker.MakeHediff(Extension_Spawner.cooldownHediffDef, pawn);
 				HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
 				if (hediffComp_Disappears != null)
 				{
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
-			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+			HediffUtility.RemoveHediffsFromList(pawn, Extension_Giver?.hediffDefs);
 		}
 
 		public void Notify_Override()

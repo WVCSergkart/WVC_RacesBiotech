@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual List<XenotypeHolder> AllowedThralls => ListsUtility.GetAllThrallHolders();
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		private ThrallDef thrallDef = null;
 

@@ -10,19 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Holder : Gene_RemoteController, IGeneFloatMenuOptions, IGeneOverriddenBy
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension_Giver;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension_Giver == null)
-				{
-					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension_Giver;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension_Giver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Giver == null)
+		//		{
+		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension_Giver;
+		//	}
+		//}
 
 		private static HashSet<Gene_Holder> cachedHolderGenes;
 		public static HashSet<Gene_Holder> HolderGenes
@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	HediffHolder?.Reset();
 				//}
-				HediffUtility.TryAddHediff(Giver.hediffDef, caller, def);
+				HediffUtility.TryAddHediff(Extension_Giver.hediffDef, caller, def);
 				EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 				return true;
 			}
@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			RemoveSetHolder(target);
 			//HediffHolder?.Reset();
-			HediffUtility.TryRemoveHediff(Giver.hediffDef, target.holded);
+			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
 			EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 		}
 
@@ -273,7 +273,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_GeneHolder_HoldMe".Translate(), delegate
 			{
-				Job job = JobMaker.MakeJob(Giver.jobDef, pawn);
+				Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
 				selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
 			}), selPawn, pawn);
 		}
@@ -283,19 +283,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Holded : Gene_RemoteController, IGeneFloatMenuOptions
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension_Giver;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension_Giver == null)
-				{
-					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension_Giver;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension_Giver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Giver == null)
+		//		{
+		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension_Giver;
+		//	}
+		//}
 
 		private bool autoHold = true;
 		private int lastHoldingTicks = 0;
@@ -366,7 +366,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (target.genes.GenesListForReading.Any(gene => gene is Gene_Holder && gene.Active))
 				{
-					Job job = JobMaker.MakeJob(Giver.jobDef, target);
+					Job job = JobMaker.MakeJob(Extension_Giver.jobDef, target);
 					pawn.TryTakeOrderedJob(job, JobTag.Misc, false);
 					break;
 				}
@@ -400,7 +400,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_GeneHolder_HoldTarget".Translate(), delegate
 			{
-				Job job = JobMaker.MakeJob(Giver.tryHoldJobDef, pawn);
+				Job job = JobMaker.MakeJob(Extension_Giver.tryHoldJobDef, pawn);
 				selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
 			}), selPawn, pawn);
 		}

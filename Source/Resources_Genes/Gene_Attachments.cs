@@ -10,18 +10,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Attachments : XaG_Gene, IGeneCustomGraphic
 	{
 
-		private GeneExtension_Graphic cachedGeneExtension;
-		public GeneExtension_Graphic Graphic
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Graphic>();
-				}
-				return def?.GetModExtension<GeneExtension_Graphic>();
-			}
-		}
+		//private GeneExtension_Graphic cachedGeneExtension;
+		//public GeneExtension_Graphic Graphic
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Graphic>();
+		//		}
+		//		return def?.GetModExtension<GeneExtension_Graphic>();
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -67,15 +67,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public int StyleId => Graphic.styleId;
+		public int StyleId => Extension_Graphic.styleId;
 
 		public List<Color> AllColors
 		{
 			get
 			{
-				if (Graphic.colors != null)
+				if (Extension_Graphic.colors != null)
 				{
-					return Graphic.colors;
+					return Extension_Graphic.colors;
 				}
 				return new();
 			}

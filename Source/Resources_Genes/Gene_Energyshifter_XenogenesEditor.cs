@@ -110,32 +110,32 @@ namespace WVC_XenotypesAndGenes
 		public GeneDef Def => def;
 
 
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Extension_Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Extension_Undead
+		//{
+		//	get
+		//	{
+		//		//if (cachedGeneExtension_Undead == null)
+		//		//{
+		//		//	cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		//}
+		//		return base.Extension_Undead;
+		//	}
+		//}
 
 
-		private GeneExtension_Giver cachedGeneExtension_Giver;
-		public GeneExtension_Giver Extension_Giver
-		{
-			get
-			{
-				if (cachedGeneExtension_Giver == null)
-				{
-					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension_Giver;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension_Giver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Giver == null)
+		//		{
+		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension_Giver;
+		//	}
+		//}
 
 		public int ArchiteLimit => Energyshifter?.UnlockedXenotypes?.Count ?? 3;
 		public int ComplexityLimit => (int)geneticMaterial;

@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostAdd()
 		{
@@ -360,7 +360,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
+			GeneResourceUtility.OffsetNeedFood(pawn, Extension_Giver.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
 			MiscUtility.TryFinalizeAllIngestJobs(pawn);
 			if (pawn.TryGetNeedFood(out Need_Food food) && food.CurLevelPercentage < 0.85f)
 			{
@@ -388,7 +388,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
 				//selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-				currentBloodfeedMode.Worker.DownedBloodfeed(pawn, selPawn, Props.bloodeaterFeedingJobDef);
+				currentBloodfeedMode.Worker.DownedBloodfeed(pawn, selPawn, Extension_Giver.bloodeaterFeedingJobDef);
 			}), selPawn, pawn);
 		}
 
@@ -446,7 +446,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								//Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
 								//absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
-								currentBloodfeedMode.Worker.DownedBloodfeed(pawn, absorber, Props.bloodeaterFeedingJobDef);
+								currentBloodfeedMode.Worker.DownedBloodfeed(pawn, absorber, Extension_Giver.bloodeaterFeedingJobDef);
 							}, absorber, Color.white));
 						}
 					}

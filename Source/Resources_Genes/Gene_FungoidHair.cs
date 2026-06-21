@@ -10,18 +10,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FungoidHair : Gene_CustomHair
 	{
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		//public override Color? DefaultColor
 		//{
@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public override List<GeneralHolder> ColorHolder => Props.holofaces;
+		public override List<GeneralHolder> ColorHolder => Extension_Giver.holofaces;
 
 		public override int StyleId => 1000001;
 
@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+			if (Extension_Giver != null && Extension_Giver.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
 				SetColor(countWithChance.color);
 			}

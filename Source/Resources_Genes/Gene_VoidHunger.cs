@@ -6,9 +6,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_VoidHunger : Gene_HemogenOffset, IGeneOverriddenBy
 	{
 
-		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
-		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+		//public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
 		public override float ResourceLossPerDay
 		{
@@ -44,11 +44,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					ResetVictim();
 					victim = newVictim;
-					Hediff_VoidDrain hediff_Phylactery = (Hediff_VoidDrain)newVictim.health.GetOrAddHediff(Giver.hediffDef);
+					Hediff_VoidDrain hediff_Phylactery = (Hediff_VoidDrain)newVictim.health.GetOrAddHediff(Extension_Giver.hediffDef);
 					if (hediff_Phylactery != null)
 					{
-						newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.AboutMeThoughtDef, pawn);
-						newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.myTargetInGeneralThought);
+						newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, pawn);
+						newVictim.needs?.mood?.thoughts?.memories?.TryGainMemory(Extension_Opinion.myTargetInGeneralThought);
 						hemogenDrain = 0.05f;
 						hediff_Phylactery.SetOwner(pawn);
 					}

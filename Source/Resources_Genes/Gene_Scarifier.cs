@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Scarifier : XaG_Gene
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		private int nextTick = 60000;
 		private float? cachedMaxScars;
@@ -113,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedMaxScars.HasValue)
 				{
-					cachedMaxScars = pawn.GetStatValue(Giver.scarsStatDef);
+					cachedMaxScars = pawn.GetStatValue(Extension_Giver.scarsStatDef);
 				}
 				return cachedMaxScars.Value;
 			}
@@ -176,7 +176,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, Giver.scarsStatDef.LabelCap, pawn.GetStatValue(Giver.scarsStatDef).ToString(), Giver.scarsStatDef.description, 500);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, Extension_Giver.scarsStatDef.LabelCap, pawn.GetStatValue(Extension_Giver.scarsStatDef).ToString(), Extension_Giver.scarsStatDef.description, 500);
 		}
 
 		//      public void Notify_GenesChanged(Gene changedGene)

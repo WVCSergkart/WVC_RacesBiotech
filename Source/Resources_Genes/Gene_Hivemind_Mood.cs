@@ -7,18 +7,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Hivemind_Mood : Gene_Hivemind_Drone
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Opinion
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				ThoughtUtility.AddPermanentMemory(pawn, Opinion.thoughtDef);
+				ThoughtUtility.AddPermanentMemory(pawn, Extension_Opinion.thoughtDef);
 			}
 			catch (Exception arg)
 			{
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void RemoveMemory()
 		{
-			ThoughtUtility.RemoveMemory(pawn, Opinion.thoughtDef);
+			ThoughtUtility.RemoveMemory(pawn, Extension_Opinion.thoughtDef);
 		}
 
 

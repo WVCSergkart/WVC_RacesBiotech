@@ -8,18 +8,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PsychicHarem : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
-		private GeneExtension_Opinion cachedOpinionExtension;
-		public GeneExtension_Opinion Opinion
-		{
-			get
-			{
-				if (cachedOpinionExtension == null)
-				{
-					cachedOpinionExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedOpinionExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedOpinionExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedOpinionExtension == null)
+		//		{
+		//			cachedOpinionExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedOpinionExtension;
+		//	}
+		//}
 
 		//private GeneExtension_Giver cachedGiverExtension;
 		//public GeneExtension_Giver Giver
@@ -101,11 +101,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (member != pawn)
 						{
-							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.AboutMeThoughtDef, member);
-							member.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.AboutMeThoughtDef, pawn);
+							pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, member);
+							member.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, pawn);
 						}
 					}
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, null);
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.thoughtDef, null);
 					//HediffUtility.TryAddHediff(Giver.hediffDef, pawn, def);
 					//Hediff_PsychicHarem.curStage = null;
 				}
@@ -149,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 			ResetCollection();
 			foreach (Pawn pawn in Harem)
 			{
-				Thought_Memory thought_Memory = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Opinion.thoughtDef);
+				Thought_Memory thought_Memory = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Extension_Opinion.thoughtDef);
 				if (thought_Memory != null && thought_Memory is Thought_PsychicHarem haremMood)
 				{
 					haremMood.badMoodTicks = Find.TickManager.TicksGame + (60000 * 5);

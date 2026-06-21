@@ -8,8 +8,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraGeneline : Gene_ChimeraDependant
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		[Unsaved(false)]
 		private List<GeneDef> cachedGenelineGenes;
 		public virtual List<GeneDef> GenelineGenes
 		{
@@ -18,23 +19,23 @@ namespace WVC_XenotypesAndGenes
 				if (cachedGenelineGenes == null)
 				{
 					List<GeneDef> geneDefs = new();
-					if (Giver.geneDefs != null)
+					if (Extension_Giver.geneDefs != null)
 					{
-						foreach (GeneDef geneDef in Giver.geneDefs)
+						foreach (GeneDef geneDef in Extension_Giver.geneDefs)
 						{
 							AddGene(geneDefs, geneDef);
 						}
 					}
-					if (Giver.geneCategoryDefs != null)
+					if (Extension_Giver.geneCategoryDefs != null)
 					{
-						foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading.Where((gene) => Giver.geneCategoryDefs.Contains(gene.displayCategory)))
+						foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading.Where((gene) => Extension_Giver.geneCategoryDefs.Contains(gene.displayCategory)))
 						{
 							AddGene(geneDefs, geneDef);
 						}
 					}
-					if (Giver.excludedGeneDefs != null)
+					if (Extension_Giver.excludedGeneDefs != null)
 					{
-						foreach (GeneDef geneDef in Giver.excludedGeneDefs)
+						foreach (GeneDef geneDef in Extension_Giver.excludedGeneDefs)
 						{
 							if (geneDefs.Contains(geneDef))
 							{

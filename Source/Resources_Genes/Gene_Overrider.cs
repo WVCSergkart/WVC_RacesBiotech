@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 		//public int CurrentGenes => pawn.genes.GenesListForReading.Where((gene) => gene.def.IsGeneDefOfType<Gene_MainframeDependant>()).ToList().Count;
 
 		//public HediffDef MetHediffDef => HediffUtility.MetHediffDef;
-		public HediffDef PsyHediffDef => Giver?.hediffDef;
+		public HediffDef PsyHediffDef => Extension_Giver?.hediffDef;
 
 		public List<HediffDef> Hediffs
 		{

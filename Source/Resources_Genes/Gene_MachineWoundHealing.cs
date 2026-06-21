@@ -12,18 +12,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MachineWoundHealing : Gene_OverOverridable
 	{
 
-		private GeneExtension_Undead cachedGeneExtension;
-		public GeneExtension_Undead Undead
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension;
+		//public GeneExtension_Undead Undead
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		//private bool? regenerateEyes;
 		//public bool RegenerateEyes
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 676);
+			HealingUtility.Regeneration(pawn, regeneration: Extension_Undead.regeneration, tick: 676);
 		}
 
 	}
@@ -60,18 +60,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SelfRepair : Gene_MachineWoundHealing, IGeneFloatMenuOptions
 	{
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Job job = JobMaker.MakeJob(Props.repairJobDef, pawn);
+			Job job = JobMaker.MakeJob(Extension_Giver.repairJobDef, pawn);
 			selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 		}
 
@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration * 10, tick: tick);
+			HealingUtility.Regeneration(pawn, regeneration: Extension_Undead.regeneration * 10, tick: tick);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
 			GeneResourceUtility.OffsetNeedFood(pawn, -0.01f);
 		}
@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Map == null || !pawn.Downed && pawn.Awake())
 			{
-				HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: 1626);
+				HealingUtility.Regeneration(pawn, regeneration: Extension_Undead.regeneration, tick: 1626);
 			}
 			else
 			{

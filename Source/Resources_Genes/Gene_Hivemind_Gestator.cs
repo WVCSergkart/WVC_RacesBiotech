@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_GestatorStart(XenotypeHolder holder)
 		{
-			holder.genes.AddRangeSafe(Giver.geneDefs);
+			holder.genes.AddRangeSafe(Extension_Giver.geneDefs);
 		}
 
 	}

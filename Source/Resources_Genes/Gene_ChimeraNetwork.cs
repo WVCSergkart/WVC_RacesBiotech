@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraNetwork : Gene_ChimeraDependant, IGeneCustomChimeraEater
 	{
 
-		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		public string ChimeraEater_Name => "WVC_Share";
 		public TaggedString ChimeraEater_Desc => "WVC_XaG_GeneChimeraNetwork_Desc";
@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (Rand.Chance(0.12f))
 					{
-						Gene_Chimera.TryGetUniqueGene(Chimera, pawn, Props.chimeraConditionalGenes);
+						Gene_Chimera.TryGetUniqueGene(Chimera, pawn, Extension_Undead.chimeraConditionalGenes);
 					}
 				}
 				catch (Exception arg)

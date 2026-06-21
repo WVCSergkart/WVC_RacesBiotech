@@ -9,9 +9,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Exoskin : XaG_Gene
 	{
 
-		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
+		//public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostAdd()
 		{

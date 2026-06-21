@@ -9,18 +9,18 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
-		private GeneExtension_Spawner cachedGeneExtension_Spawner;
-		public GeneExtension_Spawner Spawner
-		{
-			get
-			{
-				if (cachedGeneExtension_Spawner == null)
-				{
-					cachedGeneExtension_Spawner = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedGeneExtension_Spawner;
-			}
-		}
+		//private GeneExtension_Spawner cachedGeneExtension_Spawner;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Spawner == null)
+		//		{
+		//			cachedGeneExtension_Spawner = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedGeneExtension_Spawner;
+		//	}
+		//}
 
 		public int timeForNextSummon = -1;
 		public bool summonMechanoids = false;

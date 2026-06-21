@@ -12,34 +12,34 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DryadQueen : XaG_Gene, IGeneInspectInfo, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Spawner cachedSpawnerExtension;
-		public GeneExtension_Spawner Spawner
-		{
-			get
-			{
-				if (cachedSpawnerExtension == null)
-				{
-					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedSpawnerExtension;
-			}
-		}
-		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		//[Unsaved(false)]
+		//private GeneExtension_Spawner cachedSpawnerExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedSpawnerExtension == null)
+		//		{
+		//			cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedSpawnerExtension;
+		//	}
+		//}
+		////public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGiverExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGiverExtension == null)
-				{
-					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGiverExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGiverExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGiverExtension == null)
+		//		{
+		//			cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGiverExtension;
+		//	}
+		//}
 		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		private List<Pawn> dryads = new();
@@ -139,12 +139,12 @@ namespace WVC_XenotypesAndGenes
 				phase = "spawn dryad sequence";
 				for (int i = 0; i < litterSize; i++)
 				{
-					if (pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
+					if (pawn.Map == null || Extension_Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Extension_Spawner.dryadsStatLimit))
 					{
 						return;
 					}
 					phase = "generate dryad";
-					Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
+					Pawn dryad = GenerateNewDryad(Extension_Spawner.defaultDryadPawnKindDef);
 					if (dryad == null)
 					{
 						return;
@@ -156,9 +156,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				// Post Spawn Sickness
 				phase = "upd queen hediff";
-				if (Spawner.postGestationSickness != null)
+				if (Extension_Spawner.postGestationSickness != null)
 				{
-					Hediff hediff = HediffMaker.MakeHediff(Spawner.postGestationSickness, pawn);
+					Hediff hediff = HediffMaker.MakeHediff(Extension_Spawner.postGestationSickness, pawn);
 					pawn.health.AddHediff(hediff);
 				}
 				UpdHediff();
@@ -218,8 +218,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				dryad.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
 			}
-			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
-			MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, Giver.mutantDef);
+			HediffUtility.TryAddOrRemoveHediff(Extension_Spawner.initialHediffDef, dryad, this, null);
+			MiscUtility.ClearOrSetPawnAsMutantInstantly(dryad, Extension_Giver.mutantDef);
 			return dryad;
 		}
 
@@ -277,9 +277,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (gainMemory && Spawner.dryadDiedMemoryDef != null)
+			if (gainMemory && Extension_Spawner.dryadDiedMemoryDef != null)
 			{
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Spawner.dryadDiedMemoryDef);
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Spawner.dryadDiedMemoryDef);
 			}
 			RemoveDryad(oldDryad);
 			UpdHediff();
@@ -407,7 +407,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, null);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Giver.hediffDefName, pawn, this, null);
 			}
 			catch (Exception arg)
 			{
@@ -417,7 +417,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDefName, pawn);
 		}
 
 		public void KillConnectedDryads()
@@ -441,7 +441,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			StatDef stat = Spawner.dryadsStatLimit;
+			StatDef stat = Extension_Spawner.dryadsStatLimit;
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
 		}
 
@@ -474,7 +474,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (spawnDryads && dryads.Count < pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 30000))
+				if (spawnDryads && dryads.Count < pawn.GetStatValue(Extension_Spawner.dryadsStatLimit, cacheStaleAfterTicks: 30000))
 				{
 					return "WVC_XaG_Gene_GauranlenConnection_NextDryad_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}

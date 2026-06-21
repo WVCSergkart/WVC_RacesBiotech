@@ -11,6 +11,76 @@ namespace WVC_XenotypesAndGenes
 	public class XaG_Gene : Verse.Gene
 	{
 
+		[Unsaved(false)]
+		private GeneExtension_Spawner cachedSpawnerExtension;
+		public GeneExtension_Spawner Extension_Spawner
+		{
+			get
+			{
+				if (cachedSpawnerExtension == null)
+				{
+					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+				}
+				return cachedSpawnerExtension;
+			}
+		}
+
+		[Unsaved(false)]
+		private GeneExtension_Giver cachedGiverExtension;
+		public GeneExtension_Giver Extension_Giver
+		{
+			get
+			{
+				if (cachedGiverExtension == null)
+				{
+					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+				}
+				return cachedGiverExtension;
+			}
+		}
+
+		[Unsaved(false)]
+		private GeneExtension_Undead cachedUndeadExtension;
+		public GeneExtension_Undead Extension_Undead
+		{
+			get
+			{
+				if (cachedUndeadExtension == null)
+				{
+					cachedUndeadExtension = def.GetModExtension<GeneExtension_Undead>();
+				}
+				return cachedUndeadExtension;
+			}
+		}
+
+		[Unsaved(false)]
+		private GeneExtension_Opinion cachedOpinionExtension;
+		public GeneExtension_Opinion Extension_Opinion
+		{
+			get
+			{
+				if (cachedOpinionExtension == null)
+				{
+					cachedOpinionExtension = def.GetModExtension<GeneExtension_Opinion>();
+				}
+				return cachedOpinionExtension;
+			}
+		}
+
+		[Unsaved(false)]
+		private GeneExtension_Graphic cachedGraphicExtension;
+		public GeneExtension_Graphic Extension_Graphic
+		{
+			get
+			{
+				if (cachedGraphicExtension == null)
+				{
+					cachedGraphicExtension = def.GetModExtension<GeneExtension_Graphic>();
+				}
+				return cachedGraphicExtension;
+			}
+		}
+
 		// Cache?
 		//public bool? cachedActivity;
 
@@ -102,32 +172,32 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Disconnectable : XaG_Gene, IGeneDisconnectable, IGeneOverriddenBy
 	{
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Undead
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Undead == null)
+		//		{
+		//			cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		}
+		//		return cachedGeneExtension_Undead;
+		//	}
+		//}
 
 		public override bool Active
 		{
@@ -200,18 +270,18 @@ namespace WVC_XenotypesAndGenes
 
 
 
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Extension_Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Extension_Undead
+		//{
+		//	get
+		//	{
+		//		//if (cachedGeneExtension_Undead == null)
+		//		//{
+		//		//	cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		//}
+		//		return base.Extension_Undead;
+		//	}
+		//}
 
 		public virtual int ArchiteLimit => 999;
 		public virtual int ComplexityLimit => 999;

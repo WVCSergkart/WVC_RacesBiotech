@@ -25,19 +25,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		[Unsaved(false)]
 		private Gene_Duplicator cachedDuplicatorGene;

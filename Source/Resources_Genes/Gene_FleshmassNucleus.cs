@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedNucleusStatDef == null)
 				{
-					cachedNucleusStatDef = def?.GetModExtension<GeneExtension_Giver>()?.statDef;
+					cachedNucleusStatDef = Extension_Giver?.statDef;
 				}
 				return cachedNucleusStatDef;
 			}

@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 			try
 			{
-				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Spawner.allowedMechWeightClasses, out List<Thing> summonList, Spawner.mechHediff))
+				if (MechanoidsUtility.TrySummonMechanoids(pawn, countSpawn, Extension_Spawner.allowedMechWeightClasses, out List<Thing> summonList, Extension_Spawner.mechHediff))
 				{
 					pawn.mechanitor?.Notify_BandwidthChanged();
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);

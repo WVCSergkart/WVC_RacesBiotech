@@ -7,17 +7,17 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraHediff : Gene_ChimeraDependant, IGeneOverriddenBy, IGeneAddOrRemoveHediff
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		public virtual Hediff ChimeraHediff
 		{
 			get
 			{
-				if (Props?.hediffDefName == null)
+				if (Extension_Giver?.hediffDefName == null)
 				{
 					return null;
 				}
-				return pawn.health?.hediffSet?.GetFirstHediffOfDef(Props.hediffDefName);
+				return pawn.health?.hediffSet?.GetFirstHediffOfDef(Extension_Giver.hediffDefName);
 			}
 		}
 
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this, Props?.bodyparts);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Giver?.hediffDefName, pawn, this, Extension_Giver?.bodyparts);
 			}
 			catch (Exception arg)
 			{
@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDefName, pawn);
 		}
 
 	}

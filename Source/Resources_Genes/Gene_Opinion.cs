@@ -12,19 +12,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Opinion : XaG_Gene
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		// public int nextTick = 1500;
 
@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			SetOpinion(pawn, this, Props);
+			SetOpinion(pawn, this, Extension_Opinion);
 			// ResetCounter();
 		}
 
@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: SetOpinion",
 					action = delegate
 					{
-						SetOpinion(pawn, this, Props);
+						SetOpinion(pawn, this, Extension_Opinion);
 					}
 				};
 			}
@@ -81,19 +81,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DemonBeauty : XaG_Gene
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -102,7 +102,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			SetOpinion(pawn, this, Props);
+			SetOpinion(pawn, this, Extension_Opinion);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: SetOpinion",
 					action = delegate
 					{
-						SetOpinion(pawn, this, Props);
+						SetOpinion(pawn, this, Extension_Opinion);
 					}
 				};
 			}
@@ -141,29 +141,29 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodfeederBeauty : XaG_Gene, IGeneBloodfeeder
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			if (Props == null)
+			if (Extension_Opinion == null)
 			{
 				return;
 			}
-			if (Props.AboutMeThoughtDef != null)
+			if (Extension_Opinion.AboutMeThoughtDef != null)
 			{
-				victim.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+				victim.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, pawn);
 			}
 		}
 
@@ -228,19 +228,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SweetVoice : Gene_Speaker
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -252,7 +252,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (GeneInteractionsUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target))
 			{
-				target.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+				target.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.AboutMeThoughtDef, pawn);
 			}
 			ResetInterval(new(7200, 22000));
 		}
@@ -316,19 +316,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Recluse : XaG_Gene, IGeneOverriddenBy
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Props
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		//private int nextTick = 841;
 
@@ -366,7 +366,7 @@ namespace WVC_XenotypesAndGenes
 			thoughtUpdateTick -= tick;
 			if (thoughtUpdateTick <= 0)
 			{
-				ThoughtUtility.AddPermanentMemory(pawn, Props.thoughtDef);
+				ThoughtUtility.AddPermanentMemory(pawn, Extension_Opinion.thoughtDef);
 				thoughtUpdateTick = 60000;
 			}
 		}
@@ -389,7 +389,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveMemory()
 		{
-			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Extension_Opinion.thoughtDef);
 		}
 
 		//public void TryInteract()

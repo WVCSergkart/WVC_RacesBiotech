@@ -8,18 +8,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AddOrRemoveHediff : XaG_Gene, IGeneOverriddenBy, IGeneAddOrRemoveHediff, IGeneNotifyLifeStageStarted
 	{
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Props
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this, Props?.bodyparts);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Giver?.hediffDefName, pawn, this, Extension_Giver?.bodyparts);
 			}
 			catch (Exception arg)
 			{
@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDefName, pawn);
 		}
 
 		public virtual void Notify_LifeStageStarted()
@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHediffDef == null)
 				{
-					cachedHediffDef = def?.GetModExtension<GeneExtension_Giver>()?.hediffDefName;
+					cachedHediffDef = Extension_Giver?.hediffDefName;
 				}
 				return cachedHediffDef;
 			}
@@ -345,19 +345,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodfeedHediffGiver : XaG_Gene, IGeneBloodfeeder
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			if (Props == null || victim == null)
+			if (Extension_Giver == null || victim == null)
 			{
 				return;
 			}
-			Hediff hediff = HediffMaker.MakeHediff(Props.hediffDefName, pawn);
+			Hediff hediff = HediffMaker.MakeHediff(Extension_Giver.hediffDefName, pawn);
 			HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 			if (hediffComp_Disappears != null)
 			{
-				hediffComp_Disappears.ticksToDisappear = Props.ticksToDisappear;
+				hediffComp_Disappears.ticksToDisappear = Extension_Giver.ticksToDisappear;
 			}
 			pawn.health.AddHediff(hediff);
 		}

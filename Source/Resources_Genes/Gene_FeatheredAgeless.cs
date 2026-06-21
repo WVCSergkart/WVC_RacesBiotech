@@ -108,18 +108,18 @@ namespace WVC_XenotypesAndGenes
 
 		//======================================
 
-		private GeneExtension_Undead cachedGeneExtension;
-		public GeneExtension_Undead Undead
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Undead cachedGeneExtension;
+		//public GeneExtension_Undead Undead
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Undead>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{

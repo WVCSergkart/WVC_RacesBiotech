@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		private void ResetTicker()
 		{
 			//IntRange range = new(44444, 67565);
-			updTick = Spawner.spawnIntervalRange.RandomInRange;
+			updTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			//Log.Error("Pawns: " + pawns.Count);
 			foreach (Pawn pawn in pawns)
 			{
-				if (Rand.Chance(Spawner.chance))
+				if (Rand.Chance(Extension_Spawner.chance))
 				{
 					Chimera.GetGeneFromHuman(pawn);
 				}
@@ -198,7 +198,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Pawn victim in pawns)
 			{
-				if (!Rand.Chance(Spawner.chance))
+				if (!Rand.Chance(Extension_Spawner.chance))
 				{
 					continue;
 				}

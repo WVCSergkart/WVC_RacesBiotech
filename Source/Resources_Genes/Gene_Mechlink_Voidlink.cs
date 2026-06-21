@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Spawner.mechanitorHediff, pawn, this, null);
 			}
 			catch (Exception arg)
 			{
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Spawner.mechanitorHediff, pawn);
 		}
 
 		public void Notify_Override()
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
 				foreach (Pawn mech in mechs)
 				{
-					if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
+					if (!mech.Dead && mech.health.hediffSet.HasHediff(Extension_Spawner.mechHediff))
 					{
 						KillSelectedMech(offsetResource, mech);
 					}
@@ -223,7 +223,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public StatDef MaxResource_StatDef => Spawner.voidMaxResource_StatDef;
+		public StatDef MaxResource_StatDef => Extension_Spawner.voidMaxResource_StatDef;
 
 		public void Notify_GenesRecache(Gene changedGene)
 		{
@@ -257,7 +257,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!cachedMaxMechs.HasValue)
 				{
-					cachedMaxMechs = pawn.GetStatValue(Spawner.voidMechsLimit_StatDef);
+					cachedMaxMechs = pawn.GetStatValue(Extension_Spawner.voidMechsLimit_StatDef);
 				}
 				return cachedMaxMechs.Value;
 			}
@@ -413,7 +413,7 @@ namespace WVC_XenotypesAndGenes
 				GenSpawn.Spawn(mech, spawnCell, pawn.MapHeld);
 				MechanoidsUtility.SetOverseer(pawn, mech);
 				phase = "hediffs and resource offset";
-				HediffUtility.TryAddOrRemoveHediff(Spawner.mechHediff, mech, this, null);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Spawner.mechHediff, mech, this, null);
 				UpdHediff();
 				OffsetResource(-1f * consume);
 				return true;
@@ -451,7 +451,7 @@ namespace WVC_XenotypesAndGenes
 				phase = "set mech age";
 				AgelessUtility.SetAge(mech, 3600000 * new IntRange(5, 44).RandomInRange);
 			}
-			float chance = pawn.GetStatValue(Spawner.voidDamageChance_StatDef);
+			float chance = pawn.GetStatValue(Extension_Spawner.voidDamageChance_StatDef);
 			if (mech.Dead)
 			{
 				chance *= 5;

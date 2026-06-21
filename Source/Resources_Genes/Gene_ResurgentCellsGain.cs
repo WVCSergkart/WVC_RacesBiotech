@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Bloodcells : Gene_HemogenOffset, IGeneBloodfeeder
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		[Unsaved(false)]
 		private Gene_Resurgent cachedHemogenGene;
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Cells != null)
 			{
-				GeneResourceUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+				GeneResourceUtility.OffsetResource(Cells, Extension_Giver.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
 			}
 		}
 
@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ResurgentFungus : Gene_ResurgentOffset
 	{
 
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public int timeForNextSummon = -1;
 		// public int cachedMapTreesCount = 0;
@@ -154,29 +154,29 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetSummonInterval()
 		{
-			if (Spawner == null)
+			if (Extension_Spawner == null)
 			{
 				return;
 			}
-			timeForNextSummon = Spawner.spawnIntervalRange.RandomInRange;
+			timeForNextSummon = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		public void GenerateIncident()
 		{
-			if (Spawner?.incidentDef == null)
+			if (Extension_Spawner?.incidentDef == null)
 			{
 				return;
 			}
 			int mapTreesCount = CountSpecialTrees();
-			if (mapTreesCount >= Spawner.specialTreesMax)
+			if (mapTreesCount >= Extension_Spawner.specialTreesMax)
 			{
 				return;
 			}
-			IncidentParms parms = StorytellerUtility.DefaultParmsNow(Spawner.incidentDef.category, pawn.Map);
-			IncidentDef result = Spawner.incidentDef;
+			IncidentParms parms = StorytellerUtility.DefaultParmsNow(Extension_Spawner.incidentDef.category, pawn.Map);
+			IncidentDef result = Extension_Spawner.incidentDef;
 			if (result != null)
 			{
-				if (!result.Worker.CanFireNow(parms) && mapTreesCount > Spawner.specialTreesMin)
+				if (!result.Worker.CanFireNow(parms) && mapTreesCount > Extension_Spawner.specialTreesMin)
 				{
 					return;
 				}
@@ -214,7 +214,7 @@ namespace WVC_XenotypesAndGenes
 			int trees = 0;
 			foreach (Thing item in pawn.Map.listerThings.AllThings)
 			{
-				if (item?.def != Spawner.incidentDef.treeDef)
+				if (item?.def != Extension_Spawner.incidentDef.treeDef)
 				{
 					continue;
 				}

@@ -12,33 +12,33 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Chimera : XaG_Gene, IGeneBloodfeeder, IGeneOverriddenBy, IGeneWithEffects, IGeneRecacheable, IGeneShapeshifter, IGeneXenogenesEditor, IGeneDevourer
 	{
 
-		[Unsaved(false)]
-		private GeneExtension_Undead cachedGeneExtension_Undead;
-		public GeneExtension_Undead Extension_Undead
-		{
-			get
-			{
-				if (cachedGeneExtension_Undead == null)
-				{
-					cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
-				}
-				return cachedGeneExtension_Undead;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Undead cachedGeneExtension_Undead;
+		//public GeneExtension_Undead Extension_Undead
+		//{
+		//	get
+		//	{
+		//		//if (cachedGeneExtension_Undead == null)
+		//		//{
+		//		//	cachedGeneExtension_Undead = def.GetModExtension<GeneExtension_Undead>();
+		//		//}
+		//		return base.Extension_Undead;
+		//	}
+		//}
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension_Giver;
-		public GeneExtension_Giver Giver
-		{
-			get
-			{
-				if (cachedGeneExtension_Giver == null)
-				{
-					cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension_Giver;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension_Giver;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension_Giver == null)
+		//		{
+		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension_Giver;
+		//	}
+		//}
 
 		private List<GeneDef> collectedGenes = new();
 
@@ -790,7 +790,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public StatDef ChimeraLimitStatDef => Giver?.statDef;
+		public StatDef ChimeraLimitStatDef => Extension_Giver?.statDef;
 
 		//public AcceptanceReport CanBeUsed
 		//{

@@ -14,19 +14,19 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public int nextTick = 60000;
 
@@ -53,12 +53,12 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			HediffUtility.RemoveHediffsFromList(pawn, Extension_Giver.hediffDefs);
 		}
 
 		private void ResetInterval()
 		{
-			nextTick = Props.intervalRange.RandomInRange;
+			nextTick = Extension_Giver.intervalRange.RandomInRange;
 		}
 
 		// public override void PostRemove()
@@ -83,19 +83,19 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		[Unsaved(false)]
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//[Unsaved(false)]
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public int nextTick = 60000;
 
@@ -120,13 +120,13 @@ namespace WVC_XenotypesAndGenes
 			ResetInterval();
 			if (Resurgent?.ValuePercent >= 1f)
 			{
-				HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+				HediffUtility.RemoveHediffsFromList(pawn, Extension_Giver.hediffDefs);
 			}
 		}
 
 		private void ResetInterval()
 		{
-			nextTick = Props.intervalRange.RandomInRange;
+			nextTick = Extension_Giver.intervalRange.RandomInRange;
 		}
 
 		public override void ExposeData()
@@ -179,18 +179,18 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public int nextTick = 60000;
 
@@ -214,12 +214,12 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void Stabilize()
 		{
-			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			HediffUtility.RemoveHediffsFromList(pawn, Extension_Giver.hediffDefs);
 		}
 
 		private void ResetInterval()
 		{
-			nextTick = Props.intervalRange.RandomInRange;
+			nextTick = Extension_Giver.intervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -291,18 +291,18 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		public int nextTick = 60000;
 
@@ -371,18 +371,18 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void DelayJob()
 		{
-			if (Props.jobDef == null || Props.specialFoodDefs.NullOrEmpty())
+			if (Extension_Giver.jobDef == null || Extension_Giver.specialFoodDefs.NullOrEmpty())
 			{
 				return;
 			}
-			for (int j = 0; j < Props.specialFoodDefs.Count; j++)
+			for (int j = 0; j < Extension_Giver.specialFoodDefs.Count; j++)
 			{
-				Thing serum = MiscUtility.GetSpecialFood(pawn, Props.specialFoodDefs[j]);
+				Thing serum = MiscUtility.GetSpecialFood(pawn, Extension_Giver.specialFoodDefs[j]);
 				if (serum == null)
 				{
 					continue;
 				}
-				pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Props.jobDef, serum), JobTag.Misc, true);
+				pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Extension_Giver.jobDef, serum), JobTag.Misc, true);
 			}
 		}
 
@@ -400,7 +400,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int j = 0; j < things.Count; j++)
 			{
-				if (!Props.specialFoodDefs.Contains(things[j].def))
+				if (!Extension_Giver.specialFoodDefs.Contains(things[j].def))
 				{
 					continue;
 				}
@@ -417,12 +417,12 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void GeneticStuff()
 		{
-			if (!Props.hediffDefs.NullOrEmpty())
+			if (!Extension_Giver.hediffDefs.NullOrEmpty())
 			{
-				HediffUtility.AddHediffsFromList(pawn, Props.hediffDefs);
-				if (Props.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
+				HediffUtility.AddHediffsFromList(pawn, Extension_Giver.hediffDefs);
+				if (Extension_Giver.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
 				{
-					Messages.Message(Props.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+					Messages.Message(Extension_Giver.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
 				}
 			}
 			else
@@ -434,7 +434,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResetInterval()
 		{
-			nextTick = Props.intervalRange.RandomInRange;
+			nextTick = Extension_Giver.intervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

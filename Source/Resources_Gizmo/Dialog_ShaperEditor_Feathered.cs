@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 						}
 						foreach (Gene gene in pawn.genes.GenesListForReading)
 						{
-							if (gene_FeatheredAgeless.Undead.geneDefs.Contains(gene.def))
+							if (gene_FeatheredAgeless.Extension_Undead.geneDefs.Contains(gene.def))
 							{
 								GeneDefWithChance newGene = new()
 								{
@@ -203,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			isArchite = pawnGenes.Any(def => def.biostatArc != 0);
-			foreach (GeneDef item in gene_FeatheredAgeless.Undead.geneDefs)
+			foreach (GeneDef item in gene_FeatheredAgeless.Extension_Undead.geneDefs)
 			{
 				if (!isArchite && item.biostatArc != 0)
 				{

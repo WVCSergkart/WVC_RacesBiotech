@@ -157,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 			if (nextRecache < 0)
 			{
 				allDryads = gene.DryadsListForReading;
-				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 6000);
+				totalBandwidth = mechanitor.GetStatValue(gene.Extension_Spawner.dryadsStatLimit, cacheStaleAfterTicks: 6000);
 				usedBandwidth = allDryads.Count;
 				nextRecache = 180;
 			}

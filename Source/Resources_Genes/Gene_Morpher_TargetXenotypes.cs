@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MorpherXenotypeTargeter : Gene_MorpherDependant
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public XenotypeHolder choosenXenotype = null;
 
@@ -22,12 +22,13 @@ namespace WVC_XenotypesAndGenes
 					return choosenXenotype;
 				}
 				//Log.Error("1");
-				return new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Giver?.morpherXenotypeChances, null));
+				return new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Extension_Giver?.morpherXenotypeChances, null));
 			}
 		}
 
 
-		public List<XenotypeDef> cachedXenotypeDefs;
+		[Unsaved(false)]
+		protected List<XenotypeDef> cachedXenotypeDefs;
 		public virtual List<XenotypeDef> PossibleXenotypeDefs
 		{
 			get
@@ -35,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				if (cachedXenotypeDefs == null)
 				{
 					List<XenotypeDef> list = new();
-					foreach (XenotypeChance chance in Giver?.morpherXenotypeChances)
+					foreach (XenotypeChance chance in Extension_Giver?.morpherXenotypeChances)
 					{
 						list.Add(chance.xenotype);
 					}
@@ -69,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 					//{
 					//	list.Add(def);
 					//}
-					cachedXenotypeDefs = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent: Giver.match);
+					cachedXenotypeDefs = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent: Extension_Giver.match);
 				}
 				return cachedXenotypeDefs;
 			}

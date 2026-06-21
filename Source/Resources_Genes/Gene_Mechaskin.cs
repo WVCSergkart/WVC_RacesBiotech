@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Bodyparts : XaG_Gene, IGeneCustomGraphic
 	{
 
-		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
+		//public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
 
 		public override void PostAdd()
 		{
@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedStyleId == null)
 				{
-					cachedStyleId = Graphic != null ? Graphic.styleId : -1;
+					cachedStyleId = Extension_Graphic != null ? Extension_Graphic.styleId : -1;
 				}
 				return cachedStyleId.Value;
 			}

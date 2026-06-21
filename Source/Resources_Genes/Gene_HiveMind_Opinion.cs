@@ -7,18 +7,18 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HiveMind_Opinion : Gene_Hivemind_Drone
 	{
 
-		private GeneExtension_Opinion cachedExtension;
-		public GeneExtension_Opinion Opinion
-		{
-			get
-			{
-				if (cachedExtension == null)
-				{
-					cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
-				}
-				return cachedExtension;
-			}
-		}
+		//private GeneExtension_Opinion cachedExtension;
+		//public GeneExtension_Opinion Opinion
+		//{
+		//	get
+		//	{
+		//		if (cachedExtension == null)
+		//		{
+		//			cachedExtension = def?.GetModExtension<GeneExtension_Opinion>();
+		//		}
+		//		return cachedExtension;
+		//	}
+		//}
 
 		public override void TickInterval(int delta)
 		{
@@ -45,8 +45,8 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
-					otherPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, pawn);
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.thoughtDef, otherPawn);
+					otherPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.thoughtDef, pawn);
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.thoughtDef, otherPawn);
 				}
 			}
 			catch (Exception arg)

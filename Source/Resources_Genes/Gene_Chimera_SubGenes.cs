@@ -17,18 +17,18 @@ namespace WVC_XenotypesAndGenes
 		public virtual bool DisableSubActions => false;
 		public virtual IntRange? ReqMetRange => null;
 
-		private GeneExtension_Spawner cachedGeneExtension;
-		public GeneExtension_Spawner Spawner
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
-				}
-				return cachedGeneExtension;
-			}
-		}
+		//private GeneExtension_Spawner cachedGeneExtension;
+		//public GeneExtension_Spawner Spawner
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Spawner>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
 
 		[Unsaved(false)]
 		private Gene_Chimera cachedChimeraGene;
@@ -62,9 +62,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ChimeraMetabolismLimit : Gene_ChimeraDependant
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		public override IntRange? ReqMetRange => Giver.intervalRange;
+		public override IntRange? ReqMetRange => Extension_Giver.intervalRange;
 
 	}
 
@@ -93,9 +93,9 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetTicker()
 		{
-			if (Spawner != null)
+			if (Extension_Spawner != null)
 			{
-				nextTick = Spawner.spawnIntervalRange.RandomInRange;
+				nextTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
 			}
 			else
 			{
@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Rand.Chance(Spawner.chance))
+			if (Rand.Chance(Extension_Spawner.chance))
 			{
 				GetRandomGene();
 			}
@@ -157,8 +157,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			int countSpawn = Spawner.summonRange.RandomInRange;
-			float geneChance = Spawner.chance;
+			int countSpawn = Extension_Spawner.summonRange.RandomInRange;
+			float geneChance = Extension_Spawner.chance;
 			bool playSound = false;
 			for (int i = 0; i < countSpawn; i++)
 			{
@@ -180,7 +180,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (playSound && pawn.Map != null)
 			{
-				SoundDef soundDef = Spawner.soundDef;
+				SoundDef soundDef = Extension_Spawner.soundDef;
 				if (soundDef != null)
 				{
 					soundDef.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
@@ -216,8 +216,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			int countSpawn = Spawner.summonRange.RandomInRange;
-			float geneChance = Spawner.chance;
+			int countSpawn = Extension_Spawner.summonRange.RandomInRange;
+			float geneChance = Extension_Spawner.chance;
 			for (int i = 0; i < countSpawn; i++)
 			{
 				if (Chimera.DestroyedGenes.NullOrEmpty())

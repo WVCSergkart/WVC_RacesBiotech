@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeathrestDependant : XaG_Gene
 	{
 
-		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		[Unsaved(false)]
 		private Gene_Deathrest cachedDeathrestGene;
@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Immunization(pawn, immunization: Undead.immunization, tick: tick);
+			HealingUtility.Immunization(pawn, immunization: Extension_Undead.immunization, tick: tick);
 		}
 
 	}
@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoTick(int tick, int delta)
 		{
-			HealingUtility.Regeneration(pawn, regeneration: Undead.regeneration, tick: tick);
+			HealingUtility.Regeneration(pawn, regeneration: Extension_Undead.regeneration, tick: tick);
 		}
 
 	}

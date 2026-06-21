@@ -36,10 +36,10 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
 				//}
-				if (Gene_Mechlink.CanDoOrbitalSummon(pawn) && MechanoidsUtility.TrySummonMechanoids(pawn, Spawner.summonRange.RandomInRange, Spawner.allowedMechWeightClasses, out List<Thing> summonList))
+				if (Gene_Mechlink.CanDoOrbitalSummon(pawn) && MechanoidsUtility.TrySummonMechanoids(pawn, Extension_Spawner.summonRange.RandomInRange, Extension_Spawner.allowedMechWeightClasses, out List<Thing> summonList))
 				{
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
-					nextTick = Spawner.spawnIntervalRange.RandomInRange;
+					nextTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
 				}
 				else
 				{
@@ -86,11 +86,11 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (ModsUtility.GameStarted())
 			{
-				nextTick = Spawner.spawnIntervalRange.RandomInRange;
+				nextTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
 			}
 		}
 
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public int nextTick;
 

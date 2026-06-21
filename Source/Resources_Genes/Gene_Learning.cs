@@ -12,14 +12,14 @@ namespace WVC_XenotypesAndGenes
 
 		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>().childBackstoryDef;
 		// public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>().adultBackstoryDef;
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Props != null)
+			if (Extension_Giver != null)
 			{
-				BackstoryChanger(pawn, Props.childBackstoryDef, Props.adultBackstoryDef);
+				BackstoryChanger(pawn, Extension_Giver.childBackstoryDef, Extension_Giver.adultBackstoryDef);
 			}
 		}
 

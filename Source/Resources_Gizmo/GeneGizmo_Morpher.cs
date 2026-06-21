@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 			// gene.Reset();
 			// }
-			autoCast = gene.pawn.health.hediffSet.HasHediff(gene.Giver.hediffDef);
+			autoCast = gene.pawn.health.hediffSet.HasHediff(gene.Extension_Giver.hediffDef);
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -107,20 +107,20 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect5);
 				if (Widgets.ButtonInvisible(rect5))
 				{
-					if (HediffUtility.TryAddHediff(gene.Giver.hediffDef, gene.pawn, gene.def))
+					if (HediffUtility.TryAddHediff(gene.Extension_Giver.hediffDef, gene.pawn, gene.def))
 					{
 						autoCast = true;
 					}
 					else
 					{
-						HediffUtility.TryRemoveHediff(gene.Giver.hediffDef, gene.pawn);
+						HediffUtility.TryRemoveHediff(gene.Extension_Giver.hediffDef, gene.pawn);
 						autoCast = false;
 					}
 				}
 			}
 			if (Mouse.IsOver(rect5))
 			{
-				TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneMorpherAutoCast_Desc".Translate() + "\n\n" + "WVC_XaG_GeneMorpherAutoCast_Status".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.pawn.health.hediffSet.HasHediff(gene.Giver.hediffDef)));
+				TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneMorpherAutoCast_Desc".Translate() + "\n\n" + "WVC_XaG_GeneMorpherAutoCast_Status".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.pawn.health.hediffSet.HasHediff(gene.Extension_Giver.hediffDef)));
 			}
 		}
 
@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 						Thing architeCapsule = GetBestArchiteStack(pawn, false);
 						if (architeCapsule != null)
 						{
-							MiscUtility.MakeCustomJob(pawn, architeCapsule, gene.Giver.morpherTriggerChangeJob, geneDef);
+							MiscUtility.MakeCustomJob(pawn, architeCapsule, gene.Extension_Giver.morpherTriggerChangeJob, geneDef);
 						}
 						else
 						{

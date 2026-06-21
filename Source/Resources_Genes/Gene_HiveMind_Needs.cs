@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HiveMind_Needs : Gene_Hivemind
 	{
 
-		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		private class NeedHolder
 		{
@@ -86,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Need need in target.needs.AllNeeds)
 			{
-				if (!Giver.needDefs.Contains(need.def))
+				if (!Extension_Giver.needDefs.Contains(need.def))
 				{
 					continue;
 				}
@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 			foreach (Need need in target.needs.AllNeeds)
 			{
 				//Log.Error("2");
-				if (!Giver.needDefs.Contains(need.def))
+				if (!Extension_Giver.needDefs.Contains(need.def))
 				{
 					//Log.Error("WTF?");
 					continue;

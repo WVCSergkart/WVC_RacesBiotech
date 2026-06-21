@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return base.Xenotypes.Where(holder =>
 				{
-					bool isSpecifiedXenotype = Giver.xenotypeDefs != null && Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
+					bool isSpecifiedXenotype = Extension_Giver.xenotypeDefs != null && Extension_Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
 					//bool inAnyCategory = Giver.geneCategoryDefs != null && holder.genes.Any(def => Giver.geneCategoryDefs.Contains(def.displayCategory));
 					bool isUnlocked = UnlockedXenotypes != null && UnlockedXenotypes.Contains(holder.Label);
 					return holder.Baseliner || isUnlocked || isSpecifiedXenotype;

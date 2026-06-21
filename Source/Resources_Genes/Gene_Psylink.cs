@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Psylink : Gene_SimplePsylink
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public float recoveryRate = 0.01f;
 
@@ -89,11 +89,11 @@ namespace WVC_XenotypesAndGenes
 
 		private float GetRecoveryRate()
 		{
-			if (Props == null)
+			if (Extension_Giver == null)
 			{
 				return 0.01f * pawn.GetPsylinkLevel();
 			}
-			return (float)Math.Round(Props.curve.Evaluate(pawn.GetPsylinkLevel()), 2);
+			return (float)Math.Round(Extension_Giver.curve.Evaluate(pawn.GetPsylinkLevel()), 2);
 		}
 
 		public override void ExposeData()
@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_HemogenDrain_Psylink : Gene_HemogenOffset, IGeneBloodfeeder
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public float recoveryRate = 0.01f;
 		private int nextTick = 300;
@@ -150,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0.01f * pawn.GetPsylinkLevel();
 			}
-			return (float)Math.Round(Props.curve.Evaluate(Hemogen.Value), 2);
+			return (float)Math.Round(Extension_Giver.curve.Evaluate(Hemogen.Value), 2);
 		}
 
 		public override void ExposeData()

@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Photosynthesis : Gene_FoodEfficiency, IGeneRecacheable
 	{
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		private float? cachedNutritionPerTick;
 
@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!cachedNutritionPerTick.HasValue)
 			{
-				cachedNutritionPerTick = Giver.passivelyReplenishedNutrition + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
+				cachedNutritionPerTick = Extension_Giver.passivelyReplenishedNutrition + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
 			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DeadlyUVSensitivity : XaG_Gene
 	{
 
-		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+		//public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
 		public override void TickInterval(int delta)
 		{
@@ -101,9 +101,9 @@ namespace WVC_XenotypesAndGenes
 			// Find.BattleLog.Add(battleLogEntry_DamageTaken);
 			// pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange)).AssociateWithLog(battleLogEntry_DamageTaken);
 			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange, hitPart: pawn?.health?.hediffSet?.GetRandomNotMissingPart(DamageDefOf.Burn, depth: BodyPartDepth.Outside)));
-			if (Opinion?.MeAboutThoughtDef != null)
+			if (Extension_Opinion?.MeAboutThoughtDef != null)
 			{
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.MeAboutThoughtDef);
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.MeAboutThoughtDef);
 			}
 		}
 

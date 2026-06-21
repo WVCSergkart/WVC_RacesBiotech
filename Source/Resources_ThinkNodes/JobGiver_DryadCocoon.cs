@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 	public abstract class JobDriver_NewDryads_CreateAndEnterDryadHolder : JobDriver
 	{
 
-		public GeneExtension_Spawner Props => job?.def?.GetModExtension<GeneExtension_Spawner>();
+		public GeneExtension_Spawner Spawner => job?.def?.GetModExtension<GeneExtension_Spawner>();
 
 		public const int ticksToCreate = 200;
 
@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			return Toils_General.Do(delegate
 			{
-				GenSpawn.Spawn(Props.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadHealingPod_WithGene>().TryAcceptPawn(pawn);
+				GenSpawn.Spawn(Spawner.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadHealingPod_WithGene>().TryAcceptPawn(pawn);
 			});
 		}
 	}
@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			return Toils_General.Do(delegate
 			{
-				GenSpawn.Spawn(Props.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadCocoon_WithGene>().TryAcceptPawn(pawn);
+				GenSpawn.Spawn(Spawner.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadCocoon_WithGene>().TryAcceptPawn(pawn);
 			});
 		}
 	}

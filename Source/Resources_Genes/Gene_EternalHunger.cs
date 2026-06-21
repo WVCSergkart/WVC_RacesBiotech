@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_EternalHunger : Gene_HemogenOffset, IGeneOverriddenBy, IGeneBloodfeeder, IGeneRecacheable, IGeneAddOrRemoveHediff, IGeneNotifyLifeStageStarted
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		// Gene
 
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				cachedResourceLossPerDay = null;
-				HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+				HediffUtility.TryAddOrRemoveHediff(Extension_Giver?.hediffDefName, pawn, this);
 			}
 			catch (Exception arg)
 			{
@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_RemoveHediff()
 		{
-			HediffUtility.TryRemoveHediff(Props?.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Extension_Giver?.hediffDefName, pawn);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

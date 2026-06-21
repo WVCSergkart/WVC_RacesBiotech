@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		// private int StackCount => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
-		public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
 
 		public int ticksUntilSpawn;
 
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.ActiveFactionMap(pawn, this) && Props != null)
+			if (!XaG_GeneUtility.ActiveFactionMap(pawn, this) && Extension_Spawner != null)
 			{
 				SpawnItems();
 			}
@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SpawnItems()
 		{
-			MiscUtility.SpawnItems(pawn, Props.thingDefToSpawn, GetStackModifier(), Props.showMessageIfOwned, Props.spawnMessage);
+			MiscUtility.SpawnItems(pawn, Extension_Spawner.thingDefToSpawn, GetStackModifier(), Extension_Spawner.showMessageIfOwned, Extension_Spawner.spawnMessage);
 		}
 
 		private int GetStackModifier()
@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genes = pawn?.genes?.GenesListForReading;
 			if (genes.NullOrEmpty())
 			{
-				cachedStackCount = Props.stackCount;
+				cachedStackCount = Extension_Spawner.stackCount;
 				return cachedStackCount.Value;
 			}
 			int met = 0;
@@ -87,18 +87,18 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (modifier == 0)
 			{
-				cachedStackCount = Props.stackCount;
+				cachedStackCount = Extension_Spawner.stackCount;
 				return cachedStackCount.Value;
 			}
 			// modifier += met * 0.1f;
-			int countedStack = (int)(Props.stackCount * modifier);
+			int countedStack = (int)(Extension_Spawner.stackCount * modifier);
 			cachedStackCount = countedStack <= 1 ? 1 : countedStack;
 			return cachedStackCount.Value;
 		}
 
 		private void ResetInterval()
 		{
-			ticksUntilSpawn = Props.spawnIntervalRange.RandomInRange;
+			ticksUntilSpawn = Extension_Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Spawn " + Props.thingDefToSpawn.label,
+					defaultLabel = "DEV: Spawn " + Extension_Spawner.thingDefToSpawn.label,
 					defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
 					action = delegate
 					{
@@ -135,11 +135,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					return null;
 				}
-				if (!Props.showInspectInfoIfOwned)
+				if (!Extension_Spawner.showInspectInfoIfOwned)
 				{
 					return null;
 				}
-				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Extension_Spawner?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 		}
 
@@ -150,7 +150,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodyGrowths : Gene_HemogenOffset
 	{
 
-		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
+		//public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public override void TickInterval(int delta)
 		{
@@ -159,7 +159,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Hemogen == null || Props == null)
+			if (Hemogen == null || Extension_Spawner == null)
 			{
 				return;
 			}
@@ -176,10 +176,10 @@ namespace WVC_XenotypesAndGenes
 
 		private bool TrySpawnHemogenPack()
 		{
-			if (Hemogen.Value >= (Hemogen.Max * Props.matchPercent))
+			if (Hemogen.Value >= (Hemogen.Max * Extension_Spawner.matchPercent))
 			{
-				SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount, styleDef: Props.styleDef);
-				Hemogen.Value -= Props.hemogenPerThing * Props.stackCount;
+				SpawnItems(pawn, Extension_Spawner.thingDefToSpawn, Extension_Spawner.stackCount, styleDef: Extension_Spawner.styleDef);
+				Hemogen.Value -= Extension_Spawner.hemogenPerThing * Extension_Spawner.stackCount;
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
 				EffectsUtility.TrySpawnBloodFilth(pawn, new(1, 2));
 				return true;
@@ -208,7 +208,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: ForceSpawn " + Props.thingDefToSpawn.label,
+					defaultLabel = "DEV: ForceSpawn " + Extension_Spawner.thingDefToSpawn.label,
 					action = delegate
 					{
 						if (!TrySpawnHemogenPack())

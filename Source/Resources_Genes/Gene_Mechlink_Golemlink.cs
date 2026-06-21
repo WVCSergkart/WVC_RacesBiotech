@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			golemsForSummon = Spawner?.golemModeDefs;
+			golemsForSummon = Extension_Spawner?.golemModeDefs;
 			ResetSummonInterval();
 		}
 
@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (golemsForSummon.NullOrEmpty())
 			{
-				golemsForSummon = Spawner?.golemModeDefs;
+				golemsForSummon = Extension_Spawner?.golemModeDefs;
 			}
 			if (golemsForSummon.NullOrEmpty())
 			{

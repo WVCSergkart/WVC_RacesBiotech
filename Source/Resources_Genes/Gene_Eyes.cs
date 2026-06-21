@@ -53,19 +53,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Eyes : XaG_Gene, IGeneCustomGraphic
 	{
 
-		private GeneExtension_Giver cachedGeneExtension;
-		public GeneExtension_Giver Props
-		{
-			get
-			{
-				if (cachedGeneExtension == null)
-				{
-					cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-				}
-				return cachedGeneExtension;
-			}
-		}
-		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
+		//private GeneExtension_Giver cachedGeneExtension;
+		//public GeneExtension_Giver Giver
+		//{
+		//	get
+		//	{
+		//		if (cachedGeneExtension == null)
+		//		{
+		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+		//		}
+		//		return cachedGeneExtension;
+		//	}
+		//}
+		//public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
 
 		private Color color = Color.white;
 		//public bool visible = true;
@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public Color? DefaultColor => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.defaultColor;
 
-		public List<GeneralHolder> ColorHolder => Props.holofaces;
+		public List<GeneralHolder> ColorHolder => Extension_Giver.holofaces;
 
 		public virtual float Alpha => 1f;
 
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedStyleId == null)
 				{
-					cachedStyleId = Graphic != null ? Graphic.styleId : -1;
+					cachedStyleId = Extension_Graphic != null ? Extension_Graphic.styleId : -1;
 				}
 				return cachedStyleId.Value;
 				//if (Graphic != null)
@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				SetColor(pawn.genes.Xenotype.GetModExtension<GeneExtension_Giver>().defaultColor);
 			}
-			else if (Props != null && Props.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
+			else if (Extension_Giver != null && Extension_Giver.holofaces.Where((GeneralHolder x) => x.visible).ToList().TryRandomElement(out GeneralHolder countWithChance))
 			{
 				SetColor(countWithChance.color);
 			}
