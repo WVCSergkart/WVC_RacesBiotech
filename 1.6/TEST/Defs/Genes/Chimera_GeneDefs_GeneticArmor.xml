@@ -4,9 +4,9 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
 	<defName>WVC_Chimera_GeneticArmor</defName>
 	<label>genetic armor</label>
-	<description>Carriers of this gene have TEST.</description>
+	<description>Carriers of this gene are able to build up armor relative to the absorbed genes.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraHediff</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneticArmor</iconPath>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneticArmor</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>

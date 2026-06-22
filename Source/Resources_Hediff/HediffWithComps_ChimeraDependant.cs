@@ -36,6 +36,16 @@ namespace WVC_XenotypesAndGenes
 	public class HediffWithComps_DisabledGenes : HediffWithComps_ChimeraDependant
 	{
 
+		public SimpleCurve geneticCurve =
+		[
+			new CurvePoint(0, 0),
+			new CurvePoint(50, 50),
+			new CurvePoint(100, 80),
+			new CurvePoint(200, 150),
+			new CurvePoint(1000, 400),
+			new CurvePoint(9000, 500)
+		];
+
 		public override HediffStage CurStage
 		{
 			get
@@ -49,18 +59,19 @@ namespace WVC_XenotypesAndGenes
 					curStage = new();
 					if (Chimera != null && def is XaG_HediffDef newDef && newDef.statModifiers != null)
 					{
-						if (!newDef.statModifiers.statFactors.NullOrEmpty())
-						{
-							curStage.statFactors = new();
-							foreach (StatModifier item in newDef.statModifiers.statFactors)
-							{
-								StatModifier statModifier = new();
-								statModifier.stat = item.stat;
-								float factor = 1f - (item.value * Chimera.DisabledGenes.Count);
-								statModifier.value = factor > 0f ? factor : 0f;
-								curStage.statFactors.Add(statModifier);
-							}
-						}
+						//float genesCountFactor = geneticCurve.Evaluate(Chimera.DisabledGenes.Count);
+						//if (!newDef.statModifiers.statFactors.NullOrEmpty())
+						//{
+						//	curStage.statFactors = new();
+						//	foreach (StatModifier item in newDef.statModifiers.statFactors)
+						//	{
+						//		StatModifier statModifier = new();
+						//		statModifier.stat = item.stat;
+						//		float factor = 1f - (item.value * genesCountFactor);
+						//		statModifier.value = factor > 0f ? factor : 0f;
+						//		curStage.statFactors.Add(statModifier);
+						//	}
+						//}
 						if (!newDef.statModifiers.statOffsets.NullOrEmpty())
 						{
 							curStage.statOffsets = new();
@@ -68,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								StatModifier statModifier = new();
 								statModifier.stat = item.stat;
-								statModifier.value = item.value * Chimera.DisabledGenes.Count;
+								statModifier.value = item.value * geneticCurve.Evaluate(Chimera.DisabledGenes.Count);
 								curStage.statOffsets.Add(statModifier);
 							}
 						}
