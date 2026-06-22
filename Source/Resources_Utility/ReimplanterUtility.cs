@@ -767,7 +767,7 @@ namespace WVC_XenotypesAndGenes
 					currentTry++;
 				}
 			}
-			ReimplanterUtility.PostImplantDebug(pawn);
+			//ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		public static void GeneSetCleaner(Pawn pawn, bool applyRegrow = false)

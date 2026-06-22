@@ -5,7 +5,7 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-	internal static class EffectsUtility
+	public static class EffectsUtility
 	{
 
 		public static void DoShapeshiftEffects_OnPawn(Pawn pawn)
