@@ -82,16 +82,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				if (Resurgent != null)
+				if ((Resurgent.Value - def.resourceLossPerDay) >= 0f)
 				{
-					if (Resurgent.ageReversionAllowed)
-					{
-						if ((Resurgent.Value - def.resourceLossPerDay) >= 0f)
-						{
-							Resurgent.Value -= def.resourceLossPerDay;
-							AgelessUtility.AgeReverse(pawn);
-						}
-					}
+					Resurgent.Value -= def.resourceLossPerDay;
+					AgelessUtility.AgeReverse(pawn);
 				}
 			}
 		}

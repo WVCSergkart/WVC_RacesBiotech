@@ -11,6 +11,7 @@ using static RimWorld.FleshTypeDef;
 namespace WVC_XenotypesAndGenes
 {
 
+	[StaticConstructorOnStartup]
 	public static class XaG_UiUtility
 	{
 

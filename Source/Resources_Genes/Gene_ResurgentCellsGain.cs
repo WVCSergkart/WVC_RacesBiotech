@@ -57,8 +57,22 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentDependent : XaG_Gene
+	public class Gene_ResurgentDependent : Gene_Disconnectable
 	{
+
+		public override Type MasterClass => typeof(Gene_Resurgent);
+
+		public override bool Active
+		{
+			get
+			{
+				if (base.Active)
+				{
+					return Resurgent != null;
+				}
+				return false;
+			}
+		}
 
 		[Unsaved(false)]
 		private Gene_Resurgent cachedResurgentGene;
@@ -69,6 +83,10 @@ namespace WVC_XenotypesAndGenes
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
 					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
+					if (cachedResurgentGene == null && ModsUtility.GameStarted())
+					{
+						Disabled = true;
+					}
 				}
 				return cachedResurgentGene;
 			}
@@ -77,6 +95,12 @@ namespace WVC_XenotypesAndGenes
 		public override void TickInterval(int delta)
 		{
 
+		}
+
+		public override void UpdateCache()
+		{
+			base.UpdateCache();
+			cachedResurgentGene = null;
 		}
 
 	}
@@ -90,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				return Resurgent?.CanOffset == true;
+				return Active;
 			}
 		}
 

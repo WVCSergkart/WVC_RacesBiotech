@@ -32,9 +32,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Gene_ResurgentTotalHealing totalHealingGene = null;
-		public Gene_ResurgentAgeless ageReversionGene = null;
-		public Gene_ResurgentClotting woundClottingGene = null;
+		//public Gene_ResurgentTotalHealing totalHealingGene = null;
+		//public Gene_ResurgentAgeless ageReversionGene = null;
+		//public Gene_ResurgentClotting woundClottingGene = null;
 
 		public GeneGizmo_ResourceResurgentCells(Gene_Resurgent gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
 			: base(gene, drainGenes, barColor, barhighlightColor)
@@ -43,9 +43,9 @@ namespace WVC_XenotypesAndGenes
 			this.drainGenes = drainGenes;
 			// BarColor = barColor;
 			// BarHighlightColor = barHighlightColor;
-			ageReversionGene = gene?.ResurgentAgeless;
-			woundClottingGene = gene?.ResurgentClotting;
-			totalHealingGene = gene?.ResurgentTotalHealing;
+			//ageReversionGene = gene?.ResurgentAgeless;
+			//woundClottingGene = gene?.ResurgentClotting;
+			//totalHealingGene = gene?.ResurgentTotalHealing;
 		}
 
 		//public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -65,43 +65,61 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void DrawHeader(Rect headerRect, ref bool mouseOverElement)
 		{
-			if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_Resurgent cellsGene)
-			{
-				if (totalHealingGene != null)
-				{
-					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.totalHealingAllowed, "WVC_XaG_AutoTotalHealingDesc", totalHealingGene.def);
-				}
-				if (ageReversionGene != null)
-				{
-					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.ageReversionAllowed, "WVC_XaG_AutoAgeReversionDesc", ageReversionGene.def);
-				}
-				if (woundClottingGene != null)
-				{
-					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", woundClottingGene.def);
-				}
-			}
+			//if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_Resurgent cellsGene)
+			//{
+			//	if (totalHealingGene != null)
+			//	{
+			//		GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.totalHealingAllowed, "WVC_XaG_AutoTotalHealingDesc", totalHealingGene.def);
+			//	}
+			//	if (ageReversionGene != null)
+			//	{
+			//		GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.ageReversionAllowed, "WVC_XaG_AutoAgeReversionDesc", ageReversionGene.def);
+			//	}
+			//	if (woundClottingGene != null)
+			//	{
+			//		GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", woundClottingGene.def);
+			//	}
+			//}
+			ActivityManager(headerRect);
 			base.DrawHeader(headerRect, ref mouseOverElement);
 		}
 
-		private void GeneSwitcher(ref Rect headerRect, ref bool mouseOverElement, ref bool geneAllowed, string autoGeneDesc, Def def)
+		private void ActivityManager(Rect rect3)
 		{
-			headerRect.xMax -= 24f;
-			Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
-			Widgets.DefIcon(rect, def);
-			GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), geneAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
-			if (Widgets.ButtonInvisible(rect))
+			Text.Anchor = TextAnchor.UpperRight;
+			Rect buttonRect = new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height);
+			Widgets.DrawTextureFitted(buttonRect, XaG_UiUtility.GenesSettingsIcon.Texture, 1f);
+			if (Mouse.IsOver(buttonRect))
 			{
-				geneAllowed = !geneAllowed;
-				XaG_UiUtility.FlickSound(geneAllowed);
+				Widgets.DrawHighlight(buttonRect);
+				if (Widgets.ButtonInvisible(buttonRect))
+				{
+					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene));
+				}
 			}
-			if (Mouse.IsOver(rect))
-			{
-				Widgets.DrawHighlight(rect);
-				string onOff = (geneAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
-				TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + autoGeneDesc.Translate(onOff.Named("ONOFF")), 1001);
-				mouseOverElement = true;
-			}
+			TooltipHandler.TipRegion(buttonRect, "WVC_ActivityManager_GeneralTip".Translate());
+			Text.Anchor = TextAnchor.UpperLeft;
 		}
+
+		//private void GeneSwitcher(ref Rect headerRect, ref bool mouseOverElement, ref bool geneAllowed, string autoGeneDesc, Def def)
+		//{
+		//	headerRect.xMax -= 24f;
+		//	Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
+		//	Widgets.DefIcon(rect, def);
+		//	GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), geneAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+		//	if (Widgets.ButtonInvisible(rect))
+		//	{
+		//		geneAllowed = !geneAllowed;
+		//		XaG_UiUtility.FlickSound(geneAllowed);
+		//	}
+		//	if (Mouse.IsOver(rect))
+		//	{
+		//		Widgets.DrawHighlight(rect);
+		//		string onOff = (geneAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+		//		TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + autoGeneDesc.Translate(onOff.Named("ONOFF")), 1001);
+		//		mouseOverElement = true;
+		//	}
+		//}
 
 		protected override string GetTooltip()
 		{

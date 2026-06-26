@@ -6,12 +6,12 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain, IGeneRecacheable
+	public class Gene_Resurgent : Gene_Resource, IGeneResourceDrain
 	{
 
-		public bool woundClottingAllowed = true;
-		public bool ageReversionAllowed = true;
-		public bool totalHealingAllowed = true;
+		//public bool woundClottingAllowed = true;
+		//public bool ageReversionAllowed = true;
+		//public bool totalHealingAllowed = true;
 
 		public Gene_Resource Resource => this;
 
@@ -31,53 +31,53 @@ namespace WVC_XenotypesAndGenes
 
 		// ===========================
 
-		public void Notify_GenesRecache(Gene changedGene)
-		{
-			cachedResurgentTotalHealing = null;
-			cachedResurgentClotting = null;
-			cachedResurgentAgeless = null;
-		}
+		//public void Notify_GenesRecache(Gene changedGene)
+		//{
+		//	cachedResurgentTotalHealing = null;
+		//	cachedResurgentClotting = null;
+		//	cachedResurgentAgeless = null;
+		//}
 
-		[Unsaved(false)]
-		private Gene_ResurgentTotalHealing cachedResurgentTotalHealing;
-		[Unsaved(false)]
-		private Gene_ResurgentClotting cachedResurgentClotting;
-		[Unsaved(false)]
-		private Gene_ResurgentAgeless cachedResurgentAgeless;
+		//[Unsaved(false)]
+		//private Gene_ResurgentTotalHealing cachedResurgentTotalHealing;
+		//[Unsaved(false)]
+		//private Gene_ResurgentClotting cachedResurgentClotting;
+		//[Unsaved(false)]
+		//private Gene_ResurgentAgeless cachedResurgentAgeless;
 
-		public Gene_ResurgentTotalHealing ResurgentTotalHealing
-		{
-			get
-			{
-				if (cachedResurgentTotalHealing == null || !cachedResurgentTotalHealing.Active)
-				{
-					cachedResurgentTotalHealing = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
-				}
-				return cachedResurgentTotalHealing;
-			}
-		}
-		public Gene_ResurgentClotting ResurgentClotting
-		{
-			get
-			{
-				if (cachedResurgentClotting == null || !cachedResurgentClotting.Active)
-				{
-					cachedResurgentClotting = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
-				}
-				return cachedResurgentClotting;
-			}
-		}
-		public Gene_ResurgentAgeless ResurgentAgeless
-		{
-			get
-			{
-				if (cachedResurgentAgeless == null || !cachedResurgentAgeless.Active)
-				{
-					cachedResurgentAgeless = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
-				}
-				return cachedResurgentAgeless;
-			}
-		}
+		//public Gene_ResurgentTotalHealing ResurgentTotalHealing
+		//{
+		//	get
+		//	{
+		//		if (cachedResurgentTotalHealing == null || !cachedResurgentTotalHealing.Active)
+		//		{
+		//			cachedResurgentTotalHealing = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
+		//		}
+		//		return cachedResurgentTotalHealing;
+		//	}
+		//}
+		//public Gene_ResurgentClotting ResurgentClotting
+		//{
+		//	get
+		//	{
+		//		if (cachedResurgentClotting == null || !cachedResurgentClotting.Active)
+		//		{
+		//			cachedResurgentClotting = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
+		//		}
+		//		return cachedResurgentClotting;
+		//	}
+		//}
+		//public Gene_ResurgentAgeless ResurgentAgeless
+		//{
+		//	get
+		//	{
+		//		if (cachedResurgentAgeless == null || !cachedResurgentAgeless.Active)
+		//		{
+		//			cachedResurgentAgeless = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
+		//		}
+		//		return cachedResurgentAgeless;
+		//	}
+		//}
 
 		// ===========================
 
@@ -97,34 +97,34 @@ namespace WVC_XenotypesAndGenes
 		//protected override Color BarColor => new ColorInt(126, 121, 93).ToColor;
 		//protected override Color BarHighlightColor => new ColorInt(156, 156, 123).ToColor;
 
-		[Unsaved(false)]
-		private List<IGeneResourceDrain> cachedDrainGenes = new();
+		//[Unsaved(false)]
+		//private List<IGeneResourceDrain> cachedDrainGenes = new();
 
-		public List<IGeneResourceDrain> GetDrainGenes
-		{
-			get
-			{
-				if (!cachedDrainGenes.NullOrEmpty())
-				{
-					return cachedDrainGenes;
-				}
-				cachedDrainGenes = new();
-				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-				for (int i = 0; i < genesListForReading.Count; i++)
-				{
-					Gene gene = genesListForReading[i];
-					if (!gene.Active)
-					{
-						continue;
-					}
-					if (gene is IGeneResourceDrain geneResourceDrain && geneResourceDrain.Resource == Resource)
-					{
-						cachedDrainGenes.Add(geneResourceDrain);
-					}
-				}
-				return cachedDrainGenes;
-			}
-		}
+		//public List<IGeneResourceDrain> GetDrainGenes
+		//{
+		//	get
+		//	{
+		//		if (!cachedDrainGenes.NullOrEmpty())
+		//		{
+		//			return cachedDrainGenes;
+		//		}
+		//		cachedDrainGenes = new();
+		//		List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+		//		for (int i = 0; i < genesListForReading.Count; i++)
+		//		{
+		//			Gene gene = genesListForReading[i];
+		//			if (!gene.Active)
+		//			{
+		//				continue;
+		//			}
+		//			if (gene is IGeneResourceDrain geneResourceDrain && geneResourceDrain.Resource == Resource)
+		//			{
+		//				cachedDrainGenes.Add(geneResourceDrain);
+		//			}
+		//		}
+		//		return cachedDrainGenes;
+		//	}
+		//}
 
 		public override void PostAdd()
 		{
@@ -166,13 +166,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref woundClottingAllowed, "woundClottingAllowed", defaultValue: true);
-			Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
-			Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref woundClottingAllowed, "woundClottingAllowed", defaultValue: true);
+		//	Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
+		//	Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
+		//}
 	}
 
 	//[Obsolete]

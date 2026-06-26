@@ -86,10 +86,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Resurgent == null)
-			{
-				return;
-			}
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
@@ -97,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!Resurgent.woundClottingAllowed || (Resurgent.Value - def.resourceLossPerDay) < 0f)
+				if ((Resurgent.Value - def.resourceLossPerDay) < 0f)
 				{
 					continue;
 				}
