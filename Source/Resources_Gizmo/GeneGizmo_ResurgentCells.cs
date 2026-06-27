@@ -80,25 +80,8 @@ namespace WVC_XenotypesAndGenes
 			//		GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", woundClottingGene.def);
 			//	}
 			//}
-			ActivityManager(headerRect);
+			XaG_UiUtility.Button_ActivityManager(headerRect, gene);
 			base.DrawHeader(headerRect, ref mouseOverElement);
-		}
-
-		private void ActivityManager(Rect rect3)
-		{
-			Text.Anchor = TextAnchor.UpperRight;
-			Rect buttonRect = new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height);
-			Widgets.DrawTextureFitted(buttonRect, XaG_UiUtility.GenesSettingsIcon.Texture, 1f);
-			if (Mouse.IsOver(buttonRect))
-			{
-				Widgets.DrawHighlight(buttonRect);
-				if (Widgets.ButtonInvisible(buttonRect))
-				{
-					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene));
-				}
-			}
-			TooltipHandler.TipRegion(buttonRect, "WVC_ActivityManager_GeneralTip".Translate());
-			Text.Anchor = TextAnchor.UpperLeft;
 		}
 
 		//private void GeneSwitcher(ref Rect headerRect, ref bool mouseOverElement, ref bool geneAllowed, string autoGeneDesc, Def def)

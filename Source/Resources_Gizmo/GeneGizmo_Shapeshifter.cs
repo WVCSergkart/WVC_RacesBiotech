@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 			Button2c(rect5);
 			// Button
 			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-			XaG_UiUtility.StyleButton_WithoutRect(rect6, pawn, gene, true);
+			XaG_UiUtility.Button_Style(rect6, pawn, gene, true);
 			// Button
 			//Rect rect7 = new(rect6.x + 44f, rect6.y, rect6.width, rect6.height);
 			//ButtonGenesSettings(rect7);
@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + GizmoTip);
 			}
 			// Collapse button
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 			return rect2;
 		}
 

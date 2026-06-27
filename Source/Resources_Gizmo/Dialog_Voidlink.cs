@@ -261,7 +261,7 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture VoidEnergyTex = new("WVC/UI/XaG_General/VoidEnergyTex_v0");
 		public static readonly CachedTexture WorkSkillTex = new("WVC/UI/XaG_General/WorkSkillTex_v0");
 
-		public static readonly CachedTexture Background = new("WVC/UI/XaG_General/Ui_BackgroundGolems_v0");
+		public static readonly CachedTexture BackgroundGolems = new("WVC/UI/XaG_General/Ui_BackgroundGolems_v0");
 
 		public static void DrawXenotypeBasics(MechanoidHolder golemModeDef, Rect geneRect)
 		{
@@ -269,7 +269,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = geneRect.AtZero();
 			float num = rect.width - Text.LineHeight;
 			Rect rect2 = new(geneRect.width / 2f - num / 2f, 0f, num, num);
-			CachedTexture cachedTexture = Background;
+			CachedTexture cachedTexture = BackgroundGolems;
 			GUI.DrawTexture(rect2, cachedTexture.Texture);
 			Widgets.DefIcon(rect2, golemModeDef.pawnKindDef, null, 0.8f, null, drawPlaceholder: false, new(1f, 1f, 1f));
 			Text.Font = GameFont.Tiny;

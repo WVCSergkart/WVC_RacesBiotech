@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture Shapeshifter_XenogenesEditorIcon = new("WVC/UI/XaG_General/UI_XenogenesEditorGeneral");
 
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
-		public static readonly CachedTexture GenesSettingsIcon = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
+		public static readonly CachedTexture Icon_ActivityManager_General = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
 
 		public static readonly CachedTexture StyleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
 
@@ -172,7 +172,24 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		public static void GizmoButton(Rect rect3, ref bool collapse)
+		public static void Button_ActivityManager(Rect rect3, Gene gene)
+		{
+			Text.Anchor = TextAnchor.UpperRight;
+			Rect buttonRect = new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height);
+			Widgets.DrawTextureFitted(buttonRect, XaG_UiUtility.Icon_ActivityManager_General.Texture, 1f);
+			if (Mouse.IsOver(buttonRect))
+			{
+				Widgets.DrawHighlight(buttonRect);
+				if (Widgets.ButtonInvisible(buttonRect))
+				{
+					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene));
+				}
+			}
+			TooltipHandler.TipRegion(buttonRect, "WVC_ActivityManager_GeneralTip".Translate());
+			Text.Anchor = TextAnchor.UpperLeft;
+		}
+
+		public static void Button_CollapseGizmo(Rect rect3, ref bool collapse)
 		{
 			Text.Anchor = TextAnchor.UpperRight;
 			Rect buttonRect = new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height);
@@ -190,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 		}
 
-		public static void StyleButton_WithoutRect(Rect rect5, Pawn pawn, Gene gene, bool unlocked, CachedTexture cachedTexture = null)
+		public static void Button_Style(Rect rect5, Pawn pawn, Gene gene, bool unlocked, CachedTexture cachedTexture = null)
 		{
 			Widgets.DrawTextureFitted(rect5, cachedTexture?.Texture ?? StyleIcon.Texture, 1f);
 			if (Mouse.IsOver(rect5))

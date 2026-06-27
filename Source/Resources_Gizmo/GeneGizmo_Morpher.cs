@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect, taggedString);
 			// Collapse Button
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 		}
 
 		private void Basic(Vector2 topLeft, float maxWidth, out Rect rect, out Rect rect2, out TaggedString taggedString)
@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, gene.def.LabelCap);
 			TooltipHandler.TipRegion(rect3, taggedString);
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
 			ChangeTrigger(rect4);

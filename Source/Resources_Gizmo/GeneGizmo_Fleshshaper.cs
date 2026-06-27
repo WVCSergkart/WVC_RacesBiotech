@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			ButtonXenogenesEditor(rect6);
 			// Button
 			Rect rect7 = new(rect6.x + 44f, rect6.y, rect6.width, rect6.height);
-			XaG_UiUtility.StyleButton_WithoutRect(rect7, pawn, gene, true);
+			XaG_UiUtility.Button_Style(rect7, pawn, gene, true);
 		}
 
 		protected void ButtonXenogenesEditor(Rect rect4)

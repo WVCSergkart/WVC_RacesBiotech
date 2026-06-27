@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void Button2c(Rect rect4)
 		{
-			XaG_UiUtility.StyleButton_WithoutRect(rect4, pawn, gene, true, StyleIcon);
+			XaG_UiUtility.Button_Style(rect4, pawn, gene, true, StyleIcon);
 		}
 
 		protected void EnergyBar(Rect rect6)

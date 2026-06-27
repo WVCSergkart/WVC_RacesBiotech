@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 			rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_XaG_BroodmindLimit".Translate());
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 		}
 
 		private void RecacheTick()

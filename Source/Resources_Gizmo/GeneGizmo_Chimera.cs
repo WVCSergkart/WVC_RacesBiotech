@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 				Basic(topLeft, maxWidth, out Rect rect2, out Rect rect3);
 				Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 44f, rect2.height - rect3.height - 6f);
 				EditorButton(rect4);
-				XaG_UiUtility.StyleButton_WithoutRect(new(rect4.x + 88f, rect4.y, 41f, 37f), pawn, gene, false);
+				XaG_UiUtility.Button_Style(new(rect4.x + 88f, rect4.y, 41f, 37f), pawn, gene, false);
 			}
 			return new GizmoResult(GizmoState.Clear);
 		}
@@ -128,7 +128,7 @@ namespace WVC_XenotypesAndGenes
 			rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_XaG_GeneChimeraGizmoLabel".Translate().CapitalizeFirst());
 			// Collapse button
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 		}
 
 		private void EditorButton(Rect rect4)

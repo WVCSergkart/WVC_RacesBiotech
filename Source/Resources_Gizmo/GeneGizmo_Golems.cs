@@ -187,7 +187,7 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 			rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_XaG_GolemBandwidth".Translate());
-			XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+			XaG_UiUtility.Button_CollapseGizmo(rect3, ref gene.gizmoCollapse);
 			TooltipHandler.TipRegion(rect3, taggedString);
 		}
 
