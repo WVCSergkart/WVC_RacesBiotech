@@ -58,6 +58,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void ShareGenes()
 		{
+			if (Chimera == null)
+			{
+				return;
+			}
 			IEnumerable<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.Where((target) => target != pawn && target.genes != null);
 			if (!pawns.Any())
 			{
@@ -68,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 			foreach (Pawn item in pawns)
 			{
 				Gene_ChimeraNetwork network = item.genes.GetFirstGeneOfType<Gene_ChimeraNetwork>();
-				if (network == null)
+				if (network?.Chimera == null)
 				{
 					continue;
 				}

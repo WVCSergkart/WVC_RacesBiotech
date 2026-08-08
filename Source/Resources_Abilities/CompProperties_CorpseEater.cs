@@ -43,9 +43,13 @@ namespace WVC_XenotypesAndGenes
 				int partCount = corpse.InnerPawn.health.hediffSet.GetNotMissingParts().ToList().Count;
 				for (int j = 0; j < partCount; j++)
 				{
+					if (corpse.Destroyed)
+					{
+						break;
+					}
 					IngestedCalculateAmounts(corpse, parent.pawn, neededNutrition, out float nutritionIngested);
 					nutritionGain += nutritionIngested;
-					neededNutrition -= nutritionGain;
+					neededNutrition -= nutritionIngested;
 					if (neededNutrition <= 0f)
 					{
 						break;

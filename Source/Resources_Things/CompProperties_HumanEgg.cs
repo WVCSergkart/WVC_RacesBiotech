@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 				if (mother?.genes?.Xenotype == father?.genes?.Xenotype || AnyParentIsNull())
 				{
 					child.genes.SetXenotypeDirect(pawn?.genes?.Xenotype);
-					if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+					if (pawn?.genes?.Xenotype == XenotypeDefOf.Baseliner)
 					{
 						child.genes.xenotypeName = pawn.genes.xenotypeName;
 						child.genes.iconDef = pawn.genes.iconDef;

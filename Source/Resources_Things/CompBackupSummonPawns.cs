@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			if (!CanSummon() || StaticCollectionsClass.GameComponent == null)
+			if (!CanSummon() || StaticCollectionsClass.GameComponent == null || parent.MapHeld == null)
 			{
 				yield break;
 			}

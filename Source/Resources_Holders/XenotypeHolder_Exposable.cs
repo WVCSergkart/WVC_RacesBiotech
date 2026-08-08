@@ -95,8 +95,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (parent1 == null && parent2 != null || parent2 == null && parent1 != null)
 			{
-				XenotypeDef parentXenotype = parent1 != null ? parent1.genes.Xenotype : parent2.genes.Xenotype;
-				if (parentXenotype.inheritable)
+				XenotypeDef parentXenotype = parent1 != null ? parent1.genes?.Xenotype : parent2.genes?.Xenotype;
+				if (parentXenotype != null && parentXenotype.inheritable)
 				{
 					this.xenotypeDef = parentXenotype;
 				}

@@ -17,9 +17,9 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
 		{
 			extension = def?.GetModExtension<GeneExtension_General>();
-			if (extension != null && extension.xenotypeChances.TryRandomElementByWeight((XenotypeChance xenoChance) => xenoChance.chance, out XenotypeChance xenoChance))
+			if (extension != null && extension.xenotypeChances.TryRandomElementByWeight((XenotypeChance xc) => xc.chance, out XenotypeChance chosenXenoChance))
 			{
-				this.xenotypeChance = xenoChance;
+				this.xenotypeChance = chosenXenoChance;
 				recruitChance = extension.recruitChance;
 			}
 			if (Rand.Chance(recruitChance))

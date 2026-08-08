@@ -393,6 +393,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (Extension_Giver?.specialFoodDefs.NullOrEmpty() != false)
+			{
+				return;
+			}
 			List<Thing> things = caravan.AllThings.ToList();
 			if (things.NullOrEmpty())
 			{

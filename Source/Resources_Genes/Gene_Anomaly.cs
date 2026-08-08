@@ -146,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 			bool pause = true;
 			try
 			{
-				if (pawn.Map.listerThings.AllThings.TryRandomElement((Thing thing) => thing is Corpse && !thing.IsUnnaturalCorpse() && pawn.CanReach(thing, PathEndMode.Touch, Danger.Deadly), out Thing target))
+				if (pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse).TryRandomElement((Thing thing) => thing is Corpse corpse && !corpse.IsUnnaturalCorpse() && pawn.CanReach(thing, PathEndMode.Touch, Danger.Deadly), out Thing target))
 				{
 					GasUtility.AddDeadifeGas(target.PositionHeld, target.MapHeld, pawn.Faction, 30);
 					pause = false;

@@ -31,7 +31,14 @@ namespace WVC_XenotypesAndGenes
 		private void ResetTicker()
 		{
 			//IntRange range = new(44444, 67565);
-			updTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
+			if (Extension_Spawner != null)
+			{
+				updTick = Extension_Spawner.spawnIntervalRange.RandomInRange;
+			}
+			else
+			{
+				updTick = 60000;
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -205,7 +212,7 @@ namespace WVC_XenotypesAndGenes
 				List<Gene> genes = victim?.genes?.GenesListForReading;
 				if (genes.NullOrEmpty())
 				{
-					return;
+					continue;
 				}
 				if (Chimera.TryGetGene(XaG_GeneUtility.ConvertToDefs(genes), out GeneDef result))
 				{

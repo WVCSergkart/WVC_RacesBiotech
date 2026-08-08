@@ -328,25 +328,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
-			if (target.HasThing && target.Thing is Corpse corpse)
+			if (!target.HasThing || target.Thing is not Corpse corpse || corpse.InnerPawn == null)
 			{
-				Pawn innerPawn = corpse.InnerPawn;
-				if (!innerPawn.IsHuman())
+				return false;
+			}
+			Pawn innerPawn = corpse.InnerPawn;
+			if (!innerPawn.IsHuman())
+			{
+				if (throwMessages)
 				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
-				//if (innerPawn.genes.GenesListForReading.Where((gene) => !ChimeraGene.AllGenes.Contains(gene.def)).ToList().Count <= 0)
-				//{
-				//    if (throwMessages)
-				//    {
-				//        Messages.Message("WVC_XaG_GeneChimera_TargetNoGenes".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
-				//    }
-				//    return false;
-				//}
+				return false;
 			}
 			return base.Valid(target, throwMessages);
 		}

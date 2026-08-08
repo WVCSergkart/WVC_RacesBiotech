@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.Name = new NameTriple(nameTriple.First, nameTriple.First, nameTriple.Last);
 				}
-				if (!pawn.style.CanWantBeard && pawn.style.beardDef != BeardDefOf.NoBeard)
+				if (pawn.style != null && !pawn.style.CanWantBeard && pawn.style.beardDef != BeardDefOf.NoBeard)
 				{
 					pawn.style.beardDef = BeardDefOf.NoBeard;
 				}

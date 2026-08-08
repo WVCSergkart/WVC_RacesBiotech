@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					parent.Destroy();
 				}
-				else if (Dryad.Dead || Dryad.Destroyed)
+				else if (Dryad == null || Dryad.Dead || Dryad.Destroyed)
 				{
 					parent.Destroy();
 				}
@@ -194,7 +194,7 @@ namespace WVC_XenotypesAndGenes
 				DryadComp.Gene_DryadQueen.RemoveDryad(pawn);
 				Pawn pawn2 = DryadComp.Gene_DryadQueen.GenerateNewDryad(DryadComp.DryadKind);
 				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
-				if (!pawn.Name.Numerical)
+				if (pawn.Name != null && !pawn.Name.Numerical)
 				{
 					pawn2.Name = pawn.Name;
 				}

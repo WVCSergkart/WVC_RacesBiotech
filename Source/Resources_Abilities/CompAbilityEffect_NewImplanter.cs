@@ -100,9 +100,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(parent.pawn.Named("PAWN")), confirmAction, destructive: true);
 			}
-			if (target.Thing is Corpse corpse && !corpse.InnerPawn.guest.Recruitable && (corpse.InnerPawn.Faction == null || corpse.InnerPawn.Faction != Faction.OfPlayer))
+			if (target.Thing is Corpse corpse && corpse.InnerPawn.guest != null && !corpse.InnerPawn.guest.Recruitable && (corpse.InnerPawn.Faction == null || corpse.InnerPawn.Faction != Faction.OfPlayer))
 			{
-				return Dialog_MessageBox.CreateConfirmation("WVC_XaG_ReimplantResurrectionRecruiting_FailWarning".Translate(corpse.InnerPawn.Named("PAWN"), corpse.InnerPawn.Faction.NameColored.ToString()), confirmAction);
+				string factionName = corpse.InnerPawn.Faction != null ? corpse.InnerPawn.Faction.NameColored.ToString() : "NoFaction".Translate().ToString();
+				return Dialog_MessageBox.CreateConfirmation("WVC_XaG_ReimplantResurrectionRecruiting_FailWarning".Translate(corpse.InnerPawn.Named("PAWN"), factionName), confirmAction);
 			}
 			return null;
 		}

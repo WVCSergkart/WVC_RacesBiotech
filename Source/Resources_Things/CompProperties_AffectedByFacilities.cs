@@ -55,6 +55,10 @@ namespace WVC_XenotypesAndGenes
 
         public static void SetHyperLinks(ThingDef parentDef, List<ThingDef> linkableFacilities)
         {
+            if (linkableFacilities.NullOrEmpty())
+            {
+                return;
+            }
             foreach (ThingDef thingDef in linkableFacilities)
             {
                 if (thingDef.descriptionHyperlinks.NullOrEmpty())

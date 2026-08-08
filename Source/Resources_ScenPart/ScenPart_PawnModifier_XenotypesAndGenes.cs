@@ -120,8 +120,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Thing> PlayerStartingThings()
 		{
-			Pawn pawn = Find.GameInitData.startingAndOptionalPawns.Take(Find.GameInitData.startingPawnCount).First();
-			if (humanEggDef != null && pawn.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null)
+			Pawn pawn = Find.GameInitData?.startingAndOptionalPawns?.Take(Find.GameInitData.startingPawnCount).FirstOrDefault();
+			if (pawn != null && humanEggDef != null && pawn.genes?.GetFirstGeneOfType<Gene_Ovipositor>() != null)
 			{
 				Thing thing = ThingMaker.MakeThing(humanEggDef);
 				thing.stackCount = humanEggsCount.RandomInRange;

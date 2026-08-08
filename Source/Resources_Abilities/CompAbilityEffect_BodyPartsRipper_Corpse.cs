@@ -52,20 +52,19 @@ namespace WVC_XenotypesAndGenes
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
-            if (throwMessages)
+            if (target.Thing is not Corpse corpse || corpse.InnerPawn == null || corpse.InnerPawn.RaceProps?.body != parent.pawn.RaceProps?.body)
             {
-                if (target.Thing is not Corpse corpse || corpse.InnerPawn.RaceProps.body != parent.pawn.RaceProps.body)
+                if (throwMessages)
                 {
                     SoundDefOf.ClickReject.PlayOneShotOnCamera();
-                    return false;
                 }
-                if (!Valid(parent, parent.pawn, corpse.InnerPawn, throwMessages))
-                {
-                    return false;
-                }
-                return base.Valid(target, throwMessages);
+                return false;
             }
-            return true;
+            if (!Valid(parent, parent.pawn, corpse.InnerPawn, throwMessages))
+            {
+                return false;
+            }
+            return base.Valid(target, throwMessages);
         }
 
         public static bool Valid(Ability ability, Pawn caster, Pawn victim, bool throwMessages = false, bool checkFaction = false)

@@ -236,13 +236,17 @@ namespace WVC_XenotypesAndGenes
 		private int CountSpecialTrees()
 		{
 			int trees = 0;
-			foreach (Thing item in pawn.Map.listerThings.AllThings)
+			if (pawn.Map == null || Extension_Spawner?.incidentDef?.treeDef == null)
 			{
-				if (item?.def != Extension_Spawner.incidentDef.treeDef)
+				return 0;
+			}
+			List<Thing> list = pawn.Map.listerThings.ThingsOfDef(Extension_Spawner.incidentDef.treeDef);
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (list[i] != null)
 				{
-					continue;
+					trees++;
 				}
-				trees++;
 			}
 			return trees;
 		}

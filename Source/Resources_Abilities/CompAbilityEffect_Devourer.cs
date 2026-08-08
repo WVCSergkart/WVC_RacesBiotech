@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				victim.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
 			}
-			victim.Corpse?.Kill(new(DamageDefOf.ExecutionCut, 99999, 9999, instigator: caster));
+			victim.Corpse?.Destroy();
 		}
 
 		private void IfVictimIsHumanlike(Pawn victim, Pawn caster, ref string phase)
@@ -98,12 +98,15 @@ namespace WVC_XenotypesAndGenes
 			phase = "change goodwill";
 			if (!victim.Dead && (victim.HomeFaction != null && !victim.HomeFaction.IsPlayer && !victim.HostileTo(caster.Faction) && victim.HomeFaction.HasGoodwill || victim.IsQuestLodger()))
 			{
-				int goodwillChange = (victim.RaceProps.Humanlike ? (-29) : (-21)) * (victim.guilt.IsGuilty ? 1 : 2);
-				if (victim.kindDef.factionHostileOnDeath || victim.kindDef.factionHostileOnKill && !victim.guilt.IsGuilty)
+				if (victim.HomeFaction != null)
 				{
-					goodwillChange = caster.Faction.GoodwillToMakeHostile(victim.HomeFaction);
+					int goodwillChange = (victim.RaceProps.Humanlike ? (-29) : (-21)) * (victim.guilt.IsGuilty ? 1 : 2);
+					if (victim.kindDef.factionHostileOnDeath || (victim.kindDef.factionHostileOnKill && !victim.guilt.IsGuilty))
+					{
+						goodwillChange = caster.Faction.GoodwillToMakeHostile(victim.HomeFaction);
+					}
+					victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
 				}
-				victim.HomeFaction.TryAffectGoodwillWith(caster.Faction, goodwillChange, canSendMessage: true, true, reason: RimWorld.HistoryEventDefOf.MemberKilled);
 			}
 			//float genesFactor = 0.01f;
 			if (victim.IsHuman())

@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 		protected override void Tick()
 		{
 			base.Tick();
-			if (currentlyChargingMech != null && (RechargeableStomach == null || currentlyChargingMech.CurJob.targetA.Thing != this))
+			if (currentlyChargingMech != null && (RechargeableStomach == null || currentlyChargingMech.CurJob == null || currentlyChargingMech.CurJob.targetA.Thing != this))
 			{
 				Log.Warning("Xenos did not clean up his charging job properly");
 				StopCharging();
@@ -272,17 +272,17 @@ namespace WVC_XenotypesAndGenes
 					job.overrideFacing = Rot4.South;
 					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
 				}), selPawn, this);
-				Gene_HemogenRecharge gene2 = selPawn?.genes?.GetFirstGeneOfType<Gene_HemogenRecharge>();
-				if (gene2?.Extension_Giver?.xenoChargerDef == def)
+			}
+			Gene_HemogenRecharge gene2 = selPawn?.genes?.GetFirstGeneOfType<Gene_HemogenRecharge>();
+			if (gene2?.Extension_Giver?.xenoChargerDef == def)
+			{
+				// Log.Error("1");
+				yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceHemogenRecharge".Translate(), delegate
 				{
-					// Log.Error("1");
-					yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceHemogenRecharge".Translate(), delegate
-					{
-						Job job = JobMaker.MakeJob(gene2.Extension_Giver.rechargeableStomachJobDef, this);
-						job.overrideFacing = Rot4.South;
-						selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
-					}), selPawn, this);
-				}
+					Job job = JobMaker.MakeJob(gene2.Extension_Giver.rechargeableStomachJobDef, this);
+					job.overrideFacing = Rot4.South;
+					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+				}), selPawn, this);
 			}
 			// Log.Error("End 0");
 		}

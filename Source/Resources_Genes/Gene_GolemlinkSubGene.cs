@@ -148,14 +148,15 @@ namespace WVC_XenotypesAndGenes
 					//pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
 					newGolem.ageTracker.AgeBiologicalTicks = dryad.ageTracker.AgeBiologicalTicks;
 					newGolem.ageTracker.AgeChronologicalTicks = dryad.ageTracker.AgeChronologicalTicks;
-					if (!dryad.Name.Numerical)
+					if (dryad.Name != null && !dryad.Name.Numerical)
 					{
 						newGolem.Name = dryad.Name;
 					}
 					newGolem.Rotation = dryad.Rotation;
 					EffectsUtility.DoShapeshiftEffects_OnPawn(dryad);
 					dryad.Destroy();
-					Messages.Message("WVC_XaG_GolemCreatedFromRandomDryad_Message".Translate(newGolem.Name.ToString()), newGolem, MessageTypeDefOf.PositiveEvent);
+					string golemName = newGolem.Name?.ToString() ?? newGolem.LabelShort;
+					Messages.Message("WVC_XaG_GolemCreatedFromRandomDryad_Message".Translate(golemName), newGolem, MessageTypeDefOf.PositiveEvent);
 					return true;
 				}
 			}

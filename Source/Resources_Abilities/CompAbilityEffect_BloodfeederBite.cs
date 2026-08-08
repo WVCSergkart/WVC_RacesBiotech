@@ -56,25 +56,26 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
-			if (target.HasThing && target.Thing is Corpse corpse)
+			if (!target.HasThing || target.Thing is not Corpse corpse || corpse.InnerPawn == null)
 			{
-				Pawn innerPawn = corpse.InnerPawn;
-				if (innerPawn.IsAndroid() || target.Thing.IsUnnaturalCorpse())
+				return false;
+			}
+			Pawn innerPawn = corpse.InnerPawn;
+			if (innerPawn.IsAndroid() || target.Thing.IsUnnaturalCorpse())
+			{
+				if (throwMessages)
 				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
-				if (corpse.GetRotStage() == RotStage.Dessicated || !innerPawn.CanBleed() || innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && (hediff.Severity >= hediff.def.maxSeverity || hediff.Severity >= hediff.def.lethalSeverity))
+				return false;
+			}
+			if (corpse.GetRotStage() == RotStage.Dessicated || !innerPawn.CanBleed() || innerPawn.health.hediffSet.TryGetHediff(HediffDefOf.BloodLoss, out Hediff hediff) && (hediff.Severity >= hediff.def.maxSeverity || hediff.Severity >= hediff.def.lethalSeverity))
+			{
+				if (throwMessages)
 				{
-					if (throwMessages)
-					{
-						Messages.Message("WVC_XaG_CropsefeederNoBloodMessage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
+					Messages.Message("WVC_XaG_CropsefeederNoBloodMessage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
+				return false;
 			}
 			return base.Valid(target, throwMessages);
 		}
