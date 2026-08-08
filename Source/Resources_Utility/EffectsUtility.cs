@@ -19,10 +19,6 @@ namespace WVC_XenotypesAndGenes
 
 		public static void DoSkipEffects(IntVec3 spawnCell, Map map)
 		{
-			if (map == null)
-			{
-				return;
-			}
 			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(spawnCell, map), spawnCell, 60);
 			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(spawnCell, map));
 		}

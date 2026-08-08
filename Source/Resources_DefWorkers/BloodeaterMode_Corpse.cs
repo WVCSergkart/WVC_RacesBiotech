@@ -41,11 +41,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-			{
-				if (thing is not Corpse corpse)
-				{
-					continue;
-				}
 				if (corpse.IsForbidden(pawn) || !pawn.CanReserveAndReach(corpse, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;

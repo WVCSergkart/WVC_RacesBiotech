@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					parent.Destroy();
 				}
-				else if (Dryad == null || Dryad.Dead || Dryad.Destroyed)
+				else if (Dryad.Dead || Dryad.Destroyed)
 				{
 					parent.Destroy();
 				}

@@ -212,9 +212,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	/// <summary>
-	/// Metabolism mark. Chimera, shapeshifter, overrider.
-	/// </summary>
+	// <summary>
+	// Metabolism mark. Chimera, shapeshifter, overrider.
+	// </summary>
 	//public interface IGeneMetabolism
 	//{
 

@@ -538,6 +538,8 @@
     <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_GeneTracker.EnsureCorrectSkinColorOverride" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

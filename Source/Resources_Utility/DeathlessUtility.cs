@@ -23,10 +23,10 @@ namespace WVC_XenotypesAndGenes
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 		// ==========COLLECTION==========COLLECTION==========COLLECTION==========
 
-		/// <summary>
-		/// A test hook for the custom deathless mechanic.
-		/// A bit more testing is needed to identify any flaws.
-		/// </summary>
+		// <summary>
+		// A test hook for the custom deathless mechanic.
+		// A bit more testing is needed to identify any flaws.
+		// </summary>
 
 		//private static HashSet<Pawn> cachedDeathlessPawns;
 		//public static HashSet<Pawn> DeathlessPawns

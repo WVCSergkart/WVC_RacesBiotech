@@ -169,10 +169,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetSummonInterval();
-			if (pawn.Map == null)
-			{
-				return;
-			}
 			GenerateIncident();
 		}
 
@@ -187,6 +183,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void GenerateIncident()
 		{
+			if (pawn.Map == null)
+			{
+				return;
+			}
 			if (Extension_Spawner?.incidentDef == null)
 			{
 				return;
@@ -205,6 +205,24 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				TryFire(new(result, null, parms));
+			}
+
+			int CountSpecialTrees()
+			{
+				int trees = 0;
+				if (Extension_Spawner?.incidentDef?.treeDef == null)
+				{
+					return 0;
+				}
+				List<Thing> list = pawn.Map.listerThings.ThingsOfDef(Extension_Spawner.incidentDef.treeDef);
+				for (int i = 0; i < list.Count; i++)
+				{
+					if (list[i] != null)
+					{
+						trees++;
+					}
+				}
+				return trees;
 			}
 		}
 
@@ -231,24 +249,6 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-		}
-
-		private int CountSpecialTrees()
-		{
-			int trees = 0;
-			if (pawn.Map == null || Extension_Spawner?.incidentDef?.treeDef == null)
-			{
-				return 0;
-			}
-			List<Thing> list = pawn.Map.listerThings.ThingsOfDef(Extension_Spawner.incidentDef.treeDef);
-			for (int i = 0; i < list.Count; i++)
-			{
-				if (list[i] != null)
-				{
-					trees++;
-				}
-			}
-			return trees;
 		}
 
 		public override void ExposeData()

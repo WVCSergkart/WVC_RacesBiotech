@@ -49,6 +49,10 @@ namespace WVC_XenotypesAndGenes
 
 		private bool CanResurrect(Corpse corpse)
 		{
+			if (corpse?.InnerPawn == null)
+			{
+				return false;
+			}
 			if (!corpse.InnerPawn.RaceProps.IsMechanoid)
 			{
 				return false;

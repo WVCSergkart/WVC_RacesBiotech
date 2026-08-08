@@ -217,7 +217,7 @@ namespace WVC_XenotypesAndGenes
 			//Log.Error("0");
 			GetReason(out reason, parent.pawn);
 			Cache(reason);
-			return cachedResult;
+			return false;
 		}
 
 		private void GetReason(out string reason, Pawn pawn)
