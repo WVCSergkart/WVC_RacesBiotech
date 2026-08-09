@@ -72,14 +72,27 @@ namespace WVC_XenotypesAndGenes
 			this.settings = new();
 			if (DebugSettings.ShowDevGizmos)
 			{
-				CompHumanlike compHumanlike = pawn.HumanComponent();
-				if (compHumanlike != null)
+				//CompHumanlike compHumanlike = pawn.HumanComponent();
+				//if (compHumanlike != null)
+				//{
+				//	foreach (Gizmo gizmo in compHumanlike.DevGizmos())
+				//	{
+				//		if (gizmo is Command_Action command_Action)
+				//		{
+				//			settings.Add(new(command_Action));
+				//		}
+				//	}
+				//}
+				foreach (ThingComp thingComp in pawn.AllComps)
 				{
-					foreach (Gizmo gizmo in compHumanlike.DevGizmos())
+					if (thingComp is IThingDevSettings thingDevSettings)
 					{
-						if (gizmo is Command_Action command_Action)
+						foreach (Gizmo gizmo in thingDevSettings.DevGizmos())
 						{
-							settings.Add(new(command_Action));
+							if (gizmo is Command_Action command_Action)
+							{
+								settings.Add(new(command_Action));
+							}
 						}
 					}
 				}

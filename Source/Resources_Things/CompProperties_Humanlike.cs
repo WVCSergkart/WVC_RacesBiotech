@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompHumanlike : ThingComp
+	public class CompHumanlike : ThingComp, IThingDevSettings
 	{
 
 		public CompProperties_Humanlike Props => (CompProperties_Humanlike)props;

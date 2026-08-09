@@ -85,18 +85,24 @@ namespace WVC_XenotypesAndGenes
 				GeneResourceUtility.TryResurrectWithSickness(innerPawn, false, 0.8f);
 				SetStory(innerPawn);
 				ReimplantGenes(thrallDef, innerPawn, mutantDef, corpse);
+				//Log.Error("4");
 				if (mutantDef != null)
 				{
-					MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef, corpse.GetRotStage());
-					//if (thrallDef.isOverlordMutant)
-					//            {
-					//	parent.pawn.genes?.GetFirstGeneOfType<Gene_Overlord>()?.AddUndead(innerPawn);
-					//}
+					try
+					{
+						MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef, corpse.GetRotStage());
+					}
+					catch
+					{
+						// silent catcher
+					}
 				}
+				//Log.Error("5");
 				if (innerPawn.Map != null)
 				{
 					EffectsUtility.DoShapeshiftEffects_OnPawn(innerPawn);
 				}
+				//Log.Error("6");
 				GeneResourceUtility.ResurrectionSicknessWithCustomTick(innerPawn, new IntRange(1500, 3000));
 			}
 			catch (Exception arg)
@@ -128,6 +134,7 @@ namespace WVC_XenotypesAndGenes
 		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn, MutantDef mutantDef, Corpse corpse)
 		{
 			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
+			//Log.Error("0");
 			ThrallMaker(innerPawn, thrallDef, corpse);
 			if (thrallDef.addGenesFromAbility && Props.geneDefs != null)
 			{
@@ -136,6 +143,7 @@ namespace WVC_XenotypesAndGenes
 					innerPawn.genes?.AddGene(item, false);
 				}
 			}
+			//Log.Error("1");
 			if (thrallDef.addGenesFromMaster && WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes && Props.inheritableGenes != null)
 			{
 				foreach (GeneDef item in Props.inheritableGenes)
@@ -154,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			//Log.Error("2");
 			List<GeneDef> currentPawnGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
 			if (!oldXenotypeGenes.NullOrEmpty())
 			{
@@ -177,6 +186,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			//Log.Error("3");
 			currentPawnGenes = XaG_GeneUtility.ConvertToDefs(innerPawn.genes.GenesListForReading);
 			List<GeneDef> allMasterGenes = XaG_GeneUtility.ConvertToDefs(parent.pawn.genes.GenesListForReading);
 			if (!allMasterGenes.NullOrEmpty())
@@ -201,8 +211,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			//Log.Error("1");
 			GeneUtility.UpdateXenogermReplication(innerPawn);
+			//Log.Error("2");
 			ReimplanterUtility.TrySetSkinAndHairGenes(innerPawn);
+			//Log.Error("3");
 			ReimplanterUtility.PostImplantDebug(innerPawn);
 
 			static bool CanImplant(Pawn innerPawn, List<GeneDef> currentPawnGenes, GeneDef geneDef, MutantDef mutantDef, ThrallDef thrallDef)
@@ -269,13 +282,13 @@ namespace WVC_XenotypesAndGenes
 				if (bonusGenes != null)
 				{
 					//Log.Error("Called for: " + pawn.Name);
-					xenotypeGenes.AddRange(bonusGenes);
+					xenotypeGenes.AddRangeSafe(bonusGenes);
 				}
 			}
 			//Log.Error("Genes: " + xenotypeGenes.Select((GeneDef x) => x.defName).ToLineList(" - "));
 			for (int i = 0; i < xenotypeGenes.Count; i++)
 			{
-				pawn.genes?.AddGene(xenotypeGenes[i], false);
+				genes.AddGene(xenotypeGenes[i], false);
 			}
 		}
 

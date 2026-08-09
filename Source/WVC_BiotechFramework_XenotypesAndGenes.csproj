@@ -262,6 +262,7 @@
     <Compile Include="Resources_Defs\ThrallDef.cs" />
     <Compile Include="Resources_Main\IngestionOutcomeDoer_HumanEgg.cs" />
     <Compile Include="Resources_Main\ITab_GenesCustomPregnancy.cs" />
+    <Compile Include="Resources_Main\IThing.cs" />
     <Compile Include="Resources_Main\MainTabWindow_EntitiesWork.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Obsolete_0\XenotypeForcerGeneTemplateDef.cs" />
@@ -368,6 +369,7 @@
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_CustomFloatMenu.cs" />
     <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
+    <Compile Include="Resources_Things\CompProperties_GenesSettings.cs" />
     <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompProperties_HumanEgg.cs" />

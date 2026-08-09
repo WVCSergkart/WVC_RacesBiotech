@@ -133,6 +133,11 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		/// <summary>
+		/// Modders hook. Same as SubCanBeInHivemind but with genes null check.
+		/// </summary>
+		/// <param name="target"></param>
+		/// <returns></returns>
 		public static bool SubCanBeInHivemind_Genes(Pawn target)
 		{
 			return false;

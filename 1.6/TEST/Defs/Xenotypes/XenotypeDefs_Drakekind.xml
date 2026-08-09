@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev Name: Drakekind -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="vanillaracesexpanded.saurid.forked" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+	<defName>WVC_Drakekind</defName>
+	<label>drakekind</label>
+	<description>Drakekinds
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype always kills other pawns.</description>
+	<descriptionShort>Drakekinds</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Mechamata2c</iconPath>
+	<displayPriority>-1025</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>FireSpew</li>
+		<li>WVC_NaturalSlowAging</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>ToxResist_Partial</li>
+		<li>Aggression_HyperAggressive</li>
+		<li>WVC_Ovipositor</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_DragonTailA</li>
+		<li>VRESaurids_CenterFrill</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>VRESaurids_FrilledEars</li>
+		<li>Ears_Human</li>
+		<li>VRESaurids_LizardVoice</li>
+		<li>Body_Standard</li>
+		<li>Body_Hulk</li>
+		<li>WVC_BodySize_Large</li>
+		<li>Skin_Green</li>
+		<li>Skin_PaleRed</li>
+		<li>Skin_Blue</li>
+		<li>Skin_SlateGray</li>
+		<li>Skin_InkBlack</li>
+		<li>StrongStomach</li>
+		<li>VRESaurids_ColdBlooded</li>
+		<li>VRESaurids_Pheromones</li>
+		<li>VRESaurids_SauridClaws</li>
+		<li>VRESaurids_ScaleSkin</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

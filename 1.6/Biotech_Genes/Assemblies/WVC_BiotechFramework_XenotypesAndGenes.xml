@@ -52,6 +52,26 @@
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
             </summary>
         </member>
+        <member name="T:WVC_XenotypesAndGenes.XaG_Gene">
+            <summary>
+            General WVC gene. Used for generic crap like extensions.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_RemoteController">
+            <summary>
+            Generic remote controller aka Genes Settings gene
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Disconnectable">
+            <summary>
+            Basic disconnectable gene. Used by Energyshifter and Resurgent. See Dialog_ActivityManager
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Dialog_ActivityManager">
+            <summary>
+            Basic disconnectable window. Used by Energyshifter and Resurgent. See Gene_Disconnectable
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.Gene_HivemindMaker">
             <summary>
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
@@ -145,9 +165,28 @@
             Custom pregnancy hook. Egg layer, parasite implanter, etc. 
             </summary>
         </member>
+        <member name="T:WVC_XenotypesAndGenes.CompProperties_GenesSettings">
+            <summary>
+            Dummy.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.CompGenesSettings">
+            <summary>
+            For modders.
+            Genes settings dev tools comp. Inherit from this or use IThingDevSettings
+            They don't overwrite each other for the same pawn. You can use as many as you like.
+            </summary>
+        </member>
         <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind(Verse.Pawn)">
             <summary>
             Modders hook. Use for custom hivemind rules. For example hediffs or for merging with others mod hiveminds.
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind_Genes(Verse.Pawn)">
+            <summary>
+            Modders hook. Same as SubCanBeInHivemind but with genes null check.
             </summary>
             <param name="target"></param>
             <returns></returns>

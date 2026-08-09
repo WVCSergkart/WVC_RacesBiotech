@@ -8,6 +8,9 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	/// <summary>
+	/// General WVC gene. Used for generic crap like extensions.
+	/// </summary>
 	public class XaG_Gene : Verse.Gene
 	{
 
@@ -19,7 +22,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedSpawnerExtension == null)
 				{
-					cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+					//cachedSpawnerExtension = def.GetModExtension<GeneExtension_Spawner>();
+					GetModExtensions();
 				}
 				return cachedSpawnerExtension;
 			}
@@ -33,7 +37,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGiverExtension == null)
 				{
-					cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+					//cachedGiverExtension = def.GetModExtension<GeneExtension_Giver>();
+					GetModExtensions();
 				}
 				return cachedGiverExtension;
 			}
@@ -47,7 +52,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedUndeadExtension == null)
 				{
-					cachedUndeadExtension = def.GetModExtension<GeneExtension_Undead>();
+					//cachedUndeadExtension = def.GetModExtension<GeneExtension_Undead>();
+					GetModExtensions();
 				}
 				return cachedUndeadExtension;
 			}
@@ -61,7 +67,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedOpinionExtension == null)
 				{
-					cachedOpinionExtension = def.GetModExtension<GeneExtension_Opinion>();
+					//cachedOpinionExtension = def.GetModExtension<GeneExtension_Opinion>();
+					GetModExtensions();
 				}
 				return cachedOpinionExtension;
 			}
@@ -75,9 +82,55 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGraphicExtension == null)
 				{
-					cachedGraphicExtension = def.GetModExtension<GeneExtension_Graphic>();
+					//cachedGraphicExtension = def.GetModExtension<GeneExtension_Graphic>();
+					GetModExtensions();
 				}
 				return cachedGraphicExtension;
+			}
+		}
+
+		private void GetModExtensions()
+		{
+			if (def.modExtensions == null)
+			{
+				return;
+			}
+			cachedGiverExtension = null;
+			cachedGraphicExtension = null;
+			cachedOpinionExtension = null;
+			cachedSpawnerExtension = null;
+			cachedUndeadExtension = null;
+			foreach (DefModExtension defModExtension in def.modExtensions)
+			{
+				if (defModExtension is GeneExtension_Giver geneExtension_Giver)
+				{
+					SetExtension(geneExtension_Giver, ref cachedGiverExtension);
+				}
+				else if (defModExtension is GeneExtension_Graphic geneExtension_Graphic)
+				{
+					SetExtension(geneExtension_Graphic, ref cachedGraphicExtension);
+				}
+				else if (defModExtension is GeneExtension_Opinion geneExtension_Opinion)
+				{
+					SetExtension(geneExtension_Opinion, ref cachedOpinionExtension);
+				}
+				else if (defModExtension is GeneExtension_Spawner geneExtension_Spawner)
+				{
+					SetExtension(geneExtension_Spawner, ref cachedSpawnerExtension);
+				}
+				else if (defModExtension is GeneExtension_Undead geneExtension_Undead)
+				{
+					SetExtension(geneExtension_Undead, ref cachedUndeadExtension);
+				}
+			}
+
+			void SetExtension<DefModExtension>(DefModExtension extension, ref DefModExtension extensionRef)
+			{
+				if (extensionRef != null)
+				{
+					Log.Warning($"Duplicate {extension.ToString()} extension for geneDef: " + def.defName);
+				}
+				extensionRef = extension;
 			}
 		}
 
@@ -116,7 +169,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// Basic remote controller
+	/// <summary>
+	/// Generic remote controller aka Genes Settings gene
+	/// </summary>
 	public class Gene_RemoteController : XaG_Gene, IGeneRemoteControl
 	{
 
@@ -168,7 +223,9 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// Basic disconnectable
+	/// <summary>
+	/// Basic disconnectable gene. Used by Energyshifter and Resurgent. See Dialog_ActivityManager
+	/// </summary>
 	public class Gene_Disconnectable : XaG_Gene, IGeneDisconnectable, IGeneOverriddenBy
 	{
 

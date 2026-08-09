@@ -7,6 +7,9 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	/// <summary>
+	/// Basic disconnectable window. Used by Energyshifter and Resurgent. See Gene_Disconnectable
+	/// </summary>
 	public class Dialog_ActivityManager : Window
 	{
 
