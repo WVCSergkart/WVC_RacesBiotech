@@ -82,11 +82,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
+					Disabled = true;
 					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-					if (cachedResurgentGene == null && ModsUtility.GameStarted())
-					{
-						Disabled = true;
-					}
+					Disabled = cachedResurgentGene == null;
 				}
 				return cachedResurgentGene;
 			}

@@ -29,6 +29,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public static T GetFirstGeneOfType<T>(this Pawn_GeneTracker genes) where T : Gene
+		//{
+		//	List<Gene> genesListForReading = genes.GenesListForReading;
+		//	for (int i = 0; i < genesListForReading.Count; i++)
+		//	{
+		//		if (genesListForReading[i] is T result && genesListForReading[i].Active)
+		//		{
+		//			return result;
+		//		}
+		//	}
+		//	return null;
+		//}
+
 		public static bool ActiveDowned(Pawn pawn, Gene gene)
 		{
 			return !pawn.Downed || !gene.Active;
