@@ -430,7 +430,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Failed trigger obsession. For gene: " + def.defName + ". Reason: " + arg.Message);
+				Log.Error("Error in trigger. For gene: " + def.defName + ". Reason: " + arg.Message);
 			}
 		}
 
@@ -444,9 +444,17 @@ namespace WVC_XenotypesAndGenes
 			children.SortBy(child => child.ageTracker.Adult);
 			foreach (Pawn child in children)
 			{
-				if (TryObsession(child))
+				try
 				{
-					child.needs?.mood?.thoughts?.memories?.RemoveMemoriesWhereOtherPawnIs(pawn);
+					if (TryObsession(child))
+					{
+						child.needs?.mood?.thoughts?.memories?.RemoveMemoriesWhereOtherPawnIs(pawn);
+						break;
+					}
+				}
+				catch (Exception arg)
+				{
+					Log.Error($"Failed trigger obsession. Pawn: {child.Name.ToStringSafe()}. Gene: {def.defName}. Reason: {arg.Message}");
 					break;
 				}
 			}
@@ -454,7 +462,7 @@ namespace WVC_XenotypesAndGenes
 
 		private bool TryObsession(Pawn child)
 		{
-			if (child.ageTracker.CurLifeStage.alwaysDowned || !child.IsHuman() || child.skills == null || !child.IsPsychicSensitive() || child.Map == null || child.Faction != pawn.Faction)
+			if (child.ageTracker?.CurLifeStage == null || child.ageTracker.CurLifeStage.alwaysDowned || !child.IsHuman() || child.skills == null || !child.IsPsychicSensitive() || child.Map == null || child.Faction != pawn.Faction || child.story?.traits == null)
 			{
 				return false;
 			}
