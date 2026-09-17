@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 		public new CompProperties_AbilityMechfeederBite Props => (CompProperties_AbilityMechfeederBite)props;
 
-		public override bool ShouldHideGizmo => parent.pawn.mechanitor == null;
+		public override bool ShouldHideGizmo => parent.pawn?.mechanitor == null;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -53,10 +53,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!parent.pawn.mechanitor.ControlledPawns.Contains(pawn))
+			if (!pawn.IsColonyMechPlayerControlled)
 			{
 				return false;
 			}
+			//if (!parent.pawn.mechanitor.ControlledPawns.Contains(pawn))
+			//{
+			//	return false;
+			//}
 			if (pawn.health.hediffSet.HasHediff(Props.mechHediffDef))
 			{
 				return false;
