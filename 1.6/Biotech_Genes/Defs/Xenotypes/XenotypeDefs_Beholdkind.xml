@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Beholdkind</defName>
 	<label>beholdkind</label>
 	<description>Beholdkinds are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They have no natural regeneration, but quickly acquire mutations, gradually becoming stronger. Their bodies are covered in multiple eyes to aid them in combat, and their natural defenses are quite impressive. However, their death is guaranteed to result in the formation of a fleshmass heart.

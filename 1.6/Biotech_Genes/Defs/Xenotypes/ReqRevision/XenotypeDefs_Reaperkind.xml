@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="MutantMakers">
 	<defName>WVC_Reaperkind</defName>
 	<label>reaperkind</label>
 	<description>Reaperkinds are ageless and deathless super-humans powered by archotech-created archites in the bloodstream. Their bodies are covered in bony growths that serve as natural armor. They are immune to most diseases, require no food, and require very little sleep. They are capable of copying the genes of others and making themselves stronger. Their primary ability allows them to convert others into information and store them in a special archite-genetic bank.

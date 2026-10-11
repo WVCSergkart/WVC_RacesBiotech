@@ -82,9 +82,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
+					bool isDisable = Disabled;
 					Disabled = true;
 					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-					Disabled = cachedResurgentGene == null;
+					Disabled = isDisable;
 				}
 				return cachedResurgentGene;
 			}

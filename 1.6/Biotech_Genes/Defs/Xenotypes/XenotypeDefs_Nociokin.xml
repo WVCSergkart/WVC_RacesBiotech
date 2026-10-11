@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Nociokin</defName>
 	<!-- chimechkin, nociokin -->
 	<label>nociokin</label>

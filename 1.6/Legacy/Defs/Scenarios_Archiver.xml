@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Req rework -->
-  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook" WVC_Legacy_Hook="RemoveMe">
 	<defName>WVC_SoulReaper</defName>
 	<label>The Soulreaper</label>
 	<description>You've always wanted to be a hero, saving the weak, protecting them from certain death at the last moment. And fate gave you that chance: you came across a plundered caravan. The raiders left them no chance, leaving many dead and only two survivors, gravely wounded but still alive. You saved them, giving them a chance to survive as "part" of you.

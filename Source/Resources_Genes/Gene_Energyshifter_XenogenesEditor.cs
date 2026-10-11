@@ -24,9 +24,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedShapeshifterGene == null || !cachedShapeshifterGene.Active)
 				{
+					bool isDisable = Disabled;
 					Disabled = true;
 					cachedShapeshifterGene = pawn?.genes?.GetFirstGeneOfType<Gene_Energyshifter>();
-					Disabled = cachedShapeshifterGene == null;
+					Disabled = isDisable;
 				}
 				return cachedShapeshifterGene;
 			}
