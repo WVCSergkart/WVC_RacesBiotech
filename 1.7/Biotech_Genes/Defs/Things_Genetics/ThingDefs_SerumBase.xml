@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Base ====================-->
+
+  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypesAndGenes_SerumBase" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<thingClass>ThingWithComps</thingClass>
+	<resourceReadoutPriority>Middle</resourceReadoutPriority>
+	<useHitPoints>true</useHitPoints>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<costList>
+	  <Steel>50</Steel>
+	  <ComponentIndustrial>4</ComponentIndustrial>
+	</costList>
+	<statBases>
+	  <MarketValue>2100</MarketValue>
+	  <MaxHitPoints>80</MaxHitPoints>
+	  <Mass>0.2</Mass>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	  <Flammability>0.5</Flammability>
+	  <WorkToMake>25000</WorkToMake>
+	</statBases>
+	<tradeNeverStack>true</tradeNeverStack>
+	<tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
+	<healthAffectsPrice>false</healthAffectsPrice>
+	<drawGUIOverlay>false</drawGUIOverlay>
+	<stackLimit>1</stackLimit>
+	<techLevel>Ultra</techLevel>
+	<recipeMaker>
+	  <displayPriority>-20</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>4</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<tradeTags>
+	  <li>ExoticMisc</li>
+	</tradeTags>
+	<tradeability>Sellable</tradeability>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>600</useDuration>
+	  </li>
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_SimpleDestroySelf</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

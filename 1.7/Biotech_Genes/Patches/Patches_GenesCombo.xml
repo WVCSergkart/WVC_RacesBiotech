@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>offsetMarketPriceFromGenes</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromGenes"/>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
+	  <value>
+		<li>WVC_XaG_ImplanterFangsMark</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef/comps[li[@Class="CompProperties_Useable_CallBossgroup"]]</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+		  <compClass>WVC_XenotypesAndGenes.CompBackupSummonPawns</compClass>
+		  <jobDef>WVC_SummonBackupPawns</jobDef>
+		  <iconPath>WVC/UI/Genes3/Gene_Backup</iconPath>
+		</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>bloodfeeder_AutoBloodfeed</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]/geneClass</xpath>
+				  <success>Invert</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]</xpath>
+				  <success>Always</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath>
+	  <order>Prepend</order>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_TrueParentGenes">
+		  <compClass>WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted</compClass>
+		</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_birthQualityOffsetFromGenes</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/RitualOutcomeEffectDef[defName="ChildBirth"]/comps</xpath>
+		  <order>Prepend</order>
+		  <value>
+			<li Class="WVC_XenotypesAndGenes.RitualOutcomeComp_PawnGenes">
+			  <label>{PAWN_labelShort}'s genes</label>
+			  <labelAbstract>mother's genes</labelAbstract>
+			  <roleId>mother</roleId>
+			</li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/geneClass</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+				<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableUniqueXenotypeScenarios</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+				  <xpath>/Defs/ScenarioDef[@WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"]</xpath>
+				  <success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_xagHumanComponent</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike">
+				<!-- <bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef> -->
+				<resurrectionDelay>8200~39000</resurrectionDelay>
+			  </li>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_DiseaseFree</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_Ageless</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_chimeraXenogenesLimit</settingName>
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath> -->
+		  <!-- <value> -->
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu"> -->
+			  <!-- <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass> -->
+			  <!-- <jobDef>WVC_ConsumeArchiteCapsule</jobDef> -->
+			  <!-- <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description> -->
+			<!-- </li> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="ArchiteCapsule"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+					  <compClass>WVC_XenotypesAndGenes.CompChimeraArchiteLimit</compClass>
+					  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+					  <!-- <description>It can also be absorbed using the chimera gene in order to increase the limit of archite genes.</description> -->
+					  <descriptionTranslated>WVC_XaG_ChimeraConsumesArchiteDesc</descriptionTranslated>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="HumanEmbryo"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+					  <compClass>WVC_XenotypesAndGenes.CompChimeraComplexityLimit</compClass>
+					  <jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+					  <factor>1</factor>
+					  <descriptionTranslated>WVC_XaG_ChimeraConsumesComplexityDesc</descriptionTranslated>
+					</li>
+				  </value>
+				</li>
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThingDef[defName="Heart"]</xpath>
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<comps>
+					  <li Class="WVC_XenotypesAndGenes.CompProperties_CustomFloatMenu">
+						<compClass>WVC_XenotypesAndGenes.CompChimeraComplexityLimit</compClass>
+						<jobDef>WVC_ConsumeArchiteCapsule</jobDef>
+						<factor>1</factor>
+						<descriptionTranslated>WVC_XaG_ChimeraConsumesComplexityDesc</descriptionTranslated>
+					  </li>
+					</comps>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

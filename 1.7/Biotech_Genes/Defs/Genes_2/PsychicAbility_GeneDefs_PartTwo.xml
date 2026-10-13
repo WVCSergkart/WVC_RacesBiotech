@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsychicAbility_NonTrait">
+	<defName>WVC_PsychicAbility_AlmostDeaf</defName>
+	<label>psychically almost deaf</label>
+	<labelShortAdj>psy-deaf</labelShortAdj>
+	<description>Carriers of this gene are almost deaf to all psychic energy and influence outside their own minds.</description>
+	<iconPath>WVC/UI/Genes/Gene_PsychicallyAlmostDeaf_v0</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<statFactors>
+	  <PsychicSensitivity>0.1</PsychicSensitivity>
+	</statFactors>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>almost</symbol></li>
+		<li><symbol>deaf</symbol></li>
+		<li><symbol>blank</symbol></li>
+		<li><symbol>null</symbol></li>
+		<li><symbol>vac</symbol></li>
+		<li><symbol>void</symbol></li>
+		<li><symbol>nego</symbol></li>
+		<li><symbol>nullo</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

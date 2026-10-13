@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingStyleDef>
+	<defName>WVC_XaG_HemogenCrystal</defName>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/HemogenCrystal</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+  </ThingStyleDef>
+
+  <ThingStyleDef>
+	<defName>WVC_XaG_GenepackCrystal</defName>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/GenepackCrystal</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+  </ThingStyleDef>
+
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_XaG_GenepackAnomaly</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Anomaly_Genepack</texPath> -->
+	  <!-- <graphicClass>WVC_XenotypesAndGenes.Graphic_XaG_Genepack</graphicClass> -->
+	  <!-- <drawSize>(0.75, 0.75)</drawSize> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_NaturalMechlink</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/NaturalMechlink</texPath> -->
+	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_YellowHumanEgg</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/HumanEgg</texPath> -->
+	  <!-- <color>(231,178,115)</color> -->
+	  <!-- <drawSize>1.0</drawSize> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_SauridEgg</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>Item/EggFertilized_Human</texPath> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
+</Defs>

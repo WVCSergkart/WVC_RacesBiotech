@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Natural armor -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_NaturalArmorBase" Abstract="True">
+	<description>Carriers of this gene have strong skin.</description>
+	<displayCategory>Violence</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<displayOrderInCategory>1870</displayOrderInCategory>
+	<labelShortAdj>armorskin</labelShortAdj>
+	<selectionWeight>0.003</selectionWeight>
+	<exclusionTags>
+		<li>WVC_NaturalArmor</li>
+		<li>AG_Armour</li>
+		<li>Armour</li>
+		<li>Armor</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>armor</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>skin</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_ClothedArmor</defName>
+	<label>armor skin</label>
+	<description>Carriers of this gene have very strong skin.</description>
+	<iconPath>WVC/UI/Genes/ClothedArmor</iconPath>
+	<displayOrderInCategory>1871</displayOrderInCategory>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.30</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<biostatMet>-5</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cloth</symbol></li>
+		<li><symbol>armo</symbol></li>
+		<li><symbol>clarmor</symbol></li>
+		<li><symbol>power</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_UnClothedArmor</defName>
+	<label>nude armor skin</label> 
+	<description>Carriers of this gene have very strong skin, but friction with clothing makes it soft.</description>
+	<iconPath>WVC/UI/Genes/UnClothedArmor</iconPath>
+	<displayOrderInCategory>1872</displayOrderInCategory>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>-0.05</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>-0.05</ArmorRating_Sharp>
+		  <ArmorRating_Heat>-0.05</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.30</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<biostatMet>-2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>nu</symbol></li>
+		<li><symbol>armo</symbol></li>
+		<li><symbol>nuarmor</symbol></li>
+		<li><symbol>power</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Stone</defName>
+	<label>light armor skin</label> 
+	<iconPath>WVC/UI/Genes/Gene_Armor_A_v0</iconPath>
+	<displayOrderInCategory>1875</displayOrderInCategory>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.07</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.07</ArmorRating_Heat>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>light</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Steel</defName>
+	<label>medium armor skin</label> 
+	<iconPath>WVC/UI/Genes/Gene_Armor_B_v0</iconPath>
+	<displayOrderInCategory>1876</displayOrderInCategory>
+	<biostatMet>-3</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.17</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.17</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>medium</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Plasteel</defName>
+	<label>heavy armor skin</label>
+	<iconPath>WVC/UI/Genes/Gene_Armor_C_v0</iconPath>
+	<displayOrderInCategory>1877</displayOrderInCategory>
+	<biostatMet>-4</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.27</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.27</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.27</ArmorRating_Heat>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>heavy</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Fortress</defName>
+	<label>fortress armor skin</label>
+	<iconPath>WVC/UI/Genes/Gene_Armor_D_v0</iconPath>
+	<displayOrderInCategory>1878</displayOrderInCategory>
+	<biostatMet>-5</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.37</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.37</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.37</ArmorRating_Heat>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fort</symbol></li>
+		<li><symbol>fortress</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ======================================================= -->
+
+
+</Defs>

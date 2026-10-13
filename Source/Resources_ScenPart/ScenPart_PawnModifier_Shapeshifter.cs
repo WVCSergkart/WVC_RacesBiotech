@@ -7,7 +7,6 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using WVC_XenotypesAndGenes.HarmonyPatches;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WVC_XenotypesAndGenes
 {

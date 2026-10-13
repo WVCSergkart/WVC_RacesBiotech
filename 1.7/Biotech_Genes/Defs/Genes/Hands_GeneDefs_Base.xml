@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneHandsBase" Name="WVC_XenotypesAndGenes_GeneGeneHands_Base" Abstract="True">
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
+	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<selectionWeight>0.0022</selectionWeight>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayOrderInCategory>300.0001001</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak" Abstract="True">
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
+	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
+	<iconPath>WVC/UI/Genes/Gene_WeakHand_v0</iconPath>
+	<selectionWeight>0.00025</selectionWeight>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_GeneManipulation_Base</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak">
+	<defName>WVC_AgeDebuff_Manipulation</defName>
+	<label>very weak hands</label>
+	<iconColor>(178, 97, 96)</iconColor>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>300.0001011</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.5</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak">
+	<defName>WVC_AgeDebuff_Armless</defName>
+	<label>extreme weak hands</label>
+	<iconColor>(126, 61, 60)</iconColor>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>300.0001012</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.1</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <!--=====================================================================-->
+
+  <!-- Upgrades -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_Claws" Abstract="True">
+	<description>Carriers of this gene grow sharp claws that can serve as natural weapons.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<!-- <displayCategory>Violence</displayCategory> -->
+	<!-- <displayOrderInCategory>320</displayOrderInCategory> -->
+	<iconPath>WVC/UI/Genes/Gene_HandsClaws_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>300.0001101</displayOrderInCategory>
+	<symbolPack>
+		<wholeNameSymbols>
+			<li><symbol>predator</symbol></li>
+		</wholeNameSymbols>
+		<prefixSymbols>
+			<li><symbol>claw</symbol></li>
+			<li><symbol>sharp</symbol></li>
+			<li><symbol>predator</symbol></li>
+		</prefixSymbols>
+		<suffixSymbols>
+			<li><symbol>claw</symbol></li>
+			<li><symbol>sharp</symbol></li>
+			<li><symbol>predator</symbol></li>
+		</suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Upgrades -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
+	<defName>WVC_MecaBodyParts_Claws</defName>
+	<label>archite claws</label>
+	<selectionWeight>0.0005</selectionWeight>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>300.0001101</displayOrderInCategory>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_ArchiteClaws</hediffDefName>
+			<bodyparts>
+			  <li>Hand</li>
+			  <li>Hand</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
+	<defName>WVC_NaturalBodyParts_Claws</defName>
+	<label>kitty claws</label>
+	<displayOrderInCategory>300.0001102</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_NaturalClaws</hediffDefName>
+			<bodyparts>
+			  <li>Hand</li>
+			  <li>Hand</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  
+</Defs>

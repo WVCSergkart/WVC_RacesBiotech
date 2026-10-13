@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Ripper -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Ripper0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Ripper</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Overrider -->
+  <XenotypeIconDef>
+	<defName>WVC_Overrider0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Overrider0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Overrider1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Overrider1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Metalkin -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin0c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Metalkin_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin1c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Metalkin2c</defName>
+	<texPath>WVC/UI/Icons3/Xeno_Metalkin2c</texPath>
+  </XenotypeIconDef>
+
+  <!-- Mergekin -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Genetic0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Genetic0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Thrall Hivedrone -->
+  <XenotypeIconDef>
+	<defName>WVC_Hivedrone0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Hivedrone0c</texPath>
+  </XenotypeIconDef>
+  <!-- Hivedrone -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Hivedrone1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Hivedrone1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Leper -->
+  <XenotypeIconDef>
+	<defName>WVC_Leper0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Leper0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Leper1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Leper1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
+  <!-- Mechamata -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata0c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata0c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata1c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata1c</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Mechamata2c</defName>
+	<texPath>WVC/UI/Icons3/Icon_Mechamata2c</texPath>
+  </XenotypeIconDef>
+
+</Defs>

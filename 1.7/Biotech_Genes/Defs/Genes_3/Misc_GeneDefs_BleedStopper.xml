@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_BleedStopper</defName>
+	<label>bleed stopper</label>
+	<description>Carriers of this gene recover very quickly from bleeding wounds. Wounds from cuts age almost instantly, causing them to stop bleeding.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BleedStopper</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_BleedStopper</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>155</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>All bleeding wounds &lt;color=#8a8ae6&gt;stop bleeding&lt;/color&gt; quite quickly, as if they had existed for 15 days.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

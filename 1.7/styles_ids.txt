@@ -1,0 +1,14 @@
+125 - Mechaskin
+135 - Silhouette
+5005 - Colorful eyes
+5010 - Holoeyes
+1000001 - Gene_FungoidHair
+1000011 - Gene_CenterFrill
+2350 - Gene_Skinshaper
+2351 - Gene_TentacleWings
+2360 - Tentacle hair
+4010 - Elf ears
+4015 - Demon horns
+4020 - Headspikes
+4021 - Head antenna
+4022 - Mecha cat ears

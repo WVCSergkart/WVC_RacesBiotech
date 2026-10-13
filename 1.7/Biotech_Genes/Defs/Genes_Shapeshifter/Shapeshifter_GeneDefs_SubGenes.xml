@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes" Abstract="True">
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>160</displayOrderInCategory>
+	<prerequisite>WVC_Shapeshifter</prerequisite>
+  </GeneDef>
+
+  <!-- ===================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Regeneration</defName>
+	<label>preshift healing</label>
+	<description>Carriers of this gene have archites that regenerate all wounds, even critical ones, before a shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_TotalHealing</iconPath>
+	<displayOrderInCategory>165</displayOrderInCategory>
+	<selectionWeight>0.000094</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>If a pawn has this gene, it is guaranteed to &lt;color=#8a8ae6&gt;heal all scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;regrow missing parts&lt;/color&gt; when using the &lt;color=#8a8ae6&gt;shapeshfit&lt;/color&gt; ability.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">1</WVC_ScarifierScars>
+	</statOffsets>
+	<statFactors>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_PostShapeshift_Recovery</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>28</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Scarred</defName>
+	<label>postshift scarred</label>
+	<description>Carriers of this gene become covered with scars after shapeshifting.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Scarred</geneClass>
+	<!-- <iconPath>WVC/UI/Genes/Gene_PostShapeshift_Scarred_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter_Scarred</iconPath>
+	<displayOrderInCategory>175</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<customEffectDescriptions>
+		<li>When using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, receiving this gene, the pawn &lt;color=#8a8ae6&gt;receives 5 scars&lt;/color&gt;.</li>
+		<li>When &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; to a form &lt;color=#8a8ae6&gt;without this gene&lt;/color&gt;, the pawn &lt;color=#8a8ae6&gt;loses all scars&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">3</WVC_ScarifierScars>
+	</statOffsets>
+	<painFactor>0.8</painFactor>
+	<statFactors>
+	  <IncomingDamageFactor>1.20</IncomingDamageFactor>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>14</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

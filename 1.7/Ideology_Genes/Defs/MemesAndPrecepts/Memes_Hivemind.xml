@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MemeDef>
+	<defName>WVC_Hivemind</defName>
+	<label>hivemind</label>
+	<description>Only in the unity of thought and opinion can one find truth.</description>
+	<randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+	<iconPath>WVC/UI/Precepts/Memes_Hivemind</iconPath>
+	<groupDef>Misc</groupDef>
+	<impact>2</impact>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Memes</li>
+	</exclusionTags>
+	<symbolPacks>
+	  <li>
+		<ideoName>Hivemind</ideoName>
+		<theme>hivemind</theme>
+		<adjective>hivemind</adjective>
+		<member>drone</member>
+	  </li>
+	</symbolPacks>
+	<requireOne>
+	  <li>
+		<li>WVC_Hivemind_Revered</li>
+	  </li>
+	</requireOne>
+  </MemeDef>
+
+</Defs>

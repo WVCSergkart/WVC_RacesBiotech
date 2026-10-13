@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_BloodHarvester</defName>
+	<label>blood harvester</label>
+	<description>Carriers of this gene can, using psychic influence, extract hemogen from those around them. They crystallize hemogen in the target's blood and then use microscopic skip gates to extract it. This causes blood loss to the targets, but does not threaten their life.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BloodHarvester</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_BloodHarvester_v0</iconPath>
+	<displayOrderInCategory>75</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>All &lt;color=#8a8ae6&gt;psi-sensitive non-hemogene&lt;/color&gt; pawns that are on the same map as the carrier spawns 1 &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; every (*DateTime)3-5 days(/DateTime), but they lose blood.</li>
+		<li>The effect is &lt;color=#8a8ae6&gt;triggered automatically&lt;/color&gt; if hemogen &lt;color=#8a8ae6&gt;auto ingestion enabled&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>harvest</symbol></li>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>reaper</symbol></li>
+		<li><symbol>reap</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bag</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>HemogenPack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>180000</min><max>300000</max></spawnIntervalRange>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_HemogenCrystal</styleDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_BloodyGrowths</defName>
+	<label>bloody growths</label>
+	<description>Carriers of this gene have special sac-like growths in some parts of the body. If the amount of hemogen reaches a limit value, these growths are filled with hemogen, crystallize, and then separate.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BloodyGrowths</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_BloodyGrowths_v0</iconPath>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>3</biostatMet>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>When a pawn's &lt;color=#8a8ae6&gt;hemogen reaches 92%&lt;/color&gt;, there is a chance that a &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; will be spawned.</li>
+		<li>After the &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; spawns, the owner will &lt;color=#8a8ae6&gt;lose 16 hemogen&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Hemogen levels&lt;/color&gt; are checked &lt;color=#8a8ae6&gt;once a day&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sac</symbol></li>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>bulb</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bag</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>HemogenPack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<hemogenPerThing>0.16</hemogenPerThing>
+			<matchPercent>0.92</matchPercent>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_HemogenCrystal</styleDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_Psychic" Abstract="True">
+	<geneClass>Gene</geneClass>
+	<selectionWeight>0.00122</selectionWeight>
+  </GeneDef>
+
+  <!-- == -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Psychic">
+	<defName>WVC_Learning_Telepath</defName>
+	<label>telepath study</label>
+	<description>Carriers of this gene are unable to learn on their own; instead, they gain skills from the experiences of those around them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_LearningTelepath</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_TelepathLearning_v0</iconPath>
+	<displayOrderInCategory>32</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>TooSmart</def>
+	  </li>
+	  <li>
+		<def>FastLearner</def>
+	  </li>
+	  <li>
+		<def>SlowLearner</def>
+	  </li>
+	</suppressedTraits>
+	<customEffectDescriptions>
+		<li>Every (*DateTime)1-2 days(/DateTime), the carrier &lt;color=#8a8ae6&gt;gains experience relative&lt;/color&gt; to the experience of &lt;color=#8a8ae6&gt;other pawns&lt;/color&gt; in the colony.</li>
+		<li>The target can be any &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt; pawn.</li>
+		<li>The carrier receives &lt;color=#8a8ae6&gt;20% experience&lt;/color&gt; from each skill of the target.</li>
+		<!-- <li>If the skill level of the carrier is &lt;color=#8a8ae6&gt;higher than or equal&lt;/color&gt; to the target's skill level, then no experience will be gained.</li> -->
+		<li>If the carrier's skill level is &lt;color=#8a8ae6&gt;higher than, equal to, or 1 level lower&lt;/color&gt; than the target's skill level, no experience will be gained.</li>
+		<li>&lt;color=#8a8ae6&gt;Aptitude&lt;/color&gt; is taken into account for the carrier, but not for the target.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <GlobalLearningFactor>0.01</GlobalLearningFactor>
+	</statFactors>
+	<!-- <exclusionTags> -->
+	  <!-- <li>Learning</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+</Defs>

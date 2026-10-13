@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Ovipositor</defName>
+	<label>ovipositor</label>
+	<description>Carriers of this gene can lay eggs instead of giving live birth. Eggs need time and correct conditions to hatch.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_EggHumanFertilized</ThingDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Ovipositor</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Ovipositor</iconPath>
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; varies with &lt;color=#8a8ae6&gt;hivemind size&lt;/color&gt;.</li> -->
+		<!-- <li>Lays eggs instead of pregnancy and live birth.</li> -->
+		<!-- <li>Laying eggs makes the pawn temporarily infertile.</li> -->
+		<li>Allows the pawn to &lt;color=#8a8ae6&gt;lay eggs&lt;/color&gt; instead of a live birth.</li>
+		<li>An egg can be laid 3 days after the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; begins.</li>
+		<li>If the pawn does not &lt;color=#8a8ae6&gt;lay&lt;/color&gt; an egg within 5 days, the &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; will proceed as normal.</li>
+		<li>Destroying the egg counts as &lt;color=#8a8ae6&gt;miscarriage&lt;/color&gt;.</li>
+		<li>The pawn will attempt to lay the egg in a &lt;color=#8a8ae6&gt;egg box&lt;/color&gt;.</li>
+		<!-- later -->
+		<!-- <li>Eating the egg does not count as cannibalism until 60% progress has been reached.</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+		<wholeNameSymbols>
+			<li>
+				<symbol>egglayer</symbol>
+			</li>
+			<li>
+				<symbol>oviparous</symbol>
+			</li>
+			<li>
+				<symbol>ovipositor</symbol>
+			</li>
+			<li>
+				<symbol>egger</symbol>
+			</li>
+			<li>
+				<symbol>hatcher</symbol>
+			</li>
+		</wholeNameSymbols>
+		<prefixSymbols>
+			<li>
+				<symbol>egg</symbol>
+			</li>
+			<li>
+				<symbol>bud</symbol>
+			</li>
+			<li>
+				<symbol>roe</symbol>
+			</li>
+		</prefixSymbols>
+		<suffixSymbols>
+			<li>
+				<symbol>layer</symbol>
+			</li>
+			<li>
+				<symbol>parous</symbol>
+			</li>
+			<li>
+				<symbol>positor</symbol>
+			</li>
+		</suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Egglaying</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_EggHumanFertilized</thingDefToSpawn>
+			<jobDef>WVC_LayHumanEgg</jobDef>
+			<showMessageIfOwned>true</showMessageIfOwned>
+			<spawnMessage>WVC_HumanEggLay</spawnMessage>
+			<cooldownHediffDef>WVC_Ovipositor_LayedEgg</cooldownHediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Ovipositor_LayedEgg</defName>
+	<label>post lay recovery</label>
+	<description>The carrier's body recovers after the egg is laid. This will take some time and will be accompanied by pain.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
+	<stages>
+	  <li>
+		<painOffset>0.12</painOffset>
+		<!-- <hungerRateFactorOffset>0.2</hungerRateFactorOffset> -->
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.1</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>120000~210000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!-- ================================== -->
+
+  <ThingDef ParentName="EggFertBase">
+	<defName>WVC_EggHumanFertilized</defName>
+	<label>human egg (fert.)</label>
+	<description>A fertilized human egg. If all goes well, it should hatch into a human baby. It definitely shouldn’t but can be eaten raw. Eating it is treated the same way as killing a baby.</description>
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Ovipositor</GeneDef>
+	</descriptionHyperlinks>
+	 <!-- For the first 9 days, this isn't considered cannibalism, but it will upset the egg's owners. -->
+	<!-- <possessionCount>1</possessionCount> -->
+	<tradeability>None</tradeability>
+	<!-- <inspectorTabs> -->
+	  <!-- <li>WVC_XenotypesAndGenes.ITab_EggGenes</li> -->
+	<!-- </inspectorTabs> -->
+	<inspectorTabs>
+	  <li>WVC_XenotypesAndGenes.ITab_GenesCustomPregnancy</li>
+	</inspectorTabs>
+	<ingestible>
+	  <sourceDef>Human</sourceDef>
+	  <ateEvent>AteHumanMeat</ateEvent>
+	  <!-- rare -->
+	  <optimalityOffsetHumanlikes>-120</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+	  <outcomeDoers>
+		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_HumanEgg" >
+		  <thoughtDef>WVC_KilledEggChildThought</thoughtDef>
+		  <taleDef>WVC_KilledEggChild</taleDef>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/HumanEgg</texPath>
+	  <color>(245,245,245)</color>
+	  <drawSize>1.2</drawSize>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>25</MaxHitPoints>
+	  <MarketValue>75.0</MarketValue>
+	  <Nutrition>0.3</Nutrition>
+	  <FoodPoisonChanceFixedHuman>0.05</FoodPoisonChanceFixedHuman>
+	</statBases>
+	<comps>
+	  <li Class="CompProperties_Styleable" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_HumanEgg">
+		<hatcherDaystoHatch>13</hatcherDaystoHatch>
+		<!-- <hatcherPawn>Chicken</hatcherPawn> -->
+		<!-- <eggStyleChance>0.15</eggStyleChance> -->
+		<!-- <possibleEggStyles> -->
+		  <!-- <li>WVC_SauridEgg</li> -->
+		<!-- </possibleEggStyles> -->
+	  </li>
+	  <!-- <li Class="CompProperties_Ingredients" /> -->
+	</comps>
+  </ThingDef>
+
+  <!-- ================================== -->
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_LayHumanEgg</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_LayHumanEgg</driverClass>
+	<reportString>laying egg.</reportString>
+	<casualInterruptible>false</casualInterruptible>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- ================================== -->
+
+  <TaleDef>
+	<defName>WVC_KilledEggChild</defName>
+	<label>human egg eaten</label>
+	<taleClass>Tale_SinglePawn</taleClass>
+	<type>Expirable</type>
+	<firstPawnSymbol>KILLER</firstPawnSymbol>
+	<secondPawnSymbol>CHILD</secondPawnSymbol>
+	<usableForArt>false</usableForArt>
+	<maxPerPawn>1</maxPerPawn>
+	<expireDays>50</expireDays>
+  </TaleDef>
+
+  <!-- ================================== -->
+
+  <ThoughtDef>
+	<defName>WVC_KilledEggChildThought</defName>
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>5</durationDays>
+	<stackedEffectMultiplier>0.8</stackedEffectMultiplier>
+	<stackLimit>5</stackLimit>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	  <li>Cannibal</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>ate human egg</label>
+		<description>Killing one so young feels wrong, there's no situation where this feels right.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_KilledEggChild_Opinion</defName>
+	<thoughtClass>Thought_Tale</thoughtClass>
+	<workerClass>ThoughtWorker_Tale</workerClass>
+	<taleDef>WVC_KilledEggChild</taleDef>
+	<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>ate human egg</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	</stages>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	  <li>Bloodlust</li>
+	  <li>Cannibal</li>
+	</nullifyingTraits>
+  </ThoughtDef>
+
+</Defs>

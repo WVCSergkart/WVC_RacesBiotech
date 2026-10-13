@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <ScenPartDef> -->
+	<!-- <defName>WVC_XaG_Scarlands</defName> -->
+	<!-- <label>scarlands</label> -->
+	<!-- <category>Fixed</category> -->
+	<!-- <scenPartClass>WVC_XenotypesAndGenes.ScenPart_PawnModifier_Scarlands</scenPartClass> -->
+	<!-- <selectionWeight>0</selectionWeight> -->
+	<!-- <summaryPriority>900</summaryPriority> -->
+  <!-- </ScenPartDef> -->
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_Metalkin</defName>
+	<label>Scarlands</label>
+	<description>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..
+
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All pawns, regardless of faction, will be of the &lt;color=#8a8ae6&gt;metalkin xenotype&lt;/color&gt; or its sub-xenotypes. Some reward pawns are an exception.\n- All surface biomes will be replaced with &lt;color=#8a8ae6&gt;scarlands&lt;/color&gt;, regardless of planetary conditions, with the exception of extreme biomes.\n- All plants fixed for the biome will have a fixed temperature range from -55C to +55C.\n- All &lt;color=#8a8ae6&gt;resources&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;rarer&lt;/color&gt;, and the mine &lt;color=#8a8ae6&gt;yield&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;lower&lt;/color&gt;.\n- Trade &lt;color=#8a8ae6&gt;caravans&lt;/color&gt; stop selling goods and &lt;color=#8a8ae6&gt;only buy&lt;/color&gt; them. The exception is orbital traders.\n- &lt;color=#ffec85&gt;Metalkins need a charger, the charger is not available from the start.&lt;/color&gt;\n- &lt;color=#f46d6b&gt;For the scenario, it is recommended to disable all mods that add biomes and/or change world generation.&lt;/color&gt;
+
+&lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Unimposed rules:&lt;/color&gt;\n- There should be no tribes among the factions.\n- The scenario is only considered complete after completing the Odyssey campaign.
+
+&lt;color=#999999&gt;All of the above conditions are not imposed by the scenario, and you are free to disregard them.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a medium difficulty scenario that requires advanced knowledge of vanilla mechanics and basic knowledge of XaG mod mechanics. And yes, the ability to read.</description>
+	<scenario>
+	  <!-- <summary>Two metalkins with gravship. No supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary> -->
+	  <summary>Two metalkins with gravship. No supplies. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>2</pawnCount> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with two metalkins.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_GeneThrower</xenotype>
+			  <pawnKind>Mercenary_Gunner</pawnKind>
+			</li>
+			<li>
+			  <xenotype>WVC_GeneThrower</xenotype>
+			  <pawnKind>Mercenary_Gunner</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_GeneThrower</xenotype>
+			  <count>2</count>
+			  <description>non-baby metalkin</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<!-- <li Class="ScenPart_ForcedHediff"> -->
+		  <!-- <def>ForcedHediff</def> -->
+		  <!-- <context>PlayerStarter</context> -->
+		  <!-- <chance>0.5</chance> -->
+		  <!-- <hediff>CryptosleepSickness</hediff> -->
+		  <!-- <hideOffMap>true</hideOffMap> -->
+		  <!-- <severityRange>1~1</severityRange> -->
+		<!-- </li> -->
+
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes"> -->
+		  <!-- <def>WVC_XaG_Starting</def> -->
+		  <!-- <xenotypeChances> -->
+			<!-- <WVC_GeneThrower>1</WVC_GeneThrower> -->
+			<!-- <WVC_Ferrkind>1</WVC_Ferrkind> -->
+			<!-- <WVC_Rustkind>1</WVC_Rustkind> -->
+		  <!-- </xenotypeChances> -->
+		  <!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
+
+		<!-- Player starting stuff spawn method-->
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+		  <!-- <def>PlayerPawnsArriveMethod</def> -->
+		  <!-- <visible>false</visible> -->
+		  <!-- <method>DropPods</method> -->
+		<!-- </li> -->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <method>Gravship</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<!-- Forced xenotypes -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Scarlands">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		  <biomeDef>Scarlands</biomeDef>
+		  <xenotypeDefs>
+			<li>WVC_GeneThrower</li>
+			<li>WVC_Ferrkind</li>
+			<li>WVC_Rustkind</li>
+		  </xenotypeDefs>
+		</li>
+
+		<!-- Zombie world -->
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_ForcedXenotypes"> -->
+		  <!-- <def>WVC_XaG_ShamblerWorld</def> -->
+		  <!-- <context>NonPlayer</context> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_PermaGameCondition"> -->
+			<!-- <def>PermanentGameCondition</def> -->
+			<!-- <gameCondition>DeathPall</gameCondition> -->
+		<!-- </li> -->
+
+		<!-- Starting research -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>MicroelectronicsBasics</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>BasicMechtech</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>Batteries</project> -->
+		<!-- </li> -->
+
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>45</count>
+		  <visible>false</visible>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>250</count>
+		  <visible>false</visible>
+		</li>
+
+		<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure"> -->
+			<!-- <def>VFEC_AddStartingStructure</def> -->
+			<!-- <structureLabel>Junkyard</structureLabel> -->
+			<!-- <nearMapCenter>True</nearMapCenter> -->
+			<!-- <chooseFrom> -->
+				<!-- <li>WVC_JunkYard_A</li> -->
+				<!-- <li>WVC_JunkYard_B</li> -->
+				<!-- <li>WVC_JunkYard_C</li> -->
+			<!-- </chooseFrom> -->
+		<!-- </li> -->
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

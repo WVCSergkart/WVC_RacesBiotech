@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Waylith.Math;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -92,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Dummy
-		public override Graphic GraphicFor(Pawn pawn, Color color)
+		public override Graphic GraphicFor(Pawn pawn, UnityEngine.Color color)
 		{
 			if (noGraphic)
 			{

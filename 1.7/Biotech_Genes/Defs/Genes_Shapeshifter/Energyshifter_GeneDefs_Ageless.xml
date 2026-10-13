@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_Rejuvenator</defName>
+	<label>shift rejuvenator</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene have archites that stop aging and rejuvenate.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_Rejuvenator</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_Ageless</geneClass>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>205</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>If enabled, it passively rejuvenates.</li>
+	</customEffectDescriptions>
+	<resourceLossPerDay>0.07</resourceLossPerDay>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

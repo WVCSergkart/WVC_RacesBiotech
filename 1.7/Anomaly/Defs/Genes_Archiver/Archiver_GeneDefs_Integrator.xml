@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiver_SubGenes">
+	<defName>WVC_Archiver_Integrator</defName>
+	<label>integrator</label>
+	<description>Carriers of this gene can "devour" other pawns, placing them in the archiver.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_Integrator</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<abilities>
+	  <li>WVC_Archiver_Integrator</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Archiver_Integrator</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Allows to put pawns into the &lt;color=#8a8ae6&gt;archiver&lt;/color&gt;, ignoring the &lt;color=#8a8ae6&gt;form&lt;/color&gt; limit.</li>
+		<li>Can only target a &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; with a positive &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; of caster +40 or downed.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Archiver_Integrator</defName>
+	<label>integrator</label>
+	<description>Dismantle the target into atoms, reassembling it as part of the archiver gene forms.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Archiver_Integrator</iconPath>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>35000</cooldownTicksRange>
+	<hostile>true</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <violent>true</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ArchiverIntegrator</compClass>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

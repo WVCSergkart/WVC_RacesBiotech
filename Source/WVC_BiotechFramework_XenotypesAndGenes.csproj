@@ -21,7 +21,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\1.6\Biotech_Genes\Assemblies\</OutputPath>
+    <OutputPath>..\1.7\Biotech_Genes\Assemblies\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -31,34 +31,54 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\1.6\Biotech_Genes\Assemblies\</OutputPath>
+    <OutputPath>..\1.7\Biotech_Genes\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\1.6\Biotech_Genes\Assemblies\WVC_BiotechFramework_XenotypesAndGenes.xml</DocumentationFile>
+    <DocumentationFile>..\1.7\Biotech_Genes\Assemblies\WVC_BiotechFramework_XenotypesAndGenes.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+    <!-- <Reference Include="System"> -->
+      <!-- <HintPath>..\..\..\System.dll</HintPath> -->
+      <!-- <Private>False</Private> -->
+    <!-- </Reference> -->
+    <!-- <Reference Include="System.Runtime"> -->
+      <!-- <HintPath>..\..\..\System.Runtime.dll</HintPath> -->
+      <!-- <Private>False</Private> -->
+    <!-- </Reference> -->
+    <!-- <Reference Include="System.Private.Xml"> -->
+      <!-- <HintPath>..\..\..\System.Private.dll</HintPath> -->
+      <!-- <Private>False</Private> -->
+    <!-- </Reference> -->
+    <!-- <Reference Include="System.Private.Xml"> -->
+      <!-- <HintPath>..\..\..\System.Private.Xml.dll</HintPath> -->
+      <!-- <Private>False</Private> -->
+    <!-- </Reference> -->
+    <!-- <Reference Include="System.Private.CoreLib"> -->
+      <!-- <HintPath>..\..\..\System.Private.CoreLib.dll</HintPath> -->
+      <!-- <Private>False</Private> -->
+    <!-- </Reference> -->
+    <Reference Include="UnityStubs">
+      <HintPath>..\..\..\UnityStubs.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="Waylith">
+      <HintPath>..\..\..\Waylith.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    <Reference Include="Waylith.UnityCompat">
+      <HintPath>..\..\..\Waylith.UnityCompat.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    <Reference Include="Waylith.VideoDecode">
+      <HintPath>..\..\..\Waylith.VideoDecode.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -139,7 +159,7 @@
     <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraGeneline.cs" />
     <Compile Include="Resources_Genes\Gene_ChimeraHediff.cs" />
-    <Compile Include="Resources_Genes\Gene_DayNightSleepnes.cs" />
+    <Compile Include="Resources_Genes\Gene_DayNightSleepiness.cs" />
     <Compile Include="Resources_Genes\Gene_Devourer.cs" />
     <Compile Include="Resources_Genes\Gene_Duplicator.cs" />
     <Compile Include="Resources_Genes\Gene_DuplicatorSubGene.cs" />
@@ -528,7 +548,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
-      <Version>3.0.0-rc.1</Version>
+      <Version>3.0.0-rc.2</Version>
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

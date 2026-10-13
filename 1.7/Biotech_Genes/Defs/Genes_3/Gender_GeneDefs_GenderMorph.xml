@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef>
+	<defName>WVC_GenderMorph</defName>
+	<label>gender morph</label>
+	<description>Carriers of this gene can change their gender to their preferred one.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GenderMorph</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_GenderMorph</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>Reproduction</displayCategory>
+	<!-- <displayCategory>WVC_Miscellaneous</displayCategory> -->
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to select preferred &lt;color=#ff8585&gt;gender&lt;/color&gt; for pawn.</li>
+		<li>Once a day, changes the &lt;color=#ff8585&gt;gender&lt;/color&gt; of the pawn if it does not match the chosen one.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Monogender</li>
+	  <li>AG_Gender</li>
+	  <li>Gender</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gender</symbol></li>
+		<li><symbol>morph</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

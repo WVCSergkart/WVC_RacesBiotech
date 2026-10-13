@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Hivemind" Abstract="True">
+	<label>drone</label>
+	<description>An basic hivemind drone geneset with its own strengths and weaknesses.</description>
+	<xenotypeIconDef>WVC_Hivedrone0c</xenotypeIconDef>
+	<reqGeneDef>WVC_Reimplanter_HiveMaker</reqGeneDef>
+	<acceptableRotStages>
+	  <li>Fresh</li>
+	</acceptableRotStages>
+	<blacklistGenes>
+	  <li>WVC_Duplicator</li>
+	  <li>WVC_ReimplanterThrallMaker</li>
+	  <li>WVC_Reimplanter_HiveMaker</li>
+	  <li>Hemogenic</li>
+	  <li>WVC_ResurgentCells</li>
+	  <li>WVC_Chimera</li>
+	</blacklistGenes>
+	<blacklistCategories>
+	  <li>WVC_Shapeshifter</li>
+	  <li>WVC_Morpher</li>
+	  <li>WVC_Chimera</li>
+	  <li>WVC_Reimplanters</li>
+	</blacklistCategories>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Hivedrone</defName>
+	<label>hivedrone</label>
+	<!-- <reqGeneDef>WVC_HiveMind_Skills</reqGeneDef> -->
+	<genes>
+	  <li>WVC_GeneSavant</li>
+	  <li>WVC_HiveMind_Drone</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	  <li>Learning_Slow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Syncdrone</defName>
+	<label>syncdrone</label>
+	<genes>
+		<li>WVC_Hivemind_SyncNode</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Hivemind_IdeoSync</li>
+		<li>Immunity_Strong</li>
+		<li>MeleeDamage_Weak</li>
+		<li>Sterile</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Needrone</defName>
+	<label>needrone</label>
+	<genes>
+		<li>WVC_HiveMind_Needs</li>
+		<li>WVC_RandomHands</li>
+		<li>Sleepy</li>
+		<li>Robust</li>
+		<li>Sterile</li>
+		<li>Learning_Slow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Skillsync</defName>
+	<label>skillsync</label>
+	<genes>
+		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_Hivemind_DeathChain</li>
+		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+		<li>VerySleepy</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Foodshare</defName>
+	<label>foodshare</label>
+	<genes>
+		<li>WVC_Hivemind_SharedFood</li>
+		<li>WVC_SleepyStomach</li>
+		<li>VerySleepy</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_BodySize_Large</li>
+		<li>Sterile</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Hivemind">
+	<defName>WVC_Memoshare</defName>
+	<label>memoshare</label>
+	<genes>
+		<!-- <li>WVC_Hivemind_Mood</li> -->
+		<li>WVC_Hivemind_DeathChain</li>
+		<li>WVC_Hivemind_Thoughts</li>
+		<li>WVC_NoLearning</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+</Defs>

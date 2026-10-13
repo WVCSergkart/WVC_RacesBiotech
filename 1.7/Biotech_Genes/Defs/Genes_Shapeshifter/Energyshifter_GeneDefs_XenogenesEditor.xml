@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_XenogenesEditor</defName>
+	<label>xenogenes editor</label>
+	<description>Carriers of this gene have archites that can freely edit the owner's xenogenes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_XenogenesEditor</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_XenogenesEditor</iconPath>
+	<displayOrderInCategory>225</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
+		<li>Slowly accumulates &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;. The amount of genetic material can be seen on the gene label.</li>
+		<li>Complexity depends on the amount of accumulated &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;, archites depend on the number of xenotypes &lt;color=#8a8ae6&gt;researched&lt;/color&gt;, and metabolism has a limit from -5 to +5.</li>
+		<li>Adding &lt;color=#8a8ae6&gt;new xenogenes&lt;/color&gt; consumes genetic material depending on the &lt;color=#8a8ae6&gt;complexity&lt;/color&gt; of the genes.</li>
+		<li>&lt;color=#8a8ae6&gt;Archite&lt;/color&gt; genes always consume all genetic material.</li>
+		<!-- <li>The amount of genetic material can be seen on the gene label.</li> -->
+		<li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; then genetic material stops accumulating, instead the duration of genes regrowing &lt;color=#8a8ae6&gt;decreases&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Energyshifter_XenogenesEditor</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- default genes -->
+			<geneCategoryDefs>
+			  <li>WVC_Overrider</li>
+			</geneCategoryDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

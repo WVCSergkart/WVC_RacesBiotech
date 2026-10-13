@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+	<defName>WVC_EyedyePills</defName>
+	<label>eyedye pills</label>
+	<description>A drug that affects the mucous membrane and causes subsequent changes in the color of the iris. Does not affect baseliners and causes fatigue when used.</description>
+	<possessionCount>2</possessionCount>
+	<descriptionHyperlinks><GeneDef>WVC_Eyes_Colorful</GeneDef></descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Drugs/EyeDyePills</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	</graphicData>
+	<socialPropernessMatters>false</socialPropernessMatters>
+	<rotatable>false</rotatable>
+	<statBases>
+	  <WorkToMake>320</WorkToMake>
+	  <MarketValue>2</MarketValue>
+	  <Mass>0.005</Mass>
+	  <Flammability>0.7</Flammability>
+	</statBases>
+	<techLevel>Industrial</techLevel>
+	<ingestible>
+	  <drugCategory>Medical</drugCategory>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <outcomeDoers>
+		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_ChangeEyesColor"/>
+		<li Class="IngestionOutcomeDoer_OffsetNeed">
+		  <need>Rest</need>
+		  <offset>-0.05</offset>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_DustogenicFood</li>
+	  </researchPrerequisites>
+	  <recipeUsers>
+		<li>DrugLab</li>
+	  </recipeUsers>
+	  <displayPriority>2100</displayPriority>
+	</recipeMaker>
+	<costList>
+	  <Dye>1</Dye>
+	</costList>
+	<comps>
+	  <li Class="CompProperties_Drug">
+		<listOrder>3000</listOrder>
+		<teetotalerCanConsume>true</teetotalerCanConsume>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

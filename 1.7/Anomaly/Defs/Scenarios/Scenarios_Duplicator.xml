@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_DuplicatorDeathChain</defName>
+	<label>The Death Chain</label>
+	<description>When you opened your eyes the first thing you saw was your own reflection, or rather there were 3 of them, exact copies of you. They remembered no more than you, neither how you ended up here, nor who you are, only your name and the fact that you are bound by death.
+
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- All &lt;color=#8a8ae6&gt;starting pawns&lt;/color&gt; will be &lt;color=#8a8ae6&gt;duplicates&lt;/color&gt; of the first one you choose and will have the &lt;color=#8a8ae6&gt;death chain&lt;/color&gt; gene, the death of any pawn will kill all the pawns.\n- All &lt;color=#8a8ae6&gt;non-duplicate&lt;/color&gt; pawns have a 34% chance of leaving the colony. &lt;color=#8a8ae6&gt;Exceptions&lt;/color&gt; include &lt;color=#8a8ae6&gt;children&lt;/color&gt; raised in the colony, &lt;color=#8a8ae6&gt;androids&lt;/color&gt;, &lt;color=#8a8ae6&gt;mutants&lt;/color&gt;, and the &lt;color=#8a8ae6&gt;starting pawn&lt;/color&gt;. Quest pawns and anomaly mutants are ignored.\n- &lt;color=#8a8ae6&gt;Obelisk-duplicator&lt;/color&gt; mechanic is replaced by the &lt;color=#8a8ae6&gt;gene-duplicator&lt;/color&gt; mechanic, regardless of the settings.\n- &lt;color=#8a8ae6&gt;Duplicates&lt;/color&gt; cannot use the duplicator &lt;color=#8a8ae6&gt;ability&lt;/color&gt;, regardless of the settings.
+
+&lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a medium difficulty scenario that requires careful allocation of available resources.</description>
+	<scenario>
+	  <summary>Four pawns with no supplies. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Gameplay effects -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Duplicators">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_RogueFormer>0.8</WVC_RogueFormer>
+			<WVC_Fleshkind>0.2</WVC_Fleshkind>
+		  </xenotypeChances>
+		  <startingDuplicates>3</startingDuplicates>
+		  <additionalChronoAge>70~120</additionalChronoAge>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <geneDefs>
+			<li>WVC_Duplicator_DeathChain</li>
+		  </geneDefs>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>When you opened your eyes the first thing you saw was your own reflection, or rather there were 3 of them, exact copies of you. They remembered no more than you, neither how you ended up here, nor who you are, only your name and the fact that you are bound by death.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<visible>false</visible>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

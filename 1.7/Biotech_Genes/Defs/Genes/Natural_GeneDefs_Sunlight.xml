@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- UV Sensitivity -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_PsychicSunSensitivityBase" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<selectionWeight>0.003</selectionWeight>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<exclusionTags>
+	  <li>WVC_PsychicSunSensitivity</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>190</displayOrderInCategory>
+	<selectionWeight>0.003</selectionWeight>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_PsychicSunSensitivityBase">
+	<defName>WVC_UVSensitivity_Psychic</defName>
+	<label>psychic UV sensitivity</label>
+	<labelShortAdj>UV-psychic</labelShortAdj>
+	<description>Carriers of this gene have increased psi sensitivity when they are in sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunPsychicallySensetivity</iconPath>
+	<dislikesSunlight>true</dislikesSunlight>
+	<exclusionTags>
+	  <!-- <li>WVC_PsychicSunSensitivity</li> -->
+	  <li>WVC_PsychicSunSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>su</symbol></li>
+		<li><symbol>psysu</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>lit</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>sunset</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_PsychicSunSensitivityBase">
+	<defName>WVC_NoUVSensitivity_Psychic</defName>
+	<label>psychic dark sensitivity</label>
+	<labelShortAdj>dark-psychic</labelShortAdj>
+	<description>Carriers of this gene have increased psi sensitivity when they are out of sunlight.</description>
+	<iconPath>WVC/UI/Genes/NightPsychicallySensetivity</iconPath>
+	<exclusionTags>
+	  <li>WVC_PsychicMoonSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- UV Psychic Sensitivity -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<!-- old defName -->
+	<defName>WVC_DebuffUV_StrongPsychicSensitivity</defName>
+	<label>UV psychically dull</label>
+	<description>Carriers of this gene partially lose psi-sensitivity when exposed to the sun.</description>
+	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity2</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<exclusionTags>
+	  <li>WVC_PsychicSunSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<!-- old defName -->
+	<defName>WVC_DebuffUV_ExtremePsychicSensitivity</defName>
+	<label>UV psychically deaf</label>
+	<description>Carriers of this gene lose psi-sensitivity when exposed to the sun.</description>
+	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity1</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<exclusionTags>
+	  <li>WVC_PsychicSunSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.0</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+
+  <!-- No UV Psychic Sensitivity -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffNoUV_StrongPsychicSensitivity</defName>
+	<label>UV psy-dependency dull</label>
+	<description>Carriers of this gene partially lose psi-sensitivity when not under the sun.</description>
+	<iconPath>WVC/UI/Genes/MoonDebuffPsychicallySensetivityA</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<exclusionTags>
+	  <li>WVC_PsychicMoonSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_NoSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffNoUV_ExtremePsychicSensitivity</defName>
+	<label>UV psy-dependency deaf</label>
+	<description>Carriers of this gene lose psi-sensitivity when not under the sun.</description>
+	<iconPath>WVC/UI/Genes/MoonDebuffPsychicallySensetivityB</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<exclusionTags>
+	  <li>WVC_PsychicMoonSensitivityDeaf</li>
+	</exclusionTags>
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_NoSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.0</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+
+</Defs>

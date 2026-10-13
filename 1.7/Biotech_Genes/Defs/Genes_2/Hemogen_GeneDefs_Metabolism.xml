@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_HemogenicMetabolism</defName>
+	<label>hemogenic metabolism</label>
+	<description>Carriers of this gene can synthesize nutrients from hemogen. This significantly increases the bio-entropy of the hemogen, but allows the carriers to satisfy their hunger.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenicMetabolism</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenicMetabolism_v0</iconPath>
+	<displayOrderInCategory>85</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>4</biostatMet>
+	<resourceLossPerDay>1.00</resourceLossPerDay>
+	<customEffectDescriptions>
+		<!-- <li>When a pawn's &lt;color=#8a8ae6&gt;hemogen reaches 92%&lt;/color&gt;, there is a chance that a &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; will be spawned.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Increases hemogen consumption&lt;/color&gt;, but &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt;.</li>
+		<li>The effect of the gene &lt;color=#8a8ae6&gt;can be switched&lt;/color&gt; at any time.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hemo</symbol></li>
+		<li><symbol>hemogen</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>eat</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

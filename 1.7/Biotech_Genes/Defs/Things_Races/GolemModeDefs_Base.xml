@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.GolemModeDef Name="WVC_XenotypesAndGenes_GolemModeDef_Base" Abstract="True">
+	<displayedStats>
+	  <li>WorkSpeedGlobal</li>
+	  <li>MoveSpeed</li>
+	  <li>ArmorRating_Blunt</li>
+	  <li>ArmorRating_Sharp</li>
+	  <li>WVC_GolemBondCost</li>
+	  <li>BandwidthCost</li>
+	</displayedStats>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <!-- Light -->
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Liftoid</defName>
+	<displayedStats>
+	  <li>CarryingCapacity</li>
+	  <li>CleaningSpeed</li>
+	</displayedStats>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Liftoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Constructoid</defName>
+	<displayedStats>
+	  <li>ConstructionSpeed</li>
+	  <li>PlantWorkSpeed</li>
+	</displayedStats>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Constructoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Crafter</defName>
+	<displayedStats>
+	  <li>GeneralLaborSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Crafter</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Hunter</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Hunter</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Miner</defName>
+	<displayedStats>
+	  <li>MiningSpeed</li>
+	</displayedStats>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Miner</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Militoid</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Militoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Cleanoid</defName>
+	<displayedStats>
+	  <li>CleaningSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>0.5</iconSize>
+	<pawnKindDef>WVC_Golem_Cleanoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <!-- Heavy -->
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Behemoth</defName>
+	<displayedStats>
+	  <li>MiningSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Behemoth</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Medicor</defName>
+	<displayedStats>
+	  <li>MedicalTendSpeed</li>
+	  <li>MedicalOperationSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Medicor</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef ParentName="WVC_XenotypesAndGenes_GolemModeDef_Base">
+	<defName>WVC_Golem_Stonepede</defName>
+	<displayedStats>
+	  <li>PlantWorkSpeed</li>
+	</displayedStats>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Stonepede</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+</Defs>

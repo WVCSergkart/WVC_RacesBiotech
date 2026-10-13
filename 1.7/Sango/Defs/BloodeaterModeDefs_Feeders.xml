@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.BloodeaterModeDef>
+	<defName>WVC_Hemofeeder</defName>
+	<label>sango</label>
+	<abilityDef>WVC_Hemofeeder</abilityDef>
+	<workerClass>WVC_XenotypesAndGenes.BloodeaterMode_Hemogen</workerClass>
+	<displayOrder>10</displayOrder>
+  </WVC_XenotypesAndGenes.BloodeaterModeDef>
+
+  <WVC_XenotypesAndGenes.BloodeaterModeDef>
+	<defName>WVC_Corpsefeeder</defName>
+	<label>corpse</label>
+	<abilityDef>WVC_Corpsefeeder</abilityDef>
+	<workerClass>WVC_XenotypesAndGenes.BloodeaterMode_Corpse</workerClass>
+	<displayOrder>20</displayOrder>
+  </WVC_XenotypesAndGenes.BloodeaterModeDef>
+
+  <WVC_XenotypesAndGenes.BloodeaterModeDef>
+	<defName>WVC_Animalfeeder</defName>
+	<label>animal</label>
+	<abilityDef>WVC_Animalfeeder</abilityDef>
+	<workerClass>WVC_XenotypesAndGenes.BloodeaterMode_Animal</workerClass>
+	<displayOrder>30</displayOrder>
+  </WVC_XenotypesAndGenes.BloodeaterModeDef>
+
+</Defs>

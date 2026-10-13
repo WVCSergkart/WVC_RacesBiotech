@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IssueDef>
+	<defName>WVC_Hivemind</defName>
+	<label>hivemind</label>
+	<iconPath>WVC/UI/Precepts/Precept_Hivemind</iconPath>
+  </IssueDef>
+
+  <!-- =================================================== -->
+
+  <PreceptDef>
+	<defName>WVC_Hivemind_Revered</defName>
+	<issue>WVC_Hivemind</issue>
+	<label>revered</label>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<description>Only those who are considered part of the hivemind are worthy.\n\n&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt; Any pawn considered part of the hivemind meets the requirements. Keep in mind that this depends on its synchronization.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Hivemind</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Hivemind_Revered</thought>
+		<description>In hivemind</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Hivemind_Social_Revered</thought>
+		<thoughtStageDescriptions>
+		  <li>Hivemind member</li>
+		  <li>Non-hivemind</li>
+		  <li>Same hivemind</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Revered</li>
+	</exclusionTags>
+  </PreceptDef>
+
+  <!-- Thoughts -->
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Social_Revered</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_Hivemind</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>in hivemind</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>non-hivemind</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>same hivemind</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Revered</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Hivemind</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>in hivemind</label>
+		<description>It's an honor to be a part of something so great.</description>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- =================================================== -->
+
+  <PreceptDef>
+	<defName>WVC_Hivemind_Reviled</defName>
+	<issue>WVC_Hivemind</issue>
+	<label>reviled</label>
+	<description>There is nothing more terrible than being connected to others in your thoughts.</description>
+	<impact>Medium</impact>
+	<displayOrderInIssue>5</displayOrderInIssue>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Hivemind_Reviled</thought>
+		<description>In hivemind</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Hivemind_Social_Reviled</thought>
+		<thoughtStageDescriptions>
+		  <li>Hivemind member</li>
+		  <li>Not in my hivemind</li>
+		  <li>Same hivemind</li>
+		  <li>No hivemind</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Reviled</li>
+	</exclusionTags>
+  </PreceptDef>
+
+  <!-- Thoughts -->
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Social_Reviled</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Social_Hivemind_Reviled</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>in hivemind</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>non-hivemind</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>same hivemind</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>no hivemind</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Reviled</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Hivemind</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>in hivemind</label>
+		<description>I am bound by invisible chains, do my thoughts belong to me?</description>
+		<baseMoodEffect>-15</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

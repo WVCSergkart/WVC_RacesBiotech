@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Eyes" Abstract="True" >
+	<uniqueStyleId>5005</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
+	<defName>WVC_Eye0c</defName>
+	<iconPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</iconPath>
+	<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+	<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <!-- <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes"> -->
+	<!-- <defName>WVC_InvisibleEyes</defName> -->
+	<!-- <noGraphic>true</noGraphic> -->
+  <!-- </WVC_XenotypesAndGenes.StyleGeneDef> -->
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Holoeyes" Abstract="True" >
+	<uniqueStyleId>5010</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeTriple</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeOrbital</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeMeca</li> -->
+<!-- <li>WVC/BodyParts/Eyes/HoloEyeDouble</li> -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye0c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeTriple</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeTriple</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye1c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeOrbital</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeOrbital</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye2c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeMeca</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeMeca</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes">
+	<defName>WVC_Holoeye3c</defName>
+	<iconPath>WVC/BodyParts/Eyes/HoloEyeDouble</iconPath>
+	<texPath>WVC/BodyParts/Eyes/HoloEyeDouble</texPath>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Holoeyes"> -->
+	<!-- <defName>WVC_InvisibleHoloeyes</defName> -->
+	<!-- <noGraphic>true</noGraphic> -->
+  <!-- </WVC_XenotypesAndGenes.StyleGeneDef> -->
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_Mechaskin" Abstract="True" >
+	<uniqueStyleId>125</uniqueStyleId>
+	<texPath>WVC/Bodies/NodeGene_Body/Naked_Male</texPath>
+	<!-- <noGraphic>true</noGraphic> -->
+	<allowedStyles>
+	  <li>125</li>
+	  <li>135</li>
+	</allowedStyles>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Mechaskin">
+	<defName>WVC_Mechaskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/MecaGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/MecaGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Mechaskin">
+	<defName>WVC_Cyberskin</defName>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Cyberskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Cyberskin_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Cyberskin_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Cyberskin_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Cyberskin_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+  <!-- Skinshaper Gene_Skinshaper 2350 -->
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_TentacleWings" Abstract="True" >
+	<uniqueStyleId>2351</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings0c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings</texPath>
+	<!-- For random selection. Used manually (in class) for few genes. selectionWeight = default 1 -->
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings1c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings1c</texPath>
+	<selectionWeight>0.8</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings2c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings2c</texPath>
+	<selectionWeight>1.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings3c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings3c</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_TentacleWings">
+	<defName>WVC_TentacleWings4c</defName>
+	<texPath>WVC/BodyParts/BodyParts_Wings/TentacleWings4c</texPath>
+	<selectionWeight>0.4</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_ElfEars" Abstract="True" >
+	<uniqueStyleId>4010</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars0c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEars</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars1c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEarsB</texPath>
+	<selectionWeight>0.3</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_ElfEars">
+	<defName>WVC_ElfEars2c</defName>
+	<texPath>WVC/BodyParts/ElfEars/PointedEarsC</texPath>
+	<selectionWeight>0.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_DemonHorns" Abstract="True" >
+	<uniqueStyleId>4015</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns0c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsA</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns1c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsC</texPath>
+	<selectionWeight>0.7</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_DemonHorns">
+	<defName>WVC_DemonHorns2c</defName>
+	<texPath>WVC/BodyParts/Horns/HornsBrokenA</texPath>
+	<selectionWeight>0.2</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaSpikes" Abstract="True" >
+	<uniqueStyleId>4020</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaSpikes">
+	<defName>WVC_MechaSpikes0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</texPath>
+	<selectionWeight>5.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaSpikes">
+	<defName>WVC_MechaSpikes1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</texPath>
+	<selectionWeight>3.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaAntenna" Abstract="True" >
+	<uniqueStyleId>4021</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaAntenna">
+	<defName>WVC_MechaAntenna0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</texPath>
+	<selectionWeight>5.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaAntenna">
+	<defName>WVC_MechaAntenna1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</texPath>
+	<selectionWeight>3.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef Name="WVC_StyleGeneDef_MechaCatEars" Abstract="True" >
+	<uniqueStyleId>4022</uniqueStyleId>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaCatEars">
+	<defName>WVC_MechaCatEars0c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/CatEars</texPath>
+	<selectionWeight>1.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_MechaCatEars">
+	<defName>WVC_MechaCatEars1c</defName>
+	<texPath>WVC/BodyParts/MecaGene_Ears/FourCatEars</texPath>
+	<selectionWeight>11.0</selectionWeight>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+  <!-- ======================================== -->
+
+  <WVC_XenotypesAndGenes.StyleGeneDef ParentName="WVC_StyleGeneDef_Eyes">
+	<defName>WVC_NoGraphic</defName>
+	<noGraphic>true</noGraphic>
+	<allowedStyles>
+	  <li>135</li>
+	  <li>5005</li>
+	  <li>5010</li>
+	  <li>2351</li>
+	  <li>1000001</li>
+	  <li>1000011</li>
+	  <li>4020</li>
+	  <li>4021</li>
+	  <li>4022</li>
+	</allowedStyles>
+  </WVC_XenotypesAndGenes.StyleGeneDef>
+
+</Defs>

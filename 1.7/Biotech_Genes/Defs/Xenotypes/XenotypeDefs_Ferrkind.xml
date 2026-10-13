@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- metalkin chimera -->
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Ferrkind</defName>
+	<!-- biotalkin, metalmera, ferrkind, rustkind -->
+	<label>ferrkind</label>
+	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it should be charged at charging stations.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Chimera):&lt;/color&gt; This xenotype can copy the genes of other pawns with similar genes, and then convert unwanted genes into tools that will allow this ability to be spread.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Switcher):&lt;/color&gt; Can switch at any time to other xenotypes with the switcher gene.</description>
+	<descriptionShort>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.</descriptionShort>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
+	  <XenotypeDef>WVC_Rustkind</XenotypeDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</iconPath>
+	<displayPriority>-1060</displayPriority>
+	<combatPowerFactor>5.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_BandwidthLimit</li>
+		<li>WVC_Chimera_GeneNetwork</li>
+		<li>WVC_Chimera_SelfCopy</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_MechaPowerSource_Unstable</li> -->
+		<li>WVC_WoundHealing_Unnatural</li>
+		<li>WVC_Rejuvenator</li>
+		<li>FireResistant</li>
+		<li>WVC_DragonTailA</li>
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+</Defs>

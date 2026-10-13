@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.BloodeaterModeDef>
+	<defName>WVC_Bloodfeeder</defName>
+	<label>basic</label>
+	<abilityDef>Bloodfeed</abilityDef>
+	<workerClass>WVC_XenotypesAndGenes.BloodeaterMode</workerClass>
+	<displayOrder>0</displayOrder>
+  </WVC_XenotypesAndGenes.BloodeaterModeDef>
+
+</Defs>

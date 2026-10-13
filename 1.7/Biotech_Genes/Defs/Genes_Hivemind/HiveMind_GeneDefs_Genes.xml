@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_HiveMind_Drone</defName>
+	<label>hivemind drone</label>
+	<description>Carriers of this gene are part of the hivemind, but do not contribute any special effects to it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Drone</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Drone</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Drone</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_HiveMind_Skills</defName>
+	<label>shared skills</label>
+	<description>Carriers of this gene can synchronize some of the experience accumulated by drones of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Skills</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SkillsSync</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+		<li>From time to time, it synchronizes the &lt;color=#8a8ae6&gt;skills&lt;/color&gt; levels.</li>
+		<!-- <li>Only the &lt;color=#8a8ae6&gt;level&lt;/color&gt; is synchronized, experience is not affected.</li> -->
+		<li>If the skill &lt;color=#8a8ae6&gt;level&lt;/color&gt; increases, the experience is reset.</li>
+		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SkillsSync</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_Hivemind_Thoughts</defName>
+	<label>shared thoughts</label>
+	<description>Carriers of this gene can share the thoughts of hivemind drones, thus improving or worsening the overall mood of the entire hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Thoughts</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Thoughts</iconPath>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>From time to time, &lt;color=#8a8ae6&gt;shifts the mood&lt;/color&gt; of all hivemind pawns, relative to the &lt;color=#8a8ae6&gt;total mood&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>Mood offset and duration depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Low psy-sensitivity&lt;/color&gt; will result in loss of nutrients.</li> -->
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Thoughts</thoughtDef>
+		</li>
+	</modExtensions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Thoughts</li>
+	  <li>BGM_FungalParasitism</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Thoughts</defName>
+	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSharedThoghts</thoughtClass> -->
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>1</durationDays>
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>hivemind</label>
+		<description>I hear the thoughts of other hivemind drones, their experiences, grief and joy.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_HiveMind_Needs</defName>
+	<label>shared needs</label>
+	<description>Carriers of this gene have a special influence on the hivemind, they are able to synchronize some of the needs of its drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>From time to time, it synchronizes &lt;color=#8a8ae6&gt;needs&lt;/color&gt;.</li>
+		<li>Only &lt;color=#8a8ae6&gt;recreation, comfort, outdoors, indoors, beauty&lt;/color&gt; are synchronized.</li>
+		<li>Synchronizes to the &lt;color=#8a8ae6&gt;higher&lt;/color&gt; value.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<needDefs>
+			  <li>Joy</li>
+			  <li>Beauty</li>
+			  <li>Comfort</li>
+			  <li>Outdoors</li>
+			  <li>Indoors</li>
+			</needDefs>
+		</li>
+	</modExtensions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SharedNeeds</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Sync">
+	<defName>WVC_Hivemind_SharedFood</defName>
+	<label>shared nutrients</label>
+	<description>Carriers of this gene have archites that can transfer nutrients between hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_SharedFood</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_SharedFood</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; drones.</li>
+		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
+		<!-- <li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li> -->
+		<li>Final nutrients depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SharedNeeds</li>
+	  <li>WVC_Hivemind_SharedFood</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Opinion</defName>
+	<label>hivemind opinion</label>
+	<description>Carriers of this gene have a special psychic influence on the hivemind, significantly improving their relationships with its drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Opinion</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Opinion</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day the hivemind pawns gets an &lt;color=#8a8ae6&gt;opinion offset&lt;/color&gt; lasting about a day.</li>
+		<li>Affects the hive's opinion with the &lt;color=#8a8ae6&gt;carrier&lt;/color&gt; and the &lt;color=#8a8ae6&gt;carrier's opinion with the hive&lt;/color&gt;, without affecting the opinion between other pawns of the hive.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Opinion</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_Hivemind_Opinion</defName>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>hivemind</label>
+		<baseOpinionOffset>9999</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Mood</defName>
+	<label>hivemind mood</label>
+	<description>Carriers of this gene have a special organ that secretes the hormone of happiness relative to the size of hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Mood</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Mood</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Every day gives a temporary boost to the &lt;color=#8a8ae6&gt;mood&lt;/color&gt;, which depends on the &lt;color=#8a8ae6&gt;number&lt;/color&gt; of hivemind pawns.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Mood&lt;/color&gt; depends on the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; size.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_Depression</li>
+	  <li>WVC_Hivemind_Thoughts</li>
+	  <li>Mood</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<thoughtDef>WVC_Hivemind_Mood</thoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <ThoughtDef>
+	<defName>WVC_Hivemind_Mood</defName>
+	<thoughtClass>WVC_XenotypesAndGenes.Thought_HivemindSize</thoughtClass>
+	<!-- <durationDays>1</durationDays> -->
+	<stackLimit>800</stackLimit>
+	<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>hivemind size</label>
+		<description>Our hive is growing, it makes us stronger.</description>
+		<baseMoodEffect>1</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_SyncNode</defName>
+	<label>sync node</label>
+	<description>Carriers of this gene have a special psychic organ used to synchronize the hive's drones. Thanks to this organ, the hive will always be able to better integrate new drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_SyncNode</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_SyncNode</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Every day it &lt;color=#8a8ae6&gt;synchronizes the hivemind&lt;/color&gt; and integrates new drones from among &lt;color=#8a8ae6&gt;former prisoners or wanderers&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Hivemind size&lt;/color&gt; does not affect the sync- &lt;color=#8a8ae6&gt;efficiency&lt;/color&gt;.</li> -->
+		<li>Displays the number of pawns in the &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; in &lt;color=#8a8ae6&gt;stats&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Hivemind_SyncNode</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_IdeoSync</defName>
+	<label>ideo sync</label>
+	<description>Carriers of this gene can change the ideological views of the hivemind at their own discretion.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Ideo</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_IdeoSync</iconPath>
+	<displayOrderInCategory>65</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<statFactors>
+	  <CertaintyLossFactor>0</CertaintyLossFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Allows to change the &lt;color=#8a8ae6&gt;ideology&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns to any desired one.</li>
+		<li>Cooldown: 1 day.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_EfficiencyNode</defName>
+	<label>efficiency node</label>
+	<description>Carriers of this gene have a special organ that influences the efficiency of hivemind synchronization, optimizing it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_EfficiencyNode</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_EfficiencyNode</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Offsets the &lt;color=#8a8ae6&gt;sync&lt;/color&gt;hronization frequency of some &lt;color=#8a8ae6&gt;hivemind genes&lt;/color&gt;, decreasing or increasing it.</li>
+		<li>&lt;color=#8a8ae6&gt;Affects all hivemind pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Regeneration</defName>
+	<label>hivemind regeneration</label>
+	<description>Carriers of this gene have archites that quickly regenerate damaged tissue. The effectiveness depends on the size of the hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Regeneration</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Regen</iconPath>
+	<displayOrderInCategory>85</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-6</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 4 hp/day * &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+		<li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_SpecialRegeneration</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_DeathChain</defName>
+	<label>hivemind chain</label>
+	<description>Carriers of this gene bind the hivemind with a strong psychic bond, their death will kill the entire hivemind.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_DeathChain</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_DeathChain</iconPath>
+	<displayOrderInCategory>95</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Traits</defName>
+	<label>traits copy</label>
+	<description>Carriers of this gene can receive traits from other hivemind drones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Traits</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Traits</iconPath>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Death kills&lt;/color&gt; all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns.</li> -->
+		<li>Copies the &lt;color=#8a8ae6&gt;traits&lt;/color&gt; of all &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawns from time to time.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; are copied as is, &lt;color=#8a8ae6&gt;including conflicting&lt;/color&gt; ones that overlap.</li>
+		<li>&lt;color=#8a8ae6&gt;Traits&lt;/color&gt; that have 0 commonality are ignored.</li> <!-- Thanks VE. Armor as personality trait is soo wiiiise.. -->
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHivemind_Base">
+	<defName>WVC_Hivemind_Telepathy</defName>
+	<label>hivemind telepathy</label>
+	<!-- <description>Carriers of this gene can communicate telepathically with other drones of the hivemind.</description> -->
+	<description>Carriers of this gene create a telepathic network that allows hivemind drones to communicate over a distance.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Telepathy</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Hivemind_Telepathy</iconPath>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Carrier can enter into random social &lt;color=#8a8ae6&gt;interaction&lt;/color&gt; with any &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; pawn on the map, at any distance.</li> -->
+		<!-- <li>Can be used by &lt;color=#8a8ae6&gt;psy-deaf&lt;/color&gt; drones.</li> -->
+		<li>From time to time, &lt;color=#8a8ae6&gt;hivemind drones&lt;/color&gt; may engage in &lt;color=#8a8ae6&gt;random social interactions&lt;/color&gt; at a distance, regardless of &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; and the presence of this gene.</li>
+		<li>Affected by &lt;color=#8a8ae6&gt;hivemind psy-sensitivity&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Telepathy</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

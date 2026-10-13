@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base">
+	<defName>WVC_DaySleep</defName>
+	<label>day sleep</label>
+	<description>Carriers of this gene are unable to stay awake during the day. As soon as day comes, they instantly get tired.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DaySleep</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_DaySleep</iconPath>
+	<marketValueFactor>1.5</marketValueFactor>
+	<displayOrderInCategory>33</displayOrderInCategory>
+	<selectionWeight>0.00025</selectionWeight>
+	<biostatMet>3</biostatMet>
+	<biostatArc>0</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wake</symbol></li>
+		<li><symbol>night</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_DaySleep</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_DaySleep</defName>
+	<label>day sleep</label>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <RestRateMultiplier>0</RestRateMultiplier>
+		  <RestFallRateFactor>0</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

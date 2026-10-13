@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_Regeneration</defName>
+	<label>regenerator</label>
+	<description>Carriers of this gene have archites that regenerate damaged tissues and restore lost body parts incredibly quickly.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_Regen</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_Regeneration</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>215</displayOrderInCategory>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Healing: 100 hp/day</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" MayRequire="ludeon.rimworld.anomaly">
+	<defName>WVC_Fleshshaper</defName>
+	<label>fleshshaper</label>
+	<description>Carriers of this gene have archites that are capable of rewriting and editing their owners' genetic code within certain limits. Carriers can freely change their xenotype and edit their genes to a limited extent, but their xenogermline are subject to constant decay.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Fleshshaper</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Fleshshaper</iconPath>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Fleshshaper</resourceGizmoType>
+	<displayOrderInCategory>-1</displayOrderInCategory>
+	<biostatCpx>-5</biostatCpx>
+	<statFactors>
+	  <WVC_FleshmassMutationsDelayFactor>1.5</WVC_FleshmassMutationsDelayFactor>
+	</statFactors>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_ChimeraLimit>11.0</WVC_ChimeraLimit> -->
+	<!-- </statOffsets> -->
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
+		<li>Removes 1 random &lt;color=#8a8ae6&gt;xenogene&lt;/color&gt; each day and provides &lt;color=#8a8ae6&gt;genetic material&lt;/color&gt;.</li>
+		<li>If there are no &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;, then it gives &lt;color=#8a8ae6&gt;4 genetic material&lt;/color&gt; and reduces xenogerm replication (&lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;) time by 5 days.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant special genes.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant unique genes, the list of which depends on endogenes.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>-0.05</birthQualityOffset>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <statDef>WVC_ChimeraLimit</statDef> -->
+			<xenotypeDefs>
+			  <li>WVC_Fleshkind</li>
+			  <li>WVC_Beholdkind</li>
+			  <li>WVC_Overrider</li>
+			</xenotypeDefs>
+			<!-- <geneCategoryDefs> -->
+			  <!-- <li>WVC_Fleshmass</li> -->
+			<!-- </geneCategoryDefs> -->
+			<!-- geneDefWithChances Moved to Misc. See Anomaly/Misc/ShaperGeneSetDef_Fleshshaper -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneFleshshaper_SubGenes" Abstract="True" MayRequire="ludeon.rimworld.anomaly">
+	<geneClass>WVC_XenotypesAndGenes.XaG_Gene</geneClass>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>150</displayOrderInCategory>
+	<prerequisite>WVC_Fleshshaper</prerequisite>
+	<minAgeActive>0</minAgeActive>
+  </GeneDef>
+
+</Defs>

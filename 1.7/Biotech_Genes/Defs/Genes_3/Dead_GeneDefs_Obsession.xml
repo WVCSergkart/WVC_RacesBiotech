@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_Obsession</defName>
+	<label>obsession</label>
+	<description>Carriers of this gene have a strong psychic bond with their children. Upon death, part of their personality and memories is passed on to one random offspring.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Obsession</geneClass>
+	<minAgeActive>13</minAgeActive>
+	<iconPath>WVC/UI/Genes3/Gene_Obsession</iconPath>
+	<displayOrderInCategory>-114</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Upon death, replaces the &lt;color=#8a8ae6&gt;backstory, skills, and traits&lt;/color&gt; of one random offspring.</li>
+		<li>If the &lt;color=#8a8ae6&gt;target pawn&lt;/color&gt; is not an &lt;color=#8a8ae6&gt;adult&lt;/color&gt;, only skills are replaced.</li>
+		<li>The target pawn must belong to the &lt;color=#8a8ae6&gt;player's faction&lt;/color&gt; and be on the &lt;color=#8a8ae6&gt;same map&lt;/color&gt; as the deceased.</li>
+		<li>The target pawn must be older than the baby.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Undead_Obsession</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>obsess</symbol></li>
+		<li><symbol>dest</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairStyle_Base">
+	<defName>WVC_HeadTentacles0c</defName>
+	<label>head tentacles</label>
+	<description>Carriers of this gene grow tentacles on their heads instead of hair.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_CustomSkinHair</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_HeadTentacles0c</iconPath>
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<!-- <selectionWeight>0.0012</selectionWeight> -->
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
+	<!-- <displayOrderInCategory>7</displayOrderInCategory> -->
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<hairTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<li>Bald</li>
+	  </tags>
+	</hairTagFilter>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+	<renderNodeProperties>
+	  <li>
+		<!-- <nodeClass>PawnRenderNode</nodeClass> -->
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_CustomHair</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Hair/HeadTentacles0c</li>
+		</texPaths>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Skin</colorType>
+		<skipFlag>Hair</skipFlag>
+		<baseLayer>62</baseLayer>
+		<drawSize>0.8</drawSize>
+		<!-- <tagDef>Head</tagDef> -->
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>true</useSkinShader>
+		<drawData>
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0.0, 0.0, 0.0)</offset> -->
+		  <!-- </dataNorth> -->
+		  <dataSouth>
+			<offset>(0.0, 0.0, -0.04)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.03, 0.0, -0.04)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.03, 0.0, -0.04)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<!-- <exclusionTags> -->
+	  <!-- <li>HairStyle</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tenta</symbol></li>
+		<li><symbol>ten</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<styleId>2360</styleId>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

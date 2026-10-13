@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneVoiceBase" Name="WVC_XenotypesAndGenes_GeneAnimalVoices_Base" Abstract="True">
+	<description>Carriers of this gene have animal-like vocal chords.</description>
+	<!-- <description>Carriers of this gene have weird vocal chords.</description> -->
+	<iconPath>WVC/UI/Genes/Gene_VoicesAnimals_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<selectionWeight>0.00003</selectionWeight>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>animal</symbol></li>
+	  </wholeNameSymbols>
+	  <suffixSymbols>
+		<li><symbol>ani</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAnimalVoices_Base">
+	<defName>WVC_VoiceAnimals_Cat</defName>
+	<label>cat voice</label>
+	<soundCall>Pawn_Cat_Call</soundCall>
+	<soundWounded>Pawn_Cat_Injured</soundWounded>
+	<soundDeath>Pawn_Cat_Death</soundDeath>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAnimalVoices_Base">
+	<defName>WVC_VoiceAnimals_BigCat</defName>
+	<label>big cat voice</label>
+	<soundCall>Pawn_Cat_Call</soundCall>
+	<soundWounded>Pawn_Cougar_Injured</soundWounded>
+	<soundDeath>Pawn_Cougar_Death</soundDeath>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cougar</symbol></li>
+		<li><symbol>panther</symbol></li>
+		<li><symbol>lynx</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+  
+</Defs>

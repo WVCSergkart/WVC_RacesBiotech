@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef ParentName="AbilityTouchBase"  Name="WVC_XenotypesAndGenes_AbilityTouchChimeraHarvest_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Geneharvest_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetPawns>true</canTargetPawns>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetBloodfeeders>true</canTargetBloodfeeders>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_OneManArmySubGenes">
+	<defName>WVC_Chimera_Xenoharvest</defName>
+	<label>xenoharvest</label>
+	<description>Carriers of this gene can harvest the target's genes and reset its xenotype.</description>
+	<iconPath>WVC/UI/Genes/Gene_Xenoharvest</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_Xenoharvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Xenoharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Harvest&lt;/color&gt; all of the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; and reset its xenotype to &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>0.02</selectionWeight>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Abilities -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchChimeraHarvest_Base">
+	<defName>WVC_Chimera_Xenoharvest</defName>
+	<label>xenoharvest</label>
+	<description>Harvest genes from a person through a somewhat gross-looking injector organ. The target will lose all of its genes, and its xenotype will be reset to the baseliner.</description>
+	<iconPath>WVC/UI/Genes/Gene_Xenoharvest</iconPath>
+	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HarvestGenesFromPawn</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_OneManArmySubGenes">
+	<defName>WVC_Chimera_Corpseharvest</defName>
+	<label>corpseharvest</label>
+	<description>Carriers of this gene can harvest genes from a dead target, resetting its xenotype to the baseliner.</description>
+	<iconPath>WVC/UI/Genes/Gene_Corpseharvest</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_Corpseharvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Corpseharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Harvest&lt;/color&gt; all of the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; and reset its xenotype to &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt;.</li>
+		<li>The target can only be a human corpse.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>0.01</selectionWeight>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Abilities -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchChimeraHarvest_Base" Name="WVC_XenotypesAndGenes_AbilityTouchChimeraHarvest_Corpse" Abstract="True">
+	<verbProperties>
+	  <targetParams>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetPawns>false</canTargetPawns>
+	  </targetParams>
+	</verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchChimeraHarvest_Corpse">
+	<defName>WVC_Chimera_Corpseharvest</defName>
+	<label>corpseharvest</label>
+	<description>Harvest genes from a dead person through a somewhat gross-looking injector organ. The target will lose all of its genes, and its xenotype will be reset to the baseliner.</description>
+	<iconPath>WVC/UI/Genes/Gene_Corpseharvest</iconPath>
+	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_HarvestGenesFromCorpse</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

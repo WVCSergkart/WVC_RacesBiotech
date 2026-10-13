@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ===================== -->
+
+  <ThoughtDef>
+	<defName>WVC_GeneRippedFromMe</defName>
+	<durationDays>60</durationDays>
+	<stages>
+	  <li>
+		<label>gene ripper</label>
+		<description>They tore it out of me.. Aaaah..</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_UsedGeneRipperOnMe</defName>
+	<stackedEffectMultiplier>0.6</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<durationDays>60</durationDays>
+	<stages>
+	  <li>
+		<label>gene ripper</label>
+		<baseOpinionOffset>-60</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

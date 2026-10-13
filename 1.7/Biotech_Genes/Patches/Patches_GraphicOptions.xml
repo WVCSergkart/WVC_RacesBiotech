@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableEyesGraphic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="XaG_ColorfullEyesAndFaceplates"]/renderNodeProperties</xpath>
+					<success>Always</success>
+				</li>
+
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableFurGraphic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch" or @WVC_Tag="XaG_ColorfullEyesAndFaceplates"]/forcedHeadTypes</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch" or @WVC_Tag="XaG_ColorfullEyesAndFaceplates"]/fur</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch" or @WVC_Tag="XaG_ColorfullEyesAndFaceplates"]/renderNodeProperties</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC.Gene_Faceless')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Faceless')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Exoskin')]</xpath>
+					<success>Always</success>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>disableAllGraphic</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef[defName[contains(text(),'WVC_')]]/renderNodeProperties</xpath>
+								<success>Always</success>
+							</li>
+						</operations>
+					</caseTrue>
+				</li>
+
+			</operations>
+		</caseTrue>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>enable_FurskinIsSkinAutopatch</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/useSkinColorForFur</xpath>
+								<success>Always</success>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/furHidesBody</xpath>
+								<success>Always</success>
+							</li>
+
+						</operations>
+					</caseTrue>
+				</li>
+
+			</operations>
+		</caseFalse>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>generateSkillGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/XenotypeDef/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/XenotypeDef/removeGenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/XenotypeDef/endogenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/XenotypeDef/randomGenes/li/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/removeGenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/endogenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/randomGenes/li/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>hideXaGGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/GeneDef/defName[contains(text(),'WVC_')]/displayCategory</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+
+</Patch>

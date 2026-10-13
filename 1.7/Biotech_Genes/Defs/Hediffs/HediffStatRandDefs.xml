@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <HediffStatRandDef> -->
+	<!-- <defName>WVC_GeneHediffStatRand_Basic</defName> -->
+	<!-- <randomStages> -->
+	  <!-- <li> -->
+		<!-- <li> -->
+		  <!-- <label>critical low</label> -->
+		  <!-- <hungerRateFactor>2.0</hungerRateFactor> -->
+		  <!-- <minSeverity>0.0</minSeverity> -->
+		<!-- </li> -->
+	  <!-- </li> -->
+	<!-- </randomStages> -->
+  <!-- </HediffStatRandDef> -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand" Abstract="True">
+	<!-- <label>genetic speciality</label> -->
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<description>Genetic predisposition of the carrier.</description>
+	<initialSeverity>0.5</initialSeverity>
+	<minSeverity>0.0</minSeverity>
+	<maxSeverity>1.25</maxSeverity>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Hideable"/>
+	</comps>
+  </HediffDef>
+
+  <!-- ================================= Former ================================= --> 
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_FormerGeneticSpeciality</defName>
+	<label>genetic speciality</label>
+	<defaultLabelColor>(255, 216, 133)</defaultLabelColor>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomGeneticSpeciality</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>overclocked</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <MechBandwidth>2</MechBandwidth>
+		</statFactors>
+		<statOffsets>
+		  <!-- <MechBandwidth>6</MechBandwidth> -->
+		  <MechControlGroups>2</MechControlGroups>
+		  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
+		</statOffsets>
+	  </li>
+	  <li>
+		<label>self-heal</label>
+		<minSeverity>0.25</minSeverity>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+		  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+		</statOffsets>
+		<statFactors>
+		  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>armored</label>
+		<minSeverity>0.5</minSeverity>
+		<statOffsets>
+		  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.55</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	  <li>
+		<label>tough</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+		  <MeleeDodgeChance>1.5</MeleeDodgeChance>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>psychic</label>
+		<minSeverity>1.0</minSeverity>
+		<statOffsets>
+		  <HemogenGainFactor>1.0</HemogenGainFactor>
+		  <PsychicSensitivity>1.0</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <!-- ================================= Resurgent ================================= -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_hungerRateFactor</defName>
+	<label>genetic metabolism</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomMetabolism</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>best</label>
+		<minSeverity>0.0</minSeverity>
+		<hungerRateFactor>0.5</hungerRateFactor>
+	  </li>
+	  <li>
+		<label>good</label>
+		<minSeverity>0.25</minSeverity>
+		<hungerRateFactor>0.75</hungerRateFactor>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>bad</label>
+		<minSeverity>0.75</minSeverity>
+		<hungerRateFactor>1.5</hungerRateFactor>
+	  </li>
+	  <li>
+		<label>poor</label>
+		<minSeverity>1.0</minSeverity>
+		<hungerRateFactor>2.0</hungerRateFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_PsychicSensitivity</defName>
+	<label>genetic psychic</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomPsychicAbility</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>deaf</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <PsychicSensitivity>0.0</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>dull</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>sensitive</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <PsychicSensitivity>1.5</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>hyper-sensitive</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <PsychicSensitivity>2.0</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_MoveSpeed</defName>
+	<label>genetic speed</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomMoveSpeed</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>very slow</label>
+		<minSeverity>0.0</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>-0.4</MoveSpeed>
+		</statOffsets>
+	  </li>
+	  <li>
+		<label>slow</label>
+		<minSeverity>0.25</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>-0.2</MoveSpeed>
+		</statOffsets>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>fast</label>
+		<minSeverity>0.75</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.2</MoveSpeed>
+		</statOffsets>
+	  </li>
+	  <li>
+		<label>super-fast</label>
+		<minSeverity>1.0</minSeverity>
+		<statOffsets>
+		  <MoveSpeed>0.4</MoveSpeed>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_InjuryHealingFactor</defName>
+	<label>genetic healing</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomWoundHealing</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>worst</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <InjuryHealingFactor>0.2</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>bad</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>good</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <InjuryHealingFactor>1.5</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>best</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <InjuryHealingFactor>2.0</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_GlobalLearningFactor</defName>
+	<label>genetic learning</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomLearning</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>very stupid</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <GlobalLearningFactor>0.5</GlobalLearningFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>stupid</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <GlobalLearningFactor>0.75</GlobalLearningFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>smart</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <GlobalLearningFactor>1.25</GlobalLearningFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>very smart</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <GlobalLearningFactor>1.5</GlobalLearningFactor>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_Manipulation</defName>
+	<label>genetic manipulation</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomHands</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>poor</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <WorkSpeedGlobal>0.75</WorkSpeedGlobal>
+		</statFactors>
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Manipulation</capacity> -->
+			<!-- <postFactor>0.50</postFactor> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  </li>
+	  <li>
+		<label>bad</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <WorkSpeedGlobal>0.84</WorkSpeedGlobal>
+		</statFactors>
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Manipulation</capacity> -->
+			<!-- <postFactor>0.75</postFactor> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>good</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <WorkSpeedGlobal>1.12</WorkSpeedGlobal>
+		</statFactors>
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Manipulation</capacity> -->
+			<!-- <postFactor>1.25</postFactor> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  </li>
+	  <li>
+		<label>best</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <WorkSpeedGlobal>1.25</WorkSpeedGlobal>
+		</statFactors>
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Manipulation</capacity> -->
+			<!-- <postFactor>1.50</postFactor> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
+	<defName>WVC_GeneHediffStatRand_ImmunityGainSpeed</defName>
+	<label>genetic immunity</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+			<geneDef>WVC_RandomImmunity</geneDef>
+		</li>
+	</comps>
+	<stages>
+	  <li>
+		<label>poor</label>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>bad</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <ImmunityGainSpeed>0.75</ImmunityGainSpeed>
+		</statFactors>
+	  </li>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.5</minSeverity>
+	  </li>
+	  <li>
+		<label>good</label>
+		<minSeverity>0.75</minSeverity>
+		<statFactors>
+		  <ImmunityGainSpeed>1.5</ImmunityGainSpeed>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>best</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <ImmunityGainSpeed>2.0</ImmunityGainSpeed>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>

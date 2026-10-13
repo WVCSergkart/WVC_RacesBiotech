@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadBoneBighorns</defName>
+	<label>bighorns</label>
+	<iconPath>WVC/UI/Genes3/Gene_Headbone_Bighorns</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/Bighorn</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.13)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(0.05, 0, -0.03)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(-0.05, 0, -0.03)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- DevName: Hybrid. New name: Mergekin -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+	<defName>WVC_Mergekin</defName>
+	<label>mergekin</label>
+	<description>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two genesets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; It is a random hybrid of 2 xenotypes and can hybridize itself further with the appropriate ability.</description>
+	<descriptionShort>Mergekins are super-humans powered by archotech-created archites in the bloodstream. They are typically a hybrid of two genesets, which can differ from one individual to another. Their abilities are always distinct, and they spread by hybridizing themselves and their targets.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Genetic0c</iconPath>
+	<isHybrid>true</isHybrid>
+	<isRandom>true</isRandom>
+	<!-- Enables DEV mode -->
+	<!-- <devGeneDef>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</devGeneDef> -->
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0.08</factionlessGenerationWeight>
+	<displayPriority>-900</displayPriority>
+	<!-- Always -->
+	<genes>
+	  <li>WVC_HybridImplanter</li>
+	  <li>WVC_MergeImplanter</li>
+	</genes>
+	<!-- If game not started -->
+	<!-- any geneDefs -->
+	<exceptedGenes>
+	  <!-- <li>WVC_DeadlyGeneticInstability</li> -->
+	  <li>WVC_NoLearning</li>
+	  <li>WVC_WoundHealing_NoHealing</li>
+	  <li>WVC_Immunity_Non</li>
+	  <li>XenogermReimplanter</li>
+	  <li>Deathless</li>
+	  <li>WVC_DeadStomach</li>
+	  <li>WVC_NeverDead</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_ArchitePsylink</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_HemogenPsylink</li>
+	  <li>WVC_Wings_Levitation</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_Invisibility</li>
+	  <li>WVC_Shapeshifter</li>
+	</exceptedGenes>
+	<!-- any strings -->
+	<xenotypeDefs>
+	  <li>WVC_GeneThrower</li>
+	  <li>WVC_RogueFormer</li>
+	  <li>WVC_Undead</li>
+	  <li>WVC_Featherdust</li>
+	  <li MayRequire="ludeon.rimworld.ideology">WVC_RuneDryad</li>
+	  <li>WVC_Bloodeater</li>
+	  <li>WVC_Sandycat</li>
+	  <li>WVC_Golemkind</li>
+	  <li>WVC_Meca</li>
+	  <li>WVC_Blank</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_CatDeity</li>
+	  <li>WVC_Shadoweater</li>
+	  <li MayRequire="ludeon.rimworld.royalty">WVC_Lilith</li>
+	  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">WVC_Overrider</li>
+	  <!-- Vanilla -->
+	  <li>Dirtmole</li>
+	  <li>Genie</li>
+	  <li>Hussar</li>
+	  <li>Neanderthal</li>
+	  <li>Pigskin</li>
+	  <li>Impid</li>
+	  <li>Waster</li>
+	  <li>Yttakin</li>
+	  <li>Highmate</li>
+	  <li>Sanguophage</li>
+	  <!-- VRE Sanguophage -->
+	  <li>VRE_Bruxa</li>
+	  <li>VRE_Ekkimian</li>
+	  <li>VRE_Strigoi</li>
+	  <!-- VRE Lycanthrope -->
+	  <li>VRE_Wolfman</li>
+	  <li>VRE_Lycan</li>
+	</xenotypeDefs>
+  </XenotypeDef>
+
+</Defs>

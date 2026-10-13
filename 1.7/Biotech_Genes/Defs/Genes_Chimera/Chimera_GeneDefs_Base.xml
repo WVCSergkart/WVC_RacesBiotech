@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+	<defName>WVC_Chimera</defName>
+	<label>chimera</label>
+	<!-- <description>Carriers of this gene have a special organ that can store genetic information and implant it into the owner.</description> -->
+	<description>Carriers of this gene have archites that form a special organ that is capable of absorbing genetic information and then implementing it into the owner’s genetic code.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Chimera</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Chimera</resourceGizmoType>
+	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<minAgeActive>0</minAgeActive>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<displayCategory>WVC_Chimera</displayCategory>
+	<descriptionHyperlinks>
+	  <AbilityDef>Bloodfeed</AbilityDef>
+	  <AbilityDef>WVC_Chimera_Geneharvest</AbilityDef>
+	  <AbilityDef>WVC_Chimera_Packharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt;, &lt;color=#8a8ae6&gt;geneharvest&lt;/color&gt; and &lt;color=#8a8ae6&gt;packharvest&lt;/color&gt; abilities, a random gene of the target is copied.</li>
+		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; with certain limits.</li>
+		<!-- <li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li> -->
+		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt; to receive a random gene.</li>
+		<!-- <li>If &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt; exceeds 10 years, the use of implantation will not be possible.</li> -->
+		<li>Can consumes &lt;color=#8a8ae6&gt;archite capsules, hearts and embryos&lt;/color&gt; to increase the limit.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">Special effects with &lt;color=#b0bf80&gt;devourer&lt;/color&gt; gene.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_ChimeraLimit>21.0</WVC_ChimeraLimit>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_Chimera</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<reqGeneMat>32</reqGeneMat>
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- Unused -->
+			<!-- <xenotypeDef>WVC_Shadoweater</xenotypeDef> -->
+			<!-- <collectedGenesColor>(162, 216, 162)</collectedGenesColor> -->
+			<!-- <destroyedGenesColor>(178, 97, 96)</destroyedGenesColor> -->
+			<!-- Start or genes eater -->
+			<chimeraGenesTools>
+			  <li>Bloodfeeder</li>
+			  <li>WVC_Chimera_Geneharvest</li>
+			  <li>WVC_Chimera_Packharvest</li>
+			  <li>WVC_Chimera_GeneDigestor</li>
+			  <li>WVC_Chimera_DeathMarkHarvest</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Animalfeeder</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Hemofeeder</li>
+			</chimeraGenesTools>
+			<!-- Bite or harvest ==Unused== -->
+			<!-- <humanBasicGenes> -->
+			  <!-- <li>WVC_Mecha_NoTail</li> -->
+			  <!-- <li>Ears_Human</li> -->
+			  <!-- <li>Nose_Human</li> -->
+			  <!-- <li>Jaw_Baseline</li> -->
+			  <!-- <li>Hands_Human</li> -->
+			  <!-- <li>Headbone_Human</li> -->
+			  <!-- <li>Voice_Human</li> -->
+			  <!-- <li>WVC_BodySize_Average</li> -->
+			<!-- </humanBasicGenes> -->
+			<!-- Genes eater -->
+			<chimeraConditionalGenes>
+			  <!-- Human basic -->
+			  <li ModderHook="Common">
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>1.0</chance>
+				<genes>
+				  <li>WVC_Mecha_NoTail</li>
+				  <li>Ears_Human</li>
+				  <li>Nose_Human</li>
+				  <li>Jaw_Baseline</li>
+				  <li>Hands_Human</li>
+				  <li>Headbone_Human</li>
+				  <li>Voice_Human</li>
+				  <li>WVC_BodySize_Average</li>
+				</genes>
+			  </li>
+			  <!-- Chimera rare -->
+			  <li ModderHook="Rare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.27</chance>
+				<genes>
+				  <li>WVC_Chimera_PsychicHarvester_Family</li>
+				  <li>WVC_Chimera_PsychicHarvester_Rival</li>
+				  <li>WVC_Chimera_PsychicHarvester_Lover</li>
+				  <li>WVC_Chimera_PsychicHarvester_Friend</li>
+				  <li>WVC_StorageImplanter</li>
+				  <li>WVC_Chimera_Germharvest</li>
+				  <li>WVC_Chimera_IncreasedLimit</li>
+				  <li>WVC_Chimera_DecreasedLimit</li>
+				  <li>WVC_Chimera_Cooldown</li>
+				</genes>
+			  </li>
+			  <!-- Chimera very rare -->
+			  <li ModderHook="VeryRare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.01</chance>
+				<genes>
+				  <!-- <li>WVC_Chimera_MarkHarvest</li> -->
+				  <!-- <li>WVC_Traitshifter</li> -->
+				  <!-- <li>WVC_Skillshifter</li> -->
+				  <li>WVC_Chimera_HugeIncreasedLimit</li>
+				  <li>WVC_Chimera_GreatlyDecreasedLimit</li>
+				  <li>WVC_Chimera_BandwidthLimit</li>
+				</genes>
+			  </li>
+			  <!-- Chimera -5 to 5 metabol -->
+			  <li ModderHook="BalancedMetabol_Rare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<metRange>-5~5</metRange> <!-- Req current chimera met range limit. Not pawn met, met limit! -->
+				<chance>0.44</chance>
+				<genes>
+				  <li>WVC_EmotionReset</li>
+				  <li>WVC_BaselinerFertility</li>
+				</genes>
+			  </li>
+			  <li ModderHook="BalancedMetabol_VeryRare">
+				<reqOneManArmy>false</reqOneManArmy>
+				<metRange>-5~5</metRange>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_PsychicAbility_Baseliner</li>
+				  <li>WVC_UVSensitivity_Baseliner</li>
+				</genes>
+			  </li>
+			  <!-- Basic solo -->
+			  <li ModderHook="CommonSolo">
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.57</chance>
+				<genes>
+				  <li>WVC_Chimera_GreatlyIncreasedLimit</li>
+				  <li>WVC_Chimera_Xenoharvest</li>
+				  <li>WVC_Chimera_Corpseharvest</li>
+				  <li>WVC_Chimera_GenePurifier</li>
+				  <li>WVC_Chimera_CosmeticGen</li>
+				  <li>WVC_Chimera_RandomGenesGen</li>
+				  <li>WVC_Chimera_MarkHarvest</li>
+				  <li>WVC_Chimera_SelfCopy</li>
+				</genes>
+			  </li>
+			  <!-- Rare solo -->
+			  <li ModderHook="RareSolo">
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.07</chance>
+				<genes>
+				  <li>WVC_Chimera_Devourer</li>
+				</genes>
+			  </li>
+			  <!-- Archiver -->
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="ArchiverRare">
+				<reqGeneDef>WVC_Archiver</reqGeneDef>
+				<chance>0.22</chance>
+				<genes>
+				  <li>WVC_Archiver_AutoResearch</li>
+				  <li>WVC_Archiver_Integrator</li>
+				  <li>WVC_Archiver_Skills</li>
+				  <li>WVC_Archiver_MindsConnection</li>
+				  <li>WVC_Chimera_ArchiverCopy</li>
+				</genes>
+			  </li>
+			  <!-- Beholder crew -->
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassRare">
+				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_Chimera_Devourer</li>
+				  <li>WVC_Chimera_GeneRipper</li>
+				</genes>
+			  </li>
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassArmorCommon">
+				<reqGeneDef>WVC_FleshmassArmor</reqGeneDef>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.51</chance>
+				<genes>
+				  <li>WVC_FlycatcherSkin</li>
+				</genes>
+			  </li>
+			  <!-- Beholder solo -->
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="FleshmassSoloRare">
+				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.33</chance>
+				<genes>
+				  <li>WVC_FleshmassSkin</li>
+				  <li>WVC_FleshmassBrain</li>
+				  <li>WVC_FleshmassArmor</li>
+				  <li>WVC_FleshmassBuilder</li>
+				  <li>WVC_FleshmassRegeneration</li>
+				  <li>WVC_FleshmassImmunity</li>
+				  <li>WVC_FleshmassReproduction</li>
+				  <li>WVC_FleshmassAging</li>
+				  <li>WVC_SelfdevourStomach</li>
+				  <!-- <li>WVC_Deadlife</li> -->
+				  <!-- <li>WVC_Duplicator</li> -->
+				</genes>
+			  </li>
+			  <!-- Summoner solo -->
+			  <li MayRequire="ludeon.rimworld.anomaly" ModderHook="VoidSoloVeryRare">
+				<reqGeneDef>WVC_VoidMechlink</reqGeneDef>
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_IncreasedVoidLimit</li>
+				  <li>WVC_DecreasedVoidLimit</li>
+				  <li>WVC_VoidResourceGain</li>
+				  <li>WVC_Voidlink_MechCharging</li>
+				  <li>WVC_MaxVoidEnergy_AccurateSummon</li>
+				</genes>
+			  </li>
+			</chimeraConditionalGenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <metHediffDef>WVC_ChimeraMetabolism_HungerFactor</metHediffDef> -->
+			<statDef>WVC_ChimeraLimit</statDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

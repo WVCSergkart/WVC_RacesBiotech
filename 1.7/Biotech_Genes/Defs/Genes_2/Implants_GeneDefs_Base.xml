@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base">
+	<defName>WVC_Incrementer</defName>
+	<label>incrementer</label>
+	<description>Carriers of this gene have archites that can instantly install any standard implants into the carrier.</description>
+	<iconPath>WVC/UI/Genes/Gene_Incrementer_v0</iconPath>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
+	<abilities>
+	  <li>WVC_Incrementer</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Incrementer</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>implant</symbol></li>
+		<li><symbol>bio</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- <overrideGeneCategory>WVC_Shapeshifter</overrideGeneCategory> -->
+			<reqGeneMat>14</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Incrementer</defName>
+	<label>incrementer</label>
+	<description>Install the selected standard implant without anesthesia and instantly.</description>
+	<iconPath>WVC/UI/Genes/Gene_Incrementer_v0</iconPath>
+	<cooldownTicksRange>8000</cooldownTicksRange>
+	<!-- <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound> -->
+	<!-- <warmupEffecter>Implant_Xenogerm</warmupEffecter> -->
+	<displayOrder>500</displayOrder>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetItems>true</canTargetItems>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ImplantImplanter</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============================================================================== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base"> -->
+	<!-- <defName>WVC_BodyPartsHarvester</defName> -->
+	<!-- <label>body parts harvester</label> -->
+	<!-- <description>TEST.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Incrementer_v0</iconPath> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_BodyPartsHarvester</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_BodyPartsHarvester</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>implant</symbol></li> -->
+		<!-- <li><symbol>bio</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+  <!-- <AbilityDef ParentName="AbilityTouchBase"> -->
+	<!-- <defName>WVC_BodyPartsHarvester</defName> -->
+	<!-- <label>body parts harvester</label> -->
+	<!-- <description>TEST.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Incrementer_v0</iconPath> -->
+	<!-- <cooldownTicksRange>8000</cooldownTicksRange> -->
+	<!-- <displayOrder>500</displayOrder> -->
+	<!-- <hostile>false</hostile> -->
+	<!-- <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted> -->
+	<!-- <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted> -->
+	<!-- <showWhenDrafted>false</showWhenDrafted> -->
+	<!-- <showGizmoOnWorldView>false</showGizmoOnWorldView> -->
+	<!-- <stunTargetWhileCasting>true</stunTargetWhileCasting> -->
+	<!-- <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence> -->
+	<!-- <verbProperties> -->
+	  <!-- <verbClass>Verb_CastAbilityTouch</verbClass> -->
+	  <!-- <drawAimPie>false</drawAimPie> -->
+	  <!-- <range>-1</range> -->
+	  <!-- <warmupEffecter>ControlMech</warmupEffecter> -->
+	  <!-- <warmupTime>2</warmupTime> -->
+	  <!-- <violent>false</violent> -->
+	  <!-- <targetParams> -->
+		<!-- <canTargetAnimals>false</canTargetAnimals> -->
+		<!-- <canTargetSelf>false</canTargetSelf> -->
+		<!-- <canTargetBuildings>false</canTargetBuildings> -->
+		<!-- <canTargetMechs>false</canTargetMechs> -->
+		<!-- <canTargetPawns>false</canTargetPawns> -->
+		<!-- <canTargetItems>true</canTargetItems> -->
+		<!-- <canTargetCorpses>true</canTargetCorpses> -->
+		<!-- <onlyTargetCorpses>true</onlyTargetCorpses> -->
+		<!-- <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable> -->
+	  <!-- </targetParams> -->
+	<!-- </verbProperties> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_BodyPartsHarvest_Corpse</compClass> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
+
+</Defs>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MecaBodyParts_Eye</li>
+		  <li>WVC_MecaBodyParts_Ear</li>
+		  <li>WVC_MecaBodyParts_Nose</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_SmokepopMech</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Incestuous"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_IncestLover</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MechaAI_PsychicDull</li>
+		  <li>WVC_PsychicAbility_Archite</li>
+		  <li>WVC_PsychicAbility_Hivemind</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Sick"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MecaBodyParts_Liver</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<inspectorTabs>
+		  <li>WVC_XenotypesAndGenes.ITab_GenesCustomPregnancy</li>
+		</inspectorTabs>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'DarkVision')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_FleshmassSkin</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="ApparelDamaged" or defName="DeadMansApparel"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassArmor</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- ==================================================== -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="TitleNoPersonalBedroom" or defName="TitleBedroomRequirementsNotMet"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>Neversleep</li>
+					  <li>WVC_Neversleep</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="TitleApparelRequirementNotMet"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>WVC_UVSensitivity_Deadly</li>
+					  <li>WVC_Dustogenic_Metabolism</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="AteFoodInappropriateForTitle"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>WVC_Bloodeater</li>
+					  <li>WVC_EternalHunger</li>
+					  <li>WVC_Dustogenic</li>
+					  <li>WVC_SuperStomach</li>
+					  <li>WVC_DeadStomach</li>
+					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
+					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
+					  <!-- <li>WVC_MechaPowerSource_Tox</li> -->
+					  <!-- <li>WVC_MechaPowerSource_Unstable</li> -->
+					  <li>WVC_MechaPowerSource_Stable</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_Switcher_Implanter</defName>
+	<label>switched implanter</label>
+	<description>Carriers of this gene can resurrect and/or implant a xeno/germline into a person or corpse through a somewhat gross-looking injector organ.T he target gains the chosen xenotype, and the caster's genes begin to regrow.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Switcher_Implanter</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter</geneClass>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<prerequisite>WVC_Switcher</prerequisite>
+	<displayCategory>WVC_Morpher</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<abilities>
+	  <li>WVC_Switcher_Implanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Switcher_Implanter</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>The target can only be a human or human corpse.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_Switcher_Implanter</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isDormant>true</isDormant> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ===== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
+	<defName>WVC_Switcher_Implanter</defName>
+	<label>switched implanter</label>
+	<description>Resurrect and/or implant a xeno/germline into a person or corpse through a somewhat gross-looking injector organ.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Switcher_Implanter</iconPath>
+	<cooldownTicksRange>240000</cooldownTicksRange><!-- 4 days -->
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_FloatMenu</gizmoClass>
+	<verbProperties>
+	  <targetParams>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetPawns>true</canTargetPawns>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_SwitchImplanter</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

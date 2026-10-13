@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MentalBreakDef>
+	<defName>WVC_XaG_Duplicating</defName>
+	<label>duplicating</label>
+	<intensity>Major</intensity>
+	<workerClass>WVC_XenotypesAndGenes.MentalBreakWorker_Duplicate</workerClass>
+	<baseCommonality>1</baseCommonality>
+	<questLodgersCanDo>false</questLodgersCanDo>
+	<commonalityFactorPerPopulationCurve>
+	  <points>
+		<li>(1, 1)</li>
+		<li>(5, 0.4)</li>
+		<li>(7, 0.01)</li>
+	  </points>
+	</commonalityFactorPerPopulationCurve>
+  </MentalBreakDef>
+
+  <!-- <MentalStateDef ParentName="BaseMentalState"> -->
+	<!-- <defName>WVC_XaG_MakeDuplicates</defName> -->
+	<!-- <label>duplicating</label> -->
+	<!-- <stateClass>WVC_XenotypesAndGenes.MentalState_Duplicator</stateClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.MentalStateWorker_Duplicator</workerClass> -->
+	<!-- <category>Misc</category> -->
+	<!-- <blockNormalThoughts>true</blockNormalThoughts> -->
+	<!-- <nameColor>(0.88,0.48,0.16)</nameColor> -->
+	<!-- <beginLetterLabel>duplication</beginLetterLabel> -->
+	<!-- <beginLetter>{0} has broken down and is trying to duplicate itself.</beginLetter> -->
+	<!-- <beginLetterDef>NegativeEvent</beginLetterDef> -->
+	<!-- <baseInspectLine>Mental state: Duplicating</baseInspectLine> -->
+	<!-- <inCaravanCanDo>false</inCaravanCanDo> -->
+	<!-- <colonistsOnly>true</colonistsOnly> -->
+  <!-- </MentalStateDef> -->
+
+</Defs>

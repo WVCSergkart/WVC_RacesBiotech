@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_Devourer</defName>
+	<label>devourer</label>
+	<description>Carriers of this gene have corrupted archites capable of disassembling a person into atoms in seconds, absorbing the genetic code and converting the victim into reserves of nutrients.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Devourer</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
+	<displayCategory>Archite</displayCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<prerequisite></prerequisite>
+	<abilities>
+	  <li>WVC_Chimera_Devourer</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Devourer</AbilityDef>
+	</descriptionHyperlinks>
+	<statOffsets>
+	  <MaxNutrition>2.0</MaxNutrition>
+	</statOffsets>
+	<customEffectDescriptions>
+		<li>Allows to kill any pawn and gaining a long-lasting &lt;color=#8a8ae6&gt;hunger buff&lt;/color&gt;.</li>
+		<li>It is considered an &lt;color=#8a8ae6&gt;execution&lt;/color&gt;.</li>
+		<li>Absorbs all accumulated &lt;color=#8a8ae6&gt;experience&lt;/color&gt; of the target.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">Using the ability can &lt;color=#8a8ae6&gt;inhumanize&lt;/color&gt; the caster.</li>
+		<li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt;: Absorbing all target &lt;color=#8a8ae6&gt;genes&lt;/color&gt;.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#8a8ae6&gt;Nucleus&lt;/color&gt;: Trigger &lt;color=#8a8ae6&gt;fleshmass overgrow&lt;/color&gt;.</li>
+		<li MayRequire="ludeon.rimworld.anomaly">&lt;color=#8a8ae6&gt;Fleshshaper&lt;/color&gt;: Adds the target's xenotype to the list of available ones.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <selectionWeight>0.01</selectionWeight> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_Devourer</defName>
+	<label>devourer</label>
+	<description>Dismantle the target into atoms, absorbing the genetic code and converting the victim into nutrient reserves.</description>
+	<iconPath>WVC/UI/Genes/Gene_Devourer</iconPath>
+	<showWhenDrafted>true</showWhenDrafted>
+	<!-- <cooldownTicksRange>35000</cooldownTicksRange> -->
+	<cooldownTicksRange>105000</cooldownTicksRange>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+	<hostile>true</hostile>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<jobDef>WVC_XaG_CastAbilityMelee</jobDef>
+	<verbProperties>
+	  <violent>true</violent>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetEntities>true</canTargetEntities>
+		<canTargetAnimals>true</canTargetAnimals>
+		<canTargetMechs>true</canTargetMechs>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Devourer</compClass>
+		<hediffDef>WVC_Chimera_Devourer</hediffDef>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

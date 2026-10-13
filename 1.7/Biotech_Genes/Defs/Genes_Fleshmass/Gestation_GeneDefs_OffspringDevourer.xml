@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_OffspringDevourer</defName>
+	<label>offspring devourer</label>
+	<description>Carriers of this gene have archites that process the fetus during a standard pregnancy.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_OffspringDevourer</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_OffspringDevourer</iconPath>
+	<displayOrderInCategory>195</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Abort &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; 3 days after start.</li>
+		<li>&lt;color=#8a8ae6&gt;Fleshmass nucleus&lt;/color&gt;: Trigger fleshmass overgrow.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+		<prefixSymbols>
+			<li>
+				<symbol>off</symbol>
+			</li>
+			<li>
+				<symbol>devour</symbol>
+			</li>
+		</prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Egglaying</li>
+	  <li>WVC_Budding</li>
+	  <li>WVC_OffspringDevourer</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

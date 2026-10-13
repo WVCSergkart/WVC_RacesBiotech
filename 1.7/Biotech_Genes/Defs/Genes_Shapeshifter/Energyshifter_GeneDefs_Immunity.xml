@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_Immunity</defName>
+	<label>shifted immunity</label>
+	<description>Carriers of this gene have incredible immunity.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Energyshifter_SubGene</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_Immunity</iconPath>
+	<displayOrderInCategory>210</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<resourceLossPerDay>0.08</resourceLossPerDay>
+	<statFactors>
+	  <ImmunityGainSpeed>4</ImmunityGainSpeed>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

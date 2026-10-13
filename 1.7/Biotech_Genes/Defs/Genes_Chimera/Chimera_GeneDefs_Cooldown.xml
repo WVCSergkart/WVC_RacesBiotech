@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_Cooldown</defName>
+	<label>chimera cooldown</label>
+	<description>Carriers of this gene require time to restore the chimera's abilities.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraCooldown</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_ChimeraCooldown</iconPath>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Chimera&lt;/color&gt; requires a cooldown.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

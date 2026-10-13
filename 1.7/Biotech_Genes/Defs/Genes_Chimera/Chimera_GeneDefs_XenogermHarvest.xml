@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_Germharvest</defName>
+	<label>germharvest</label>
+	<description>Carriers of this gene have a special organ that allows them to extract genes from xenogerms.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Germharvest</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_Germharvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_Germharvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>Copies &lt;color=#8a8ae6&gt;all genes&lt;/color&gt; contained in the target &lt;color=#8a8ae6&gt;xenogerm&lt;/color&gt;. Xenogerm is destroyed in the process.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <selectionWeight>10</selectionWeight> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Abilities -->
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Chimera_Germharvest</defName>
+	<label>germharvest</label>
+	<description>Break down the target xenogerm and absorb all genes it contains.</description>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_Germharvest</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetItems>true</canTargetItems>
+		<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+		<thingCategory>Item</thingCategory>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityChimera">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_CopyGenesFromXenogerm</compClass>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

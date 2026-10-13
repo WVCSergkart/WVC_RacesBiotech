@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<!-- <WVC_BiotechSettings_Label_ExtraGenes>Info</WVC_BiotechSettings_Label_Extra> -->
+
+	<!-- <WVC_BiotechSettings_Tab_XenotypeGestatorSettings>Xenotype Gestator</WVC_BiotechSettings_Tab_XenotypeGestatorSettings> -->
+
+	<WVC_BiotechSettings_Tab_XenotypesSettings>Xenotypes</WVC_BiotechSettings_Tab_XenotypesSettings>
+
+	<!-- <WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator> -->
+	<!-- <WVC_XaGGeneSettings_Undead>Undead</WVC_XaGGeneSettings_Undead> -->
+	<!-- <WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls> -->
+	<!-- <WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation> -->
+	<!-- <WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer> -->
+	<!-- <WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing> -->
+	<!-- <WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover> -->
+	<!-- <WVC_XaGGeneSettings_Telepath>Telepath</WVC_XaGGeneSettings_Telepath> -->
+	<!-- <WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic> -->
+	<!-- <WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy> -->
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions (Outdated)</WVC_Label_enable_spawnXenotypesInFactions>
+	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable xenotype spawning in factions. Without regard for balance and/or their design, but spreading them across all vanilla factions with some old ideas behind these xenotypes.
+
+Global xenotype balance does not imply their spawning in factions. And this option can ruin the game experience and/or make it too easy, keep that in mind.
+
+A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
+
+	<WVC_Label_disableXenotypes_MainSwitch>Disable xenotype-related things</WVC_Label_disableXenotypes_MainSwitch>
+	<WVC_ToolTip_disableXenotypes_MainSwitch>Removes things associated with xenotypes. Mandatory option to disable any xenotypes.
+
+Please note that this may impact some mechanics, which may become unavailable or severely limited as a result.
+
+A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
+
+	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>
+	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent, Leper.</WVC_ToolTip_disableXenotypes_Undeads>
+
+	<WVC_Label_disableXenotypes_Psycasters>|- Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
+	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
+
+	<WVC_Label_disableXenotypes_Mechalike>|- Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
+	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin, Ferrkind, Mechamata.</WVC_ToolTip_disableXenotypes_Mechalike>
+
+	<WVC_Label_disableXenotypes_GolemMasters>|- Disable golemists</WVC_Label_disableXenotypes_GolemMasters>
+	<WVC_ToolTip_disableXenotypes_GolemMasters>Golyad, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
+
+	<WVC_Label_disableXenotypes_Bloodeaters>|- Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
+	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater, Chimerkin, Nociokin, Beholdkind.</WVC_ToolTip_disableXenotypes_Bloodeaters>
+
+	<!-- <WVC_Label_disableXenotypes_MutantMakers>|- Disable *xenotype* (DEV)</WVC_Label_disableXenotypes_MutantMakers> -->
+	<!-- <WVC_ToolTip_disableXenotypes_MutantMakers>Ripperkind, Reaperkind, Overrider.</WVC_ToolTip_disableXenotypes_MutantMakers> -->
+
+	<WVC_Label_disableXenotypes_Hivemind>|- Disable hivemind</WVC_Label_disableXenotypes_Hivemind>
+	<WVC_ToolTip_disableXenotypes_Hivemind>Overrider, Fleshkind.</WVC_ToolTip_disableXenotypes_Hivemind>
+
+	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
+	<WVC_ToolTip_disableXenotypes_Misc>Ripperkind, Reaperkind, Mergekin.</WVC_ToolTip_disableXenotypes_Misc>
+
+	<!-- <WVC_Label_enableXenotypes_Hybrid>|- Enable exp- hybrid xenotype</WVC_Label_enableXenotypes_Hybrid> -->
+	<!-- <WVC_ToolTip_enableXenotypes_Hybrid>None.</WVC_ToolTip_enableXenotypes_Hybrid> -->
+
+	<WVC_Label_preferredXenotypes_enableTweak>Enable preferred/same xenotypes tweak</WVC_Label_preferredXenotypes_enableTweak>
+	<WVC_ToolTip_preferredXenotypes_enableTweak>This option does several important things.
+
+1) Updates the ideology check for xenotypes, making it percentage-based rather than flag-based. (Req. genes triggers option)
+2) Optimizes the ideology check for xenotypes, adding cache wherever possible. (Req. genes triggers option)
+3) Updates xenotype flags if pawns no longer meet them. (Req. human components option)
+
+A restart is required.</WVC_ToolTip_preferredXenotypes_enableTweak>
+
+	<WVC_Label_preferredXenotypes_RequiredMinMatch>Preferred/same xenotype match: {0}</WVC_Label_preferredXenotypes_RequiredMinMatch>
+	<WVC_ToolTip_preferredXenotypes_RequiredMinMatch>The required level of genetic matching. The lower the level, the more pawns will match.\n\nIt is strongly recommended not to set the match higher than 95%, as the game automatically generates hidden genes after loading saves or some checks, this may affect the match.\n\nA reload is required.</WVC_ToolTip_preferredXenotypes_RequiredMinMatch>
+
+</LanguageData>

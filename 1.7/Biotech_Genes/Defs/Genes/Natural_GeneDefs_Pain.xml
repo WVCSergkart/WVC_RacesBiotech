@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GenePainBase" Name="WVC_XenotypesAndGenes_GenePain_Base" Abstract="True">
+	<selectionWeight>0.0022</selectionWeight>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePain_Base">
+	<defName>WVC_Pain_Nullified</defName>
+	<label>nullified pain</label>
+	<labelShortAdj>pain-deaf</labelShortAdj>
+	<description>Carriers of this gene do not feel pain at all. This can be advantageous sometimes, and dangerous other times.</description>
+	<iconPath>WVC/UI/Genes/Gene_Pain_Nullified_v0</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<painFactor>0.0</painFactor>
+	<biostatMet>-2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dull</symbol></li>
+		<li><symbol>daze</symbol></li>
+		<li><symbol>tough</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePain_Base">
+	<defName>WVC_Pain_Extra</defName>
+	<label>extra pain</label>
+	<labelShortAdj>wimpy</labelShortAdj>
+	<description>Carriers of this gene feel more pain than others given the same injuries. Neuron activity in the brain's nociception center is amplified, so pain feels extra-intense and fiery. This can be protective, but overall it's considered a negative and makes it hard to push through difficult situations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Pain_Extra_v0</iconPath>
+	<displayOrderInCategory>20.0002</displayOrderInCategory>
+	<!-- <painFactor>1.2</painFactor> -->
+	<statFactors>
+	  <PainShockThreshold>0.5</PainShockThreshold>
+	</statFactors>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wimpo</symbol></li>
+		<li><symbol>whino</symbol></li>
+		<li><symbol>cowar</symbol></li>
+		<li><symbol>cry</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>whiner</symbol></li>
+		<li><symbol>wimp</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

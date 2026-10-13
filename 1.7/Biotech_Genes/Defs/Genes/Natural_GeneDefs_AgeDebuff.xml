@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============== -->
+
+  <!-- To-Do: Someday update defName -->
+
+  <GeneDef ParentName="FertilityBase">
+	<defName>WVC_AgeDebuff_Sterile</defName>
+	<label>extreme low fertility</label>
+	<description>Carriers of this gene have very low fertility.</description>
+	<iconPath>WVC/UI/Genes/Gene_Sterile_v0</iconPath>
+	<sterilize>false</sterilize>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>1</biostatMet>
+	<displayOrderInCategory>102</displayOrderInCategory>
+	<selectionWeight>0.0002</selectionWeight>
+	<exclusionTags>
+	  <li>Fertility</li>
+	</exclusionTags>
+	<statFactors>
+	  <Fertility>0.1</Fertility>
+	</statFactors>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <!-- To-Do: Someday update defName -->
+
+  <GeneDef ParentName="CellInstabilityBase">
+	<defName>WVC_AgeDebuff_Timeless</defName>
+	<label>dangerous cell instability</label>
+	<description>Carriers of this gene need much less metabolic energy to stay alive, at the cost of greatly-reduced stability in their cell-replication machinery.</description>
+	<iconPath>WVC/UI/Genes/Gene_MajorCellInstability_v0</iconPath>
+	<displayOrderInCategory>137</displayOrderInCategory>
+	<selectionWeight>0.0002</selectionWeight>
+	<biostatMet>6</biostatMet>
+	<statFactors>
+	  <LifespanFactor>0.4</LifespanFactor>
+	  <CancerRate>7</CancerRate>
+	  <ImmunityGainSpeed>0.88</ImmunityGainSpeed>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

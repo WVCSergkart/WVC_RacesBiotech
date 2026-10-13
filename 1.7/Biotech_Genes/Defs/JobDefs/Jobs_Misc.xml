@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Used as bloodfeed job replacer. Called by bloodeater gene -->
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_CastBloodfeedOnPawnMelee</defName>
+	<!-- <driverClass>JobDriver_CastAbilityMelee</driverClass> -->
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_CastBloodfeedMelee</driverClass>
+	<casualInterruptible>false</casualInterruptible>
+	<collideWithPawns>false</collideWithPawns>
+	<neverShowWeapon>true</neverShowWeapon>
+	<suspendable>true</suspendable>
+	<!-- <reportString>trying bite TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+  </JobDef>
+
+  <!-- simple cast with reserve -->
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_CastAbilityMelee</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_CastAbilityMelee</driverClass>
+	<casualInterruptible>false</casualInterruptible>
+	<collideWithPawns>false</collideWithPawns>
+	<neverShowWeapon>true</neverShowWeapon>
+	<tryStartFlying>true</tryStartFlying>
+	<overrideFlyChance>1</overrideFlyChance>
+  </JobDef>
+
+  <!-- General absorb job. Hardcoded. -->
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_AbsorbTargetGenes</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbTargetGenes</driverClass>
+	<reportString>absorbing genes from TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_FeedTargetWithOwnBlood</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_FeedTargetWithOwnBlood</driverClass>
+	<reportString>feeding TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_DestroyCellularBody</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_DestroyCellularBody</driverClass>
+	<reportString>smashing TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_XaG_ChangeGolemType</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ChangeGolemType</driverClass>
+	<reportString>changing type.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

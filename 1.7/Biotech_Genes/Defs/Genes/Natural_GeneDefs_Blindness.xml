@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneBlindness_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<selectionWeight>0.0022</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>blind</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ness</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Blindness</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBlindness_Base">
+	<defName>WVC_NaturalBlindness</defName>
+	<label>blindness</label>
+	<labelShortAdj>blindness</labelShortAdj>
+	<description>Carriers of this gene are completely and irreversibly blind.</description>
+	<iconPath>WVC/UI/Genes/Gene_Blindness_v0</iconPath>
+	<statOffsets>
+	  <PsychicSensitivity>0.2</PsychicSensitivity>
+	  <!-- <MeditationFocusGain>0.4</MeditationFocusGain> -->
+	  <!-- <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate> -->
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+</Defs>

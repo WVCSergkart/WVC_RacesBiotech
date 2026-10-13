@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneGender_BodyType" Abstract="True">
+	<displayCategory>Cosmetic_Body</displayCategory>
+	<displayOrderInCategory>500</displayOrderInCategory>
+	<selectionWeight>0.005</selectionWeight>
+	<randomChosen>true</randomChosen>
+	<exclusionTags>
+	  <li>BodyType</li>
+	  <li>WVC_BodyChanger</li>
+	</exclusionTags>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGender_BodyType">
+	<defName>WVC_Feminine</defName>
+	<label>feminine body</label>
+	<description>Carriers of this gene are all very feminine.</description>
+	<iconPath>WVC/UI/Genes/Gene_BodyFeminine_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass>
+	<customEffectDescriptions>
+		<!-- <li>Replace all bodies with female one.</li> -->
+		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fem</symbol></li>
+		<li><symbol>femi</symbol></li>
+		<li><symbol>girly</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>boy</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+  
+</Defs>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenesRare">
+	<defName>WVC_Chimera_MarkHarvest</defName>
+	<label>mark harvest</label>
+	<description>Carriers of this gene have archites that allow them to infect a victim with the archite virus, which gradually collects a copy of the victim's genes, and after copying is complete, send the genes to the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraMarkHarvest</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_MarkHarvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_MarkHarvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Harvest&lt;/color&gt; all of the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; and reset its xenotype to &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt;.</li> -->
+		<li>Allows to mark a target pawn with a &lt;color=#8a8ae6&gt;gene mark&lt;/color&gt;.</li>
+		<li>The &lt;color=#8a8ae6&gt;gene mark&lt;/color&gt; slowly accumulates a copy of the target's genes, and after &lt;color=#8a8ae6&gt;death&lt;/color&gt; sends them to the caster.</li>
+		<li>The &lt;color=#8a8ae6&gt;gene mark&lt;/color&gt; lasts until the target dies or all genes are copied.</li>
+		<li>The chance of receiving the genes depends only on the caster's &lt;color=#8a8ae6&gt;psi-sensitivity&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_MarkHarvest</defName>
+	<label>gene mark</label>
+	<description>Infect a victim with the archite virus, which gradually collects a copy of the victim's genes, and after copying is complete, sends it to the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraMarkHarvest</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>240000</cooldownTicksRange><!-- 4 days -->
+	<verbProperties>
+	  <violent>false</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ChimeraDeathMarkHediff</compClass>
+		<hediffDef>WVC_Chimera_MarkHarvest</hediffDef>
+		<humanityCheck>true</humanityCheck>
+		<simpleMessage>WVC_XaG_ChimeraDeathMarkAdded</simpleMessage>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

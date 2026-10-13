@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- General -->
+  <XenotypeDef Name="WVC_RB_Xenotypes_Base" Abstract="True">
+	<!-- <defName>WVC_Pearler</defName> -->
+	<!-- <label>pearler</label> -->
+	<!-- Temporary description -->
+	<description>A unique xenohuman variant with a set of xenogenes that do not fall into any known xenotype.</description>
+	<!-- <descriptionShort>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</descriptionShort> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</iconPath>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<combatPowerFactor>2.5</combatPowerFactor>
+	<factionlessGenerationWeight>0.17</factionlessGenerationWeight>
+	<inheritable>true</inheritable>
+	<genes>
+	</genes>
+  </XenotypeDef>
+
+  <!-- Undead sub-xenotypes -->
+  <XenotypeDef Name="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Abstract="True">
+	<displayPriority>-220</displayPriority>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Undead</XenotypeDef>
+	</descriptionHyperlinks>
+	<!-- <doubleXenotypeChances> -->
+		<!-- <WVC_Undead>1.0</WVC_Undead> -->
+	<!-- </doubleXenotypeChances> -->
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<combatPowerFactor>3.2</combatPowerFactor>
+	<factionlessGenerationWeight>0.14</factionlessGenerationWeight>
+	<inheritable>true</inheritable>
+  </XenotypeDef>
+
+  <!-- General undead sub-xenotype info -->
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef Name="WVC_XenotypesAndGenes_SubXenotypeDef_Undead" Abstract="True"> -->
+	<!-- <label>genetic changes</label> -->
+	<!-- <description>How will the set of genes change if the xenotype is “native”.</description> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
+
+  <!-- Chimeras -->
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters" Abstract="True">
+	<label>elf</label>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<displayPriority>-190</displayPriority>
+	<genes>
+		<li>WVC_Eyes_Colorful</li>
+		<!-- = -->
+		<li>Hemogenic</li>
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>Hair_LongOnly</li>
+		<!-- <li>Ears_Pointed</li> -->
+		<!-- <li>WVC_DryadSkin</li> -->
+		<li>WVC_Feminine</li>
+		<li>Hair_SnowWhite</li>
+		<li>DarkVision</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- = -->
+		<li>LongjumpLegs</li>
+		<li>Deathrest</li>
+		<!-- = -->
+		<li>Neversleep</li>
+		<!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
+		<!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<li>ToxResist_Total</li>
+		<li>FireWeakness</li>
+		<li>FireTerror</li>
+		<!-- = -->
+		<li>WVC_BloodfeederBeauty</li>
+		<li>WVC_HemogenicMetabolism</li>
+	</genes>
+  </XenotypeDef>
+
+  <!-- Metalkins -->
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike" Abstract="True">
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_GeneRecharger</ThingDef>
+	</descriptionHyperlinks>
+	<inheritable>true</inheritable>
+	<displayPriority>-1055</displayPriority>
+	<factionlessGenerationWeight>0.04</factionlessGenerationWeight>
+	<iconPath>WVC/UI/Icons3/Xeno_Metalkin2c</iconPath>	<!-- basic metalkin icon -->
+	<genes>
+		<!-- new -->
+		<li>WVC_Switcher</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<!-- new -->
+		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<!-- <li>WVC_CyberSkin</li> -->
+		<li>WVC_MechaSkin</li>
+		<li>WVC_VoiceMechaScorcher</li>
+		<li>WVC_MechaAI_SoftwareMoving</li>
+		<li>WVC_MechaAI_PsychicDull</li>
+		<li>WVC_CyclicallySelfLearning</li>
+		<!-- <li Hook="RemoveMeInTest">WVC_MecaBodyParts_Stomach</li> -->
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Metal</li>
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

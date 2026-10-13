@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- To-Do: Add ability. -->
+  <GeneDef ParentName="FertilityBase">
+	<defName>WVC_FleshmassFertility</defName>
+	<label>fleshmass fertility</label>
+	<description>Carriers of this gene have abnormal fertility and one extra reproductive organ.</description>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassFertile</iconPath>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;impregnate&lt;/color&gt; pawns &lt;color=#8a8ae6&gt;by command&lt;/color&gt; at any time.</li>
+		<li>If the &lt;color=#8a8ae6&gt;opinion&lt;/color&gt; is below 100, ability will trigger a &lt;color=#8a8ae6&gt;negative moodlet&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>8</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_FleshmassFertility</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_FleshmassFertility</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_FleshmassFertility</defName>
+	<label>tentacle implanter</label>
+	<description>Fertilize the target pawn or update the target's fetus' genes. The target must be friendly and belong to the player's faction.</description>
+	<iconPath>WVC/UI/Genes3/Gene_FleshmassFertile</iconPath>
+	<sendMessageOnCooldownComplete>false</sendMessageOnCooldownComplete>
+	<showPsycastEffects>false</showPsycastEffects>
+	<cooldownTicksRange>50000</cooldownTicksRange>
+	<verbProperties>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>This action will initiate the target's pregnancy. The fetus's genes will contain a combination of endogenes from both parents, regardless of their xenotype.</confirmationDialogText>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Impregnate</compClass>
+		<opinionDef>WVC_FleshmassFertility_ForcedMe</opinionDef>
+		<memoryDef>WVC_FleshmassFertility_Impregnated</memoryDef>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_FleshmassFertility</li>
+		</anyOfGenes>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ================================= -->
+
+  <ThoughtDef>
+	<defName>WVC_FleshmassFertility_Impregnated</defName>
+	<durationDays>15</durationDays>
+	<stages>
+	  <li>
+		<label>impregnated by tentacle</label>
+		<description>This is disgusting! This thing... And against my will!</description>
+		<baseMoodEffect>-15</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_FleshmassFertility_ForcedMe</defName>
+	<stackedEffectMultiplier>0.6</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<durationDays>15</durationDays>
+	<stages>
+	  <li>
+		<label>forced me</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

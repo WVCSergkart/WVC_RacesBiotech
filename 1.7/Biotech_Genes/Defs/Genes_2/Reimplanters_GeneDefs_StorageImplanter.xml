@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_StorageImplanter</defName>
+	<label>storage implanter</label>
+	<description>Carriers of this gene can implant a saved xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<!-- <displayCategory>WVC_Energy</displayCategory> -->
+	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
+	<displayCategory>WVC_Reimplanters</displayCategory>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<selectionWeight>0.00125</selectionWeight>
+	<geneClass>WVC_XenotypesAndGenes.Gene_StorageImplanter</geneClass>
+	<abilities>
+	  <li>WVC_StorageImplanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_StorageImplanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Completely changes the genes of the target pawn to the genes of the saved geneset.</li>
+		<li>To create a geneset, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+		<li>Supports implanter &lt;color=#ff8585&gt;sub-genes&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- <overrideGeneCategory>WVC_Shapeshifter</overrideGeneCategory> -->
+			<reqGeneMat>25</reqGeneMat>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_StorageImplanter</defName>
+	<label>storage implanter</label>
+	<description>Implant the selected geneset into the target.\n\n&lt;color=#f5ffa2&gt;Tip:&lt;/color&gt; Right click me.</description>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<gizmoClass>WVC_XenotypesAndGenes.Command_Ability_FloatMenu</gizmoClass>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_StorageImplanter</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef>
+	<defName>WVC_GeneSavant</defName>
+	<label>savant</label>
+	<description>Carriers of this gene has an exceptional condition. The brain has developed extreme abilities in some areas, while losing the ability to speak.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>savant</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>TraumaSavant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+	<exclusionTags>
+	  <li>TraumaSavant</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

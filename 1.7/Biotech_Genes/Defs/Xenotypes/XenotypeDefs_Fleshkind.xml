@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev name: Gestaltkind -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Hivemind">
+	<defName>WVC_Fleshkind</defName>
+	<label>fleshkind</label>
+	<!-- hivekin, gestaltkin, mindkind, mindkin, fleshkind, hivemind, minder, collective -->
+	<description>Fleshkinds are super-humans powered by archotech-created archites in the bloodstream. They have strong immunity and don't require much sleep. Their bodies are covered with numerous eyes and tentacles, and they are capable of regenerating lost eyes and arms. They are capable of limited evolution within the hivemind branch. Overall, they are a versatile, rapidly self-replicating hivemind.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; This xenotype is a versatile hivemind builder. Read the descriptions of genes carefully and use their capabilities wisely. Recommended geneline genes: Sync node and Shared genes.</description>
+	<descriptionShort>Fleshkinds are super-humans powered by archotech-created archites in the bloodstream. They have strong immunity and don't require much sleep. Their bodies are covered with numerous eyes and tentacles, and they are capable of regenerating lost eyes and arms. They are capable of limited evolution within the hivemind branch. Overall, they are a versatile, rapidly self-replicating hivemind.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Hivedrone1c</iconPath>
+	<displayPriority>-1100</displayPriority>
+	<combatPowerFactor>3.0</combatPowerFactor>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<!-- Geneset -->
+		<li>WVC_Duplicator</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Duplicator_DeathChain</li>
+		<!-- <li>WVC_Reimplanter_HiveMaker</li> -->
+		<!-- <li>WVC_Hivemind_Mood</li> -->
+		<!-- <li>WVC_HiveMind_Drone</li> -->
+		<li>WVC_HiveMind_ChimeraLimit</li>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_Cooldown</li>
+		<li>WVC_Chimera_GenelineHiveMind</li>
+		<li>WVC_Chimera_HighMetLimit</li>
+		<li>Immunity_Strong</li>
+		<li>LowSleep</li>
+		<li>Sterile</li>
+		<!-- <li>WVC_RestStomach</li> -->
+		<!-- Graphic -->
+		<li>WVC_GenderMorph</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassSkin</li>
+		<li>WVC_HeadTentacles0c</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Ears_Pointed</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_BodyTentacles</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>WVC_TentacleHands</li>
+		<li>WVC_LongTentacleTail</li>
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isChimerkin>true</isChimerkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+</Defs>

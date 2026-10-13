@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base">
+	<defName>WVC_RepairSkin</defName>
+	<label>repair skin</label>
+	<description>Carriers of this gene have archites that restore skin and repair clothes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ArchiteSkin</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ArchiteSkin_v0</iconPath>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Very slowly &lt;color=#8a8ae6&gt;regenerates&lt;/color&gt; external &lt;color=#8a8ae6&gt;wounds&lt;/color&gt; and &lt;color=#8a8ae6&gt;scars&lt;/color&gt;</li>
+		<li>If there are no wounds or scars, &lt;color=#8a8ae6&gt;repairs&lt;/color&gt; the &lt;color=#8a8ae6&gt;clothes&lt;/color&gt; worn by the owner.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,6 @@
+WVC_XaG_Tag_Genepacks="AllGenePacks"
+WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"
+WVC_XaG_Tag_Serums="All_XaG_XenotypeSerums"
+WVC_XaG_Tag_ForMassiveRemove="ThingDefs"
+WVC_XaG_Tag_ForMassiveRemove="SerumRecipesDefs"
+WVC_XaG_Tag_ForMassiveRemove="NullSerums"

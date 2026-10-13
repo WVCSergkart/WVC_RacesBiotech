@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassBuilder</defName>
+	<label>deadlife builder</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh with nests of archites capable of performing some construction work and repairing buildings.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeadlifeBuilder</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassBuilder_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Occasionally &lt;color=#8a8ae6&gt;repairs or constructs&lt;/color&gt; buildings.</li>
+		<li>Can only work on 3 &lt;color=#8a8ae6&gt;buildings&lt;/color&gt; or &lt;color=#8a8ae6&gt;frames&lt;/color&gt; at a time.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Construction or repair by this gene creates deadlife gas.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Does not haul resources and does not repair breakdowns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <ConstructionSpeed>0.2</ConstructionSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <!-- ======================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_Deadlife</defName>
+	<label>deadlife breath</label>
+	<description>Carriers of this gene have corrupted archites. Their bodies are practically woven from them, their very presence in the region leads to the raising of the dead.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deadlife</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Deadlife_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-7</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively creates &lt;color=#8a8ae6&gt;deadlife gas&lt;/color&gt; and &lt;color=#8a8ae6&gt;shamblers&lt;/color&gt; if there are &lt;color=#8a8ae6&gt;corpses&lt;/color&gt; on the map.</li>
+		<li>If there are no &lt;color=#8a8ae6&gt;corpses&lt;/color&gt;, the gene goes into a cooldown of 24 hours.</li>
+		<li>&lt;color=#8a8ae6&gt;Shamblers&lt;/color&gt; only live for a few hours.</li>
+		<li>Slowly accumulates &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 increases the cooldown and slows down the accumulation of &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li Class="PawnRenderNodeProperties_Overlay"> -->
+		<!-- <debugLabel>Shambler wounds</debugLabel> -->
+		<!-- <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass> -->
+		<!-- <overlayLayer>Body</overlayLayer> -->
+		<!-- <baseLayer>20</baseLayer> -->
+		<!-- <pawnType>HumanlikeOnly</pawnType> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <debugLabel>Shambler wounds</debugLabel> -->
+		<!-- <nodeClass>PawnRenderNode_AnimalPart</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass> -->
+		<!-- <overlayLayer>Body</overlayLayer> -->
+		<!-- <baseLayer>20</baseLayer> -->
+		<!-- <pawnType>NonHumanlikeOnly</pawnType> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
+  </GeneDef>
+
+</Defs>

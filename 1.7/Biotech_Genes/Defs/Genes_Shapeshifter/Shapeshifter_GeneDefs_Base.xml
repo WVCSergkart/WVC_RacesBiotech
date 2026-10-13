@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Abstract="True">
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<selectionWeight>0.000044</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
+  </GeneDef>
+
+  <!-- ================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" Abstract="True">
+	<labelShortAdj>shifter</labelShortAdj>
+	<customEffectDescriptions>
+		<li>Allows to change the xenotype at any time.</li>
+		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<minAgeActive>0</minAgeActive>
+	<exclusionTags>
+	  <li>WVC_ShapeshifterGene</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<blockingHediffs>
+				<li>XenogermReplicating</li>
+			</blockingHediffs>
+			<!-- <shaper_stat1_labelKey>WVC_XaG_GeneticMaterial_Shifter</shaper_stat1_labelKey> -->
+			<!-- <shaper_stat1_descKey>WVC_XaG_GeneticMaterial_ShifterDesc</shaper_stat1_descKey> -->
+			<!-- <shaper_stat1_texturePath>WVC/UI/XaG_General/GenMatTex_Req</shaper_stat1_texturePath> -->
+			<!-- <shaper_stat2_labelKey>WVC_XaG_GeneticMaterial_Genes</shaper_stat2_labelKey> -->
+			<!-- <shaper_stat2_descKey>WVC_XaG_GeneticMaterial_GenesDesc</shaper_stat2_descKey> -->
+			<!-- <shaper_stat2_texturePath>WVC/UI/XaG_General/GenMatTex_Has</shaper_stat2_texturePath> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene">
+	<defName>WVC_Shapeshifter</defName>
+	<label>shapeshifter</label>
+	<labelShortAdj>shifter</labelShortAdj>
+	<description>Carriers of this gene have archites that can completely rearrange and rewrite the genetic code at the request of the carrier. Thanks to this, the xenotype of the carrier can be changed at any time, but the carriers completely lose the accumulated genetic information of the previous form.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
+	<iconPath>WVC/UI/Genes3/Gene_Shapeshifter</iconPath>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Shapeshifter</resourceGizmoType>
+	<statOffsets>
+	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>0.25</birthQualityOffset>
+		</li>
+		<!-- Moved to Misc. See ShaperGeneSetDef_Base -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+		<!-- </li> -->
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

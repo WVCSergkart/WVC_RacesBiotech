@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyshifter_SubGenes">
+	<defName>WVC_Energyshifter_ArmoredSkin</defName>
+	<label>adaptive armor skin</label>
+	<description>Carriers of this gene have very strong armored skin.</description>
+	<iconPath>WVC/UI/Genes3/Gene_Energyshifter_Armor</iconPath>
+	<displayOrderInCategory>220</displayOrderInCategory>
+	<resourceLossPerDay>0.11</resourceLossPerDay>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
+	</statOffsets>
+	<exclusionTags>
+		<li>WVC_NaturalArmor</li>
+		<li>AG_Armour</li>
+		<li>Armour</li>
+		<li>Armor</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>comb</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

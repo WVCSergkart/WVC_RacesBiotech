@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- <WVC_Label_SacrificerSkip>Skipped!</WVC_Label_SacrificerSkip> -->
+	<WVC_Desc_SacrificerSkip>{0_nameDef} was enveloped in a stream of light, and then {0_pronoun} vanished. It's unknown what exactly happened to {0_objective}, but it's clear {0_pronoun} can be presumed dead.</WVC_Desc_SacrificerSkip>
+
+<!-- Sacrificer allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;, but it requires &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt;. It automatically sacrifices one &lt;color=#8a8ae6&gt;random pawn&lt;/color&gt; under its control every day. The target can be any &lt;color=#8a8ae6&gt;sentient pawn&lt;/color&gt;, excluding slaves and temporary ones. Each sacrifice comes with one of the chosen &lt;color=#8a8ae6&gt;rewards&lt;/color&gt;.\n\nIf the &lt;color=#8a8ae6&gt;victim is human&lt;/color&gt;, their genes become available to the sacrificer. The &lt;color=#8a8ae6&gt;complexity limit&lt;/color&gt; is increased by 1. If the victim had archite genes, the &lt;color=#8a8ae6&gt;archite limit&lt;/color&gt; is also increased.\n\nIf the victim was not human, the &lt;color=#8a8ae6&gt;metabolic limit&lt;/color&gt; is increased by 1 in both directions instead of complexity and archite. -->
+
+	<WVC_XaG_SacrificerGizmoTip>Sacrificer allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;, but it requires &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt;. It automatically sacrifices one &lt;color=#8a8ae6&gt;random pawn&lt;/color&gt; every day. The target can be any &lt;color=#8a8ae6&gt;sentient pawn&lt;/color&gt;, excluding slaves and temporary ones. Each sacrifice comes with one of the chosen &lt;color=#8a8ae6&gt;rewards&lt;/color&gt;.\n\nIf the &lt;color=#8a8ae6&gt;victim is human&lt;/color&gt;, their genes become available to the sacrificer. The &lt;color=#8a8ae6&gt;complexity limit&lt;/color&gt; is increased by 1. If the victim had archite genes, the &lt;color=#8a8ae6&gt;archite limit&lt;/color&gt; is also increased.\n\nIf the victim was not human, the &lt;color=#8a8ae6&gt;metabolic limit&lt;/color&gt; is increased by 1 in both directions instead of complexity and archite.\n\n -  &lt;color=#aad8a2&gt;Unlocked genes&lt;/color&gt;: {0}\n -  &lt;color=#8076ff&gt;Complexity limit&lt;/color&gt;: {1}\n -  &lt;color=#8076ff&gt;Archite limit&lt;/color&gt;: {2}\n -  &lt;color=#8076ff&gt;Metabolic limit&lt;/color&gt;: From {3} to {4}\n -  &lt;color=#FFDC72&gt;Reward mode&lt;/color&gt;: {5}</WVC_XaG_SacrificerGizmoTip>
+
+	<WVC_XaG_SacrificerEditorTip>Allows editing of xenogens within certain limits.</WVC_XaG_SacrificerEditorTip>
+
+	<WVC_XaG_SacrificerRewardTip>Allows to select the type of reward.</WVC_XaG_SacrificerRewardTip>
+
+	<!-- ???? -->
+	<!-- <WVC_XaG_Sacrificer_XenotypeLvl1c>An unknown xenotype that can sometimes be encountered in the vastness of the rimworld.</WVC_XaG_Sacrificer_XenotypeLvl1c> -->
+	<!-- <WVC_XaG_Sacrificer_XenotypeLvl2c>Corrupted are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. Their appearance is always associated with the coming of the apocalypse; they are harbingers of something terrible.</WVC_XaG_Sacrificer_XenotypeLvl2c> -->
+	<!-- <WVC_XaG_Sacrificer_XenotypeLvl3c>Sacrifices are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. They can freely change their genetic. They are harbingers of what has already arrived, slowly influencing everything around them. Their main distinguishing factor is their "sacrifice," an ability they cannot control but which is rewarded by their patron.</WVC_XaG_Sacrificer_XenotypeLvl3c> -->
+
+</LanguageData>

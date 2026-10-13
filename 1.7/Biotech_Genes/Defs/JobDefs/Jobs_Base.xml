@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef Name="WVC_XenotypesAndGenes_JobDef_Base" Abstract="True">
+	<modExtensions>
+		<li MayRequire="lovelydovey.sex.witheuterpe" Class="LoveyDoveySexWithEuterpe.IntimacyModExtension">
+			<temporarilyPreventsLovin>true</temporarilyPreventsLovin>
+			<temporarilyPreventsSocialActivity>true</temporarilyPreventsSocialActivity>
+		</li>
+	</modExtensions>
+  </JobDef>
+
+</Defs>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_MechaHidden_ArchiteForge</defName>
+	<label>total healing</label>
+	<description>Carriers of this gene have archites that regenerate lost limbs or heal scars.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_RestoreMissingBodyParts</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<marketValueFactor>3</marketValueFactor>
+	<iconPath>WVC/UI/Genes/Gene_TotalHealing_v0</iconPath>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<preventPermanentWounds>true</preventPermanentWounds>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Restores a missing body part or heals scars every (*DateTime)15-30 days(/DateTime).</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

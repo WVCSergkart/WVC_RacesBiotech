@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WVC_BiotechFramework_XenotypesAndGenes</name>
+    </assembly>
+    <members>
+        <member name="T:WVC_XenotypesAndGenes.Gene_HiveMind_ChimeraLimit">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Dependant">
+            <summary>
+            Depends on hivemind, but is not included in it.
+            In Dev
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Resyncer">
+            <summary>
+            Synchronizes dormant drones. Serves as a trigger for safe synchronization, which must be loop-proof.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_DormantDrone">
+            <summary>
+            Simple drone. If gene removed can call hivemind recache.
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.Gene_DormantDrone.ResetCollection">
+            <summary>
+            For special calls
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.Gene_Hivemind_EfficiencyNode.SubSetEfficiency(Verse.Pawn)">
+            <summary>
+            Modders hook.
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.Gene_Hivemind_EfficiencyNode.UpdGeneSync">
+            <summary>
+            Efficiency offset affects this gene.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Chimera_HiveGeneline">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Hediff">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.XaG_Gene">
+            <summary>
+            General WVC gene. Used for generic crap like extensions.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_RemoteController">
+            <summary>
+            Generic remote controller aka Genes Settings gene
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Disconnectable">
+            <summary>
+            Basic disconnectable gene. Used by Energyshifter and Resurgent. See Dialog_ActivityManager
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Dialog_ActivityManager">
+            <summary>
+            Basic disconnectable window. Used by Energyshifter and Resurgent. See Gene_Disconnectable
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_HivemindMaker">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneInspectInfo">
+            <summary>
+            Timers. "Next resource_name in: 4.3 days"
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneFloatMenuOptions">
+            <summary>
+            For implanters. "Force implantation (Gene_Name)"
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneNotifyLifeStageStarted">
+            <summary>
+            Life stage trigger. For bodies and rechaches.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneOverriddenBy">
+            <summary>
+            Overridden by trigger. Typically used to reset the cache when genes are changed, often in conjunction with IGeneNotifyGenesChanged.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneUnoverridable">
+            <summary>
+            Over override mechanics. For override xenogenes by endogens.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneDryadQueen">
+            <summary>
+            Dryad queen sub-genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneNotifyOnKilled">
+            <summary>
+            Triggered before PawnDied(). Used for Gene_Undead and Gene_Voidlink.
+            Depends on Human comp.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneRecacheable">
+            <summary>
+            For internal gene cache reset. Not triggered directly in vanilla, but triggered by post debug.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneRemoteControl">
+            <summary>
+            Dynamic gene settings.
+            Used for all genes without a gizmo, but with some buttons, like simple switches.
+            It has a minimal performance impact, but is very inconvenient to use.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneChargeable">
+            <summary>
+            Charger sub-genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneCustomChimeraEater">
+            <summary>
+            Chimera custom "eat" mechanic.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneWithEffects">
+            <summary>
+            For meat explosion effects when shapeshift or changing custom graphic.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneScarifier">
+            <summary>
+            Scarifier sub-genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneHivemind">
+            <summary>
+            Main hivemind mark. Used for all hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneNonSync">
+            <summary>
+            No sync hivemind mark. Used only for hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.IGeneCustomGraphic">
+            <summary>
+            General custom graphic mark. Used for custom hairs (tentacle hair), eyes (colorful eyes), bodies (archo lines), etc.
+            </summary>
+        </member>
+        <member name="F:WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted.fired">
+            <summary>
+            Custom pregnancy hook. Egg layer, parasite implanter, etc. 
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.CompProperties_GenesSettings">
+            <summary>
+            Dummy.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.CompGenesSettings">
+            <summary>
+            For modders.
+            Genes settings dev tools comp. Inherit from this or use IThingDevSettings
+            They don't overwrite each other for the same pawn. You can use as many as you like.
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind(Verse.Pawn)">
+            <summary>
+            Modders hook. Use for custom hivemind rules. For example hediffs or for merging with others mod hiveminds.
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind_Genes(Verse.Pawn)">
+            <summary>
+            Modders hook. Same as SubCanBeInHivemind but with genes null check.
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.ResetCollection">
+            <summary>
+            General reset collection. Used for all hivemind genes.
+            Modders hook.
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.ResetTick(System.Int32@)">
+            <summary>
+            Cycles the tick update from min to max.
+            Distributes gene ticks so they overlap less often, which slightly improves performance.
+            </summary>
+        </member>
+        <member name="F:WVC_XenotypesAndGenes.HivemindUtility.cachedRefreshRate">
+            <summary>
+            The tick frequency decreases as the hivemind grows.
+            This keeps the impact on performance to a minimum and is an important part of the hivemind mechanics.
+            Synchronization latency increases, requiring more synchronization drones.
+            </summary>
+        </member>
+        <member name="P:WVC_XenotypesAndGenes.HivemindUtility.EfficiencyOffset">
+            <summary>
+            Efficiency node. Offsets the synchronization frequency relative to hivemind pawns.
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SuitableForHivemind(Verse.Pawn)">
+            <summary>
+            Modders hook.
+            Only affects gene effects and the sync- trigger.
+            Pawns that fail these conditions can still be part of the hivemind.
+            </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.InHivemind(Verse.Pawn)">
+            <summary>
+            Requests a check directly from hivemind. For gene activity and other checks involving stats, it's better to use the safe check, although it has a delay.
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.HivemindUtility.InHivemind_Safe(Verse.Pawn)">
+            <summary>
+            Recache must be called manually.
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GestationUtility.CanBePregnant(Verse.Pawn)">
+            <summary>
+            Modders hook.
+            Performance ahead. Use optimization.
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GestationUtility.GetLitterSize(Verse.Pawn)">
+            <summary>
+            Helper
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GeneResourceUtility.IsShapeshiftGene(Verse.Gene)">
+            <summary>
+            Modders hook.
+            </summary>
+            <param name="gene"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -12,7 +12,7 @@ using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class PatchOperationOptional : PatchOperation
+	public class PatchOperationOptional : Verse.PatchOperation
 	{
 		public string settingName;
 		public PatchOperation caseTrue;
@@ -30,6 +30,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			return true;
 		}
+
 	}
 
 	public class PatchOperationLegacyMode : PatchOperationOptional

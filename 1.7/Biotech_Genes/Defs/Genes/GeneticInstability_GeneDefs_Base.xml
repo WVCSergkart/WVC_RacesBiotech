@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneGeneticInstability_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <labelShortAdj>blindness</labelShortAdj> -->
+	<description>Carriers of this gene have a serious genetic instability. It affects health, fertility and metabolic efficiency.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticInstability</geneClass>
+	<selectionWeight>0.00012</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>1251</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>To delay genetic instabilization, the carrier must use &lt;color=#8a8ae6&gt;genetic stabilizer&lt;/color&gt; serums.</li>
+	</customEffectDescriptions>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gen</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>stab</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base" Name="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Inbred3_v0</iconPath>
+	<description>Carriers of this gene have a remarkably stable genetic code.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticStability</geneClass>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1250</displayOrderInCategory>
+	<customEffectDescriptions Inherit="False">
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
+	<defName>WVC_GeneticStability</defName>
+	<label>genetic stability</label>
+	<iconPath>WVC/UI/Genes/Gene_Inbred3_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1251</displayOrderInCategory>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>122000~840000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

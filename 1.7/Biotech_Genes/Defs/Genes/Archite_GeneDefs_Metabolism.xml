@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Power Source -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_MechaPowerSource_Vanometric</defName>
+	<label>archite blood</label>
+	<description>Carriers of this gene have archites in their blood, which improve blood circulation and optimize blood saturation with nutrients. Which improves the genetic and metabolic quality.</description>
+	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>1</displayOrderInCategory>
+	<marketValueFactor>1.1</marketValueFactor>
+	<selectionWeight>0.00075</selectionWeight>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>5</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>archite</symbol></li>
+		<li><symbol>blood</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

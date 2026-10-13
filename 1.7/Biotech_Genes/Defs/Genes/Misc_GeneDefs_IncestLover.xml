@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_IncestLover</defName>
+	<label>incest lover</label>
+	<description>Carriers of this gene have a strange attraction to their blood relatives.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_IncestLover</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Incestous_v0</iconPath>
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<selectionWeight>0.0011</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+	  <li>Significantly increases the chance of romance with blood relatives.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_IncestLover</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

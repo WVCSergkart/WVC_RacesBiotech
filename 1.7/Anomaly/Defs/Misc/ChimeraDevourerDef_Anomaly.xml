@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ChimeraDevourerDef>
+	<defName>WVC_FleshmassNucleus</defName>
+	<label>fleshmass nucleus</label>
+	<workerClass>WVC_XenotypesAndGenes.ChimeraDevourer_RewardXenotype</workerClass>
+	<targetPawnKindDefs>
+	  <li>FleshmassNucleus</li>
+	</targetPawnKindDefs>
+	<rewardXenotypeDefs>
+	  <li>WVC_Beholdkind</li>
+	</rewardXenotypeDefs>
+  </WVC_XenotypesAndGenes.ChimeraDevourerDef>
+
+  <WVC_XenotypesAndGenes.ChimeraDevourerDef>
+	<defName>WVC_Nociosphere</defName>
+	<label>nociosphere</label>
+	<workerClass>WVC_XenotypesAndGenes.ChimeraDevourer_RewardXenotype</workerClass>
+	<targetPawnKindDefs>
+	  <li>Nociosphere</li>
+	</targetPawnKindDefs>
+	<rewardXenotypeDefs>
+	  <li>WVC_Nociokin</li>
+	</rewardXenotypeDefs>
+  </WVC_XenotypesAndGenes.ChimeraDevourerDef>
+
+  <WVC_XenotypesAndGenes.ChimeraDevourerDef>
+	<defName>WVC_Dreadmeld</defName>
+	<label>dreadmeld</label>
+	<workerClass>WVC_XenotypesAndGenes.ChimeraDevourer_RewardXenotype</workerClass>
+	<targetPawnKindDefs>
+	  <li>Dreadmeld</li>
+	</targetPawnKindDefs>
+	<rewardXenotypeDefs>
+	  <li>WVC_Leper</li>
+	</rewardXenotypeDefs>
+  </WVC_XenotypesAndGenes.ChimeraDevourerDef>
+
+</Defs>

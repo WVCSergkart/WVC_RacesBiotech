@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="FleshWhip" or defName="FleshTentacle"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassNucleus</li>
+		  <li>WVC_FleshmassHeart</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li>WVC_FleshmassSkin</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef/genes/li[@WVC_Tag="AnomalyInhumanizedGene"]</xpath>
+	  <success>Always</success>
+	  <value>
+		  <li>WVC_Inhumanized</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Ripperkind"]/genes/li[@ReplaceTag="Deathless"]</xpath>
+	  <success>Always</success>
+	  <value>
+		  <li>WVC_DeathRefusal</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="DeathPall" or defName="GrayPall" or defName="DeadlifeDust"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Deadlife</li>
+		  <li>WVC_FleshmassBuilder</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_DarknessExposure</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/XenotypeDef[defName="WVC_Mechamata"]/genes/li[@ReplaceTag="StasisLearning"]</xpath>
+		<success>Always</success>
+		<value>
+		  <li>WVC_Learning_Stasis</li>
+		</value>
+	</Operation>
+
+</Patch>

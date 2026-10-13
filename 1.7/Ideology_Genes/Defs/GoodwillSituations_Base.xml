@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GoodwillSituationDef>
+	<defName>WVC_HivemindHatred</defName>
+	<label>hivemind hatred</label>
+	<workerClass>WVC_XenotypesAndGenes.GoodwillSituationWorker_HivemindHatred</workerClass>
+	<meme>WVC_Hivemind</meme>
+	<otherMeme>WVC_Hivemind</otherMeme>
+	<naturalGoodwillOffset>-10</naturalGoodwillOffset>
+  </GoodwillSituationDef>
+
+</Defs>

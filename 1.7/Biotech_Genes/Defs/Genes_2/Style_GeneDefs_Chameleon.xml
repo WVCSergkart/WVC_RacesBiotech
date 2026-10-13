@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology">
+	<defName>WVC_Chameleon</defName>
+	<label>chameleon</label>
+	<description>Carriers of this gene can change certain aspects of their appearance at will at any time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Chameleon</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Style</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows to use the style menu at any time.</li>
+	</customEffectDescriptions>
+	<!-- <skinIsHairColor>true</skinIsHairColor> -->
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef>
+	<defName>WVC_HairColoredSkin</defName>
+	<label>hair colored skin</label>
+	<description>Carriers of this gene have skin the color of their hair.</description>
+	<iconPath>WVC/UI/Genes/Gene_HairColoredSkin_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<skinIsHairColor>true</skinIsHairColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+</Defs>

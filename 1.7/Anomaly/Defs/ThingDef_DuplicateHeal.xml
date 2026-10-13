@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef MayRequire="ludeon.rimworld.anomaly" ParentName="WVC_XenotypesAndGenes_SerumBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<label>duplicate restoration serum</label>
+	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Duplicator</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	</graphicData>
+	<costList>
+	  <Uranium>30</Uranium>
+	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
+	</costList>
+	<recipeMaker>
+	  <researchPrerequisite Inherit="False"/>
+	  <researchPrerequisites Inherit="False">
+		<li>WVC_XenotypesAndGenes_NutrientsInjector</li>
+		<li>Archogenetics</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<tradeTags Inherit="False">
+		<li>ExoticMisc</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False" IsNull="True"/>
+	<techHediffsTags Inherit="False" IsNull="True"/>
+	<tradeability>Sellable</tradeability>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
+		<hediffsToRemove>
+		  <!-- Vanilla -->
+		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedCreepjoiner</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMind</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumbledMind</li>
+		  <!-- Mod -->
+		  <!-- <li">WVC_DuplicateSickness</li> -->
+		</hediffsToRemove>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneDuplicatorResetAbility</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>
