@@ -4,7 +4,17 @@
         <name>WVC_BiotechFramework_XenotypesAndGenes</name>
     </assembly>
     <members>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Chimera_HiveGeneline">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.Gene_HiveMind_ChimeraLimit">
+            <summary>
+            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            </summary>
+        </member>
+        <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Hediff">
             <summary>
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
             </summary>
@@ -42,12 +52,7 @@
             Efficiency offset affects this gene.
             </summary>
         </member>
-        <member name="T:WVC_XenotypesAndGenes.Gene_Chimera_HiveGeneline">
-            <summary>
-            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
-            </summary>
-        </member>
-        <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Hediff">
+        <member name="T:WVC_XenotypesAndGenes.Gene_HivemindMaker">
             <summary>
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
             </summary>
@@ -72,9 +77,9 @@
             Basic disconnectable window. Used by Energyshifter and Resurgent. See Gene_Disconnectable
             </summary>
         </member>
-        <member name="T:WVC_XenotypesAndGenes.Gene_HivemindMaker">
+        <member name="F:WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted.fired">
             <summary>
-            Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
+            Custom pregnancy hook. Egg layer, parasite implanter, etc. 
             </summary>
         </member>
         <member name="T:WVC_XenotypesAndGenes.IGeneInspectInfo">
@@ -160,11 +165,6 @@
             General custom graphic mark. Used for custom hairs (tentacle hair), eyes (colorful eyes), bodies (archo lines), etc.
             </summary>
         </member>
-        <member name="F:WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted.fired">
-            <summary>
-            Custom pregnancy hook. Egg layer, parasite implanter, etc. 
-            </summary>
-        </member>
         <member name="T:WVC_XenotypesAndGenes.CompProperties_GenesSettings">
             <summary>
             Dummy.
@@ -176,6 +176,28 @@
             Genes settings dev tools comp. Inherit from this or use IThingDevSettings
             They don't overwrite each other for the same pawn. You can use as many as you like.
             </summary>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GeneResourceUtility.IsShapeshiftGene(Verse.Gene)">
+            <summary>
+            Modders hook.
+            </summary>
+            <param name="gene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GestationUtility.CanBePregnant(Verse.Pawn)">
+            <summary>
+            Modders hook.
+            Performance ahead. Use optimization.
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.GestationUtility.GetLitterSize(Verse.Pawn)">
+            <summary>
+            Helper
+            </summary>
+            <param name="pawn"></param>
+            <returns></returns>
         </member>
         <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind(Verse.Pawn)">
             <summary>
@@ -234,28 +256,6 @@
             Recache must be called manually.
             </summary>
             <param name="pawn"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WVC_XenotypesAndGenes.GestationUtility.CanBePregnant(Verse.Pawn)">
-            <summary>
-            Modders hook.
-            Performance ahead. Use optimization.
-            </summary>
-            <param name="pawn"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WVC_XenotypesAndGenes.GestationUtility.GetLitterSize(Verse.Pawn)">
-            <summary>
-            Helper
-            </summary>
-            <param name="pawn"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WVC_XenotypesAndGenes.GeneResourceUtility.IsShapeshiftGene(Verse.Gene)">
-            <summary>
-            Modders hook.
-            </summary>
-            <param name="gene"></param>
             <returns></returns>
         </member>
     </members>

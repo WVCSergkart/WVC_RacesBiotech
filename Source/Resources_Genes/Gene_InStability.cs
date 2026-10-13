@@ -245,270 +245,270 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_GeneticInstability : XaG_Gene, IGeneInspectInfo, IGeneRemoteControl
-	{
-		public string RemoteActionName => XaG_UiUtility.OnOrOff(useStabilizerAuto);
+	//[Obsolete]
+	//public class Gene_GeneticInstability : XaG_Gene, IGeneInspectInfo, IGeneRemoteControl
+	//{
+	//	public string RemoteActionName => XaG_UiUtility.OnOrOff(useStabilizerAuto);
 
-		public virtual TaggedString RemoteActionDesc => "WVC_XaG_Gene_GeneticInstabilityDesc".Translate();
+	//	public virtual TaggedString RemoteActionDesc => "WVC_XaG_Gene_GeneticInstabilityDesc".Translate();
 
-		public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-		{
-			useStabilizerAuto = !useStabilizerAuto;
-		}
+	//	public void RemoteControl_Action(Dialog_GenesSettings genesSettings)
+	//	{
+	//		useStabilizerAuto = !useStabilizerAuto;
+	//	}
 
-		public bool RemoteControl_Hide => !Active;
+	//	public bool RemoteControl_Hide => !Active;
 
-		public bool RemoteControl_Enabled
-		{
-			get
-			{
-				return enabled;
-			}
-			set
-			{
-				enabled = value;
-				remoteControllerCached = false;
-			}
-		}
+	//	public bool RemoteControl_Enabled
+	//	{
+	//		get
+	//		{
+	//			return enabled;
+	//		}
+	//		set
+	//		{
+	//			enabled = value;
+	//			remoteControllerCached = false;
+	//		}
+	//	}
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			XaG_UiUtility.SetAllRemoteControllersTo(pawn);
-		}
+	//	public override void PostRemove()
+	//	{
+	//		base.PostRemove();
+	//		XaG_UiUtility.SetAllRemoteControllersTo(pawn);
+	//	}
 
-		public bool enabled = true;
-		public bool remoteControllerCached = false;
+	//	public bool enabled = true;
+	//	public bool remoteControllerCached = false;
 
-		public void RemoteControl_Recache()
-		{
-			XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
-		}
+	//	public void RemoteControl_Recache()
+	//	{
+	//		XaG_UiUtility.RecacheRemoteController(pawn, ref remoteControllerCached, ref enabled);
+	//	}
 
 
-		//===========
+	//	//===========
 
-		//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+	//	//public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		//private GeneExtension_Giver cachedGeneExtension;
-		//public GeneExtension_Giver Giver
-		//{
-		//	get
-		//	{
-		//		if (cachedGeneExtension == null)
-		//		{
-		//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
-		//		}
-		//		return cachedGeneExtension;
-		//	}
-		//}
+	//	//private GeneExtension_Giver cachedGeneExtension;
+	//	//public GeneExtension_Giver Giver
+	//	//{
+	//	//	get
+	//	//	{
+	//	//		if (cachedGeneExtension == null)
+	//	//		{
+	//	//			cachedGeneExtension = def.GetModExtension<GeneExtension_Giver>();
+	//	//		}
+	//	//		return cachedGeneExtension;
+	//	//	}
+	//	//}
 
-		public int nextTick = 60000;
+	//	public int nextTick = 60000;
 
-		public bool useStabilizerAuto = true;
+	//	public bool useStabilizerAuto = true;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			ResetInterval();
-			//useStabilizerAuto = Props.defaultBoolValue;
-		}
+	//	public override void PostAdd()
+	//	{
+	//		base.PostAdd();
+	//		ResetInterval();
+	//		//useStabilizerAuto = Props.defaultBoolValue;
+	//	}
 
-		public override void TickInterval(int delta)
-		{
-			//base.Tick();
-			nextTick -= delta;
-			if (nextTick > 0)
-			{
-				if (nextTick < 180000)
-				{
-					GetDelayJob(delta);
-				}
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				ResetInterval();
-				return;
-			}
-			GeneticStuff();
-		}
+	//	public override void TickInterval(int delta)
+	//	{
+	//		//base.Tick();
+	//		nextTick -= delta;
+	//		if (nextTick > 0)
+	//		{
+	//			if (nextTick < 180000)
+	//			{
+	//				GetDelayJob(delta);
+	//			}
+	//			return;
+	//		}
+	//		if (pawn.Faction != Faction.OfPlayer)
+	//		{
+	//			ResetInterval();
+	//			return;
+	//		}
+	//		GeneticStuff();
+	//	}
 
-		public virtual void GetDelayJob(int delta)
-		{
-			if (!useStabilizerAuto)
-			{
-				return;
-			}
-			if (!pawn.IsHashIntervalTick(12000, delta))
-			{
-				return;
-			}
-			if (pawn.Downed || pawn.Drafted)
-			{
-				// Last Chance Mechanic
-				//if (WVC_Biotech.settings.enableInstabilityLastChanceMechanic)
-				//{
-				//	nextTick += 9000;
-				//}
-				return;
-			}
-			// if (pawn.Faction != Faction.OfPlayer)
-			// {
-			// useStabilizerAuto = false;
-			// ResetInterval();
-			// return;
-			// }
-			if (pawn.Map == null)
-			{
-				// In caravan use
-				InCaravan();
-				return;
-			}
-			DelayJob();
-		}
+	//	public virtual void GetDelayJob(int delta)
+	//	{
+	//		if (!useStabilizerAuto)
+	//		{
+	//			return;
+	//		}
+	//		if (!pawn.IsHashIntervalTick(12000, delta))
+	//		{
+	//			return;
+	//		}
+	//		if (pawn.Downed || pawn.Drafted)
+	//		{
+	//			// Last Chance Mechanic
+	//			//if (WVC_Biotech.settings.enableInstabilityLastChanceMechanic)
+	//			//{
+	//			//	nextTick += 9000;
+	//			//}
+	//			return;
+	//		}
+	//		// if (pawn.Faction != Faction.OfPlayer)
+	//		// {
+	//		// useStabilizerAuto = false;
+	//		// ResetInterval();
+	//		// return;
+	//		// }
+	//		if (pawn.Map == null)
+	//		{
+	//			// In caravan use
+	//			InCaravan();
+	//			return;
+	//		}
+	//		DelayJob();
+	//	}
 
-		public virtual void DelayJob()
-		{
-			if (Extension_Giver.jobDef == null || Extension_Giver.specialFoodDefs.NullOrEmpty())
-			{
-				return;
-			}
-			for (int j = 0; j < Extension_Giver.specialFoodDefs.Count; j++)
-			{
-				Thing serum = MiscUtility.GetSpecialFood(pawn, Extension_Giver.specialFoodDefs[j]);
-				if (serum == null)
-				{
-					continue;
-				}
-				pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Extension_Giver.jobDef, serum), JobTag.Misc, true);
-			}
-		}
+	//	public virtual void DelayJob()
+	//	{
+	//		if (Extension_Giver.jobDef == null || Extension_Giver.specialFoodDefs.NullOrEmpty())
+	//		{
+	//			return;
+	//		}
+	//		for (int j = 0; j < Extension_Giver.specialFoodDefs.Count; j++)
+	//		{
+	//			Thing serum = MiscUtility.GetSpecialFood(pawn, Extension_Giver.specialFoodDefs[j]);
+	//			if (serum == null)
+	//			{
+	//				continue;
+	//			}
+	//			pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Extension_Giver.jobDef, serum), JobTag.Misc, true);
+	//		}
+	//	}
 
-		public virtual void InCaravan()
-		{
-			Caravan caravan = pawn.GetCaravan();
-			if (caravan == null)
-			{
-				return;
-			}
-			if (Extension_Giver?.specialFoodDefs.NullOrEmpty() != false)
-			{
-				return;
-			}
-			List<Thing> things = caravan.AllThings.ToList();
-			if (things.NullOrEmpty())
-			{
-				return;
-			}
-			for (int j = 0; j < things.Count; j++)
-			{
-				if (!Extension_Giver.specialFoodDefs.Contains(things[j].def))
-				{
-					continue;
-				}
-				CompUseEffect_GeneticStabilizer stabilizer = things[j].TryGetComp<CompUseEffect_GeneticStabilizer>();
-				if (stabilizer?.Props?.canBeUsedInCaravan != true)
-				{
-					continue;
-				}
-				nextTick += 60000 * stabilizer.Props.daysDelay;
-				things[j].ReduceStack();
-				break;
-			}
-		}
+	//	public virtual void InCaravan()
+	//	{
+	//		Caravan caravan = pawn.GetCaravan();
+	//		if (caravan == null)
+	//		{
+	//			return;
+	//		}
+	//		if (Extension_Giver?.specialFoodDefs.NullOrEmpty() != false)
+	//		{
+	//			return;
+	//		}
+	//		List<Thing> things = caravan.AllThings.ToList();
+	//		if (things.NullOrEmpty())
+	//		{
+	//			return;
+	//		}
+	//		for (int j = 0; j < things.Count; j++)
+	//		{
+	//			if (!Extension_Giver.specialFoodDefs.Contains(things[j].def))
+	//			{
+	//				continue;
+	//			}
+	//			CompUseEffect_GeneticStabilizer stabilizer = things[j].TryGetComp<CompUseEffect_GeneticStabilizer>();
+	//			if (stabilizer?.Props?.canBeUsedInCaravan != true)
+	//			{
+	//				continue;
+	//			}
+	//			nextTick += 60000 * stabilizer.Props.daysDelay;
+	//			things[j].ReduceStack();
+	//			break;
+	//		}
+	//	}
 
-		public virtual void GeneticStuff()
-		{
-			if (!Extension_Giver.hediffDefs.NullOrEmpty())
-			{
-				HediffUtility.AddHediffsFromList(pawn, Extension_Giver.hediffDefs);
-				if (Extension_Giver.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
-				{
-					Messages.Message(Extension_Giver.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
-				}
-			}
-			else
-			{
-				pawn.Kill(null, null);
-			}
-			ResetInterval();
-		}
+	//	public virtual void GeneticStuff()
+	//	{
+	//		if (!Extension_Giver.hediffDefs.NullOrEmpty())
+	//		{
+	//			HediffUtility.AddHediffsFromList(pawn, Extension_Giver.hediffDefs);
+	//			if (Extension_Giver.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
+	//			{
+	//				Messages.Message(Extension_Giver.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+	//			}
+	//		}
+	//		else
+	//		{
+	//			pawn.Kill(null, null);
+	//		}
+	//		ResetInterval();
+	//	}
 
-		private void ResetInterval()
-		{
-			nextTick = Extension_Giver.intervalRange.RandomInRange;
-		}
+	//	private void ResetInterval()
+	//	{
+	//		nextTick = Extension_Giver.intervalRange.RandomInRange;
+	//	}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFaction(pawn, this))
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: GeneticInstability",
-					action = delegate
-					{
-						GeneticStuff();
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Reduce instability ticker",
-					action = delegate
-					{
-						nextTick -= 30000;
-					}
-				};
-			}
-			//foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes, enabled))
-			//{
-			//	yield return gizmo;
-			//}
-			//if (Props.jobDef == null)
-			//{
-			//	yield break;
-			//}
-			//yield return new Command_Action
-			//{
-			//	defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
-			//	defaultDesc = "WVC_XaG_Gene_GeneticInstabilityDesc".Translate(),
-			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
-			//	action = delegate
-			//	{
-			//		useStabilizerAuto = !useStabilizerAuto;
-			//		if (useStabilizerAuto)
-			//		{
-			//			SoundDefOf.Tick_High.PlayOneShotOnCamera();
-			//		}
-			//		else
-			//		{
-			//			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-			//		}
-			//	}
-			//};
-			if (enabled)
-			{
-				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
-			}
-		}
+	//	public override IEnumerable<Gizmo> GetGizmos()
+	//	{
+	//		if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+	//		{
+	//			yield return new Command_Action
+	//			{
+	//				defaultLabel = "DEV: GeneticInstability",
+	//				action = delegate
+	//				{
+	//					GeneticStuff();
+	//				}
+	//			};
+	//			yield return new Command_Action
+	//			{
+	//				defaultLabel = "DEV: Reduce instability ticker",
+	//				action = delegate
+	//				{
+	//					nextTick -= 30000;
+	//				}
+	//			};
+	//		}
+	//		//foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes, enabled))
+	//		//{
+	//		//	yield return gizmo;
+	//		//}
+	//		//if (Props.jobDef == null)
+	//		//{
+	//		//	yield break;
+	//		//}
+	//		//yield return new Command_Action
+	//		//{
+	//		//	defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
+	//		//	defaultDesc = "WVC_XaG_Gene_GeneticInstabilityDesc".Translate(),
+	//		//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+	//		//	action = delegate
+	//		//	{
+	//		//		useStabilizerAuto = !useStabilizerAuto;
+	//		//		if (useStabilizerAuto)
+	//		//		{
+	//		//			SoundDefOf.Tick_High.PlayOneShotOnCamera();
+	//		//		}
+	//		//		else
+	//		//		{
+	//		//			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+	//		//		}
+	//		//	}
+	//		//};
+	//		if (enabled)
+	//		{
+	//			yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);
+	//		}
+	//	}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
-			Scribe_Values.Look(ref useStabilizerAuto, "useStabilizerAutomatic", true);
-		}
+	//	public override void ExposeData()
+	//	{
+	//		base.ExposeData();
+	//		Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
+	//		Scribe_Values.Look(ref useStabilizerAuto, "useStabilizerAutomatic", true);
+	//	}
 
-		public string GetInspectInfo
-		{
-			get
-			{
-				return "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
-			}
-		}
+	//	public string GetInspectInfo
+	//	{
+	//		get
+	//		{
+	//			return "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+	//		}
+	//	}
 
-	}
+	//}
 
 }

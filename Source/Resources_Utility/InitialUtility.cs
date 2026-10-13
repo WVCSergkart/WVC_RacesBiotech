@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.AppendLine("    * This is my personal playground. Why are you here?");
 				}
 				stringBuilder.AppendLine(" - Xenotypes in factions (Obsolete): " + WVC_Biotech.settings.enable_spawnXenotypesInFactions.ToStringTrueFalse_Debug(true));
-				stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
+				//stringBuilder.AppendLine(" - Random xenotypes option (Obsolete): " + WVC_Biotech.settings.generateXenotypeForceGenes.ToStringTrueFalse_Debug());
 				stringBuilder.AppendLine(" - Aptitudes: " + WVC_Biotech.settings.generateSkillGenes.ToStringTrueFalse_Debug(true));
 				stringBuilder.AppendLine(" - Any xenotype disabled by option: " + WVC_Biotech.settings.disableXenotypes_MainSwitch.ToStringTrueFalse_Debug());
 				stringBuilder.AppendLine(" - Legacy status: " + WVC_Biotech.settings.EnableLegacyMode.ToStringTrueFalse_Debug(true));

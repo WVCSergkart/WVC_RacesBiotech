@@ -28,21 +28,21 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		[Obsolete]
-		public static void HybridForcerGenes(List<GeneDef> geneDefList)
-		{
-			if (!WVC_Biotech.settings.generateXenotypeForceGenes)
-			{
-				return;
-			}
-			foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
-			{
-				foreach (XenotypeDef allDef in ListsUtility.GetWhiteListedXenotypes(true, true))
-				{
-					geneDefList.Add(GeneratorUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
-				}
-			}
-		}
+		//[Obsolete]
+		//public static void HybridForcerGenes(List<GeneDef> geneDefList)
+		//{
+		//	if (!WVC_Biotech.settings.generateXenotypeForceGenes)
+		//	{
+		//		return;
+		//	}
+		//	foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
+		//	{
+		//		foreach (XenotypeDef allDef in ListsUtility.GetWhiteListedXenotypes(true, true))
+		//		{
+		//			geneDefList.Add(GeneratorUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+		//		}
+		//	}
+		//}
 
 		public static void Aptitudes(List<GeneDef> geneDefList)
 		{
@@ -227,65 +227,65 @@ namespace WVC_XenotypesAndGenes
 
 		// XenoForcers
 
-		[Obsolete]
-		public static GeneDef GetFromTemplate_XenotypeForcer(XenotypeForcerGeneTemplateDef template, XenotypeDef def, int displayOrderBase)
-		{
-			GeneDef geneDef = new()
-			{
-				defName = template.defName + "_" + def.defName + "_XenoForcer",
-				geneClass = template.geneClass,
-				label = template.label.Formatted(def.label),
-				// iconPath = template.iconPath.Formatted(def.defName),
-				iconPath = def.iconPath,
-				description = template.description.Formatted(def.label),
-				labelShortAdj = template.labelShortAdj.Formatted(def.label),
-				selectionWeight = template.selectionWeight,
-				// iconColor = template.iconColor,
-				biostatCpx = template.biostatCpx,
-				biostatMet = template.biostatMet,
-				biostatArc = template.biostatArc,
-				displayCategory = template.displayCategory,
-				// displayOrderInCategory = template.displayOrderInCategory,
-				customEffectDescriptions = template.customEffectDescriptions,
-				displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
-				minAgeActive = template.minAgeActive,
-				modContentPack = template.modContentPack,
-				exclusionTags = new List<string>(),
-				modExtensions = new List<DefModExtension>
-				{
-					new GeneExtension_Giver
-					{
-						xenotypeForcerDef = def,
-						xenotypeIsInheritable = def.inheritable
-					}
-				}
-			};
-			string exclusionTag = "WVC_XenotypesAndGenes_XenotypeTemplateCollection";
-			if (def.inheritable)
-			{
-				exclusionTag += "_Endo";
-			}
-			else
-			{
-				exclusionTag += "_Xeno";
-			}
-			geneDef.exclusionTags.Add(exclusionTag);
-			if (template.exclusionTags != null)
-			{
-				foreach (string item in template.exclusionTags)
-				{
-					geneDef.exclusionTags.Add(item);
-				}
-			}
-			if (template.modExtensions != null)
-			{
-				foreach (DefModExtension item in template.modExtensions)
-				{
-					geneDef.modExtensions.Add(item);
-				}
-			}
-			return geneDef;
-		}
+		//[Obsolete]
+		//public static GeneDef GetFromTemplate_XenotypeForcer(XenotypeForcerGeneTemplateDef template, XenotypeDef def, int displayOrderBase)
+		//{
+		//	GeneDef geneDef = new()
+		//	{
+		//		defName = template.defName + "_" + def.defName + "_XenoForcer",
+		//		geneClass = template.geneClass,
+		//		label = template.label.Formatted(def.label),
+		//		// iconPath = template.iconPath.Formatted(def.defName),
+		//		iconPath = def.iconPath,
+		//		description = template.description.Formatted(def.label),
+		//		labelShortAdj = template.labelShortAdj.Formatted(def.label),
+		//		selectionWeight = template.selectionWeight,
+		//		// iconColor = template.iconColor,
+		//		biostatCpx = template.biostatCpx,
+		//		biostatMet = template.biostatMet,
+		//		biostatArc = template.biostatArc,
+		//		displayCategory = template.displayCategory,
+		//		// displayOrderInCategory = template.displayOrderInCategory,
+		//		customEffectDescriptions = template.customEffectDescriptions,
+		//		displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
+		//		minAgeActive = template.minAgeActive,
+		//		modContentPack = template.modContentPack,
+		//		exclusionTags = new List<string>(),
+		//		modExtensions = new List<DefModExtension>
+		//		{
+		//			new GeneExtension_Giver
+		//			{
+		//				xenotypeForcerDef = def,
+		//				xenotypeIsInheritable = def.inheritable
+		//			}
+		//		}
+		//	};
+		//	string exclusionTag = "WVC_XenotypesAndGenes_XenotypeTemplateCollection";
+		//	if (def.inheritable)
+		//	{
+		//		exclusionTag += "_Endo";
+		//	}
+		//	else
+		//	{
+		//		exclusionTag += "_Xeno";
+		//	}
+		//	geneDef.exclusionTags.Add(exclusionTag);
+		//	if (template.exclusionTags != null)
+		//	{
+		//		foreach (string item in template.exclusionTags)
+		//		{
+		//			geneDef.exclusionTags.Add(item);
+		//		}
+		//	}
+		//	if (template.modExtensions != null)
+		//	{
+		//		foreach (DefModExtension item in template.modExtensions)
+		//		{
+		//			geneDef.modExtensions.Add(item);
+		//		}
+		//	}
+		//	return geneDef;
+		//}
 
 		public static GeneDef GetFromTemplate_Skills(SkillsGeneTemplateDef template, SkillDef def, int displayOrderBase)
 		{

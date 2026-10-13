@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public bool useMaskForFurskinGenes = true;
 		// Generator
 		public bool generateSkillGenes = false;
-		public bool generateXenotypeForceGenes = false;
+		//public bool generateXenotypeForceGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref useMaskForFurskinGenes, "useMaskForFurskinGenes", defaultValue: true);
 			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true, forceSave: true);
-			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
+			//Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
@@ -321,10 +321,10 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref showGenesSettingsGizmo, "showGenesSettingsGizmo", defaultValue: true);
 			Scribe_Values.Look(ref hideGeneHediffs, "hideGeneHediffs", defaultValue: false);
 			// End
-			if (EnableLegacyMode || generateXenotypeForceGenes)
-			{
-				Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
-			}
+			//if (EnableLegacyMode || generateXenotypeForceGenes)
+			//{
+			//	Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
+			//}
 		}
 	}
 
@@ -342,7 +342,7 @@ namespace WVC_XenotypesAndGenes
 			//new Harmony("wvc.sergkart.races.biotech").PatchAll();
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
-				WVC_Biotech.settings.EnableLegacyMode = false;
+				//WVC_Biotech.settings.EnableLegacyMode = false;
 				WVC_Biotech.settings.generateSkillGenes = false;
 			}
 			HarmonyPatches.HarmonyUtility.HarmonyPatches();
@@ -388,15 +388,15 @@ namespace WVC_XenotypesAndGenes
 					WriteSettings();
 				}, PageIndex == 4)
 			};
-			if (settings.EnableLegacyMode || settings.generateXenotypeForceGenes)
-			{
-				TabRecord newXenotypeFilterTab = new("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
-				{
-					PageIndex = 3;
-					WriteSettings();
-				}, PageIndex == 3);
-				tabs.Add(newXenotypeFilterTab);
-			}
+			//if (settings.EnableLegacyMode || settings.generateXenotypeForceGenes)
+			//{
+			//	TabRecord newXenotypeFilterTab = new("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
+			//	{
+			//		PageIndex = 3;
+			//		WriteSettings();
+			//	}, PageIndex == 3);
+			//	tabs.Add(newXenotypeFilterTab);
+			//}
 			TabDrawer.DrawTabs(rect, tabs);
 			switch (PageIndex)
 			{
@@ -475,10 +475,10 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			}
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes_Aptitudes".Translate());
-			if (settings.generateXenotypeForceGenes || Prefs.DevMode)
-			{
-				listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateXenoForcerGenes".Translate());
-			}
+			//if (settings.generateXenotypeForceGenes || Prefs.DevMode)
+			//{
+			//	listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateXenoForcerGenes".Translate());
+			//}
 			// Outdated. No longer supported and maintained
 			//if (settings.generateResourceSpawnerGenes)
 			//{
@@ -989,7 +989,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.useMaskForFurskinGenes = settingsDef.useMaskForFurskinGenes;
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = settingsDef.generateSkillGenes;
-			WVC_Biotech.settings.generateXenotypeForceGenes = settingsDef.generateXenotypeForceGenes;
+			//WVC_Biotech.settings.generateXenotypeForceGenes = settingsDef.generateXenotypeForceGenes;
 			//WVC_Biotech.settings.generateResourceSpawnerGenes = settingsDef.generateResourceSpawnerGenes;
 			//WVC_Biotech.settings.generateSkinHairColorGenes = settingsDef.generateSkinHairColorGenes;
 			// Misc

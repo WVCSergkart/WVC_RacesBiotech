@@ -346,15 +346,15 @@ namespace WVC_XenotypesAndGenes
 
 		// Instability
 
-		[Obsolete]
-		public static void OffsetInstabilityTick(Pawn pawn, int ticks)
-		{
-			Gene_GeneticInstability gene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
-			if (gene != null)
-			{
-				gene.nextTick += ticks;
-			}
-		}
+		//[Obsolete]
+		//public static void OffsetInstabilityTick(Pawn pawn, int ticks)
+		//{
+		//	Gene_GeneticInstability gene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
+		//	if (gene != null)
+		//	{
+		//		gene.nextTick += ticks;
+		//	}
+		//}
 
 		// Coma TEST
 

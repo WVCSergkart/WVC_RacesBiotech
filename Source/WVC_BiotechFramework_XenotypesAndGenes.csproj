@@ -1,70 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{446F3771-6E21-4958-9805-E2DD6D52DBF2}</ProjectGuid>
+    <TargetFramework>net10.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WVC_XenotypesAndGenes</RootNamespace>
-    <AssemblyName>WVC_BiotechFramework_XenotypesAndGenes</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
     <LangVersion>preview</LangVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>WVC_BiotechFramework_XenotypesAndGenes</AssemblyTitle>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<GenerateDependencyFile>false</GenerateDependencyFile>
+    <Product>WVC_XenotypesAndGenes</Product>
+    <Copyright>Copyright © Sergkart 2021</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>..\1.7\Biotech_Genes\Assemblies\</OutputPath>
     <DefineConstants>
     </DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>..\1.7\Biotech_Genes\Assemblies\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>..\1.7\Biotech_Genes\Assemblies\WVC_BiotechFramework_XenotypesAndGenes.xml</DocumentationFile>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="MigrationBackup\**" />
+    <Compile Remove="Obsolete_0\**" />
+    <Compile Remove="packages\**" />
+    <EmbeddedResource Remove="MigrationBackup\**" />
+    <EmbeddedResource Remove="Obsolete_0\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <None Remove="MigrationBackup\**" />
+    <None Remove="Obsolete_0\**" />
+    <None Remove="packages\**" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <!-- <Reference Include="System"> -->
-      <!-- <HintPath>..\..\..\System.dll</HintPath> -->
-      <!-- <Private>False</Private> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Runtime"> -->
-      <!-- <HintPath>..\..\..\System.Runtime.dll</HintPath> -->
-      <!-- <Private>False</Private> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Private.Xml"> -->
-      <!-- <HintPath>..\..\..\System.Private.dll</HintPath> -->
-      <!-- <Private>False</Private> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Private.Xml"> -->
-      <!-- <HintPath>..\..\..\System.Private.Xml.dll</HintPath> -->
-      <!-- <Private>False</Private> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Private.CoreLib"> -->
-      <!-- <HintPath>..\..\..\System.Private.CoreLib.dll</HintPath> -->
-      <!-- <Private>False</Private> -->
-    <!-- </Reference> -->
     <Reference Include="UnityStubs">
       <HintPath>..\..\..\UnityStubs.dll</HintPath>
       <Private>False</Private>
@@ -81,474 +57,11 @@
       <HintPath>..\..\..\Waylith.VideoDecode.dll</HintPath>
       <Private>False</Private>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Compatability\MayRequireVanillaExpandedFrameworkAttribute.cs" />
-    <Compile Include="Compatability\ModsDefOf.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ArchiverIntegrator.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_BloodfeederBite.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ChimeraImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_GeneRipper.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_HivemindAssimilator.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_HybridImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Devourer.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ImplantGeneDef.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Impregnate.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_NewImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Overrider.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Replacer.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_SwitchImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Duplicator.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityMechfeed.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
-    <Compile Include="Obsolete_0\CompAbilityEffect_PostImplanter.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterThrallMaker.cs" />
-    <Compile Include="Obsolete_0\CompProperties_SafeBloodfeed.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_StorageImplanter.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Hivemind.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_InSpace.cs" />
-    <Compile Include="Resources_Defs\ChimeraDevourerDef.cs" />
-    <Compile Include="Resources_Defs\XaG_MutantDef.cs" />
-    <Compile Include="Resources_DefWorkers\ChimeraDevourer.cs" />
-    <Compile Include="Resources_DefWorkers\ShaperGeneSet.cs" />
-    <Compile Include="Resources_Defs\StyleGeneDef.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_GeneGiver.cs" />
-    <Compile Include="Resources_Defs\ShaperGeneSetDef.cs" />
-    <Compile Include="Resources_DefWorkers\Precept_OneManArmy.cs" />
-    <Compile Include="Resources_Genes\Gene_ArtificialBeauty.cs" />
-    <Compile Include="Resources_Genes\Gene_Attachments.cs" />
-    <Compile Include="Resources_Genes\Gene_ChimeraLimits.cs" />
-    <Compile Include="Resources_Genes\Gene_CustomHair.cs" />
-    <Compile Include="Resources_Genes\Gene_Energyshifter.cs" />
-    <Compile Include="Resources_Genes\Gene_Energyshifter_SubGene.cs" />
-    <Compile Include="Resources_Genes\Gene_Energyshifter_XenogenesEditor.cs" />
-    <Compile Include="Resources_Genes\Gene_Energyshifter_XenotypesUnlocker.cs" />
-    <Compile Include="Resources_Genes\Gene_FeatheredAgeless.cs" />
-    <Compile Include="Resources_Genes\Gene_FleshmassNucleus.cs" />
-    <Compile Include="Resources_Genes\Gene_Fleshshaper.cs" />
-    <Compile Include="Resources_Genes\Gene_Fleshshaper_Metabolism.cs" />
-    <Compile Include="Resources_Genes\Gene_Holder.cs" />
-    <Compile Include="Resources_Genes\Gene_PsychicHarem.cs" />
-    <Compile Include="Resources_Genes\Gene_Sacrificer.cs" />
-    <Compile Include="Resources_Genes\Gene_SkinColor.cs" />
-    <Compile Include="Resources_Genes\Gene_UnrealFastHealing.cs" />
-    <Compile Include="Resources_Genes\Gene_FungoidHair.cs" />
-    <Compile Include="Resources_Genes\Gene_HivemindDependency.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Dependant.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_EfficiencyNode.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Gestator.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Metabolism.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Mood.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Overrider.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_SharedFood.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Traits.cs" />
-    <Compile Include="Resources_Genes\Gene_Misc.cs" />
-    <Compile Include="Resources_Genes\Gene_Mechaskin.cs" />
-    <Compile Include="Resources_Genes\Gene_Ovipositor.cs" />
-    <Compile Include="Resources_Genes\Gene_RestStomach.cs" />
-    <Compile Include="Resources_Genes\Gene_Animalfeeder.cs" />
-    <Compile Include="Resources_Genes\Gene_ArchiverDependant.cs" />
-    <Compile Include="Resources_Genes\Gene_Bloodeater.cs" />
-    <Compile Include="Resources_Genes\Gene_CarnivorousSkin.cs" />
-    <Compile Include="Resources_Genes\Gene_Chameleon.cs" />
-    <Compile Include="Resources_Genes\Gene_ChimeraGeneline.cs" />
-    <Compile Include="Resources_Genes\Gene_ChimeraHediff.cs" />
-    <Compile Include="Resources_Genes\Gene_DayNightSleepiness.cs" />
-    <Compile Include="Resources_Genes\Gene_Devourer.cs" />
-    <Compile Include="Resources_Genes\Gene_Duplicator.cs" />
-    <Compile Include="Resources_Genes\Gene_DuplicatorSubGene.cs" />
-    <Compile Include="Resources_Genes\Gene_Duplicator_MeDuplicate.cs" />
-    <Compile Include="Resources_Genes\Gene_Duplicator_MeSource.cs" />
-    <Compile Include="Resources_Genes\Gene_BottomlessBelly.cs" />
-    <Compile Include="Resources_Genes\Gene_ChimeraNetwork.cs" />
-    <Compile Include="Resources_Genes\Gene_GeneticConverter.cs" />
-    <Compile Include="Resources_Genes\Gene_GolemlinkSubGene.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Ideo.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_AddOrRemoveHediff.cs" />
-    <Compile Include="Resources_Genes\Gene_HiveMind_Needs.cs" />
-    <Compile Include="Resources_Genes\Gene_HiveMind_Opinion.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_Regeneration.cs" />
-    <Compile Include="Resources_Genes\Gene_HiveMind_Skills.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind_SyncNode.cs" />
-    <Compile Include="Resources_Genes\Gene_HiveMind_Thoughts.cs" />
-    <Compile Include="Resources_Genes\Gene_ImplanterFang.cs" />
-    <Compile Include="Resources_Genes\Gene_Inhumanized.cs" />
-    <Compile Include="Resources_Genes\Gene_Overrider.cs" />
-    <Compile Include="Resources_Genes\Gene_OverriderDependant.cs" />
-    <Compile Include="Resources_Genes\Gene_EternalHunger.cs" />
-    <Compile Include="Resources_Genes\Gene_HybridImplanter.cs" />
-    <Compile Include="Resources_Genes\Gene_Mechlink_Falselink.cs" />
-    <Compile Include="Resources_Genes\Gene_RegenerationSleep.cs" />
-    <Compile Include="Resources_Genes\Gene_Rejuvenator.cs" />
-    <Compile Include="Resources_Genes\Gene_ExpEqualizer.cs" />
-    <Compile Include="Resources_Genes\Gene_Switcher.cs" />
-    <Compile Include="Resources_Genes\Gene_Voidlink_SubGenes.cs" />
-    <Compile Include="Resources_Genes\Gene_Archiver.cs" />
-    <Compile Include="Resources_Genes\Gene_Auto.cs" />
-    <Compile Include="Resources_Genes\Gene_Chimera_SubGenes.cs" />
-    <Compile Include="Obsolete_0\Gene_DeathrestSubgenes.cs" />
-    <Compile Include="Resources_Genes\Gene_FleshmassGenes.cs" />
-    <Compile Include="Resources_Genes\Gene_Morpher_SubGenes.cs" />
-    <Compile Include="Resources_Genes\Gene_Summon.cs" />
-    <Compile Include="Resources_Genes\Gene_Mechlink_Voidlink.cs" />
-    <Compile Include="Resources_Genes\Gene_StorageImplanter.cs" />
-    <Compile Include="Resources_Genes\Gene_Chimera_PsychicHarvester.cs" />
-    <Compile Include="Resources_Genes\Gene_Mechlink_Golemlink.cs" />
-    <Compile Include="Resources_Genes\Gene_Morpher_TargetXenotypes.cs" />
-    <Compile Include="Resources_Genes\Gene_SelfOverrider.cs" />
-    <Compile Include="Resources_Genes\Gene_Hivemind.cs" />
-    <Compile Include="Resources_Genes\Gene_VoidHunger.cs" />
-    <Compile Include="Resources_Genes\Gene_PackMentality.cs" />
-    <Compile Include="Resources_Genes\Gene_Wings.cs" />
-    <Compile Include="Resources_Genes\XaG_Gene.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ActivityManager.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ShaperEditor_Feathered.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_StylingExtra.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Energyshifter.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Fleshshaper.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Sacrificer.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_PostImplantDebug.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_ImmunityCheck.cs" />
-    <Compile Include="Resources_Hediff\Hediff_BudPregnancy.cs" />
-    <Compile Include="Resources_Hediff\Hediff_FaultyShapeDisease.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_AdaptiveTemperature.cs" />
-    <Compile Include="Resources_Hediff\Hediff_HivemindHatred.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_FleshmassDuplicate.cs" />
-    <Compile Include="Resources_Holders\ReincarnationSet.cs" />
-    <Compile Include="Resources_Main\IAbility.cs" />
-    <Compile Include="Resources_Main\IHediffs.cs" />
-    <Compile Include="Resources_Main\IJobs.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Generemover.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Skillshifter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ShaperEditor.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Traitshifter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_Hideable.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_Hivemind.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Duplicate.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_HungerlessStomach.cs" />
-    <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
-    <Compile Include="Resources_Hediff\HediffAddedPart_FleshmassNucleus.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_ChimeraDependant.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Duplicator.cs" />
-    <Compile Include="Resources_Hediff\Hediff_LoveEnhancer.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Morpher.cs" />
-    <Compile Include="Resources_Hediff\Hediff_VoidDrain.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Thrall.cs" />
-    <Compile Include="Resources_Hediff\Hediff_FleshmassImmunity.cs" />
-    <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_ChimeraDeathMark.cs" />
-    <Compile Include="Resources_Hediff\Hediff_PsychicSensitivity.cs" />
-    <Compile Include="Resources_Holders\GeneDefOverrideSaver.cs" />
-    <Compile Include="Resources_Holders\GeneSetPreset.cs" />
-    <Compile Include="Resources_Holders\PawnContainerHolder.cs" />
-    <Compile Include="Resources_Holders\PawnGeneSetHolder.cs" />
-    <Compile Include="Resources_Holders\XenotypeHolder_Exposable.cs" />
-    <Compile Include="Resources_Holders\ThrallHolder.cs" />
-    <Compile Include="Resources_Holders\TraitDefHolder.cs" />
-    <Compile Include="Resources_Holders\XenotypeHolder.cs" />
-    <Compile Include="Resources_DefWorkers\BloodeaterMode.cs" />
-    <Compile Include="Resources_Defs\BloodeaterModeDef.cs" />
-    <Compile Include="Resources_DefWorkers\BloodeaterMode_Animal.cs" />
-    <Compile Include="Resources_DefWorkers\BloodeaterMode_Corpse.cs" />
-    <Compile Include="Resources_DefWorkers\BloodeaterMode_Hemogen.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome.cs" />
-    <Compile Include="Resources_Defs\DuplicatorOutcomeDef.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_Berserk.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_CrumblingMind.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_DuplicateSickness.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_Mutation.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_OrganDecay.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_RandomBackstory.cs" />
-    <Compile Include="Resources_DefWorkers\DuplicatorOutcome_RandomTrait.cs" />
-    <Compile Include="Resources_Defs\UtilityDef.cs" />
-    <Compile Include="Resources_Defs\SettingsDef.cs" />
-    <Compile Include="Resources_Defs\DevXenotypeDef.cs" />
-    <Compile Include="Resources_Defs\GauranlenGeneModeDef.cs" />
-    <Compile Include="Resources_Holders\GeneDefWithChance.cs" />
-    <Compile Include="Resources_Defs\GolemModeDef.cs" />
-    <Compile Include="Resources_Holders\MechanoidHolder.cs" />
-    <Compile Include="Resources_Defs\SkillsGeneTemplateDef.cs" />
-    <Compile Include="Resources_Defs\ThrallDef.cs" />
-    <Compile Include="Resources_Main\IngestionOutcomeDoer_HumanEgg.cs" />
-    <Compile Include="Resources_Main\ITab_GenesCustomPregnancy.cs" />
-    <Compile Include="Resources_Main\IThing.cs" />
-    <Compile Include="Resources_Main\MainTabWindow_EntitiesWork.cs" />
-    <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
-    <Compile Include="Obsolete_0\XenotypeForcerGeneTemplateDef.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Attachments.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_CustomHair.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Bodyparts.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_Golemnoid.cs" />
-    <Compile Include="Resources_Quests\IncidentWorker_GiveQuest.cs" />
-    <Compile Include="Resources_Quests\IncidentWorker_MetalkinDrop.cs" />
-    <Compile Include="Resources_Quests\QuestNode_Root_WandererJoin_WalkIn.cs" />
-    <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
-    <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
-    <Compile Include="Resources_Genes\Gene_Anomaly.cs" />
-    <Compile Include="Resources_Genes\Gene_Chimera.cs" />
-    <Compile Include="Resources_Genes\Gene_Rechargeable.cs" />
-    <Compile Include="Resources_Genes\Gene_Furskin.cs" />
-    <Compile Include="Resources_Genes\Gene_Dryad.cs" />
-    <Compile Include="Resources_Genes\Gene_Gauranlen.cs" />
-    <Compile Include="Resources_Genes\Gene_Gender.cs" />
-    <Compile Include="Resources_Genes\Gene_GeneMaker.cs" />
-    <Compile Include="Resources_Genes\Gene_Harvester.cs" />
-    <Compile Include="Resources_Genes\Gene_Learning.cs" />
-    <Compile Include="Resources_Genes\Gene_Morpher.cs" />
-    <Compile Include="Resources_Genes\Gene_Opinion.cs" />
-    <Compile Include="Resources_Genes\Gene_Psylink.cs" />
-    <Compile Include="Resources_Genes\Gene_MachineWoundHealing.cs" />
-    <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
-    <Compile Include="Resources_Genes\Gene_Shapeshifter_SubGenes.cs" />
-    <Compile Include="Resources_Genes\Gene_SunAndDarkness.cs" />
-    <Compile Include="Resources_Genes\Gene_Telepathy.cs" />
-    <Compile Include="Resources_Genes\Gene_Thralls.cs" />
-    <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
-    <Compile Include="Resources_Main\IGenes.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenotypeTree.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenogenesEditor_Presets.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenogenesEditor.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
-    <Compile Include="Obsolete_0\Dialog_RetuneSerum.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_StylingGene.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Chimera.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Morpher.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_Shapeshifter.cs" />
-    <Compile Include="Resources_Genes\Gene_InStability.cs" />
-    <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />
-    <Compile Include="Resources_Genes\Gene_Ingest.cs" />
-    <Compile Include="Resources_Genes\Gene_Mechlink.cs" />
-    <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
-    <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
-    <Compile Include="Resources_Genes\Gene_Flickable.cs" />
-    <Compile Include="Resources_Harmony\Harmony.cs" />
-    <Compile Include="Obsolete_0\HediffCompProperties_PawnHaveWings.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_GeneHediff.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_ReplaceWithHediff.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_Spawner.cs" />
-    <Compile Include="Resources_Hediff\HediffDef.cs" />
-    <Compile Include="Resources_Hediff\Hediff_DryadQueen.cs" />
-    <Compile Include="Resources_Hediff\Hediff_GestatedDryad.cs" />
-    <Compile Include="Obsolete_0\HediffWithComps_Metabolism.cs" />
-    <Compile Include="Resources_Hediff\HediffWithComps_Scars.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_OnlyOneOverseer.cs" />
-    <Compile Include="Resources_Main\Misc.cs" />
-    <Compile Include="Resources_Main\StaticCollection.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorableEyes.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromGetColorComp.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_GlowingHair.cs" />
-    <Compile Include="Resources_RitualAttachableOutcome\RitualAttachableOutcomeEffectWorker_XenotypeRecruit.cs" />
-    <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_PawnGenes.cs" />
-    <Compile Include="Resources_Main\GoodwillSituationWorker_HivemindHatred.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_HivemindWorld.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Beholder.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_IceWorld.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Scarlands.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_CustomWorld.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Duplicators.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Shapeshifter.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_TEST.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_Undead.cs" />
-    <Compile Include="Resources_ScenPart\SketchResolver_Gravship.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_XenotypesAndGenes.cs" />
-    <Compile Include="Resources_StatPart\StatPart_OffsetFromGenes.cs" />
-    <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
-    <Compile Include="Resources_StatPart\StatPart_SourceFactor.cs" />
-    <Compile Include="Resources_StatPart\StatPart_MaxVoidsenceFactorFromMechs.cs" />
-    <Compile Include="Resources_ScenPart\StockGenerator_BuyAllSellable.cs" />
-    <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
-    <Compile Include="Resources_Things\Building_MechCharger.cs" />
-    <Compile Include="Resources_Things\CompBackupSummonPawns.cs" />
-    <Compile Include="Resources_Things\CompChimeraArchiteLimit.cs" />
-    <Compile Include="Obsolete_0\CompEntitiesGenes.cs" />
-    <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
-    <Compile Include="Resources_Things\CompProperties_Corpse.cs" />
-    <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
-    <Compile Include="Resources_Things\CompProperties_CustomFloatMenu.cs" />
-    <Compile Include="Obsolete_0\CompProperties_Genepack.cs" />
-    <Compile Include="Resources_Things\CompProperties_GenesSettings.cs" />
-    <Compile Include="Resources_Things\CompProperties_GestatedDryad.cs" />
-    <Compile Include="Resources_Things\CompProperties_Golem.cs" />
-    <Compile Include="Resources_Things\CompProperties_HumanEgg.cs" />
-    <Compile Include="Resources_Things\CompProperties_SkippableBuilding.cs" />
-    <Compile Include="Resources_Things\CompProperties_StylingStation.cs" />
-    <Compile Include="Resources_Things\CompProperties_UseEffect_XenogermSerum.cs" />
-    <Compile Include="Resources_Things\CompProps_DestroyAndReturnResources.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
-    <Compile Include="Obsolete_0\CompUseEffect_XenogermSerum.cs" />
-    <Compile Include="Obsolete_0\CompUseEffect_GeneShapeshifterChanger.cs" />
-    <Compile Include="Obsolete_0\CompUseEffect_GeneticStabilizer.cs" />
-    <Compile Include="Obsolete_0\CompUseEffect_XenotypeNullifier.cs" />
-    <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
-    <Compile Include="Obsolete_0\ThingClass_XenotypeSerum.cs" />
-    <Compile Include="Resources_Main\MentalStateWorker_Duplicator.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_CallHolder.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_ConsumeArchiteCapsule.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_LayHumanEgg.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_OpenStylingStationDialog.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_SummonBackupPawns.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_XaGJob_General.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_WanderGravship.cs" />
-    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalInSpace.cs" />
-    <Compile Include="Resources_TEST\ThinkNode_InitWorkSettings.cs" />
-    <Compile Include="Resources_ThinkNodes\XaG_Job.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_ArtificialBeauty.cs" />
-    <Compile Include="Resources_Thought\Thought_HivemindSize.cs" />
-    <Compile Include="Resources_Thought\Thought_HumanCentricMemory.cs" />
-    <Compile Include="Resources_Thought\Thought_MemorySocial_NoFade.cs" />
-    <Compile Include="Resources_Thought\Thought_PsychicHarem.cs" />
-    <Compile Include="Resources_Thought\Thought_RecluseMemory.cs" />
-    <Compile Include="Resources_Utility\DeathlessUtility.cs" />
-    <Compile Include="Resources_Utility\EffectsUtility.cs" />
-    <Compile Include="Resources_Utility\FamilyUtility.cs" />
-    <Compile Include="Compatability\ModsUtility.cs" />
-    <Compile Include="Resources_Utility\PreferredXenotypeUtility.cs" />
-    <Compile Include="Resources_Utility\GeneshiftUtility.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_Hivemind.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_PreferedXenotype.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Social_FamilyByBlood.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Duplicate.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
-    <Compile Include="Resources_Thought\Thought_PackMentality.cs" />
-    <Compile Include="Resources_Utility\DuplicateUtility.cs" />
-    <Compile Include="Resources_Utility\GeneratorUtility.cs" />
-    <Compile Include="Resources_Utility\InitialUtility.cs" />
-    <Compile Include="Resources_Utility\InteractionUtility.cs" />
-    <Compile Include="Resources_Utility\HivemindUtility.cs" />
-    <Compile Include="Resources_Utility\TraitsUtility.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_AbsorbGenogerm.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_CastAbilityMelee.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_ChangeGolemType.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_ChangeMorpherTriggerGene.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_DestroyCellularBody.cs" />
-    <Compile Include="Obsolete_0\JobDriver_DevourEntitie.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_FeedTargetWithOwnBlood.cs" />
-    <Compile Include="Obsolete_0\JobDriver_RetuneSerum.cs" />
-    <Compile Include="Resources_ThinkNodes\JobDriver_StomachCharge.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_AIDefendConnectedPawn.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_AIFollowConnectedPawn.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_DryadCocoon.cs" />
-    <Compile Include="Resources_Main\GameComponents.cs" />
-    <Compile Include="Resources_Main\PostInitializationStartup.cs" />
-    <Compile Include="Obsolete_0\CompProperties_CheckPawnFaction.cs" />
-    <Compile Include="Resources_Things\CompProperties_Humanlike.cs" />
-    <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
-    <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
-    <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
-    <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_WithCollectionCheck.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
-    <Compile Include="Resources_Utility\AgelessUtility.cs" />
-    <Compile Include="Resources_TEST\TEST_JobGiver_WanderNearTarget.cs" />
-    <Compile Include="Resources_Utility\GeneFeaturesUtility.cs" />
-    <Compile Include="Resources_Utility\GeneHealUtility.cs" />
-    <Compile Include="Resources_Utility\XaG_UiUtility.cs" />
-    <Compile Include="Resources_Utility\GeneUtility.cs" />
-    <Compile Include="Resources_Utility\MechanoidsUtility.cs" />
-    <Compile Include="Resources_Utility\MiscUtility.cs" />
-    <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
-    <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
-    <Compile Include="Obsolete_0\CompRecyclerSpawner.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
-    <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
-    <Compile Include="Resources_Genes\Gene_Ageless.cs" />
-    <Compile Include="Resources_Genes\Gene_Resurgent.cs" />
-    <Compile Include="Resources_Genes\Gene_Undead.cs" />
-    <Compile Include="Resources_Genes\Gene_Eyes.cs" />
-    <Compile Include="Resources_Genes\Gene_Gestator.cs" />
-    <Compile Include="Resources_Genes\Gene_Clotting.cs" />
-    <Compile Include="Resources_Genes\Gene_Spawner.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityReimplanter.cs" />
-    <Compile Include="Resources_Genes\Gene_Reimplanters.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
-    <Compile Include="Resources_Utility\GestationUtility.cs" />
-    <Compile Include="Resources_Utility\HediffUtility.cs" />
-    <Compile Include="Resources_Main\ModExtension.cs" />
-    <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
-    <Compile Include="Resources_Utility\ThoughtUtility.cs" />
-    <Compile Include="Resources_Utility\GeneResourceUtility.cs" />
-    <Compile Include="Resources_Main\MainDefOf.cs" />
-    <Compile Include="Resources_Utility\ListsUtility.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_GolemGestator.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_InstantKill.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />
-    <Compile Include="Resources_Quests\QuestNode_Root_MechanitorSummonMech.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
-    <Compile Include="Resources_Main\ModSettings.cs" />
-    <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources_Defs\DummyDryadTemplateDef.cs" />
-    <Compile Include="Obsolete_0\CompTargetable_TargetValidation.cs" />
-    <Compile Include="Resources_Things\CompToxifier.cs" />
-    <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
-    <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_RescueConnectedPawn.cs" />
-    <Compile Include="Resources_Main\SpecialTrees.cs" />
-    <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
-    <Compile Include="Obsolete_0\CompTargetEffect_RiseFromTheDead.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />
-    <Compile Include="Obsolete_0\CompUseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Obsolete_0\JobDriver_ResurrectAndChangeXenotype.cs" />
-    <Compile Include="Resources_ThinkNodes\JobGiver_WanderNearConnectedPawn.cs" />
-    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalAllowWanderNearMaster.cs" />
-    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalGestatedDryad.cs" />
-    <Compile Include="Resources_ThinkNodes\ThinkNode_ConditionalShouldFollowConnectedPawn.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_LongRunningJoke.cs" />
-    <Compile Include="Resources_ScenPart\ScenPart_PawnModifier_DynamicXenotypes.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetterDef.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Dryads.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Sanguophage.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_GameNotStarted.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Deadcat.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Duplicator.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Faction.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Fantasy.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Fleshmass.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Mechakin.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Metalkin.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Shapeshifter.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_SoloLeveling.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Tribal.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Undead.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Nociokin.cs" />
-    <Compile Include="XenotypesGetterProject\XenotypeGetter_Xenotypes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Krafs.Publicizer">
-      <Version>2.3.2</Version>
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Lib.Harmony">
-      <Version>3.0.0-rc.2</Version>
+    <PackageReference Include="Lib.Harmony" Version="3.0.0-rc.2">
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -560,8 +73,53 @@
     <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_GeneTracker.EnsureCorrectSkinColorOverride" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include=".editorconfig" />
+  <ItemGroup Label="Compile items now included by globbing that were not in the original project file">
+    <Compile Remove="Resources_Thought\Thought_MemorySocial_Psychic.cs" />
+    <Compile Remove="Resources_ThinkNodes\JobDriver_EnterXenosculpterPod.cs" />
+    <Compile Remove="Resources_ThinkNodes\InteractionWorker_VoidWords.cs" />
+    <Compile Remove="Resources_Things\CompProperties_Xenotype.cs" />
+    <Compile Remove="Resources_Things\CompProperties_UseEffectEatSeed.cs" />
+    <Compile Remove="Resources_Things\CompProperties_SpawnBaby.cs" />
+    <Compile Remove="Resources_Things\CompProperties_RandomName.cs" />
+    <Compile Remove="Resources_Things\CompProperties_AffectedByFacilities.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_XenotypeSerum.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_OffsetPsychicSensitivity.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_OffsetFromPollutedCages.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_ForceTo.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_FactorForUniqueKind.cs" />
+    <Compile Remove="Resources_StatPart\StatPart_FactorForGolems.cs" />
+    <Compile Remove="Resources_ScenPart\ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes.cs" />
+    <Compile Remove="Resources_RitualAttachableOutcome\OutcomeWorker_XenoTreeBulbSprout.cs" />
+    <Compile Remove="Resources_Quests\QuestNode_Root_UnnaturalDarkness.cs" />
+    <Compile Remove="Resources_Quests\QuestNode_Root_ChimerkinShip.cs" />
+    <Compile Remove="Resources_PawnRenderNodes\PawnRenderNode_SkeletonSkin.cs" />
+    <Compile Remove="Resources_PawnRenderNodes\PawnRenderNode_FurIsSkin.cs" />
+    <Compile Remove="Resources_PawnRenderNodes\PawnRenderNode_Faceplate.cs" />
+    <Compile Remove="Resources_PawnRenderNodes\PawnRenderNodeProperties_Size.cs" />
+    <Compile Remove="Resources_Main\XenotypesModSettings.cs" />
+    <Compile Remove="Resources_Main\ShapeshiftWorker.cs" />
+    <Compile Remove="Resources_Main\GenelineDef.cs" />
+    <Compile Remove="Resources_Main\BackCompatibilityConverter_Any.cs" />
+    <Compile Remove="Resources_Hediff\Hediff_UndeadResurrection.cs" />
+    <Compile Remove="Resources_Hediff\Hediff_Spores.cs" />
+    <Compile Remove="Resources_Hediff\Hediff_Mechlink.cs" />
+    <Compile Remove="Resources_Hediff\Hediff_LightExposure.cs" />
+    <Compile Remove="Resources_Hediff\Hediff_GolemChunk.cs" />
+    <Compile Remove="Resources_Hediff\HediffComp_GenesRegrowing.cs" />
+    <Compile Remove="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
+    <Compile Remove="Resources_Gizmo\GeneGizmo_Overlord.cs" />
+    <Compile Remove="Resources_Gizmo\Dialog_Shapeshifter_Old.cs" />
+    <Compile Remove="Resources_Gizmo\Dialog_ShapeshifterHeritableGenes.cs" />
+    <Compile Remove="Resources_Gizmo\Dialog_GolemTypesForSummon.cs" />
+    <Compile Remove="Resources_Gizmo\Dialog_ChooseMech.cs" />
+    <Compile Remove="Resources_Genes\Gene_StaticCollection.cs" />
+    <Compile Remove="Resources_Genes\Gene_Overlord.cs" />
+    <Compile Remove="Resources_DefWorkers\GolemlinkMode.cs" />
+    <Compile Remove="Resources_ConditionalStatAffecter\ConditionalStatAffecter_OneManArmy.cs" />
+    <Compile Remove="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Genes.cs" />
+    <Compile Remove="Resources_ConditionalStatAffecter\ConditionalStatAffecter_ColonistInColony.cs" />
+    <Compile Remove="Resources_ConditionalStatAffecter\ConditionalStatAffecter_CauseSetting.cs" />
+    <Compile Remove="Resources_Abilities\CompProperties_CorpseEater.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

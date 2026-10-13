@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			public static void HarmonyPatches()
 			{
 				cachedHarmony = new Harmony("wvc.sergkart.races.biotech");
-				if (WVC_Biotech.settings.generateXenotypeForceGenes || WVC_Biotech.settings.generateSkillGenes || WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
+				if (WVC_Biotech.settings.generateSkillGenes || WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
 				{
 					cachedHarmony.Patch(AccessTools.Method(typeof(GeneDefGenerator), "ImpliedGeneDefs"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(Patch_GeneDefGenerator_ImpliedGeneDefs))));
 				}
@@ -104,9 +104,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				List<GeneDef> geneDefList = values.ToList();
 				GeneratorUtility.Aptitudes(geneDefList);
-#pragma warning disable CS0612 // Type or member is obsolete
-				GeneratorUtility.HybridForcerGenes(geneDefList);
-#pragma warning restore CS0612 // Type or member is obsolete
+				//GeneratorUtility.HybridForcerGenes(geneDefList);
 				//GeneratorUtility.Spawners(geneDefList);
 				//GeneratorUtility.AutoColorGenes(geneDefList);
 				GeneratorUtility.GauranlenTreeModeDef();

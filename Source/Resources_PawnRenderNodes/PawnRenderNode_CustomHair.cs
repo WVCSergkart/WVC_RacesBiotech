@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override Color ColorFor(Pawn pawn)
 		{
-			if (gene is Gene_FungoidHair geneHair && geneHair.CurrentColor != null)
+			if (gene is Gene_FungoidHair geneHair)
 			{
 				return geneHair.CurrentColor;
 			}
