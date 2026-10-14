@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Hivemind">
+	<defName>WVC_Overrider</defName>
+	<label>overrider</label>
+	<description>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Hybrid):&lt;/color&gt; This xenotype can copy the genes of others, thus creating a hybrid set on top of the genes they have.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Geneline):&lt;/color&gt; The abilities of this xenotype's chimera are limited by a predetermined set of genes. And using a chimera requires CD and adherence to the metabolic limit.</description>
+	<descriptionShort>Overriders are ageless super-humans powered by archotech-created archites in the bloodstream. They grow incredibly quickly, can switch off some of their genes, quickly develop immunity to disease, and reproduce easily. Those who survive long enough become extremely strong. However, due to their rapid growth, they easily develop cancer, and their need for hemogen replaces hunger.</descriptionShort>
+	<iconPath>WVC/UI/Icons3/Icon_Overrider1c</iconPath>
+	<displayPriority>-1095</displayPriority>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
+	<genes>
+		<li>WVC_Chimera</li>
+		<!-- <li>WVC_Chimera_HugeIncreasedLimit</li> -->
+		<li>WVC_Chimera_GenelineFleshmass</li>
+		<li>WVC_Chimera_Cooldown</li>
+		<li>WVC_Chimera_HighMetLimit</li>
+		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Animalfeeder</li>
+		<li>WVC_HybridImplanter</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_FleshmassImmunity</li>
+		<!-- <li>WVC_FleshmassNucleus</li> -->
+		<li>WVC_FleshmassReproduction</li>
+		<li>WVC_FleshmassAging</li>
+		<li>WVC_EternalHunger</li>
+		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
+		<!-- <li>Deathrest</li> -->
+		<li>LowSleep</li>
+		<li>Hemogenic</li>
+		<li>HemogenDrain</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_HiveMind_Needs</li>
+		<li>WVC_ArchiteTelepathy</li>
+		<!-- <li>WVC_NaturalTelepathy</li> -->
+		<li>MaxTemp_LargeIncrease</li>
+		<!-- <li>WVC_Overrider</li> -->
+		<li>WVC_Ageless_Overrider</li>
+		<li>WVC_Health_Overrider</li>
+		<li>WVC_Tough_Overrider</li>
+		<li>WVC_Pain_Overrider</li>
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<!-- <li>Aggression_Aggressive</li> -->
+		<li>ToxicEnvironmentResistance_Total</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

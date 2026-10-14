@@ -14,7 +14,7 @@
 	  <li>WVC_ReimplanterThrallMaker</li>
 	  <li>WVC_Reimplanter_HiveMaker</li>
 	  <li>Hemogenic</li>
-	  <li>WVC_ResurgentCells</li>
+	  <!-- <li>WVC_ResurgentCells</li> -->
 	  <li>WVC_Chimera</li>
 	</blacklistGenes>
 	<blacklistCategories>
