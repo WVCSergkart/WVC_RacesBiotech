@@ -369,4 +369,90 @@
 	<!-- </exclusionTags> -->
   </GeneDef>
 
+  <!-- ======================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_Bloodcells</defName>
+	<label>bloodcells</label>
+	<description>Carriers of this gene can replenish resurgent cells by bloodfeed.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodcells</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_CellsFromBlood_v0</iconPath>
+	<displayOrderInCategory>85</displayOrderInCategory>
+	<resourceLossPerDay>0.08</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability also replenishes &lt;color=#8a8ae6&gt;resurgent cells&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>cells</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>cells</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<nutritionPerBite>0.08</nutritionPerBite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ======================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentOffset</geneClass>
+	<selectionWeight>0.00005</selectionWeight>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<prerequisite>WVC_ResurgentCells</prerequisite>
+	<minAgeActive>3</minAgeActive>
+	<resourceLabel>cells</resourceLabel>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+  </GeneDef>
+
+  <!-- Base -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentImmunity_PerfectImmunity</defName>
+	<label>resurgent immunity</label>
+	<description>Carriers of this gene have resurgent cells that provide almost perfect immunity.</description>
+	<iconPath>WVC/UI/Genes/Gene_PerfectImmunity_v0</iconPath>
+	<displayOrderInCategory>1290</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentDisease_DiseaseFree</defName>
+	<label>resurgent senescent</label>
+	<description>Carriers of this gene have resurgent cells that completely prevent chronic diseases.</description>
+	<iconPath>WVC/UI/Genes/Gene_NonSenescent_v0</iconPath>
+	<displayOrderInCategory>1295</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<exclusionTags>
+	  <li>WVC_DiseaseFree</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

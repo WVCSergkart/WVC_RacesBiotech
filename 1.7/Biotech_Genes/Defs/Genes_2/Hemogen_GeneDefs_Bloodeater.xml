@@ -142,40 +142,4 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
-	<defName>WVC_Bloodcells</defName>
-	<label>bloodcells</label>
-	<description>Carriers of this gene can replenish resurgent cells by bloodfeed.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodcells</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_CellsFromBlood_v0</iconPath>
-	<displayOrderInCategory>85</displayOrderInCategory>
-	<resourceLossPerDay>0.08</resourceLossPerDay>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<customEffectDescriptions>
-		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability also replenishes &lt;color=#8a8ae6&gt;resurgent cells&lt;/color&gt;.</li>
-	</customEffectDescriptions>
-	<!-- <prerequisite></prerequisite> -->
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>blood</symbol></li>
-		<li><symbol>cells</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>cells</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<nutritionPerBite>0.08</nutritionPerBite>
-			<!-- <specialFoodDefs> -->
-			  <!-- <li>HemogenPack</li> -->
-			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li> -->
-			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li> -->
-			  <!-- <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li> -->
-			<!-- </specialFoodDefs> -->
-		</li>
-	</modExtensions>
-  </GeneDef>
-
 </Defs>
