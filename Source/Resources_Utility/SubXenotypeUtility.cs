@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool TryGetHybridGenes(Pawn pawn, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes)
+		public static bool TryGetHybridGenes(Pawn pawn, List<GeneDef> firstXenotypeGenes, List<GeneDef> secondXenotypeGenes, out List<GeneDef> allNewGenes, List<GeneDef> exceptedGenes, List<GeneDef> ignoredGenes, bool ignoreLimit = false)
 		{
 			allNewGenes = new();
 			string phase = "start";
@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	return true;
 				//}
-				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneShapeshifter))
+				if (pawn != null && pawn.genes.GenesListForReading.Any((gene) => gene is IGeneShapeshifter) || ignoreLimit)
 				{
 					return true;
 				}

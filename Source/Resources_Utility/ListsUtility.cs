@@ -172,80 +172,80 @@ namespace WVC_XenotypesAndGenes
 		//	return whiteListedXenotypesFromDef;
 		//}
 
-		private static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
-		{
-			List<string> list = new();
-			foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
-			{
-				if (item.blackListedXenotypesForSerums.NullOrEmpty())
-				{
-					continue;
-				}
-				list.AddRange(item.blackListedXenotypesForSerums);
-			}
-			if (addFromFilter)
-			{
-				//if (WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
-				//{
-				//	return list;
-				//}
-				InitialUtility.SetValues();
-				// WVC_Biotech.settings.Write();
-				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
-				{
-					if (item.Value == false)
-					{
-						list.Add(item.Key);
-					}
-				}
-			}
-			return list;
-		}
+		//private static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
+		//{
+		//	List<string> list = new();
+		//	foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
+		//	{
+		//		if (item.blackListedXenotypesForSerums.NullOrEmpty())
+		//		{
+		//			continue;
+		//		}
+		//		list.AddRange(item.blackListedXenotypesForSerums);
+		//	}
+		//	if (addFromFilter)
+		//	{
+		//		//if (WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
+		//		//{
+		//		//	return list;
+		//		//}
+		//		InitialUtility.SetValues();
+		//		// WVC_Biotech.settings.Write();
+		//		foreach (var item in WVC_Biotech.cachedXenotypesFilter)
+		//		{
+		//			if (item.Value == false)
+		//			{
+		//				list.Add(item.Key);
+		//			}
+		//		}
+		//	}
+		//	return list;
+		//}
 
-		public static List<XenotypeDef> GetWhiteListedXenotypes(bool addFromFilter = false, bool addFromResurrectorFilter = false)
-		{
-			List<string> filterList = GetBlackListedXenotypesForSerums(addFromFilter);
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-			// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
-			// }
-			List<XenotypeDef> allXenotypesList = GetAllXenotypesExceptAndroids();
-			List<XenotypeDef> list = new();
-			for (int i = 0; i < allXenotypesList.Count; i++)
-			{
-				if (!filterList.Contains(allXenotypesList[i].defName))
-				{
-					list.Add(allXenotypesList[i]);
-				}
-			}
-			if (addFromResurrectorFilter)
-			{
-				foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
-				{
-					if (item.whiteListedXenotypesForResurrectorSerums.NullOrEmpty())
-					{
-						continue;
-					}
-					list.AddRange(item.whiteListedXenotypesForResurrectorSerums);
-				}
-			}
-			return list;
-		}
+		//public static List<XenotypeDef> GetWhiteListedXenotypes(bool addFromFilter = false, bool addFromResurrectorFilter = false)
+		//{
+		//	List<string> filterList = GetBlackListedXenotypesForSerums(addFromFilter);
+		//	// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+		//	// {
+		//	// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
+		//	// }
+		//	List<XenotypeDef> allXenotypesList = GetAllXenotypesExceptAndroids();
+		//	List<XenotypeDef> list = new();
+		//	for (int i = 0; i < allXenotypesList.Count; i++)
+		//	{
+		//		if (!filterList.Contains(allXenotypesList[i].defName))
+		//		{
+		//			list.Add(allXenotypesList[i]);
+		//		}
+		//	}
+		//	if (addFromResurrectorFilter)
+		//	{
+		//		foreach (UtilityDef item in DefDatabase<UtilityDef>.AllDefsListForReading)
+		//		{
+		//			if (item.whiteListedXenotypesForResurrectorSerums.NullOrEmpty())
+		//			{
+		//				continue;
+		//			}
+		//			list.AddRange(item.whiteListedXenotypesForResurrectorSerums);
+		//		}
+		//	}
+		//	return list;
+		//}
 
-		public static List<XenotypeHolder> GetWhiteListedXenotypesHolders(bool addFromFilter = false, bool addFromResurrectorFilter = false)
-		{
-			List<XenotypeHolder> xenotypeHolders = GetAllXenotypesHolders();
-			if (xenotypeHolders.NullOrEmpty())
-			{
-				return new();
-			}
-			List<XenotypeDef> xenotypes = GetWhiteListedXenotypes(addFromFilter, addFromResurrectorFilter);
-			if (xenotypes.NullOrEmpty())
-			{
-				return xenotypeHolders;
-			}
-			return xenotypeHolders.Where((XenotypeHolder holder) => holder.CustomXenotype || xenotypes.Contains(holder.xenotypeDef)).ToList();
-		}
+		//public static List<XenotypeHolder> GetWhiteListedXenotypesHolders(bool addFromFilter = false, bool addFromResurrectorFilter = false)
+		//{
+		//	List<XenotypeHolder> xenotypeHolders = GetAllXenotypesHolders();
+		//	if (xenotypeHolders.NullOrEmpty())
+		//	{
+		//		return new();
+		//	}
+		//	List<XenotypeDef> xenotypes = GetWhiteListedXenotypes(addFromFilter, addFromResurrectorFilter);
+		//	if (xenotypes.NullOrEmpty())
+		//	{
+		//		return xenotypeHolders;
+		//	}
+		//	return xenotypeHolders.Where((XenotypeHolder holder) => holder.CustomXenotype || xenotypes.Contains(holder.xenotypeDef)).ToList();
+		//}
 
 		public static List<XenotypeHolder> GetAllThrallHolders()
 		{

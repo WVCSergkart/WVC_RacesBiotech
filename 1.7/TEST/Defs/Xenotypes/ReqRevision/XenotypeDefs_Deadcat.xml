@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty" WVC_XaG_XenotypeRemoveTag="Psycasters">
-	<defName>WVC_CatDeity</defName>
+  <!-- Revision update v1: Reward xeno xenotype, with hivemind abilities. Category: Undeads -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Undeads">
+	<defName>WVC_Deadcat</defName>
 	<label>deadcat</label>
-	<description>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.
+	<description>Deadcats are partially immortal, xeno-humans powered by archotech-created archites in the bloodstream.</description>
+	<descriptionShort>Deadcats are partially immortal, xeno-humans powered by archotech-created archites in the bloodstream.</descriptionShort>
+	<!-- <description>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless. -->
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Deadcats have no immunity, and their wounds cannot heal. They are very weak, and any damage to them can be fatal, and they cannot learn skills on their own, they copy them from other pawns. But their psionic potential is limitless, as they passively restore psyfocus.</description>
-	<descriptionShort>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.</descriptionShort>
+<!-- &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Deadcats have no immunity, and their wounds cannot heal. They are very weak, and any damage to them can be fatal, and they cannot learn skills on their own, they copy them from other pawns. But their psionic potential is limitless, as they passively restore psyfocus.</description> -->
+	<!-- <descriptionShort>Deadcats are partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.</descriptionShort> -->
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</iconPath>
 	<displayPriority>-1045</displayPriority>
-	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
-		<li>WVC_ArchitePsylink</li>
+		<!-- <li>WVC_ArchitePsylink</li> -->
+		<!-- <li>WVC_NeverDead</li> -->
+		<!-- <li>WVC_PsychicAbility_Archite</li> -->
+		<!-- <li>WVC_NaturalTelepathy</li> -->
+		<!-- <li>WVC_MinMaxTemp_Archite</li> -->
+		<!-- <li>VerySleepy</li> -->
+		<!-- <li>WVC_Hair_NonBald</li> -->
+		<!-- <li>WVC_CatEarsA</li> -->
+		<!-- <li>WVC_TransparentSkin</li> -->
+		<!-- <li>WVC_CatTailA</li> -->
+		<!-- <li>Beard_NoBeardOnly</li> -->
+		<!-- <li>WVC_VoiceAnimals_BigCat</li> -->
+		<!-- <li>WVC_Feminine</li> -->
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<!-- <li>WVC_HairColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_SkinColor_Slate</li> -->
+		<!-- <li>WVC_Learning_Telepath</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>WVC_DemonBeauty</li> -->
+		<!-- <li>WVC_DeadStomach</li> -->
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_Immunity_Non</li> -->
+		<!-- <li>WVC_XenotypeGestator</li> -->
+		<!-- <li>WVC_Invisibility</li> -->
+		<!-- = -->
 		<li>WVC_NeverDead</li>
-		<!-- <li Hook="RemoveMeInTest">WVC_NaturalAgeless</li> -->
-		<!-- <li Hook="RemoveMeInTest">WVC_DeadlyGeneticInstability</li> -->
-		<li>WVC_PsychicAbility_Archite</li>
+		<li>WVC_DeadStomach</li>
+		<li>WVC_Invisibility</li>
+		<li>WVC_Hivemind_DormantDrone</li>
+		<li>WVC_Immunity_Non</li>
+		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_NaturalTelepathy</li>
+		<li>MoveSpeed_VeryQuick</li>
 		<li>WVC_MinMaxTemp_Archite</li>
 		<li>VerySleepy</li>
+		<li>Beauty_Beautiful</li>
 		<li>WVC_Hair_NonBald</li>
 		<li>WVC_CatEarsA</li>
 		<li>WVC_TransparentSkin</li>
 		<li>WVC_CatTailA</li>
 		<li>Beard_NoBeardOnly</li>
 		<li>WVC_VoiceAnimals_BigCat</li>
-		<li>WVC_Feminine</li>
 		<li>WVC_BodySize_Small</li>
 		<li>WVC_HairColor_b4c8ff_HEX</li>
 		<li>WVC_SkinColor_Slate</li>
-		<li>WVC_Learning_Telepath</li>
 		<li>DarkVision</li>
-		<li>WVC_DemonBeauty</li>
-		<li>WVC_DeadStomach</li>
-		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_Immunity_Non</li>
-		<!-- <li Hook="RemoveMeInTest">WVC_Glass</li> -->
-		<li>WVC_XenotypeGestator</li>
-		<li>WVC_Invisibility</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_SharedMetabolism</li>
 	</genes>
   </XenotypeDef>
 

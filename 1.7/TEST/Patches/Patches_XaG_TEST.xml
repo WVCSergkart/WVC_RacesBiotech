@@ -138,22 +138,18 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
-	  <safetyDepth>2</safetyDepth>
-	  <value>
-		<race>
-		  <willNeverEat>
-			<!-- Plants -->
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-			<!-- Edible Non-Food -->
-			<!-- <li MayRequire="ludeon.rimworld.odyssey">Plant_TreeArchean</li> -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li> -->
-		  </willNeverEat>
-		</race>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath> -->
+	  <!-- <safetyDepth>2</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <race> -->
+		  <!-- <willNeverEat> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li> -->
+		  <!-- </willNeverEat> -->
+		<!-- </race> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationReplace"> -->
 	  <!-- <xpath>/Defs/HediffDef[defName="XenogermReplicating"]/comps/li/disappearsAfterTicks</xpath> -->

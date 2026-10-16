@@ -47,29 +47,35 @@
 	<!-- </modExtensions> -->
   <!-- </XenotypeDef> -->
 
-  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
-	<!-- <defName>WVC_TestTemplateB</defName> -->
-	<!-- <label>TestTemplateB</label> -->
-	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="TEST">
+	<defName>WVC_NewResurgentTest</defName>
+	<label>TestTemplateB</label>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
+	<isHybrid>true</isHybrid>
+	<isRandom>False</isRandom>
 	<!-- <genes> -->
-		<!-- <li>WVC_HeadBoneCurveHorns</li> -->
-		<!-- <li>Body_Standard</li> -->
-		<!-- <li>WVC_SkinColor_Slate</li> -->
-		<!-- <li>WVC_Eyes_Colorful</li> -->
-		<!-- <li>WVC_DemonTailA</li> -->
-		<!-- <li>Hair_SnowWhite</li> -->
-		<!-- <li>WVC_HairColor_ffdcb4_HEX</li> -->
-		<!-- <li>WVC_Morpher</li> -->
-		<!-- <li>WVC_MorphCondition_Diurnal</li> -->
+	  <!-- <li>WVC_HybridImplanter</li> -->
+	  <!-- <li>WVC_MergeImplanter</li> -->
 	<!-- </genes> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <defaultColor>(255, 216, 133)</defaultColor> -->
-			<!-- <morpherXenotypeDefs> -->
-			  <!-- <li>WVC_TestTemplate</li> -->
-			<!-- </morpherXenotypeDefs> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </XenotypeDef> -->
+	<exceptedGenes>
+		<li>WVC_Archiver</li>
+		<li>WVC_MorphCondition_Monolith</li>
+		<li>WVC_Archiver_AutoResearch</li>
+		<li>WVC_Archiver_MindsConnection</li>
+		<li>WVC_Archiver_Integrator</li>
+		<li>WVC_Archiver_Skills</li>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_ArchiverCopy</li>
+		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
+		<li>WVC_Chimera_GeneRipper</li>
+		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
+		<li>WVC_DeadStomach</li>
+	</exceptedGenes>
+	<xenotypeDefs>
+	  <li>WVC_Reaperkind</li>
+	  <li>WVC_Ripperkind</li>
+	  <li>WVC_Resurgent</li>
+	</xenotypeDefs>
+  </XenotypeDef>
 
 </Defs>

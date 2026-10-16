@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		//public bool implemented = true;
 
-		public GeneDef devGeneDef;
+		//public GeneDef devGeneDef;
 
 		public string xenotypeDesc = "WVC_XaG_DevXenotypeDef_XenotypeDesc";
 
@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void ResolveReferences()
 		{
-			if (devGeneDef == null)
+			if (isRandom)
 			{
 				base.ResolveReferences();
 				return;
@@ -41,16 +41,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				genes = new();
 			}
-			GeneDef geneticShifter = devGeneDef;
-			if (genes.Contains(geneticShifter))
-			{
-				genes.Remove(geneticShifter);
-			}
+			//GeneDef geneticShifter = devGeneDef;
+			//if (genes.Contains(geneticShifter))
+			//{
+			//	genes.Remove(geneticShifter);
+			//}
 			Setup();
-			if (!isHybrid || isRandom)
-			{
-				genes.Add(geneticShifter);
-			}
+			//if (!isHybrid || isRandom)
+			//{
+			//	genes.Add(geneticShifter);
+			//}
+			base.ResolveReferences();
 		}
 
 		private void Setup()
@@ -131,22 +132,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				descriptionHyperlinks.Add(new DefHyperlink(item));
 			}
-			if (isRandom)
+			if (XenotypeDefs.Count < 2)
 			{
+				Log.Error(defName + " has less xenotypes than this type supports. Min xenotypeDefs is 2.");
 				return;
-			}
-			if (XenotypeDefs.Count != 2)
-			{
-				Log.Warning(defName + " has more xenotypes than this type supports. Max xenotypeDefs is 2.");
 			}
 			XenotypeDef firstXenotypeDef = XenotypeDefs.First();
 			XenotypeDef secondXenotypeDef = XenotypeDefs.Last();
-			if (!SubXenotypeUtility.TryGetHybridGenes(null, firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes, new()))
-			{
-				description = "Failed create hybrid from: " + firstXenotypeDef.defName + " and " + secondXenotypeDef.defName + ". Because their total metabolism is not compatible. Please set other xenotypes in xenotypeDefs.";
-				Log.Error(description);
-				return;
-			}
+			//if (!SubXenotypeUtility.TryGetHybridGenes(null, firstXenotypeDef.genes, secondXenotypeDef.genes, out List<GeneDef> allNewGenes, exceptedGenes, new(), ModsUtility.DevMode))
+			//{
+			//	description = "Failed create hybrid from: " + firstXenotypeDef.defName + " and " + secondXenotypeDef.defName + ". Because their total metabolism is not compatible. Please set other xenotypes in xenotypeDefs.";
+			//	Log.Error(description);
+			//	return;
+			//}
+			List<GeneDef> allNewGenes = GetGenes();
 			if (!xenotypeDesc.NullOrEmpty())
 			{
 				description = xenotypeDesc.Translate(firstXenotypeDef.label, secondXenotypeDef.label);
@@ -159,10 +158,53 @@ namespace WVC_XenotypesAndGenes
 					genes.Add(item);
 				}
 			}
-			foreach (GeneDef item in genes)
+
+			List<GeneDef> GetGenes()
 			{
-				descriptionHyperlinks.Add(new DefHyperlink(item));
+				List<GeneDef> allNewGenes = new();
+				int totalGenesCount = 0;
+				foreach (XenotypeDef xenotype in XenotypeDefs)
+				{
+					totalGenesCount += xenotype.genes.Count;
+					foreach (GeneDef geneDef in xenotype.genes)
+					{
+						if (exceptedGenes.Contains(geneDef) || allNewGenes.Contains(geneDef) || XaG_GeneUtility.ConflictWith(geneDef, allNewGenes))
+						{
+							continue;
+						}
+						allNewGenes.Add(geneDef);
+					}
+				}
+				totalGenesCount /= XenotypeDefs.Count;
+				allNewGenes.SortBy(gene => gene.prerequisite != null);
+				foreach (GeneDef geneDef in allNewGenes.ToList())
+				{
+					if (totalGenesCount < allNewGenes.Count)
+					{
+						allNewGenes.Remove(geneDef);
+					}
+				}
+				foreach (GeneDef geneDef in allNewGenes.ToList())
+				{
+					if (geneDef.prerequisite != null)
+					{
+						allNewGenes.Add(geneDef.prerequisite);
+					}
+				}
+				foreach (GeneDef geneDef in allNewGenes.ToList())
+				{
+					if (geneDef.prerequisite != null && !allNewGenes.Contains(geneDef.prerequisite))
+					{
+						allNewGenes.Remove(geneDef);
+					}
+				}
+
+				return allNewGenes;
 			}
+			//foreach (GeneDef item in genes)
+			//{
+			//	descriptionHyperlinks.Add(new DefHyperlink(item));
+			//}
 		}
 
 	}
