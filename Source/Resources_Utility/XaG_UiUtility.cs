@@ -828,6 +828,15 @@ namespace WVC_XenotypesAndGenes
 						//text += "\n\n" + "Selection weight (Genepack chance): " + (geneDef.selectionWeight * 100) + "% or " + geneDef.selectionWeight;
 					}
 				}
+				text += "\n\n\n XENOTYPES:";
+				List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
+				foreach (XenotypeDef xenotype in xenotypeDefs)
+				{
+					if (xenotype.IsXenoGenesDef())
+					{
+						text += "\n#" + XaG_GeneUtility.GetDescriptionFull_Wiki(xenotype);
+					}
+				}
 				// Without this, tags will be buggy
 				text += "\n\n" + allDefsListForReading.RandomElement().LabelCap;
 				text.ResolveTags();

@@ -1994,5 +1994,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static string GetDescriptionFull_Wiki(XenotypeDef xenotypeDef)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.Append(" " + xenotypeDef.LabelCap);
+			sb.AppendLine();
+			sb.AppendLine("defName: `" + xenotypeDef.defName + "`");
+			sb.AppendLine();
+			if (!xenotypeDef.description.NullOrEmpty())
+			{
+				sb.AppendLine("> " + xenotypeDef.description).AppendLine().AppendLine();
+			}
+			sb.AppendLine("Genes: " + xenotypeDef.genes.Select((genedef) => "[" + genedef.LabelCap.ToString() + "](https://github.com/WVCSergkart/WVC_RacesBiotech/wiki/Genes-DUMP#" + genedef.label.ToString().Replace(" ", "-") + ")").ToCommaList(useAnd: true));
+			return sb.ToString().TrimEndNewlines();
+		}
+
 	}
 }
