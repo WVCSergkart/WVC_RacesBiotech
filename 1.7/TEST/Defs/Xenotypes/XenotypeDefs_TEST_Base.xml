@@ -47,35 +47,36 @@
 	<!-- </modExtensions> -->
   <!-- </XenotypeDef> -->
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="TEST">
-	<defName>WVC_NewResurgentTest</defName>
-	<label>TestTemplateB</label>
-	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
-	<isHybrid>true</isHybrid>
-	<isRandom>False</isRandom>
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.DevXenotypeDef" WVC_XaG_XenotypeRemoveTag="TEST"> -->
+	<!-- <defName>WVC_NewResurgentTest</defName> -->
+	<!-- <label>TestTemplateB</label> -->
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
+	<!-- <isHybrid>true</isHybrid> -->
+	<!-- <isRandom>False</isRandom> -->
 	<!-- <genes> -->
-	  <!-- <li>WVC_HybridImplanter</li> -->
-	  <!-- <li>WVC_MergeImplanter</li> -->
+	  <!-- <li>WVC_Bloodcells</li> -->
 	<!-- </genes> -->
-	<exceptedGenes>
-		<li>WVC_Archiver</li>
-		<li>WVC_MorphCondition_Monolith</li>
-		<li>WVC_Archiver_AutoResearch</li>
-		<li>WVC_Archiver_MindsConnection</li>
-		<li>WVC_Archiver_Integrator</li>
-		<li>WVC_Archiver_Skills</li>
-		<li>WVC_Chimera</li>
-		<li>WVC_Chimera_ArchiverCopy</li>
-		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
-		<li>WVC_Chimera_GeneRipper</li>
-		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
-		<li>WVC_DeadStomach</li>
-	</exceptedGenes>
-	<xenotypeDefs>
-	  <li>WVC_Reaperkind</li>
-	  <li>WVC_Ripperkind</li>
-	  <li>WVC_Resurgent</li>
-	</xenotypeDefs>
-  </XenotypeDef>
+	<!-- <exceptedGenes> -->
+		<!-- <li>WVC_Archiver</li> -->
+		<!-- <li>WVC_MorphCondition_Monolith</li> -->
+		<!-- <li>WVC_Archiver_AutoResearch</li> -->
+		<!-- <li>WVC_Archiver_MindsConnection</li> -->
+		<!-- <li>WVC_Archiver_Integrator</li> -->
+		<!-- <li>WVC_Archiver_Skills</li> -->
+		<!-- <li>WVC_Chimera</li> -->
+		<!-- <li>WVC_Chimera_ArchiverCopy</li> -->
+		<!-- <li>WVC_Chimera_GreatlyDecreasedLimit</li> -->
+		<!-- <li>WVC_Chimera_GeneRipper</li> -->
+		<!-- <li>WVC_Chimera_GreatlyDecreasedLimit</li> -->
+		<!-- <li>WVC_DeadStomach</li> -->
+		<!-- <li>WVC_VoidHunger</li> -->
+		<!-- <li>Deathless</li> -->
+	<!-- </exceptedGenes> -->
+	<!-- <xenotypeDefs> -->
+	  <!-- <li>WVC_Reaperkind</li> -->
+	  <!-- <li>WVC_Ripperkind</li> -->
+	  <!-- <li>WVC_Resurgent</li> -->
+	<!-- </xenotypeDefs> -->
+  <!-- </XenotypeDef> -->
 
 </Defs>

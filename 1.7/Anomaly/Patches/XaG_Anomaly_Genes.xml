@@ -30,13 +30,13 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationReplace">
-	  <xpath>/Defs/XenotypeDef[defName="WVC_Ripperkind"]/genes/li[@ReplaceTag="Deathless"]</xpath>
-	  <success>Always</success>
-	  <value>
-		  <li>WVC_DeathRefusal</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Ripperkind"]/genes/li[@ReplaceTag="Deathless"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_DeathRefusal</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="DeathPall" or defName="GrayPall" or defName="DeadlifeDust"]</xpath>
