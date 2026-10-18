@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void InitPatch()
 		{
-			MechanoidsUtility.HarmonyPatch();
+			HotPatchesUtility.Patch_MechanitorGizmos();
 		}
 
 		public bool HideMechanitorGUI => shouldHideMechanitorUI;

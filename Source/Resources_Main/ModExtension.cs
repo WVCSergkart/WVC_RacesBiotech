@@ -663,29 +663,7 @@ namespace WVC_XenotypesAndGenes
 				geneDef.selectionWeight = 0;
 				geneDef.canGenerateInGeneSet = false;
 			}
-			HarmonyPatch();
+			HotPatchesUtility.Patch_HideGenesInOrder();
 		}
-
-		private static bool genesInOrderPatched = false;
-		private static void HarmonyPatch()
-		{
-			if (genesInOrderPatched)
-			{
-				return;
-			}
-			try
-			{
-				if (!WVC_Biotech.settings.hideXaGGenes) //  && !WVC_Biotech.settings.EnableLegacyMode
-				{
-					HarmonyUtility.Harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(GeneUtility), "GenesInOrder"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_HideObsoleteGenes))));
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply hideGenes patch. Reason: " + arg.Message);
-			}
-			genesInOrderPatched = true;
-		}
-
 	}
 }

@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetGeneral()
 		{
-			DuplicateUtility.HarmonyPatch();
+			HotPatchesUtility.Patch_ObeliskDuplicatorTweak();
 			CompAbilityEffect_Duplicator.generalSourceOnlyMode = true;
 		}
 

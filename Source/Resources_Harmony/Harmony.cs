@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (WVC_Biotech.settings.duplicator_ReplaceVanillaDuplicator)
 				{
-					DuplicateUtility.HarmonyPatch();
+					HotPatchesUtility.Patch_ObeliskDuplicatorTweak();
 				}
 			}
 

@@ -157,7 +157,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HarmonyPatch();
+			HotPatchesUtility.Patch_AcceptablePrey();
 			ResetCollection();
 		}
 
@@ -182,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				HarmonyPatch();
+				HotPatchesUtility.Patch_AcceptablePrey();
 			}
 		}
 
@@ -195,30 +195,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedNonPreyPawns = null;
 		}
-
-		//=================
-
-
-		private static bool isAcceptablePreyForPatched = false;
-		public static void HarmonyPatch()
-		{
-			if (isAcceptablePreyForPatched)
-			{
-				return;
-			}
-			try
-			{
-				if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
-				{
-					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.IsNotAcceptablePrey))));
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply predator repellent patch. Reason: " + arg.Message);
-			}
-			isAcceptablePreyForPatched = true;
-		}
 	}
 
 	public class Gene_IncestLover : XaG_Gene
@@ -227,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HarmonyPatch();
+			HotPatchesUtility.Patch_IncestAndLovinChance();
 		}
 
 		public override void ExposeData()
@@ -235,34 +211,8 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				HarmonyPatch();
+				HotPatchesUtility.Patch_IncestAndLovinChance();
 			}
-		}
-
-		//=================
-
-
-		private static bool incestCheckPatched = false;
-		private static void HarmonyPatch()
-		{
-			if (incestCheckPatched)
-			{
-				return;
-			}
-			try
-			{
-				if (WVC_Biotech.settings.enableIncestLoverGene)
-				{
-					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Incestuous_Relations))));
-					HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Incestuous_LovinChanceFactor))));
-					//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(JobDriver_Lovin), "GenerateRandomMinTicksToNextLovin"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Notify_GotLovin))));
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply incest lover patch. Reason: " + arg.Message);
-			}
-			incestCheckPatched = true;
 		}
 
 		//public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)

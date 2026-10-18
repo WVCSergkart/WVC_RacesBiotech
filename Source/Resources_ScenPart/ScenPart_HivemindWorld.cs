@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostGameStart();
 			SetGeneral();
 			SetFactions();
-			HarmonyPatch();
+			HotPatchesUtility.Patch_ScenarioSkillLose();
 		}
 
 		//private void SetFactions()
@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();
-				HarmonyPatch();
+				HotPatchesUtility.Patch_ScenarioSkillLose();
 			}
 		}
 
@@ -195,28 +195,6 @@ namespace WVC_XenotypesAndGenes
 			Gene_Chimera.forcedDisableChimeraLimit = true;
 			hivemindHatred?.naturalGoodwillOffset = -999;
 			HivemindUtility.nonPlayerHivemindSize = nonPlayerHivemindSize;
-		}
-
-
-		private static bool skillRecordSkillLossPatched = false;
-		private static void HarmonyPatch()
-		{
-			if (skillRecordSkillLossPatched)
-			{
-				return;
-			}
-			try
-			{
-				//var harmony = new Harmony("wvc.sergkart.races.biotech.hivemindhatred");
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(SkillRecord), "Interval"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoSkillLossPatch))));
-				//harmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(SkillRecord), "Aptitude"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
-				//harmony.Patch(AccessTools.Method(typeof(SkillRecord), "DirtyAptitudes"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.HivemindHatredAptitude))));
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply hatred patch. Reason: " + arg.Message);
-			}
-			skillRecordSkillLossPatched = true;
 		}
 
 		//public static int hivemindHatredAptitude = -8;

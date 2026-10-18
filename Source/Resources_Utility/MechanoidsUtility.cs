@@ -48,27 +48,6 @@ namespace WVC_XenotypesAndGenes
 			hideMechanitorButton = null;
 		}
 
-
-		private static bool mechanitorGetGizmosPatched = false;
-		public static void HarmonyPatch()
-		{
-			if (mechanitorGetGizmosPatched)
-			{
-				return;
-			}
-			try
-			{
-				//var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
-				//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_MechanitorTracker), "GetGizmos"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.MechanitorHideWithGene))));
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply mechanitor UI patch. Reason: " + arg.Message);
-			}
-			mechanitorGetGizmosPatched = true;
-		}
-
 		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
 		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=
 		// =COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=COLLECTION=

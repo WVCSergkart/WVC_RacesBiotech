@@ -149,7 +149,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetCollection();
-			HarmonyPatch();
+			HotPatchesUtility.Patch_MovementCost();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Override()
 		{
 			ResetCollection();
-			HarmonyPatch();
+			HotPatchesUtility.Patch_MovementCost();
 		}
 
 		public bool ignoreMovementCost = true;
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ignoreMovementCost, "ignoreMovementCost", defaultValue: true);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				HarmonyPatch();
+				HotPatchesUtility.Patch_MovementCost();
 			}
 		}
 
@@ -215,30 +215,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			ResetCollection();
 		}
-
-		//=================
-
-
-		private static bool movementCostPatched = false;
-		private static void HarmonyPatch()
-		{
-			if (movementCostPatched)
-			{
-				return;
-			}
-			try
-			{
-				//var harmony = new Harmony("wvc.sergkart.races.biotech.pergene");
-				HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.NoMovementCost))));
-				//HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn), "GetPathContext"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.PathGridPatch))));
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed apply wings patch. Reason: " + arg.Message);
-			}
-			movementCostPatched = true;
-		}
-
 	}
 
 	public class Gene_Levitation : Gene_Wings
