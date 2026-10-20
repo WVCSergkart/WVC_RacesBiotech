@@ -72,6 +72,7 @@
     <Publicize Include="Assembly-CSharp:RimWorld.CompHatcher.gestateProgress" />
     <Publicize Include="Assembly-CSharp:RimWorld.StockGenerator_SingleDef.thingDef" />
     <Publicize Include="Assembly-CSharp:RimWorld.Pawn_GeneTracker.EnsureCorrectSkinColorOverride" />
+    <Publicize Include="Assembly-CSharp:RimWorld.XenotypeSet.xenotypeChances" />
   </ItemGroup>
   <ItemGroup Label="Compile items now included by globbing that were not in the original project file">
     <Compile Remove="Resources_Thought\Thought_MemorySocial_Psychic.cs" />

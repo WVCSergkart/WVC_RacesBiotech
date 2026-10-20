@@ -5,7 +5,8 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class DevXenotypeDef : XenotypeDef
+
+	public class DevXenotypeDef : XenotypeDef_XaG
 	{
 
 		//public bool isThrall = false;

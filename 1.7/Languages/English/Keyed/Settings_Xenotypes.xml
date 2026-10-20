@@ -20,10 +20,8 @@
 
 	<!-- ================================== -->
 
-	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions (Outdated)</WVC_Label_enable_spawnXenotypesInFactions>
-	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable xenotype spawning in factions. Without regard for balance and/or their design, but spreading them across all vanilla factions with some old ideas behind these xenotypes.
-
-Global xenotype balance does not imply their spawning in factions. And this option can ruin the game experience and/or make it too easy, keep that in mind.
+	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions</WVC_Label_enable_spawnXenotypesInFactions>
+	<WVC_ToolTip_enable_spawnXenotypesInFactions>IN DEV
 
 A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
 
@@ -35,13 +33,13 @@ Please note that this may impact some mechanics, which may become unavailable or
 A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>
-	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent, Leper.</WVC_ToolTip_disableXenotypes_Undeads>
+	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent, Leper, Deadcat.</WVC_ToolTip_disableXenotypes_Undeads>
 
 	<WVC_Label_disableXenotypes_Psycasters>|- Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
-	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
+	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif.</WVC_ToolTip_disableXenotypes_Psycasters>
 
 	<WVC_Label_disableXenotypes_Mechalike>|- Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
-	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin, Ferrkind, Mechamata.</WVC_ToolTip_disableXenotypes_Mechalike>
+	<WVC_ToolTip_disableXenotypes_Mechalike>Mechakin, Duplicator, Metalkin, Ferrkind, Mechamata.</WVC_ToolTip_disableXenotypes_Mechalike>
 
 	<WVC_Label_disableXenotypes_GolemMasters>|- Disable golemists</WVC_Label_disableXenotypes_GolemMasters>
 	<WVC_ToolTip_disableXenotypes_GolemMasters>Golyad, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
@@ -53,10 +51,10 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<!-- <WVC_ToolTip_disableXenotypes_MutantMakers>Ripperkind, Reaperkind, Overrider.</WVC_ToolTip_disableXenotypes_MutantMakers> -->
 
 	<WVC_Label_disableXenotypes_Hivemind>|- Disable hivemind</WVC_Label_disableXenotypes_Hivemind>
-	<WVC_ToolTip_disableXenotypes_Hivemind>Overrider, Fleshkind.</WVC_ToolTip_disableXenotypes_Hivemind>
+	<WVC_ToolTip_disableXenotypes_Hivemind>Fleshkind.</WVC_ToolTip_disableXenotypes_Hivemind>
 
 	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
-	<WVC_ToolTip_disableXenotypes_Misc>Ripperkind, Reaperkind, Mergekin.</WVC_ToolTip_disableXenotypes_Misc>
+	<WVC_ToolTip_disableXenotypes_Misc>Mergekin.</WVC_ToolTip_disableXenotypes_Misc>
 
 	<!-- <WVC_Label_enableXenotypes_Hybrid>|- Enable exp- hybrid xenotype</WVC_Label_enableXenotypes_Hybrid> -->
 	<!-- <WVC_ToolTip_enableXenotypes_Hybrid>None.</WVC_ToolTip_enableXenotypes_Hybrid> -->
