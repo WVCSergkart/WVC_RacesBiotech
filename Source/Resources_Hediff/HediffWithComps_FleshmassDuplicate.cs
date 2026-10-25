@@ -1,3 +1,5 @@
+using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 
@@ -20,6 +22,16 @@ namespace WVC_XenotypesAndGenes
 				pawn.workSettings = new(pawn);
 				pawn.workSettings.EnableAndInitializeIfNotAlreadyInitialized();
 				pawn.workSettings.Notify_DisabledWorkTypesChanged();
+			}
+			DuplicateUtility.NullifyBackstory(pawn);
+			if (pawn.skills == null)
+			{
+				pawn.skills = new(pawn);
+			}
+			foreach (SkillRecord skillRecord in pawn.skills.skills)
+			{
+				skillRecord.xpSinceLastLevel = 500;
+				skillRecord.Level = 8;
 			}
 			foreach (WorkTypeDef workTypeDef in DefDatabase<WorkTypeDef>.AllDefsListForReading)
 			{
@@ -48,7 +60,13 @@ namespace WVC_XenotypesAndGenes
 						curStage = new();
 						curStage.statOffsets = def.stages[CurStageIndex]?.statOffsets;
 						curStage.statFactors = def.stages[CurStageIndex]?.statFactors;
+						curStage.capMods = def.stages[CurStageIndex]?.capMods;
 						curStage.totalBleedFactor = 0f;
+						curStage.forgetMemoryThoughtMtbDays = 1;
+						curStage.blocksInspirations = true;
+						curStage.preventVacuumBurns = true;
+						curStage.opinionOfOthersFactor = 0f;
+						curStage.regeneration = 50;
 						//def.preventsDeath = true;
 					}
 					catch
@@ -68,19 +86,77 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool fleshlingsChecked = false;
 		public override void TickInterval(int delta)
 		{
 			base.TickInterval(delta);
-			if (pawn.IsHashIntervalTick(60, delta))
+			if (pawn.IsHashIntervalTick(600, delta))
 			{
-				GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 60);
+				HealingUtility.Regeneration(pawn, 50f, 600);
+				//if (pawn.IsNestedHashIntervalTick(600, 6000))
+				//{
+				//	CheckFleshlings();
+				//}
+			}
+			if (!fleshlingsChecked)
+			{
+				try
+				{
+					CheckFleshlings();
+				}
+				catch
+				{
+					Log.Warning("Failed check fleshling mutants.");
+					fleshlingsChecked = true;
+				}
 			}
 		}
 
-		public override void Notify_PawnKilled()
+		private bool CheckFleshlings()
 		{
-			pawn.forceNoDeathNotification = true;
+			if (pawn.mutant == null)
+			{
+				//pawn.health.RemoveHediff(this);
+				return false;
+			}
+			int mutants = 0;
+			foreach (Pawn mutant in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive)
+			{
+				if (mutant.mutant != null && mutant.Faction == pawn.Faction && mutant.mutant.Def == pawn.mutant.Def)
+				{
+					mutants++;
+				}
+			}
+			if (mutants > (Gene_FleshlingCreator.MasterGenes.Count * 3))
+			{
+				pawn.Kill();
+				fleshlingsChecked = false;
+			}
+			else
+			{
+				fleshlingsChecked = true;
+			}
+			return true;
 		}
+
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	yield return new Command_Action
+		//	{
+		//		defaultLabel = MainDefOf.WVC_HiddenEntitiesWorkButton.LabelCap,
+		//		defaultDesc = MainDefOf.WVC_HiddenEntitiesWorkButton.description,
+		//		icon = MainDefOf.WVC_HiddenEntitiesWorkButton.Icon,
+		//		action = delegate
+		//		{
+		//			MainDefOf.WVC_HiddenEntitiesWorkButton.Worker.InterfaceTryActivate();
+		//		}
+		//	};
+		//}
+
+		//public override void Notify_PawnKilled()
+		//{
+		//	pawn.forceNoDeathNotification = true;
+		//}
 
 		//public override void Notify_PawnCorpseSpawned()
 		//{
@@ -98,10 +174,10 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		public override void Notify_Downed()
-		{
-			pawn.Kill();
-		}
+		//public override void Notify_Downed()
+		//{
+		//	pawn.Kill();
+		//}
 
 	}
 

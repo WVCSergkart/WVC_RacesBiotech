@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Pawn pawn = parent as Pawn;
-			if (XaG_GeneUtility.SelectorFactionMap(pawn))
+			if (XaG_GeneUtility.SkipIf_SelectorFactionMap(pawn))
 			{
 				yield break;
 			}

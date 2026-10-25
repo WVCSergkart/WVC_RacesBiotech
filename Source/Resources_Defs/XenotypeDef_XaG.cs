@@ -18,6 +18,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					foreach (FactionChance faction in factionChances)
 					{
+						if (faction.factionDef == null)
+						{
+							continue;
+						}
 						if (faction.factionDef.xenotypeSet == null)
 						{
 							faction.factionDef.xenotypeSet = new();

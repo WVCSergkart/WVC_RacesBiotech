@@ -50,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//[Obsolete]
 	public class Gene_DeadlifeBuilder : XaG_Gene, IGeneOverriddenBy, IGeneRecacheable
 	{
 
@@ -112,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 		private static List<ThingDef> cachedExceptions;
 		public void Construct(int tick)
 		{
-			if (XaG_GeneUtility.FactionMap(pawn) || pawn.IsSlave)
+			if (XaG_GeneUtility.SkipIf_FactionMap(pawn) || pawn.IsSlave)
 			{
 				nextTick = 60000;
 				return;

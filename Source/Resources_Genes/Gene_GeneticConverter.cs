@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//    return;
 			//}
-			if (XaG_GeneUtility.FactionMap(pawn))
+			if (XaG_GeneUtility.SkipIf_FactionMap(pawn))
 			{
 				return;
 			}

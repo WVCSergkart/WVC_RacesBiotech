@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}

@@ -375,7 +375,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (XaG_GeneUtility.ActiveDowned(pawn, this))
+			if (XaG_GeneUtility.SkipIf_ActiveDowned(pawn, this))
 			{
 				yield break;
 			}
@@ -424,7 +424,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (XaG_GeneUtility.ActiveDowned(pawn, this))
+			if (XaG_GeneUtility.SkipIf_ActiveDowned(pawn, this))
 			{
 				yield break;
 			}

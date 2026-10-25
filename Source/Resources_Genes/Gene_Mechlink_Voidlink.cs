@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield break;
 			}

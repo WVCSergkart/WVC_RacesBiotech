@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (XaG_GeneUtility.ActiveDowned(pawn, this))
+			if (XaG_GeneUtility.SkipIf_ActiveDowned(pawn, this))
 			{
 				yield break;
 			}
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield break;
 			}

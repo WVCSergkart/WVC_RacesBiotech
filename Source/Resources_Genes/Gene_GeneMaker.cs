@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.FactionMap(pawn) && Extension_Spawner != null)
+			if (!XaG_GeneUtility.SkipIf_FactionMap(pawn) && Extension_Spawner != null)
 			{
 				SpawnItems();
 			}

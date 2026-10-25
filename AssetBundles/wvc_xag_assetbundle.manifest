@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3738478720
+CRC: 367155543
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0aee436237c2e0c3bbd49bdc8d7e2478
+    Hash: 68bd9809ed781b9704c964a2ef6a76a2
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6af9fa60aafd5bc6740b104399972705
+    Hash: a3ff7150022356a8383ea928fc21c6e9
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -1350,6 +1350,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_StasisAging.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Headbone_Bighorns.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_north.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_FleshWorkers.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Semifur_Body/Naked_Hulk_southm.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Ageless_Slow_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Female_east.png

@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
 				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
 				shrinkable = true,
-				visible = !XaG_GeneUtility.SelectorDraftedFactionMap(pawn),
+				visible = !XaG_GeneUtility.SkipIf_SelectorDraftedFactionMap(pawn),
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_GenesSettings(pawn));

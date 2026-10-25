@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshlingMaster</defName>
+	<label>fleshling master</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh capable of creating a mindless duplicate of the carrier that will work.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshlingCreator</geneClass>
+	<iconPath>WVC/UI/Genes4/Gene_FleshWorkers</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<minAgeActive>18</minAgeActive>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Every day&lt;/color&gt;, creates a mutant-duplicate called a &lt;color=#8a8ae6&gt;fleshling&lt;/color&gt;, up to 3.</li>
+		<li>Each &lt;color=#8a8ae6&gt;fleshling&lt;/color&gt; can perform all jobs with &lt;color=#8a8ae6&gt;skill 8&lt;/color&gt;, but cannot be leveled up.</li>
+		<li>Each pawn with this gene increases the colony's &lt;color=#8a8ae6&gt;fleshling limit&lt;/color&gt; by 3.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_EntitiesWorkers_Fleshmass</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<mutantDef>WVC_FleshmassDuplicate</mutantDef>
+			<mainButtonDef>WVC_HiddenEntitiesWorkButton</mainButtonDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

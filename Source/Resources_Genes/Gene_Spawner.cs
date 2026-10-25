@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.ActiveFactionMap(pawn, this) && Extension_Spawner != null)
+			if (!XaG_GeneUtility.SkipIf_ActiveFactionMap(pawn, this) && Extension_Spawner != null)
 			{
 				SpawnItems();
 			}

@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}
@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}
@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}

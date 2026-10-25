@@ -643,6 +643,7 @@ namespace WVC_XenotypesAndGenes
 		// Holder
 		public JobDef tryHoldJobDef;
 		//public HediffDef holderHediffDef;
+		public MainButtonDef mainButtonDef;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

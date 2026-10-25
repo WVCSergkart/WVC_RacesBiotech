@@ -111,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
+			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SkipIf_SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield return new Command_Action
 				{

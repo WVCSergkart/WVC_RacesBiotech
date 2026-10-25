@@ -8,6 +8,11 @@ namespace WVC_XenotypesAndGenes
 	public static class AgelessUtility
 	{
 
+		public static void SetAgeInYears(Pawn pawn, int age)
+		{
+			SetAge(pawn, age * 3600000);
+		}
+
 		public static void SetAge(Pawn pawn, int age)
 		{
 			pawn.ageTracker.AgeBiologicalTicks = age;

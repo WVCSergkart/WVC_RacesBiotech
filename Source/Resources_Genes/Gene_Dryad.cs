@@ -303,7 +303,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}

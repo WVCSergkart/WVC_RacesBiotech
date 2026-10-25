@@ -15,66 +15,66 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
-		public static float GetAverageCpx
-		{
-			get
-			{
-				List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
-				float averageCpx = allDefsListForReading.Sum(gene => gene.biostatCpx) / allDefsListForReading.Count;
-				if (averageCpx < 1)
-				{
-					return 1;
-				}
-				return averageCpx;
-			}
-		}
+		//public static float GetAverageCpx
+		//{
+		//	get
+		//	{
+		//		List<GeneDef> allDefsListForReading = DefDatabase<GeneDef>.AllDefsListForReading;
+		//		float averageCpx = allDefsListForReading.Sum(gene => gene.biostatCpx) / allDefsListForReading.Count;
+		//		if (averageCpx < 1)
+		//		{
+		//			return 1;
+		//		}
+		//		return averageCpx;
+		//	}
+		//}
 
-		public static bool ActiveDowned(Pawn pawn, Gene gene)
+		public static bool SkipIf_ActiveDowned(Pawn pawn, Gene gene)
 		{
 			return !pawn.Downed || !gene.Active;
 		}
 
-		public static bool SelectorFactionMap(Pawn pawn)
+		public static bool SkipIf_SelectorFactionMap(Pawn pawn)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || FactionMap(pawn);
+			return Find.Selector.SelectedPawns.Count > 1 || SkipIf_FactionMap(pawn);
 		}
 
-		public static bool SelectorDraftedFactionMap(Pawn pawn)
+		public static bool SkipIf_SelectorDraftedFactionMap(Pawn pawn)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || FactionMap(pawn);
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || SkipIf_FactionMap(pawn);
 		}
 
-		public static bool FactionMap(Pawn pawn)
+		public static bool SkipIf_FactionMap(Pawn pawn)
 		{
 			return pawn.Faction != Faction.OfPlayer || pawn.Map == null;
 		}
 
-		public static bool ActiveFactionMap(Pawn pawn, Gene gene)
+		public static bool SkipIf_ActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return FactionMap(pawn) || !gene.Active;
+			return SkipIf_FactionMap(pawn) || !gene.Active;
 		}
 
-		public static bool SelectorActiveFactionMap(Pawn pawn, Gene gene)
+		public static bool SkipIf_SelectorActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || ActiveFactionMap(pawn, gene);
+			return Find.Selector.SelectedPawns.Count > 1 || SkipIf_ActiveFactionMap(pawn, gene);
 		}
 
-		public static bool SelectorActiveFactionMapMechanitor(Pawn pawn, Gene gene)
+		public static bool SkipIf_SelectorActiveFactionMapMechanitor(Pawn pawn, Gene gene)
 		{
-			return pawn.mechanitor == null || SelectorActiveFactionMap(pawn, gene);
+			return pawn.mechanitor == null || SkipIf_SelectorActiveFactionMap(pawn, gene);
 		}
 
-		public static bool SelectorDraftedActiveFactionMap(Pawn pawn, Gene gene)
+		public static bool SkipIf_SelectorDraftedActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || ActiveFactionMap(pawn, gene);
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || SkipIf_ActiveFactionMap(pawn, gene);
 		}
 
-		public static bool SelectorActiveFaction(Pawn pawn, Gene gene)
+		public static bool SkipIf_SelectorActiveFaction(Pawn pawn, Gene gene)
 		{
 			return Find.Selector.SelectedPawns.Count > 1 || pawn.Faction != Faction.OfPlayer || !gene.Active;
 		}
 
-		public static bool SelectorDraftedActiveFaction(Pawn pawn, Gene gene)
+		public static bool SkipIf_SelectorDraftedActiveFaction(Pawn pawn, Gene gene)
 		{
 			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || pawn.Faction != Faction.OfPlayer || !gene.Active;
 		}
