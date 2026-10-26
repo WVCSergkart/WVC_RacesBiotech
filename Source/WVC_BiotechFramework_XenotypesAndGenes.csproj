@@ -75,6 +75,7 @@
     <Publicize Include="Assembly-CSharp:RimWorld.XenotypeSet.xenotypeChances" />
   </ItemGroup>
   <ItemGroup Label="Compile items now included by globbing that were not in the original project file">
+    <Compile Remove="Resources_Main\SpecialTrees.cs" />
     <Compile Remove="Resources_Thought\Thought_MemorySocial_Psychic.cs" />
     <Compile Remove="Resources_ThinkNodes\JobDriver_EnterXenosculpterPod.cs" />
     <Compile Remove="Resources_ThinkNodes\InteractionWorker_VoidWords.cs" />

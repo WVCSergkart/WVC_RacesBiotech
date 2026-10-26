@@ -116,8 +116,8 @@ namespace WVC_XenotypesAndGenes
 		//
 		public static ThingDef Cat;
 		//
-		[MayRequireTest]
-		public static PawnTableDef WVC_EntitiesWork;
+		//[MayRequireTest]
+		//public static PawnTableDef WVC_EntitiesWork;
 		//[MayRequireAnomaly]
 		//public static MainButtonDef WVC_HiddenEntitiesWorkButton;
 	}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -108,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
 		}
 
+		[Obsolete]
 		public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
 		{
 			//List<HediffWithComps> tmpHediffInjuries = new();
@@ -158,10 +160,20 @@ namespace WVC_XenotypesAndGenes
 		// General
 		public static void TryHealRandomPermanentWound(Pawn pawn, Gene gene, bool healWound = false, bool restoreWithFullHP = false)
 		{
-			TaggedString taggedString = FixWorstHealthCondition(pawn, gene, healWound, restoreWithFullHP);
-			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			string phase = "0";
+			try
 			{
-				Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
+				phase = "FixWorstHealthCondition";
+				TaggedString taggedString = FixWorstHealthCondition(pawn, gene, healWound, restoreWithFullHP);
+				phase = "message";
+				if (PawnUtility.ShouldSendNotificationAbout(pawn))
+				{
+					Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error($"Error in TryHealRandomPermanentWound. On phase: {phase}. Reason: {arg.Message}");
 			}
 		}
 

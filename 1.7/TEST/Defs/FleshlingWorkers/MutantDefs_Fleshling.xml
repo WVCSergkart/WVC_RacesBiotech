@@ -55,6 +55,8 @@
 	  <li>Hunting</li>
 	  <li>Violent</li>
 	  <li>Shooting</li>
+	  <li>Intellectual</li>
+	  <li>ManualSkilled</li>
 	</workDisables>
 	<removesHediffs>
 	  <li>CryptosleepSickness</li>

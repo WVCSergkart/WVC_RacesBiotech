@@ -5,10 +5,28 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+	public class XaG_MainButtonDef : MainButtonDef
+	{
+
+		public PawnTableDef pawnTableDef;
+
+	}
+
 	public class MainTabWindow_EntitiesWork : MainTabWindow_Work
 	{
 
-		protected override PawnTableDef PawnTableDef => MainDefOf.WVC_EntitiesWork;
+		protected override PawnTableDef PawnTableDef
+		{
+			get
+			{
+				if (def is XaG_MainButtonDef xaG_MainButtonDef)
+				{
+					return xaG_MainButtonDef.pawnTableDef;
+				}
+				return base.PawnTableDef;
+			}
+		}
+
 		protected override IEnumerable<Pawn> Pawns => Find.CurrentMap.mapPawns.AllPawnsSpawned.Where((Pawn pawn) => pawn.workSettings != null && pawn.IsMutant && pawn.mutant.Def is XaG_MutantDef && pawn.Faction == Faction.OfPlayer);
 
 	}
@@ -18,5 +36,45 @@ namespace WVC_XenotypesAndGenes
 	//	public override bool Visible => false;
 
 	//}
+
+	public class MainButtonWorker_AutoInitTab : MainButtonWorker_ToggleTab
+	{
+
+
+		public override void InterfaceTryActivate()
+		{
+			InitWorkPriority();
+			base.InterfaceTryActivate();
+		}
+
+		private static bool initialized = false;
+		private void InitWorkPriority()
+		{
+			if (initialized)
+			{
+				return;
+			}
+			try
+			{
+				if (def is XaG_MainButtonDef xaG_MainButtonDef)
+				{
+					PawnTableDef workTable = xaG_MainButtonDef.pawnTableDef;
+					foreach (PawnColumnDef item in DefDatabase<PawnColumnDef>.AllDefsListForReading)
+					{
+						if (item.Worker is PawnColumnWorker_WorkPriority)
+						{
+							workTable.columns.Insert(workTable.columns.FindIndex((PawnColumnDef x) => x.Worker is PawnColumnWorker_CopyPasteWorkPriorities) + 1, item);
+						}
+					}
+				}
+			}
+			catch
+			{
+				Log.Error("Failed init work priorities.");
+			}
+			initialized = true;
+		}
+
+	}
 
 }

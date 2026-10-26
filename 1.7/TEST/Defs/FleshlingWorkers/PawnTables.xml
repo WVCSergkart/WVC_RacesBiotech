@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
-  <MainButtonDef>
+  <WVC_XenotypesAndGenes.XaG_MainButtonDef>
 	<defName>WVC_HiddenEntitiesWorkButton</defName>
 	<label>fleshlings</label>
 	<description>Choose which entities does what kinds of work, and in what order.</description>
 	<tabWindowClass>WVC_XenotypesAndGenes.MainTabWindow_EntitiesWork</tabWindowClass>
-	<!-- <tabWindowClass>WVC_XenotypesAndGenes.MainButtonWorker_HiddenTab</tabWindowClass> -->
+	<workerClass>WVC_XenotypesAndGenes.MainButtonWorker_AutoInitTab</workerClass>
 	<order>11</order>
 	<buttonVisible>false</buttonVisible>
 	<closesWorldView>true</closesWorldView>
 	<minimized>True</minimized>
 	<iconPath>WVC/UI/XaG_General/DevMode_Setttings</iconPath>
-  </MainButtonDef>
+	<pawnTableDef>WVC_EntitiesWork</pawnTableDef>
+  </WVC_XenotypesAndGenes.XaG_MainButtonDef>
 
   <PawnTableDef>
 	<defName>WVC_EntitiesWork</defName>
