@@ -56,7 +56,8 @@
 	  <li>Violent</li>
 	  <li>Shooting</li>
 	  <li>Intellectual</li>
-	  <li>ManualSkilled</li>
+	  <!-- <li>ManualSkilled</li> -->
+	  <li>Artistic</li>
 	</workDisables>
 	<removesHediffs>
 	  <li>CryptosleepSickness</li>

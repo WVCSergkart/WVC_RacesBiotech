@@ -14,15 +14,6 @@
 	<selectionWeight>0.0022</selectionWeight>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
-	<defName>WVC_Mecha_NoTail</defName>
-	<label>human tailbone</label>
-	<description>Carriers of this gene have regular human tailbone.</description>
-	<iconPath>WVC/UI/Genes/Gene_Tailbone_v0</iconPath>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>0</biostatCpx>
-  </GeneDef>
-
   <!-- Tail -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">

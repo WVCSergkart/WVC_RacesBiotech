@@ -12,7 +12,6 @@
 	<displayPriority>-1015</displayPriority>
 	<genes>
 		<li>WVC_NeverDead</li>
-		<!-- <li>WVC_Undead</li> -->
 		<li>VacuumResistance_Total</li>
 		<li>WVC_ReimplanterThrallMaker</li>
 		<li>Immunity_SuperStrong</li>
@@ -26,10 +25,14 @@
 		<li>WVC_Fragile</li>
 		<li>Sterile</li>
 		<li>WVC_Eyes_Boneskin</li>
+		<li>WVC_Wings_BoneWings</li>
+		<li>WVC_Wings_Baseliner</li>
+		<li>WVC_HeadBoneCurveHorns</li>
 		<li>WVC_BoneSkin</li>
 		<li>Hair_BaldOnly</li>
+		<li>Headbone_Human</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_SkinColor_MilkWhite</li>
+		<li>WVC_SkinColor_Undead</li>
 		<li>StrongStomach</li>
 		<li>Learning_Slow</li>
 		<li>Hair_Grayless</li>

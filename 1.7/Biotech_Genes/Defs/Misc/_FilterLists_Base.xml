@@ -307,6 +307,7 @@
 	<!-- Required any GeneDefs. Used by Chimera gene for basic human genes lists. -->
 	<humanGeneDefs>
 	  <li>WVC_Mecha_NoTail</li>
+	  <li>WVC_Wings_Baseliner</li>
 	  <li>Ears_Human</li>
 	  <li>Nose_Human</li>
 	  <li>Jaw_Baseline</li>

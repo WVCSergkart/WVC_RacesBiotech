@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 367155543
+CRC: 44631226
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 68bd9809ed781b9704c964a2ef6a76a2
+    Hash: 4ad59d707a7533c6f79f29a68def4a19
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: a3ff7150022356a8383ea928fc21c6e9
+    Hash: 794421c0d9f96ff6fb42af528e617c28
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -107,8 +107,9 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Drugs/AntiImmunityPills/AntiImmunityPills_b.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Dryad_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/StoneGene_Body/Naked_Female_north.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Duplicator_Psylink.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_BaselinerWings.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Toughspike_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Duplicator_Psylink.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/FurChest_Icon_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/XenotypesCharger/XenoRecharger_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemConstructor_north.png

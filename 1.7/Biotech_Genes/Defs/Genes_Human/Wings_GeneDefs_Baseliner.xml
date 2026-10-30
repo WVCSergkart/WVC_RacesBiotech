@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
+	<defName>WVC_Wings_Baseliner</defName>
+	<label>human spine</label>
+	<description>Carriers of this gene have regular human spine.</description>
+	<geneClass>Gene</geneClass>
+	<iconPath>WVC/UI/Genes4/Gene_BaselinerWings</iconPath>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<marketValueFactor>1</marketValueFactor>
+	<minAgeActive>0</minAgeActive>
+	<customEffectDescriptions Inherit="False" />
+  </GeneDef>
+
+</Defs>
