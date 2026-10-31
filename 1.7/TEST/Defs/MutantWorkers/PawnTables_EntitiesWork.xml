@@ -23,7 +23,8 @@
 	  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Guest</li> -->
 	  <!-- <li>Faction</li> -->
 	  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Ideo</li> -->
-	  <li MayRequire="Ludeon.RimWorld.Biotech">Xenotype</li>
+	  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">Xenotype</li> -->
+	  <li>HostilityResponse</li>
 	  <li>WVC_MutantWorkerKill</li>
 	  <li>CopyPasteWorkPriorities</li>
 	  <li>GapWide</li>

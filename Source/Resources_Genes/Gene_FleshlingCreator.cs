@@ -99,16 +99,16 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			yield return new Command_Action
-			{
-				defaultLabel = Extension_Giver.mainButtonDef.LabelCap,
-				defaultDesc = Extension_Giver.mainButtonDef.description,
-				icon = def.Icon,
-				action = delegate
-				{
-					Extension_Giver.mainButtonDef.Worker.InterfaceTryActivate();
-				}
-			};
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = Extension_Giver.mainButtonDef.LabelCap,
+			//	defaultDesc = Extension_Giver.mainButtonDef.description,
+			//	icon = def.Icon,
+			//	action = delegate
+			//	{
+			//		Extension_Giver.mainButtonDef.Worker.InterfaceTryActivate();
+			//	}
+			//};
 		}
 
 		public void Notify_GenesRecache(Gene changedGene)
