@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -247,6 +248,36 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void CreateSkeleton()
+		{
+			string phase = "init";
+			try
+			{
+				phase = "try duplicate pawn";
+				if (DuplicateUtility.TryDuplicatePawn(pawn, pawn.PositionHeld, out Pawn duplicate))
+				{
+					phase = "set age";
+					AgelessUtility.SetAgeInYears(duplicate, 18);
+					phase = "clear mutant status";
+					MiscUtility.ClearOrSetPawnAsMutantInstantly(duplicate, null);
+					phase = "clear hediffs";
+					HediffUtility.RemoveAllHediffs(duplicate);
+					phase = "set mutant def";
+					MutantUtility.SetPawnAsMutantInstantly(duplicate, Extension_Giver.mutantDef, rotStage: RotStage.Dessicated);
+					phase = "final debug";
+					MiscUtility.Notify_DebugPawn(duplicate);
+					phase = "effects";
+					EffectsUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Normal);
+					phase = "drain cells";
+					OffsetResource(1f);
+				}
+			}
+			catch (Exception arg)
+			{
+				Log.Error($"Failed spawn mutant on phase {phase}. Reason: {arg.Message}");
+			}
+		}
+
 		public override void TickInterval(int delta)
 		{
 			if (pawn.IsHashIntervalTick(2400, delta))
@@ -265,6 +296,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SpawnFleshling",
+					action = delegate
+					{
+						CreateSkeleton();
+					}
+				};
+			}
 			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
@@ -279,6 +321,7 @@ namespace WVC_XenotypesAndGenes
 		public void Recache()
 		{
 			cachedResourceLossPerDay = null;
+			cachedHediff_ResurgentCells = null;
 		}
 
 		public void Notify_GenesRecache(Gene changedGene)

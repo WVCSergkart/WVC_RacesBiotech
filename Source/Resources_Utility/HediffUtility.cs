@@ -573,6 +573,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void RemoveAllHediffs(Pawn pawn)
+		{
+			List<Hediff> hediffs = pawn?.health?.hediffSet?.hediffs;
+			if (hediffs.NullOrEmpty())
+			{
+				return;
+			}
+			foreach (Hediff item in hediffs.ToList())
+			{
+				pawn.health.RemoveHediff(item);
+			}
+		}
+
 		// Misc
 
 		public static Hediff GetFirstHediffPreventsPregnancy(List<Hediff> hediffs)

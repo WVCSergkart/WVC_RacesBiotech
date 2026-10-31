@@ -401,6 +401,25 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			//if (Pawn.IsMutant && Pawn.mutant.Def is XaG_MutantDef && Pawn.Faction == Faction.OfPlayer)
+			//{
+			//	yield return new Command_GenesSettings
+			//	{
+			//		defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+			//		defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
+			//		icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
+			//		shrinkable = true,
+			//		visible = true,
+			//		action = delegate
+			//		{
+			//			if (Selector)
+			//			{
+
+			//			}
+			//			Pawn.Kill();
+			//		}
+			//	};
+			//}
 		}
 
 		//private static bool collapse = true;

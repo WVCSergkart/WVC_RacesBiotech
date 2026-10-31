@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.XaG_MutantDef ParentName="WVC_XenotypesAndGenes_WorkerMutant">
+	<defName>WVC_FleshmassDuplicate</defName>
+	<label>flesh-duplicate</label>
+	<description>A person who was created as a mindless duplicate.\n\nAbout fleshlings: They are created by archites as simple duplicates; they lack their own consciousness and are psychically linked to their originals. Occasionally, they can inherit some of their originals' traits, which will have effects on them. Their only purpose is work.</description>
+	<hediff>WVC_FleshmassDuplicate</hediff>
+	<deathLetter>One of your flesh-duplicates has died.</deathLetter>
+	<deathLetterExtra>Unlike regular colonists, fleshlings do not need to be buried and their death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
+	<namePrefix>fleshling </namePrefix>
+	<workDisables>
+	  <li>Hunting</li>
+	  <li>Violent</li>
+	  <li>Shooting</li>
+	  <li>Intellectual</li>
+	  <!-- <li>ManualSkilled</li> -->
+	  <li>Artistic</li>
+	</workDisables>
+	<geneDefs>
+		<!-- <li>Immunity_Strong</li> -->
+		<!-- <li>LowSleep</li> -->
+		<li>Sterile</li>
+		<li>WVC_HeadTentacles0c</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Ears_Pointed</li>
+		<li>Body_Standard</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">WVC_BodySize_ChildlikeSmall</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_BodyTentacles</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>WVC_TentacleHands</li>
+		<li>WVC_LongTentacleTail</li>
+		<!-- <li>WVC_MechaAI_Base</li> -->
+		<li>WVC_PredatorPrey_NotTasty</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.XaG_MutantDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_FleshmassDuplicate</defName>
+	<label>fleshling</label>
+	<description>This persona was created as a mindless duplicate. They lack their own consciousness and are psychically linked to their originals. They are bio-robots capable only of performing tasks.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_FleshmassDuplicate</hediffClass>
+	<everCurableByItem>false</everCurableByItem>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<duplicationAllowed>false</duplicationAllowed>
+	<preventsDeath>false</preventsDeath>
+	<stages>
+	  <li>
+		<!-- Stages locked by hediffClass. statOffsets and statFactors only -->
+		<statOffsets>
+		  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+		  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+		</statOffsets>
+		<statFactors>
+			<WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+			<!-- <MiningSpeed>0.50</MiningSpeed> -->
+			<!-- <PlantWorkSpeed>0.50</PlantWorkSpeed> -->
+			<!-- <ConstructionSpeed>0.50</ConstructionSpeed> -->
+			<!-- <SmoothingSpeed>0.50</SmoothingSpeed> -->
+			<!-- <GeneralLaborSpeed>0.50</GeneralLaborSpeed> -->
+			<!-- <MedicalTendSpeed>0.50</MedicalTendSpeed> -->
+			<!-- <MedicalOperationSpeed>0.50</MedicalOperationSpeed> -->
+			<!-- <CookSpeed>0.50</CookSpeed> -->
+			<!-- <SmeltingSpeed>0.50</SmeltingSpeed> -->
+			<!-- <DrugSynthesisSpeed>0.50</DrugSynthesisSpeed> -->
+			<!-- <ButcheryFleshSpeed>0.50</ButcheryFleshSpeed> -->
+			<!-- <ButcheryMechanoidSpeed>0.50</ButcheryMechanoidSpeed> -->
+			<!-- <CleaningSpeed>0.50</CleaningSpeed> -->
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<setMax>1</setMax>
+		  </li>
+		  <li>
+			<capacity>Talking</capacity>
+			<setMax>0</setMax>
+		  </li>
+		  <li>
+			<capacity>Hearing</capacity>
+			<setMax>0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_Invisibility"> -->
+		<!-- <visibleToPlayer>true</visibleToPlayer> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  </HediffDef>
+
+</Defs>

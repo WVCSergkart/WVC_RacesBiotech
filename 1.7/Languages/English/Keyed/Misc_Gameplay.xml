@@ -16,6 +16,9 @@
 
 	<!-- ================================== -->
 
+	<WVC_MutantWorker_Kill>Kill this entity.</WVC_MutantWorker_Kill>
+	<WVC_MutantWorker_Warning>This action will kill this entity. Continue?\n\nAfter confirmation, this action can be performed for the next minute without triggering this warning again.</WVC_MutantWorker_Warning>
+	<WVC_MutantWorker_DefaultTab>Work manager</WVC_MutantWorker_DefaultTab>
 
 	<WVC_XaG_GeneExtension_Obsolete_Label>&lt;color=#ff8585&gt;(Obsolete)&lt;/color&gt;</WVC_XaG_GeneExtension_Obsolete_Label>
 	<WVC_XaG_GeneExtension_Obsolete_Desc>&lt;color=#ff8585&gt;Obsolete:&lt;/color&gt; This gene is obsolete and is no longer intended for use outside of dev mode.</WVC_XaG_GeneExtension_Obsolete_Desc>
@@ -1083,6 +1086,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControl_Switcher>Allows to switch between xenotypes in the current heredity. This means between endogenous xenotypes if the gene is endogenous, and the same applies to xenogeneic ones.\n\nThe target xenotype must have this gene and need not have a 100% genetic match.\n\nThe ability's cooldown depends on the number of new genes after switching.</WVC_XaG_RemoteControl_Switcher>
 
 	<WVC_ActivityManager_GeneralTip>Allows to freely turn sub-genes on and off.</WVC_ActivityManager_GeneralTip>
+
+	<!-- =============== Manager =============== -->
+
+	<WVC_XaG_GenesManager>Genes manager</WVC_XaG_GenesManager>
+	<WVC_XaG_GenesManagerDesc>Allows to disable/enanble sub-genes.</WVC_XaG_GenesManagerDesc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 

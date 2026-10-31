@@ -6,23 +6,14 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffWithComps_FleshmassDuplicate : HediffWithComps
+	public class HediffWithComps_FleshmassDuplicate : HediffWithComps_MutantDuplicate
 	{
 
 		private HediffStage curStage;
 
-		public override bool ShouldRemove => false;
-		public override bool Visible => true;
-
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
-			if (pawn.workSettings == null)
-			{
-				pawn.workSettings = new(pawn);
-				pawn.workSettings.EnableAndInitializeIfNotAlreadyInitialized();
-				pawn.workSettings.Notify_DisabledWorkTypesChanged();
-			}
 			DuplicateUtility.NullifyBackstory(pawn);
 			if (pawn.skills == null)
 			{
@@ -32,20 +23,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				skillRecord.xpSinceLastLevel = 500;
 				skillRecord.Level = 8;
-			}
-			foreach (WorkTypeDef workTypeDef in DefDatabase<WorkTypeDef>.AllDefsListForReading)
-			{
-				if (pawn.WorkTypeIsDisabled(workTypeDef))
-				{
-					continue;
-				}
-				pawn.workSettings.SetPriority(workTypeDef, 3);
-			}
-			pawn.playerSettings = new(pawn);
-			pawn.forceNoDeathNotification = true;
-			if (pawn.genes != null && pawn.mutant?.Def is XaG_MutantDef xaG_MutantDef && xaG_MutantDef.geneDefs != null)
-			{
-				ReimplanterUtility.SetCustomGenes(pawn, xaG_MutantDef.geneDefs, null, null, true, false);
 			}
 		}
 

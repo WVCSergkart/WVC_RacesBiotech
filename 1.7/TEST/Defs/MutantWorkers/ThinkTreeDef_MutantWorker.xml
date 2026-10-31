@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThinkTreeDef>
+	<defName>WVC_SimpleMutantWorker</defName>
+	<thinkRoot Class="ThinkNode_Priority">
+	  <subNodes>
+
+		<!-- Despawned -->
+		<li Class="ThinkNode_Subtree">
+		  <treeDef>Despawned</treeDef>
+		</li>
+
+		<!-- Main-->
+		<li Class="WVC_XenotypesAndGenes.ThinkNode_InitWorkSettings">
+		  <subNodes>
+			<!-- Seek allowed area -->
+			<li Class="JobGiver_SeekAllowedArea" />
+
+			<!-- Seek safe temperatures -->
+			<li Class="JobGiver_BringBabyToSafety" />
+			<li Class="JobGiver_SeekSafeTemperature" />
+
+			<!-- Work -->
+			<li Class="JobGiver_Work"/>
+		  </subNodes>
+		</li>
+
+		<li Class="JobGiver_ShamblerWander">
+		  <wanderRadius>5</wanderRadius>
+		</li>
+		
+	  </subNodes>
+	</thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>

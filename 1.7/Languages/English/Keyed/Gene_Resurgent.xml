@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+	<WVC_GeneResurgentTooltip>The &lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt; gene slowly accumulates &lt;color=#8a8ae6&gt;cells&lt;/color&gt; (hediff) in the pawn. &lt;color=#8a8ae6&gt;Cells&lt;/color&gt; decrease automatically, by &lt;color=#8a8ae6&gt;1 each day&lt;/color&gt;, and &lt;color=#8a8ae6&gt;disappear&lt;/color&gt; when they reach 0. Losing the gene &lt;color=#8a8ae6&gt;does not remove accumulated cells&lt;/color&gt;. &lt;color=#8a8ae6&gt;Cells&lt;/color&gt; are used by subgenes, or subgenes can be directly dependent on them.\n\n&lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt; can &lt;color=#8a8ae6&gt;override&lt;/color&gt; other genes and &lt;color=#8a8ae6&gt;increase accumulation&lt;/color&gt; by 1 for each &lt;color=#8a8ae6&gt;overridden&lt;/color&gt; gene. Overridden genes are counted even if they are overridden by other genes.\n\nOverriding subgenes increases accumulation &lt;color=#8a8ae6&gt;according&lt;/color&gt; to their &lt;color=#8a8ae6&gt;consumption&lt;/color&gt;. If a subgene, while active, accumulates cells, its override will increase consumption.</WVC_GeneResurgentTooltip>
+
 	<WVC_GeneResurgentTooltip_Offset>Cells offset: {0}%/day</WVC_GeneResurgentTooltip_Offset>
+
+	<WVC_GeneResurgent_CreateSkeleton>Create skeleton from 100 cells</WVC_GeneResurgent_CreateSkeleton>
+
+	<WVC_GeneResurgent_LowCells>Low cells level.</WVC_GeneResurgent_LowCells>
 
 </LanguageData>

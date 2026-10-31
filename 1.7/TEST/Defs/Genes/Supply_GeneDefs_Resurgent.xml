@@ -19,33 +19,18 @@
 	<description>Carriers of this gene, over time, accumulate a neural cellular resource called resurgent cells. This resource can be used for rapid regeneration, rejuvenation, strengthening immunity, etc.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Resurgent</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResurgentCells</resourceGizmoType>
-	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
-	<!-- <resourceLabel>cells</resourceLabel> -->
-	<!-- <resourceGizmoThresholds> -->
-	  <!-- <li>0.05</li> -->
-	  <!-- <li>0.25</li> -->
-	  <!-- <li>0.50</li> -->
-	  <!-- <li>0.75</li> -->
-	  <!-- <li>0.95</li> -->
-	<!-- </resourceGizmoThresholds> -->
-	<!-- <showGizmoOnWorldView>true</showGizmoOnWorldView> -->
-	<!-- <showGizmoWhenDrafted>true</showGizmoWhenDrafted> -->
-	<resourceDescription>The &lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt; gene slowly accumulates &lt;color=#8a8ae6&gt;cells&lt;/color&gt; (hediff) in the pawn. &lt;color=#8a8ae6&gt;Cells&lt;/color&gt; decrease automatically, by &lt;color=#8a8ae6&gt;1 each day&lt;/color&gt;, and &lt;color=#8a8ae6&gt;disappear&lt;/color&gt; when they reach 0. Losing the gene &lt;color=#8a8ae6&gt;does not remove accumulated cells&lt;/color&gt;. &lt;color=#8a8ae6&gt;Cells&lt;/color&gt; are used by subgenes, or subgenes can be directly dependent on them.\n\n&lt;color=#8a8ae6&gt;Resurgent&lt;/color&gt; can &lt;color=#8a8ae6&gt;override&lt;/color&gt; other genes and &lt;color=#8a8ae6&gt;increase accumulation&lt;/color&gt; by 1 for each &lt;color=#8a8ae6&gt;overridden&lt;/color&gt; gene. Overridden genes are counted even if they are overridden by other genes.\n\nOverriding subgenes increases accumulation &lt;color=#8a8ae6&gt;according&lt;/color&gt; to their &lt;color=#8a8ae6&gt;consumption&lt;/color&gt;. If a subgene, while active, accumulates cells, its override will increase consumption.</resourceDescription>
-	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Accumulates &lt;color=#8a8ae6&gt;cells&lt;/color&gt; (1/day) that can be used by subgenes.</li>
-	  <!-- <li>&lt;color=#8a8ae6&gt;Allows to override any gene.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>resur</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<!-- <minAgeActive>3</minAgeActive> -->
 	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
@@ -55,6 +40,8 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDef>WVC_ResurgentCells</hediffDef>
+			<mutantDef>WVC_SkeletonDuplicate</mutantDef>
+			<mainButtonDef>WVC_HiddenEntitiesWorkButton</mainButtonDef>
 		</li>
 	</modExtensions>
   </GeneDef>

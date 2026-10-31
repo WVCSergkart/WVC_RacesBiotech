@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3516026661
+CRC: 1408263174
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7616ac8a11817da4b4e439681b7d9db4
+    Hash: 9b36011b938b9e211cebf5e67c6707ad
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 26ad2296e4f7f50fc8c121debb99227c
+    Hash: 7310c189fd85e35de4c58079e39db78a
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -680,6 +680,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Plates/Plating_B_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/RunicGene_Body/Naked_Female_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/MechaNetwork_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/KillMutant.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemHunter_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Chimera_GeneticArmor.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_MorpherSubGene_SpaceTrigger.png
@@ -744,6 +745,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Female_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_GhoulSkin_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DeadlyUVSensitivity_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/MutantWorkIcon.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno17.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_MorpherSubGene_TargetXenotype_ByMatch.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Mining/Archite2.png

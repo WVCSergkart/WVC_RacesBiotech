@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -76,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_Recluse.lastRecacheTick = -1;
 			CompStylingStation.cachedPawns = null;
 			cachedGameComponent = null;
+			MainButtonWorker_AutoInitTab.visible = null;
 		}
 
 		//[Obsolete]
@@ -125,6 +127,7 @@ namespace WVC_XenotypesAndGenes
 			int downedColonists = 0;
 			//int mutants = 0;
 			bool anyAssignedWork = false;
+			//MainButtonWorker_AutoInitTab.visible = null;
 			//bool leaderIsShapeshifterOrSimilar = false;
 			//bool presentShapeshifter = false;
 			//bool leaderIsUndead = false;

@@ -1580,6 +1580,15 @@ namespace WVC_XenotypesAndGenes
 			return def?.modContentPack != null && def.modContentPack.IsOfficialMod;
 		}
 
+		public static bool AnyArchites(this Pawn pawn)
+		{
+			if (pawn.genes == null)
+			{
+				return false;
+			}
+			return pawn.genes.GenesListForReading.Any(gene => gene.def.biostatArc != 0);
+		}
+
 		// Wiki
 		public static string GetDescriptionFull_Wiki(GeneDef geneDef)
 		{

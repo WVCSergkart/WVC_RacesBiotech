@@ -73,6 +73,12 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref currentResource, "resource", defaultValue: 0);
 		}
 
+		public override void PostRemoved()
+		{
+			base.PostRemoved();
+			pawn.genes?.GetFirstGeneOfType<Gene_Resurgent>()?.Recache();
+		}
+
 	}
 
 }

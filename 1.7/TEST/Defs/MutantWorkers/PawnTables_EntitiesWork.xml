@@ -3,15 +3,15 @@
   
   <WVC_XenotypesAndGenes.XaG_MainButtonDef>
 	<defName>WVC_HiddenEntitiesWorkButton</defName>
-	<label>fleshlings</label>
+	<label>work priorities</label>
 	<description>Choose which entities does what kinds of work, and in what order.</description>
 	<tabWindowClass>WVC_XenotypesAndGenes.MainTabWindow_EntitiesWork</tabWindowClass>
 	<workerClass>WVC_XenotypesAndGenes.MainButtonWorker_AutoInitTab</workerClass>
 	<order>11</order>
-	<buttonVisible>false</buttonVisible>
+	<!-- <buttonVisible>false</buttonVisible> -->
 	<closesWorldView>true</closesWorldView>
 	<minimized>True</minimized>
-	<iconPath>WVC/UI/XaG_General/DevMode_Setttings</iconPath>
+	<iconPath>WVC/UI/XaG_General/MutantWorkIcon</iconPath>
 	<pawnTableDef>WVC_EntitiesWork</pawnTableDef>
   </WVC_XenotypesAndGenes.XaG_MainButtonDef>
 
@@ -24,6 +24,7 @@
 	  <!-- <li>Faction</li> -->
 	  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Ideo</li> -->
 	  <li MayRequire="Ludeon.RimWorld.Biotech">Xenotype</li>
+	  <li>WVC_MutantWorkerKill</li>
 	  <li>CopyPasteWorkPriorities</li>
 	  <li>GapWide</li>
 	  <!-- <li>GapTiny</li> -->
@@ -32,8 +33,14 @@
 	  <!-- <li>GapTiny</li> -->
 	  <!-- <li>GapTiny</li> -->
 	  <li>AllowedArea</li>
+	  <!-- <li>GapWide</li> -->
 	  <li>RemainingSpace</li>
 	</columns>
   </PawnTableDef>
+
+  <PawnColumnDef>
+	<defName>WVC_MutantWorkerKill</defName>
+	<workerClass>WVC_XenotypesAndGenes.PawnColumnWorker_MutantWorkerKill</workerClass>
+  </PawnColumnDef>
 
 </Defs>

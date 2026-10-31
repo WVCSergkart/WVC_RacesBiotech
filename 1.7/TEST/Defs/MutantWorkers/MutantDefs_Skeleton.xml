@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.XaG_MutantDef ParentName="WVC_XenotypesAndGenes_WorkerMutant">
+	<defName>WVC_SkeletonDuplicate</defName>
+	<label>skeletal-duplicate</label>
+	<description>A person who was created as a mindless duplicate.\n\nAbout skeletons: A rough skeletal duplicate created and animated by archites. They are the "hands" of their originals, and their skills are copied from the originals. Their only purpose is work; these empty shells are good for nothing else.</description>
+	<hediff>WVC_SkeletonDuplicate</hediff>
+	<deathLetter>One of your skeletons has died.</deathLetter>
+	<deathLetterExtra>Unlike regular colonists, skeletons do not need to be buried and their death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
+	<namePrefix>skeleton </namePrefix>
+	<bloodDef>Filth_CorpseBile</bloodDef>
+	<bloodSmearDef>Filth_CorpseBile</bloodSmearDef>
+	<useCorpseGraphics>true</useCorpseGraphics>
+	<standingAnimation MayRequire="Ludeon.RimWorld.Anomaly">ShamblerSway</standingAnimation>
+	<geneDefs>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+	</geneDefs>
+  </WVC_XenotypesAndGenes.XaG_MutantDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_SkeletonDuplicate</defName>
+	<label>skeleton</label>
+	<description>This persona was created as a mindless duplicate. They lack their own consciousness and are psychically linked to their originals. They are tools capable only of performing tasks.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_SkeletonDuplicate</hediffClass>
+	<everCurableByItem>false</everCurableByItem>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<duplicationAllowed>false</duplicationAllowed>
+	<preventsDeath>false</preventsDeath>
+	<stages>
+	  <li>
+		<!-- Stages locked by hediffClass. statOffsets and statFactors only -->
+		<statOffsets>
+		  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+		  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+		</statOffsets>
+		<statFactors>
+			<WorkSpeedGlobal>0.30</WorkSpeedGlobal>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<setMax>1</setMax>
+		  </li>
+		  <li>
+			<capacity>Talking</capacity>
+			<setMax>0</setMax>
+		  </li>
+		  <li>
+			<capacity>Hearing</capacity>
+			<setMax>0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_Invisibility"> -->
+		<!-- <visibleToPlayer>true</visibleToPlayer> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  </HediffDef>
+
+</Defs>

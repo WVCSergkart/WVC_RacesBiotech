@@ -157,6 +157,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void GameComponentTick()
 		{
+			if (warningTimeout > 0)
+			{
+				warningTimeout--;
+			}
 			nextRecache--;
 			if (nextRecache > 0)
 			{
@@ -167,6 +171,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private int nextRecache = 33;
+
+		public static int warningTimeout = 0;
 		//private int nextSecondRecache = 0;
 
 		public void XaG_General()
