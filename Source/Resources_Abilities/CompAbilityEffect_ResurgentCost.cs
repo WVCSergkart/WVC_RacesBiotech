@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -5,6 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompAbilityEffect_ResurgentCost : CompAbilityEffect
 	{
 		public new CompProperties_AbilityResurgentCost Props => (CompProperties_AbilityResurgentCost)props;

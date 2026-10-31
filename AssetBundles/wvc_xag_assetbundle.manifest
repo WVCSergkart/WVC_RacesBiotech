@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 44631226
+CRC: 3516026661
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4ad59d707a7533c6f79f29a68def4a19
+    Hash: 7616ac8a11817da4b4e439681b7d9db4
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 794421c0d9f96ff6fb42af528e617c28
+    Hash: 26ad2296e4f7f50fc8c121debb99227c
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -851,6 +851,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/FurChest_Female_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/MechSummon.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Incestous_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/Resugent_Gizmo.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/MechBandwidth_Extreme.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Overrider1c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Ultra_Genepack/Miscpack_f.png

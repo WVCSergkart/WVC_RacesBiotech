@@ -43,7 +43,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (thing.IsHemogenPack(out float offsetHemogen) && Cells != null)
 			{
-				GeneResourceUtility.OffsetResource(Cells, offsetHemogen * 0.5f);
+				//GeneResourceUtility.OffsetResource(Cells, offsetHemogen * 0.5f);
+				Cells.OffsetResource(offsetHemogen * 0.5f);
 			}
 		}
 
@@ -51,7 +52,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Cells != null)
 			{
-				GeneResourceUtility.OffsetResource(Cells, Extension_Giver.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+				//GeneResourceUtility.OffsetResource(Cells, Extension_Giver.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+				Cells.OffsetResource(Extension_Giver.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
 			}
 		}
 
@@ -100,14 +102,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.UpdateCache();
 			cachedResurgentGene = null;
+			//Resurgent?.Recache();
 		}
 
 	}
 
-	public class Gene_ResurgentOffset : Gene_ResurgentDependent, IGeneResourceDrain
+	public class Gene_ResurgentOffset : Gene_ResurgentDependent
 	{
 
-		public Gene_Resource Resource => Resurgent;
+		//public Gene_Resource Resource => Resurgent;
 
 		public bool CanOffset
 		{
@@ -117,20 +120,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public float ResourceLossPerDay => def.resourceLossPerDay;
+		public virtual float ResourceLossPerDay => def.resourceLossPerDay;
 
 		public Pawn Pawn => pawn;
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-		public override void TickInterval(int delta)
-		{
-			//base.Tick();
-			if (pawn.IsHashIntervalTick(2400, delta))
-			{
-				GeneResourceUtility.TickResourceDrain(this, 2400);
-			}
-		}
+		//public override void TickInterval(int delta)
+		//{
+		//	//base.Tick();
+		//	if (pawn.IsHashIntervalTick(2400, delta))
+		//	{
+		//		//GeneResourceUtility.TickResourceDrain(this, 2400);
+		//		Resurgent?.OffsetResource((ResourceLossPerDay / 60000) * 2400);
+		//	}
+		//}
 
 	}
 
@@ -145,6 +149,7 @@ namespace WVC_XenotypesAndGenes
 
 	//   }
 
+	[Obsolete]
 	public class Gene_ResurgentFungus : Gene_ResurgentOffset
 	{
 

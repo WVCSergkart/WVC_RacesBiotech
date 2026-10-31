@@ -14,12 +14,13 @@
 		<li>WVC_NeverDead</li>
 		<li>VacuumResistance_Total</li>
 		<li>WVC_ReimplanterThrallMaker</li>
-		<li>Immunity_SuperStrong</li>
+		<li>WVC_ResurgentCells</li>
+		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
 		<li>WoundHealing_Slow</li>
 		<li>WVC_BleedStopper</li>
-		<li>WVC_NaturalAgeless</li>
 		<li>WVC_PsychicAbility_Deaf</li>
-		<li>MoveSpeed_Slow</li>
+		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_MinTemp_ArchiteDecrease</li>
 		<li>ToxResist_Total</li>
 		<li>WVC_Fragile</li>
@@ -29,10 +30,13 @@
 		<li>WVC_Wings_Baseliner</li>
 		<li>WVC_HeadBoneCurveHorns</li>
 		<li>WVC_BoneSkin</li>
+		<li>WVC_BoneTailA</li>
+		<li>WVC_Mecha_NoTail</li>
 		<li>Hair_BaldOnly</li>
 		<li>Headbone_Human</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_SkinColor_Undead</li>
+		<!-- <li>WVC_SkinColor_Undead</li> -->
+		<li>WVC_SkinColor_MilkWhite</li>
 		<li>StrongStomach</li>
 		<li>Learning_Slow</li>
 		<li>Hair_Grayless</li>

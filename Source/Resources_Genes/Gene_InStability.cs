@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			if (Resurgent?.ValuePercent >= 1f)
+			if (Resurgent?.Value >= 100f)
 			{
 				HediffUtility.RemoveHediffsFromList(pawn, Extension_Giver.hediffDefs);
 			}

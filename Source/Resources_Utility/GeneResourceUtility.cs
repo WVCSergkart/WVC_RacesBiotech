@@ -442,11 +442,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetResurgentCells(Pawn pawn, float offset)
 		{
-			Gene_Resurgent gene_Hemogen = pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>();
-			if (gene_Hemogen != null)
-			{
-				OffsetResource(gene_Hemogen, offset);
-			}
+			pawn?.genes?.GetFirstGeneOfType<Gene_Resurgent>()?.OffsetResource(offset);
 		}
 
 		// ResourceUtility

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -6,6 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_AbilityResurgentCost : CompProperties_AbilityEffect
 	{
 		public float resurgentCost = 0.2f;

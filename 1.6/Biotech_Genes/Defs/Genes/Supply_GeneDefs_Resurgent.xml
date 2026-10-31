@@ -33,7 +33,7 @@
 	<resourceDescription>Energy efficiency of resurgent neuronal cells.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nToo low values of neural efficiency greatly weaken the dependent genes.</resourceDescription>
 	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
-	<iconColor>(93, 101, 126)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
 	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
