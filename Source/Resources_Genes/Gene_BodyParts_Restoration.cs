@@ -1,4 +1,5 @@
 // Verse.Gene_Healing
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -124,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class Gene_ResurgentTotalHealing : Gene_ResurgentDependent
 	{
 		private int ticksToHealBodyPart;

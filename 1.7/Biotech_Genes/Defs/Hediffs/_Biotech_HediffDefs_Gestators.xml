@@ -61,7 +61,8 @@
 	  </li>
 	</stages>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemGestator">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
+			<compClass>WVC_XenotypesAndGenes.HediffComp_GolemGestator</compClass>
 			<gestationIntervalDays>1</gestationIntervalDays>
 			<endogeneTransfer>true</endogeneTransfer>
 			<geneDef>WVC_SwarmConnection_Golems</geneDef>

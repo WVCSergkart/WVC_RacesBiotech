@@ -24,7 +24,7 @@
 	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>Accumulates &lt;color=#8a8ae6&gt;cells&lt;/color&gt; (1/day) that can be used by subgenes.</li>
+	  <li>Accumulates &lt;color=#8a8ae6&gt;cells&lt;/color&gt; that can be used by subgenes.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -49,8 +49,9 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_ResurgentCells</defName>
 	<label>cells</label>
-	<description>Accumulated resurgent cells. They can be used by some genes.</description>
+	<description>Accumulated resurgent cells. They can be used by certain genes or, if the owner has archites, used to create &lt;color=#8a8ae6&gt;skeletal-duplicates&lt;/color&gt;.\n\nCells can be consumed &lt;color=#8a8ae6&gt;passively&lt;/color&gt; or &lt;color=#8a8ae6&gt;actively&lt;/color&gt;. Active consumption always consumes significantly more cells.\n\nCreating &lt;color=#8a8ae6&gt;skeletons&lt;/color&gt; is an active ability and is only possible with 100 or more accumulated cells.</description>
 	<hediffClass>WVC_XenotypesAndGenes.Hediff_ResurgentCells</hediffClass>
+	<!-- <defaultLabelColor>(93,101,126)</defaultLabelColor> -->
 	<duplicationAllowed>true</duplicationAllowed>
   </HediffDef>
 
@@ -144,22 +145,44 @@
 
   <!-- =============================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells"> -->
+	<!-- <defName>WVC_ResurgentCells_TotalHealing</defName> -->
+	<!-- <label>resurgent healing</label> -->
+	<!-- <description>Carriers of this gene have resurgent cells that are capable of growing back lost organs and limbs.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath> -->
+	<!-- <displayOrderInCategory>65</displayOrderInCategory> -->
+	<!-- <preventPermanentWounds>true</preventPermanentWounds> -->
+	<!-- <resourceLabel></resourceLabel> -->
+	<!-- <resourceLossPerDay>0.03</resourceLossPerDay> -->
+	<!-- <biostatCpx>4</biostatCpx> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Restores a lost organ or heals scars every (*DateTime)5-15 days(/DateTime).</li> -->
+		<!-- <li>Requires &lt;color=#8a8ae6&gt;79 resurgent cells&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain">
 	<defName>WVC_ResurgentCells_TotalHealing</defName>
 	<label>resurgent healing</label>
-	<description>Carriers of this gene have resurgent cells that are capable of growing back lost organs and limbs.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass>
-	<!-- <marketValueFactor>3</marketValueFactor> -->
+	<description>Carriers of this gene have regeneration dependent on resurgent cells; the speed and effectiveness of their wound healing, including the regrowth of lost organs and limbs, directly depends on the number of accumulated cells.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentRegeneration</geneClass>
+	<marketValueFactor>3</marketValueFactor>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
 	<displayOrderInCategory>65</displayOrderInCategory>
 	<preventPermanentWounds>true</preventPermanentWounds>
 	<resourceLabel></resourceLabel>
-	<resourceLossPerDay>0.79</resourceLossPerDay>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
 	<biostatCpx>4</biostatCpx>
+	<!-- <statFactors> -->
+	  <!-- <InjuryHealingFactor>0</InjuryHealingFactor> -->
+	<!-- </statFactors> -->
 	<customEffectDescriptions>
-		<li>Restores a lost organ or heals scars every (*DateTime)5-15 days(/DateTime).</li>
-		<li>Requires &lt;color=#8a8ae6&gt;79 resurgent cells&lt;/color&gt;.</li>
+		<li>Healing: &lt;color=#8a8ae6&gt;cells&lt;/color&gt; hp/day</li>
 	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WoundHealingRate</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">

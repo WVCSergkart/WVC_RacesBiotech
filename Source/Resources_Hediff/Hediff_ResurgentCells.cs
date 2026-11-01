@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -47,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				currentResource = 0.01f;
+				currentResource = 0.001f;
 			}
 		}
 
@@ -59,6 +60,40 @@ namespace WVC_XenotypesAndGenes
 				OffsetResource((0.01f / 60000) * 2400);
 			}
 		}
+
+		private static readonly CachedTexture Icon = new("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0");
+
+		private bool? cachedCanCreateSkeleton;
+		public bool CanCreateSkeleton
+		{
+			get
+			{
+				if (cachedCanCreateSkeleton == null)
+				{
+					cachedCanCreateSkeleton = XaG_GeneUtility.AnyArchites(pawn);
+				}
+				return cachedCanCreateSkeleton.Value;
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (CanCreateSkeleton && currentResource >= 1f)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "WVC_GeneResurgent_CreateSkeleton".Translate(),
+					defaultDesc = "WVC_GeneResurgent_CreateSkeletonDesc".Translate(),
+					icon = Icon.Texture,
+					action = delegate
+					{
+						GeneResurgnet?.CreateSkeleton();
+					}
+				};
+			}
+		}
+
+		private Gene_Resurgent GeneResurgnet => pawn.genes?.GetFirstGeneOfType<Gene_Resurgent>();
 
 		private float currentResource = 0;
 
@@ -76,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemoved()
 		{
 			base.PostRemoved();
-			pawn.genes?.GetFirstGeneOfType<Gene_Resurgent>()?.Recache();
+			GeneResurgnet?.Recache();
 		}
 
 	}

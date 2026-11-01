@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.AppendLine();
 					stringBuilder.AppendLineTagged("WVC_GeneResurgentTooltip".Translate());
 					stringBuilder.AppendLine();
-					stringBuilder.AppendLineTagged("WVC_GeneResurgentTooltip_Offset".Translate(Math.Round((gene.ResourceLossPerDay) * -100, 0)));
+					stringBuilder.AppendLineTagged("WVC_GeneResurgentTooltip_Offset".Translate(Math.Round(gene.Value * 100, 0) + "%", Math.Round((gene.ResourceLossPerDay) * -100, 0)));
 					cachedDescription = stringBuilder.ToString().TrimEndNewlines();
 				}
 				return cachedDescription;
@@ -226,34 +226,35 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					if (pawn.AnyArchites())
-					{
-						List<FloatMenuOption> list = new();
-						list.Add(new FloatMenuOption("WVC_GeneResurgent_CreateSkeleton".Translate(), delegate
-						{
-							if (gene.Value >= 1f)
-							{
-								gene.CreateSkeleton();
-							}
-							else
-							{
-								Messages.Message("WVC_GeneResurgent_LowCells".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-							}
-						}, orderInPriority: 0));
-						list.Add(new FloatMenuOption("WVC_MutantWorker_DefaultTab".Translate(), delegate
-						{
-							gene.Extension_Giver?.mainButtonDef?.Worker?.InterfaceTryActivate();
-						}, orderInPriority: 1));
-						list.Add(new FloatMenuOption("WVC_XaG_GenesManager".Translate(), delegate
-						{
-							Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene, gene.Extension_Giver.geneCategoryDefs));
-						}, orderInPriority: 2));
-						Find.WindowStack.Add(new FloatMenu(list));
-					}
-					else
-					{
-						Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene, gene.Extension_Giver.geneCategoryDefs));
-					}
+					//if (pawn.AnyArchites())
+					//{
+					//	List<FloatMenuOption> list = new();
+					//	list.Add(new FloatMenuOption("WVC_GeneResurgent_CreateSkeleton".Translate(), delegate
+					//	{
+					//		if (gene.Value >= 1f)
+					//		{
+					//			gene.CreateSkeleton();
+					//		}
+					//		else
+					//		{
+					//			Messages.Message("WVC_GeneResurgent_LowCells".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+					//		}
+					//	}, orderInPriority: 0));
+					//	list.Add(new FloatMenuOption("WVC_MutantWorker_DefaultTab".Translate(), delegate
+					//	{
+					//		gene.Extension_Giver?.mainButtonDef?.Worker?.InterfaceTryActivate();
+					//	}, orderInPriority: 1));
+					//	list.Add(new FloatMenuOption("WVC_XaG_GenesManager".Translate(), delegate
+					//	{
+					//		Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene, gene.Extension_Giver.geneCategoryDefs));
+					//	}, orderInPriority: 2));
+					//	Find.WindowStack.Add(new FloatMenu(list));
+					//}
+					//else
+					//{
+					//	Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene, gene.Extension_Giver.geneCategoryDefs));
+					//}
+					Find.WindowStack.Add(new Dialog_ActivityManager(gene.pawn, gene, gene.Extension_Giver.geneCategoryDefs));
 				}
 			}
 			TooltipHandler.TipRegion(rect4, "WVC_ActivityManager_GeneralTip".Translate());

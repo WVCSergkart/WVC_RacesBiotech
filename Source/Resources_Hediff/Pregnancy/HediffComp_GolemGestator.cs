@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -5,17 +6,18 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_GolemGestator : HediffCompProperties
+	[Obsolete]
+	public class HediffCompProperties_GolemGestator : HediffCompProperties_Gestator
 	{
-		public int gestationIntervalDays = 1;
+		//public int gestationIntervalDays = 1;
 
-		public string completeMessage = "WVC_RB_Gene_MechaGestator";
+		//public string completeMessage = "WVC_RB_Gene_MechaGestator";
 
-		public bool endogeneTransfer = true;
+		//public bool endogeneTransfer = true;
 
-		public bool xenogeneTransfer = true;
+		//public bool xenogeneTransfer = true;
 
-		public GeneDef geneDef;
+		//public GeneDef geneDef;
 
 		public HediffCompProperties_GolemGestator()
 		{
@@ -31,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 		private Pawn childOwner = null;
 
-		public HediffCompProperties_GolemGestator Props => (HediffCompProperties_GolemGestator)props;
+		public HediffCompProperties_Gestator Props => (HediffCompProperties_Gestator)props;
 
 		protected int GestationIntervalDays => Props.gestationIntervalDays;
 

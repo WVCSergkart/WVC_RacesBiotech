@@ -13,6 +13,15 @@ namespace WVC_XenotypesAndGenes
 
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
+		public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
+		{
+			if (ReimplanterGene != null)
+			{
+				return "(" + ReimplanterGene.ThrallDef.LabelCap + ")";
+			}
+			return base.ExtraLabelMouseAttachment(target);
+		}
+
 		[Unsaved(false)]
 		private Gene_ThrallMaker cachedReimplanterGene;
 
