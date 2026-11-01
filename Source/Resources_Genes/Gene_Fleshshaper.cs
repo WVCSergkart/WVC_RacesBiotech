@@ -75,16 +75,42 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		public List<string> UnlockedXenotypes
+		{
+			get
+			{
+				if (unlockedXenotypes == null)
+				{
+					return new();
+				}
+				return unlockedXenotypes;
+			}
+		}
+
 		public override List<XenotypeHolder> Xenotypes
 		{
 			get
 			{
 				return base.Xenotypes.Where(holder =>
 				{
-					bool isSpecifiedXenotype = Extension_Giver.xenotypeDefs != null && Extension_Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
-					bool inAnyCategory = Extension_Giver.geneCategoryDefs != null && holder.genes.Any(def => Extension_Giver.geneCategoryDefs.Contains(def.displayCategory));
-					bool isUnlocked = unlockedXenotypes != null && unlockedXenotypes.Contains(holder.Label);
-					return holder.Baseliner || inAnyCategory || isUnlocked || isSpecifiedXenotype;
+					return holder.Baseliner || ExtensionCategory(holder) || Unlocked(holder) || ExtensionXenotypes(holder) || UnlockedByFamily(holder);
+
+					bool ExtensionXenotypes(XenotypeHolder holder)
+					{
+						return Extension_Giver.xenotypeDefs != null && Extension_Giver.xenotypeDefs.Contains(holder.XenotypeDef_Safe.defName);
+					}
+					bool ExtensionCategory(XenotypeHolder holder)
+					{
+						return Extension_Giver.geneCategoryDefs != null && holder.genes.Any(def => Extension_Giver.geneCategoryDefs.Contains(def.displayCategory));
+					}
+					bool Unlocked(XenotypeHolder holder)
+					{
+						return UnlockedXenotypes.Contains(holder.Label);
+					}
+					bool UnlockedByFamily(XenotypeHolder holder)
+					{
+						return pawn.relations != null && FleshshaperGenes.Any(shaper => shaper?.pawn != null && shaper != this && shaper.UnlockedXenotypes.Contains(holder.Label) && pawn.relations.FamilyByBlood.Contains(shaper.pawn));
+					}
 				}).ToList();
 			}
 		}
