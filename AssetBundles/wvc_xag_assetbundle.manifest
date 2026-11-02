@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1182364003
+CRC: 2735580583
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f3d3ee6890516289f129a271e9a6ea4
+    Hash: c13fc752f725be849b09776354236656
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 4b9207c43128ebf08714a5118db1fd5b
+    Hash: ad58563f47d1409e233b8522ac7b240e
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -548,6 +548,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_DynamicTemp_Fleshmass.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno16.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Shapeshifter_PreservedChimera.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/UI_XenogenesEditorFleshmass.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/MecaGene_Body/Naked_Fat_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Plants/Archite3.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno1.png
@@ -588,6 +589,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Scarifier_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Hair/Scrapper_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/NoChance.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/Gene_Fleshshaper_UI_Implanter.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Feathered_Body/Naked_Male_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/UndeadGene_Body/Naked_Male_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_TemperatureArchite_v0.png
@@ -877,6 +879,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Cyberskin_Body/Naked_Female_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Fleshmass_Body/Naked_Fat_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ChimeraLimit_GreatlyIncreased.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/Gene_Fleshshaper_UI.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/Chest/TentaclesChestMale_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Cyberskin_Body/Naked_Female_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Random_Psychic_v0.png
@@ -1057,6 +1060,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/StoneGene_Body/Naked_Fat_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/ResurgentTree_Moss/Cluster_B.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/UI_Flesh_GeneStyle_Gizmo.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Intellectual/HalfCrown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno8.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_Deadlife_v0.png

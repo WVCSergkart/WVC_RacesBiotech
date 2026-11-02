@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 
 		private HediffStage curStage;
 
-		public override string LabelInBrackets => "WVC_Level".Translate(CurrentLevel);
+		public override string LabelInBrackets => CurrentLevel.ToStringFleshLevel();
 
 		public override bool Visible => !WVC_Biotech.settings.fleshmass_HideBodypartHediffs;
 

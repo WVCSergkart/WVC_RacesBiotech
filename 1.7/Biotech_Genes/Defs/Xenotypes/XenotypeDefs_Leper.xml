@@ -18,38 +18,58 @@
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
+		<!-- old -->
+		<!-- <li>WVC_Obsession</li> -->
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>WVC_FleshmassHeart</li> -->
+		<!-- <li>WVC_FleshmassReproduction</li> -->
+		<!-- <li>WVC_FleshmassAging</li> -->
+		<!-- <li>WVC_FleshmassFertility</li> -->
+		<!-- <li>WVC_Chimera_Devourer</li> -->
+		<!-- <li>WVC_Fleshshaper</li> -->
+		<!-- <li>WVC_SharedMetabolism</li> -->
+		<!-- <li>WVC_Agevenator</li> -->
+		<!-- <li>WVC_Immunity_VeryWeak</li> -->
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_PsychicHarem</li> -->
+		<!-- <li>WVC_Pain_Passive</li> -->
+		<!-- <li>WVC_FemaleOnly</li> -->
+		<!-- <li>WVC_IncestLover</li> -->
+		<!-- <li>WVC_Budding</li> -->
+		<!-- <li>WVC_Beauty_AbominationallyUgly</li> -->
+		<!-- <li>WVC_Wings_TentacleWings</li> -->
+		<!-- <li>WVC_HeadTentacles0c</li> -->
+		<!-- <li>WVC_BodyTentacles</li> -->
+		<!-- <li>WVC_FleshmassSkin</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<!-- <li>Inbred</li> -->
+		<!-- new -->
 		<li>WVC_Obsession</li>
 		<li>DiseaseFree</li>
+		<li>WVC_Chimera_Devourer</li>
 		<li>WVC_FleshmassHeart</li>
 		<li>WVC_FleshmassReproduction</li>
 		<li>WVC_FleshmassAging</li>
 		<li>WVC_FleshmassFertility</li>
-		<li>WVC_Chimera_Devourer</li>
-		<li>WVC_Fleshshaper</li>
-		<li>WVC_SharedMetabolism</li>
 		<li>WVC_Agevenator</li>
+		<li>WVC_Fleshshaper</li>
 		<li>WVC_Immunity_VeryWeak</li>
 		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_PsychicHarem</li>
 		<li>WVC_Pain_Passive</li>
 		<li>WVC_FemaleOnly</li>
-		<!-- or -->
-		<!-- <li>Beard_NoBeardOnly</li> -->
 		<li>WVC_IncestLover</li>
 		<li>WVC_Budding</li>
 		<li>WVC_Beauty_AbominationallyUgly</li>
-		<li>WVC_Wings_TentacleWings</li>
 		<li>WVC_HeadTentacles0c</li>
 		<li>WVC_BodyTentacles</li>
 		<li>WVC_FleshmassSkin</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
-		<!-- <li>WVC_SkinColor_FleshPink</li> -->
-		<!-- <li>WVC_SkinColor_FleshRed</li> -->
 		<li>Skin_SheerWhite</li>
-		<!-- <li>WVC_SkinColor_Devourer</li> -->
-		<!-- <li>WVC_SkinColor_PinkWhite</li> -->
 		<li>Inbred</li>
+		<li>WVC_SharedMetabolism</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

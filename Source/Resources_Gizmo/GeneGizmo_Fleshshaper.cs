@@ -9,6 +9,11 @@ namespace WVC_XenotypesAndGenes
 	public class GeneGizmo_Fleshshaper : GeneGizmo_Shapeshifter
 	{
 
+		protected override CachedTexture Shapeshifter_MenuIcon => XaG_UiUtility.Fleshshaper_MenuIcon;
+		protected override CachedTexture Shapeshifter_BonusIcon => XaG_UiUtility.Fleshshaper_BonusGenesIcon;
+		protected override CachedTexture Shapeshifter_EditorIcon => XaG_UiUtility.Fleshshaper_XenogenesEditorIcon;
+		protected override CachedTexture Shapeshifter_StyleIcon => XaG_UiUtility.Fleshshaper_StyleIcon;
+
 		public IGeneXenogenesEditor xenogenesEditor;
 		private Gene_Fleshshaper gene_Fleshshaper;
 
@@ -83,12 +88,12 @@ namespace WVC_XenotypesAndGenes
 			ButtonXenogenesEditor(rect6);
 			// Button
 			Rect rect7 = new(rect6.x + 44f, rect6.y, rect6.width, rect6.height);
-			XaG_UiUtility.Button_Style(rect7, pawn, gene, true);
+			XaG_UiUtility.Button_Style(rect7, pawn, gene, true, Shapeshifter_StyleIcon);
 		}
 
 		protected void ButtonXenogenesEditor(Rect rect4)
 		{
-			Widgets.DrawTextureFitted(rect4, XaG_UiUtility.Shapeshifter_XenogenesEditorIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect4, Shapeshifter_EditorIcon.Texture, 1f);
 			if (Mouse.IsOver(rect4))
 			{
 				Widgets.DrawHighlight(rect4);

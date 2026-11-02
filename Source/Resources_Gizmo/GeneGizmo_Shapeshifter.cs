@@ -17,6 +17,9 @@ namespace WVC_XenotypesAndGenes
 		public virtual TaggedString GizmoTip => "WVC_XaG_ShapeshifterGizmoTip".Translate(gene.ShaperResource);
 
 		protected virtual CachedTexture Shapeshifter_MenuIcon => XaG_UiUtility.Shapeshifter_MenuIcon;
+		protected virtual CachedTexture Shapeshifter_BonusIcon => XaG_UiUtility.Shapeshifter_BonusGenesIcon;
+		protected virtual CachedTexture Shapeshifter_EditorIcon => XaG_UiUtility.Shapeshifter_XenogenesEditorIcon;
+		protected virtual CachedTexture Shapeshifter_StyleIcon => null;
 
 		public GeneGizmo_Shapeshifter(Gene_Shapeshifter geneShapeshifter)
 			: base()
@@ -62,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			Button2c(rect5);
 			// Button
 			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-			XaG_UiUtility.Button_Style(rect6, pawn, gene, true);
+			XaG_UiUtility.Button_Style(rect6, pawn, gene, true, Shapeshifter_StyleIcon);
 			// Button
 			//Rect rect7 = new(rect6.x + 44f, rect6.y, rect6.width, rect6.height);
 			//ButtonGenesSettings(rect7);
@@ -118,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 		// Shaper menu
 		protected virtual void Button2c(Rect rect4)
 		{
-			Widgets.DrawTextureFitted(rect4, XaG_UiUtility.Shapeshifter_BonusGenesIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect4, Shapeshifter_BonusIcon.Texture, 1f);
 			if (Mouse.IsOver(rect4))
 			{
 				Widgets.DrawHighlight(rect4);

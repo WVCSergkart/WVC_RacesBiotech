@@ -390,7 +390,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_GenesSettings
 				{
-					defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+					defaultLabel = "DEV: " + "WVC_XaG_GenesSettings".Translate(),
 					defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
 					icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
 					shrinkable = true,
@@ -457,6 +457,21 @@ namespace WVC_XenotypesAndGenes
 					else
 					{
 						ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+					}
+				}
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: ResetXenotype (Shapeshifter)",
+				defaultDesc = "Reimplant current xenotype endogenes/xenogenes except shapeshifter gene.",
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/ThrallMaker_XenoMenu_Gizmo_v0"),
+				action = delegate
+				{
+					Pawn pawn = Pawn;
+					Gene_Shapeshifter gene_Shapeshifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+					if (gene_Shapeshifter != null)
+					{
+						ReimplanterUtility.SetXenotype(pawn, new(pawn.genes.Xenotype), gene_Shapeshifter, !pawn.genes.Xenotype.inheritable, true);
 					}
 				}
 			};

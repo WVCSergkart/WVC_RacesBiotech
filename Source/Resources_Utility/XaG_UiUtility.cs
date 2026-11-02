@@ -24,6 +24,11 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture Shapeshifter_BonusGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
 		public static readonly CachedTexture Shapeshifter_XenogenesEditorIcon = new("WVC/UI/XaG_General/UI_XenogenesEditorGeneral");
 
+		public static readonly CachedTexture Fleshshaper_MenuIcon = new("WVC/UI/UI4/Gene_Fleshshaper_UI");
+		public static readonly CachedTexture Fleshshaper_BonusGenesIcon = new("WVC/UI/UI4/Gene_Fleshshaper_UI_Implanter");
+		public static readonly CachedTexture Fleshshaper_XenogenesEditorIcon = new("WVC/UI/UI4/UI_XenogenesEditorFleshmass");
+		public static readonly CachedTexture Fleshshaper_StyleIcon = new("WVC/UI/UI4/UI_Flesh_GeneStyle_Gizmo");
+
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 		public static readonly CachedTexture Icon_ActivityManager_General = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
 
@@ -111,6 +116,25 @@ namespace WVC_XenotypesAndGenes
 		public static string ToStringResource(this float value)
 		{
 			return (value * -100).ToStringPlusMinus(0);
+		}
+
+		public static string ToStringFleshLevel(this int level)
+		{
+			return level switch
+			{
+				0 => "",
+				1 => "\u03B1", // α
+				2 => "\u03B2", // β
+				3 => "\u03B3", // γ
+				4 => "\u03B4", // δ
+				5 => "\u03B5", // ε
+				_ => "WVC_Level".Translate(level),
+			};
+			//if (level <= 5)
+			//{
+			//	return $"\u03B{level}" + level;
+			//}
+			//return "WVC_Level".Translate(level);
 		}
 
 		public static string ToStringPlusMinus(this float value, int round = 2)
