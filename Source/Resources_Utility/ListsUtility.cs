@@ -264,10 +264,21 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		//private static List<XenotypeHolder> cachedXenotypeHoldersWithXenotypeDefs;
+
+		/// <summary>
+		/// A universal list for xenotypes in the mod. 
+		/// It is generated as needed and is not cached, as the holder is flexible. 
+		/// The result must be cached manually.
+		/// </summary>
+		/// <returns></returns>
 		public static List<XenotypeHolder> GetAllXenotypesHolders()
 		{
 			List<XenotypeHolder> list = new();
 			foreach (XenotypeDef item in GetAllXenotypesExceptAndroids())
+			{
+				list.Add(new(item));
+			}
+			foreach (SubXenotypeDef item in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
 			{
 				list.Add(new(item));
 			}
@@ -277,7 +288,17 @@ namespace WVC_XenotypesAndGenes
 				list.Add(new(item, index));
 				index++;
 			}
+			HolderHelper(list);
 			return list;
+		}
+
+		/// <summary>
+		/// Modders hook.
+		/// </summary>
+		/// <param name="holders"></param>
+		public static void HolderHelper(List<XenotypeHolder> holders)
+		{
+
 		}
 
 		private static List<XenotypeDef> allDevXenotypeDefs = null;

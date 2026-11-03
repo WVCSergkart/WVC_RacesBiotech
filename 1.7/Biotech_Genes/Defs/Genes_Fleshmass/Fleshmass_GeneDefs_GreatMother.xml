@@ -62,6 +62,12 @@
 		  <li>WVC_Pain_Passive</li>
 		</genes>
 	  </li>
+	  <li>
+		<geneDef>WVC_Holder</geneDef>
+		<genes>
+		  <li>WVC_Holded</li>
+		</genes>
+	  </li>
 	</genesTrans>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">

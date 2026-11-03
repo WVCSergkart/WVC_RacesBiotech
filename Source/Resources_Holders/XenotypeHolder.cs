@@ -10,10 +10,16 @@ namespace WVC_XenotypesAndGenes
 	public class XenotypeHolder
 	{
 
+		/// <summary>
+		/// Custom xenotypes only.
+		/// </summary>
 		public string name = null;
 
 		public XenotypeIconDef iconDef = null;
 
+		/// <summary>
+		/// Flag. For genes, the "genes" is used.
+		/// </summary>
 		public XenotypeDef xenotypeDef = null;
 
 		public List<GeneDef> genes = new();
@@ -86,6 +92,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			SetupCustomXenotype(customXenotype);
 			this.displayPriority = -1 * (10000 + index);
+		}
+
+		public XenotypeHolder(SubXenotypeDef subXenotypeDef)
+		{
+			this.cachedLabel = subXenotypeDef.label;
+			this.xenotypeDef = subXenotypeDef.xenotypeDef;
+			this.genes = subXenotypeDef.genes;
+			this.inheritable = subXenotypeDef.xenotypeDef.inheritable;
+			this.displayPriority = subXenotypeDef.xenotypeDef.displayPriority + 0.1f;
 		}
 
 		private void SetupCustomXenotype(CustomXenotype customXenotype)

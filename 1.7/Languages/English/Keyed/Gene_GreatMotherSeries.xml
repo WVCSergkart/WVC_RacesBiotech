@@ -3,6 +3,6 @@
 
 	<WVC_GeneticTransform_Desc>Genes that will be added to the gene set in a generation depending on the mother's presence of the specified gene. They can remove conflicting genes.</WVC_GeneticTransform_Desc>
 
-	<WVC_GeneticTransform_GenesList>Affected genes: &lt;color=#8a8ae6&gt;{0}&lt;/color&gt;</WVC_GeneticTransform_GenesList>
+	<WVC_GeneticTransform_GenesList>Affected genes: &lt;color=#8a8ae6&gt;{0}&lt;/color&gt;.</WVC_GeneticTransform_GenesList>
 
 </LanguageData>

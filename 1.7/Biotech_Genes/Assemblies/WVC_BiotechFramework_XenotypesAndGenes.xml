@@ -4,6 +4,15 @@
         <name>WVC_BiotechFramework_XenotypesAndGenes</name>
     </assembly>
     <members>
+        <member name="T:WVC_XenotypesAndGenes.SubXenotypeDef">
+            <summary>
+            This isn't a true sub-xenotype in the traditional sense. 
+            It's used by shapeshifter genes for alternative (XML-based) xenotype variations.
+            This is necessary to avoid creating an entire xenotype based on deviations of one or two genes.
+            It can be used in other genes as well, as it's called through the universal GetAllXenotypesHolders().
+            Perhaps the morpher uses it too.
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.Gene_Chimera_HiveGeneline">
             <summary>
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
@@ -87,6 +96,16 @@
         <member name="F:WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted.fired">
             <summary>
             Custom pregnancy hook. Egg layer, parasite implanter, etc. 
+            </summary>
+        </member>
+        <member name="F:WVC_XenotypesAndGenes.XenotypeHolder.name">
+            <summary>
+            Custom xenotypes only.
+            </summary>
+        </member>
+        <member name="F:WVC_XenotypesAndGenes.XenotypeHolder.xenotypeDef">
+            <summary>
+            Flag. For genes, the "genes" is used.
             </summary>
         </member>
         <member name="T:WVC_XenotypesAndGenes.IGeneInspectInfo">
@@ -264,6 +283,20 @@
             </summary>
             <param name="pawn"></param>
             <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.ListsUtility.GetAllXenotypesHolders">
+            <summary>
+            A universal list for xenotypes in the mod. 
+            It is generated as needed and is not cached, as the holder is flexible. 
+            The result must be cached manually.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WVC_XenotypesAndGenes.ListsUtility.HolderHelper(System.Collections.Generic.List{WVC_XenotypesAndGenes.XenotypeHolder})">
+            <summary>
+            Modders hook.
+            </summary>
+            <param name="holders"></param>
         </member>
     </members>
 </doc>

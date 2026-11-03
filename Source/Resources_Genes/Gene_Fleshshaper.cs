@@ -111,6 +111,25 @@ namespace WVC_XenotypesAndGenes
 					{
 						return pawn.relations != null && FleshshaperGenes.Any(shaper => shaper?.pawn != null && shaper != this && shaper.UnlockedXenotypes.Contains(holder.Label) && pawn.relations.FamilyByBlood.Contains(shaper.pawn));
 					}
+					// Loop
+					//bool UnlockedByCollection(XenotypeHolder holder)
+					//{
+					//	return !GenelineGenes.Any(geneDef => holder.genes.Contains(geneDef));
+					//}
+					//bool UnlockedByCollection(XenotypeHolder holder)
+					//{
+					//	//bool contains = true;
+					//	//foreach (Gene gene in pawn.genes.GenesListForReading)
+					//	//{
+					//	//	if (!holder.genes.Contains(gene.def))
+					//	//	{
+					//	//		contains = false;
+					//	//		break;
+					//	//	}
+					//	//}
+					//	//return contains;
+					//	return holder.xenotypeDef == pawn.genes.Xenotype;
+					//}
 				}).ToList();
 			}
 		}
@@ -138,7 +157,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> GenelineGenes => XenotypesGenes;
+		public List<GeneDef> GenelineGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				geneDefs.AddRange(XenotypesGenes);
+				geneDefs.AddRangeSafe(CollectedGenes);
+				return geneDefs;
+			}
+		}
 
 		public override void UpdateCache()
 		{
