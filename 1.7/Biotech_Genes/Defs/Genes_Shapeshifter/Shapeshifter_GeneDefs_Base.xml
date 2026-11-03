@@ -19,8 +19,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_MainGene" Abstract="True">
 	<labelShortAdj>shifter</labelShortAdj>
 	<customEffectDescriptions>
-		<li>Allows to change the xenotype at any time.</li>
-		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
+		<li>Allows to change the &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; at any time.</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>8</biostatCpx>
@@ -56,6 +55,9 @@
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
 	</statOffsets>
+	<customEffectDescriptions>
+		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<birthQualityOffset>0.25</birthQualityOffset>

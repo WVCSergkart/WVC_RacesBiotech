@@ -180,14 +180,14 @@ namespace WVC_XenotypesAndGenes
 			UpdateCache();
 		}
 
-		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		public virtual void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
 		{
 			GeneSet geneSet = pregnancy.geneSet;
 			geneSet.AddGene(def);
 			geneSet.SortGenes();
 		}
 
-		public bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
+		public virtual bool Notify_CustomPregnancy(Hediff_Pregnant pregnancy)
 		{
 			return false;
 		}

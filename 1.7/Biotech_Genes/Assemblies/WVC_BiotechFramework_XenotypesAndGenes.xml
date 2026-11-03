@@ -14,6 +14,13 @@
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.
             </summary>
         </member>
+        <member name="M:WVC_XenotypesAndGenes.Gene_GreatMother.GeneSetHelper">
+            <summary>
+            Mod support helper
+            The gene is not intended for use with non-vanilla pregnancies, but there is the possibility of adding support.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.Gene_Hivemind_Hediff">
             <summary>
             Dormant hivemind gene. Dormant hivemind gene - do not cause recache and synchronization, but are still considered hivemind genes.

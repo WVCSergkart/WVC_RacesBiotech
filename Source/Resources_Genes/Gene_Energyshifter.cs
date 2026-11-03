@@ -304,6 +304,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+
+		}
+
 		public override void UpdateCache()
 		{
 			base.UpdateCache();

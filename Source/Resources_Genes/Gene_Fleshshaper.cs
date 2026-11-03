@@ -181,6 +181,11 @@ namespace WVC_XenotypesAndGenes
 			// Dev
 		}
 
+		public override void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+
+		}
+
 		public void AddGene_Editor(GeneDef geneDef)
 		{
 			AddGene_Safe(geneDef, false);

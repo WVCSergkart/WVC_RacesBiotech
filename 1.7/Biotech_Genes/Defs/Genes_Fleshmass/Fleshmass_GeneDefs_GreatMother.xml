@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.GeneDef_XaG ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_GreatMother</defName>
+	<label>mother legacy</label>
+	<description>Carriers of this gene have a special genetic condition that changes the genetics of their offspring depending on the mother's genetics.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GreatMother</geneClass>
+	<iconPath>WVC/UI/Genes4/Gene_GreatMother</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>220</displayOrderInCategory>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<minAgeActive>0</minAgeActive>
+	<customEffectDescriptions>
+		<li>Replaces and added some of the genes in the offspring during a &lt;color=#8a8ae6&gt;basic pregnancy&lt;/color&gt; or &lt;color=#8a8ae6&gt;bud pregnancy&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_GreatMother_Fleshmass</li>
+	</exclusionTags>
+	<genesTrans>
+	  <li>
+		<geneDef>WVC_FleshmassFertility</geneDef>
+		<genes>
+		  <li>Sterile</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>WVC_WoundHealing_NoHealing</geneDef>
+		<genes>
+		  <li>WVC_WoundHealing_SuperSlowHealing</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>WVC_GreatMother</geneDef>
+		<genes>
+		  <li>WVC_FemaleOnly</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>Beauty_VeryUgly</geneDef>
+		<genes>
+		  <li>WVC_Beauty_AbominationallyUgly</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>Learning_Fast</geneDef>
+		<genes>
+		  <li>Learning_Slow</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>Delicate</geneDef>
+		<genes>
+		  <li>Robust</li>
+		</genes>
+	  </li>
+	  <li>
+		<geneDef>WVC_Pain_Nullified</geneDef>
+		<genes>
+		  <li>WVC_Pain_Passive</li>
+		</genes>
+	  </li>
+	</genesTrans>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>0.15</birthQualityOffset>
+		</li>
+	</modExtensions>
+  </WVC_XenotypesAndGenes.GeneDef_XaG>
+
+</Defs>

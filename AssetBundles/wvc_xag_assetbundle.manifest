@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2735580583
+CRC: 1685721678
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c13fc752f725be849b09776354236656
+    Hash: 2522fa52e999630582ad6e5639ac4d5b
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ad58563f47d1409e233b8522ac7b240e
+    Hash: 0097bd4f0138f5372d5c152b9645d303
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -146,6 +146,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Shapeshifter_TotalHealing.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemLifter_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Icons3/Icon_Ripper.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_GreatMother.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Artistic/Archite2.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/BodyParts_Wings/TentacleWings3c_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad_south.png
