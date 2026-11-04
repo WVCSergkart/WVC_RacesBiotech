@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static List<XenotypeGetterDef> cachedXenotypeGetterDefs;
+		private static List<XenotypeGetterDef> cachedXenotypeGetterDefs;
 		public static List<XenotypeGetterDef> XenotypeGetterDefs
 		{
 			get
@@ -444,8 +444,13 @@ namespace WVC_XenotypesAndGenes
 		//	return list;
 		//}
 
+		public static List<CustomXenotype> cachedCustomXenotypesList;
 		public static List<CustomXenotype> GetCustomXenotypesList()
 		{
+			if (cachedCustomXenotypesList != null)
+			{
+				return cachedCustomXenotypesList;
+			}
 			List<CustomXenotype> xenotypes = new();
 			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
 			{
@@ -461,6 +466,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}, skipOnMismatch: true);
 			}
+			cachedCustomXenotypesList = xenotypes;
 			return xenotypes;
 		}
 

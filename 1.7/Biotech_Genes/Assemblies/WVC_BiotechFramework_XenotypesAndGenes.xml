@@ -4,6 +4,11 @@
         <name>WVC_BiotechFramework_XenotypesAndGenes</name>
     </assembly>
     <members>
+        <member name="P:WVC_XenotypesAndGenes.ModsUtility.GetReqMatch_CurrentSettings">
+            <summary>
+            Xenotype match for current settings.
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.SubXenotypeDef">
             <summary>
             This isn't a true sub-xenotype in the traditional sense. 

@@ -97,10 +97,11 @@ namespace WVC_XenotypesAndGenes
 		public XenotypeHolder(SubXenotypeDef subXenotypeDef)
 		{
 			this.cachedLabel = subXenotypeDef.label;
-			this.xenotypeDef = subXenotypeDef.xenotypeDef;
+			xenotypeDef = XenotypeDefOf.Baseliner;
+			//this.xenotypeDef = subXenotypeDef.xenotypeDef;
 			this.genes = subXenotypeDef.genes;
-			this.inheritable = subXenotypeDef.xenotypeDef.inheritable;
-			this.displayPriority = subXenotypeDef.xenotypeDef.displayPriority + 0.1f;
+			this.inheritable = subXenotypeDef.inheritable;
+			this.displayPriority = subXenotypeDef.displayPriority;
 		}
 
 		private void SetupCustomXenotype(CustomXenotype customXenotype)

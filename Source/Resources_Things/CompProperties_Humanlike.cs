@@ -326,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Pawn.Spawned || Pawn.Faction == Faction.OfPlayerSilentFail)
 				{
-					ReimplanterUtility.GeneDebugger(Pawn);
+					ReimplanterUtility.PostImplantDebug(Pawn);
 				}
 				reqDebug = false;
 			}
@@ -483,10 +483,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					Pawn pawn = Pawn;
 					List<FloatMenuOption> list = new();
-					List<XenotypeDef> xenotypeDefs = DefDatabase<XenotypeDef>.AllDefsListForReading;
+					List<XenotypeHolder> xenotypeDefs = ListsUtility.GetAllXenotypesHolders();
 					for (int i = 0; i < xenotypeDefs.Count; i++)
 					{
-						XenotypeDef xenotypeDef = xenotypeDefs[i];
+						XenotypeHolder xenotypeDef = xenotypeDefs[i];
 						list.Add(new FloatMenuOption(xenotypeDef.LabelCap, delegate
 						{
 							if (Find.Selector.SelectedPawns.Count > 1)
@@ -601,6 +601,15 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					ReimplanterUtility.GeneSetCleaner(Pawn);
+				}
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "DEV: CheckPawnXenotypeFlag",
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UiRandomize"),
+				action = delegate
+				{
+					ReimplanterUtility.FixXenotypeFlag(Pawn);
 				}
 			};
 		}

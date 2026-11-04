@@ -78,6 +78,7 @@ namespace WVC_XenotypesAndGenes
 			CompStylingStation.cachedPawns = null;
 			cachedGameComponent = null;
 			MainButtonWorker_AutoInitTab.visible = null;
+			ListsUtility.cachedCustomXenotypesList = null;
 		}
 
 		//[Obsolete]

@@ -188,11 +188,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static void FixXenotypeFlag(Pawn pawn)
 		{
-			if (pawn.genes.UniqueXenotype)
+			if (pawn.genes.UniqueXenotype && ListsUtility.GetCustomXenotypesList().Any(xenos => xenos.name == pawn.genes.xenotypeName))
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, pawn.genes.Xenotype.genes, PreferredXenotypesUtility.ReqMatch))
+			if (pawn.genes.Xenotype.genes.NullOrEmpty() || !XaG_GeneUtility.GenesIsMatch(pawn.genes.GenesListForReading, pawn.genes.Xenotype.genes, PreferredXenotypesUtility.ReqMatch))
 			{
 				XenotypeDef xenotypeDef = UnknownXenotypeDef(pawn.genes.GenesListForReading, PreferredXenotypesUtility.ReqMatch);
 				if (xenotypeDef != null && xenotypeDef != XenotypeDefOf.Baseliner)
@@ -206,26 +206,35 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static XenotypeDef UnknownXenotypeDef(List<GeneDef> genes, float minMatch = 1f)
+		public static XenotypeDef UnknownXenotypeDef(List<Gene> genes, float? minMatch = null)
 		{
-			XenotypeDef xenotypeDef = null;
-			foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
-			{
-				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch))
-				{
-					xenotypeDef = xenos;
-					break;
-				}
-			}
-			return xenotypeDef;
+			//if (minMatch == null)
+			//{
+			//	minMatch = PreferredXenotypesUtility.GetReqMatch_CurrentSettings;
+			//}
+			//XenotypeDef xenotypeDef = null;
+			//foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
+			//{
+			//	if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch.Value))
+			//	{
+			//		xenotypeDef = xenos;
+			//		break;
+			//	}
+			//}
+			//return xenotypeDef;
+			return UnknownXenotypeDef(genes.ConvertToDefs(), minMatch);
 		}
 
-		public static XenotypeDef UnknownXenotypeDef(List<Gene> genes, float minMatch = 1f)
+		public static XenotypeDef UnknownXenotypeDef(List<GeneDef> genes, float? minMatch = null)
 		{
+			if (minMatch == null)
+			{
+				minMatch = ModsUtility.GetReqMatch_CurrentSettings;
+			}
 			XenotypeDef xenotypeDef = null;
 			foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
 			{
-				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch))
+				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch.Value))
 				{
 					xenotypeDef = xenos;
 					break;
@@ -401,6 +410,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static void PostImplantDebug(Pawn pawn)
 		{
+			TryPostImplantDebug(pawn);
+			if (PreferredXenotypesUtility.Enabled)
+			{
+				ReimplanterUtility.FixXenotypeFlag(pawn);
+			}
+		}
+
+		[Obsolete("Use PostImplantDebug instead.")]
+		public static void GeneDebugger(Pawn pawn)
+		{
+			TryPostImplantDebug(pawn);
+		}
+
+		private static void TryPostImplantDebug(Pawn pawn)
+		{
 			string phase = "init";
 			try
 			{
@@ -461,15 +485,6 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Failed do post implant debug. On phase: " + phase + ". Reason: " + arg);
-			}
-		}
-
-		public static void GeneDebugger(Pawn pawn)
-		{
-			PostImplantDebug(pawn);
-			if (PreferredXenotypesUtility.Enabled)
-			{
-				ReimplanterUtility.FixXenotypeFlag(pawn);
 			}
 		}
 
@@ -608,6 +623,15 @@ namespace WVC_XenotypesAndGenes
 				SetXenotype(pawn, result.xenotype, changeXenotype);
 			}
 			SetXenotype(pawn, xenotypeDef, changeXenotype);
+		}
+
+		public static void SetXenotype_DoubleXenotype(Pawn pawn, XenotypeHolder xenotypeDef, bool changeXenotype = true)
+		{
+			if (!xenotypeDef.XenotypeDef_Safe.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.XenotypeDef_Safe.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.XenotypeDef_Safe.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
+			{
+				SetXenotype(pawn, result.xenotype);
+			}
+			SetXenotype(pawn, xenotypeDef);
 		}
 
 		public static void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef, bool changeXenotype = true)

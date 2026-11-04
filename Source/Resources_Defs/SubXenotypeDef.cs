@@ -19,8 +19,9 @@ namespace WVC_XenotypesAndGenes
 	public class SubXenotypeDef : Def
 	{
 
-		public XenotypeDef xenotypeDef;
-		//public bool inheritable = true;
+		//public XenotypeDef xenotypeDef;
+		public float displayPriority = 0;
+		public bool inheritable = true;
 		public List<GeneDef> genes;
 
 	}

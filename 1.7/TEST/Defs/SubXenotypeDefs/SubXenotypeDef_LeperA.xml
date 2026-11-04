@@ -4,7 +4,9 @@
   <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_LeperA</defName>
 	<label>leper α</label>
-	<xenotypeDef>WVC_Leper</xenotypeDef>
+	<!-- <xenotypeDef>WVC_Leper</xenotypeDef> -->
+	<inheritable>true</inheritable>
+	<displayPriority>-1023</displayPriority>
 	<genes>
 		<li>WVC_Obsession</li>
 		<li>DiseaseFree</li>

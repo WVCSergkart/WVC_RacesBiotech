@@ -436,10 +436,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene item in genes)
 			{
-				if (geneDefs.Contains(item.def))
-				{
-					continue;
-				}
+				//if (geneDefs.Contains(item.def))
+				//{
+				//	continue;
+				//}
 				geneDefs.Add(item.def);
 			}
 			return geneDefs;

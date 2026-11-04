@@ -10,6 +10,11 @@ namespace WVC_XenotypesAndGenes
 		public static bool DevTools => WVC_Biotech.settings.devMode && DebugSettings.ShowDevGizmos;
 		public static bool DevMode => WVC_Biotech.settings.devMode;
 
+		/// <summary>
+		/// Xenotype match for current settings.
+		/// </summary>
+		public static float GetReqMatch_CurrentSettings => PreferredXenotypesUtility.Enabled ? PreferredXenotypesUtility.ReqMatch : 1f;
+
 		public static bool GameStarted()
 		{
 			return !GameNotStarted();
