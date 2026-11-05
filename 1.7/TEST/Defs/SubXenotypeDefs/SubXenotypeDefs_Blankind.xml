@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Blankind</defName>
+	<label>blankind</label>
+	<iconDef>Basic</iconDef>
+	<displayPriority>100</displayPriority>
+	<genes>
+		<li>WVC_WoundHealing_ExtremeFast</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_Hivemind_DormantDrone</li>
+		<li>WVC_HivemindDependency</li>
+		<li>PsychicAbility_Extreme</li>
+		<li>WVC_Emotionless</li>
+		<li>WVC_SleepyStomach</li>
+		<li>Libido_Low</li>
+		<li>WVC_Hair_PunkOnly</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_AgeDebuff_Timeless</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

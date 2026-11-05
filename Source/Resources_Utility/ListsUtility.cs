@@ -280,6 +280,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (SubXenotypeDef item in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
 			{
+				if (item.IsNull)
+				{
+					continue;
+				}
 				list.Add(new(item));
 			}
 			int index = 0;

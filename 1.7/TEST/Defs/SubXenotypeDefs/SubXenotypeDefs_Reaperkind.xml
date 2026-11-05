@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="MutantMakers">
+	<defName>WVC_Reaperkind</defName>
+	<label>reaperkind</label>
+	<displayPriority>-1080</displayPriority>
+	<iconDef>WVC_Ripper0c</iconDef>
+	<genes>
+		<li>WVC_Eyes_Boneskin</li>
+		<li>WVC_BoneSkin</li>
+		<li>Hair_BaldOnly</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_MilkWhite</li>
+		<li>WVC_Wings_BoneWings</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_Archiver</li>
+		<li>WVC_MorphCondition_Monolith</li>
+		<li>WVC_Archiver_AutoResearch</li>
+		<li>WVC_Archiver_MindsConnection</li>
+		<li>WVC_Archiver_Integrator</li>
+		<li>WVC_Archiver_Skills</li>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_ArchiverCopy</li>
+		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
+		<li>WVC_BleedStopper</li>
+		<li>WVC_DeadStomach</li>
+		<li>LowSleep</li>
+		<li>PerfectImmunity</li>
+		<li>WVC_DeathRefusal</li>
+		<li>DarkVision</li>
+		<li>WVC_Rejuvenator</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

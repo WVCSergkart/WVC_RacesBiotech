@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="Hivemind">
+	<defName>WVC_Overrider</defName>
+	<label>overrider</label>
+	<iconDef>WVC_Overrider1c</iconDef>
+	<displayPriority>-1095</displayPriority>
+	<genes>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_GenelineFleshmass</li>
+		<li>WVC_Chimera_Cooldown</li>
+		<li>WVC_Chimera_HighMetLimit</li>
+		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Animalfeeder</li>
+		<li>WVC_HybridImplanter</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_FleshmassImmunity</li>
+		<li>WVC_FleshmassReproduction</li>
+		<li>WVC_FleshmassAging</li>
+		<li>WVC_EternalHunger</li>
+		<li>LowSleep</li>
+		<li>Hemogenic</li>
+		<li>HemogenDrain</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>WVC_HiveMind_Skills</li>
+		<li>WVC_HiveMind_Needs</li>
+		<li>WVC_ArchiteTelepathy</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>WVC_Ageless_Overrider</li>
+		<li>WVC_Health_Overrider</li>
+		<li>WVC_Tough_Overrider</li>
+		<li>WVC_Pain_Overrider</li>
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

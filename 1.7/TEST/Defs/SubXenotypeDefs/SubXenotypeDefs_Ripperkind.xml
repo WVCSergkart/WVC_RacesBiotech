@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef WVC_XaG_XenotypeRemoveTag="MutantMakers">
+	<defName>WVC_Ripperkind</defName>
+	<label>ripperkind</label>
+	<iconDef>WVC_Ripper0c</iconDef>
+	<displayPriority>-1075</displayPriority>
+	<genes>
+		<li>WVC_Eyes_Boneskin</li>
+		<li>WVC_BoneSkin</li>
+		<li>Hair_BaldOnly</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li>WVC_BoneTailA</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_Chimera</li>
+		<li>WVC_Chimera_GeneRipper</li>
+		<li>WVC_Chimera_GreatlyDecreasedLimit</li>
+		<li MayRequire="vanillaracesexpanded.sanguophage.forked">WVC_Corpsefeeder</li>
+		<li>WVC_ReimplanterThrallMaker</li>
+		<li>WVC_BleedStopper</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_EternalHunger</li>
+		<li>Neversleep</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li ReplaceTag="Deathless">Deathless</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+		<li>DarkVision</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li>Hemogenic</li>
+		<li>LongjumpLegs</li>
+		<li>WVC_HemogenScarless</li>
+		<li>WVC_WoundHealing_Hemogen</li>
+		<li>WVC_VoidHunger</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

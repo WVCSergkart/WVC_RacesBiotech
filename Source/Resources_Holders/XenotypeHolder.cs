@@ -96,11 +96,11 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeHolder(SubXenotypeDef subXenotypeDef)
 		{
-			this.cachedLabel = subXenotypeDef.label;
-			xenotypeDef = XenotypeDefOf.Baseliner;
-			//this.xenotypeDef = subXenotypeDef.xenotypeDef;
+			this.name = subXenotypeDef.label;
+			this.iconDef = subXenotypeDef.iconDef;
 			this.genes = subXenotypeDef.genes;
 			this.inheritable = subXenotypeDef.inheritable;
+			xenotypeDef = XenotypeDefOf.Baseliner;
 			this.displayPriority = subXenotypeDef.displayPriority;
 		}
 
