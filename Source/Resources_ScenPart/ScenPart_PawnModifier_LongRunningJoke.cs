@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (startingPawn?.genes != null && Rand.Chance(0.03f))
 			{
-				SetXenotype(pawn, startingPawn.genes.Xenotype);
+				SetXenotype(pawn, new(startingPawn.genes.Xenotype));
 			}
 			base.ModifyPawnPostGenerate(pawn, redressed);
 		}

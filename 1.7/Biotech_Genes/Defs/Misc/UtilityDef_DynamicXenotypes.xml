@@ -19,11 +19,11 @@
 		<chance>2</chance>
 		<xenotypeDefs>
 		  <li>WVC_Fleshkind</li>
-		  <!-- <li>WVC_Overrider</li> -->
+		  <li>WVC_Abomination</li>
 		</xenotypeDefs>
 	  </li>
 	  <li>
-		<!-- gravship or (comm_console and techlevel) -->
+		<!-- comm_console and techlevel -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Metalkin</workerClass>
 		<chance>0.2</chance>
 		<xenotypeDefs>
@@ -161,7 +161,7 @@
 	  <li>
 		<!-- if_one_man_army_mode (pawns <= 1 +- any animals and mechs) -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_SoloLeveling</workerClass>
-		<chance>0.5</chance>
+		<chance>0.05</chance>
 		<!-- all mod xenotypes -->
 	  </li>
 	  <li>

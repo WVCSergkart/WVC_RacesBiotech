@@ -1,8 +1,10 @@
 ﻿using RimWorld;
+using System;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class IncidentWorker_GiveQuest_UniqueXenotype : RimWorld.IncidentWorker_GiveQuest
 	{
 

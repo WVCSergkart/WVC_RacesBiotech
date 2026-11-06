@@ -10,13 +10,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanFire()
 		{
-			if (ModsConfig.OdysseyActive)
-			{
-				if (Find.CurrentGravship != null)
-				{
-					return true;
-				}
-			}
+			//if (ModsConfig.OdysseyActive)
+			//{
+			//	if (Find.CurrentGravship != null)
+			//	{
+			//		return true;
+			//	}
+			//}
 			if (Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Neolithic || Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Medieval || Faction.OfPlayerSilentFail?.def.techLevel == TechLevel.Animal)
 			{
 				return false;

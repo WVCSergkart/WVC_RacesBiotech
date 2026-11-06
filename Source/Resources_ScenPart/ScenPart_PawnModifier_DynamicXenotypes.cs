@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			XenotypeDef xenotypeDef = null;
+			XenotypeHolder xenotypeDef = null;
 			if (Rand.Chance(DynamicChance) && XenotypeGetterDefs.TryRandomElementByWeight(getter => getter.Worker.Chance(), out XenotypeGetterDef result))
 			{
 				xenotypeDef = result.Worker.GetXenotype();
@@ -90,9 +90,9 @@ namespace WVC_XenotypesAndGenes
 		//	return true;
 		//}
 
-		public void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		public void SetXenotype(Pawn pawn, XenotypeHolder xenotypeDef)
 		{
-			ScenPart_PawnModifier_CustomWorld.TrySetupCustomWorldXenotype(pawn, [new(xenotypeDef)]);
+			ScenPart_PawnModifier_CustomWorld.TrySetupCustomWorldXenotype(pawn, [xenotypeDef]);
 		}
 
 		public override void ExposeData()

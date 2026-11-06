@@ -20,6 +20,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual List<SubXenotypeDef> SubXenotypeDefs
+		{
+			get
+			{
+				return def.SubXenotypeDefs;
+			}
+		}
+
 		public virtual bool CanFire(Pawn pawn)
 		{
 			return CanFire();
@@ -30,11 +38,15 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public virtual XenotypeDef GetXenotype()
+		public virtual XenotypeHolder GetXenotype()
 		{
 			if (XenotypeDefs.TryRandomElement(out XenotypeDef xenotypeDef))
 			{
-				return xenotypeDef;
+				return new(xenotypeDef);
+			}
+			if (SubXenotypeDefs.TryRandomElement(out SubXenotypeDef subXenotypeDef))
+			{
+				return new(subXenotypeDef);
 			}
 			return null;
 		}

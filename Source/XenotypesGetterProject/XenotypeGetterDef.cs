@@ -25,12 +25,29 @@ namespace WVC_XenotypesAndGenes
 				if (cachedXenotypeDefs == null)
 				{
 					cachedXenotypeDefs = xenotypeDefs.ConvertToDefs<XenotypeDef>();
-					if (cachedXenotypeDefs.Empty())
+					if (cachedXenotypeDefs.NullOrEmpty() && cachedSubXenotypeDefs.NullOrEmpty())
 					{
 						disabled = true;
 					}
 				}
 				return cachedXenotypeDefs;
+			}
+		}
+
+		private List<SubXenotypeDef> cachedSubXenotypeDefs;
+		public List<SubXenotypeDef> SubXenotypeDefs
+		{
+			get
+			{
+				if (cachedSubXenotypeDefs == null)
+				{
+					cachedSubXenotypeDefs = xenotypeDefs.ConvertToDefs<SubXenotypeDef>();
+					if (cachedSubXenotypeDefs.NullOrEmpty() && cachedXenotypeDefs.NullOrEmpty())
+					{
+						disabled = true;
+					}
+				}
+				return cachedSubXenotypeDefs;
 			}
 		}
 
