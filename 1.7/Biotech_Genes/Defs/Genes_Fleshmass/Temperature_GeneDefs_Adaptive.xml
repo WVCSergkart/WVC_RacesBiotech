@@ -15,7 +15,8 @@
 	<biostatMet>-4</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>Dynamically changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; every few hours relative to the &lt;color=#8a8ae6&gt;baseliner temperature&lt;/color&gt; sensitivity.</li>
+		<!-- <li>Dynamically changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; every few hours relative to the &lt;color=#8a8ae6&gt;baseliner temperature&lt;/color&gt; sensitivity.</li> -->
+		<li>Changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; relative to &lt;color=#8a8ae6&gt;hypothermia and heatstroke&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Fleshmass_Breathless</li>

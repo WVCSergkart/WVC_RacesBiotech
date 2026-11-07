@@ -97,8 +97,17 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!item.isTrueShiftForm)
 				{
-					item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, reqGenesMatch, out float matchPercent, true, geneticMaterial);
-					item.matchPercent = Mathf.Clamp(matchPercent, 0f, 1f);
+					// item.xenotypeDef!!!
+					if (ModsUtility.XenotypeReqMatch_InSafeZone && item.xenotypeDef == gene.pawn?.genes?.Xenotype)
+					{
+						item.isOverriden = false;
+						item.matchPercent = 1f;
+					}
+					else
+					{
+						item.isOverriden = !Dialog_XenotypeGestator.GenesIsMatch(gene.pawn?.genes?.GenesListForReading, item.genes, reqGenesMatch, out float matchPercent, true, geneticMaterial);
+						item.matchPercent = Mathf.Clamp(matchPercent, 0f, 1f);
+					}
 				}
 			}
 			try

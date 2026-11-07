@@ -82,7 +82,14 @@ namespace WVC_XenotypesAndGenes
 				// Slow needs regen
 				foreach (Need need in holded.needs.AllNeeds)
 				{
-					need.CurLevelPercentage += 0.01f;
+					if (need is Need_Rest)
+					{
+						need.CurLevelPercentage += 0.1f;
+					}
+					else
+					{
+						need.CurLevelPercentage += 0.01f;
+					}
 				}
 			}
 		}

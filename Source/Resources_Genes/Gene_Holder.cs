@@ -393,9 +393,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (pawn.IsQuestLodger() || selPawn.IsQuestLodger())
+			if (pawn.IsQuestLodger())
 			{
 				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			if (selPawn.IsQuestLodger())
+			{
+				yield return new FloatMenuOption("TemporaryFactionMember".Translate(selPawn.Named("PAWN")), null);
 				yield break;
 			}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_GeneHolder_HoldTarget".Translate(), delegate

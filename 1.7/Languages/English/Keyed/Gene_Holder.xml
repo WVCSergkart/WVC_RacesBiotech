@@ -12,4 +12,7 @@
 	<WVC_GeneHolder_HoldMe>Ask for hold</WVC_GeneHolder_HoldMe>
 	<WVC_GeneHolder_HoldTarget>Try hold target</WVC_GeneHolder_HoldTarget>
 
+	<!-- <WVC_GeneHolded_AutoHold>Auto-hold: {0}</WVC_GeneHolded_AutoHold> -->
+	<!-- <WVC_GeneHolded_AutoHoldOnSleepSchedule>Hold instead sleep: {0}</WVC_GeneHolded_AutoHoldOnSleepSchedule> -->
+
 </LanguageData>

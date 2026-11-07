@@ -13,7 +13,8 @@ namespace WVC_XenotypesAndGenes
 		/// <summary>
 		/// Xenotype match for current settings.
 		/// </summary>
-		public static float GetReqMatch_CurrentSettings => PreferredXenotypesUtility.Enabled ? PreferredXenotypesUtility.ReqMatch : 1f;
+		public static float GetReqMatch_CurrentSettings => PreferredXenotypesUtility.Enabled ? PreferredXenotypesUtility.ReqMatch : 0.6f;
+		public static bool XenotypeReqMatch_InSafeZone => GetReqMatch_CurrentSettings >= 0.6f;
 
 		public static bool GameStarted()
 		{
