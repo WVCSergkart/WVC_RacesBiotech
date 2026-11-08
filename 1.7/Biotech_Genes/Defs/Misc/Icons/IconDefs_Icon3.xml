@@ -31,11 +31,11 @@
 	<defName>WVC_Metalkin1c</defName>
 	<texPath>WVC/UI/Icons3/Xeno_Ferrkind_v0</texPath>
   </XenotypeIconDef>
-  <!-- Used -->
   <XenotypeIconDef>
 	<defName>WVC_Metalkin2c</defName>
 	<texPath>WVC/UI/Icons3/Xeno_Metalkin2c</texPath>
   </XenotypeIconDef>
+  <!-- Used -->
 
   <!-- Mergekin -->
   <!-- Used -->

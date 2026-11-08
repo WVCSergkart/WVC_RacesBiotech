@@ -445,16 +445,23 @@ namespace WVC_XenotypesAndGenes
 			return geneDefs;
 		}
 
-		public static List<XenotypeHolder> ConvertToHolder(this List<XenotypeDef> genes)
+		public static List<XenotypeHolder> ConvertToHolder<T>(this List<T> genes)
 		{
 			List<XenotypeHolder> geneDefs = new();
 			if (genes.NullOrEmpty())
 			{
 				return geneDefs;
 			}
-			foreach (XenotypeDef item in genes)
+			foreach (T item in genes)
 			{
-				geneDefs.Add(new(item));
+				if (item is XenotypeDef xenotypeDef)
+				{
+					geneDefs.Add(new(xenotypeDef));
+				}
+				else if (item is SubXenotypeDef subXenotypeDef)
+				{
+					geneDefs.Add(new(subXenotypeDef));
+				}
 			}
 			return geneDefs;
 		}

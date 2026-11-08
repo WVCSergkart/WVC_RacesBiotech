@@ -19,6 +19,22 @@ namespace WVC_XenotypesAndGenes
 	public class SubXenotypeDef : Def
 	{
 
+		private XenotypeDef cachedXenotypeDef;
+		/// <summary>
+		/// It gives out a xenotype whose subxenotype is this set of genes.
+		/// </summary>
+		public XenotypeDef XenotypeDef
+		{
+			get
+			{
+				if (cachedXenotypeDef == null)
+				{
+					cachedXenotypeDef = ReimplanterUtility.UnknownXenotypeDef(genes);
+				}
+				return cachedXenotypeDef;
+			}
+		}
+
 		public bool IsNull => iconDef == null || genes.NullOrEmpty();
 
 		//public XenotypeDef xenotypeDef;

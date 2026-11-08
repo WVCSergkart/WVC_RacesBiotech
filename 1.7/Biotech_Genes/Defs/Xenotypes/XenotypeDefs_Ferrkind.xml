@@ -4,7 +4,6 @@
   <!-- metalkin chimera -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_Ferrkind</defName>
-	<!-- biotalkin, metalmera, ferrkind, rustkind -->
 	<label>ferrkind</label>
 	<description>Ferrkinds are ageless super-humans powered by archotech-created archites in the bloodstream. As a sub-xenotype of metalkins, they inherit most of their strengths. Their main distinguishing feature is the ability to copy genes from similar pawns and slowly spread this ability.
 
@@ -28,17 +27,11 @@
 		<li>WVC_Chimera_BandwidthLimit</li>
 		<li>WVC_Chimera_GeneNetwork</li>
 		<li>WVC_Chimera_SelfCopy</li>
-		<!-- <li Hook="RemoveMeInTest">WVC_MechaPowerSource_Unstable</li> -->
 		<li>WVC_WoundHealing_Unnatural</li>
 		<li>WVC_Rejuvenator</li>
 		<li>FireResistant</li>
 		<li>WVC_DragonTailA</li>
 	</genes>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <isChimerkin>true</isChimerkin> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

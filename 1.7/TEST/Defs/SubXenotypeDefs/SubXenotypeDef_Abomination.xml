@@ -8,7 +8,6 @@
 	<inheritable>true</inheritable>
 	<displayPriority>-1023</displayPriority>
 	<genes>
-		<!-- <li>WVC_Obsession</li> -->
 		<li>WVC_Holder</li>
 		<li>DiseaseFree</li>
 		<li>WVC_Chimera_Devourer</li>

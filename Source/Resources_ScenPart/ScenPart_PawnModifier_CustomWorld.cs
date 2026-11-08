@@ -109,9 +109,34 @@ namespace WVC_XenotypesAndGenes
 	public class ScenPart_PawnModifier_CustomWorld : ScenPart_PawnModifier
 	{
 
-		public List<XenotypeDef> xenotypeDefs;
+		public List<string> xenotypeDefs;
 		public BiomeDef biomeDef;
 
+		public List<XenotypeDef> cachedXenotypeDefs;
+		public virtual List<XenotypeDef> XenotypeDefs
+		{
+			get
+			{
+				if (cachedXenotypeDefs == null)
+				{
+					cachedXenotypeDefs = xenotypeDefs.ConvertToDefs<XenotypeDef>();
+				}
+				return cachedXenotypeDefs;
+			}
+		}
+
+		public List<SubXenotypeDef> cachedSubXenotypeDefs;
+		public virtual List<SubXenotypeDef> SubXenotypeDefs
+		{
+			get
+			{
+				if (cachedSubXenotypeDefs == null)
+				{
+					cachedSubXenotypeDefs = xenotypeDefs.ConvertToDefs<SubXenotypeDef>();
+				}
+				return cachedSubXenotypeDefs;
+			}
+		}
 
 		public List<XenotypeHolder> cachedHolder;
 		public virtual List<XenotypeHolder> Xenotypes
@@ -120,7 +145,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedHolder == null)
 				{
-					cachedHolder = xenotypeDefs.ConvertToHolder();
+					cachedHolder = new();
+					cachedHolder.AddRange(XenotypeDefs.ConvertToHolder());
+					cachedHolder.AddRange(SubXenotypeDefs.ConvertToHolder());
 				}
 				return cachedHolder;
 			}

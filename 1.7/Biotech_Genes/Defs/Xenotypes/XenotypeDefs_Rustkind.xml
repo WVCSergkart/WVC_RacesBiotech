@@ -4,7 +4,6 @@
   <!-- metalkin implanter focus -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Metalkin" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_Rustkind</defName>
-	<!-- minder, rustkind -->
 	<label>rustkind</label>
 	<description>Rustkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are a sub-xenotype of metalkines with a focus on rapid gene propagation. They can implant their genes or the geneset of sub-xenotypes with virtually no restrictions. Their drawback is significantly slower gene regeneration of their targets and reduced combat abilities compared to the original.
 
@@ -18,7 +17,6 @@
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
 	  <XenotypeDef>WVC_Ferrkind</XenotypeDef>
 	</descriptionHyperlinks>
-	<!-- <iconPath>WVC/UI/Icons3/Xeno_Metalkin2c</iconPath> -->
 	<displayPriority>-1057</displayPriority>
 	<combatPowerFactor>5.0</combatPowerFactor>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
@@ -26,14 +24,12 @@
 	<genes>
 		<li>WVC_ReimplanterArchite_Xenogenes</li>
 		<li>WVC_ReimplanterArchite_RiseXenogenes</li>
-		<!-- <li>WVC_Hivemind_DeafDrone</li> -->
 		<li>WVC_WoundHealing_SelfRepair</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Switcher_Implanter</li>
 		<li>WVC_PostImplanterBrainwash</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_PostImplanter_Convert</li>
 		<li>WVC_PostImplanterInstantRegrow</li>
-		<!-- <li>WVC_SharedMetabolism</li> -->
 	</genes>
   </XenotypeDef>
 

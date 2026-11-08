@@ -21,15 +21,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!CommsConsoleUtility.PlayerHasPoweredCommsConsole())
+			if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
 			{
-				return false;
+				return true;
 			}
 			//if (Find.Maps.Any(map => map.mapPawns.AllPawns.Any(p => p.genes?.Xenotype?.IsXenoGenesDef() == true)))
 			//{
 			//	return false;
 			//}
-			return true;
+			return false;
 		}
 
 		public override float Chance()

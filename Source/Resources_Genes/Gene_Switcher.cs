@@ -89,6 +89,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: ResetCooldown",
+					action = delegate
+					{
+						nextTick = 0;
+					}
+				};
+			}
 			if (enabled)
 			{
 				yield return XaG_UiUtility.GetRemoteControllerGizmo(pawn, remoteControllerCached, this);

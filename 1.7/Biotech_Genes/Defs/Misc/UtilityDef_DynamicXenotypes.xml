@@ -183,6 +183,19 @@
 		  <li>WVC_Fleshkind</li>
 		</xenotypeDefs>
 	  </li>
+	  <li>
+		<!-- if_any_xenotype -->
+		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Xenotypes</workerClass>
+		<chance>0.75</chance>
+		<reqXenotypeDefs>
+		  <li>WVC_Leper</li>
+		</reqXenotypeDefs>
+		<xenotypeDefs>
+		  <li>WVC_Abomination</li>
+		  <li>WVC_Sickkind</li>
+		  <li>WVC_Leperkin</li>
+		</xenotypeDefs>
+	  </li>
 	</xenotypeGetterDefs>
   </WVC_XenotypesAndGenes.UtilityDef>
 

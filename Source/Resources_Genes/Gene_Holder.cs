@@ -63,13 +63,16 @@ namespace WVC_XenotypesAndGenes
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
 			List<FloatMenuOption> list = new();
-			for (int i = 0; i < Containers.Count; i++)
+			if (!Containers.NullOrEmpty())
 			{
-				PawnContainerHolder holder = Containers[i];
-				list.Add(new FloatMenuOption("Release".Translate().CapitalizeFirst() + ": " + holder.LabelCap, delegate
+				for (int i = 0; i < Containers.Count; i++)
 				{
-					TryDropPawn(holder);
-				}));
+					PawnContainerHolder holder = Containers[i];
+					list.Add(new FloatMenuOption("Release".Translate().CapitalizeFirst() + ": " + holder.LabelCap, delegate
+					{
+						TryDropPawn(holder);
+					}));
+				}
 			}
 			list.Add(new FloatMenuOption("WVC_AutoRelease".Translate() + ": " + XaG_UiUtility.OnOrOff(autoRelease), delegate
 			{
@@ -125,6 +128,16 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		private void TryKillPawn(PawnContainerHolder target)
+		{
+			if (target.innerContainer != null && target.holded != null)
+			{
+				HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
+				target.holded.Kill();
+			}
+			RemoveSetHolder(target);
+		}
+
 		private void TryDropPawn(PawnContainerHolder target)
 		{
 			if (target.innerContainer != null && target.innerContainer.TryDropAll(pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Direct, playDropSound: false))
@@ -166,6 +179,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Notify_PawnDied(dinfo, culprit);
 			DropContainer();
+			// Уничтожаем содержимое в случае невозможности дропа
+			//if (holderIsDead)
+			//{
+			//	foreach (PawnContainerHolder pawnContainerHolder in Containers.ToList())
+			//	{
+			//		TryKillPawn(pawnContainerHolder);
+			//	}
+			//}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -225,6 +246,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (pawn.needs?.rest?.Resting == true)
+			{
+				return;
+			}
+			if (pawn.psychicEntropy?.IsCurrentlyMeditating == true)
 			{
 				return;
 			}
