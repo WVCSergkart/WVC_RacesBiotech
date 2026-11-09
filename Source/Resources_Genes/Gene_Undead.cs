@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.HumanComponent()?.SetUndead(resurrect, delay, pawn);
 		}
 
-		public void Notify_PawnKilled()
+		public void Notify_PawnKilled(Map preMap)
 		{
 			SaveWorkSettings();
 		}
@@ -298,6 +298,11 @@ namespace WVC_XenotypesAndGenes
 				Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
 				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 			}), selPawn, pawn);
+		}
+
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			yield break;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

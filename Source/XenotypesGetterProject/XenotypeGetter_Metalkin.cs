@@ -23,12 +23,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
 			{
-				return true;
+				return MechanitorUtility.AnyMechanitorInPlayerFaction();
 			}
-			//if (Find.Maps.Any(map => map.mapPawns.AllPawns.Any(p => p.genes?.Xenotype?.IsXenoGenesDef() == true)))
-			//{
-			//	return false;
-			//}
 			return false;
 		}
 

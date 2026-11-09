@@ -85,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 						cachedHarmony.Patch(AccessTools.Method(typeof(Ideo), "RecachePrecepts"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(IdeoUpdTrigger))));
 					}
 				}
+				//cachedHarmony.Patch(AccessTools.DeclaredPropertyGetter(typeof(Pawn), "BodySize"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_BodySize))));
 				if (!ModsConfig.AnomalyActive)
 				{
 					return;
@@ -1217,17 +1218,27 @@ namespace WVC_XenotypesAndGenes
 			//	}
 			//}
 
-			public static void BisexualHook(ref bool __result, TraitDef tDef)
-			{
-				if (!__result && tDef == TraitDefOf.Bisexual)
-				{
-					__result = true;
-				}
-			}
+			//public static void BisexualHook(ref bool __result, TraitDef tDef)
+			//{
+			//	if (!__result && tDef == TraitDefOf.Bisexual)
+			//	{
+			//		__result = true;
+			//	}
+			//}
 
 			//public static void GainTrait_Hook()
 			//{
 			//	GeneshiftUtility.ResetXenotypesCollection();
+			//}
+
+			//public static void Patch_BodySize(ref float __result)
+			//{
+			//	__result *= 2;
+			//}
+
+			//public static void Patch_HealthScale(ref float __result, Pawn __instance)
+			//{
+			//	__result *= 2;
 			//}
 
 		}

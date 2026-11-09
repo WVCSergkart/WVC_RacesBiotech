@@ -18,7 +18,24 @@ namespace WVC_XenotypesAndGenes
 		private static bool genesInOrderPatched = false;
 		private static bool movementCostPatched = false;
 		private static bool incestCheckPatched = false;
+		//private static bool healthScalePatched = false;
 
+		//public static void Patch_HealthScale()
+		//{
+		//	if (healthScalePatched)
+		//	{
+		//		return;
+		//	}
+		//	try
+		//	{
+		//		HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(Pawn), "HealthScale"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.Patch_HealthScale))));
+		//	}
+		//	catch (Exception arg)
+		//	{
+		//		Log.Error("Failed apply health scale patch. Reason: " + arg.Message);
+		//	}
+		//	healthScalePatched = true;
+		//}
 		public static void Patch_AcceptablePrey()
 		{
 			if (isAcceptablePreyForPatched)

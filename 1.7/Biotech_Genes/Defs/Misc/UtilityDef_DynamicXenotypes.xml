@@ -23,7 +23,7 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
-		<!-- comm_console and techlevel -->
+		<!-- comm_console and techlevel and any_mechanitor -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Metalkin</workerClass>
 		<chance>0.2</chance>
 		<xenotypeDefs>
@@ -81,7 +81,7 @@
 		<xenotypeDefs>
 		  <li>WVC_Ashen</li>
 		  <li>WVC_GeneThrower</li>
-		  <!-- <li>WVC_Beholdkind</li> -->
+		  <li>WVC_Beholdkind</li>
 		</xenotypeDefs>
 	  </li>
 	  <li MayRequire="ludeon.rimworld.odyssey">

@@ -192,6 +192,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			foreach (IGeneFloatMenuOptions gene in FloatMenuOptions)
+			{
+				foreach (FloatMenuOption gizmo in gene.CompMultiSelectFloatMenuOptions(selPawns))
+				{
+					yield return gizmo;
+				}
+			}
+		}
+
 		// =====================
 
 		//[Unsaved(false)]
@@ -278,7 +289,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					try
 					{
-						igene.Notify_PawnKilled();
+						igene.Notify_PawnKilled(prevMap);
 					}
 					catch
 					{

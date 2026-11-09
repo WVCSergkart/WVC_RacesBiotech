@@ -87,6 +87,10 @@ namespace WVC_XenotypesAndGenes
 				ResetCache();
 				foreach (Gene_Holder gene_Holder in HolderGenes)
 				{
+					if (gene_Holder.pawn?.Map == null)
+					{
+						continue;
+					}
 					if (gene_Holder.Active)
 					{
 						gene_Holder.DropContainer();
@@ -106,12 +110,19 @@ namespace WVC_XenotypesAndGenes
 				//{
 				//	HediffHolder?.Reset();
 				//}
+				UpdHediff();
 				HediffUtility.TryAddHediff(Extension_Giver.hediffDef, caller, def);
 				EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 				return true;
 			}
 			Log.Error("Failed set pawn container.");
 			return false;
+		}
+
+		private void UpdHediff()
+		{
+			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDefName, pawn);
+			HediffUtility.TryAddHediff(Extension_Giver.hediffDefName, pawn, def);
 		}
 
 		//[Unsaved(false)]
@@ -151,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			RemoveSetHolder(target);
 			//HediffHolder?.Reset();
+			UpdHediff();
 			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
 			EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 		}
@@ -303,6 +315,42 @@ namespace WVC_XenotypesAndGenes
 			}), selPawn, pawn);
 		}
 
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			if (!Active)
+			{
+				yield break;
+			}
+			if (pawn.IsQuestLodger())
+			{
+				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			if (selPawns.Any(selPawn => selPawn.genes?.GetFirstGeneOfType<Gene_Holded>() != null))
+			{
+				yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_GeneHolder_HoldMe".Translate(), delegate
+				{
+					foreach (Pawn selPawn in selPawns)
+					{
+						if (selPawn.IsQuestLodger())
+						{
+							continue;
+						}
+						if (!selPawn.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly))
+						{
+							continue;
+						}
+						if (selPawn.genes?.GetFirstGeneOfType<Gene_Holded>() == null)
+						{
+							continue;
+						}
+						Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
+						selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
+					}
+				}), selPawns.RandomElement(), pawn);
+			}
+		}
+
 	}
 
 	public class Gene_Holded : Gene_RemoteController, IGeneFloatMenuOptions
@@ -434,6 +482,16 @@ namespace WVC_XenotypesAndGenes
 				selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
 			}), selPawn, pawn);
 		}
+
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			yield break;
+		}
+
+		//public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		//{
+		//	yield break;
+		//}
 
 	}
 

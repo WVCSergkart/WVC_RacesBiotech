@@ -120,6 +120,8 @@ namespace WVC_XenotypesAndGenes
 		//public static PawnTableDef WVC_EntitiesWork;
 		//[MayRequireAnomaly]
 		//public static MainButtonDef WVC_HiddenEntitiesWorkButton;
+		[MayRequireVanillaExpandedFramework]
+		public static StatDef VEF_BodySize_Multiplier;
 	}
 
 	// [DefOf]

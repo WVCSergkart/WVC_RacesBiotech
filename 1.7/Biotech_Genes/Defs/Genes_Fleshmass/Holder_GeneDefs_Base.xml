@@ -41,7 +41,7 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <holderHediffDef>WVC_GeneHolder</holderHediffDef> -->
+			<hediffDefName MayRequire="oskarpotocki.vanillafactionsexpanded.core">WVC_GeneHolder</hediffDefName>
 			<jobDef>WVC_Holder_HoldMe</jobDef>
 			<hediffDef>WVC_HoldedPawn</hediffDef>
 		</li>
@@ -89,12 +89,12 @@
 	</stages>
   </HediffDef>
 
-  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
-	<!-- <defName>WVC_GeneHolder</defName> -->
-	<!-- <label>holder</label> -->
-	<!-- <description>The influence of pawns held by the holder on the carrier.</description> -->
-	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_GeneHolder</hediffClass> -->
-  <!-- </HediffDef> -->
+  <HediffDef MayRequire="oskarpotocki.vanillafactionsexpanded.core" ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GeneHolder</defName>
+	<label>holder</label>
+	<description>The influence of pawns held by the holder on the carrier.</description>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_GeneHolder</hediffClass>
+  </HediffDef>
 
   <!-- ============================================ -->
 

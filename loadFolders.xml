@@ -35,6 +35,7 @@
 		<li IfModActive="wvc.sergkart.test.tools">1.7/TEST</li>
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.7/TEST</li>
 		<li IfModNotActive="vanillaracesexpanded.sanguophage">1.7/Sango</li>
+		<!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core">1.7/VEF</li> -->
 		<!-- Legacy stuff. Comment below to improve performance by +1. -->
 		<!-- <li IfModNotActive="wvc.wvcmod.wvcspecific">1.7/Legacy</li> -->
 	</v1.7>

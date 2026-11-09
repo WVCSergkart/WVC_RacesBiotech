@@ -392,6 +392,11 @@ namespace WVC_XenotypesAndGenes
 			}), selPawn, pawn);
 		}
 
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			yield break;
+		}
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			//foreach (Gizmo item in base.GetGizmos())
@@ -469,7 +474,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			ResetCollection();
 		}
-
 	}
 
 }

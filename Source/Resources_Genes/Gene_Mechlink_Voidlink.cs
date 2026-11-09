@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void Notify_PawnKilled()
+		public void Notify_PawnKilled(Map preMap)
 		{
 			KillMechs();
 			//StaticCollectionsClass.voidLinkNewGamePlusPawn = pawn;

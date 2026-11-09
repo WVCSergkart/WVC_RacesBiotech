@@ -24,6 +24,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn);
+		IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns);
 
 	}
 
@@ -76,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneNotifyOnKilled
 	{
 
-		void Notify_PawnKilled();
+		void Notify_PawnKilled(Map prevMap);
 
 		//void Notify_PawnResurrected();
 

@@ -171,6 +171,11 @@ namespace WVC_XenotypesAndGenes
 			}), selPawn, pawn);
 		}
 
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			yield break;
+		}
+
 		private void GiveJob(Pawn selPawn)
 		{
 			if (GeneUtility.PawnWouldDieFromReimplanting(pawn))

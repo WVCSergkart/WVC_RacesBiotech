@@ -93,6 +93,11 @@ namespace WVC_XenotypesAndGenes
 			}), selPawn, pawn);
 		}
 
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			yield break;
+		}
+
 		public void GiveRepairJob(Pawn selPawn)
 		{
 			if (selPawn == null)
