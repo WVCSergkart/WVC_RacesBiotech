@@ -63,6 +63,7 @@ namespace WVC_XenotypesAndGenes
 			GestationUtility.GestateChild_WithGenes(parent.pawn, completeMessage: Props.completeLetterDesc, endogenes: Props.endogeneTransfer, xenogenes: Props.xenogeneTransfer);
 			ticksCounter = 0;
 			base.Pawn.health.RemoveHediff(parent);
+			Pawn.health.AddHediff(HediffDefOf.Lactating);
 		}
 
 		public string GetLabel()

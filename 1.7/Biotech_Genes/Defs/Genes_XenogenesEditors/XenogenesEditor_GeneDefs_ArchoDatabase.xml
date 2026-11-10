@@ -4,6 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base">
 	<defName>WVC_Chimera_GeneDatabase</defName>
 	<label>genetic database</label>
+	<labelShortAdj>database</labelShortAdj>
 	<description>Carriers of this gene can implant any genes they wish.</description>
 	<resourceDescription>Allows for the free addition and removal of virtually any genes, without any limitations.</resourceDescription>
 	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneDatabase</iconPath>

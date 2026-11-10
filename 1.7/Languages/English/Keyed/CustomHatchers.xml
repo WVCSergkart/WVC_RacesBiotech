@@ -10,4 +10,7 @@
 	<WVC_XaG_HumanBudHatchLabel>Bud burst</WVC_XaG_HumanBudHatchLabel>
 	<WVC_XaG_HumanBudHatchDesc>The bud burst and a baby(s) was born.</WVC_XaG_HumanBudHatchDesc>
 
+	<WVC_XaG_HumanBud_DestroyedLabel>Bud destroyed</WVC_XaG_HumanBud_DestroyedLabel>
+	<WVC_XaG_HumanBud_DestroyedDesc>As a result of receiving damage, the bud was destroyed.</WVC_XaG_HumanBud_DestroyedDesc>
+
 </LanguageData>

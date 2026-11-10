@@ -105,6 +105,18 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed hatch child from cancer bud. Reason: " + arg);
 			}
 			pawn.health.RemoveHediff(this);
+			pawn.health.AddHediff(HediffDefOf.Lactating);
+		}
+
+		public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+		{
+			if (Rand.Chance(0.01f + (gestateProgress * 0.2f)))
+			{
+				pawn.health.RemoveHediff(this);
+				mother?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.Miscarried);
+				father?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, mother ?? pawn);
+				Find.LetterStack.ReceiveLetter("WVC_XaG_HumanBud_DestroyedLabel".Translate(), "WVC_XaG_HumanBud_DestroyedDesc".Translate(), LetterDefOf.NegativeEvent, new LookTargets(pawn));
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

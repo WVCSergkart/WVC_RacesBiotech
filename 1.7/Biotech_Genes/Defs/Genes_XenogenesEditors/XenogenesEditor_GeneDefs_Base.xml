@@ -2,6 +2,7 @@
 <Defs>
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base" Abstract="True">
+	<labelShortAdj>genebase</labelShortAdj>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenogenesEditor_General</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_XenogenesEditor</resourceGizmoType>
 	<resourceDescription>general tip</resourceDescription>

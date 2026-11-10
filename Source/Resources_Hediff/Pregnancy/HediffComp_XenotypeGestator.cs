@@ -109,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 			GestationUtility.GestateChild_WithXenotype(Pawn, null, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
 			ticksCounter = 0;
 			RemoveHediff(true);
+			Pawn.health.AddHediff(HediffDefOf.Lactating);
 		}
 
 		private void RemoveHediff(bool replaceWithOtherHediff = false)
