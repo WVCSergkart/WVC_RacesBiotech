@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 				ResetCache();
 				foreach (Gene_Holder gene_Holder in HolderGenes)
 				{
-					if (gene_Holder.pawn?.Map == null)
+					if (gene_Holder?.pawn?.Map == null)
 					{
 						continue;
 					}

@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void FixXenotypeFlag(Pawn pawn)
 		{
-			if (pawn.genes.UniqueXenotype && ListsUtility.GetCustomXenotypesList().Any(xenos => xenos.name == pawn.genes.xenotypeName))
+			if (ModsUtility.GameNotStarted() || pawn.genes.UniqueXenotype && ListsUtility.GetCustomXenotypesList().Any(xenos => xenos.name == pawn.genes.xenotypeName))
 			{
 				return;
 			}

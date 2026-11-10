@@ -308,5 +308,10 @@
             </summary>
             <param name="holders"></param>
         </member>
+        <member name="P:WVC_XenotypesAndGenes.ListsUtility.GeneticDatabase">
+            <summary>
+            Non-android genes.
+            </summary>
+        </member>
     </members>
 </doc>

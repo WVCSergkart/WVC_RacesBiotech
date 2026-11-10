@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dev name: Gestaltkind -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef WVC_XaG_XenotypeRemoveTag="Hivemind">
+	<defName>WVC_Gestaltkind</defName>
+	<label>gestaltkind</label>
+	<iconDef>WVC_Hivedrone0c</iconDef>
+	<displayPriority>-1105</displayPriority>
+	<genes>
+		<li>WVC_FleshmassArmor</li>
+		<li>WVC_MinMaxTemp_Adaptive</li>
+		<li>WVC_Reimplanter_HiveMaker</li>
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_Hivemind_SyncNode</li>
+		<li>WVC_Hivemind_DeathChain</li>
+		<li>WVC_Hivemind_Metabolism</li>
+		<li>Immunity_Strong</li>
+		<li>LowSleep</li>
+		<li>Sterile</li>
+		<li>WVC_GenderMorph</li>
+		<li>WVC_HeadTentacles0c</li>
+		<li>WVC_BodyTentacles</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_LongTentacleTail</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Ears_Pointed</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_FleshPink</li>
+		<li>WVC_TentacleHands</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

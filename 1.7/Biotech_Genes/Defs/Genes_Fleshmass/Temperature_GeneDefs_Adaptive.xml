@@ -17,6 +17,9 @@
 	<customEffectDescriptions>
 		<!-- <li>Dynamically changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; every few hours relative to the &lt;color=#8a8ae6&gt;baseliner temperature&lt;/color&gt; sensitivity.</li> -->
 		<li>Changes the &lt;color=#8a8ae6&gt;temperature offset&lt;/color&gt; relative to &lt;color=#8a8ae6&gt;hypothermia and heatstroke&lt;/color&gt;.</li>
+		<li>Every few hours, the temperature sensitivity shifts by 2 degrees.</li>
+		<li>This will continue until &lt;color=#8a8ae6&gt;hypothermia and heatstroke&lt;/color&gt; subsides.</li>
+		<li>Temperature adaptation occurs independently and is cumulative.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Fleshmass_Breathless</li>

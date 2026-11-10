@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base">
+	<defName>WVC_Chimera_GeneDatabase</defName>
+	<label>genetic database</label>
+	<description>Carriers of this gene can implant any genes they wish.</description>
+	<resourceDescription>Allows for the free addition and removal of virtually any genes, without any limitations.</resourceDescription>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneDatabase</iconPath>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>7</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<displayOrderInCategory>-40</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows implant all genes without restrictions.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<arcLimit>999</arcLimit>
+			<cpxLimit>999</cpxLimit>
+			<metLimit>-999~999</metLimit>
+			<reqCooldown>false</reqCooldown>
+			<!-- if true unlock all genes -->
+			<database>true</database>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

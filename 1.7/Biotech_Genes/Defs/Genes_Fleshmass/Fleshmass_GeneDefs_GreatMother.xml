@@ -3,7 +3,7 @@
 
   <WVC_XenotypesAndGenes.GeneDef_XaG ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
 	<defName>WVC_GreatMother</defName>
-	<label>mother legacy</label>
+	<label>mother`s legacy</label>
 	<description>Carriers of this gene have a special genetic condition that changes the genetics of their offspring depending on the mother's genetics.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GreatMother</geneClass>
 	<iconPath>WVC/UI/Genes4/Gene_GreatMother</iconPath>

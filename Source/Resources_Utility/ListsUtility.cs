@@ -369,6 +369,11 @@ namespace WVC_XenotypesAndGenes
 			//}
 			UtilityDef.AnomalyXenoGenesExceptions;
 
+		/// <summary>
+		/// Non-android genes.
+		/// </summary>
+		public static IEnumerable<GeneDef> GeneticDatabase => DefDatabase<GeneDef>.AllDefsListForReading.Where((def) => !def.IsAndroid());
+
 		public static List<MutantDef> GetMutantsExceptions()
 		{
 			List<MutantDef> list = new();
@@ -470,7 +475,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}, skipOnMismatch: true);
 			}
-			cachedCustomXenotypesList = xenotypes;
+			if (ModsUtility.GameStarted())
+			{
+				cachedCustomXenotypesList = xenotypes;
+			}
 			return xenotypes;
 		}
 

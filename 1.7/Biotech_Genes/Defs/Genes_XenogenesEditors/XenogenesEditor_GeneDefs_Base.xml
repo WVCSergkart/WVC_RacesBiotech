@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_XenogenesEditor_General</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_XenogenesEditor</resourceGizmoType>
+	<resourceDescription>general tip</resourceDescription>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>-10</displayOrderInCategory>
+	<displayCategory>WVC_Chimera</displayCategory>
+	<marketValueFactor>2.5</marketValueFactor>
+	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneDatabase</iconPath>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows to &lt;color=#8a8ae6&gt;hold&lt;/color&gt; pawns. Pawn must have the &lt;color=#8a8ae6&gt;holded&lt;/color&gt; gene.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>data</symbol></li>
+		<li><symbol>base</symbol></li>
+		<li><symbol>genetic</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Chimera</li>
+	  <li>WVC_XenogenesEditors</li>
+	  <li>WVC_Fleshshaper</li>
+	  <li>WVC_Energyshifter_XenogenesEditor</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

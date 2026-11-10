@@ -16,6 +16,8 @@
 
 	<!-- ================================== -->
 
+	<WVC_XaG_XenogenesEditorTip>Allows editing &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; within certain biostat limits.</WVC_XaG_XenogenesEditorTip>
+
 	<WVC_MutantWorker_Kill>Kill this entity.</WVC_MutantWorker_Kill>
 	<WVC_MutantWorker_Warning>This action will kill this entity. Continue?\n\nAfter confirmation, this action can be performed for the next minute without triggering this warning again.</WVC_MutantWorker_Warning>
 	<WVC_MutantWorker_DefaultTab>Work manager</WVC_MutantWorker_DefaultTab>

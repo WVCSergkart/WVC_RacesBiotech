@@ -14,6 +14,7 @@
 	<minAgeActive>0</minAgeActive>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<displayCategory>WVC_Chimera</displayCategory>
+	<marketValueFactor>3</marketValueFactor>
 	<descriptionHyperlinks>
 	  <AbilityDef>Bloodfeed</AbilityDef>
 	  <AbilityDef>WVC_Chimera_Geneharvest</AbilityDef>

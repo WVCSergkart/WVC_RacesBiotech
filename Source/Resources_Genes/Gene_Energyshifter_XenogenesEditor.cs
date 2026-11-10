@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 					List<GeneDef> other = new();
 					if (Extension_Giver != null)
 					{
-						other = Gene_Chimera_GeneDatabase.Database.Where(geneDef => Extension_Giver.geneCategoryDefs.Contains(geneDef.displayCategory)).ToList();
+						other = ListsUtility.GeneticDatabase.Where(geneDef => Extension_Giver.geneCategoryDefs.Contains(geneDef.displayCategory)).ToList();
 					}
 					cachedDefaultGenes = other;
 				}

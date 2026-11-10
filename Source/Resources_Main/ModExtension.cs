@@ -645,6 +645,12 @@ namespace WVC_XenotypesAndGenes
 		public JobDef tryHoldJobDef;
 		//public HediffDef holderHediffDef;
 		public MainButtonDef mainButtonDef;
+		// Xenogenes Editor
+		public int arcLimit;
+		public int cpxLimit;
+		public IntRange metLimit;
+		public bool reqCooldown;
+		public bool database;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

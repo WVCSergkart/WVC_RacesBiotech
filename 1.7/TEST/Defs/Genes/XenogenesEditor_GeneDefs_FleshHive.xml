@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base">
+	<defName>WVC_XengenesEditor_FleshHive</defName>
+	<label>fleshhive database</label>
+	<labelShortAdj>fleshbase</labelShortAdj>
+	<description>Carriers of this gene have archites that are TEMPLATE TEST.</description>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hive</symbol></li>
+		<li><symbol>flesh</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<arcLimit>5</arcLimit>
+			<cpxLimit>22</cpxLimit>
+			<metLimit>-5~50</metLimit>
+			<reqCooldown>true</reqCooldown>
+			<!-- if true unlock all genes -->
+			<database>false</database>
+			<geneCategoryDefs>
+			  <li>WVC_HiveMind</li>
+			</geneCategoryDefs>
+			<geneDefs>
+			  <li>WVC_MinMaxTemp_Adaptive</li>
+			  <li>WVC_Fleshmass_ImmunToxRes</li>
+			  <li>WVC_Fleshmass_MultToxRes</li>
+			  <li>WVC_Fleshmass_Breathless</li>
+			  <li>WVC_FleshmassImmunity</li>
+			  <li>WVC_FleshmassBrain</li>
+			  <li>WVC_FleshmassArmor</li>
+			</geneDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -24,6 +24,9 @@
 		<li>&lt;color=#8a8ae6&gt;Genetic material&lt;/color&gt; can be used to implant unique genes, the list of which depends on endogenes.</li>
 		<li>&lt;color=#8a8ae6&gt;Unlocked xenotypes&lt;/color&gt; shared between &lt;color=#8a8ae6&gt;family&lt;/color&gt; by blood.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Fleshshaper</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<birthQualityOffset>-0.05</birthQualityOffset>

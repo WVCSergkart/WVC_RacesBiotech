@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -63,6 +64,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_Chimera_GeneDatabase : Gene_ChimeraGeneline
 	{
 
@@ -74,14 +76,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedGenelineGenes == null)
 				{
-					cachedGenelineGenes = Database.ToList();
+					cachedGenelineGenes = ListsUtility.GeneticDatabase.ToList();
 				}
 				return cachedGenelineGenes;
 			}
 		}
-
-		public static IEnumerable<GeneDef> Database => DefDatabase<GeneDef>.AllDefsListForReading.Where((def) => !def.IsAndroid());
-
 	}
 
 	/// <summary>
