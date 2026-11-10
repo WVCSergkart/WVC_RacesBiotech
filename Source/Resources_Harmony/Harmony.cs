@@ -190,6 +190,7 @@ namespace WVC_XenotypesAndGenes
 					HealingUtility.UpdRegenCollection();
 					//ThoughtWorker_Precept_PreferredXenotype_Social.UpdCollection();
 				}
+				ListsUtility.Recache_XenotypesRare();
 			}
 
 			//public static bool IsMechanitor(ref bool __result, Pawn pawn)
@@ -921,7 +922,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 
-			public static bool AnomalyTryDuplicate_Patch(ref bool __result, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, Faction faction = null, bool allowCreepjoiners = false, bool randomOutcome = false, bool negativeOutcomes = true)
+			public static bool AnomalyTryDuplicate_Patch(ref bool __result, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, Faction faction = null, bool allowCreepjoiners = false)
 			{
 				if (DuplicateUtility.TryDuplicatePawn(originalPawn, originalPawn, targetCell, map, out duplicatePawn, out string letterDesc, out LetterDef letterType, faction != Faction.OfEntities, true, true, allowCreepjoiners))
 				{

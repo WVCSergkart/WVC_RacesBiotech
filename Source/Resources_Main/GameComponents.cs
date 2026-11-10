@@ -288,7 +288,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// DEV
-		public void DevFixes()
+		public static void DevFixes()
 		{
 			FixGenesClasses();
 			ResetGenes();

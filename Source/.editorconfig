@@ -2,3 +2,23 @@
 
 # CS1591: Missing XML comment for publicly visible type or member
 dotnet_diagnostic.CS1591.severity = none
+
+# CA2211: Non-constant fields should not be visible
+dotnet_diagnostic.CA2211.severity = none
+
+# IDE0017: Simplify object initialization
+dotnet_diagnostic.IDE0017.severity = none
+
+# IDE0074: Use compound assignment
+dotnet_diagnostic.IDE0074.severity = none
+
+dotnet_diagnostic.IDE0130.severity = none
+
+# IDE0350: Use implicitly typed lambda
+dotnet_diagnostic.IDE0350.severity = none
+
+# IDE0028: Simplify collection initialization
+dotnet_diagnostic.IDE0028.severity = none
+
+# IDE0305: Simplify collection initialization
+dotnet_diagnostic.IDE0305.severity = none

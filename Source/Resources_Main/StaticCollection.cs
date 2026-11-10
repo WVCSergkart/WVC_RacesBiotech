@@ -68,6 +68,14 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetStaticCache_PerSave()
 		{
+			ResetStaticCache_PerSaveDeathAndMisc();
+			cachedGameComponent = null;
+			MainButtonWorker_AutoInitTab.visible = null;
+			ListsUtility.Recache_XenotypesRare();
+		}
+
+		public static void ResetStaticCache_PerSaveDeathAndMisc()
+		{
 			ThoughtWorker_Precept_HasAnyXenotypesAndCount.lastRecacheTick = -1;
 			ThoughtWorker_Precept_WithCollectionCheck.lastRecacheTick = -1;
 			FamilyUtility.lastRecacheTick = -1;
@@ -76,9 +84,6 @@ namespace WVC_XenotypesAndGenes
 			Gene_PackMentality.ResetCache();
 			Gene_Recluse.lastRecacheTick = -1;
 			CompStylingStation.cachedPawns = null;
-			cachedGameComponent = null;
-			MainButtonWorker_AutoInitTab.visible = null;
-			ListsUtility.cachedCustomXenotypesList = null;
 		}
 
 		//[Obsolete]

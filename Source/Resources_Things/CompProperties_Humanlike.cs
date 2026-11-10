@@ -305,7 +305,8 @@ namespace WVC_XenotypesAndGenes
 			if (ModsConfig.IdeologyActive)
 			{
 				GeneshiftUtility.ResetXenotypesCollection();
-				StaticCollectionsClass.ResetStaticCache_PerSave();
+				//StaticCollectionsClass.ResetStaticCache_PerSave();
+				StaticCollectionsClass.ResetStaticCache_PerSaveDeathAndMisc();
 			}
 			if (HivemindUtility.InHivemind_Safe(pawn))
 			{
@@ -646,7 +647,7 @@ namespace WVC_XenotypesAndGenes
 							float matchedGenes = XaG_GeneUtility.GetMatchingGenesList(Pawn.genes.GenesListForReading, xenos.genes).Count;
 							float percent = Mathf.Clamp(matchedGenes / xenos.genes.Count, 0f, 1f);
 							Ideo ideo = Pawn.ideo?.Ideo;
-							bool isPreferred = ideo != null && (ideo.PreferredXenotypes.Contains(xenos.XenotypeDef_Safe) || ideo.PreferredCustomXenotypes.Any(xen => XaG_GeneUtility.HasAllGenes(xen.genes, xenos.genes))) ? true : false;
+							bool isPreferred = ideo != null && (ideo.PreferredXenotypes.Contains(xenos.XenotypeDef_Safe) || ideo.PreferredCustomXenotypes.Any(xen => XaG_GeneUtility.HasAllGenes(xen.genes, xenos.genes)));
 							stringBuild.AppendLineTagged("  - " + xenos.LabelCap.Colorize(isPreferred ? GenColor.FromHex("F1AF81") : xenos.CustomXenotype ? ColorLibrary.LightGreen : ColoredText.GeneColor) + ": " + percent.ToStringPercent().Colorize(PreferredXenotypesUtility.ReqMatch <= percent ? ColorLibrary.Green : Color.white));
 						}
 						cachedXenotypesMatchList = stringBuild.ToString().TrimEndNewlines();

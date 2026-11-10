@@ -300,7 +300,9 @@ namespace WVC_XenotypesAndGenes
 		/// Modders hook.
 		/// </summary>
 		/// <param name="holders"></param>
+#pragma warning disable IDE0060 // Remove unused parameter
 		public static void HolderHelper(List<XenotypeHolder> holders)
+#pragma warning restore IDE0060 // Remove unused parameter
 		{
 
 		}
@@ -453,7 +455,12 @@ namespace WVC_XenotypesAndGenes
 		//	return list;
 		//}
 
-		public static List<CustomXenotype> cachedCustomXenotypesList;
+		private static List<CustomXenotype> cachedCustomXenotypesList;
+		public static void Recache_XenotypesRare()
+		{
+			cachedCustomXenotypesList = null;
+		}
+
 		public static List<CustomXenotype> GetCustomXenotypesList()
 		{
 			if (cachedCustomXenotypesList != null)

@@ -230,15 +230,15 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
-		public static bool IsDustogenicFood(this Thing thing)
-		{
-			if (thing?.def?.ingestible == null)
-			{
-				return false;
-			}
-			return thing.def.GetModExtension<GeneExtension_General>()?.isDustogenic == true;
-		}
+		//[Obsolete]
+		//public static bool IsDustogenicFood(this Thing thing)
+		//{
+		//	if (thing?.def?.ingestible == null)
+		//	{
+		//		return false;
+		//	}
+		//	return thing.def.GetModExtension<GeneExtension_General>()?.isDustogenic == true;
+		//}
 
 		public static bool IsHemogenPack(this ThingDef thingDef)
 		{
@@ -248,8 +248,7 @@ namespace WVC_XenotypesAndGenes
 		public static bool IsHemogenPack(this ThingDef thingDef, out float offsetHemogen)
 		{
 			offsetHemogen = 0f;
-			IngestionOutcomeDoer doer = null;
-			if (thingDef?.ingestible?.outcomeDoers?.Where((outcome) => outcome is IngestionOutcomeDoer_OffsetHemogen)?.TryRandomElement(out doer) == true)
+			if (thingDef?.ingestible?.outcomeDoers?.Where((outcome) => outcome is IngestionOutcomeDoer_OffsetHemogen)?.TryRandomElement(out IngestionOutcomeDoer doer) == true)
 			{
 				offsetHemogen = (doer as IngestionOutcomeDoer_OffsetHemogen).offset;
 				return true;
@@ -389,10 +388,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Hediff cooldownHediff = HediffMaker.MakeHediff(HediffDefOf.ResurrectionSickness, innerPawn);
 			HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
-			if (hediffComp_Disappears != null)
-			{
-				hediffComp_Disappears.ticksToDisappear = intRange.RandomInRange;
-			}
+			hediffComp_Disappears?.ticksToDisappear = intRange.RandomInRange;
 			innerPawn.health.AddHediff(cooldownHediff);
 		}
 
