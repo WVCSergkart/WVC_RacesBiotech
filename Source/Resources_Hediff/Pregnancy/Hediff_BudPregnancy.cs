@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
 		{
-			if (Rand.Chance(0.01f + (gestateProgress * 0.2f)))
+			if (Rand.Chance(0.02f))
 			{
 				pawn.health.RemoveHediff(this);
 				mother?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.Miscarried);

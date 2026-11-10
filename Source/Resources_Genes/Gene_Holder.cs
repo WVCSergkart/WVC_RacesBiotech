@@ -169,10 +169,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void RemoveSetHolder(PawnContainerHolder oldSet)
 		{
-			if (Containers.Contains(oldSet))
-			{
-				Containers.Remove(oldSet);
-			}
+			Containers.Remove(oldSet);
 		}
 
 		public override void TickInterval(int delta)
