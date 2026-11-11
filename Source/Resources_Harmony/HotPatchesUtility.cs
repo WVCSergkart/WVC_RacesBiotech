@@ -18,8 +18,24 @@ namespace WVC_XenotypesAndGenes
 		private static bool genesInOrderPatched = false;
 		private static bool movementCostPatched = false;
 		private static bool incestCheckPatched = false;
-		//private static bool healthScalePatched = false;
+		//private static bool isGoodPositionForInteractionPatched = false;
 
+		//public static void Patch_IsGoodPositionForInteraction()
+		//{
+		//	if (isGoodPositionForInteractionPatched)
+		//	{
+		//		return;
+		//	}
+		//	try
+		//	{
+		//		HarmonyUtility.Harmony.Patch(AccessTools.Method(typeof(SocialInteractionUtility), "IsGoodPositionForInteraction", [typeof(Pawn), typeof(Pawn)]), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod(nameof(HarmonyUtility.SocialInteractionUtility_IsGoodPositionForInteraction_Patch))));
+		//	}
+		//	catch (Exception arg)
+		//	{
+		//		Log.Error("Failed apply interaction patch. Reason: " + arg.Message);
+		//	}
+		//	isGoodPositionForInteractionPatched = true;
+		//}
 		//public static void Patch_HealthScale()
 		//{
 		//	if (healthScalePatched)

@@ -1067,6 +1067,37 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 
+
+			//private static Pawn lastInteractionCaller_OnThisTick;
+			//private static int lastInteractionTick;
+			//private static void SIU_InteractionCallCache()
+			//{
+			//	if (Find.TickManager.TicksGame != lastInteractionTick)
+			//	{
+			//		lastInteractionTick = Find.TickManager.TicksGame;
+			//	}
+			//}
+
+			//private static bool SIU_AutoAllowInteraction()
+			//{
+			//	return lastInteractionTick == Find.TickManager.TicksGame;
+			//}
+
+			//private static int index = 0;
+
+			//public static bool SocialInteractionUtility_IsGoodPositionForInteraction_Patch(Pawn p, Pawn recipient, ref bool __result)
+			//{
+			//	if (Gene_Hivemind_Telepathy.HivemindTelepathy && HivemindUtility.InHivemind_Safe(p) && HivemindUtility.InHivemind_Safe(recipient))
+			//	{
+			//		Log.Error(index.ToString());
+			//		index++;
+			//		//SIU_InteractionCallCache();
+			//		__result = true;
+			//		return false;
+			//	}
+			//	return true;
+			//}
+
 			// PawnDuplicatorFix
 
 			// Codex spam fix

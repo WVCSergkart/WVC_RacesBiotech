@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -10,8 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Hivemind_Drone : XaG_Gene, IGeneOverriddenBy, IGeneHivemind, IGeneRecacheable
 	{
 
-		public List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
-		public float PsyFactor => HivemindUtility.HivemindPsychicSensitivity;
+		public static List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
+		public static float PsyFactor => HivemindUtility.HivemindPsychicSensitivity;
 
 		public override void PostAdd()
 		{
@@ -120,59 +119,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextTick", 1200);
-		}
-
-	}
-
-	public class Gene_Hivemind_Telepathy : Gene_Hivemind_Drone
-	{
-
-		private static int tickBeforeNextRandomHivemindInteraction = -1;
-
-		public override void TickInterval(int delta)
-		{
-			if (!pawn.IsHashIntervalTick(30901, delta))
-			{
-				return;
-			}
-			try
-			{
-				RandomInteraction();
-			}
-			catch (Exception arg)
-			{
-				Log.Error($"Failed hivemind interaction. Reason: {arg.Message}");
-				tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + 60000;
-			}
-		}
-
-		public void RandomInteraction()
-		{
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
-			if (Find.TickManager.TicksGame < tickBeforeNextRandomHivemindInteraction)
-			{
-				return;
-			}
-			if (!HivemindUtility.InHivemind(pawn))
-			{
-				return;
-			}
-			foreach (Pawn drone in Hivemind)
-			{
-				if (GeneInteractionsUtility.TryInteractRandomly(drone, Hivemind.Where((hiver) => hiver != drone && hiver.Spawned).ToList(), psychicInteraction: false, ignoreTalking: true, closeTarget: false, out Pawn otherPawn))
-				{
-					tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + (int)(10000 / PsyFactor);
-					EffectsUtility.PulseEffect(drone);
-					EffectsUtility.PulseEffect(otherPawn);
-					if (Rand.Chance(0.75f))
-					{
-						break;
-					}
-				}
-			}
 		}
 
 	}

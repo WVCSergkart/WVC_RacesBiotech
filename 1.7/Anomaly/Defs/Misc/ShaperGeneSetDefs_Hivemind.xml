@@ -69,6 +69,11 @@
 		  <displayCategory>WVC_HiveMind</displayCategory>
 		  <cost>33</cost>
 		</li>
+		<li>
+		  <geneDef>WVC_Hivemind_Telepathy</geneDef>
+		  <displayCategory>WVC_HiveMind</displayCategory>
+		  <cost>25</cost>
+		</li>
 	</geneSets>
   </WVC_XenotypesAndGenes.ShaperGeneSetDef>
 
