@@ -90,7 +90,7 @@
 	<defName>WVC_HiveMind_Needs</defName>
 	<label>shared needs</label>
 	<description>Carriers of this gene have a special influence on the hivemind, they are able to synchronize some of the needs of its drones.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_HiveMind_Needs</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Hivemind_Needs</geneClass>
 	<iconPath>WVC/UI/Genes3/Gene_HiveMind_Needs</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
@@ -131,9 +131,10 @@
 	<biostatMet>-5</biostatMet>
 	<customEffectDescriptions>
 		<li>Synchronizes &lt;color=#8a8ae6&gt;food needs&lt;/color&gt; between &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt; drones.</li>
-		<li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li>
+		<!-- <li>Synchronization occurs to the &lt;color=#8a8ae6&gt;average total&lt;/color&gt; value.</li> -->
+		<li>Total nutrients depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
+		<li>Total nutrients is distributed among all drones. Some may not have enough.</li>
 		<!-- <li>&lt;color=#f46d6b&gt;Low psy-sensitivity will result in loss of nutrients.&lt;/color&gt;</li> -->
-		<li>Final nutrients depends on the &lt;color=#8a8ae6&gt;psy-sensitivity&lt;/color&gt; of the entire &lt;color=#8a8ae6&gt;hivemind&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Hivemind_SharedNeeds</li>

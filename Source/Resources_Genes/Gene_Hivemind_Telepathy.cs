@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 		//	isAnyHivemindTelepath = null;
 		//}
 
-		private static int tickBeforeNextRandomHivemindInteraction = -1;
+		public static int tickBeforeNextRandomHivemindInteraction = -1;
 
 		public override void TickInterval(int delta)
 		{
@@ -73,13 +73,14 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error($"Failed hivemind interaction. Reason: {arg.Message}");
-				tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + 60000;
+				tickBeforeNextRandomHivemindInteraction = 60000;
 			}
 		}
 
 		public void RandomInteraction()
 		{
-			if (Find.TickManager.TicksGame < tickBeforeNextRandomHivemindInteraction)
+			int ticksGame = Find.TickManager.TicksGame;
+			if (ticksGame < tickBeforeNextRandomHivemindInteraction)
 			{
 				return;
 			}
@@ -95,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (GeneInteractionsUtility.TryInteractRandomly(drone, Hivemind.Where((hiver) => hiver != drone && hiver.interactions?.InteractedTooRecentlyToInteract() == false && hiver.Spawned).ToList(), psychicInteraction: false, ignoreTalking: true, closeTarget: false, out Pawn otherPawn))
 				{
-					tickBeforeNextRandomHivemindInteraction = Find.TickManager.TicksGame + Mathf.Clamp((int)((10000 / Hivemind.Count) / PsyFactor), 2500, 99999);
+					tickBeforeNextRandomHivemindInteraction = ticksGame + Mathf.Clamp((int)((10000 / Hivemind.Count) / PsyFactor), 2500, 99999);
 					//EffectsUtility.PulseEffect(drone);
 					//EffectsUtility.PulseEffect(otherPawn);
 					if (Rand.Chance(0.75f))

@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			//StaticCollectionsClass.currentGameComponent = this;
 			//HivemindUtility.ResetSafeCollection();
-			StaticCollectionsClass.ResetCollection();
+			StaticCollectionsClass.ResetCollection_GameStart();
 			//HivemindUtility.ResetCollection();
 			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
 			{

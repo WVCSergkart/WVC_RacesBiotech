@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			return MechanoidsUtility.NonMechanitorGUIPawns.Contains(pawn);
 		}
 
-		public static void ResetCollection()
+		public static void ResetCollection_GameStart()
 		{
 			cachedDuplicatesCount = 0;
 			cachedPlayerPawnsCount = 0;
@@ -72,6 +72,9 @@ namespace WVC_XenotypesAndGenes
 			cachedGameComponent = null;
 			MainButtonWorker_AutoInitTab.visible = null;
 			ListsUtility.Recache_XenotypesRare();
+			Gene_Hivemind_Telepathy.tickBeforeNextRandomHivemindInteraction = 0;
+			Gene_Hivemind_SharedFood.delayBeforeSync = 0;
+			Gene_Hivemind_Needs.delayBeforeSync = 0;
 		}
 
 		public static void ResetStaticCache_PerSaveDeathAndMisc()

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_HiveMind_Needs : Gene_Hivemind
+	public class Gene_Hivemind_Needs : Gene_Hivemind_Drone
 	{
 
 		//public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
@@ -48,21 +49,37 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-		public override void UpdGeneSync()
+		public static int delayBeforeSync;
+		public override void TickInterval(int delta)
 		{
-			base.UpdGeneSync();
-			List<Pawn> bondedPawns = Hivemind;
+			if (pawn.IsHashIntervalTick(2500, delta))
+			{
+				TryUpdNeeds();
+			}
+		}
+
+		public void TryUpdNeeds()
+		{
+			int ticksGame = Find.TickManager.TicksGame;
+			if (delayBeforeSync > ticksGame)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (!HivemindUtility.InHivemind(pawn))
+			{
+				return;
+			}
 			string phase = "start";
 			try
 			{
+				List<Pawn> bondedPawns = Hivemind;
 				NeedsHolder sumSkillsExp = new();
 				foreach (Pawn otherPawn in bondedPawns)
 				{
-					//Gene_HiveMind hiveMind = otherPawn.genes.GetFirstGeneOfType<Gene_HiveMind>();
-					//if (hiveMind == null)
-					//{
-					//    continue;
-					//}
 					phase = "get needs";
 					GetNeeds(otherPawn, sumSkillsExp);
 				}
@@ -71,10 +88,12 @@ namespace WVC_XenotypesAndGenes
 					phase = "set needs";
 					SetNeeds(otherPawn, sumSkillsExp);
 				}
+				delayBeforeSync = ticksGame + Mathf.Clamp((int)(250 * bondedPawns.Count / PsyFactor), 2500, HivemindUtility.TickRefresh);
 			}
 			catch (Exception arg)
 			{
 				Log.Error("Failed sync hive needs. On phase: " + phase + ". Reason: " + arg);
+				delayBeforeSync = 60000;
 			}
 		}
 
@@ -116,11 +135,11 @@ namespace WVC_XenotypesAndGenes
 			foreach (Need need in target.needs.AllNeeds)
 			{
 				//Log.Error("2");
-				if (!Extension_Giver.needDefs.Contains(need.def))
-				{
-					//Log.Error("WTF?");
-					continue;
-				}
+				//if (!Extension_Giver.needDefs.Contains(need.def))
+				//{
+				//	//Log.Error("WTF?");
+				//	continue;
+				//}
 				//Log.Error("3");
 				if (needsHolder.TryGetNeed(need.def, out NeedHolder needHolder))
 				{
@@ -128,6 +147,12 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+	}
+
+	[Obsolete("Use Gene_Hivemind_Needs instead.")]
+	public class Gene_HiveMind_Needs : Gene_Hivemind_Needs
+	{
 
 	}
 

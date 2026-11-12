@@ -6,37 +6,76 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Hivemind_SharedFood : Gene_Hivemind
+	public class Gene_Hivemind_SharedFood : Gene_Hivemind_Drone
 	{
 
-		public override void UpdGeneSync()
+		public static int delayBeforeSync;
+		public override void TickInterval(int delta)
 		{
+			if (pawn.IsHashIntervalTick(2500, delta))
+			{
+				TryUpdFood();
+			}
+		}
+
+		public void TryUpdFood()
+		{
+			int ticksGame = Find.TickManager.TicksGame;
+			if (delayBeforeSync > ticksGame)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (!HivemindUtility.InHivemind(pawn))
+			{
+				return;
+			}
+			string phase = "start";
 			try
 			{
 				List<Pawn> hivemind = Hivemind;
 				float totalNutriotion = 0;
-				float factor = Mathf.Clamp(PsyFactor, 0.1f, 1.1f);
+				phase = "get total hivemind food";
 				foreach (Pawn pawn in hivemind)
 				{
 					if (!pawn.TryGetNeedFood(out Need_Food need_Food))
 					{
 						continue;
 					}
-					totalNutriotion += need_Food.CurLevel * factor;
+					totalNutriotion += need_Food.CurLevel;
+					need_Food.CurLevel = 0;
 				}
-				float averageNutrition = totalNutriotion / hivemind.Count;
+				phase = "factor for total food";
+				totalNutriotion *= PsyFactor;
+				phase = "try share food between pawns";
 				foreach (Pawn pawn in hivemind)
 				{
+					if (totalNutriotion <= 0)
+					{
+						break;
+					}
 					if (!pawn.TryGetNeedFood(out Need_Food need_Food))
 					{
 						continue;
 					}
-					need_Food.CurLevel = Mathf.Clamp(averageNutrition * pawn.GetStatValue(StatDefOf.PsychicSensitivity), 0f, averageNutrition);
+					float foodValue = Mathf.Clamp(need_Food.NutritionWanted, 0f, totalNutriotion);
+					need_Food.CurLevel += foodValue;
+					totalNutriotion -= foodValue;
+					if (totalNutriotion < 0)
+					{
+						break;
+					}
 				}
+				phase = "set delay";
+				delayBeforeSync = ticksGame + Mathf.Clamp((int)(320 * hivemind.Count / PsyFactor), 2500, HivemindUtility.TickRefresh);
 			}
 			catch (Exception arg)
 			{
-				Log.Error("Failed share food for hivemind. Reason: " + arg.Message);
+				Log.Error($"Failed share food for hivemind. On phase: {phase}. Reason: " + arg.Message);
+				delayBeforeSync = 60000;
 			}
 		}
 

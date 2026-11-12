@@ -525,7 +525,7 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					ReimplanterUtility.PostImplantDebug(Pawn);
-					StaticCollectionsClass.ResetCollection();
+					StaticCollectionsClass.ResetCollection_GameStart();
 					//HivemindUtility.ResetCollection();
 					//HediffUtility.UpdatePawnGeneHediffs(Pawn);
 					HediffUtility.ResetGeneHediffs(Pawn);
@@ -732,7 +732,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				List<Pawn> hivemindPawns = HivemindUtility.HivemindPawns;
 				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindTick_Label".Translate(), HivemindUtility.TickRefresh.ToStringTicksToDays(), "WVC_XaG_HivemindTick_Desc".Translate(), 120);
-				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_HivemindPsychicSensitivity".Translate(), HivemindUtility.HivemindPsychicSensitivity.ToStringPercent(), "WVC_HivemindPsychicSensitivityDesc".Translate(), 150, hyperlinks: hivemindPawns.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
+				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_HivemindPsychicSensitivity".Translate(), HivemindUtility.PsychicSensitivity.ToStringPercent(), "WVC_HivemindPsychicSensitivityDesc".Translate(), 150, hyperlinks: hivemindPawns.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
 				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_HivemindPawns_Label".Translate(), hivemindPawns.Count.ToString(), "WVC_XaG_HivemindPawns_Desc".Translate(), 200, hyperlinks: hivemindPawns.Select((pawn) => new Dialog_InfoCard.Hyperlink(pawn)));
 			}
 		}

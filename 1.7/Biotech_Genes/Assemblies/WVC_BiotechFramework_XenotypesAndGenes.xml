@@ -235,6 +235,22 @@
             <param name="pawn"></param>
             <returns></returns>
         </member>
+        <member name="F:WVC_XenotypesAndGenes.HivemindUtility.nonPlayerHivemindSize">
+            <summary>
+            NPC hivemind size. Used by some hivemind genes (ex: hivemind regeneration).
+            </summary>
+        </member>
+        <member name="P:WVC_XenotypesAndGenes.HivemindUtility.HivemindPawns">
+            <summary>
+            Pawns in hivemind. List is used because it works faster with small lists than HashSet.
+            ..But 1.7 supports the ability to create large hiveminds. Switch to HasSet?
+            </summary>
+        </member>
+        <member name="P:WVC_XenotypesAndGenes.HivemindUtility.IsInitialized">
+            <summary>
+            General quick check for the existence of a hivemind.
+            </summary>
+        </member>
         <member name="M:WVC_XenotypesAndGenes.HivemindUtility.SubCanBeInHivemind(Verse.Pawn)">
             <summary>
             Modders hook. Use for custom hivemind rules. For example hediffs or for merging with others mod hiveminds.

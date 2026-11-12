@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -10,9 +11,16 @@ namespace WVC_XenotypesAndGenes
 	public static class HivemindUtility
 	{
 
+		/// <summary>
+		/// NPC hivemind size. Used by some hivemind genes (ex: hivemind regeneration).
+		/// </summary>
 		public static int nonPlayerHivemindSize = 5;
 
 		private static List<Pawn> cachedPawns;
+		/// <summary>
+		/// Pawns in hivemind. List is used because it works faster with small lists than HashSet.
+		/// ..But 1.7 supports the ability to create large hiveminds. Switch to HasSet?
+		/// </summary>
 		public static List<Pawn> HivemindPawns
 		{
 			get
@@ -30,10 +38,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		/// <summary>
+		/// General quick check for the existence of a hivemind.
+		/// </summary>
 		public static bool IsInitialized => !cachedPawns.NullOrEmpty();
 
 		private static float? cachedHivemindPsychicFactor;
-		public static float HivemindPsychicSensitivity
+		public static float PsychicSensitivity
 		{
 			get
 			{
@@ -46,20 +57,30 @@ namespace WVC_XenotypesAndGenes
 						new CurvePoint(0.2f, 0.8f),
 						new CurvePoint(0.5f, 0.9f),
 						new CurvePoint(1f, 1f),
-						new CurvePoint(1.5f, 1.2f),
-						new CurvePoint(2f, 1.5f),
-						new CurvePoint(3f, 2f),
-						new CurvePoint(6f, 3f)
+						new CurvePoint(1.4f, 1.2f),
+						new CurvePoint(1.8f, 1.5f),
+						new CurvePoint(2.8f, 2f),
+						new CurvePoint(5f, 3f)
 					};
 					foreach (Pawn pawn in HivemindPawns)
 					{
-						factor *= curve.Evaluate(pawn.GetStatValue(StatDefOf.PsychicSensitivity));
+						if (pawn.psychicEntropy != null)
+						{
+							factor *= curve.Evaluate(pawn.psychicEntropy.PsychicSensitivity);
+						}
+						else
+						{
+							factor *= curve.Evaluate(pawn.GetStatValue(StatDefOf.PsychicSensitivity));
+						}
 					}
 					cachedHivemindPsychicFactor = Mathf.Clamp(factor, 0.2f, 5f);
 				}
 				return cachedHivemindPsychicFactor.Value;
 			}
 		}
+
+		[Obsolete("Use HivemindUtility.PsychicSensitivity instead.")]
+		public static float HivemindPsychicSensitivity => PsychicSensitivity;
 
 		public static bool CanBeInHivemind(Pawn target)
 		{

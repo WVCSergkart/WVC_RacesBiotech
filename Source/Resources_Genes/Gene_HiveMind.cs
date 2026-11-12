@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public static List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
-		public static float PsyFactor => HivemindUtility.HivemindPsychicSensitivity;
+		public static float PsyFactor => HivemindUtility.PsychicSensitivity;
 
 		public override void PostAdd()
 		{
