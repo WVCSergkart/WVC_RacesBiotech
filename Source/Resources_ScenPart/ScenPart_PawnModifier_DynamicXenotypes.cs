@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 							Log.Warning($"Cannot fire xenotypeGetter with class: {xenotypeGetterDef.workerClass?.ToStringSafe()}. Reason: {arg.Message}");
 						}
 					}
-					lastCachedTick = Find.TickManager.TicksGame + 40000;
+					lastCachedTick = Find.TickManager.TicksGame + 1500;
 					cachedXenotypeGetterDefs = canFireNowList;
 				}
 				return cachedXenotypeGetterDefs;

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveA</defName> <!-- rename -->
+	  <size>(7,6)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(3, 0, 4)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(3,0,3,0)</li>
+			<li>(5,0,5,0)</li>
+			<li>(0,1,0,3)</li>
+			<li>(6,4,6,5)</li>
+			<li>(1,5,2,5)</li>
+			<li>(5,5,5,5)</li>
+		  </rects>
+		  <stuff>WoodLog</stuff>
+		</Fence>
+		<Grave>
+		  <positions>
+			<li>(2, 0, 3)</li>
+			<li>(4, 0, 3)</li>
+		  </positions>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+		<FenceGate>
+		  <position>(4, 0, 0)</position>
+		  <stuff>WoodLog</stuff>
+		</FenceGate>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveB</defName> <!-- rename -->
+	  <size>(9,9)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(5, 0, 4)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(0,0,1,0)</li>
+			<li>(3,0,3,0)</li>
+			<li>(7,0,8,0)</li>
+			<li>(0,1,0,1)</li>
+			<li>(8,1,8,1)</li>
+			<li>(0,4,0,6)</li>
+			<li>(8,5,8,7)</li>
+			<li>(0,8,2,8)</li>
+			<li>(6,8,7,8)</li>
+		  </rects>
+		  <stuff>WoodLog</stuff>
+		</Fence>
+		<Grave>
+		  <positions>
+			<li>(2, 0, 3)</li>
+			<li>(3, 0, 3)</li>
+			<li>(6, 0, 3)</li>
+			<li>(3, 0, 6)</li>
+			<li>(4, 0, 6)</li>
+		  </positions>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+		<FenceGate>
+		  <position>(2, 0, 0)</position>
+		  <stuff>WoodLog</stuff>
+		</FenceGate>
+		<FenceGate>
+		  <position>(0, 0, 7)</position>
+		  <relativeRotation>Clockwise</relativeRotation>
+		  <stuff>WoodLog</stuff>
+		</FenceGate>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveC</defName> <!-- rename -->
+	  <size>(2,3)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(0, 0, 0)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(0,2,1,2)</li>
+		  </rects>
+		  <stuff>WoodLog</stuff>
+		</Fence>
+		<Grave>
+		  <position>(1, 0, 1)</position>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveD</defName> <!-- rename -->
+	  <size>(3,4)</size>
+	  <things>
+		<Fence>
+		  <rects>
+			<li>(0,3,1,3)</li>
+		  </rects>
+		  <stuff>WoodLog</stuff>
+		</Fence>
+		<Grave>
+		  <positions>
+			<li>(1, 0, 1)</li>
+			<li>(2, 0, 1)</li>
+		  </positions>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveE</defName> <!-- rename -->
+	  <size>(1,2)</size>
+	  <things>
+		<Grave>
+		  <position>(0, 0, 1)</position>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveG</defName> <!-- rename -->
+	  <size>(3,2)</size>
+	  <things>
+		<Grave>
+		  <positions>
+			<li>(0, 0, 1)</li>
+			<li>(2, 0, 1)</li>
+		  </positions>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveF</defName> <!-- rename -->
+	  <size>(7,5)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(3, 0, 3)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(0,0,0,4)</li>
+			<li>(1,4,6,4)</li>
+		  </rects>
+		  <stuff>Steel</stuff>
+		</Fence>
+		<Sarcophagus>
+		  <positions>
+			<li>(2, 0, 1)</li>
+			<li>(4, 0, 1)</li>
+			<li>(6, 0, 1)</li>
+		  </positions>
+		  <stuff>BlocksVacstone</stuff>
+		  <quality>Normal</quality>
+		</Sarcophagus>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveH</defName> <!-- rename -->
+	  <size>(7,6)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(3, 0, 3)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(5,0,6,0)</li>
+			<li>(6,1,6,5)</li>
+			<li>(0,2,0,5)</li>
+			<li>(1,5,2,5)</li>
+			<li>(4,5,5,5)</li>
+		  </rects>
+		  <stuff>Steel</stuff>
+		</Fence>
+		<Sarcophagus>
+		  <positions>
+			<li>(2, 0, 2)</li>
+			<li>(4, 0, 2)</li>
+		  </positions>
+		  <stuff>BlocksVacstone</stuff>
+		  <quality>Normal</quality>
+		</Sarcophagus>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveI</defName> <!-- rename -->
+	  <size>(7,6)</size>
+	  <things>
+		<TorchLamp>
+		  <position>(3, 0, 4)</position>
+		</TorchLamp>
+		<Fence>
+		  <rects>
+			<li>(5,0,6,0)</li>
+			<li>(6,1,6,3)</li>
+			<li>(1,5,4,5)</li>
+		  </rects>
+		  <stuff>BlocksVacstone</stuff>
+		</Fence>
+		<Sarcophagus>
+		  <positions>
+			<li>(2, 0, 2)</li>
+			<li>(4, 0, 2)</li>
+		  </positions>
+		  <stuff>BlocksVacstone</stuff>
+		  <quality>Normal</quality>
+		</Sarcophagus>
+		<Grave>
+		  <position>(0, 0, 3)</position>
+		  <relativeRotation>Opposite</relativeRotation>
+		</Grave>
+	  </things>
+	</PrefabDef>
+
+	<PrefabDef>
+	  <defName>WVC_XaG_GraveJ</defName> <!-- rename -->
+	  <size>(5,6)</size>
+	  <things>
+		<Sarcophagus>
+		  <position>(2, 0, 2)</position>
+		  <stuff>BlocksVacstone</stuff>
+		  <quality>Normal</quality>
+		</Sarcophagus>
+		<TorchWallLamp>
+		  <position>(2, 0, 4)</position>
+		</TorchWallLamp>
+		<FenceGate>
+		  <position>(2, 0, 0)</position>
+		  <stuff>BlocksVacstone</stuff>
+		</FenceGate>
+		<Wall>
+		  <rects>
+			<li>(1,0,1,0)</li>
+			<li>(3,0,3,0)</li>
+			<li>(0,1,0,4)</li>
+			<li>(4,1,4,4)</li>
+			<li>(1,5,3,5)</li>
+		  </rects>
+		  <stuff>BlocksVacstone</stuff>
+		</Wall>
+	  </things>
+	</PrefabDef>
+
+</Defs>

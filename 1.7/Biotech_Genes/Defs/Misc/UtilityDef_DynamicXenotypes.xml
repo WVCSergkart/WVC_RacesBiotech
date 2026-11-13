@@ -159,12 +159,6 @@
 		</xenotypeDefs>
 	  </li>
 	  <li>
-		<!-- if_one_man_army_mode (pawns <= 1 +- any animals and mechs) -->
-		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_SoloLeveling</workerClass>
-		<chance>0.05</chance>
-		<!-- all mod xenotypes -->
-	  </li>
-	  <li>
 		<!-- if_any_dryads -->
 		<workerClass>WVC_XenotypesAndGenes.XenotypeGetter_Dryads</workerClass>
 		<chance>1.0</chance>

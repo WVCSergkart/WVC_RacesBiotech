@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_Mechamata</defName>
+	<label>Endless night</label>
+	<description>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..
+
+&lt;color=#f5ffa2&gt;Gameplay Effects:&lt;/color&gt;\n- Dynamically spawns xenotypes from the &lt;color=#8a8ae6&gt;XenoGenes&lt;/color&gt; mod with 2% chance. This depends on quests, weather, tech level, pawns, buildings, factions, and many other factors.\n- The only stone found in biomes is &lt;color=#8a8ae6&gt;vacstone&lt;/color&gt;.\n- All &lt;color=#8a8ae6&gt;resources&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;rarer&lt;/color&gt;, and the mine &lt;color=#8a8ae6&gt;yield&lt;/color&gt; will be much &lt;color=#8a8ae6&gt;lower&lt;/color&gt;.\n- Night is permanent, but all plants can grow in the dark.\n- Gravship has a &lt;color=#8a8ae6&gt;nearly unlimited substructure limit&lt;/color&gt;, and substructures don't require grav plates.\n- In the presence of an anomaly, the chance of &lt;color=#8a8ae6&gt;shamblers&lt;/color&gt; appearing is significantly increased, and &lt;color=#8a8ae6&gt;graveyards&lt;/color&gt; will spawn on the maps.\n- &lt;color=#8a8ae6&gt;Death pall&lt;/color&gt; will last much longer and appear much more frequently.
+
+&lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a medium difficulty scenario that requires advanced knowledge of vanilla mechanics and basic knowledge of XaG mod mechanics. And yes, the ability to read.</description>
+	<scenario>
+	  <summary>Solo mechamata with gravship. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one mechamata.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Mechamata</xenotype>
+			  <pawnKind>AncientSoldier_Leader</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Mechamata</xenotype>
+			  <count>1</count>
+			  <description>non-baby mechamata</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <method>Gravship</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You landed your gravship to resupply. It was just another day in the ruins of a destroyed civilization..</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
+		<!-- Forced game rules -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Gravworld">
+		  <def>WVC_XaG_Starting</def>
+		  <context>NonPlayer</context>
+		  <wvcXenotypesChance>0.02</wvcXenotypesChance>
+		  <defaultSubstructureSupport>10000</defaultSubstructureSupport>
+		  <prefabDefs>
+			<li>WVC_XaG_GraveA</li>
+			<li>WVC_XaG_GraveB</li>
+			<li>WVC_XaG_GraveC</li>
+			<li>WVC_XaG_GraveD</li>
+			<li>WVC_XaG_GraveE</li>
+			<li>WVC_XaG_GraveG</li>
+			<!-- alt -->
+			<li>WVC_XaG_GraveF</li>
+			<li>WVC_XaG_GraveJ</li>
+			<li>WVC_XaG_GraveI</li>
+			<li>WVC_XaG_GraveH</li>
+		  </prefabDefs>
+		</li>
+
+		<!-- player modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <addMechlink>true</addMechlink>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Zombie world -->
+		<li Class="ScenPart_PermaGameCondition">
+			<def>PermanentGameCondition</def>
+			<gameCondition>SunBlocker</gameCondition>
+		</li>
+		<li MayRequire="ludeon.rimworld.anomaly" Class="ScenPart_CreateIncident">
+			<def>CreateIncident</def>
+			<incident>DeathPall</incident>
+			<repeat>false</repeat>
+			<maxDays>1</maxDays>
+			<minDays>0.5</minDays>
+		</li>
+
+		<!-- Starting research -->
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>BasicGravtech</project>
+		</li>
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>BasicMechtech</project>
+		</li>
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>BiofuelRefining</project>
+		</li>
+
+		<!-- Player starting things -->
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Chemfuel</thingDef>
+		  <count>100</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>WoodLog</thingDef>
+		  <count>250</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>MealSurvivalPack</thingDef>
+		  <count>60</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>MedicineIndustrial</thingDef>
+		  <count>40</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>ComponentIndustrial</thingDef>
+		  <count>40</count>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Gun_Autopistol</thingDef>
+		</li>
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Steel</thingDef>
+		  <count>350</count>
+		</li>
+
+		<!-- Scatter some things near player start -->
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsNearPlayerStart</def>
+		  <thingDef>Silver</thingDef>
+		  <count>120</count>
+		  <allowRoofed>false</allowRoofed>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsNearPlayerStart</def>
+		  <thingDef>Steel</thingDef>
+		  <count>320</count>
+		  <allowRoofed>false</allowRoofed>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsNearPlayerStart</def>
+		  <thingDef>GravlitePanel</thingDef>
+		  <count>100</count>
+		  <allowRoofed>false</allowRoofed>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

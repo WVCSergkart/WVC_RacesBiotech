@@ -13,4 +13,7 @@
 	<!-- <WVC_Label_AlertOverpopulation>Overpopulation {0}</WVC_Label_AlertOverpopulation> -->
 	<!-- <WVC_Desc_AlertOverpopulation>Overcrowding in your faction. You can kick out unwanted pawns yourself, otherwise someone will decide to leave on their own.\n\n{0}</WVC_Desc_AlertOverpopulation> -->
 
+	<WVC_Gravsteel>gravsteel</WVC_Gravsteel>
+	<WVC_GravsteelDesc>An alloy with gravstone grains used for building a huge variety of structures, weapons, and machines.</WVC_GravsteelDesc>
+
 </LanguageData>

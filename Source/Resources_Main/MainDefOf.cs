@@ -131,5 +131,21 @@ namespace WVC_XenotypesAndGenes
 	// public static ShapeshiftModeDef WVC_Safeshift;
 	// public static ShapeshiftModeDef WVC_Duplicate;
 	// }
+	[DefOf]
+	public static class AnomalyDefOf
+	{
+		[MayRequireAnomaly]
+		public static IncidentDef DeathPall;
+		[MayRequireAnomaly]
+		public static IncidentDef ShamblerSwarm;
+		[MayRequireAnomaly]
+		public static IncidentDef ShamblerSwarmAnimals;
+		[MayRequireAnomaly]
+		public static IncidentDef SmallShamblerSwarm;
+		[MayRequireAnomaly]
+		public static IncidentDef ShamblerAssault;
+		[MayRequireAnomaly]
+		public static IncidentDef GhoulAttack;
 
+	}
 }

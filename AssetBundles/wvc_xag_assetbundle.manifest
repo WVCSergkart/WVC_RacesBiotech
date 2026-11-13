@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 1685721678
+CRC: 3083539353
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2522fa52e999630582ad6e5639ac4d5b
+    Hash: a498eca4645bbf997993475e639d9604
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 0097bd4f0138f5372d5c152b9645d303
+    Hash: 779ef4108d5335934befb801c1e604dd
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -202,8 +202,9 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FleshmassSkin_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/DoubleEars_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DemonTail_v0.png
-- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DustClotting_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Gravsteel/Steel_b.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno23.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_DustClotting_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Melee/SkillUp.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Health.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0.png
@@ -721,6 +722,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Precepts/Meme_Deathwatch.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Voidlink_Charging.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/Gene_Energyshifter_UI.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Gravsteel/Steel_c.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_RestStomach.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno23.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_PerfectImmunity.png
@@ -807,6 +809,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_XenogenesEditorFleshmass.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_ExtremeSlowLearning_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_FleshmassBrain_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Items/Gravsteel/Steel_a.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/UndeadGene_Body/Naked_Fat_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_SacrificerSkullIcon.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/ElfEars/PointedEarsC_south.png

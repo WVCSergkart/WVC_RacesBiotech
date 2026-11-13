@@ -76,8 +76,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// per game
-		public static bool setupResources = true;
-		private void SetResources()
+		private static bool setupResources = true;
+		public static void SetResources()
 		{
 			if (!setupResources)
 			{
