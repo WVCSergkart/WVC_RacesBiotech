@@ -229,7 +229,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				phase = "try summon";
-				if (MiscUtility.TrySummonDropPod(homeMaps.RandomElement(), summonList))
+				if (!summonList.Empty() && MiscUtility.TrySummonDropPod(homeMaps.RandomElement(), summonList))
 				{
 					//Find.LetterStack.ReceiveLetter("WVC_XaG_MechanoidSummon_Label".Translate(), "WVC_XaG_MechanoidSummon_Letter".Translate(), LetterDefOf.PositiveEvent, new LookTargets(summonList));
 					Messages.Message("WVC_XaG_GeneBackup_Message".Translate(), new LookTargets(summonList), MessageTypeDefOf.PositiveEvent);
