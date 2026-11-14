@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 		public override float DynamicChance => wvcXenotypesChance;
 
 		public float defaultSubstructureSupport = 9999f;
+		public float defaultBandwidth = 999f;
 		public float wvcXenotypesChance = 0.02f;
 		public List<PrefabDef> prefabDefs;
 
@@ -93,6 +94,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Notify_PawnDied(Corpse corpse)
+		{
+			//base.Notify_PawnDied(corpse);
+			StaticCollectionsClass.GameComponent?.Backup_InitSummon();
+		}
+
 		private void SetGeneral()
 		{
 			string phase = "init";
@@ -133,6 +140,9 @@ namespace WVC_XenotypesAndGenes
 				phase = "set SubstructureSupport values";
 				StatDefOf.SubstructureSupport.minValue = defaultSubstructureSupport;
 				StatDefOf.SubstructureSupport.maxValue = defaultSubstructureSupport;
+				phase = "set bandwidth values";
+				StatDefOf.MechBandwidth.minValue = defaultBandwidth;
+				StatDefOf.MechBandwidth.maxValue = defaultBandwidth;
 				if (ModsConfig.AnomalyActive)
 				{
 					phase = "set anomaly death world";
