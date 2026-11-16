@@ -170,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref wvcXenotypesChance, "xenotypesChance", 0.02f);
 			Scribe_Values.Look(ref defaultBandwidth, "bandwidth", 999);
 			Scribe_Values.Look(ref defaultSubstructureSupport, "substructures", 9999);
-			Scribe_Values.Look(ref prefabDefs, "prefabDefs");
+			Scribe_Collections.Look(ref prefabDefs, "prefabDefs", LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();
