@@ -167,6 +167,10 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref wvcXenotypesChance, "xenotypesChance", 0.02f);
+			Scribe_Values.Look(ref defaultBandwidth, "bandwidth", 999);
+			Scribe_Values.Look(ref defaultSubstructureSupport, "substructures", 9999);
+			Scribe_Values.Look(ref prefabDefs, "prefabDefs");
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();
