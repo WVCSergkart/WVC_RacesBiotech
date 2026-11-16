@@ -232,12 +232,17 @@ namespace WVC_XenotypesAndGenes
 				minMatch = ModsUtility.GetReqMatch_CurrentSettings;
 			}
 			XenotypeDef xenotypeDef = null;
+			float finalMatch = 0f;
+			//Dictionary<XenotypeDef, float> matchedXenotypes = ne/*w*/();
 			foreach (XenotypeDef xenos in ListsUtility.GetAllXenotypesExceptAndroids().Where(xenos => !xenos.genes.Empty()))
 			{
-				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch.Value))
+				if (XaG_GeneUtility.GenesIsMatch(genes, xenos.genes, minMatch.Value, out float match))
 				{
-					xenotypeDef = xenos;
-					break;
+					if (finalMatch < match)
+					{
+						xenotypeDef = xenos;
+						finalMatch = match;
+					}
 				}
 			}
 			return xenotypeDef;

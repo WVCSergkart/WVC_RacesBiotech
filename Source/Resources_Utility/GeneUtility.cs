@@ -1199,8 +1199,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool GenesIsMatch(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
+		public static bool GenesIsMatch(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes, float percent, out float match)
 		{
+			match = 0f;
 			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
 			{
 				return true;
@@ -1209,47 +1210,52 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
-			if (matchingGenes.Count >= xenotypeGenes.Count * percent)
+			match = GetMatchingGenesList(pawnGenes, xenotypeGenes).Count;
+			if (match >= xenotypeGenes.Count * percent)
 			{
 				return true;
 			}
 			return false;
 		}
 
-		[Obsolete]
-		public static bool GenesIsMatch(List<Gene> callerGenes, List<Gene> targetGenes, float percent)
+		public static bool GenesIsMatch(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
 		{
-			bool callerGenesIsNull = callerGenes.NullOrEmpty();
-			bool targetGenesIsNull = targetGenes.NullOrEmpty();
-			if (percent <= 0f || callerGenesIsNull && targetGenesIsNull)
-			{
-				return true;
-			}
-			if (callerGenesIsNull || targetGenesIsNull)
-			{
-				return false;
-			}
-			//int passedGenes = 0;
-			List<GeneDef> matchingGenes = new();
-			foreach (Gene item in callerGenes)
-			{
-				if (!item.def.passOnDirectly)
-				{
-					//passedGenes++;
-					continue;
-				}
-				if (targetGenes.Any(gene => gene.def == item.def))
-				{
-					matchingGenes.Add(item.def);
-				}
-			}
-			if (matchingGenes.Count >= targetGenes.Count * percent)
-			{
-				return true;
-			}
-			return false;
+			return GenesIsMatch(pawnGenes, xenotypeGenes, percent, out _);
 		}
+
+		//[Obsolete]
+		//public static bool GenesIsMatch(List<Gene> callerGenes, List<Gene> targetGenes, float percent)
+		//{
+		//	bool callerGenesIsNull = callerGenes.NullOrEmpty();
+		//	bool targetGenesIsNull = targetGenes.NullOrEmpty();
+		//	if (percent <= 0f || callerGenesIsNull && targetGenesIsNull)
+		//	{
+		//		return true;
+		//	}
+		//	if (callerGenesIsNull || targetGenesIsNull)
+		//	{
+		//		return false;
+		//	}
+		//	//int passedGenes = 0;
+		//	List<GeneDef> matchingGenes = new();
+		//	foreach (Gene item in callerGenes)
+		//	{
+		//		if (!item.def.passOnDirectly)
+		//		{
+		//			//passedGenes++;
+		//			continue;
+		//		}
+		//		if (targetGenes.Any(gene => gene.def == item.def))
+		//		{
+		//			matchingGenes.Add(item.def);
+		//		}
+		//	}
+		//	if (matchingGenes.Count >= targetGenes.Count * percent)
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
 		// public static bool PawnIsBaseliner(Pawn pawn)
 		// {
@@ -1437,7 +1443,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
 			{
-				return null;
+				return new();
 			}
 			List<GeneDef> geneDef = new();
 			foreach (GeneDef item in pawnGenes)
@@ -1450,40 +1456,40 @@ namespace WVC_XenotypesAndGenes
 			return geneDef;
 		}
 
-		[Obsolete]
-		public static GeneDef GetAnyActiveGeneFromList(List<GeneDef> geneDefs, Pawn pawn)
-		{
-			for (int i = 0; i < geneDefs.Count; i++)
-			{
-				if (geneDefs[i] == null)
-				{
-					continue;
-				}
-				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-				for (int j = 0; j < genesListForReading.Count; j++)
-				{
-					if (genesListForReading[j].def == geneDefs[i] && genesListForReading[j].Active == true)
-					{
-						return geneDefs[i];
-					}
-				}
-			}
-			return null;
-		}
+		//[Obsolete]
+		//public static GeneDef GetAnyActiveGeneFromList(List<GeneDef> geneDefs, Pawn pawn)
+		//{
+		//	for (int i = 0; i < geneDefs.Count; i++)
+		//	{
+		//		if (geneDefs[i] == null)
+		//		{
+		//			continue;
+		//		}
+		//		List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+		//		for (int j = 0; j < genesListForReading.Count; j++)
+		//		{
+		//			if (genesListForReading[j].def == geneDefs[i] && genesListForReading[j].Active == true)
+		//			{
+		//				return geneDefs[i];
+		//			}
+		//		}
+		//	}
+		//	return null;
+		//}
 
-		[Obsolete]
-		public static void DevGetMatchingList(Pawn pawn, float percent = 0.6f)
-		{
-			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
-			if (!xenotypesDef.NullOrEmpty())
-			{
-				Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList("- "));
-			}
-			else
-			{
-				Log.Error("Match list is null");
-			}
-		}
+		//[Obsolete]
+		//public static void DevGetMatchingList(Pawn pawn, float percent = 0.6f)
+		//{
+		//	List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
+		//	if (!xenotypesDef.NullOrEmpty())
+		//	{
+		//		Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList("- "));
+		//	}
+		//	else
+		//	{
+		//		Log.Error("Match list is null");
+		//	}
+		//}
 
 		// =============================== Getter ===============================
 
