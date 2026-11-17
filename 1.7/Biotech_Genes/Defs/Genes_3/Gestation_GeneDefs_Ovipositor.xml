@@ -87,13 +87,16 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Ovipositor_LayedEgg</defName>
 	<label>post lay recovery</label>
-	<description>The carrier's body recovers after the egg is laid. This will take some time and will be accompanied by pain.</description>
+	<description>The carrier's body recovers after the egg is laid. This will take some time.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<preventsPregnancy>true</preventsPregnancy>
 	<stages>
 	  <li>
-		<painOffset>0.12</painOffset>
+		<painOffset>0.06</painOffset>
 		<!-- <hungerRateFactorOffset>0.2</hungerRateFactorOffset> -->
+		<statFactors>
+		  <Fertility>0.25</Fertility>
+		</statFactors>
 		<capMods>
 		  <li>
 			<capacity>Moving</capacity>
@@ -133,7 +136,7 @@
 	  <ateEvent>AteHumanMeat</ateEvent>
 	  <!-- rare -->
 	  <optimalityOffsetHumanlikes>-120</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+	  <optimalityOffsetFeedingAnimals>-20</optimalityOffsetFeedingAnimals>
 	  <outcomeDoers>
 		<li Class="WVC_XenotypesAndGenes.IngestionOutcomeDoer_HumanEgg" >
 		  <thoughtDef>WVC_KilledEggChildThought</thoughtDef>

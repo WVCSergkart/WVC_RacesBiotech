@@ -130,16 +130,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn?.gender == Gender.Female)
+			if (pawn?.story?.bodyType == null)
 			{
-				if (pawn?.story?.bodyType != BodyTypeDefOf.Female)
+				return;
+			}
+			if (pawn.story.bodyType != BodyTypeDefOf.Male && pawn.story.bodyType != BodyTypeDefOf.Female)
+			{
+				if (pawn?.gender == Gender.Female)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Female;
 				}
-			}
-			else if (pawn?.gender == Gender.Male)
-			{
-				if (pawn?.story?.bodyType != BodyTypeDefOf.Male)
+				else if (pawn?.gender == Gender.Male)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}
