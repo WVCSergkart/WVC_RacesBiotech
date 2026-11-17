@@ -11,7 +11,13 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class ScenPart_PawnModifier_Gravworld : ScenPart_PawnModifier_DynamicXenotypes
+	[Obsolete]
+	public class ScenPart_PawnModifier_Gravworld : ScenPart_PawnModifier_Deathworld
+	{
+
+	}
+
+	public class ScenPart_PawnModifier_Deathworld : ScenPart_PawnModifier_DynamicXenotypes
 	{
 
 		public override float DynamicChance => wvcXenotypesChance;
@@ -71,25 +77,25 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Warning("Failed scatter corpses and graves.");
 			}
+		}
 
-			static void SpawnCorpses(Map map, IntVec3 cell)
+		public static void SpawnCorpses(Map map, IntVec3 cell)
+		{
+			int randomInRange3 = new IntRange(1, 4).RandomInRange;
+			for (int num2 = 0; num2 < randomInRange3; num2++)
 			{
-				int randomInRange3 = new IntRange(1, 4).RandomInRange;
-				for (int num2 = 0; num2 < randomInRange3; num2++)
+				if (CellFinder.TryFindRandomCellNear(cell, map, 4, (IntVec3 c) => c.Standable(map), out var result3))
 				{
-					if (CellFinder.TryFindRandomCellNear(cell, map, 4, (IntVec3 c) => c.Standable(map), out var result3))
-					{
-						Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Drifter, null, PawnGenerationContext.NonPlayer, map.Tile));
-						pawn.health.SetDead();
-						pawn.apparel.DestroyAll();
-						pawn.equipment.DestroyAllEquipment();
-						Find.WorldPawns.PassToWorld(pawn);
-						Corpse corpse = pawn.MakeCorpse(null, null);
-						corpse.Age = Mathf.RoundToInt(new IntRange(500, 2000).RandomInRange * 60000);
-						corpse.GetComp<CompRottable>().RotProgress += corpse.Age;
-						GenSpawn.Spawn(pawn.Corpse, result3, map);
-						corpse.SetForbidden(true);
-					}
+					Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Drifter, null, PawnGenerationContext.NonPlayer, map.Tile));
+					pawn.health.SetDead();
+					pawn.apparel.DestroyAll();
+					pawn.equipment.DestroyAllEquipment();
+					Find.WorldPawns.PassToWorld(pawn);
+					Corpse corpse = pawn.MakeCorpse(null, null);
+					corpse.Age = Mathf.RoundToInt(new IntRange(500, 2000).RandomInRange * 60000);
+					corpse.GetComp<CompRottable>().RotProgress += corpse.Age;
+					GenSpawn.Spawn(pawn.Corpse, result3, map);
+					corpse.SetForbidden(true);
 				}
 			}
 		}
@@ -155,6 +161,7 @@ namespace WVC_XenotypesAndGenes
 					IncidentDef deathPall = AnomalyDefOf.DeathPall;
 					deathPall.baseChance = 100f;
 					deathPall.earliestDay = 0;
+					deathPall.minRefireDays = 12;
 					deathPall.durationDays = new FloatRange(deathPall.minRefireDays / 2, deathPall.minRefireDays - 1);
 				}
 			}

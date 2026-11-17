@@ -212,8 +212,11 @@ namespace WVC_XenotypesAndGenes
 
 		private void EggKilled()
 		{
-			hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent);
-			otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent ?? otherParent);
+			if (!TemperatureDamaged)
+			{
+				hatcheeParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.Miscarried, hatcheeParent);
+				otherParent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, hatcheeParent ?? otherParent);
+			}
 		}
 
 		public override void Notify_AbandonedAtTile(PlanetTile tile)
@@ -257,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (otherCompHumanEgg.otherParent != otherParent || otherCompHumanEgg.hatcheeParent != hatcheeParent || otherCompHumanEgg.xenotypeHolder != xenotypeHolder)
+			if (otherCompHumanEgg.xenotypeHolder == null || xenotypeHolder == null || otherCompHumanEgg.otherParent != otherParent || otherCompHumanEgg.hatcheeParent != hatcheeParent || otherCompHumanEgg.xenotypeHolder.GenesID != xenotypeHolder.GenesID)
 			{
 				return false;
 			}

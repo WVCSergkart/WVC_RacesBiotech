@@ -136,11 +136,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.story.bodyType != BodyTypeDefOf.Male && pawn.story.bodyType != BodyTypeDefOf.Female)
 			{
-				if (pawn?.gender == Gender.Female)
+				if (pawn.gender == Gender.Female)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Female;
 				}
-				else if (pawn?.gender == Gender.Male)
+				else if (pawn.gender == Gender.Male)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}

@@ -118,6 +118,12 @@
             Flag. For genes, the "genes" is used.
             </summary>
         </member>
+        <member name="P:WVC_XenotypesAndGenes.XenotypeHolder_Exposable.GenesID">
+            <summary>
+            Used in Human Egg Comp for merging. 
+            The chance of two different eggs matching with this crude method is small, but it's still possible..
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.IGeneInspectInfo">
             <summary>
             Timers. "Next resource_name in: 4.3 days"

@@ -1,5 +1,7 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -7,20 +9,20 @@ namespace WVC_XenotypesAndGenes
 	public class XenotypeHolder_Exposable : XenotypeHolder, IExposable
 	{
 
-		public void ExposeData()
+		private int? currentGenesID = null;
+		/// <summary>
+		/// Used in Human Egg Comp for merging. 
+		/// The chance of two different eggs matching with this crude method is small, but it's still possible..
+		/// </summary>
+		public int GenesID
 		{
-			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
-			Scribe_Defs.Look(ref iconDef, "iconDef");
-			Scribe_Values.Look(ref name, "name");
-			Scribe_Values.Look(ref inheritable, "inheritable");
-			Scribe_Collections.Look(ref genes, "genes", LookMode.Def);
-			if (Scribe.mode == LoadSaveMode.LoadingVars && genes != null && genes.RemoveAll((GeneDef x) => x == null) > 0)
+			get
 			{
-				Log.Warning("Removed null geneDef(s)");
-			}
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			{
-				PostSetup();
+				if (currentGenesID == null)
+				{
+					currentGenesID = XenotypeDef_Safe.index + genes.Sum(gene => gene.index);
+				}
+				return currentGenesID.Value;
 			}
 		}
 
@@ -110,8 +112,26 @@ namespace WVC_XenotypesAndGenes
 			this.inheritable = true;
 		}
 
+		public void ExposeData()
+		{
+			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+			Scribe_Defs.Look(ref iconDef, "iconDef");
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Values.Look(ref inheritable, "inheritable");
+			Scribe_Collections.Look(ref genes, "genes", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && genes != null && genes.RemoveAll((GeneDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				PostSetup();
+			}
+		}
+
 	}
 
+	[Obsolete]
 	public class ReferencableXenotypeHolder : XenotypeHolder, IExposable
 	{
 

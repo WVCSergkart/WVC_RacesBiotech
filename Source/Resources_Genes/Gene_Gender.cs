@@ -181,6 +181,18 @@ namespace WVC_XenotypesAndGenes
 			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				if (Active)
+				{
+					ChangeBodyType();
+				}
+			}
+		}
+
 	}
 
 	public class Gene_GenderMorph : XaG_Gene, IGeneRemoteControl
