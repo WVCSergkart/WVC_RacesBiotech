@@ -289,6 +289,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disabled, "disabled", false);
 			Scribe_Values.Look(ref geneticMaterial, "geneticMaterial");
 			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
+			Scribe_Collections.Look(ref sharedGeneSetPresets, "sharedGeneSetPresets", LookMode.Deep);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				if (geneSetPresets == null)
