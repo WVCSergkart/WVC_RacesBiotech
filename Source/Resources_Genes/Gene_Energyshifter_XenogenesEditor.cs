@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -139,16 +140,68 @@ namespace WVC_XenotypesAndGenes
 		public int ArchiteLimit => Energyshifter?.UnlockedXenotypes?.Count ?? 3;
 		public int ComplexityLimit => (int)geneticMaterial;
 
-		public List<GeneSetPreset> geneSetPresets = new();
+		protected List<GeneSetPreset> geneSetPresets = new();
+		protected static List<GeneSetPreset> sharedGeneSetPresets;
 		public List<GeneSetPreset> GeneSetPresets
 		{
 			get
 			{
-				return geneSetPresets;
+				if (Gene_Energyshifter.LocalMode)
+				{
+					if (geneSetPresets.Empty() && sharedGeneSetPresets != null)
+					{
+						geneSetPresets = [..sharedGeneSetPresets];
+					}
+					return geneSetPresets;
+				}
+				RepairSharedPresets();
+				return sharedGeneSetPresets;
 			}
 			set
 			{
-				geneSetPresets = value;
+				if (Gene_Energyshifter.LocalMode)
+				{
+					geneSetPresets = value;
+				}
+				else
+				{
+					sharedGeneSetPresets = value;
+					geneSetPresets = value;
+				}
+			}
+		}
+
+		private static void RepairSharedPresets()
+		{
+			if (sharedGeneSetPresets != null)
+			{
+				return;
+			}
+			sharedGeneSetPresets = new();
+			try
+			{
+				foreach (Pawn energyshifter in PawnsFinder.All_AliveOrDead)
+				{
+					Gene_Energyshifter_XenogenesEditor gene_Energyshifter_XenogenesEditor = energyshifter?.genes?.GetFirstGeneOfType<Gene_Energyshifter_XenogenesEditor>();
+					if (gene_Energyshifter_XenogenesEditor == null)
+					{
+						continue;
+					}
+					int step = 0;
+					foreach (GeneSetPreset geneSetPreset in gene_Energyshifter_XenogenesEditor.geneSetPresets)
+					{
+						step++;
+						if (sharedGeneSetPresets.Any(preset => preset.name == geneSetPreset.name))
+						{
+							geneSetPreset.name += step.ToString();
+						}
+						sharedGeneSetPresets.Add(geneSetPreset);
+					}
+				}
+			}
+			catch
+			{
+				Log.Warning("Failed repair shared presets.");
 			}
 		}
 

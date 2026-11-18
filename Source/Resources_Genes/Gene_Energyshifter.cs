@@ -236,6 +236,7 @@ namespace WVC_XenotypesAndGenes
 					if (newOffset > 0)
 					{
 						newOffset *= GenesFactor;
+						newOffset /= NutritionalFactor;
 					}
 					else
 					{
@@ -244,6 +245,24 @@ namespace WVC_XenotypesAndGenes
 					cachedResourceOffset = newOffset;
 				}
 				return cachedResourceOffset.Value;
+			}
+		}
+
+		public float NutritionalFactor
+		{
+			get
+			{
+				if (pawn.needs?.food == null)
+				{
+					return 1f;
+				}
+				SimpleCurve geneticCurve = new()
+				{
+					new CurvePoint(0f, 1f),
+					new CurvePoint(1f, 1f),
+					new CurvePoint(10f, 10f)
+				};
+				return geneticCurve.Evaluate(pawn.needs.food.MaxLevel);
 			}
 		}
 

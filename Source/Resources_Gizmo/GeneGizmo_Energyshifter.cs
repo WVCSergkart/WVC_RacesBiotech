@@ -77,7 +77,8 @@ namespace WVC_XenotypesAndGenes
 							color = ColorLibrary.Green;
 							break;
 					}
-					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceFactorTip".Translate(("x" + genesFactor.ToStringPercent()).Colorize(color)));
+					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceFactorTip".Translate(("×" + genesFactor.ToStringPercent()).Colorize(color)));
+					stringBuilder.AppendLineTagged(" -  " + "WVC_XaG_Energyshaper_ResourceNutritionalTip".Translate("÷" + gene_Energyshifter.NutritionalFactor.ToStringPercent()));
 					cachedSources = stringBuilder.ToString().TrimEndNewlines();
 				}
 				return cachedSources;
@@ -120,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 				nextRecache--;
 				return;
 			}
-			nextRecache = 60;
+			nextRecache = 180;
 			cachedMainTooltip = null;
 			cachedSources = null;
 			cachedMatchOffset = null;

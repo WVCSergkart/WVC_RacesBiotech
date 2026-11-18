@@ -127,6 +127,7 @@
 	<WVC_XaG_Energyshaper_OverridenByMe>From overrides: {0}</WVC_XaG_Energyshaper_OverridenByMe>
 
 	<WVC_XaG_Energyshaper_ResourceFactorTip>Genetic post-process {0}</WVC_XaG_Energyshaper_ResourceFactorTip>
+	<WVC_XaG_Energyshaper_ResourceNutritionalTip>Max food post-process {0}</WVC_XaG_Energyshaper_ResourceNutritionalTip>
 
 	<!-- ==================== XENO RESEARCHER ==================== -->
 
