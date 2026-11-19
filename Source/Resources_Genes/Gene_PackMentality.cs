@@ -32,6 +32,10 @@ namespace WVC_XenotypesAndGenes
 					HashSet<Pawn> list = new();
 					foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
 					{
+						//if (pawn.IsShambler || pawn.IsGhoul)
+						//{
+						//	continue;
+						//}
 						Gene_PackMentality packGene = pawn.genes?.GetFirstGeneOfType<Gene_PackMentality>();
 						if (packGene != null)
 						{
@@ -125,13 +129,22 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			//ResetCache();
+			if (!Active)
+			{
+				return;
+			}
 			foreach (Pawn member in ThePack)
 			{
+				if (pawn.Faction != member.Faction)
+				{
+					continue;
+				}
 				if (member != pawn)
 				{
 					member.needs?.mood?.thoughts?.memories.TryGainMemory(Extension_Opinion.packMemberLost, pawn);
 				}
 			}
+			//ResetCache();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
