@@ -322,7 +322,7 @@ namespace WVC_XenotypesAndGenes
 		public virtual List<GeneDef> DestroyedGenes => [];
 		public virtual List<GeneDef> GenelineGenes => [];
 
-		public Pawn Pawn => pawn;
+		public virtual Pawn Pawn => pawn;
 		public GeneDef Def => def;
 
 

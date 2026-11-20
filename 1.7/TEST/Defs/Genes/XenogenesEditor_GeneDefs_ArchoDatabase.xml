@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base">
+	<defName>WVC_XenogenesEditor_Mainframe</defName>
+	<label>xenogenes mainframe</label>
+	<labelShortAdj>mainframe</labelShortAdj>
+	<description>Carriers of this gene can freely change their genetic code and the genetic code of those who are connected to the cerebrex core.</description>
+	<resourceDescription>Allows you to freely edit the genes of carriers and pawns that have &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt;.</resourceDescription>
+	<geneClass>WVC_XenotypesAndGenes.Gene_XenogenesEditor_Mainframe</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_XenogenesEditor_Mainframe</resourceGizmoType>
+	<iconPath>WVC/UI/Genes4/Gene_XenogenesMainframe</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>228</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
+	<customEffectDescriptions>
+		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt; of pawns that have &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt;.</li>
+		<li>Complexity depends on &lt;color=#8a8ae6&gt;free bandwidth&lt;/color&gt;, archites depend on the number of xenotypes &lt;color=#8a8ae6&gt;researched&lt;/color&gt;, and metabolism has a limit from -5 to +5.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_Energyshifter_XenogenesEditor</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<iconPath>WVC/UI/UI4/Mainframe_Gizmo</iconPath>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

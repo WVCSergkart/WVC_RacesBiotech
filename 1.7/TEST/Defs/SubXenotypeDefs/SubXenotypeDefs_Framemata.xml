@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Framemata</defName>
+	<label>framemata</label>
+	<iconDef>WVC_Mechamata1c</iconDef>
+	<displayPriority>-1025</displayPriority>
+	<genes>
+		<li>WVC_Backup</li>
+		<li>WVC_StasisStomach</li>
+		<li>WVC_Energyshifter</li>
+		<li>WVC_Energyshifter_Rejuvenator</li>
+		<li>WVC_Energyshifter_Immunity</li>
+		<li>WVC_Energyshifter_Regeneration</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_Energyshifter_SlowAging</li>
+		<li>WVC_Unbreakable</li>
+		<li>WVC_Mecha_EarsCat</li>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_SyntSkin</li>
+		<li>WVC_CatTailB</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>Skin_PaleRed</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li>DarkVision</li>
+		<li>WVC_XenogenesEditor_Mainframe</li>
+		<li>WVC_Energyshifter_XenotypesUnlocker</li>
+		<li>ToxResist_Total</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li ReplaceTag="StasisLearning">WVC_Learning_ExtremeSlow</li>
+		<li>Neversleep</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

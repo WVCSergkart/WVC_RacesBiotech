@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
 		public static void ResetCache()
 		{
 			sacrificerIsActive = null;
+			devActive = false;
 			//metUpdated = false;
 		}
 
@@ -105,28 +106,28 @@ namespace WVC_XenotypesAndGenes
 		//	rewardMode = modeName;
 		//}
 
-		private bool needMore = false;
-		private int delay = 180;
+		//private bool needMore = false;
+		//private int delay = 180;
 
 		//private static bool metUpdated = false;
 
 		public override void TickInterval(int delta)
 		{
-			if (needMore)
-			{
-				delay -= delta;
-				if (delay <= 0)
-				{
-					Sacrifice();
-					delay = new IntRange(3, 7).RandomInRange * 60;
-				}
-			}
+			//if (needMore)
+			//{
+			//	delay -= delta;
+			//	if (delay <= 0)
+			//	{
+			//		Sacrifice();
+			//		delay = new IntRange(3, 7).RandomInRange * 60;
+			//	}
+			//}
 			//if (!metUpdated)
 			//{
 			//	metUpdated = true;
 			//	def.biostatMet = AllSacrifices;
 			//}
-			if (pawn.IsHashIntervalTick(59050, delta))
+			if (pawn.IsHashIntervalTick(9050, delta))
 			{
 				Sacrifice();
 			}
@@ -169,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.HomeFaction != Faction.OfPlayer)
 			{
-				needMore = false;
+				//needMore = false;
 				return;
 			}
 			if (!SacrificerModeDef.Worker.CanFireNow(pawn))
@@ -194,7 +195,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				break;
 			}
-			needMore = allPawns.Any(pawn => pawn.HomeFaction == Faction.OfPlayer);
+			//needMore = allPawns.Any(pawn => pawn.HomeFaction == Faction.OfPlayer);
 
 			void SkipTarget(Pawn target)
 			{
@@ -239,11 +240,13 @@ namespace WVC_XenotypesAndGenes
 				}
 				IntVec3 postion = target.PositionHeld;
 				Map map = target.MapHeld;
+				EffectsUtility.DoSkipEffects(postion, map);
 				target.Kill();
-				if (!EffectsUtility.SkipBodyFromMap(target))
-				{
-					EffectsUtility.DoSkipEffects(postion, map);
-				}
+				target.Corpse?.Destroy();
+				//if (!EffectsUtility.SkipBodyFromMap(target))
+				//{
+				//	EffectsUtility.DoSkipEffects(postion, map);
+				//}
 				SpawnReward(postion, map);
 			}
 		}

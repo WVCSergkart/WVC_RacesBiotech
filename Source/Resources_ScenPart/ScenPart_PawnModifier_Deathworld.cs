@@ -37,75 +37,75 @@ namespace WVC_XenotypesAndGenes
 		//	base.PreMapGenerate();
 		//}
 
-		private int nextTick = 15000;
-		public override void Tick()
-		{
-			if (nextTick > 0)
-			{
-				nextTick--;
-				ForcedRules();
-				nextTick = 60000;
-			}
-		}
+		//private int nextTick = 15000;
+		//public override void Tick()
+		//{
+		//	if (nextTick > 0)
+		//	{
+		//		nextTick--;
+		//		ForcedRules();
+		//		nextTick = 60000;
+		//	}
+		//}
 
-		public static GeneDef SacrificerGeneDef => DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(geneDef => geneDef.IsGeneDefOfType<Gene_Sacrificer>());
+		//public static GeneDef SacrificerGeneDef => DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(geneDef => geneDef.IsGeneDefOfType<Gene_Sacrificer>());
 
-		public bool ModeSetted => sacrificerModeDef != null;
-		private SacrificerModeDef sacrificerModeDef;
-		private void ForcedRules()
-		{
-			if (!Gene_Sacrificer.IsActive || !ModsConfig.AnomalyActive)
-			{
-				return;
-			}
-			if (sacrificerModeDef == null)
-			{
-				if (Find.TickManager.TicksGame >= 2 * 3600000)
-				{
-					if (SetGene(out Pawn pawn))
-					{
-						ChoiceLetter_SacrificerMode modeLetter = (ChoiceLetter_SacrificerMode)LetterMaker.MakeLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), DefDatabase<LetterDef>.GetNamedSilentFail("WVC_SacrificerMode"));
-						modeLetter.Start(this);
-						Find.LetterStack.ReceiveLetter(modeLetter);
-						//Find.LetterStack.ReceiveLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), LetterDefOf.ThreatBig);
-					}
-				}
+		//public bool ModeSetted => sacrificerModeDef != null;
+		//private SacrificerModeDef sacrificerModeDef;
+		//private void ForcedRules()
+		//{
+		//	if (!Gene_Sacrificer.IsActive || !ModsConfig.AnomalyActive)
+		//	{
+		//		return;
+		//	}
+		//	if (sacrificerModeDef == null)
+		//	{
+		//		if (Find.TickManager.TicksGame >= 2 * 3600000)
+		//		{
+		//			if (SetGene(out Pawn pawn))
+		//			{
+		//				ChoiceLetter_SacrificerMode modeLetter = (ChoiceLetter_SacrificerMode)LetterMaker.MakeLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), DefDatabase<LetterDef>.GetNamedSilentFail("WVC_SacrificerMode"));
+		//				modeLetter.Start(this);
+		//				Find.LetterStack.ReceiveLetter(modeLetter);
+		//				//Find.LetterStack.ReceiveLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), LetterDefOf.ThreatBig);
+		//			}
+		//		}
 
-			}
-			else
-			{
-				if (SetGene(out Pawn pawn))
-				{
-					Messages.Message("WVC_XaG_Chimera_GeneImplanted".Translate(SacrificerGeneDef), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				}
-			}
+		//	}
+		//	else
+		//	{
+		//		if (SetGene(out Pawn pawn))
+		//		{
+		//			Messages.Message("WVC_XaG_Chimera_GeneImplanted".Translate(SacrificerGeneDef), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+		//		}
+		//	}
 
-			static bool SetGene(out Pawn sacrificer)
-			{
-				sacrificer = null;
-				List<Pawn> allMapsCaravansAndTravellingTransporters_Alive_Colonists = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists;
-				if (allMapsCaravansAndTravellingTransporters_Alive_Colonists.Any(pawn => pawn.genes?.GetFirstGeneOfType<Gene_Sacrificer>() != null))
-				{
-					return false;
-				}
-				if (allMapsCaravansAndTravellingTransporters_Alive_Colonists.TryRandomElement(pawn => pawn.IsHuman() && pawn.ageTracker.Adult && pawn.HomeFaction == Faction.OfPlayer, out sacrificer))
-				{
-					sacrificer.genes.AddGene(SacrificerGeneDef, false);
-					if (sacrificer.MapHeld != null)
-					{
-						EffectsUtility.DoSkipEffects(sacrificer.PositionHeld, sacrificer.MapHeld);
-					}
-					return true;
-				}
-				return false;
-			}
-		}
+		//	static bool SetGene(out Pawn sacrificer)
+		//	{
+		//		sacrificer = null;
+		//		List<Pawn> allMapsCaravansAndTravellingTransporters_Alive_Colonists = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists;
+		//		if (allMapsCaravansAndTravellingTransporters_Alive_Colonists.Any(pawn => pawn.genes?.GetFirstGeneOfType<Gene_Sacrificer>() != null))
+		//		{
+		//			return false;
+		//		}
+		//		if (allMapsCaravansAndTravellingTransporters_Alive_Colonists.TryRandomElement(pawn => pawn.IsHuman() && pawn.ageTracker.Adult && pawn.HomeFaction == Faction.OfPlayer, out sacrificer))
+		//		{
+		//			sacrificer.genes.AddGene(SacrificerGeneDef, false);
+		//			if (sacrificer.MapHeld != null)
+		//			{
+		//				EffectsUtility.DoSkipEffects(sacrificer.PositionHeld, sacrificer.MapHeld);
+		//			}
+		//			return true;
+		//		}
+		//		return false;
+		//	}
+		//}
 
-		public void SetMode(SacrificerModeDef sacrificerModeDef)
-		{
-			this.sacrificerModeDef = sacrificerModeDef;
-			Gene_Sacrificer.forcedSacrificerModeDef = sacrificerModeDef;
-		}
+		//public void SetMode(SacrificerModeDef sacrificerModeDef)
+		//{
+		//	this.sacrificerModeDef = sacrificerModeDef;
+		//	Gene_Sacrificer.forcedSacrificerModeDef = sacrificerModeDef;
+		//}
 
 		public override void PostWorldGenerate()
 		{
@@ -234,8 +234,8 @@ namespace WVC_XenotypesAndGenes
 					deathPall.minRefireDays = 12;
 					deathPall.durationDays = new FloatRange(deathPall.minRefireDays / 2, deathPall.minRefireDays - 1);
 				}
-				phase = "set sacrificer mode";
-				Gene_Sacrificer.forcedSacrificerModeDef = sacrificerModeDef;
+				//phase = "set sacrificer mode";
+				//Gene_Sacrificer.forcedSacrificerModeDef = sacrificerModeDef;
 			}
 			catch (Exception arg)
 			{
@@ -250,7 +250,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref defaultBandwidth, "bandwidth", 999);
 			Scribe_Values.Look(ref defaultSubstructureSupport, "substructures", 9999);
 			Scribe_Collections.Look(ref prefabDefs, "prefabDefs", LookMode.Def);
-			Scribe_Defs.Look(ref sacrificerModeDef, "forcedSacrificerModeDef");
+			//Scribe_Defs.Look(ref sacrificerModeDef, "forcedSacrificerModeDef");
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();

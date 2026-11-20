@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 3083539353
+CRC: 212319949
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a498eca4645bbf997993475e639d9604
+    Hash: 9ccd05b98634e37eeb1e7d08983d21ff
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 779ef4108d5335934befb801c1e604dd
+    Hash: efda42d7797b497b2cadd813d032cd23
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -223,6 +223,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_CellsFromBlood_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/UndeadGene_Head/Head_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno11.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_XenogenesMainframe.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/ResurgentTree_Moss/Cluster_C.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/StoneStomach_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Xeno2Icons/Xeno27.png
@@ -1436,6 +1437,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Crafting/ScarifierSkills_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Fleshmass_Rejuvenator.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/XenoTree_Moss/Cluster_A_v0.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/Mainframe_Gizmo.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes3/Gene_Energyshifter_Regeneration.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Transparent_Body/Naked_Fat_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Cooking/ScarifierSkills_v0.png

@@ -16,15 +16,16 @@
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;.</li>
-		<li>While the &lt;color=#8a8ae6&gt;monolith and mechhive&lt;/color&gt; is active, it &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt; one pawn every day.</li>
+		<li>While the &lt;color=#8a8ae6&gt;monolith and mechhive&lt;/color&gt; is active, it &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt; one pawn every few hours.</li>
 		<!-- <li>The sacrifice is rewarded. The reward can be chosen from three presets: &lt;color=#8a8ae6&gt;biotech, anomaly, and odyssey&lt;/color&gt;.</li> -->
-		<li>The target can be any pawn on the map.</li>
-		<li>If there are other pawns on the map belonging to the player, the target will be selected again, and this will continue until the owner is left alone.</li>
+		<li>The target is selected relative to the selected gene mode.</li>
+		<li>Each pawn killed in this way is exchanged for a reward determined by the mode.</li>
 		<!-- <li>Gene &lt;color=#8a8ae6&gt;metabolism&lt;/color&gt; depends on the number of pawns &lt;color=#8a8ae6&gt;sacrificed&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Chimera</li>
 	  <li>WVC_Gene_Sacrificer</li>
+	  <li>WVC_XenogenesEditors</li>
 	</exclusionTags>
   </GeneDef>
 

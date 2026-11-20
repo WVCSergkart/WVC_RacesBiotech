@@ -1,5 +1,8 @@
-using System.Text;
 using RimWorld;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -9,7 +12,18 @@ namespace WVC_XenotypesAndGenes
 	public class GeneGizmo_XenogenesEditor : Gizmo
 	{
 
-		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Chimera_GizmoMenu");
+		private CachedTexture cachedTexture;
+		public virtual CachedTexture MenuIcon
+		{
+			get
+			{
+				if (cachedTexture == null)
+				{
+					cachedTexture = gene.Extension_Giver?.iconPath != null ? new(gene.Extension_Giver.iconPath) : XaG_UiUtility.ChimeraMenuIcon;
+				}
+				return cachedTexture;
+			}
+		}
 
 		public Pawn pawn;
 
@@ -90,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst());
 		}
 
-		private void EditorButton(Rect rect4)
+		protected virtual void EditorButton(Rect rect4)
 		{
 			Widgets.DrawTextureFitted(rect4, MenuIcon.Texture, 1f);
 			if (Mouse.IsOver(rect4))
@@ -109,6 +123,49 @@ namespace WVC_XenotypesAndGenes
 		public override float GetWidth(float maxWidth)
 		{
 			return 96f;
+		}
+
+	}
+
+	public class GeneGizmo_XenogenesEditor_Mainframe : GeneGizmo_XenogenesEditor
+	{
+
+		private Gene_XenogenesEditor_Mainframe mainframe;
+
+		public GeneGizmo_XenogenesEditor_Mainframe(Gene_XenogenesEditor_General geneChimera) : base(geneChimera)
+		{
+			if (geneChimera is Gene_XenogenesEditor_Mainframe gene_XenogenesEditor_Mainframe)
+			{
+				mainframe = gene_XenogenesEditor_Mainframe;
+			}
+		}
+
+
+		protected override void EditorButton(Rect rect4)
+		{
+			Widgets.DrawTextureFitted(rect4, MenuIcon.Texture, 1f);
+			if (Mouse.IsOver(rect4))
+			{
+				Widgets.DrawHighlight(rect4);
+				if (Widgets.ButtonInvisible(rect4))
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> pawns = MechanoidsUtility.GetAllMechanitors(gene.pawn.MapHeld);
+					for (int i = 0; i < pawns.Count; i++)
+					{
+						Pawn pawn = pawns[i];
+						list.Add(new FloatMenuOption(pawn.NameFullColored, delegate
+						{
+							mainframe.SetTarget(pawn);
+							gene.UpdateCache();
+							gene.UpdSubHediffs();
+							Find.WindowStack.Add(new Dialog_XenogenesEditor(gene));
+						}, orderInPriority: 0 + i));
+					}
+					Find.WindowStack.Add(new FloatMenu(list));
+				}
+			}
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_XenogenesEditorTip".Translate());
 		}
 
 	}

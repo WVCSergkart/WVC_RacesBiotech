@@ -29,6 +29,8 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture Fleshshaper_XenogenesEditorIcon = new("WVC/UI/UI4/UI_XenogenesEditorFleshmass");
 		public static readonly CachedTexture Fleshshaper_StyleIcon = new("WVC/UI/UI4/UI_Flesh_GeneStyle_Gizmo");
 
+		public static readonly CachedTexture ChimeraMenuIcon = new("WVC/UI/XaG_General/Chimera_GizmoMenu");
+
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 		public static readonly CachedTexture Icon_ActivityManager_General = new("WVC/UI/XaG_General/GenesSettings_ShapeshifterGizmo");
 

@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!this.def.ConflictsWith(geneDef))
 			{
-				pawn.genes.AddGene(geneDef, true);
+				Pawn.genes.AddGene(geneDef, true);
 			}
 		}
 
@@ -67,12 +67,12 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void DoEffects()
 		{
-			if (pawn.Map == null)
+			if (Pawn.Map == null)
 			{
 				return;
 			}
-			EffectsUtility.DoShapeshiftEffects_OnPawn(pawn);
-			Extension_Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(pawn));
+			EffectsUtility.DoShapeshiftEffects_OnPawn(Pawn);
+			Extension_Undead?.soundDefOnImplant?.PlayOneShot(SoundInfo.InMap(Pawn));
 		}
 
 	}

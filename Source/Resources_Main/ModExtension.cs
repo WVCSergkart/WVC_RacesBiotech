@@ -651,6 +651,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange metLimit;
 		public bool reqCooldown;
 		public bool database;
+		public string iconPath;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension
