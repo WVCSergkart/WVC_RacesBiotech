@@ -6,11 +6,24 @@
 
 <!-- Sacrificer allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;, but it requires &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt;. It automatically sacrifices one &lt;color=#8a8ae6&gt;random pawn&lt;/color&gt; under its control every day. The target can be any &lt;color=#8a8ae6&gt;sentient pawn&lt;/color&gt;, excluding slaves and temporary ones. Each sacrifice comes with one of the chosen &lt;color=#8a8ae6&gt;rewards&lt;/color&gt;.\n\nIf the &lt;color=#8a8ae6&gt;victim is human&lt;/color&gt;, their genes become available to the sacrificer. The &lt;color=#8a8ae6&gt;complexity limit&lt;/color&gt; is increased by 1. If the victim had archite genes, the &lt;color=#8a8ae6&gt;archite limit&lt;/color&gt; is also increased.\n\nIf the victim was not human, the &lt;color=#8a8ae6&gt;metabolic limit&lt;/color&gt; is increased by 1 in both directions instead of complexity and archite. -->
 
-	<WVC_XaG_SacrificerGizmoTip>Sacrificer allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;, but it requires &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt;. It automatically sacrifices one &lt;color=#8a8ae6&gt;random pawn&lt;/color&gt; every day. The target can be any &lt;color=#8a8ae6&gt;sentient pawn&lt;/color&gt;, excluding slaves and temporary ones. Each sacrifice comes with one of the chosen &lt;color=#8a8ae6&gt;rewards&lt;/color&gt;.\n\nIf the &lt;color=#8a8ae6&gt;victim is human&lt;/color&gt;, their genes become available to the sacrificer. The &lt;color=#8a8ae6&gt;complexity limit&lt;/color&gt; is increased by 1. If the victim had archite genes, the &lt;color=#8a8ae6&gt;archite limit&lt;/color&gt; is also increased.\n\nIf the victim was not human, the &lt;color=#8a8ae6&gt;metabolic limit&lt;/color&gt; is increased by 1 in both directions instead of complexity and archite.\n\n -  &lt;color=#aad8a2&gt;Unlocked genes&lt;/color&gt;: {0}\n -  &lt;color=#8076ff&gt;Complexity limit&lt;/color&gt;: {1}\n -  &lt;color=#8076ff&gt;Archite limit&lt;/color&gt;: {2}\n -  &lt;color=#8076ff&gt;Metabolic limit&lt;/color&gt;: From {3} to {4}\n -  &lt;color=#FFDC72&gt;Reward mode&lt;/color&gt;: {5}</WVC_XaG_SacrificerGizmoTip>
+	<WVC_XaG_SacrificerGizmoTip>Sacrificer allows to &lt;color=#8a8ae6&gt;edit xenogenes&lt;/color&gt;, but it requires &lt;color=#8a8ae6&gt;sacrifices&lt;/color&gt;. It automatically sacrifices one &lt;color=#8a8ae6&gt;random pawn&lt;/color&gt; every day. The target can be any &lt;color=#8a8ae6&gt;sentient pawn&lt;/color&gt;, excluding slaves and temporary ones. Each sacrifice comes with one of the chosen &lt;color=#8a8ae6&gt;rewards&lt;/color&gt;.\n\nIf the &lt;color=#8a8ae6&gt;victim is human&lt;/color&gt;, their genes become available to the sacrificer. The &lt;color=#8a8ae6&gt;complexity limit&lt;/color&gt; is increased by 1. If the victim had archite genes, the &lt;color=#8a8ae6&gt;archite limit&lt;/color&gt; is also increased.\n\nIf the victim was not human, the &lt;color=#8a8ae6&gt;metabolic limit&lt;/color&gt; is increased by 1 in both directions instead of complexity and archite.\n\n -  &lt;color=#aad8a2&gt;Unlocked genes&lt;/color&gt;: {0}\n -  &lt;color=#8076ff&gt;Complexity limit&lt;/color&gt;: {1}\n -  &lt;color=#8076ff&gt;Archite limit&lt;/color&gt;: {2}\n -  &lt;color=#8076ff&gt;Metabolic limit&lt;/color&gt;: From {3} to {4}\n -  &lt;color=#FFDC72&gt;Target mode&lt;/color&gt;: {5}</WVC_XaG_SacrificerGizmoTip>
+	<!-- \n -  &lt;color=#FFDC72&gt;Reward mode&lt;/color&gt;: {5} -->
+	<!-- \n\n&lt;color=#ff0000&gt;Mode description&lt;/color&gt;: {6} -->
+
+	<WVC_XaG_SacrificerGizmoTip_ModeDesc>&lt;color=#8a8ae6&gt;Mode description&lt;/color&gt;: {0}</WVC_XaG_SacrificerGizmoTip_ModeDesc>
+
+	<WVC_XaG_SacrificerGizmoTip_Rewards>&lt;color=#8a8ae6&gt;Basic rewards&lt;/color&gt;:</WVC_XaG_SacrificerGizmoTip_Rewards>
+	<WVC_XaG_RewardWithChance>{0}: {1}, with chance {2}</WVC_XaG_RewardWithChance>
 
 	<WVC_XaG_SacrificerEditorTip>Allows editing of xenogens within certain limits.</WVC_XaG_SacrificerEditorTip>
 
-	<WVC_XaG_SacrificerRewardTip>Allows to select the type of reward.</WVC_XaG_SacrificerRewardTip>
+	<!-- <WVC_XaG_SacrificerRewardTip>Allows to select the type of reward.</WVC_XaG_SacrificerRewardTip> -->
+
+	<WVC_XaG_SacrificerModeTip>Allows to change the target selection mode.</WVC_XaG_SacrificerModeTip>
+
+	<WVC_XaG_SacrificerMode_Blocked>The mode cannot be changed.</WVC_XaG_SacrificerMode_Blocked>
+
+	<!-- <WVC_XaG_SacrificerMode_ChangeWarning>The mode cannot be changed.</WVC_XaG_SacrificerMode_ChangeWarning> -->
 
 	<!-- ???? -->
 	<!-- <WVC_XaG_Sacrificer_XenotypeLvl1c>An unknown xenotype that can sometimes be encountered in the vastness of the rimworld.</WVC_XaG_Sacrificer_XenotypeLvl1c> -->

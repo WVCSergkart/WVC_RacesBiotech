@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using static UnityEngine.GraphicsBuffer;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -15,12 +16,19 @@ namespace WVC_XenotypesAndGenes
 		public static void ResetCache()
 		{
 			sacrificerIsActive = null;
+			//metUpdated = false;
 		}
+
+		private static bool devActive;
 
 		public static bool IsActive
 		{
 			get
 			{
+				if (devActive)
+				{
+					return true;
+				}
 				if (sacrificerIsActive == null)
 				{
 					if (ModsUtility.GameNotStarted())
@@ -45,16 +53,79 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static SacrificerModeDef forcedSacrificerModeDef;
+		public static bool ForcedMode => forcedSacrificerModeDef != null;
+
+		private static List<SacrificerModeDef> cachedModeDefs;
+		public static List<SacrificerModeDef> ModeDefs
+		{
+			get
+			{
+				if (cachedModeDefs == null)
+				{
+					cachedModeDefs = DefDatabase<SacrificerModeDef>.AllDefsListForReading;
+				}
+				return cachedModeDefs;
+			}
+		}
+
+		private SacrificerModeDef sacrificerModeDef;
+		public SacrificerModeDef SacrificerModeDef
+		{
+			get
+			{
+				if (forcedSacrificerModeDef != null)
+				{
+					return forcedSacrificerModeDef;
+				}
+				if (sacrificerModeDef == null)
+				{
+					if (ModeDefs.TryRandomElement(mode => mode.initial, out SacrificerModeDef result))
+					{
+						sacrificerModeDef = result;
+					}
+					else
+					{
+						sacrificerModeDef = ModeDefs.RandomElement();
+					}
+				}
+				return sacrificerModeDef;
+			}
+			set
+			{
+				sacrificerModeDef = value;
+			}
+		}
+
 		public override List<GeneDef> GenelineGenes => GameComponent.UnlockedGeneDefs;
 
-		private string rewardMode = "biotech";
-		public void SetRewardMode(string modeName)
-		{
-			rewardMode = modeName;
-		}
+		//private string rewardMode = "biotech";
+		//public void SetRewardMode(string modeName)
+		//{
+		//	rewardMode = modeName;
+		//}
+
+		private bool needMore = false;
+		private int delay = 180;
+
+		//private static bool metUpdated = false;
 
 		public override void TickInterval(int delta)
 		{
+			if (needMore)
+			{
+				delay -= delta;
+				if (delay <= 0)
+				{
+					Sacrifice();
+					delay = new IntRange(3, 7).RandomInRange * 60;
+				}
+			}
+			//if (!metUpdated)
+			//{
+			//	metUpdated = true;
+			//	def.biostatMet = AllSacrifices;
+			//}
 			if (pawn.IsHashIntervalTick(59050, delta))
 			{
 				Sacrifice();
@@ -64,12 +135,16 @@ namespace WVC_XenotypesAndGenes
 		private Gizmo gizmo;
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMap(pawn, this))
-			{
-				yield break;
-			}
 			if (DebugSettings.ShowDevGizmos)
 			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SacrificerDevActive " + XaG_UiUtility.OnOrOff(devActive),
+					action = delegate
+					{
+						devActive = !devActive;
+					}
+				};
 				yield return new Command_Action
 				{
 					defaultLabel = "DEV: Sacrifice",
@@ -78,6 +153,10 @@ namespace WVC_XenotypesAndGenes
 						Sacrifice();
 					}
 				};
+			}
+			if (XaG_GeneUtility.SkipIf_SelectorActiveFactionMap(pawn, this))
+			{
+				yield break;
 			}
 			if (gizmo == null)
 			{
@@ -88,29 +167,38 @@ namespace WVC_XenotypesAndGenes
 
 		private void Sacrifice()
 		{
-			foreach (Pawn colonist in PawnsFinder.AllMaps_FreeColonistsSpawned)
+			if (pawn.HomeFaction != Faction.OfPlayer)
 			{
-				if (colonist == pawn)
+				needMore = false;
+				return;
+			}
+			if (!SacrificerModeDef.Worker.CanFireNow(pawn))
+			{
+				return;
+			}
+			IEnumerable<Pawn> allPawns = pawn.MapHeld.mapPawns.AllPawns.Where(sacrifice => sacrifice != pawn);
+			foreach (Pawn target in allPawns)
+			{
+				if (!SacrificerModeDef.Worker.IsAllowed(target))
 				{
 					continue;
 				}
-				if (colonist.HomeFaction == Faction.OfPlayer)
+				try
 				{
-					try
-					{
-						SkipTarget(colonist);
-					}
-					catch (Exception arg)
-					{
-						Log.Error($"Failed kill target pawn: {colonist.Name?.ToStringSafe()}. Reason: {arg.Message}");
-					}
-					return;
+					SkipTarget(target);
+					//metUpdated = false;
 				}
+				catch (Exception arg)
+				{
+					Log.Error($"Failed kill target pawn: {target.Name?.ToStringSafe()}. Reason: {arg.Message}");
+				}
+				break;
 			}
+			needMore = allPawns.Any(pawn => pawn.HomeFaction == Faction.OfPlayer);
 
 			void SkipTarget(Pawn target)
 			{
-				if (PawnUtility.ShouldSendNotificationAbout(target))
+				if (target.HomeFaction == Faction.OfPlayer && PawnUtility.ShouldSendNotificationAbout(target))
 				{
 					//Find.LetterStack.ReceiveLetter("WVC_Label_SacrificerSkip".Translate(), "WVC_Desc_SacrificerSkip".Translate(target), LetterDefOf.ThreatBig);
 					Messages.Message("WVC_Desc_SacrificerSkip".Translate(target), null, MessageTypeDefOf.NegativeEvent, historical: false);
@@ -119,9 +207,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (target.IsMutant)
 					{
-						otherSacrifices++;
+						metOffset++;
 					}
-					humanSacrifices++;
+					cpxOffset++;
 					bool isArchite = false;
 					foreach (Gene gene in target.genes.GenesListForReading)
 					{
@@ -133,18 +221,29 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (isArchite)
 					{
-						architeSacrifices++;
+						arcOffset++;
 					}
 					ReimplanterUtility.SetXenotype(target, XenotypeDefOf.Baseliner);
 				}
 				else
 				{
-					otherSacrifices++;
+					if (Rand.Chance(0.05f) || target.RaceProps.IsMechanoid)
+					{
+						arcOffset++;
+					}
+					if (target.RaceProps.IsFlesh)
+					{
+						metOffset++;
+					}
+					cpxOffset++;
 				}
 				IntVec3 postion = target.PositionHeld;
 				Map map = target.MapHeld;
 				target.Kill();
-				EffectsUtility.SkipBodyFromMap(target);
+				if (!EffectsUtility.SkipBodyFromMap(target))
+				{
+					EffectsUtility.DoSkipEffects(postion, map);
+				}
 				SpawnReward(postion, map);
 			}
 		}
@@ -160,38 +259,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			switch (rewardMode)
-			{
-				case "biotech":
-					if (Rand.Chance(0.75f) || !HediffUtility.TryAddMechlink(pawn))
-					{
-						MiscUtility.SpawnItems(ThingDefOf.Steel, 40, cell, map);
-						MiscUtility.SpawnItems(ThingDefOf.ComponentIndustrial, 1, cell, map);
-					}
-					break;
-				case "anomaly":
-					MiscUtility.SpawnItems(ThingDefOf.Bioferrite, 40, cell, map);
-					if (Rand.Chance(0.25f))
-					{
-						MiscUtility.SpawnItems(ThingDefOf.Shard, 1, cell, map);
-					}
-					break;
-				case "odyssey":
-					MiscUtility.SpawnItems(ThingDefOf.Steel, 40, cell, map);
-					MiscUtility.SpawnItems(ThingDefOf.GravlitePanel, 10, cell, map);
-					if (Rand.Chance(0.5f))
-					{
-						MiscUtility.SpawnItems(ThingDefOf.ComponentIndustrial, 1, cell, map);
-					}
-					if (Rand.Chance(0.25f))
-					{
-						MiscUtility.SpawnItems(ThingDefOf.Gravcore, 1, cell, map);
-					}
-					break;
-				default:
-					MiscUtility.SpawnItems(ThingDefOf.Steel, 40, cell, map);
-					break;
-			}
+			SacrificerModeDef.Worker.SpawnReward(pawn, cell, map);
 		}
 
 		public override void AddGene_Editor(GeneDef geneDef)
@@ -216,24 +284,30 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public string RewardName => rewardMode.CapitalizeFirst().Translate();
+		//public string RewardName => rewardMode.CapitalizeFirst().Translate();
 
-		public override IntRange ReqMetRange => new(-otherSacrifices, otherSacrifices);
+		public override IntRange ReqMetRange => new(-metOffset, metOffset);
 
-		public override int ComplexityLimit => humanSacrifices;
-		public override int ArchiteLimit => architeSacrifices;
+		public override int ComplexityLimit => cpxOffset;
+		public override int ArchiteLimit => arcOffset;
 
-		private int humanSacrifices = 0;
-		private int architeSacrifices = 0;
-		private int otherSacrifices = 5;
+		//public int AllSacrifices => humanSacrifices + otherSacrifices;
+
+		private int cpxOffset = 0;
+		private int arcOffset = 0;
+		private int metOffset = 0;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref humanSacrifices, "humanSacrifices", defaultValue: 0);
-			Scribe_Values.Look(ref architeSacrifices, "architeSacrifices", defaultValue: 0);
-			Scribe_Values.Look(ref otherSacrifices, "otherSacrifices", defaultValue: 5);
-			Scribe_Values.Look(ref rewardMode, "rewardMode", defaultValue: "biotech");
+			Scribe_Values.Look(ref cpxOffset, "cpxOffset", defaultValue: 0);
+			Scribe_Values.Look(ref arcOffset, "arcOffset", defaultValue: 0);
+			Scribe_Values.Look(ref metOffset, "metOffset", defaultValue: 0);
+			Scribe_Defs.Look(ref sacrificerModeDef, "sacrificerModeDef");
+			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			//{
+			//	metUpdated = false;
+			//}
 		}
 
 	}

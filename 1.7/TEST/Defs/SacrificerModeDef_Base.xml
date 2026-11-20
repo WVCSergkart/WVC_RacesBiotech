@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Disabled</defName>
+	<label>dormant</label>
+	<description>Sacrificer will not touch anyone.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Disabled</workerClass>
+	<canBeScenarioOption>false</canBeScenarioOption>
+	<initial>true</initial>
+	<displayOrder>-999</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Solo</defName>
+	<label>solo</label>
+	<description>The sacrificer's target will be everyone except quest pawns. Rewards are selected randomly.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode</workerClass>
+	<canBeScenarioOption>true</canBeScenarioOption>
+	<displayOrder>10</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Biopath</defName>
+	<label>biopunk</label>
+	<description>The sacrificer's target will be mechanoids, animals, non-human mutants, androids, and other non-humans. Humans will be ignored. Quest pawns are ignored regardless.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Biopunk</workerClass>
+	<canBeScenarioOption>true</canBeScenarioOption>
+	<displayOrder>20</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+	<rewards>
+	  <li>
+		<thingDef>Steel</thingDef>
+		<count>20</count>
+		<chance>1</chance>
+	  </li>
+	  <li>
+		<thingDef>Bioferrite</thingDef>
+		<count>7</count>
+		<chance>0.8</chance>
+	  </li>
+	  <li>
+		<thingDef>Shard</thingDef>
+		<count>1</count>
+		<chance>0.05</chance>
+	  </li>
+	</rewards>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Mechamancer</defName>
+	<label>mechamancer</label>
+	<description>The sacrificer will target everyone except mechanoids and androids. Quest pawns are ignored.\n\nInstead of the usual reward, there is a 15% chance to receive a mechlink.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Mechamancer</workerClass>
+	<canBeScenarioOption>true</canBeScenarioOption>
+	<displayOrder>30</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+	<rewards>
+	  <li>
+		<thingDef>Steel</thingDef>
+		<count>35</count>
+		<chance>1</chance>
+	  </li>
+	  <li>
+		<thingDef>ComponentIndustrial</thingDef>
+		<count>1</count>
+		<chance>0.2</chance>
+	  </li>
+	</rewards>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Animalist</defName>
+	<label>animalist</label>
+	<description>The sacrificer's target will be everyone except animals and quest pawns.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Animalist</workerClass>
+	<canBeScenarioOption>true</canBeScenarioOption>
+	<displayOrder>40</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+	<rewards>
+	  <li>
+		<thingDef>Steel</thingDef>
+		<count>20</count>
+		<chance>0.5</chance>
+	  </li>
+	  <li>
+		<thingDef>WoodLog</thingDef>
+		<count>20</count>
+		<chance>1</chance>
+	  </li>
+	</rewards>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_Overlord</defName>
+	<label>overlord</label>
+	<description>The sacrificer will target everyone except mutants, whether sentient or not. Quest pawns are ignored.\n\nInstead of the usual reward, it gives a mutation with a 7% chance.</description>
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Overlord</workerClass>
+	<canBeScenarioOption>true</canBeScenarioOption>
+	<displayOrder>50</displayOrder>
+	<canBeSwitchedManually>true</canBeSwitchedManually>
+	<rewards>
+	  <li>
+		<thingDef>Steel</thingDef>
+		<count>10</count>
+		<chance>1</chance>
+	  </li>
+	  <li>
+		<thingDef>WoodLog</thingDef>
+		<count>10</count>
+		<chance>1</chance>
+	  </li>
+	  <li>
+		<thingDef>Bioferrite</thingDef>
+		<count>10</count>
+		<chance>1</chance>
+	  </li>
+	  <li>
+		<thingDef>Shard</thingDef>
+		<count>1</count>
+		<chance>0.07</chance>
+	  </li>
+	</rewards>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+</Defs>

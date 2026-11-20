@@ -18,41 +18,63 @@
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
-		<li>WVC_DeathRefusal</li>
-		<!-- <li>WVC_Backup</li> -->
-		<!-- <li>WVC_StasisStomach</li> -->
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassHeart</li>
-		<!-- <li>WVC_FleshmassRegeneration</li> -->
-		<li>WVC_FleshmassImmunity</li>
-		<li>WVC_Fleshmass_MultToxRes</li>
-		<li>WVC_Fleshmass_Breathless</li>
-		<li>WVC_Agevenator</li>
+		<!-- <li>WVC_DeathRefusal</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_FleshmassHeart</li> -->
+		<!-- <li>WVC_FleshmassImmunity</li> -->
+		<!-- <li>WVC_Fleshmass_MultToxRes</li> -->
+		<!-- <li>WVC_Fleshmass_Breathless</li> -->
+		<!-- <li>WVC_Agevenator</li> -->
+		<!-- <li>WVC_Sacrificer</li> -->
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
+		<!-- <li>WVC_PsychicAbility_Deaf</li> -->
+		<!-- <li>WVC_Immunity_VeryWeak</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li> -->
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
+		<!-- <li>WVC_MaxTemp_ArchiteIncrease</li> -->
+		<!-- <li>Neversleep</li> -->
+		<!-- <li>WVC_Tough</li> -->
+		<!-- <li>WVC_MechaSkin</li> -->
+		<!-- <li>WVC_SyntSkin</li> -->
+		<!-- <li>WVC_LongTentacleTail</li> -->
+		<!-- <li>Hair_DarkBlack</li> -->
+		<!-- <li>Skin_PaleRed</li> -->
+		<!-- <li>WVC_SkinColor_OldBones</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>WVC_Shapeshift_FalseForm</li> -->
+		<!-- <li>WVC_NoLearning</li> -->
+		<!-- <li>WVC_MechaAI_Base</li> -->
+		<!-- <li>WVC_BodySize_Large</li> -->
+		<!-- = -->
+		<li>WVC_Backup</li>
+		<li>VacuumResistance_Total</li>
 		<li>WVC_Sacrificer</li>
+		<li>WVC_FleshmassHeart</li>
+		<li>WVC_FleshmassImmunity</li>
+		<li>WVC_FleshmassAging</li>
+		<li>WVC_MinMaxTemp_Adaptive</li>
+		<li>WVC_Agevenator</li>
 		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_PsychicAbility_Deaf</li>
-		<li>WVC_Immunity_VeryWeak</li>
-		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
-		<li MayRequire="ludeon.rimworld.anomaly">WVC_Rehumanized</li>
+		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_MinTemp_ArchiteDecrease</li>
-		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li>ToxResist_Total</li>
 		<li>Neversleep</li>
-		<li>WVC_Tough</li>
-		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<li>WVC_Unbreakable</li>
+		<li>Sterile</li>
+		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_MechaSkin</li>
 		<li>WVC_SyntSkin</li>
-		<li>WVC_LongTentacleTail</li>
-		<li>Hair_DarkBlack</li>
-		<!-- <li>WVC_HairColor_Slate</li> -->
+		<li>WVC_CatTailB</li>
+		<!-- <li>WVC_LongTentacleTail</li> -->
+		<li>WVC_Shapeshift_FalseForm</li>
+		<li>WVC_BodySize_Large</li>
+		<li>WVC_HairColor_Slate</li>
 		<li>Skin_PaleRed</li>
 		<li>WVC_SkinColor_OldBones</li>
 		<li>DarkVision</li>
-		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Learning_Stasis</li> -->
-		<li>WVC_Shapeshift_FalseForm</li>
-		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Chameleon</li> -->
 		<li>WVC_NoLearning</li>
-		<li>WVC_MechaAI_Base</li> <!-- no skill loss -->
-		<li>WVC_BodySize_Large</li>
+		<li>WVC_MechaAI_Base</li>
 	</genes>
   </XenotypeDef>
 

@@ -1,5 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -15,9 +17,44 @@ namespace WVC_XenotypesAndGenes
 		public override bool Visible => true;
 
 		private static readonly CachedTexture EditorIcon = new("WVC/UI/XaG_General/UI_XenogenesEditorFleshmass");
-		private static readonly CachedTexture RewardIcon = new("WVC/UI/XaG_General/UI_SacrificerSkullIcon");
+		private static readonly CachedTexture ModeIcon = new("WVC/UI/XaG_General/UI_SacrificerSkullIcon");
 
-		public virtual TaggedString GizmoTip => "WVC_XaG_SacrificerGizmoTip".Translate(gene.GenelineGenes.Count, gene.ComplexityLimit, gene.ArchiteLimit, gene.ReqMetRange.TrueMin, gene.ReqMetRange.TrueMax, gene.RewardName);
+		//public virtual TaggedString GizmoTip
+		//{
+		//	get
+		//	{
+		//		return "WVC_XaG_SacrificerGizmoTip".Translate(gene.GenelineGenes.Count, gene.ComplexityLimit, gene.ArchiteLimit, gene.ReqMetRange.TrueMin, gene.ReqMetRange.TrueMax);
+		//	}
+		//}
+
+		private string cachedDescription;
+		public TaggedString GizmoTip
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					//Log.Error("0");
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLineTagged("WVC_XaG_SacrificerGizmoTip".Translate(gene.GenelineGenes.Count, gene.ComplexityLimit, gene.ArchiteLimit, gene.ReqMetRange.TrueMin, gene.ReqMetRange.TrueMax, gene.SacrificerModeDef.LabelCap));
+					stringBuilder.AppendLine();
+					stringBuilder.AppendLineTagged("WVC_XaG_SacrificerGizmoTip_ModeDesc".Translate(gene.SacrificerModeDef.description.CapitalizeFirst()));
+					stringBuilder.AppendLine();
+					if (gene.SacrificerModeDef.rewards != null)
+					{
+						stringBuilder.AppendLineTagged("WVC_XaG_SacrificerGizmoTip_Rewards".Translate());
+						foreach (SacrificerModeDef.ThingDefCountWithChance reward in gene.SacrificerModeDef.rewards)
+						{
+							//stringBuilder.AppendLineTagged("  - " + reward.LabelCap + ": " + reward.count);
+							stringBuilder.AppendLineTagged("  - " + "WVC_XaG_RewardWithChance".Translate(reward.LabelCap, reward.count, reward.chance.ToStringPercent()));
+						}
+					}
+					cachedDescription = stringBuilder.ToString().TrimEndNewlines();
+					//nextRecache = 240;
+				}
+				return cachedDescription;
+			}
+		}
 
 		public GeneGizmo_Sacrificer(Gene_Sacrificer gene)
 			: base()
@@ -36,6 +73,10 @@ namespace WVC_XenotypesAndGenes
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
 			Button2c(rect5);
+			// Button
+			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+			XaG_UiUtility.Button_Style(rect6, pawn, gene, true, XaG_UiUtility.Fleshshaper_StyleIcon);
+			//Button2c(rect5);
 			return new GizmoResult(GizmoState.Clear);
 		}
 
@@ -53,6 +94,7 @@ namespace WVC_XenotypesAndGenes
 			if (Mouse.IsOver(rect3))
 			{
 				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + GizmoTip);
+				cachedDescription = null;
 			}
 			return rect2;
 		}
@@ -72,43 +114,50 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_SacrificerEditorTip".Translate(gene.Label));
 		}
 
-		// Reward
+		// Mode
 		protected virtual void Button2c(Rect rect4)
 		{
-			Widgets.DrawTextureFitted(rect4, RewardIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect4, ModeIcon.Texture, 1f);
+			if (Gene_Sacrificer.ForcedMode)
+			{
+				Widgets.DrawTextureFitted(rect4, XaG_UiUtility.NonAggressiveRedCancelIcon.Texture, 1f);
+			}
 			if (Mouse.IsOver(rect4))
 			{
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					List<FloatMenuOption> list = new();
-					list.Add(new FloatMenuOption("Biotech".Translate().CapitalizeFirst(), delegate
+					if (Gene_Sacrificer.ForcedMode)
 					{
-						gene.SetRewardMode("biotech");
-					}, orderInPriority: 1));
-					if (ModsConfig.AnomalyActive)
-					{
-						list.Add(new FloatMenuOption("Anomaly".Translate().CapitalizeFirst(), delegate
-						{
-							gene.SetRewardMode("anomaly");
-						}, orderInPriority: 2));
+						Messages.Message("WVC_XaG_SacrificerMode_Blocked".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+						return;
 					}
-					if (ModsConfig.OdysseyActive)
+					List<FloatMenuOption> list = new();
+					List<SacrificerModeDef> modes = Gene_Sacrificer.ModeDefs.Where(mode => mode.canBeSwitchedManually).ToList();
+					for (int i = 0; i < modes.Count; i++)
 					{
-						list.Add(new FloatMenuOption("Odyssey".Translate().CapitalizeFirst(), delegate
+						SacrificerModeDef mode = modes[i];
+						list.Add(new FloatMenuOption(mode.LabelCap, delegate
 						{
-							gene.SetRewardMode("odyssey");
-						}, orderInPriority: 3));
+							//Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(gene.SacrificerModeDef.description.CapitalizeFirst(), delegate
+							//{
+							//	gene.SacrificerModeDef = mode;
+							//});
+							//Find.WindowStack.Add(window);
+							gene.SacrificerModeDef = mode;
+						}, orderInPriority: (int)(0 - mode.displayOrder)));
 					}
 					Find.WindowStack.Add(new FloatMenu(list));
 				}
 			}
-			TooltipHandler.TipRegion(rect4, "WVC_XaG_SacrificerRewardTip".Translate());
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_SacrificerModeTip".Translate());
 		}
 
 		public override float GetWidth(float maxWidth)
 		{
-			return 96f;
+			//return 48f;
+			//return 96f;
+			return 140f;
 		}
 
 	}

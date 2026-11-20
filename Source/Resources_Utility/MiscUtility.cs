@@ -660,6 +660,10 @@ namespace WVC_XenotypesAndGenes
 			Thing thing = ThingMaker.MakeThing(thingDef);
 			thing.stackCount = stack;
 			GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near, null, null, default);
+			if (!map.areaManager.Home[thing.Position])
+			{
+				thing.SetForbidden(true);
+			}
 		}
 
 		// Food
