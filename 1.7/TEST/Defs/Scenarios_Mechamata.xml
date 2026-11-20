@@ -2,6 +2,17 @@
 <Defs>
 
   <!-- ========================================================= -->
+  
+  <LetterDef MayRequire="ludeon.rimworld.anomaly" ParentName="CustomChoiceLetterBase">
+	<defName>WVC_SacrificerMode</defName>
+	<letterClass>WVC_XenotypesAndGenes.ChoiceLetter_SacrificerMode</letterClass>
+	<color>(204, 115, 115)</color>
+	<flashColor>(255, 85, 85)</flashColor>
+	<flashInterval>6</flashInterval>
+	<bounce>true</bounce>
+	<arriveSound>LetterArrive_BadUrgentBig</arriveSound>
+	<pauseMode>MajorThreat</pauseMode>
+  </LetterDef>
 
   <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_Mechamata</defName>
@@ -12,13 +23,18 @@
 
 &lt;color=#999999&gt;This scenario is a mini-mod that makes changes after it's launched. These changes are permanent for the session in which the scenario was launched.&lt;/color&gt;
 
-&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a medium difficulty scenario that requires advanced knowledge of vanilla mechanics and basic knowledge of XaG mod mechanics. And yes, the ability to read.</description>
+&lt;color=#f5ffa2&gt;Forced Rules:&lt;/color&gt;\n- After 2 years from the start of the game, the &lt;color=#8a8ae6&gt;sacrificer&lt;/color&gt; gene is given.\n- &lt;color=#8a8ae6&gt;Sacrificer&lt;/color&gt; will be locked to one mode out of all, at the player's choice.\n- This penalty is imposed only if either the monolith or the cerebrex core has not been destroyed within 2 years.\n- If the &lt;color=#8a8ae6&gt;sacrificer&lt;/color&gt; gene is lost, it will be given to the next controlled pawn.\n- &lt;color=#8a8ae6&gt;Sacrificer&lt;/color&gt; will passively kill pawns according to the selected mode.
+
+&lt;color=#999999&gt;These rules only apply if you have the Anomaly DLC.&lt;/color&gt;
+
+&lt;color=#f5ffa2&gt;Difficulty:&lt;/color&gt; This is a easy difficulty scenario that requires advanced knowledge of vanilla and XaG mod mechanics. And yes, the ability to read.</description>
 	<scenario>
-	  <summary>Solo mechamata with gravship. &lt;color=#fff695&gt;Advanced&lt;/color&gt; scenario.</summary>
+	  <summary>Solo mechamata with gravship. &lt;color=#ff9595&gt;Veteran&lt;/color&gt; scenario.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
 	  </playerFaction>
+	  <standardAnomalyPlaystyleOnly>true</standardAnomalyPlaystyleOnly>
 	  <parts>
 
 		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
@@ -168,6 +184,11 @@
 		  <thingDef>GravlitePanel</thingDef>
 		  <count>100</count>
 		  <allowRoofed>false</allowRoofed>
+		</li>
+
+		<li MayRequire="ludeon.rimworld.anomaly" Class="ScenPart_AutoActivateMonolith">
+		  <def>AutoActivateMonolith</def>
+		  <delayTicks>12000</delayTicks>
 		</li>
 
 	  </parts>

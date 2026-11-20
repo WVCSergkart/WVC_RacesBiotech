@@ -25,7 +25,7 @@
   <WVC_XenotypesAndGenes.SacrificerModeDef>
 	<defName>WVC_Biopath</defName>
 	<label>biopunk</label>
-	<description>The sacrificer's target will be mechanoids, animals, non-human mutants, androids, and other non-humans. Humans will be ignored. Quest pawns are ignored regardless.</description>
+	<description>The sacrificer's target will be mechanoids, animals, mutants, androids, and other non-humans. Quest pawns are ignored regardless.</description>
 	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Biopunk</workerClass>
 	<canBeScenarioOption>true</canBeScenarioOption>
 	<displayOrder>20</displayOrder>
