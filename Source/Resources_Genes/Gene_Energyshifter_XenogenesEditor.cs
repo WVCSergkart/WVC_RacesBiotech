@@ -65,7 +65,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<GeneDef> DisabledGenes => pawn.genes.GetFirstGeneOfType<Gene_Energyshifter_XenotypesUnlocker>()?.GeneDefs ?? new();
+		public List<GeneDef> DisabledGenes
+		{
+			get
+			{
+				List<GeneDef> geneDefs = new();
+				foreach (Map map in Find.Maps)
+				{
+					foreach (Pawn pawn in map.mapPawns.AllHumanlike)
+					{
+						if (pawn.IsHuman())
+						{
+							geneDefs.AddRangeSafe(pawn.genes.GenesListForReading.Where(gene => !Energyshifter.CollectedGenes.Contains(gene.def)).ToList().ConvertToDefs());
+						}
+					}
+				}
+				return geneDefs;
+				//return pawn.genes.GetFirstGeneOfType<Gene_Energyshifter_XenotypesUnlocker>()?.GeneDefs ?? new();
+			}
+		}
+
 		public List<GeneDef> DestroyedGenes => new();
 
 		[Unsaved(false)]

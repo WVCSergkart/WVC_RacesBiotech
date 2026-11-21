@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 				unlockedXenotypes = new();
 			}
 			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
-			Gene_Energyshifter_XenotypesUnlocker.ResetCollectedCache();
+			//Gene_Energyshifter_XenotypesUnlocker.ResetCollectedCache();
 		}
 
 		public List<string> UnlcokedXenotypes
@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			collectedGeneDefs.AddSafe(geneDef.defName);
 			cachedUnlockedGeneDefs = null;
-			Gene_Energyshifter_XenotypesUnlocker.ResetCollectedCache();
+			//Gene_Energyshifter_XenotypesUnlocker.ResetCollectedCache();
 		}
 
 		private List<GeneDef> cachedUnlockedGeneDefs;
