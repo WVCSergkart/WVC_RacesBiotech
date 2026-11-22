@@ -26,6 +26,20 @@ namespace WVC_XenotypesAndGenes
 		public float defaultBandwidth = 999f;
 		public float wvcXenotypesChance = 0.02f;
 		public List<PrefabDef> prefabDefs;
+		public SacrificerModeDef forcedSacrificerModeDef;
+		//public string forcedXenotypeDef;
+
+		//public XenotypeHolder XenotypeHolder
+		//{
+		//	get
+		//	{
+		//		if (ListsUtility.GetAllXenotypesHolders().TryRandomElement(xenos => xenos.Label == forcedXenotypeDef, out XenotypeHolder result))
+		//		{
+		//			return result;
+		//		}
+		//		return null;
+		//	}
+		//}
 
 		//public override void PostGameStart()
 		//{
@@ -37,18 +51,60 @@ namespace WVC_XenotypesAndGenes
 		//	base.PreMapGenerate();
 		//}
 
+		//private bool firstPenaltyApplied = false;
 		//private int nextTick = 15000;
 		//public override void Tick()
 		//{
 		//	if (nextTick > 0)
 		//	{
 		//		nextTick--;
-		//		ForcedRules();
-		//		nextTick = 60000;
+		//		return;
 		//	}
+		//	ForcedRules();
+		//	nextTick = 60000;
 		//}
 
 		//public static GeneDef SacrificerGeneDef => DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(geneDef => geneDef.IsGeneDefOfType<Gene_Sacrificer>());
+
+		//public void ForcedRules()
+		//{
+		//	if (firstPenaltyApplied || forcedSacrificerModeDef == null || !Gene_Sacrificer.IsActive || !ModsConfig.AnomalyActive)
+		//	{
+		//		return;
+		//	}
+		//	if (Find.TickManager.TicksGame < 2 * 3600000)
+		//	{
+		//		return;
+		//	}
+		//	try
+		//	{
+		//		GeneDef geneDef = SacrificerGeneDef;
+		//		List<Pawn> allMapsCaravansAndTravellingTransporters_Alive_Colonists = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists;
+		//		int chosenOnes = 0;
+		//		foreach (Pawn pawn in allMapsCaravansAndTravellingTransporters_Alive_Colonists)
+		//		{
+		//			if (chosenOnes >= 5)
+		//			{
+		//				break;
+		//			}
+		//			if (pawn.IsHuman() && pawn.genes.GetFirstGeneOfType<Gene_Sacrificer>() == null)
+		//			{
+		//				pawn.genes.AddGene(geneDef, false);
+		//				if (pawn.MapHeld != null)
+		//				{
+		//					EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+		//				}
+		//				chosenOnes++;
+		//			}
+		//		}
+		//		Find.LetterStack.ReceiveLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(), LetterDefOf.ThreatBig);
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		Log.Error("Failed force penalty. Reason: " + ex.Message);
+		//	}
+		//	firstPenaltyApplied = true;
+		//}
 
 		//public bool ModeSetted => sacrificerModeDef != null;
 		//private SacrificerModeDef sacrificerModeDef;
@@ -58,16 +114,16 @@ namespace WVC_XenotypesAndGenes
 		//	{
 		//		return;
 		//	}
-		//	if (sacrificerModeDef == null)
+		//	if (forcedSacrificerModeDef == null)
 		//	{
 		//		if (Find.TickManager.TicksGame >= 2 * 3600000)
 		//		{
 		//			if (SetGene(out Pawn pawn))
 		//			{
-		//				ChoiceLetter_SacrificerMode modeLetter = (ChoiceLetter_SacrificerMode)LetterMaker.MakeLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), DefDatabase<LetterDef>.GetNamedSilentFail("WVC_SacrificerMode"));
-		//				modeLetter.Start(this);
-		//				Find.LetterStack.ReceiveLetter(modeLetter);
-		//				//Find.LetterStack.ReceiveLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), LetterDefOf.ThreatBig);
+		//				//ChoiceLetter_SacrificerMode modeLetter = (ChoiceLetter_SacrificerMode)LetterMaker.MakeLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), DefDatabase<LetterDef>.GetNamedSilentFail("WVC_SacrificerMode"));
+		//				//modeLetter.Start(this);
+		//				//Find.LetterStack.ReceiveLetter(modeLetter);
+		//				Find.LetterStack.ReceiveLetter("WVC_DeathworldScenario_PenaltyLetter".Translate(), "WVC_DeathworldScenario_PenaltyLetterDesc".Translate(pawn), LetterDefOf.ThreatBig);
 		//			}
 		//		}
 
@@ -234,8 +290,8 @@ namespace WVC_XenotypesAndGenes
 					deathPall.minRefireDays = 12;
 					deathPall.durationDays = new FloatRange(deathPall.minRefireDays / 2, deathPall.minRefireDays - 1);
 				}
-				//phase = "set sacrificer mode";
-				//Gene_Sacrificer.forcedSacrificerModeDef = sacrificerModeDef;
+				phase = "set sacrificer mode";
+				Gene_Sacrificer.forcedSacrificerModeDef = forcedSacrificerModeDef;
 			}
 			catch (Exception arg)
 			{
@@ -250,7 +306,9 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref defaultBandwidth, "bandwidth", 999);
 			Scribe_Values.Look(ref defaultSubstructureSupport, "substructures", 9999);
 			Scribe_Collections.Look(ref prefabDefs, "prefabDefs", LookMode.Def);
-			//Scribe_Defs.Look(ref sacrificerModeDef, "forcedSacrificerModeDef");
+			Scribe_Defs.Look(ref forcedSacrificerModeDef, "forcedSacrificerModeDef");
+			//Scribe_Values.Look(ref firstPenaltyApplied, "firstPenaltyApplied", defaultValue: false);
+			//Scribe_Values.Look(ref forcedXenotypeDef, "forcedXenotypeDef");
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				SetGeneral();

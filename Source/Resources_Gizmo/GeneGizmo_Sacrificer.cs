@@ -27,6 +27,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		private int nextRecache;
 		private string cachedDescription;
 		public TaggedString GizmoTip
 		{
@@ -50,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 					cachedDescription = stringBuilder.ToString().TrimEndNewlines();
-					//nextRecache = 240;
+					nextRecache = 240;
 				}
 				return cachedDescription;
 			}
@@ -90,11 +91,18 @@ namespace WVC_XenotypesAndGenes
 			Text.Anchor = TextAnchor.UpperLeft;
 			// Label
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst());
+			Widgets.Label(rect3, gene.def.LabelShortAdj.CapitalizeFirst() + ": " + gene.SacrificerModeDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+			if (nextRecache > 0)
+			{
+				nextRecache--;
+				if (nextRecache <= 0)
+				{
+					cachedDescription = null;
+				}
+			}
 			if (Mouse.IsOver(rect3))
 			{
 				TooltipHandler.TipRegion(rect3, gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + GizmoTip);
-				cachedDescription = null;
 			}
 			return rect2;
 		}

@@ -89,6 +89,7 @@
 		  <defaultSubstructureSupport>10000</defaultSubstructureSupport>
 		  <!-- vanilla ui limited to 999 -->
 		  <defaultBandwidth>999</defaultBandwidth>
+		  <forcedSacrificerModeDef>WVC_ChosenOnes</forcedSacrificerModeDef>
 		  <prefabDefs>
 			<li>WVC_XaG_GraveA</li>
 			<li>WVC_XaG_GraveB</li>

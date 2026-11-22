@@ -30,4 +30,8 @@
 	<!-- <WVC_XaG_Sacrificer_XenotypeLvl2c>Corrupted are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. Their appearance is always associated with the coming of the apocalypse; they are harbingers of something terrible.</WVC_XaG_Sacrificer_XenotypeLvl2c> -->
 	<!-- <WVC_XaG_Sacrificer_XenotypeLvl3c>Sacrifices are ageless super-humans powered by dark archites in the bloodstream. They are technically immortal, incredibly resilient, and only grow stronger with time. They can freely change their genetic. They are harbingers of what has already arrived, slowly influencing everything around them. Their main distinguishing factor is their "sacrifice," an ability they cannot control but which is rewarded by their patron.</WVC_XaG_Sacrificer_XenotypeLvl3c> -->
 
+	<WVC_Sacrificer_SelfSacrifice>Sacrifice self</WVC_Sacrificer_SelfSacrifice>
+
+	<WVC_Sacrificer_SelfSacrificeWrongModeTip>Not a suitable sacrifice for the current mode.</WVC_Sacrificer_SelfSacrificeWrongModeTip>
+
 </LanguageData>

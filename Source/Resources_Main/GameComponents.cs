@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.ResetStaticCache_PerSave();
 			HivemindUtility.ResetCollection();
 			GeneshiftUtility.ResetXenotypesCollection();
-			DevFixes();
+			XaG_GeneUtility.DevFixes();
 		}
 
 		// ========================================
@@ -80,11 +80,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void UnlockXenotype(string xenotypeName)
 		{
-			if (unlockedXenotypes == null)
-			{
-				unlockedXenotypes = new();
-			}
-			unlockedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
+			//if (unlockedXenotypes == null)
+			//{
+			//	unlockedXenotypes = new();
+			//}
+			UnlcokedXenotypes.AddSafe(xenotypeName.UncapitalizeFirst());
 			//Gene_Energyshifter_XenotypesUnlocker.ResetCollectedCache();
 		}
 
@@ -151,7 +151,18 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref backup_GeneCooldown, "backup_GeneCooldown", -1);
 			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
 			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Value);
+			Scribe_Values.Look(ref sacrificer_cpxOffset, "sacrificer_cpxOffset", defaultValue: 0);
+			Scribe_Values.Look(ref sacrificer_arcOffset, "sacrificer_arcOffset", defaultValue: 0);
+			Scribe_Values.Look(ref sacrificer_metOffset, "sacrificer_metOffset", defaultValue: 0);
+			Scribe_Values.Look(ref sacrificer_defMet, "sacrificer_defMet");
 		}
+
+		// ========================================
+
+		public int sacrificer_cpxOffset = 0;
+		public int sacrificer_arcOffset = 0;
+		public int sacrificer_metOffset = 0;
+		public int sacrificer_defMet = 0;
 
 		// ========================================
 
@@ -285,154 +296,6 @@ namespace WVC_XenotypesAndGenes
 		public void DelayRecache(int delay = 1500)
 		{
 			nextRecache += delay;
-		}
-
-		// DEV
-		public static void DevFixes()
-		{
-			FixGenesClasses();
-			ResetGenes();
-			FixGeneAbilities();
-		}
-
-		private static void FixGeneAbilities()
-		{
-			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
-			{
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
-				{
-					if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					{
-						// List<AbilityDef> fixedAbilities = new();
-						Pawn_AbilityTracker abilities = item.abilities;
-						if (abilities != null && !abilities.AllAbilitiesForReading.NullOrEmpty())
-						{
-							foreach (Ability ability in abilities.AllAbilitiesForReading.ToList())
-							{
-								if (XaG_GeneUtility.AbilityIsGeneAbility(ability))
-								{
-									abilities.RemoveAbility(ability.def);
-									abilities.GainAbility(ability.def);
-									Log.Message(item.Name + ": ABILITY FIXED: " + ability.def.label);
-									// fixedAbilities.Add(ability.def);
-								}
-							}
-						}
-						AddMissingGeneAbilities(item);
-					}
-				}
-				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
-			}
-		}
-
-		public static void AddMissingGeneAbilities(Pawn item)
-		{
-			List<AbilityDef> pawnAbilities = MiscUtility.ConvertToDefs(item.abilities.AllAbilitiesForReading);
-			foreach (Gene gene in item.genes.GenesListForReading)
-			{
-				if (!ModsUtility.VanillaExpandedFrameworkActive || !gene.Overridden)
-				{
-					AddMissingGeneAbilities(item, pawnAbilities, gene);
-				}
-			}
-		}
-
-		public static void AddMissingGeneAbilities(Pawn item, List<AbilityDef> pawnAbilities, Gene gene)
-		{
-			if (gene.def.abilities.NullOrEmpty() || pawnAbilities == null)
-			{
-				return;
-			}
-			foreach (AbilityDef ability in gene.def.abilities)
-			{
-				if (!pawnAbilities.Contains(ability))
-				{
-					if (item.mutant?.Def?.abilityWhitelist != null && !item.mutant.Def.abilityWhitelist.Contains(ability))
-					{
-						continue;
-					}
-					item.abilities.GainAbility(ability);
-				}
-			}
-		}
-
-		private static void ResetGenes()
-		{
-			if (WVC_Biotech.settings.resetGenesOnLoad)
-			{
-				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
-				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
-				// Log.Error("1");
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
-				{
-					if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					{
-						Pawn_GeneTracker genes = item.genes;
-						if (!genes.Endogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Endogenes.ToList())
-							{
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: false);
-							}
-							Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("	 - ", capitalizeItems: true));
-						}
-						if (!genes.Xenogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Xenogenes.ToList())
-							{
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: true);
-							}
-							Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("	 - ", capitalizeItems: true));
-						}
-						ReimplanterUtility.PostImplantDebug(item);
-					}
-				}
-				WVC_Biotech.settings.resetGenesOnLoad = false;
-			}
-		}
-
-		private static void FixGenesClasses()
-		{
-			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
-			{
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.ToList())
-				{
-					if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					{
-						Pawn_GeneTracker genes = item.genes;
-						if (!genes.Endogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Endogenes.ToList())
-							{
-								if (gene.GetType() == gene.def.geneClass)
-								{
-									continue;
-								}
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: false);
-								Log.Message(item.Name + ": ENDOGENE TYPE FIXED: " + gene.def.defName);
-							}
-						}
-						if (!genes.Xenogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Xenogenes.ToList())
-							{
-								if (gene.GetType() == gene.def.geneClass)
-								{
-									continue;
-								}
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: true);
-								Log.Message(item.Name + ": XENOGENE TYPE FIXED: " + gene.def.defName);
-							}
-						}
-						ReimplanterUtility.PostImplantDebug(item);
-					}
-				}
-				WVC_Biotech.settings.fixGeneTypesOnLoad = false;
-			}
 		}
 
 		public void ResetCounter(IntRange interval)

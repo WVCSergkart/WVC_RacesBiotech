@@ -51,8 +51,8 @@
 
   <WVC_XenotypesAndGenes.SacrificerModeDef>
 	<defName>WVC_Mechamancer</defName>
-	<label>mechamancer</label>
-	<description>The sacrificer will target everyone except mechanoids and androids. Quest pawns are ignored.\n\nInstead of the usual reward, there is a 15% chance to receive a mechlink.</description>
+	<label>mechanic</label>
+	<description>The sacrificer will target everyone except drones, mechanoids and androids. Quest pawns are ignored.\n\nInstead of the usual reward, there is a 15% chance to receive a mechlink.</description>
 	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_Mechamancer</workerClass>
 	<canBeScenarioOption>true</canBeScenarioOption>
 	<displayOrder>30</displayOrder>
@@ -123,6 +123,18 @@
 		<chance>0.07</chance>
 	  </li>
 	</rewards>
+  </WVC_XenotypesAndGenes.SacrificerModeDef>
+
+  <WVC_XenotypesAndGenes.SacrificerModeDef>
+	<defName>WVC_ChosenOnes</defName>
+	<label>chosen</label>
+	<description>The sacrificer's target will be everyone except 5 chosen pawns. The chosen pawns are chosen randomly from among those with the sacrificer gene. No reward is given, but for each player pawn killed, the gene's metabolism increases by 1, which applies to all sacrificer genes. Quest pawns are ignored.</description>
+	<!-- \n\nIn this mode, the gene cannot be removed. -->
+	<workerClass>WVC_XenotypesAndGenes.SacrificerMode_ChosenOnes</workerClass>
+	<displayOrder>60</displayOrder>
+	<canBeScenarioOption>false</canBeScenarioOption>
+	<canBeSwitchedManually>false</canBeSwitchedManually>
+	<chosenOnesLimit>5</chosenOnesLimit>
   </WVC_XenotypesAndGenes.SacrificerModeDef>
 
 </Defs>

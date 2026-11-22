@@ -20,14 +20,18 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool IsAllowed(Pawn pawn)
 		{
-			if (pawn.IsQuestLodger() || (pawn.HomeFaction != Faction.OfPlayer && pawn.HomeFaction != null && !pawn.HomeFaction.HostileTo(pawn.Faction)))
+			if (pawn.HomeFaction != Faction.OfPlayerSilentFail || pawn.IsQuestLodger())
 			{
 				return false;
 			}
+			//if (pawn.IsQuestLodger() || (pawn.HomeFaction != Faction.OfPlayer && pawn.HomeFaction != null && !pawn.HomeFaction.HostileTo(pawn.Faction)))
+			//{
+			//	return false;
+			//}
 			return true;
 		}
 
-		public virtual void SpawnReward(Pawn pawn, IntVec3 cell, Map map)
+		public virtual void SpawnReward(Pawn pawn, IntVec3 cell, Map map, Gene_Sacrificer gene)
 		{
 			if (def.rewards != null)
 			{
@@ -70,6 +74,19 @@ namespace WVC_XenotypesAndGenes
 					MiscUtility.SpawnItems(ThingDefOf.Steel, 40, cell, map);
 					break;
 			}
+		}
+
+		public virtual void GenesInteractions(Gene_Sacrificer gene, Pawn sacrifice)
+		{
+			if (sacrifice.RaceProps.IsFlesh)
+			{
+				gene.pawn?.genes?.GetFirstGeneOfType<Gene_FleshmassNucleus>()?.Notify_DevouredFlesh(sacrifice);
+			}
+		}
+
+		public virtual void PostRemove(Gene_Sacrificer gene)
+		{
+
 		}
 
 	}
@@ -124,11 +141,11 @@ namespace WVC_XenotypesAndGenes
 			return base.IsAllowed(pawn);
 		}
 
-		public override void SpawnReward(Pawn pawn, IntVec3 cell, Map map)
+		public override void SpawnReward(Pawn pawn, IntVec3 cell, Map map, Gene_Sacrificer gene)
 		{
 			if (Rand.Chance(0.85f) || !HediffUtility.TryAddMechlink(pawn))
 			{
-				base.SpawnReward(pawn, cell, map);
+				base.SpawnReward(pawn, cell, map, gene);
 			}
 		}
 
@@ -160,14 +177,54 @@ namespace WVC_XenotypesAndGenes
 			return base.IsAllowed(pawn);
 		}
 
-		public override void SpawnReward(Pawn pawn, IntVec3 cell, Map map)
+		public override void SpawnReward(Pawn pawn, IntVec3 cell, Map map, Gene_Sacrificer gene)
 		{
 			if (Rand.Chance(0.07f) && HediffUtility.TryGetBestMutation(pawn, out HediffDef mutation) && HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 			{
 				return;
 			}
-			base.SpawnReward(pawn, cell, map);
+			base.SpawnReward(pawn, cell, map, gene);
 		}
+
+	}
+
+	public class SacrificerMode_ChosenOnes : SacrificerMode
+	{
+
+		private List<Pawn> chosenOnes;
+
+		public override bool IsAllowed(Pawn pawn)
+		{
+			if (chosenOnes == null)
+			{
+				chosenOnes = new();
+			}
+			if (chosenOnes.Contains(pawn))
+			{
+				//Log.Error(pawn.Name.ToString());
+				return false;
+			}
+			if (chosenOnes.Count < def.chosenOnesLimit && pawn.genes?.GetFirstGeneOfType<Gene_Sacrificer>() != null)
+			{
+				chosenOnes.Add(pawn);
+				return false;
+			}
+			return base.IsAllowed(pawn);
+		}
+
+		public override void SpawnReward(Pawn pawn, IntVec3 cell, Map map, Gene_Sacrificer gene)
+		{
+			gene.SetMet(Find.StoryWatcher.statsRecord.colonistsKilled);
+			pawn.Ideo?.development?.TryAddDevelopmentPoints(1);
+		}
+
+		//public override void PostRemove(Gene_Sacrificer gene)
+		//{
+		//	if (gene.Active)
+		//	{
+		//		gene.pawn?.genes?.AddGene(gene.def, false);
+		//	}
+		//}
 
 	}
 

@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using Verse;
@@ -18,6 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public bool initial = false;
 		public bool canBeSwitchedManually = true;
 		public List<ThingDefCountWithChance> rewards;
+		public int chosenOnesLimit = 5;
 
 		public class ThingDefCountWithChance
 		{

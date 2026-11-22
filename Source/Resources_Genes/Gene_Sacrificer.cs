@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI;
 using static UnityEngine.GraphicsBuffer;
+using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_Sacrificer : Gene_XenogenesEditor, IGeneShapeshifter
+	public class Gene_Sacrificer : Gene_XenogenesEditor, IGeneShapeshifter, IGeneFloatMenuOptions
 	{
 
 		public XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
@@ -111,8 +113,32 @@ namespace WVC_XenotypesAndGenes
 
 		//private static bool metUpdated = false;
 
+		private static bool update = true;
+		public int DefMet
+		{
+			get
+			{
+				return GameComponent.sacrificer_defMet;
+			}
+			set
+			{
+				GameComponent.sacrificer_defMet = value;
+			}
+		}
+
+		public void SetMet(int newMet)
+		{
+			DefMet = newMet;
+			update = true;
+		}
+
 		public override void TickInterval(int delta)
 		{
+			if (update)
+			{
+				def.biostatMet = DefMet;
+				update = false;
+			}
 			//if (needMore)
 			//{
 			//	delay -= delta;
@@ -127,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 			//	metUpdated = true;
 			//	def.biostatMet = AllSacrifices;
 			//}
-			if (pawn.IsHashIntervalTick(9050, delta))
+			if (pawn.IsHashIntervalTick(12050, delta))
 			{
 				Sacrifice();
 			}
@@ -184,71 +210,90 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				try
-				{
-					SkipTarget(target);
-					//metUpdated = false;
-				}
-				catch (Exception arg)
-				{
-					Log.Error($"Failed kill target pawn: {target.Name?.ToStringSafe()}. Reason: {arg.Message}");
-				}
+				TrySkipTarget(target);
 				break;
 			}
 			//needMore = allPawns.Any(pawn => pawn.HomeFaction == Faction.OfPlayer);
+		}
 
-			void SkipTarget(Pawn target)
+		private void TrySkipTarget(Pawn target)
+		{
+			string phase = "init";
+			try
 			{
-				if (target.HomeFaction == Faction.OfPlayer && PawnUtility.ShouldSendNotificationAbout(target))
-				{
-					//Find.LetterStack.ReceiveLetter("WVC_Label_SacrificerSkip".Translate(), "WVC_Desc_SacrificerSkip".Translate(target), LetterDefOf.ThreatBig);
-					Messages.Message("WVC_Desc_SacrificerSkip".Translate(target), null, MessageTypeDefOf.NegativeEvent, historical: false);
-				}
-				if (target.IsHuman())
-				{
-					if (target.IsMutant)
-					{
-						metOffset++;
-					}
-					cpxOffset++;
-					bool isArchite = false;
-					foreach (Gene gene in target.genes.GenesListForReading)
-					{
-						if (gene.def.biostatArc != 0)
-						{
-							isArchite = true;
-						}
-						GameComponent.UnlockGeneDef(gene.def);
-					}
-					if (isArchite)
-					{
-						arcOffset++;
-					}
-					ReimplanterUtility.SetXenotype(target, XenotypeDefOf.Baseliner);
-				}
-				else
-				{
-					if (Rand.Chance(0.05f) || target.RaceProps.IsMechanoid)
-					{
-						arcOffset++;
-					}
-					if (target.RaceProps.IsFlesh)
-					{
-						metOffset++;
-					}
-					cpxOffset++;
-				}
-				IntVec3 postion = target.PositionHeld;
-				Map map = target.MapHeld;
-				EffectsUtility.DoSkipEffects(postion, map);
-				target.Kill();
-				target.Corpse?.Destroy();
-				//if (!EffectsUtility.SkipBodyFromMap(target))
-				//{
-				//	EffectsUtility.DoSkipEffects(postion, map);
-				//}
-				SpawnReward(postion, map);
+				SkipTarget(target, ref phase);
+				//metUpdated = false;
 			}
+			catch (Exception arg)
+			{
+				Log.Error($"Failed sacrifice target pawn: {target.Name?.ToStringSafe()}. On phase: {phase}. Reason: {arg.Message}");
+			}
+		}
+
+		private void SkipTarget(Pawn target, ref string phase)
+		{
+			if (target.HomeFaction == Faction.OfPlayer && PawnUtility.ShouldSendNotificationAbout(target) && !target.forceNoDeathNotification)
+			{
+				//Find.LetterStack.ReceiveLetter("WVC_Label_SacrificerSkip".Translate(), "WVC_Desc_SacrificerSkip".Translate(target), LetterDefOf.ThreatBig);
+				Messages.Message("WVC_Desc_SacrificerSkip".Translate(target), null, MessageTypeDefOf.NegativeEvent, historical: false);
+			}
+			phase = "check pawn type";
+			if (target.IsHuman())
+			{
+				phase = "human type";
+				if (target.IsMutant)
+				{
+					MetOffset++;
+				}
+				CpxOffset++;
+				bool isArchite = false;
+				phase = "unlock pawn genes";
+				foreach (Gene gene in target.genes.GenesListForReading)
+				{
+					if (gene.def.biostatArc != 0)
+					{
+						isArchite = true;
+					}
+					GameComponent.UnlockGeneDef(gene.def);
+				}
+				if (isArchite)
+				{
+					ArcOffset++;
+				}
+				phase = "clear pawn xenotype";
+				ReimplanterUtility.SetXenotype(target, XenotypeDefOf.Baseliner);
+			}
+			else
+			{
+				phase = "non human type";
+				if (Rand.Chance(0.05f) || target.RaceProps.IsMechanoid)
+				{
+					ArcOffset++;
+				}
+				if (target.RaceProps.IsFlesh)
+				{
+					MetOffset++;
+				}
+				CpxOffset++;
+			}
+			phase = "genesInteractions";
+			SacrificerModeDef.Worker.GenesInteractions(this, target);
+			IntVec3 postion = target.PositionHeld;
+			Map map = target.MapHeld;
+			phase = "effects";
+			EffectsUtility.DoSkipEffects(postion, map);
+			phase = "try kill";
+			target.Kill();
+			phase = "try destroy corpse";
+			target.Corpse?.Destroy();
+			phase = "change faction to entity";
+			target.SetFactionDirect(Faction.OfEntities);
+			//if (!EffectsUtility.SkipBodyFromMap(target))
+			//{
+			//	EffectsUtility.DoSkipEffects(postion, map);
+			//}
+			phase = "give reward";
+			SpawnReward(postion, map);
 		}
 
 		private void SpawnReward(IntVec3 cell, Map map)
@@ -262,7 +307,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			SacrificerModeDef.Worker.SpawnReward(pawn, cell, map);
+			SacrificerModeDef.Worker.SpawnReward(pawn, cell, map, this);
 		}
 
 		public override void AddGene_Editor(GeneDef geneDef)
@@ -272,6 +317,13 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			pawn.genes.AddGene(geneDef, true);
+		}
+
+		public void SelfSactifice(Pawn caller)
+		{
+			caller.forceNoDeathNotification = true;
+			TrySkipTarget(caller);
+			caller.forceNoDeathNotification = false;
 		}
 
 		public override bool UseGeneline => true;
@@ -289,28 +341,121 @@ namespace WVC_XenotypesAndGenes
 
 		//public string RewardName => rewardMode.CapitalizeFirst().Translate();
 
-		public override IntRange ReqMetRange => new(-metOffset, metOffset);
+		public override IntRange ReqMetRange => new(-MetOffset, MetOffset);
 
-		public override int ComplexityLimit => cpxOffset;
-		public override int ArchiteLimit => arcOffset;
+		public override int ComplexityLimit => CpxOffset;
+		public override int ArchiteLimit => ArcOffset;
 
 		//public int AllSacrifices => humanSacrifices + otherSacrifices;
 
-		private int cpxOffset = 0;
-		private int arcOffset = 0;
-		private int metOffset = 0;
+		public int CpxOffset
+		{
+			get
+			{
+				return GameComponent.sacrificer_cpxOffset;
+			}
+			set
+			{
+				GameComponent.sacrificer_cpxOffset = value;
+			}
+		}
+
+		public int ArcOffset
+		{
+			get
+			{
+				return GameComponent.sacrificer_arcOffset;
+			}
+			set
+			{
+				GameComponent.sacrificer_arcOffset = value;
+			}
+		}
+
+		public int MetOffset
+		{
+			get
+			{
+				return GameComponent.sacrificer_metOffset;
+			}
+			set
+			{
+				GameComponent.sacrificer_metOffset = value;
+			}
+		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref cpxOffset, "cpxOffset", defaultValue: 0);
-			Scribe_Values.Look(ref arcOffset, "arcOffset", defaultValue: 0);
-			Scribe_Values.Look(ref metOffset, "metOffset", defaultValue: 0);
 			Scribe_Defs.Look(ref sacrificerModeDef, "sacrificerModeDef");
-			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				def.biostatMet = 0;
+				update = true;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			SacrificerModeDef?.Worker?.PostRemove(this);
+		}
+
+		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (!selPawn.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly))
+			{
+				yield break;
+			}
+			if (pawn.IsQuestLodger())
+			{
+				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			if (!SacrificerModeDef.Worker.IsAllowed(selPawn))
+			{
+				yield return new FloatMenuOption("WVC_Sacrificer_SelfSacrificeWrongModeTip".Translate(selPawn.Named("PAWN")), null);
+				yield break;
+			}
+			//if (selPawn.IsQuestLodger())
 			//{
-			//	metUpdated = false;
+			//	yield return new FloatMenuOption("TemporaryFactionMember".Translate(selPawn.Named("PAWN")), null);
+			//	yield break;
 			//}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_Sacrificer_SelfSacrifice".Translate(), delegate
+			{
+				Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
+				selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
+			}), selPawn, pawn);
+		}
+
+		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
+		{
+			if (pawn.IsQuestLodger())
+			{
+				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_Sacrificer_SelfSacrifice".Translate(), delegate
+			{
+				foreach (Pawn p in selPawns)
+				{
+					if (!SacrificerModeDef.Worker.IsAllowed(p))
+					{
+						continue;
+					}
+					if (!p.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly))
+					{
+						continue;
+					}
+					//if (p.IsQuestLodger())
+					//{
+					//	continue;
+					//}
+					Job job = JobMaker.MakeJob(Extension_Giver.jobDef, pawn);
+					p.TryTakeOrderedJob(job, JobTag.Misc, false);
+				}
+			}), selPawns.RandomElement(), pawn);
 		}
 
 	}

@@ -18,9 +18,11 @@
 
 	<!-- <WVC_SacrificerGene_Message>An alloy with gravstone grains used for building a huge variety of structures, weapons, and machines.</WVC_SacrificerGene_Message> -->
 
-	<WVC_DeathworldScenario_PenaltyLetter>From the Void</WVC_DeathworldScenario_PenaltyLetter>
-	<WVC_DeathworldScenario_PenaltyLetterDesc>You've wasted too much time and attracted the attention of something from the Void. {0_nameDef} was given special attention and could now become a problem.</WVC_DeathworldScenario_PenaltyLetterDesc>
+	<!-- <WVC_DeathworldScenario_PenaltyLetter>From the Void</WVC_DeathworldScenario_PenaltyLetter> -->
+	<!-- <WVC_DeathworldScenario_PenaltyLetterDesc>You've wasted too much time and attracted the attention of something from the void. The abilities that some of your pawns have been gifted with can cause problems. -->
+<!-- </WVC_DeathworldScenario_PenaltyLetterDesc> -->
+	 <!-- {0_nameDef} was given special attention and could now become a problem. -->
 
-	<WVC_DeathworldScenario_ChoosePenalty>Mode: {0}</WVC_DeathworldScenario_ChoosePenalty>
+	<!-- <WVC_DeathworldScenario_ChoosePenalty>Mode: {0}</WVC_DeathworldScenario_ChoosePenalty> -->
 
 </LanguageData>

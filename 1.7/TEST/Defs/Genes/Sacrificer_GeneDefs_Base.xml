@@ -26,7 +26,21 @@
 	  <li>WVC_Chimera</li>
 	  <li>WVC_Gene_Sacrificer</li>
 	  <li>WVC_XenogenesEditors</li>
+	  <li>WVC_Energyshifter_XenogenesEditor</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>WVC_Sacrificer_SelfSacrifice</jobDef>
+		</li>
+	</modExtensions>
   </GeneDef>
+
+  <!-- ============================================ -->
+
+  <JobDef ParentName="WVC_XenotypesAndGenes_JobDef_Base">
+	<defName>WVC_Sacrificer_SelfSacrifice</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_SelfSacrifice</driverClass>
+	<reportString>self sacrifice.</reportString>
+  </JobDef>
 
 </Defs>
