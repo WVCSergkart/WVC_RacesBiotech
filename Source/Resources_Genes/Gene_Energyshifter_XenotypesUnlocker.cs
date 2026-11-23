@@ -324,7 +324,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			delayTick = Gene_Energyshifter.LocalMode ? 0 : Find.TickManager.TicksGame + 45000;
+			delayTick = Gene_Energyshifter.LocalMode ? 0 : Find.TickManager.TicksGame + (3600000 / Extension_Giver.genesPerYear);
 			phase = "scan encounters";
 			GeneDef newGeneDef = null;
 			if (Rand.Chance(0.92f))

@@ -43,15 +43,57 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public bool HideMechanitorGUI => pawn.mechanitor == null || pawn.mechanitor.UsedBandwidth <= 0;
+
 		public void SetTarget(Pawn newTarget)
 		{
 			mainframeTarget = newTarget != pawn ? newTarget : null;
 		}
 
+		public override void DoEffects()
+		{
+			if (Pawn.SpawnedOrAnyParentSpawned)
+			{
+				EffectsUtility.DoSkipEffects(Pawn.PositionHeld, Pawn.MapHeld);
+			}
+		}
+
+		//public override void PostRemove()
+		//{
+		//	base.PostRemove();
+		//	RecacheCollection();
+		//}
+
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	RecacheCollection();
+		//	HotPatchesUtility.Patch_MechanitorGizmos();
+		//}
+
+		//public static void RecacheCollection()
+		//{
+		//	RecacheCollection();
+		//}
+
 		//public override void ExposeData()
 		//{
 		//	base.ExposeData();
-		//	Scribe_References.Look(ref mainframeTarget, "target");
+		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		//	{
+		//		HotPatchesUtility.Patch_MechanitorGizmos();
+		//	}
+		//	//Scribe_References.Look(ref mainframeTarget, "target");
+		//}
+
+		//public void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	RecacheCollection();
+		//}
+
+		//public void Notify_Override()
+		//{
+		//	RecacheCollection();
 		//}
 
 	}

@@ -102,25 +102,23 @@ namespace WVC_XenotypesAndGenes
 			cachedUndeadExtension = null;
 			foreach (DefModExtension defModExtension in def.modExtensions)
 			{
-				if (defModExtension is GeneExtension_Giver geneExtension_Giver)
+				switch (defModExtension)
 				{
-					SetExtension(geneExtension_Giver, ref cachedGiverExtension);
-				}
-				else if (defModExtension is GeneExtension_Graphic geneExtension_Graphic)
-				{
-					SetExtension(geneExtension_Graphic, ref cachedGraphicExtension);
-				}
-				else if (defModExtension is GeneExtension_Opinion geneExtension_Opinion)
-				{
-					SetExtension(geneExtension_Opinion, ref cachedOpinionExtension);
-				}
-				else if (defModExtension is GeneExtension_Spawner geneExtension_Spawner)
-				{
-					SetExtension(geneExtension_Spawner, ref cachedSpawnerExtension);
-				}
-				else if (defModExtension is GeneExtension_Undead geneExtension_Undead)
-				{
-					SetExtension(geneExtension_Undead, ref cachedUndeadExtension);
+					case GeneExtension_Giver geneExtension_Giver:
+						SetExtension(geneExtension_Giver, ref cachedGiverExtension);
+						break;
+					case GeneExtension_Graphic geneExtension_Graphic:
+						SetExtension(geneExtension_Graphic, ref cachedGraphicExtension);
+						break;
+					case GeneExtension_Opinion geneExtension_Opinion:
+						SetExtension(geneExtension_Opinion, ref cachedOpinionExtension);
+						break;
+					case GeneExtension_Spawner geneExtension_Spawner:
+						SetExtension(geneExtension_Spawner, ref cachedSpawnerExtension);
+						break;
+					case GeneExtension_Undead geneExtension_Undead:
+						SetExtension(geneExtension_Undead, ref cachedUndeadExtension);
+						break;
 				}
 			}
 
@@ -128,7 +126,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (extensionRef != null)
 				{
-					Log.Warning($"Duplicate {extension.ToString()} extension for geneDef: " + def.defName);
+					if (ModsUtility.DevMode)
+					{
+						Log.Warning($"Duplicate {nameof(extension)} extension for geneDef: " + def.defName + ". Old extension replaced with new one.");
+					}
 				}
 				extensionRef = extension;
 			}

@@ -55,6 +55,9 @@
 	<statOffsets>
 	  <WVC_ScarifierScars MayRequire="ludeon.rimworld.ideology">-3</WVC_ScarifierScars>
 	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_Shapeshifter</li>
+	</exclusionTags>
 	<customEffectDescriptions>
 		<li>Guaranteed to be &lt;color=#8a8ae6&gt;inherited&lt;/color&gt; in normal &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt;.</li>
 	</customEffectDescriptions>

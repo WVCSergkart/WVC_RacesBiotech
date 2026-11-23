@@ -89,6 +89,13 @@ namespace WVC_XenotypesAndGenes
 			base.PreShapeshift(genesRegrowing);
 		}
 
+		//public override void PostShapeshift(bool genesRegrowing)
+		//{
+		//	base.PostShapeshift(genesRegrowing);
+		//	//overridenGenes = null;
+		//	//UpdOverridenGenes();
+		//}
+
 		public override void UnlockGeneDef(GeneDef geneDef)
 		{
 			if (LocalMode)
@@ -188,6 +195,7 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
+		//private bool updateInTick = true;
 		public override void TickInterval(int delta)
 		{
 			base.TickInterval(delta);
@@ -199,6 +207,17 @@ namespace WVC_XenotypesAndGenes
 					TickSubGenes();
 				}
 			}
+			//if (updateInTick)
+			//{
+			//	updateInTick = false;
+			//	if (overridenGenes != null)
+			//	{
+			//		foreach (Gene gene in overridenGenes)
+			//		{
+			//			gene.OverrideBy(this);
+			//		}
+			//	}
+			//}
 		}
 
 		private void TickSubGenes()
@@ -353,6 +372,44 @@ namespace WVC_XenotypesAndGenes
 				EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 			}
 		}
+
+		//public override void Notify_Override()
+		//{
+		//	base.Notify_Override();
+		//	updateInTick = true;
+		//}
+
+		//private List<Gene> overridenGenes;
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Collections.Look(ref overridenGenes, "overridenGenes", LookMode.Reference);
+		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		//	{
+		//		UpdOverridenGenes();
+		//	}
+		//}
+
+		//private void UpdOverridenGenes()
+		//{
+		//	try
+		//	{
+		//		if (overridenGenes == null)
+		//		{
+		//			foreach (Gene gene in pawn.genes.GenesListForReading)
+		//			{
+		//				if (gene.overriddenByGene == this)
+		//				{
+		//					overridenGenes.Add(gene);
+		//				}
+		//			}
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		Log.Error("Failed update overrides.");
+		//	}
+		//}
 
 	}
 

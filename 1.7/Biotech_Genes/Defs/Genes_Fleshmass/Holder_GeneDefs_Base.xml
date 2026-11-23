@@ -20,7 +20,7 @@
 
   <!-- ====== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHolder_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHolder_Base" Name="WVC_XenotypesAndGenes_GeneHolder_Holder">
 	<defName>WVC_Holder</defName>
 	<label>holder</label>
 	<description>Carriers of this gene have archites that are capable of disassembling and reassembling pawns with a specific genetic pattern.</description>

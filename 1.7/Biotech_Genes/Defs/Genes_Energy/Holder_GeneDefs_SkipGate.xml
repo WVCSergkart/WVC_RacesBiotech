@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHolder_Holder">
+	<defName>WVC_Holder_SkipGate</defName>
+	<label>skip holder</label>
+	<description>Carriers of this gene can act as a kind of beacon for skip gates leading to the mechanoid fleet's crypto-chamber.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Holder_SkipGate</geneClass>
+	<iconPath>WVC/UI/Genes4/Gene_Holder_SkipGate</iconPath>
+	<displayOrderInCategory>155</displayOrderInCategory>
+	<displayCategory>WVC_Energy</displayCategory>
+	<customEffectDescriptions>
+		<li MayRequire="ludeon.rimworld.odyssey">&lt;color=#ff8585&gt;Mechhive dependant.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>WVC_Holder_HoldMe</jobDef>
+			<hediffDef>WVC_HoldedPawn</hediffDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

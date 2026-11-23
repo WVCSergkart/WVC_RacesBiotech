@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		public bool useMaskForFurskinGenes = true;
 		// Generator
 		public bool generateSkillGenes = false;
-		public bool generateXenotypeForceGenes = false;
+		//public bool generateXenotypeForceGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
@@ -132,6 +132,7 @@ namespace WVC_XenotypesAndGenes
 		// ExtraSettings
 		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
+		public bool ignoreOdysseyFeatures = false;
 
 	}
 

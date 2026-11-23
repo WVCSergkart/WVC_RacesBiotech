@@ -155,6 +155,22 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref sacrificer_arcOffset, "sacrificer_arcOffset", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_metOffset, "sacrificer_metOffset", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_defMet, "sacrificer_defMet");
+			Scribe_Collections.Look(ref holder_Containers, "holder_Containers", LookMode.Deep);
+		}
+
+		// =======================================
+
+		private List<PawnContainerHolder> holder_Containers;
+		public virtual List<PawnContainerHolder> HolderContainers
+		{
+			get
+			{
+				if (holder_Containers == null)
+				{
+					holder_Containers = new();
+				}
+				return holder_Containers;
+			}
 		}
 
 		// ========================================

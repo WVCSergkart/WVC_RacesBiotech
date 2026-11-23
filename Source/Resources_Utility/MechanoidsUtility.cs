@@ -494,7 +494,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (!ModsConfig.OdysseyActive)
+				if (WVC_Biotech.settings.ignoreOdysseyFeatures || !ModsConfig.OdysseyActive)
 				{
 					return false;
 				}

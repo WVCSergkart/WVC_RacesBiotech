@@ -149,6 +149,7 @@ namespace WVC_XenotypesAndGenes
 		// ExtraSettings
 		public float generalGenesRarity_Divisor = 0f;
 		public bool offsetMarketPriceFromGenes = false;
+		public bool ignoreOdysseyFeatures = false;
 		//public bool enable_HideMechanitorButtonsPatch = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
@@ -177,6 +178,7 @@ namespace WVC_XenotypesAndGenes
 			//Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			//Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
+			Scribe_Values.Look(ref ignoreOdysseyFeatures, "ignoreOdysseyFeatures", defaultValue: false);
 			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
 			Scribe_Values.Look(ref disableLegacy, "disableLegacy", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
@@ -491,6 +493,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_vanillaFixesTweaksAndCompatability, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_hediffs_checkImmunizationAndRemove".Translate(), ref settings.hediffs_checkImmunizationAndRemove, "WVC_ToolTip_hediffs_checkImmunizationAndRemove".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_ignoreOdysseyFeatures".Translate().Colorize(ColorLibrary.LightBlue), ref settings.ignoreOdysseyFeatures, "WVC_ToolTip_ignoreOdysseyFeatures".Translate());
 			listingStandard.GapLine();
 			// Serums
 			// if (settings.serumsForAllXenotypes)
@@ -978,7 +981,7 @@ namespace WVC_XenotypesAndGenes
 		public static void ResetSettings_ByTemplate(SettingsDef settingsDef)
 		{
 			WVC_Biotech.settings.onlyXenotypesMode = settingsDef.onlyXenotypesMode;
-			WVC_Biotech.settings.EnableLegacyMode = false;
+			WVC_Biotech.settings.EnableLegacyMode = true;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = settingsDef.hideXaGGenes;
 			WVC_Biotech.settings.disableFurGraphic = settingsDef.disableFurGraphic;
@@ -994,6 +997,7 @@ namespace WVC_XenotypesAndGenes
 			//WVC_Biotech.settings.generateSkinHairColorGenes = settingsDef.generateSkinHairColorGenes;
 			// Misc
 			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
+			WVC_Biotech.settings.ignoreOdysseyFeatures = settingsDef.ignoreOdysseyFeatures;
 			// Fix
 			WVC_Biotech.settings.harmony_vanillaFixesTweaksAndCompatability = settingsDef.harmony_vanillaFixesTweaksAndCompatability;
 			//WVC_Biotech.settings.hediffs_checkImmunizationAndRemove = settingsDef.hediffs_checkImmunizationAndRemove;

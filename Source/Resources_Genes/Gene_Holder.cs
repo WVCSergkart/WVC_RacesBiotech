@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private List<PawnContainerHolder> savedContainers;
-		public List<PawnContainerHolder> Containers
+		public virtual List<PawnContainerHolder> Containers
 		{
 			get
 			{
@@ -59,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 		public override TaggedString RemoteActionDesc => "WVC_GeneHolder_RCDesc".Translate();
 
 		private bool autoRelease = true;
+		private int autoReleaseDelay;
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -112,7 +113,9 @@ namespace WVC_XenotypesAndGenes
 				//}
 				UpdHediff();
 				HediffUtility.TryAddHediff(Extension_Giver.hediffDef, caller, def);
-				EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+				//EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+				DoEffects(pawn);
+				autoReleaseDelay = 12000;
 				return true;
 			}
 			Log.Error("Failed set pawn container.");
@@ -139,15 +142,15 @@ namespace WVC_XenotypesAndGenes
 		//	}
 		//}
 
-		private void TryKillPawn(PawnContainerHolder target)
-		{
-			if (target.innerContainer != null && target.holded != null)
-			{
-				HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
-				target.holded.Kill();
-			}
-			RemoveSetHolder(target);
-		}
+		//private void TryKillPawn(PawnContainerHolder target)
+		//{
+		//	if (target.innerContainer != null && target.holded != null)
+		//	{
+		//		HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
+		//		target.holded.Kill();
+		//	}
+		//	RemoveSetHolder(target);
+		//}
 
 		private void TryDropPawn(PawnContainerHolder target)
 		{
@@ -164,7 +167,12 @@ namespace WVC_XenotypesAndGenes
 			//HediffHolder?.Reset();
 			UpdHediff();
 			HediffUtility.TryRemoveHediff(Extension_Giver.hediffDef, target.holded);
-			EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
+			DoEffects(pawn);
+		}
+
+		public virtual void DoEffects(Pawn pawn)
+		{
+			EffectsUtility.DoShapeshiftEffects_OnPawn(pawn);
 		}
 
 		private void RemoveSetHolder(PawnContainerHolder oldSet)
@@ -188,14 +196,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Notify_PawnDied(dinfo, culprit);
 			DropContainer();
-			// Уничтожаем содержимое в случае невозможности дропа
-			//if (holderIsDead)
-			//{
-			//	foreach (PawnContainerHolder pawnContainerHolder in Containers.ToList())
-			//	{
-			//		TryKillPawn(pawnContainerHolder);
-			//	}
-			//}
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -224,6 +224,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.MapHeld == null)
 			{
+				//if (Find.Maps.TryRandomElement(out Map result))
+				//{
+
+				//}
 				return;
 			}
 			foreach (PawnContainerHolder pawnContainerHolder in Containers.ToList())
@@ -244,6 +248,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!autoRelease)
 			{
+				return;
+			}
+			if (autoReleaseDelay > 0)
+			{
+				autoReleaseDelay -= 5000;
 				return;
 			}
 			if (pawn.Drafted || pawn.Downed)
@@ -347,148 +356,6 @@ namespace WVC_XenotypesAndGenes
 				}), selPawns.RandomElement(), pawn);
 			}
 		}
-
-	}
-
-	public class Gene_Holded : Gene_RemoteController, IGeneFloatMenuOptions
-	{
-
-		//[Unsaved(false)]
-		//private GeneExtension_Giver cachedGeneExtension_Giver;
-		//public GeneExtension_Giver Giver
-		//{
-		//	get
-		//	{
-		//		if (cachedGeneExtension_Giver == null)
-		//		{
-		//			cachedGeneExtension_Giver = def.GetModExtension<GeneExtension_Giver>();
-		//		}
-		//		return cachedGeneExtension_Giver;
-		//	}
-		//}
-
-		private bool autoHold = true;
-		private int lastHoldingTicks = 0;
-
-		public override string RemoteActionName => XaG_UiUtility.OnOrOff(autoHold);
-		public override TaggedString RemoteActionDesc => "WVC_GeneHolded_RCDesc".Translate();
-
-		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
-		{
-			autoHold = !autoHold;
-		}
-
-		public override void TickInterval(int delta)
-		{
-			if (!autoHold)
-			{
-				return;
-			}
-			if (pawn.IsHashIntervalTick(5555, delta))
-			{
-				TryCallHolder();
-			}
-		}
-
-		public void SetDelay(int delay = 5)
-		{
-			lastHoldingTicks = delay;
-		}
-
-		private void TryCallHolder()
-		{
-			if (lastHoldingTicks > 0)
-			{
-				lastHoldingTicks--;
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				return;
-			}
-			if (pawn.HomeFaction != Faction.OfPlayer)
-			{
-				return;
-			}
-			if (pawn.Drafted || pawn.Downed)
-			{
-				return;
-			}
-			if (!pawn.mindState.IsIdle)
-			{
-				return;
-			}
-			List<Pawn> allHumanlikeSpawned = pawn.Map.mapPawns.AllHumanlikeSpawned;
-			allHumanlikeSpawned.Shuffle();
-			foreach (Pawn target in allHumanlikeSpawned)
-			{
-				if (target.HomeFaction != Faction.OfPlayer)
-				{
-					continue;
-				}
-				if (target.genes == null)
-				{
-					continue;
-				}
-				if (target.Drafted || target.Downed)
-				{
-					continue;
-				}
-				if (target.genes.GenesListForReading.Any(gene => gene is Gene_Holder && gene.Active))
-				{
-					Job job = JobMaker.MakeJob(Extension_Giver.jobDef, target);
-					pawn.TryTakeOrderedJob(job, JobTag.Misc, false);
-					break;
-				}
-			}
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref autoHold, "autoHold", true);
-		}
-
-		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
-		{
-			if (!Active)
-			{
-				yield break;
-			}
-			if (!selPawn.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly))
-			{
-				yield break;
-			}
-			if (selPawn.genes?.GetFirstGeneOfType<Gene_Holder>() == null)
-			{
-				yield break;
-			}
-			if (pawn.IsQuestLodger())
-			{
-				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
-				yield break;
-			}
-			if (selPawn.IsQuestLodger())
-			{
-				yield return new FloatMenuOption("TemporaryFactionMember".Translate(selPawn.Named("PAWN")), null);
-				yield break;
-			}
-			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_GeneHolder_HoldTarget".Translate(), delegate
-			{
-				Job job = JobMaker.MakeJob(Extension_Giver.tryHoldJobDef, pawn);
-				selPawn.TryTakeOrderedJob(job, JobTag.Misc, false);
-			}), selPawn, pawn);
-		}
-
-		public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
-		{
-			yield break;
-		}
-
-		//public IEnumerable<FloatMenuOption> CompMultiSelectFloatMenuOptions(IEnumerable<Pawn> selPawns)
-		//{
-		//	yield break;
-		//}
 
 	}
 

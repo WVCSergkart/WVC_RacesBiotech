@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 2160337675
+CRC: 311101597
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 565134490b6f0ec32eff0c3e49ca4258
+    Hash: b0ca69e324203af68861350f7c77ae0e
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6b29aa17133c05dfb9470777f41314a6
+    Hash: f67946454581a3ea42ab254713a346bd
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -1065,6 +1065,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/StoneGene_Body/Naked_Fat_north.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Buildings/ResurgentTree_Moss/Cluster_B.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_Holder_SkipGate.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/UI4/UI_Flesh_GeneStyle_Gizmo.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Skills/Intellectual/HalfCrown.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/XenoIcons/Xeno8.png

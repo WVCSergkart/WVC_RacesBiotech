@@ -15,7 +15,7 @@
 	<presetOrder>5</presetOrder>
 	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
 	<hideGeneHediffs>true</hideGeneHediffs>
-	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
+	<!-- <fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs> -->
 	<duplicator_ReplaceVanillaDuplicator>True</duplicator_ReplaceVanillaDuplicator>
 	<bloodeater_HideAbilitiesByDefault>True</bloodeater_HideAbilitiesByDefault>
 	<generateSkillGenes>false</generateSkillGenes>
@@ -53,7 +53,7 @@
 	<!-- <offsetMarketPriceFromGenes>True</offsetMarketPriceFromGenes> -->
 	<!-- <enable_HideMechanitorButtonsPatch>True</enable_HideMechanitorButtonsPatch> -->
 	<chimera_defaultReqMetabolismRange>-5~5</chimera_defaultReqMetabolismRange>
-	<fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs>
+	<!-- <fleshmass_HideBodypartHediffs>True</fleshmass_HideBodypartHediffs> -->
 	<duplicator_ReplaceVanillaDuplicator>True</duplicator_ReplaceVanillaDuplicator>
 	<!-- <enable_DevModeInfo>True</enable_DevModeInfo> -->
 	<bloodeater_HideAbilitiesByDefault>True</bloodeater_HideAbilitiesByDefault>

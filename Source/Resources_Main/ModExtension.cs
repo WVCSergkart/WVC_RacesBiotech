@@ -652,6 +652,8 @@ namespace WVC_XenotypesAndGenes
 		public bool reqCooldown;
 		public bool database;
 		public string iconPath;
+		// Xeno unlocker
+		public int genesPerYear;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

@@ -276,4 +276,8 @@ A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 	<WVC_Label_hideGeneHediffs>Hide gene hediffs</WVC_Label_hideGeneHediffs>
 	<WVC_ToolTip_hideGeneHediffs>If enabled, some gene hediffs will stop displaying, this will not affect their stats and has only a cosmetic effect. For example, hediffs scarifier, resurgent, random, cellular, etc.</WVC_ToolTip_hideGeneHediffs>
 
+	<!-- ====================================================================================== -->
+	<WVC_Label_ignoreOdysseyFeatures>Ignore odyssey (Cerebrex Core/Mechhive) features</WVC_Label_ignoreOdysseyFeatures>
+	<WVC_ToolTip_ignoreOdysseyFeatures>Some genes and mechanics react to the presence of the Cerebrex Core during an Odyssey and may or may not function until it is destroyed.\n\nThis option disables this feature, returning all these mechanics to their default state.\n\nNote that conditions requiring the destruction of the Cerebrex Core will assume the core is intact, even after it is destroyed.</WVC_ToolTip_ignoreOdysseyFeatures>
+
 </LanguageData>

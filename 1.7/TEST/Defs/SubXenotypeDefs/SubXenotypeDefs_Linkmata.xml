@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_Linkmata</defName>
+	<label>linkmata</label>
+	<iconDef>WVC_Mechamata1c</iconDef>
+	<displayPriority>-1026</displayPriority>
+	<genes>
+		<li>WVC_Backup</li>
+		<li>WVC_StasisStomach</li>
+		<li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+		<li>WVC_Holded</li>
+		<li>WVC_MinMaxTemp_Adaptive</li>
+		<li>WVC_ArchiteMechlink</li>
+		<li>WVC_Energyshifter</li>
+		<li>WVC_Energyshifter_SlowAging</li>
+		<li>WVC_Energyshifter_Rejuvenator</li>
+		<li>WVC_Energyshifter_Immunity</li>
+		<li>WVC_Energyshifter_Regeneration</li>
+		<li>WVC_Energyshifter_XenotypesUnlocker</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_Hivemind_DeafDrone</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>ToxResist_Total</li>
+		<li>Neversleep</li>
+		<li>WVC_Tough</li>
+		<li>WVC_Mecha_EarsCat</li>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_FleshmassSkin</li>
+		<li>WVC_CatTailB</li>
+		<li>Body_Standard</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>Skin_PaleRed</li>
+		<li>WVC_SkinColor_OldBones</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Learning_Stasis</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>

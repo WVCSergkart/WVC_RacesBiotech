@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Dev Name: Sacrifice -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.anomaly" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
 	<defName>WVC_Sacrifice</defName>
 	<label>sacrifice</label>
 	<description>Sacrifices are ageless super-humans powered by dark archites in the bloodstream. They are a distorted version of the mechamata xenotype and are effectively sub-xenotypes. They are partially immortal, incredibly resilient, and can freely alter their genetic code. But their main distinguishing feature is their connection to the void, which can be both a curse and a blessing.
@@ -18,23 +18,25 @@
 	<genes>
 		<li>WVC_Backup</li>
 		<li>WVC_StasisStomach</li>
-		<li>VacuumResistance_Total</li>
 		<li>WVC_Sacrificer</li>
 		<li>WVC_FleshmassHeart</li>
+		<li>WVC_MinMaxTemp_Adaptive</li>
+		<li>WVC_Fleshmass_MultToxRes</li>
 		<li>WVC_Agevenator</li>
 		<li>WVC_Energyshifter</li>
 		<li>WVC_Energyshifter_SlowAging</li>
+		<li>WVC_Skillshifter</li>
 		<li>WVC_Energyshifter_Immunity</li>
 		<li>WVC_Energyshifter_XenotypesUnlocker</li>
 		<li>WVC_MechaPowerSource_Tox</li>
 		<li>WVC_Hivemind_DeafDrone</li>
-		<li>WVC_VoidVoice</li>
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_MinTemp_ArchiteDecrease</li>
-		<li>WVC_MaxTemp_ArchiteIncrease</li>
-		<li>ToxResist_Total</li>
 		<li>Neversleep</li>
-		<li>WVC_Tough</li>
+		<li>WVC_Unbreakable</li>
+		<li>WVC_OffspringDevourer</li>
+		<!-- or -->
+		<!-- <li>Sterile</li> -->
 		<li>WVC_HeadBoneCurveHorns</li>
 		<li>WVC_MechaSkin</li>
 		<li>WVC_FleshmassSkin</li>

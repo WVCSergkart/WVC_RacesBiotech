@@ -27,6 +27,12 @@
 	<exclusionTags>
 	  <li>WVC_Energyshifter_XenotypesUnlocker</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- research speed -->
+			<genesPerYear>80</genesPerYear>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>
