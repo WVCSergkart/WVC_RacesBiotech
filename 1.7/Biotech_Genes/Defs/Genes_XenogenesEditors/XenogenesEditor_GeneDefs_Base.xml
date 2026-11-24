@@ -5,6 +5,7 @@
 	<labelShortAdj>genebase</labelShortAdj>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenogenesEditor_General</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_XenogenesEditor</resourceGizmoType>
+	<description>Carriers of this gene can freely change genes within a limited pattern.</description>
 	<resourceDescription>general tip</resourceDescription>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>3</biostatCpx>
@@ -14,7 +15,7 @@
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<displayOrderInCategory>-10</displayOrderInCategory>
-	<displayCategory>WVC_Chimera</displayCategory>
+	<displayCategory>WVC_XenogenesEditors</displayCategory>
 	<marketValueFactor>2.5</marketValueFactor>
 	<iconPath>WVC/UI/Genes3/Gene_Chimera_GeneDatabase</iconPath>
 	<!-- <customEffectDescriptions> -->

@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Energyshifter_SubGene : Gene_Disconnectable, IGeneRecacheable
 	{
 
+		public static XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
+
 		public override bool Active
 		{
 			get

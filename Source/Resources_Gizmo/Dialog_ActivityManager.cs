@@ -116,10 +116,18 @@ namespace WVC_XenotypesAndGenes
 					if (gene.Overridden)
 					{
 						gene.OverrideBy(null);
+						if (masterGene is IGeneMasterOfDisconnections geneMasterOf)
+						{
+							geneMasterOf.OverridenByMaster_Genes.Remove(gene);
+						}
 					}
 					else
 					{
 						gene.OverrideBy(masterGene);
+						if (masterGene is IGeneMasterOfDisconnections geneMasterOf)
+						{
+							geneMasterOf.OverridenByMaster_Genes.Add(gene);
+						}
 					}
 					return true;
 				}

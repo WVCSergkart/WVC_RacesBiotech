@@ -2,11 +2,15 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenogenesEditor_Base">
-	<defName>WVC_XengenesEditor_FleshHive</defName>
+	<defName>WVC_XenogenesEditor_FleshHive</defName>
 	<label>fleshhive database</label>
 	<labelShortAdj>fleshbase</labelShortAdj>
-	<description>Carriers of this gene have archites that are TEMPLATE TEST.</description>
-	<displayOrderInCategory>-50</displayOrderInCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes4/Gene_XenogenesEditor_FleshHive</iconPath>
+	<resourceDescription>Allows implantation of hivemind and fleshmass xenogenes.</resourceDescription>
+	<customEffectDescriptions>
+		<li>Allows implantation of hivemind and fleshmass xenogenes.</li>
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>hive</symbol></li>

@@ -151,12 +151,17 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref backup_GeneCooldown, "backup_GeneCooldown", -1);
 			Scribe_Collections.Look(ref unlockedXenotypes, "unlockedXenotypeDefs", LookMode.Value);
 			Scribe_Collections.Look(ref collectedGeneDefs, "collectedGeneDefs", LookMode.Value);
+			Scribe_Values.Look(ref xenoUnlocker_delayTick, "xenoUnlocker_delayTick", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_cpxOffset, "sacrificer_cpxOffset", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_arcOffset, "sacrificer_arcOffset", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_metOffset, "sacrificer_metOffset", defaultValue: 0);
 			Scribe_Values.Look(ref sacrificer_defMet, "sacrificer_defMet");
 			Scribe_Collections.Look(ref holder_Containers, "holder_Containers", LookMode.Deep);
 		}
+
+		// =======================================
+
+		public int xenoUnlocker_delayTick;
 
 		// =======================================
 

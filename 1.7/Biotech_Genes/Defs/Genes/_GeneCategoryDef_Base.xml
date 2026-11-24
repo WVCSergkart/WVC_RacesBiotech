@@ -70,6 +70,11 @@
 	<label>overrider</label>
 	<displayPriorityInXenotype>506.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_XenogenesEditors</defName>
+	<label>xenogenes editors</label>
+	<displayPriorityInXenotype>505.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
 
   <GeneCategoryDef>
 	<defName>WVC_RandomGenes</defName>

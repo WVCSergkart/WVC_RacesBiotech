@@ -1225,10 +1225,10 @@ namespace WVC_XenotypesAndGenes
 					}
 					gene.pawn?.genes?.RemoveGene(gene);
 				}
-				if (!XaG_GeneUtility.HasGene(gene.Def, gene.Pawn))
-				{
-					gene.Pawn.genes.AddGene(gene.Def, false);
-				}
+				//if (!XaG_GeneUtility.HasGene(gene.Def, gene.Pawn))
+				//{
+				//	gene.Pawn.genes.AddGene(gene.Def, false);
+				//}
 			}
 			catch
 			{

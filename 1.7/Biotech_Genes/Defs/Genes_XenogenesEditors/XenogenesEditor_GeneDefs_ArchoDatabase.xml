@@ -11,7 +11,7 @@
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>7</biostatArc>
 	<biostatMet>-5</biostatMet>
-	<displayOrderInCategory>-40</displayOrderInCategory>
+	<displayOrderInCategory>-10</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Allows implant all genes without restrictions.</li>
 	</customEffectDescriptions>

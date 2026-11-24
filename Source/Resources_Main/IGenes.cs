@@ -370,6 +370,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneMasterOfDisconnections
+	{
+
+		//void OverridedSubGene(Gene gene);
+		//void UnOverridedSubGene(Gene gene);
+		//void SwitchedSubGene(Gene gene);
+		List<Gene> OverridenByMaster_Genes { get; set; }
+
+	}
+
 	//InDev
 	//public interface IGeneDeathless
 	//{

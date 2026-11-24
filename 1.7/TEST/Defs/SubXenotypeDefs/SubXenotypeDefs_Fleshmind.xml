@@ -11,10 +11,11 @@
 		<li>WVC_FleshmassArmor</li>
 		<li>WVC_MinMaxTemp_Adaptive</li>
 		<li>WVC_Reimplanter_HiveMaker</li>
-		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<!-- <li>WVC_ReimplanterArchite_Endogenes</li> -->
 		<li>WVC_Hivemind_SyncNode</li>
 		<li>WVC_Hivemind_DeathChain</li>
 		<li>WVC_Hivemind_Metabolism</li>
+		<li>WVC_XenogenesEditor_FleshHive</li>
 		<li>Immunity_Strong</li>
 		<li>LowSleep</li>
 		<li>Sterile</li>

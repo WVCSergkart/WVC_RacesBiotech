@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.4.0f1
-CRC: 311101597
+CRC: 3252499871
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b0ca69e324203af68861350f7c77ae0e
+    Hash: 454cdded8dd44897892287b4e7e9cf6e
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: f67946454581a3ea42ab254713a346bd
+    Hash: 5a95d25031d8beca8ccb90dd1ce1d706
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -269,6 +269,7 @@ Assets:
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Transparent_Body/Naked_Fat_south.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Bodies/Bone_Body/MaleBody_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemMiner_south.png
+- Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes4/Gene_XenogenesEditor_FleshHive.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/BodyParts/MecaGene_ScytheTail/BoneTail_east.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0.png
 - Assets/Data/wvc.sergkart.races.biotech/Textures/WVC/Heads/NodeGene_FacelessHead/Head_north.png

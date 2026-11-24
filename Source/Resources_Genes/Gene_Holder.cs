@@ -58,8 +58,8 @@ namespace WVC_XenotypesAndGenes
 		public override string RemoteActionName => "Release".Translate().CapitalizeFirst();
 		public override TaggedString RemoteActionDesc => "WVC_GeneHolder_RCDesc".Translate();
 
-		private bool autoRelease = true;
-		private int autoReleaseDelay;
+		protected bool autoRelease = true;
+		protected int autoReleaseDelay;
 
 		public override void RemoteControl_Action(Dialog_GenesSettings genesSettings)
 		{
@@ -115,11 +115,30 @@ namespace WVC_XenotypesAndGenes
 				HediffUtility.TryAddHediff(Extension_Giver.hediffDef, caller, def);
 				//EffectsUtility.DoSkipEffects(pawn.PositionHeld, pawn.MapHeld);
 				DoEffects(pawn);
-				autoReleaseDelay = 12000;
+				HoldDelay();
 				return true;
 			}
 			Log.Error("Failed set pawn container.");
 			return false;
+		}
+
+		public virtual void HoldDelay()
+		{
+			try
+			{
+				foreach (Gene_Holder gene_Holder in HolderGenes)
+				{
+					if (gene_Holder == null)
+					{
+						continue;
+					}
+					gene_Holder.autoReleaseDelay = 12000;
+				}
+			}
+			catch
+			{
+				autoReleaseDelay = 12000;
+			}
 		}
 
 		private void UpdHediff()
@@ -292,6 +311,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref autoRelease, "autoRelease", true);
+			Scribe_Values.Look(ref autoReleaseDelay, "autoReleaseDelay");
 			Scribe_Collections.Look(ref savedContainers, "HolderContainers", LookMode.Deep);
 		}
 

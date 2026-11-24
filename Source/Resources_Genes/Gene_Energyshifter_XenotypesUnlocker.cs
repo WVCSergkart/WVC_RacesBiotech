@@ -316,15 +316,14 @@ namespace WVC_XenotypesAndGenes
 		private bool noNewXenotypes = false;
 		private HashSet<Pawn> cachedScannedGuys;
 
-		private static int delayTick;
 		private void DoResearch(ref string phase)
 		{
 			phase = "delay";
-			if (delayTick > Find.TickManager.TicksGame)
+			if (GameComponent.xenoUnlocker_delayTick > Find.TickManager.TicksGame)
 			{
 				return;
 			}
-			delayTick = Gene_Energyshifter.LocalMode ? 0 : Find.TickManager.TicksGame + (3600000 / Extension_Giver.genesPerYear);
+			GameComponent.xenoUnlocker_delayTick = Gene_Energyshifter.LocalMode ? 0 : Find.TickManager.TicksGame + (3600000 / Extension_Giver.genesPerYear);
 			phase = "scan encounters";
 			GeneDef newGeneDef = null;
 			if (Rand.Chance(0.92f))
@@ -415,11 +414,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref delayTick, "delayTick");
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref xenoUnlocker_delayTick, "delayTick");
+		//}
 
 	}
 
