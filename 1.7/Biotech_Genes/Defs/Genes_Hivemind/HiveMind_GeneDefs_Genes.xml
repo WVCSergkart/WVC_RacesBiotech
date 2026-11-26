@@ -11,6 +11,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Maintain synchronization&lt;/color&gt; with hivemind in hard-to-connect places (ex: &lt;color=#8a8ae6&gt;holder, archiver, biosculptor&lt;/color&gt;, etc).</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_Hivemind_Drone</li>
 	</exclusionTags>

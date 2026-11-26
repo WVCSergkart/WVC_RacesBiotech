@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		private static List<Pawn> cachedPawns;
 		/// <summary>
 		/// Pawns in hivemind. List is used because it works faster with small lists than HashSet.
-		/// ..But 1.7 supports the ability to create large hiveminds. Switch to HasSet?
+		/// ..But 1.7 supports the ability to create large hiveminds. Switch to HashSet?
 		/// </summary>
 		public static List<Pawn> HivemindPawns
 		{
@@ -27,11 +27,42 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedPawns == null)
 				{
-					cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.Where((target) => CanBeInHivemind(target))?.ToList();
-					if (cachedPawns == null)
+					//if (ModsUtility.GameNotStarted())
+					//{
+					//	return new();
+					//}
+					try
 					{
-						cachedPawns = new();
-						Log.Warning("Hivemind is null.");
+						List<Pawn> pawns = new();
+						if (StaticCollectionsClass.GameComponent != null)
+						{
+							foreach (Pawn target in StaticCollectionsClass.GameComponent.HivemindCache)
+							{
+								if (target == null || target.Dead || !target.IsColonist || !CanBeInHivemind(target))
+								{
+									continue;
+								}
+								pawns.Add(target);
+							}
+						}
+						foreach (Pawn target in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
+						{
+							if (!pawns.Contains(target) && CanBeInHivemind(target))
+							{
+								pawns.Add(target);
+							}
+						}
+						cachedPawns = pawns;
+					}
+					catch
+					{
+						// Old init if error
+						cachedPawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists?.Where((target) => CanBeInHivemind(target))?.ToList();
+						if (cachedPawns == null)
+						{
+							cachedPawns = new();
+							Log.Warning("Hivemind is null.");
+						}
 					}
 				}
 				return cachedPawns;

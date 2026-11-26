@@ -11,11 +11,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static List<Pawn> Hivemind => HivemindUtility.HivemindPawns;
 		public static float PsyFactor => HivemindUtility.PsychicSensitivity;
+		public static XaG_GameComponent GameComponent => StaticCollectionsClass.GameComponent;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
 			ResetCollection();
+			GameComponent.UpdHivemindCache(pawn);
 		}
 
 		public virtual void ResetCollection()
@@ -51,6 +53,15 @@ namespace WVC_XenotypesAndGenes
 		public virtual void Notify_GenesRecache(Gene changedGene)
 		{
 			ResetCollection();
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				GameComponent.UpdHivemindCache(pawn);
+			}
 		}
 
 	}

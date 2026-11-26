@@ -124,6 +124,16 @@
             The chance of two different eggs matching with this crude method is small, but it's still possible..
             </summary>
         </member>
+        <member name="P:WVC_XenotypesAndGenes.XaG_GameComponent.HivemindCache">
+            <summary>
+            We store all hivemind pawns in the current save here.
+            This is necessary for timely detection of a player's hivemind pawns.
+            For example, pawns in containers, biosculptors, or holders (aka Gene_Holder) cut off pawns for the PawnsFinder, making them impossible for the hivemind to find.
+            This is only initialized in the main hivemind gene branch.
+            It's not necessary for side branches.
+            This is mainly because it's too much work, but it also gives the hivemind drone gene a purpose.
+            </summary>
+        </member>
         <member name="T:WVC_XenotypesAndGenes.IGeneInspectInfo">
             <summary>
             Timers. "Next resource_name in: 4.3 days"
@@ -249,7 +259,7 @@
         <member name="P:WVC_XenotypesAndGenes.HivemindUtility.HivemindPawns">
             <summary>
             Pawns in hivemind. List is used because it works faster with small lists than HashSet.
-            ..But 1.7 supports the ability to create large hiveminds. Switch to HasSet?
+            ..But 1.7 supports the ability to create large hiveminds. Switch to HashSet?
             </summary>
         </member>
         <member name="P:WVC_XenotypesAndGenes.HivemindUtility.IsInitialized">

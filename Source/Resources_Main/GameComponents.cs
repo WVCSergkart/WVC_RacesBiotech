@@ -324,6 +324,44 @@ namespace WVC_XenotypesAndGenes
 			nextRecache = interval.RandomInRange;
 		}
 
+		//  =========================================
+
+		private List<Pawn> currentHivemindCache;
+
+		/// <summary>
+		/// We store all hivemind pawns in the current save here.
+		/// This is necessary for timely detection of a player's hivemind pawns.
+		/// For example, pawns in containers, biosculptors, or holders (aka Gene_Holder) cut off pawns for the PawnsFinder, making them impossible for the hivemind to find.
+		/// This is only initialized in the main hivemind gene branch.
+		/// It's not necessary for side branches.
+		/// This is mainly because it's too much work, but it also gives the hivemind drone gene a purpose.
+		/// </summary>
+		public List<Pawn> HivemindCache
+		{
+			get
+			{
+				if (currentHivemindCache == null)
+				{
+					currentHivemindCache = new();
+				}
+				return currentHivemindCache;
+			}
+		}
+
+		public void UpdHivemindCache(Pawn pawn)
+		{
+			//if (currentHivemindCache == null)
+			//{
+			//	currentHivemindCache = ;
+			//}
+			if (!HivemindCache.Contains(pawn))
+			{
+				HivemindCache.Add(pawn);
+			}
+		}
+
+		//  =========================================
+
 	}
 
 }
