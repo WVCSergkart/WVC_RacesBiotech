@@ -18,6 +18,19 @@
 
 <!-- &lt;color=#999999&gt;These rules only apply if you have the Anomaly DLC.&lt;/color&gt; -->
 
+  <!-- hidden condition -->
+  <GameConditionDef MayRequire="ludeon.rimworld.odyssey">
+	<defName>WVC_SunBlockerInstant</defName>
+	<conditionClass>GameCondition_NoSunlight_Instant</conditionClass>
+	<label>endless night</label>
+	<description>The sky is covered with a swarm of microscopic machines, and ordinary sunlight has no chance of penetrating them.</description>
+	<letterText>A swarm of archites covered the sky.</letterText>
+	<letterDef>NegativeEvent</letterDef>
+	<canBePermanent>false</canBePermanent>
+	<natural>false</natural>
+	<displayOnUI>false</displayOnUI>
+  </GameConditionDef>
+
   <ScenarioDef MayRequire="ludeon.rimworld.odyssey" ParentName="ScenarioBase" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_Mechamata</defName>
 	<label>Endless night</label>
@@ -89,7 +102,7 @@
 		  <defaultSubstructureSupport>10000</defaultSubstructureSupport>
 		  <!-- vanilla ui limited to 999 -->
 		  <defaultBandwidth>999</defaultBandwidth>
-		  <forcedSacrificerModeDef MayRequire="ludeon.rimworld.anomaly">WVC_ChosenOnes</forcedSacrificerModeDef>
+		  <!-- <forcedSacrificerModeDef MayRequire="ludeon.rimworld.anomaly">WVC_ChosenOnes</forcedSacrificerModeDef> -->
 		  <prefabDefs>
 			<li>WVC_XaG_GraveA</li>
 			<li>WVC_XaG_GraveB</li>
@@ -116,7 +129,7 @@
 		<!-- Zombie world -->
 		<li Class="ScenPart_PermaGameCondition">
 			<def>PermanentGameCondition</def>
-			<gameCondition>SunBlocker</gameCondition>
+			<gameCondition>WVC_SunBlockerInstant</gameCondition>
 		</li>
 		<li MayRequire="ludeon.rimworld.anomaly" Class="ScenPart_CreateIncident">
 			<def>CreateIncident</def>

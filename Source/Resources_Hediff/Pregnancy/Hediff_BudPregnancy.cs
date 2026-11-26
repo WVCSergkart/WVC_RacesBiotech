@@ -110,12 +110,16 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
 		{
-			if (Rand.Chance(0.02f))
+			if (Rand.Chance(0.02f) && totalDamageDealt > 7f)
 			{
 				pawn.health.RemoveHediff(this);
 				mother?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.Miscarried);
 				father?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.PartnerMiscarried, mother ?? pawn);
 				Find.LetterStack.ReceiveLetter("WVC_XaG_HumanBud_DestroyedLabel".Translate(), "WVC_XaG_HumanBud_DestroyedDesc".Translate(), LetterDefOf.NegativeEvent, new LookTargets(pawn));
+				if (ModsConfig.AnomalyActive)
+				{
+					EffectsUtility.MeatSplatter(pawn, FleshbeastUtility.MeatExplosionSize.Small, 1);
+				}
 			}
 		}
 

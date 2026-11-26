@@ -30,7 +30,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- research speed -->
-			<genesPerYear>80</genesPerYear>
+			<genesPerYear>90</genesPerYear>
 		</li>
 	</modExtensions>
   </GeneDef>

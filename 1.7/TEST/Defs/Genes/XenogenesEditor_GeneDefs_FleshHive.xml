@@ -21,7 +21,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<arcLimit>5</arcLimit>
 			<cpxLimit>22</cpxLimit>
-			<metLimit>-5~50</metLimit>
+			<metLimit>-5~999</metLimit>
 			<reqCooldown>true</reqCooldown>
 			<!-- if true unlock all genes -->
 			<database>false</database>

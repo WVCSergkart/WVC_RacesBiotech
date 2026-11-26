@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveA</defName> <!-- rename -->
 	  <size>(7,6)</size>
 	  <things>
@@ -33,7 +33,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveB</defName> <!-- rename -->
 	  <size>(9,9)</size>
 	  <things>
@@ -76,7 +76,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveC</defName> <!-- rename -->
 	  <size>(2,3)</size>
 	  <things>
@@ -96,7 +96,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveD</defName> <!-- rename -->
 	  <size>(3,4)</size>
 	  <things>
@@ -116,7 +116,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveE</defName> <!-- rename -->
 	  <size>(1,2)</size>
 	  <things>
@@ -127,7 +127,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveG</defName> <!-- rename -->
 	  <size>(3,2)</size>
 	  <things>
@@ -141,7 +141,7 @@
 	  </things>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveF</defName> <!-- rename -->
 	  <size>(7,5)</size>
 	  <things>
@@ -177,7 +177,7 @@
 	  </terrain>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveH</defName> <!-- rename -->
 	  <size>(7,6)</size>
 	  <things>
@@ -218,7 +218,7 @@
 	  </terrain>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveI</defName> <!-- rename -->
 	  <size>(7,6)</size>
 	  <things>
@@ -256,7 +256,7 @@
 	  </terrain>
 	</PrefabDef>
 
-	<PrefabDef>
+	<PrefabDef MayRequire="ludeon.rimworld.odyssey">
 	  <defName>WVC_XaG_GraveJ</defName> <!-- rename -->
 	  <size>(5,6)</size>
 	  <things>
