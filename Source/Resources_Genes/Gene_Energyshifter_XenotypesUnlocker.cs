@@ -351,7 +351,7 @@ namespace WVC_XenotypesAndGenes
 			GameComponent.xenoUnlocker_delayTick = Gene_Energyshifter.LocalMode ? 0 : Find.TickManager.TicksGame + (3600000 / Extension_Giver.genesPerYear);
 			phase = "scan encounters";
 			GeneDef newGeneDef = null;
-			if (Rand.Chance(0.92f))
+			if (Rand.Chance(0.5f) || noNewXenotypes)
 			{
 				if (cachedGeneDefs == null)
 				{
