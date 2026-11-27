@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 using static UnityEngine.GraphicsBuffer;
+using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -314,7 +315,31 @@ namespace WVC_XenotypesAndGenes
 
 		private HashSet<GeneDef> cachedGeneDefs;
 		private bool noNewXenotypes = false;
-		private HashSet<Pawn> cachedScannedGuys;
+		private HashSet<Thing> cachedScannedGuys;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: DoResearch",
+					action = delegate
+					{
+						string phase = "init";
+						try
+						{
+							GameComponent.xenoUnlocker_delayTick = -1;
+							DoResearch(ref phase);
+						}
+						catch (Exception arg)
+						{
+							Log.Error($"Failed unlock new gene/xenotype. On phase: {phase} Reason: {arg.Message}");
+						}
+					}
+				};
+			}
+		}
 
 		private void DoResearch(ref string phase)
 		{
@@ -336,34 +361,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					cachedScannedGuys = new();
 				}
-				foreach (Map map in Find.Maps)
-				{
-					phase = "scan maps";
-					foreach (Pawn target in map.mapPawns.AllHumanlike)
-					{
-						if (newGeneDef != null)
-						{
-							break;
-						}
-						if (cachedScannedGuys.Contains(target))
-						{
-							continue;
-						}
-						if (target.IsHuman())
-						{
-							phase = "search unknown genes";
-							foreach (Gene gene in target.genes.GenesListForReading)
-							{
-								if (!cachedGeneDefs.Contains(gene.def))
-								{
-									newGeneDef = gene.def;
-									break;
-								}
-							}
-							cachedScannedGuys.Add(target);
-						}
-					}
-				}
+				GetNewGene(ref phase, ref newGeneDef);
 			}
 			phase = "get new gene";
 			if (newGeneDef != null)
@@ -411,6 +409,69 @@ namespace WVC_XenotypesAndGenes
 				{
 					noNewXenotypes = true;
 				}
+			}
+		}
+
+		private void GetNewGene(ref string phase, ref GeneDef newGeneDef)
+		{
+			foreach (Map map in Find.Maps)
+			{
+				phase = "scan maps";
+				if (newGeneDef != null)
+				{
+					return;
+				}
+				phase = "scan pawns";
+				foreach (Pawn target in map.mapPawns.AllHumanlike)
+				{
+					if (cachedScannedGuys.Contains(target))
+					{
+						continue;
+					}
+					phase = "scan pawn: " + target.NameFullColored;
+					if (GetGeneFromPawn(ref phase, ref newGeneDef, target))
+					{
+						return;
+					}
+				}
+				phase = "scan things";
+				foreach (Thing thing in map.listerThings.AllThings)
+				{
+					if (cachedScannedGuys.Contains(thing))
+					{
+						continue;
+					}
+					phase = "scan corpses";
+					if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
+					{
+						phase = "scan corpse: " + corpse.InnerPawn.NameFullColored;
+						if (GetGeneFromPawn(ref phase, ref newGeneDef, corpse.InnerPawn))
+						{
+							return;
+						}
+					}
+				}
+			}
+
+			bool GetGeneFromPawn(ref string phase, ref GeneDef newGeneDef, Pawn target)
+			{
+				if (target.IsHuman())
+				{
+					phase = "search unknown genes";
+					foreach (Gene gene in target.genes.GenesListForReading)
+					{
+						if (!cachedGeneDefs.Contains(gene.def))
+						{
+							newGeneDef = gene.def;
+							return true;
+						}
+					}
+					if (newGeneDef == null)
+					{
+						cachedScannedGuys.Add(target);
+					}
+				}
+				return false;
 			}
 		}
 

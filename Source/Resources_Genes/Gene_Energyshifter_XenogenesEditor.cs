@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using static Verse.HediffCompProperties_RandomizeSeverityPhases;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -77,6 +78,13 @@ namespace WVC_XenotypesAndGenes
 						if (pawn.IsHuman())
 						{
 							geneDefs.AddRangeSafe(pawn.genes.GenesListForReading.Where(gene => !Energyshifter.CollectedGenes.Contains(gene.def)).ToList().ConvertToDefs());
+						}
+					}
+					foreach (Thing thing in map.listerThings.AllThings)
+					{
+						if (thing is Corpse corpse && corpse.InnerPawn != null && corpse.InnerPawn.IsHuman())
+						{
+							geneDefs.AddRangeSafe(corpse.InnerPawn.genes.GenesListForReading.Where(gene => !Energyshifter.CollectedGenes.Contains(gene.def)).ToList().ConvertToDefs());
 						}
 					}
 				}
